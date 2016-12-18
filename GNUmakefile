@@ -1,5 +1,6 @@
 THISDIR := GAelectrodynamics
 THISBOOK := GAelectrodynamics
+BASEVER := a35985e
 
 include ../latex/make.bookvars
 
