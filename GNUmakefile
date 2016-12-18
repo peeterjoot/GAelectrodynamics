@@ -10,7 +10,7 @@ include ../latex/make.bookvars
 #ONCEFLAGS := -justonce
 
 SOURCE_DIRS += appendix
-FIGURES := ../../figures/$(THISBOOK)
+FIGURES := ../figures
 SOURCE_DIRS += $(FIGURES)
 
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
@@ -22,6 +22,7 @@ PRIMARY_SOURCES += FrontBackmatter/preface.tex
 
 EPS_FILES := $(wildcard $(FIGURES)/*.eps)
 PDFS_FROM_EPS := $(subst eps,pdf,$(EPS_FILES))
+#$(error PDFS_FROM_EPS $(PDFS_FROM_EPS))
 
 THISBOOK_DEPS += $(PDFS_FROM_EPS)
 #THISBOOK_DEPS += macros_mathematica.sty
