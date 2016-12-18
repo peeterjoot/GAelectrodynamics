@@ -87,6 +87,51 @@ I
 }
 
 Note that this is the GA equivalent of the Pauli relationship \cref{eqn:GAmotivation:120} that will be familiar to a student of quantum spin states.
+
+In \R{3} the vector product can be put into an exponential form that combines the dot and cross products into a single expression.  With
+
+\begin{dmath}\label{eqn:vectorproduct:340}
+\begin{aligned}
+\Bx \cdot \By &= \cos\theta \\
+\Bx \cross \By &= \ncap \sin\theta,
+\end{aligned}
+\end{dmath}
+
+application of \cref{eqn:vectorproduct:100} gives
+\begin{dmath}\label{eqn:vectorproduct:360}
+\Bx \By
+=
+\Abs{\Bx}
+\Abs{\By}
+\lr{ \cos\theta + I \ncap \sin\theta },
+\end{dmath}
+
+or
+
+\boxedEquation{eqn:vectorproduct:380}{
+\Bx \By
+=
+\Abs{\Bx}
+\Abs{\By}
+\exp\lr{ I \ncap \theta }.
+}
+
+This is possible since the dual of the normal, \( I \ncap \), is a bivector representing the plane of rotation, and acts as an imaginary
+
+\begin{dmath}\label{eqn:vectorproduct:400}
+(I \ncap)^2
+=
+(I \ncap) (I \ncap)
+=
+I^2 \ncap^2
+=
+(-1)(1)
+=
+-1.
+\end{dmath}
+
+Observe the similarity between this and the complex inner product \( z w^\conj = r \rho e^{i(\theta-\alpha)} \) for the two complex numbers of \cref{eqn:GAmotivation:200}.
+
 The ability to combine dot and cross product relationships into a single multivector equation is not just a theoretical nicety.  This happens to also be the reason that GA is so applicable to the study of electromagnetism.   To illustrate this, and provide a hint of things to come, consider the GA formulation of the electrostatic and magnetostatic Maxwell equations.
 
 \makeexample{Electrostatic and magnetostatics.}{example:vectorproduct:electrostatics}{
