@@ -75,7 +75,29 @@ or
 
 This is a fundamental and very useful relationship.  In these notes this is a consequence of the axioms and the generalized definitions of the dot and wedge products.  Some authors will use this to define the geometric product of two vectors.
 
-When considering the Euclidean space \R{3}, an additional relationship follows (\cref{problem:gradeselection:WedgeRelationshipToCrossProduct}), which is also incredibly useful
+Using \cref{problem:gradeselection:dotprod} and \cref{eqn:vectorproduct:80} it can be shown that the wedge product is an explicit antisymmetrized sum of vector products, just as the dot product is the symmetrized vector product sum
+
+\boxedEquation{eqn:vectorproduct:300}{
+\begin{aligned}
+\Bx \cdot \By &= \inv{2} \lr{ \Bx \By + \By \Bx } \\
+\Bx \wedge \By &= \inv{2} \lr{ \Bx \By - \By \Bx }
+\end{aligned}
+}
+
+Some authors will use these as the respective definitions of the dot and wedge products.
+
+The non-commutative nature of the vector product was one of the first observed consequences of the axioms.  The vector product is also not generally anticommutative, as was the case for normal vectors.  Rearranging \cref{eqn:vectorproduct:300} provides the general commutation identity for two vectors
+
+%\begin{dmath}\label{eqn:vectorproduct:320}
+\boxedEquation{eqn:vectorproduct:320}{
+\By \Bx = 2 \Bx \cdot \By - \Bx \By.
+}
+%\end{dmath}
+
+Observe that when the vectors are perpendicular, the strict anticommutation result follows.
+This can be a handy tool for abstract multivector expression manipulation.
+
+An additional, and incredibly useful, relationship follows from \cref{eqn:vectorproduct:80} for \R{3} (\cref{problem:gradeselection:WedgeRelationshipToCrossProduct})
 
 \boxedEquation{eqn:vectorproduct:100}{
 \Bx \By
@@ -86,126 +108,7 @@ I
 (\Bx \cross \By).
 }
 
-Note that this is the GA equivalent of the Pauli relationship \cref{eqn:GAmotivation:120} that will be familiar to a student of quantum spin states.
-
-In \R{3} the vector product can be put into an exponential form that combines the dot and cross products into a single expression.  With
-
-\begin{dmath}\label{eqn:vectorproduct:340}
-\begin{aligned}
-\Bx \cdot \By &= \cos\theta \\
-\Bx \cross \By &= \ncap \sin\theta,
-\end{aligned}
-\end{dmath}
-
-application of \cref{eqn:vectorproduct:100} gives
-\begin{dmath}\label{eqn:vectorproduct:360}
-\Bx \By
-=
-\Abs{\Bx}
-\Abs{\By}
-\lr{ \cos\theta + I \ncap \sin\theta },
-\end{dmath}
-
-or
-
-\boxedEquation{eqn:vectorproduct:380}{
-\Bx \By
-=
-\Abs{\Bx}
-\Abs{\By}
-\exp\lr{ I \ncap \theta }.
-}
-
-This is possible since the dual of the normal, \( I \ncap \), is a bivector representing the plane of rotation from \( \Bx \) to \( \By \), and acts as an imaginary
-
-\begin{dmath}\label{eqn:vectorproduct:400}
-(I \ncap)^2
-=
-(I \ncap) (I \ncap)
-=
-I^2 \ncap^2
-=
-(-1)(1)
-=
--1.
-\end{dmath}
-
-Observe the similarity between this and the complex inner product \( z w^\conj = r \rho e^{i(\theta-\alpha)} \) for the complex numbers of \cref{eqn:GAmotivation:200}.  The imaginary in this geometric product exponential has an orientation that the complex imaginary does not.
-
-This identification of the dot and wedge products by \R{3} analogy is not generally satisfactory.
-To gain a better understanding of the geometry involved consider the components of a vector \( \Bb \) onto the direction of \( \Ba \) and the perpendicular.  The projection component is
-
-\begin{dmath}\label{eqn:vectorproduct:420}
-\Proj_\Ba \Bb = \acap \lr{ \acap \cdot \Bb },
-\end{dmath}
-
-and the rejection (the component of \( \Bb \) perpendicular to \( \Ba \)), is
-\begin{dmath}\label{eqn:vectorproduct:440}
-\RejName_\Ba \Bb
-=
-\Bb - \acap \lr{ \acap \cdot \Bb }
-=
-\Abs{\Bb} \lr{ \bcap - \acap \lr{ \acap \cdot \Bb } }
-=
-\Abs{\Bb} \acap \lr{ \acap \bcap - \acap \cdot \Bb }
-=
-\Abs{\Bb} \acap \lr{ \acap \wedge \bcap }
-=
-\acap \lr{ \acap \wedge \Bb }.
-\end{dmath}
-
-These are plotted in \cref{fig:projectionAndRejection:projectionAndRejectionFig1}.
-
-\imageFigure{../figures/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.4}
-
-The magnitudes of \( \acap \lr{ \acap \cdot \bcap } \), and \( \acap \lr{ \acap \wedge \bcap } \) are neccessarily the cosine and sines of the angle between \( \Ba \) and \( \Bb \), regardless of the dimension of the underlying vector space.  Those respective magnitudes are
-
-\begin{dmath}\label{eqn:vectorproduct:460}
-\begin{aligned}
-\Abs{ \acap \lr{ \acap \cdot \bcap } }^2 &= \lr{ \acap \cdot \bcap }^2 \\
-\Abs{ \acap \lr{ \acap \wedge \bcap } }^2 &= -\lr{ \acap \wedge \bcap }^2
-\end{aligned}
-\end{dmath}
-
-The product of the respective unit vectors is
-\begin{dmath}\label{eqn:vectorproduct:480}
-\acap \bcap
-= \acap \cdot \bcap
-+ \acap \wedge \bcap
-= \acap \cdot \bcap
-+ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \Abs{\acap \wedge \bcap}.
-\end{dmath}
-
-This allows an identification
-\begin{dmath}\label{eqn:vectorproduct:500}
-\begin{aligned}
-\cos\theta &= \acap \cdot \bcap \\
-\sin\theta &= \Abs{\acap \wedge \bcap},
-\end{aligned}
-\end{dmath}
-
-where \( \Abs{\acap \wedge \bcap} = \sqrt{ -\lr{\acap \wedge \bcap}^2 } \).
-
-Note that in \R{3}
-
-\begin{dmath}\label{eqn:vectorproduct:540}
-\frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}}
-=
-I \frac{\acap \cross \bcap}{\Abs{\acap \cross \bcap}}
-=
-I \ncap,
-\end{dmath}
-
-as originally observed by analogy.
-
-The above angular decomposition can be summarized as
-\boxedEquation{eqn:vectorproduct:520}{
-\Ba \Bb 
-= 
-\Abs{\Ba}
-\Abs{\Bb}
-\exp\lr{ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \theta }.
-}
+This is the GA equivalent of the Pauli relationship \cref{eqn:GAmotivation:120} that will be familiar to a student of quantum spin states.
 
 The ability to combine dot and cross product relationships into a single multivector equation is not just a theoretical nicety.  This is also one of the primary reasons that GA is so applicable to the study of electromagnetism.   To illustrate this, and provide a hint of things to come, consider the GA formulation of the electrostatic and magnetostatic Maxwell equations.
 
@@ -269,28 +172,127 @@ Both the electrostatic and magnetostatic equations can be solved directly using 
 Before demonstrating this, the concepts required to attack multivector integrals must be formulated.
 } % example
 
-Using \cref{problem:gradeselection:dotprod} and \cref{eqn:vectorproduct:80} it can be shown that the wedge product is an explicit antisymmetrized sum of vector products, just as the dot product is the symmetrized vector product sum
+The dot plus wedge product components of the vector product have a geometrical interpretation.  To understand this, consider the components of a vector \( \Bb \) onto the direction of \( \Ba \) and the perpendicular.  The projection component is
 
-\boxedEquation{eqn:vectorproduct:300}{
+\begin{dmath}\label{eqn:vectorproduct:420}
+\Proj_\Ba \Bb = \acap \lr{ \acap \cdot \Bb },
+\end{dmath}
+
+and the rejection (the component of \( \Bb \) perpendicular to \( \Ba \)), is
+\begin{dmath}\label{eqn:vectorproduct:440}
+\RejName_\Ba \Bb
+=
+\Bb - \acap \lr{ \acap \cdot \Bb }
+=
+\Abs{\Bb} \lr{ \bcap - \acap \lr{ \acap \cdot \Bb } }
+=
+\Abs{\Bb} \acap \lr{ \acap \bcap - \acap \cdot \Bb }
+=
+\Abs{\Bb} \acap \lr{ \acap \wedge \bcap }
+=
+\acap \lr{ \acap \wedge \Bb }.
+\end{dmath}
+
+An example is plotted in \cref{fig:projectionAndRejection:projectionAndRejectionFig1}.
+
+\imageFigure{../figures/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.4}
+
+The magnitudes of \( \acap \lr{ \acap \cdot \bcap } \), and \( \acap \lr{ \acap \wedge \bcap } \) are neccessarily the cosine and sines of the angle between \( \Ba \) and \( \Bb \), regardless of the dimension of the underlying vector space.  Those respective magnitudes are
+
+\begin{dmath}\label{eqn:vectorproduct:460}
 \begin{aligned}
-\Bx \cdot \By &= \inv{2} \lr{ \Bx \By + \By \Bx } \\
-\Bx \wedge \By &= \inv{2} \lr{ \Bx \By - \By \Bx }
+\Abs{ \acap \lr{ \acap \cdot \bcap } }^2 &= \lr{ \acap \cdot \bcap }^2 \\
+\Abs{ \acap \lr{ \acap \wedge \bcap } }^2 &= -\lr{ \acap \wedge \bcap }^2,
 \end{aligned}
+\end{dmath}
+
+which allows an identification
+\begin{dmath}\label{eqn:vectorproduct:500}
+\begin{aligned}
+\cos\theta &= \acap \cdot \bcap \\
+\sin\theta &= \Abs{\acap \wedge \bcap},
+\end{aligned}
+\end{dmath}
+
+where \( \Abs{\acap \wedge \bcap} = \sqrt{ -\lr{\acap \wedge \bcap}^2 } \).
+
+It is now possible to express the product of vectors in a trigonometric or exponential form
+
+\begin{dmath}\label{eqn:vectorproduct:480}
+\acap \bcap
+= \acap \cdot \bcap
++ \acap \wedge \bcap
+=
+\acap \cdot \bcap
++ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \Abs{\acap \wedge \bcap}
+=
+\cos\theta
++ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \sin\theta,
+\end{dmath}
+
+or
+
+\boxedEquation{eqn:vectorproduct:520}{
+\Ba \Bb
+=
+\Abs{\Ba}
+\Abs{\Bb}
+\exp\lr{ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \theta }.
 }
 
-Some authors will use these as the respective definitions of the dot and wedge products.
+The interpretation of this is that the product of two vectors produces a rotation operator that acts in the plane spanned by these vectors, but also scales any such rotated vector from this plane by the product of the magnitudes of the vector product factors.  When those vectors are unit vectors, the vector product is a non-scaling rotation operator
 
-The non-commutative nature of the vector product was one of the first observed consequences of the axioms.  The vector product is also not generally anticommutative, as was the case for normal vectors.  Rearranging \cref{eqn:vectorproduct:300} provides the general commutation identity for two vectors
+\begin{dmath}\label{eqn:vectorproduct:560}
+\acap \bcap
+=
+\exp\lr{ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \theta },
+\end{dmath}
 
-%\begin{dmath}\label{eqn:vectorproduct:320}
-\boxedEquation{eqn:vectorproduct:320}{
-\By \Bx = 2 \Bx \cdot \By - \Bx \By.
-}
-%\end{dmath}
+that (when applied from the right) rotates any vector in \( \Span{\acap, \bcap} \) by \( \theta \) radians in the direction of shortest rotation from \( \acap \) to \( \bcap \), and when applied from the left rotates by \( -\theta \).
 
-Observe that when the vectors are perpendicular, the strict anticommutation result follows.
-This can be a handy tool for abstract multivector expression manipulation.
+In particular, if the unit vectors are perpendicular, the rotation operator is
+\begin{dmath}\label{eqn:vectorproduct:580}
+R(\theta)
+=
+\exp\lr{ \acap \bcap \theta }.
+\end{dmath}
 
+For \R{3} the wedge product in \cref{eqn:vectorproduct:520} can be expressed as a cross product
+
+\begin{equation}\label{eqn:vectorproduct:540}
+\frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}}
+=
+I \frac{\acap \cross \bcap}{\Abs{\acap \cross \bcap}}
+=
+I \ncap,
+\end{equation}
+
+This allows the \R{3} vector product to be written as
+
+\begin{equation}\label{eqn:vectorproduct:n}
+\Bx \By
+=
+\Abs{\Bx}
+\Abs{\By}
+\exp\lr{ I \ncap \theta }.
+\end{equation}
+
+In this form it is particularly easy to verify that the factor \( I \ncap \),
+the dual of the normal representing the plane of rotation from \( \Bx \) to \( \By \), acts as an imaginary
+
+\begin{dmath}\label{eqn:vectorproduct:400}
+(I \ncap)^2
+=
+(I \ncap) (I \ncap)
+=
+I^2 \ncap^2
+=
+(-1)(1)
+=
+-1.
+\end{dmath}
+
+Observe the similarity between this and the complex inner product \( z w^\conj = r \rho e^{i(\theta-\alpha)} \) for the complex numbers of \cref{eqn:GAmotivation:200}.  The primary difference is that the GA imaginary factor also has a spatial orientation that the complex imaginary does not.
 
 %}
 %\EndNoBibArticle
