@@ -172,97 +172,97 @@ Both the electrostatic and magnetostatic equations can be solved directly using 
 Before demonstrating this, the concepts required to attack multivector integrals must be formulated.
 } % example
 
-The dot plus wedge product components of the vector product have a geometrical interpretation.  To understand this, consider the components of a vector \( \Bb \) onto the direction of \( \Ba \) and the perpendicular.  The projection component is
+The dot plus wedge product components of the vector product have a geometrical interpretation.  To understand this, consider the components of a vector \( \By \) onto the direction of \( \Bx \) and the perpendicular.  The projection component is
 
 \begin{dmath}\label{eqn:vectorproduct:420}
-\Proj_\Ba \Bb = \acap \lr{ \acap \cdot \Bb },
+\Proj_\Bx \By = \xcap \lr{ \xcap \cdot \By },
 \end{dmath}
 
-and the rejection (the component of \( \Bb \) perpendicular to \( \Ba \)), is
+and the rejection (the component of \( \By \) perpendicular to \( \Bx \)), is
 \begin{dmath}\label{eqn:vectorproduct:440}
-\RejName_\Ba \Bb
+\RejName_\Bx \By
 =
-\Bb - \acap \lr{ \acap \cdot \Bb }
+\By - \xcap \lr{ \xcap \cdot \By }
 =
-\Abs{\Bb} \lr{ \bcap - \acap \lr{ \acap \cdot \Bb } }
+\Abs{\By} \lr{ \ycap - \xcap \lr{ \xcap \cdot \By } }
 =
-\Abs{\Bb} \acap \lr{ \acap \bcap - \acap \cdot \Bb }
+\Abs{\By} \xcap \lr{ \xcap \ycap - \xcap \cdot \By }
 =
-\Abs{\Bb} \acap \lr{ \acap \wedge \bcap }
+\Abs{\By} \xcap \lr{ \xcap \wedge \ycap }
 =
-\acap \lr{ \acap \wedge \Bb }.
+\xcap \lr{ \xcap \wedge \By }.
 \end{dmath}
 
 An example is plotted in \cref{fig:projectionAndRejection:projectionAndRejectionFig1}.
 
 \imageFigure{../figures/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.4}
 
-The magnitudes of \( \acap \lr{ \acap \cdot \bcap } \), and \( \acap \lr{ \acap \wedge \bcap } \) are neccessarily the cosine and sines of the angle between \( \Ba \) and \( \Bb \), regardless of the dimension of the underlying vector space.  Those respective magnitudes are
+The magnitudes of \( \xcap \lr{ \xcap \cdot \ycap } \), and \( \xcap \lr{ \xcap \wedge \ycap } \) are neccessarily the cosine and sines of the angle between \( \Bx \) and \( \By \), regardless of the dimension of the underlying vector space.  Those respective magnitudes are
 
 \begin{dmath}\label{eqn:vectorproduct:460}
 \begin{aligned}
-\Abs{ \acap \lr{ \acap \cdot \bcap } }^2 &= \lr{ \acap \cdot \bcap }^2 \\
-\Abs{ \acap \lr{ \acap \wedge \bcap } }^2 &= -\lr{ \acap \wedge \bcap }^2,
+\Abs{ \xcap \lr{ \xcap \cdot \ycap } }^2 &= \lr{ \xcap \cdot \ycap }^2 \\
+\Abs{ \xcap \lr{ \xcap \wedge \ycap } }^2 &= -\lr{ \xcap \wedge \ycap }^2,
 \end{aligned}
 \end{dmath}
 
 which allows an identification
 \begin{dmath}\label{eqn:vectorproduct:500}
 \begin{aligned}
-\cos\theta &= \acap \cdot \bcap \\
-\sin\theta &= \Abs{\acap \wedge \bcap},
+\cos\theta &= \xcap \cdot \ycap \\
+\sin\theta &= \Abs{\xcap \wedge \ycap},
 \end{aligned}
 \end{dmath}
 
-where \( \Abs{\acap \wedge \bcap} = \sqrt{ -\lr{\acap \wedge \bcap}^2 } \).
+where \( \Abs{\xcap \wedge \ycap} = \sqrt{ -\lr{\xcap \wedge \ycap}^2 } \).
 
 It is now possible to express the product of vectors in a trigonometric or exponential form
 
 \begin{dmath}\label{eqn:vectorproduct:480}
-\acap \bcap
-= \acap \cdot \bcap
-+ \acap \wedge \bcap
+\xcap \ycap
+= \xcap \cdot \ycap
++ \xcap \wedge \ycap
 =
-\acap \cdot \bcap
-+ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \Abs{\acap \wedge \bcap}
+\xcap \cdot \ycap
++ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \Abs{\xcap \wedge \ycap}
 =
 \cos\theta
-+ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \sin\theta,
++ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \sin\theta,
 \end{dmath}
 
 or
 
 \boxedEquation{eqn:vectorproduct:520}{
-\Ba \Bb
+\Bx \By
 =
-\Abs{\Ba}
-\Abs{\Bb}
-\exp\lr{ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \theta }.
+\Abs{\Bx}
+\Abs{\By}
+\exp\lr{ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \theta }.
 }
 
 The interpretation of this is that the product of two vectors produces a rotation operator that acts in the plane spanned by these vectors, but also scales any such rotated vector from this plane by the product of the magnitudes of the vector product factors.  When those vectors are unit vectors, the vector product is a non-scaling rotation operator
 
 \begin{dmath}\label{eqn:vectorproduct:560}
-\acap \bcap
+\xcap \ycap
 =
-\exp\lr{ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \theta },
+\exp\lr{ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \theta },
 \end{dmath}
 
-that (when applied from the right) rotates any vector in \( \Span{\acap, \bcap} \) by \( \theta \) radians in the direction of shortest rotation from \( \acap \) to \( \bcap \), and when applied from the left rotates by \( -\theta \).
+that (when applied from the right) rotates any vector in \( \Span{\xcap, \ycap} \) by \( \theta \) radians in the direction of shortest rotation from \( \xcap \) to \( \ycap \), and when applied from the left rotates by \( -\theta \).
 
 In particular, if the unit vectors are perpendicular, the rotation operator is
 \begin{dmath}\label{eqn:vectorproduct:580}
 R(\theta)
 =
-\exp\lr{ \acap \bcap \theta }.
+\exp\lr{ \xcap \ycap \theta }.
 \end{dmath}
 
 For \R{3} the wedge product in \cref{eqn:vectorproduct:520} can be expressed as a cross product
 
 \begin{equation}\label{eqn:vectorproduct:540}
-\frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}}
+\frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}}
 =
-I \frac{\acap \cross \bcap}{\Abs{\acap \cross \bcap}}
+I \frac{\xcap \cross \ycap}{\Abs{\xcap \cross \ycap}}
 =
 I \ncap,
 \end{equation}
