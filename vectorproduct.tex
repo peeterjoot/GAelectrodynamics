@@ -116,7 +116,7 @@ or
 \exp\lr{ I \ncap \theta }.
 }
 
-This is possible since the dual of the normal, \( I \ncap \), is a bivector representing the plane of rotation, and acts as an imaginary
+This is possible since the dual of the normal, \( I \ncap \), is a bivector representing the plane of rotation from \( \Bx \) to \( \By \), and acts as an imaginary
 
 \begin{dmath}\label{eqn:vectorproduct:400}
 (I \ncap)^2
@@ -130,9 +130,84 @@ I^2 \ncap^2
 -1.
 \end{dmath}
 
-Observe the similarity between this and the complex inner product \( z w^\conj = r \rho e^{i(\theta-\alpha)} \) for the two complex numbers of \cref{eqn:GAmotivation:200}.
+Observe the similarity between this and the complex inner product \( z w^\conj = r \rho e^{i(\theta-\alpha)} \) for the complex numbers of \cref{eqn:GAmotivation:200}.  The imaginary in this geometric product exponential has an orientation that the complex imaginary does not.
 
-The ability to combine dot and cross product relationships into a single multivector equation is not just a theoretical nicety.  This happens to also be the reason that GA is so applicable to the study of electromagnetism.   To illustrate this, and provide a hint of things to come, consider the GA formulation of the electrostatic and magnetostatic Maxwell equations.
+This identification of the dot and wedge products by \R{3} analogy is not generally satisfactory.
+To gain a better understanding of the geometry involved consider the components of a vector \( \Bb \) onto the direction of \( \Ba \) and the perpendicular.  The projection component is
+
+\begin{dmath}\label{eqn:vectorproduct:420}
+\Proj_\Ba \Bb = \acap \lr{ \acap \cdot \Bb },
+\end{dmath}
+
+and the rejection (the component of \( \Bb \) perpendicular to \( \Ba \)), is
+\begin{dmath}\label{eqn:vectorproduct:440}
+\RejName_\Ba \Bb
+=
+\Bb - \acap \lr{ \acap \cdot \Bb }
+=
+\Abs{\Bb} \lr{ \bcap - \acap \lr{ \acap \cdot \Bb } }
+=
+\Abs{\Bb} \acap \lr{ \acap \bcap - \acap \cdot \Bb }
+=
+\Abs{\Bb} \acap \lr{ \acap \wedge \bcap }
+=
+\acap \lr{ \acap \wedge \Bb }.
+\end{dmath}
+
+These are plotted in \cref{fig:projectionAndRejection:projectionAndRejectionFig1}.
+
+\imageFigure{../figures/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.4}
+
+The magnitudes of \( \acap \lr{ \acap \cdot \bcap } \), and \( \acap \lr{ \acap \wedge \bcap } \) are neccessarily the cosine and sines of the angle between \( \Ba \) and \( \Bb \), regardless of the dimension of the underlying vector space.  Those respective magnitudes are
+
+\begin{dmath}\label{eqn:vectorproduct:460}
+\begin{aligned}
+\Abs{ \acap \lr{ \acap \cdot \bcap } }^2 &= \lr{ \acap \cdot \bcap }^2 \\
+\Abs{ \acap \lr{ \acap \wedge \bcap } }^2 &= -\lr{ \acap \wedge \bcap }^2
+\end{aligned}
+\end{dmath}
+
+The product of the respective unit vectors is
+\begin{dmath}\label{eqn:vectorproduct:480}
+\acap \bcap
+= \acap \cdot \bcap
++ \acap \wedge \bcap
+= \acap \cdot \bcap
++ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \Abs{\acap \wedge \bcap}.
+\end{dmath}
+
+This allows an identification
+\begin{dmath}\label{eqn:vectorproduct:500}
+\begin{aligned}
+\cos\theta &= \acap \cdot \bcap \\
+\sin\theta &= \Abs{\acap \wedge \bcap},
+\end{aligned}
+\end{dmath}
+
+where \( \Abs{\acap \wedge \bcap} = \sqrt{ -\lr{\acap \wedge \bcap}^2 } \).
+
+Note that in \R{3}
+
+\begin{dmath}\label{eqn:vectorproduct:540}
+\frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}}
+=
+I \frac{\acap \cross \bcap}{\Abs{\acap \cross \bcap}}
+=
+I \ncap,
+\end{dmath}
+
+as originally observed by analogy.
+
+The above angular decomposition can be summarized as
+\boxedEquation{eqn:vectorproduct:520}{
+\Ba \Bb 
+= 
+\Abs{\Ba}
+\Abs{\Bb}
+\exp\lr{ \frac{\acap \wedge \bcap}{\Abs{\acap \wedge \bcap}} \theta }.
+}
+
+The ability to combine dot and cross product relationships into a single multivector equation is not just a theoretical nicety.  This is also one of the primary reasons that GA is so applicable to the study of electromagnetism.   To illustrate this, and provide a hint of things to come, consider the GA formulation of the electrostatic and magnetostatic Maxwell equations.
 
 \makeexample{Electrostatic and magnetostatics.}{example:vectorproduct:electrostatics}{
 
