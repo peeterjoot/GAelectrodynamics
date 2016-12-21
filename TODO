@@ -8,9 +8,18 @@
 
 - have inconsistent use of qedmarker.
 
+- Green's:
+   Redo the hand drawn figures. 
+   Reference this derivation in Stokes' and make note of the fact that Stokes's derivation should properly consider the
+   surface triangularization.
+
+- Stokes'
+
+   refer to the helper theorem \cref{} for in the problem.
+
 - Fundamental theorem:
 
    Fixme's to deal with.
    Strip the definitions section out, since it should be covered previously.
    Bold vectors for Green's function.  Perhaps rework to be less general (assuming Euclidean).
- 
+   Redo the hand drawn figures. 
