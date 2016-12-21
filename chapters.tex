@@ -35,10 +35,15 @@
             \input{r4nonzerobivectorwedgewithself.tex}
       \section{Product of two vectors}
          \input{vectorproduct.tex}
+         \subsection{Helpful theorems}
+            \input{../stokesTheorem/bladeDotWedgeSymmetryIdentitiesTheorem.tex}
+            \input{../gabookI/appendix/wedgeDistributionIdentity.tex}
          \subsection{Problems}
             \input{vectorproductCyclicPermutation.tex}
             \input{wedgeantisym.tex}
             \input{gradethreeselectionWedge.tex}
+            \input{../stokesTheorem/bladeDotWedgeSymmetryIdentities.tex}
+            \input{../gabookI/appendix/wedgeDistributionIdentityProblems.tex}
       \section{Problem solutions}
          \shipoutAnswer
    \chapter{Geometry}
@@ -54,11 +59,6 @@ gabookI: 2.5 rotations. esp fig 2.1, fig 2.2.
 gabookI: 10.4.3 bivector generator of rotations.
 gabookI: 29.1
       \subsection{Problems}
-      \section{Reciprocal frames}
-         \input{reciprocal.tex}
-         \subsection{Problems}
-            \input{2dreciprocalMatrixCalculation.tex}
-            \input{2subspaceR3reciprocalExample.tex}
       \section{Equivalent identities}
 gabookI: 4.1+
       \section{Cramer's rule}
@@ -67,13 +67,41 @@ gabookI: 5.  Generalize examples to higher dimensions.
       \section{Problem solutions}
          \shipoutAnswer
    \chapter{Vector calculus}
+      \section{Reciprocal frames}
+         \input{reciprocal.tex}
+         \subsection{Problems}
+            \input{2dreciprocalMatrixCalculation.tex}
+            \input{2subspaceR3reciprocalExample.tex}
       \section{Curvilinear coordinates}
 gabook: 31.1
-      \section{Stokes theorem}
-      \section{Divergence theorem}
+      \section{Green's theorem}
+         \input{../gabookI/calculus/greensTheorem.tex}
+         %\subsection{Problems}
+      \section{Stokes' theorem}
+         \subsection{Statement}
+            \input{../stokesTheorem/statement.tex}
+         \subsection{One parameter specialization of Stokes' theorem.}
+            \input{../stokesTheorem/oneparameter.tex}
+         \subsection{Two parameter specialization of Stokes' theorem.}
+            \input{../stokesTheorem/twoparameter.tex}
+         \subsection{Three parameter specialization of Stokes' theorem.}
+            \input{../stokesTheorem/threeparameter.tex}
+         \subsection{Using scalar volume elements}
+            \input{../stokesTheorem/scalarVolumeElement.tex}
+         \subsection{Problems}
+            \input{../stokesTheorem/stokesTheoremCoreProblems.tex}
+
       \section{Fundamental theorem of geometric calculus}
-      \section{Helmholtz theorem}
-gabook: 45.1
+         \subsection{Fundamental Theorem of Geometric Calculus}
+            \input{../gabookI/calculus/fundamentalTheoremOfCalculus.tex}
+         \subsection{Green's function for the gradient in Euclidean spaces.}
+            \input{../gabookI/calculus/gradientGreensFunction.tex}
+            % example:
+            \input{../gabookI/calculus/biotSavartGreens.tex}
+         \subsection{Problems}
+            \input{../gabookI/calculus/helmholtzDerviationMultivector.tex}
+%      \section{Helmholtz theorem}
+%gabook: 45.1
       \section{Problem solutions}
          \shipoutAnswer
 
