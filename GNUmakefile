@@ -16,6 +16,7 @@ SOURCE_DIRS += $(FIGURES)
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
 PRIMARY_SOURCES += FrontBackmatter/preface.tex
 
+EXTERNAL_DEPENDENCIES += ../stokesTheorem/stokesAndGreens.tex
 EXTERNAL_DEPENDENCIES += ../gabookI/calculus/greensTheorem.tex
 EXTERNAL_DEPENDENCIES += ../stokesTheorem/statement.tex
 EXTERNAL_DEPENDENCIES += ../stokesTheorem/oneparameter.tex
