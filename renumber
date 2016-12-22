@@ -55,3 +55,5 @@ perl -p -i ~/physicsplay/bin/latexRegex.pl reciprocal.tex
 perl -p -i ../latex/bin/latexRegex.pl 2subspaceR3reciprocalExample.tex
 ../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl r4nonzerobivectorwedgewithself.tex
+../latex/bin/lgrep scalarPermutation.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl scalarPermutation.tex

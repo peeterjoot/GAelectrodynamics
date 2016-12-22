@@ -1,3 +1,5 @@
+- fixme: figure in intro.
+
 - have boilerplate copyright.
 
 - dedication.tex got cleaned out on make clean.  Rule that was in makefile doesn't appear to be right.  Revisit.
@@ -7,6 +9,8 @@
 - exercise headers are bigger than the section headers (partially fixed)
 
 - have inconsistent use of qedmarker.
+
+- problem on <abc>_3 relation to wedge.  generalize that to _k.
 
 - Green's:
    Redo the hand drawn figures. 

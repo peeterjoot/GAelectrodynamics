@@ -1,0 +1,55 @@
+%
+% Copyright © CCYY Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\makeproblem{Cyclic permutation within scalar selection.}{problem:scalarPermutation:1}{
+Show that, for multivectors \( A \), \( B \) a cyclic permutation of the multivectors within a grade zero selection is possible
+
+\begin{equation}\label{eqn:scalarPermutation:1}
+\gpgradezero{A B C}
+=
+\gpgradezero{B C A}.
+\end{equation}
+} % problem
+
+\makeanswer{problem:scalarPermutation:1}{
+
+It is sufficient to show that
+
+\begin{equation}\label{eqn:scalarPermutation:21}
+\gpgradezero{A B}
+=
+\gpgradezero{B A}.
+\end{equation}
+
+If the maximum grade of \( A \) and \( B \) are \( a \) and \( b \) respectively, then
+
+\begin{equation}\label{eqn:scalarPermutation:41}
+\gpgradezero{A B}
+=
+\sum_{r = 0}^a \sum_{s = 0}^b \gpgradezero{A_r B_s}
+=
+\sum_{k = 0}^{\min(a,b)} \gpgradezero{A_k B_k}
+\end{equation}
+
+Because \( \gpgradezero{M}^\dagger = \gpgradezero{M^\dagger} = \gpgradezero{M} \), reversing all the factors in each of these grade zero selections leaves the result unchanged.  That is
+
+\begin{equation}\label{eqn:scalarPermutation:61}
+\gpgradezero{A B}
+=
+\sum_{k = 0}^{\min(a,b)} \gpgradezero{B_k^\dagger A_k^\dagger}.
+\end{equation}
+
+Using \cref{eqn:scalarPermutation:101}, this is
+
+\begin{dmath}\label{eqn:scalarPermutation:121}
+\gpgradezero{A B}
+=
+\sum_{k = 0}^{\min(a,b)} \lr{(-1)^{k(k-1)/2} }^2 \gpgradezero{B_k A_k}
+=
+\sum_{k = 0}^{\min(a,b)} \gpgradezero{B_k A_k}
+=
+\gpgradezero{ B A }. \qedmarker
+\end{dmath}
+
+} % answer
