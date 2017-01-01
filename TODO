@@ -27,3 +27,12 @@
    Strip the definitions section out, since it should be covered previously.
    Bold vectors for Green's function.  Perhaps rework to be less general (assuming Euclidean).
    Redo the hand drawn figures. 
+
+- get rid of summation convention for engineering
+
+- incorporate frequency...Core
+
+- add chapter on curvilinear coordinates.  In particular point out how the cylindrical and spherical coordinates admit 
+  a compact representation (Mauro's email of dec 24)
+
+- justify gradient representation in curvilinear coordinates
