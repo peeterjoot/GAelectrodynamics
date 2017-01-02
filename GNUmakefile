@@ -19,6 +19,7 @@ PRIMARY_SOURCES += FrontBackmatter/preface.tex
 EXTERNAL_DEPENDENCIES += ../ece1229-antenna/MaxwellsStatement.tex
 EXTERNAL_DEPENDENCIES += ../ece1229-antenna/MaxwellsTimeHarmonic.tex
 EXTERNAL_DEPENDENCIES += ../ece1229-antenna/MaxwellsFieldAndSourceDescription.tex
+EXTERNAL_DEPENDENCIES += ../frequencydomain/frequencydomainMaxwellsExtraction.tex
 EXTERNAL_DEPENDENCIES += ../frequencydomain/frequencydomainMaxwells.tex
 EXTERNAL_DEPENDENCIES += ../frequencydomain/frequencydomainPlaneWaves.tex
 EXTERNAL_DEPENDENCIES += ../gabookI/calculus/helmholtzDerviationMultivectorSolution.tex
