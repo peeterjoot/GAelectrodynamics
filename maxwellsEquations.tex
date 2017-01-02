@@ -242,11 +242,11 @@ The theorem follows from computing the divergence of the Poynting vector \( \bcS
 \begin{equation}\label{eqn:maxwellsEquations:780}
 \bcE \cross \bcH
 =
-\gpgradeone{ -I \bcE \wedge \bcH }
+\gpgradeone{ I (\bcH \wedge \bcE) }
 =
-\gpgradeone{ -I \bcE \bcH }
+\gpgradeone{ I \bcH \bcE }
 =
-- \bcE \cdot (I \bcH).
+(I \bcH) \cdot \bcE.
 \end{equation}
 
 Similarily, the Poynting divergence is most compactly expressed as a scalar selection operation
@@ -254,9 +254,9 @@ Similarily, the Poynting divergence is most compactly expressed as a scalar sele
 \begin{equation}\label{eqn:maxwellsEquations:640}
 \spacegrad \cdot \lr{ \bcE \cross \bcH }
 =
-\gpgradezero{ \spacegrad (-I) \lr{ \bcE \wedge \bcH } }
+\gpgradezero{ \spacegrad I \lr{ \bcH \wedge \bcE } }
 =
--\gpgradezero{ \spacegrad \bcE I \bcH }.
+\gpgradezero{ \spacegrad I \bcH \bcE }.
 \end{equation}
 
 Here the gradient is acting on everything to the right, however, allowing the gradient to act bidirectionally, and employing the
@@ -265,50 +265,48 @@ the flexibility to use cyclic permutation within a scalar selection
 , allows for the easy application of the chain rule
 
 \begin{dmath}\label{eqn:maxwellsEquations:760}
--\gpgradezero{ \spacegrad \bcE I \bcH }
+\gpgradezero{ \spacegrad I \bcH \bcE }
 =
--\gpgradezero{ I \bcH \lrspacegrad \bcE }
+\gpgradezero{ \bcE \lrspacegrad I \bcH }
 =
--\gpgradezero{ I \bcH (\rspacegrad \bcE) }
--\gpgradezero{ (I \bcH \lspacegrad) \bcE }.
+\gpgradezero{ (\bcE \lspacegrad) I \bcH }
++\gpgradezero{ \bcE (\rspacegrad I \bcH) }
 \end{dmath}
 
 Explicit left and right acting gradients are required because the gradient operator does not commute with the vector fields.
 
-The gradient action on \( \bcE \) (from the left) is given by \cref{eqn:maxwellsEquations:360}.  The right acting gradient action on \( I \bcH \) is given by reversing
-all the products in
+The gradient action on \( I \bcH \) (from the left) is given by 
+\cref{eqn:maxwellsEquations:380}.  The right acting gradient action on \( \bcE \) is given by reversing all the products in
 %\spacegrad \bcE = \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)}
-\cref{eqn:maxwellsEquations:380}
+\cref{eqn:maxwellsEquations:360} (in particualar noting that \( I^\dagger = -I \) )
 
 \begin{dmath}\label{eqn:maxwellsEquations:660}
-I \bcH \lspacegrad = \frac{I q_\txtm}{\mu} + \bcJ + \epsilon \PD{t}{\bcE}.
+%I \bcH \lspacegrad = \frac{I q_\txtm}{\mu} + \bcJ + \epsilon \PD{t}{\bcE}.
+\bcE \lspacegrad = \inv{\epsilon} q_\txte + I \bcM + \mu \PD{t}{(I\bcH)}.
 \end{dmath}
 
 This gives
 \begin{dmath}\label{eqn:maxwellsEquations:680}
-0
+\spacegrad \cdot \bcS
 =
-\spacegrad \cdot \lr{ \bcE \cross \bcH }
-+
 \gpgradezero
 {
-I \bcH
-\lr{ \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)} }
+\lr{ \inv{\epsilon} q_\txte + I \bcM + \mu \PD{t}{(I\bcH)} } I \bcH
 +
-\lr{ \frac{I q_\txtm}{\mu} + \bcJ + \epsilon \PD{t}{\bcE} } \bcE
-},
-%=
-%\spacegrad \cdot \lr{ \bcE \cross \bcH }
-%+
-%\bcM \cdot \bcH + \PD{t}{\bcB} \cdot \bcH
-%+ \bcJ \cdot \bcE + \PD{t}{\bcD} \cdot \bcE,
+\bcE 
+\lr
+{
+\frac{I q_\txtm}{\mu} - \bcJ - \epsilon \PD{t}{\bcE}
+}
+}
+,
 \end{dmath}
 
 or
 %\begin{dmath}\label{eqn:maxwellsEquations:700}
 \boxedEquation{eqn:maxwellsEquations:720}{
 0 =
-\spacegrad \cdot \lr{ \bcE \cross \bcH }
+\spacegrad \cdot \bcS
 +
 \bcH \cdot \bcM + \bcJ \cdot \bcE
 + \PD{t}{\bcB} \cdot \bcH
@@ -332,54 +330,47 @@ Here \( \ncap \) is the outward normal, so if the energy contained in the volume
 
 \section{Complex power}
 
-In the time harmonic representation the Poynting relationship is typically written as
-
-\begin{dmath}\label{eqn:maxwellsEquations:800}
-\BS = \inv{2} \BE \cross \BH^\conj
-\end{dmath}
-
-\subsection{Problems}
-
 The time harmonic expansion of the Poynting vector is
 
-\begin{dmath}\label{eqn:maxwellsEquations:n}
+\begin{dmath}\label{eqn:maxwellsEquations:820}
 \bcS
-= -\bcE \cdot (I \bcH)
-= -\Real \lr{ \BE e^{j \omega t} } \cdot (I \Real \lr{ \BH e^{j \omega t}} )
-= -\inv{4} \gpgradeone{ \lr{ \BE e^{j \omega t} + \BE^\conj e^{-j \omega t} } I \lr{
+= (I \bcH) \cdot \bcE
+= 
+(I \Real \lr{ \BH e^{j \omega t}} ) \cdot
+\Real \lr{ \BE e^{j \omega t} } 
+= \inv{4} \gpgradeone{ 
+I \lr{
 \BH e^{j \omega t}
 + \BH^\conj e^{-j \omega t}
 }
+\lr{ \BE e^{j \omega t} + \BE^\conj e^{-j \omega t} } 
 }
 =
--\inv{4}
+\inv{4}
 \lr{
-\BE \cdot (I \BH^\conj)
+(I \BH^\conj) \cdot \BE
++(I \BH) \cdot \BE^\conj
 +
-\BE^\conj \cdot (I \BH)
+(I \BH) \cdot \BE e^{ 2 j \omega t }
 +
-\BE \cdot (I \BH) e^{ 2 j \omega t }
-+
-\BE^\conj \cdot (I \BH^\conj) e^{ -2 j \omega t }
+(I \BH^\conj) \cdot \BE^\conj e^{ 2 j \omega t }
 }.
 \end{dmath}
 
 This shows that the time harmonic representation of the Poynting vector is
 
-\begin{dmath}\label{eqn:maxwellsEquations:n}
-\bcS = -\inv{2} \Real \lr{ \BE \cdot (I \BH^\conj) + \BE \cdot (I \BH) e^{ 2 j \omega t } }.
+\begin{dmath}\label{eqn:maxwellsEquations:840}
+\bcS = \inv{2} \Real \lr{ (I \BH^\conj) \cdot \BE + (I \BH) \cdot \BE e^{ 2 j \omega t } }.
 \end{dmath}
 
-Defining the complex Poynting vector 
+This motivates the definition of a complex Poynting vector
 
-\begin{dmath}\label{eqn:maxwellsEquations:n}
-\BS = -\inv{2} \BE \cdot (I \BH^\conj),
+\begin{dmath}\label{eqn:maxwellsEquations:860}
+\BS = \inv{2} (I \BH^\conj) \cdot \BE.
 \end{dmath}
 
-In particular, the average of the Poynting vector over a single period, is just the real part of this complex Poynting vector
+Note that this is conventionally written as \( \BS = \ifrac{1}{2} \BE \cross \BH^\conj \).  Observe that on average (over a given period), the \( e^{2 j \omega t} \) component of the real Poynting vector has no contribution to the power flux
 
-\begin{dmath}\label{eqn:maxwellsEquations:n}
+\begin{dmath}\label{eqn:maxwellsEquations:880}
 \inv{T} \int_0^T dt \bcS = \Real \BS.
 \end{dmath}
-
-} % answer
