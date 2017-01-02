@@ -8,18 +8,18 @@ The differential form of Maxwell's equations, with extensions for magnetic sourc
 
 \input{../ece1229-antenna/MaxwellsStatement.tex}
 
-The magnetic sources can be considered fictional, and are included because they are useful in antenna theory to model real phenomina such as infinitesimal current loops.
+The magnetic sources can be considered fictional, but are useful for modelling real phenomina such as infinitesimal current loops, especially in antenna theory.
 
 \input{../ece1229-antenna/MaxwellsFieldAndSourceDescription.tex}
 
-These fields and sources are all real valued.  In many situations it will be desirable to work with a time harmonic (frequency-domain phasor) form of Maxwell's equations.  In engineering, a time harmonic representation presumes that all sources and fields have a frequency dependence of the form
+The fields and sources are all real valued functions of both space and time.  In many situations it will be desirable to work with a time harmonic (frequency-domain phasor) form of Maxwell's equations.  In engineering, a time harmonic representation presumes that all sources and fields have a frequency dependence of the form
 \index{time harmonic}
 
 \begin{dmath}\label{eqn:maxwellsEquations:20}
 \bcY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{j\omega t} ),
 \end{dmath}
 
-where the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued, whereupon Maxwell's equations take the form
+where the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued.  Given this frequency dependence Maxwell's equations take the form
 
 \input{../ece1229-antenna/MaxwellsTimeHarmonic.tex}
 
@@ -109,5 +109,61 @@ With this constitutative relationship assumed (and a bit of rescaling), the dot 
 \spacegrad (I \bcH) = \frac{I q_\txtm}{\mu} - \bcJ - \epsilon \PD{t}{\bcE}.
 \end{dmath}
 \end{subequations}
+
+Note that it is more natural to work with a bivector magnetic field \( I \bcH \) in GA, than it is to work with a vector field \( \bcH \).  Observe that, when magnetic sources are included, this pair of coupled equations have sources of each grade (scalar, vector, bivector, and pseudoscalar).
+
+The multivector equation \cref{eqn:maxwellsEquations:360} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:maxwellsEquations:380} has grades 1,3 (vector, pseudoscalar).  This means that arbitrary linear combinations of these equations, such as \( \spacegrad (a \bcE + b I \bcH ) \), are possible without any loss of information, since the original equations can then be recovered by grade selection.  To determine a desirable scaling of such a sum, these equations can be non-dimensionalized by expressing the fields as \( \sqrt{\epsilon} \bcE, \sqrt{\mu} \bcH \)
+
+\begin{subequations}
+\begin{dmath}\label{eqn:maxwellsEquations:400}
+\spacegrad \sqrt{\epsilon} \bcE = \inv{\sqrt{\epsilon}} q_\txte - I \sqrt{\epsilon} \bcM - \sqrt{\epsilon \mu} \PD{t}{(I\sqrt{\mu} \bcH)}
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:420}
+\spacegrad (I \sqrt{\mu} \bcH) = \frac{I q_\txtm}{\sqrt{\mu}} - \sqrt{\mu} \bcJ - \sqrt{\epsilon\mu} \PD{t}{\sqrt{\epsilon} \bcE}.
+\end{dmath}
+\end{subequations}
+
+The dimensions of both differential operators are now equal \( [\spacegrad] = [\sqrt{\epsilon\mu} \PDi{t}{}] = 1/L \), allowing the remaining two multivector Maxwell equations to be decoupled into a single first order equation to solve for the multivector field \( \sqrt{\epsilon} \bcE + I \sqrt{\mu} \bcH \)
+
+\begin{dmath}\label{eqn:maxwellsEquations:440}
+\lr{ \spacegrad + \sqrt{\epsilon\mu} \PDi{t}{} }
+\lr{ \sqrt{\epsilon} \bcE
+\pm
+I \sqrt{\mu} \bcH
+}
+=
+\inv{\sqrt{\epsilon}} q_\txte
+- I \sqrt{\epsilon} \bcM
+\pm \lr{
++ \frac{I q_\txtm}{\sqrt{\mu}}
+- \sqrt{\mu} \bcJ
+}
+.
+\end{dmath}
+
+Whether or not to add or subtract is essentially a phase choice for the electric field relative to the magnetic field.  It is conventional to pick the sum rather than the difference.  In engineering, with \( \bcE \) and \( \bcH \) as the primary fields, Maxwell's equation can now be expressed in its multivector form
+
+\boxedEquation{eqn:maxwellsEquations:460}{
+\begin{aligned}
+\bcF &= \bcE + \eta I \bcH \\
+\lr{ \spacegrad + \inv{v} \PD{t}{} } \bcF
+&=
+\inv{\epsilon v} \lr{ v q_\txte - \bcJ }
++ I \lr{ v q_\txtm - \bcM }
+,
+\end{aligned}
+}
+
+where \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms)
+is the impedance of the media
+, and \( v = 1/\sqrt{\epsilon\mu} \)
+([\si{m/s}] meters/second)
+is the group velocity of a wave in the media
+
+\section{Wave equation.}
+
+
+
+\section{Plane waves.}
 
 
