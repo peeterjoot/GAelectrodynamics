@@ -16,6 +16,7 @@ SOURCE_DIRS += $(FIGURES)
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
 PRIMARY_SOURCES += FrontBackmatter/preface.tex
 
+EXTERNAL_DEPENDENCIES += ../gabookI/physics/torusCenterOfMassParameterization.tex
 EXTERNAL_DEPENDENCIES += ../curvilinear/curvilinearGradient.tex
 EXTERNAL_DEPENDENCIES += ../curvilinear/curvilinearspherical.tex
 EXTERNAL_DEPENDENCIES += ../curvilinear/sphericaldot.tex
