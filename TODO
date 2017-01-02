@@ -28,11 +28,9 @@
    Bold vectors for Green's function.  Perhaps rework to be less general (assuming Euclidean).
    Redo the hand drawn figures. 
 
-- get rid of summation convention for engineering
+- Get rid of summation convention for engineering
 
-- incorporate frequency...Core
+- add frequency domain representation of Poynting theorem
 
-- add chapter on curvilinear coordinates.  In particular point out how the cylindrical and spherical coordinates admit 
-  a compact representation (Mauro's email of dec 24)
+- incorporate Mauro's potential_v2 which was nicely done.
 
-- justify gradient representation in curvilinear coordinates
