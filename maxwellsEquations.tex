@@ -239,20 +239,32 @@ F = F_0 e^{-j \Bk \cdot \Bx}.
 Poynting's theorem describes the relationship between the flux of energy through a surface bounding a volume.
 The theorem follows from computing the divergence of the Poynting vector \( \bcS = \bcE \cross \bcH \).  With the GA toolbox at hand, this divergence can be written as a scalar selection
 
-\begin{dmath}\label{eqn:maxwellsEquations:640}
+\begin{equation}\label{eqn:maxwellsEquations:640}
 \spacegrad \cdot \lr{ \bcE \cross \bcH }
 =
 \gpgradezero{ \spacegrad (-I) \lr{ \bcE \wedge \bcH } }
 =
+-\gpgradezero{ \spacegrad \bcE I \bcH }.
+\end{equation}
+
+Here the gradient is acting on everything to the right, however, allowing the gradient to act bidirectionally, and employing the
+the flexibility to use cyclic permutation within a scalar selection
+(\(\gpgradezero{AB} = \gpgradezero{BA}\))
+, allows for the easy application of the chain rule
+
+\begin{dmath}\label{eqn:maxwellsEquations:760}
 -\gpgradezero{ \spacegrad \bcE I \bcH }
 =
--\gpgradezero{ (\rspacegrad \bcE) I \bcH }
+-\gpgradezero{ I \bcH \lrspacegrad \bcE }
+=
+-\gpgradezero{ I \bcH (\rspacegrad \bcE) }
 -\gpgradezero{ (I \bcH \lspacegrad) \bcE }.
 \end{dmath}
 
-The gradient operator does not commute with the vector fields, but the flexibility to use cyclic permutation within a scalar selection allows the chain rule to be used to separate the gradient action on \( \bcE \) and \( \bcH \).
+Explicit left and right acting gradients are required because the gradient operator does not commute with the vector fields.
 
 The gradient action on \( \bcE \) (from the left) is given by \cref{eqn:maxwellsEquations:360}.  The right acting gradient action on \( I \bcH \) is given by reversing
+all the products in
 %\spacegrad \bcE = \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)}
 \cref{eqn:maxwellsEquations:380}
 
@@ -262,20 +274,22 @@ I \bcH \lspacegrad = \frac{I q_\txtm}{\mu} + \bcJ + \epsilon \PD{t}{\bcE}.
 
 This gives
 \begin{dmath}\label{eqn:maxwellsEquations:680}
-\spacegrad \cdot \lr{ \bcE \cross \bcH }
+0
 =
--\gpgradezero
+\spacegrad \cdot \lr{ \bcE \cross \bcH }
++
+\gpgradezero
 {
-\lr{ \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)} } I \bcH
+I \bcH
+\lr{ \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)} }
 +
 \lr{ \frac{I q_\txtm}{\mu} + \bcJ + \epsilon \PD{t}{\bcE} } \bcE
-}
-=
--\lr
-{
-\bcM \cdot \bcH + \PD{t}{\bcB} \cdot \bcH
-+ \bcJ \cdot \bcE + \PD{t}{\bcD} \cdot \bcE
 },
+%=
+%\spacegrad \cdot \lr{ \bcE \cross \bcH }
+%+
+%\bcM \cdot \bcH + \PD{t}{\bcB} \cdot \bcH
+%+ \bcJ \cdot \bcE + \PD{t}{\bcD} \cdot \bcE,
 \end{dmath}
 
 or
@@ -284,7 +298,7 @@ or
 0 =
 \spacegrad \cdot \lr{ \bcE \cross \bcH }
 +
-\bcM \cdot \bcH + \bcJ \cdot \bcE
+\bcH \cdot \bcM + \bcJ \cdot \bcE
 + \PD{t}{\bcB} \cdot \bcH
 + \PD{t}{\bcD} \cdot \bcE.
 }
