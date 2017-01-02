@@ -16,6 +16,8 @@ SOURCE_DIRS += $(FIGURES)
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
 PRIMARY_SOURCES += FrontBackmatter/preface.tex
 
+EXTERNAL_DEPENDENCIES += ../curvilinear/curvilinearDefined.tex
+EXTERNAL_DEPENDENCIES += ../curvilinear/2Dcylindrical.tex
 EXTERNAL_DEPENDENCIES += ../ece1229-antenna/MaxwellsStatement.tex
 EXTERNAL_DEPENDENCIES += ../ece1229-antenna/MaxwellsTimeHarmonic.tex
 EXTERNAL_DEPENDENCIES += ../ece1229-antenna/MaxwellsFieldAndSourceDescription.tex
