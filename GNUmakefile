@@ -10,7 +10,7 @@ include ../latex/make.bookvars
 #ONCEFLAGS := -justonce
 
 SOURCE_DIRS += appendix
-FIGURES := ../figures
+FIGURES := ../$(THISBOOK)-figures
 SOURCE_DIRS += $(FIGURES)
 
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
