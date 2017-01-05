@@ -60,6 +60,32 @@ gabookI: 2.5 rotations. esp fig 2.1, fig 2.2.
             \input{../gabookI/basics/gaQuickIntroRotations.tex}
 gabookI: 10.4.3 bivector generator of rotations.
 gabookI: 29.1
+
+
+%%iii) Transformation of a vector  from one cs to another is trivial and is performed via dot multiplication with a sigma matrix
+%%
+%%But that matrix is not the representation of a vector.  Instead, it is a representation of a scalar+bivector multivector of the form
+%%
+%%vec{y} = vec{x} e^B
+%%
+%%where 
+%%
+%%e^B = vec{y} 1/(vec{x}).
+%%
+%%Here B is a bivector that has the orientation of the plane of rotation between x and y, and whos magnitude is the rotation angle between the two.
+%%
+%%
+%%By the way I have another question for you. Is there any relation between rotations and change of coordinates?
+%%Yes.  Given the rotation operator that describes the change of basis, the coordinates in both frames can be computed without too much trouble.
+%%
+%%A change of basis rotation in GA is generally written in a two sided form
+%%
+%%\vec{x} \rightarrow R^\dagger \vec{x} R
+%%
+%%The coordinates associated with a vector in either frame can be extracted using dot products (and those dot products can be assembled into a conventional rotation matrix).
+%%
+%%A chapter on rotations in the GA book is definitely on order.  This should include translation to conventional matrix methods, and change of basis transformations.
+%%
       \subsection{Problems}
       \section{Equivalent identities}
 gabookI: 4.1+
