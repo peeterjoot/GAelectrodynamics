@@ -33,9 +33,12 @@ which alters the sign of any imaginary originating from a time derivative.  Care
 
 \section{GA differential form}
 
-Geometric Algebra admits a number of alternative representations of Maxwell's equations.  The first follows from expressing the cross products all as wedge products, leaving a pair of bivector and a pair of scalar equations
+Geometric Algebra admits a number of alternative representations of Maxwell's equations.  Eliminating the cross products 
+%The first follows from expressing the cross products all as wedge products, leaving 
+leaves a pair of bivector and a pair of scalar equations
 
 \begin{subequations}
+\label{eqn:maxwellsEquations:61}
 \begin{dmath}\label{eqn:maxwellsEquations:60}
 \spacegrad \wedge \bcE = - I \bcM - \PD{t}{I\bcB}
 \end{dmath}
@@ -50,41 +53,42 @@ Geometric Algebra admits a number of alternative representations of Maxwell's eq
 \end{dmath}
 \end{subequations}
 
-Alternatively, the duality transformation \( \Ba \wedge \Bb = -I \Ba \cdot (I \Bb) \) allows Maxwell's equations to be all written as dot products
-
-\begin{subequations}
-\begin{dmath}\label{eqn:maxwellsEquations:140}
-\spacegrad \cdot (I \bcE) = \bcM + \PD{t}{\bcB}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:160}
-\spacegrad \cdot (I \bcH) = -\bcJ - \PD{t}{\bcD}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:180}
-\spacegrad \cdot \bcD = q_\txte
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:200}
-\spacegrad \cdot \bcB = q_\txtm,
-\end{dmath}
-\end{subequations}
-
-or, using the duality transformation \( \Ba \cdot \Bb = -I (\Ba \wedge (I \Bb) \), Maxwell's equations can all be written as wedge products
-
-\begin{subequations}
-\begin{dmath}\label{eqn:maxwellsEquations:220}
-\spacegrad \wedge \bcE = - I \bcM - \PD{t}{I\bcB}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:240}
-\spacegrad \wedge \bcH = I \bcJ + I \PD{t}{\bcD}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:260}
-\spacegrad \wedge (I\bcD) = I q_\txte
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:280}
-\spacegrad \wedge (I\bcB) = I q_\txtm.
-\end{dmath}
-\end{subequations}
-
-Each of these forms can be useful in different circumstances, however the real power of GA in electromagnetism follows from presuming constituative relationships between the pairs of electric and magnetic fields
+%%%Alternatively, the duality transformation \( \Ba \wedge \Bb = -I \Ba \cdot (I \Bb) \) allows Maxwell's equations to be all written as dot products
+%%%
+%%%\begin{subequations}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:140}
+%%%\spacegrad \cdot (I \bcE) = \bcM + \PD{t}{\bcB}
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:160}
+%%%\spacegrad \cdot (I \bcH) = -\bcJ - \PD{t}{\bcD}
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:180}
+%%%\spacegrad \cdot \bcD = q_\txte
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:200}
+%%%\spacegrad \cdot \bcB = q_\txtm,
+%%%\end{dmath}
+%%%\end{subequations}
+%%%
+%%%or, using the duality transformation \( \Ba \cdot \Bb = -I (\Ba \wedge (I \Bb) \), Maxwell's equations can all be written as wedge products
+%%%
+%%%\begin{subequations}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:220}
+%%%\spacegrad \wedge \bcE = - I \bcM - \PD{t}{I\bcB}
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:240}
+%%%\spacegrad \wedge \bcH = I \bcJ + I \PD{t}{\bcD}
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:260}
+%%%\spacegrad \wedge (I\bcD) = I q_\txte
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:maxwellsEquations:280}
+%%%\spacegrad \wedge (I\bcB) = I q_\txtm.
+%%%\end{dmath}
+%%%\end{subequations}
+%%%
+%Each of these forms can be useful in different circumstances, however the real power of GA in electromagnetism follows 
+Constituative relationships between the pairs of electric and magnetic fields are required
 
 \begin{subequations}
 \label{eqn:maxwellsEquations:300}
@@ -371,7 +375,7 @@ This motivates the definition of a complex Poynting vector
 \BS = \inv{2} (I \BH^\conj) \cdot \BE.
 \end{dmath}
 
-Note that this is conventionally written as \( \BS = \ifrac{1}{2} \BE \cross \BH^\conj \).  Observe that on average (over a given period), the \( e^{2 j \omega t} \) component of the real Poynting vector has no contribution to the power flux
+Note that this is conventionally written as \( \BS = (\ifrac{1}{2}) \BE \cross \BH^\conj \).  Observe that on average (over a given period), the \( e^{2 j \omega t} \) component of the real Poynting vector has no contribution to the power flux
 
 \begin{dmath}\label{eqn:maxwellsEquations:880}
 \inv{T} \int_0^T dt \bcS = \Real \BS.
