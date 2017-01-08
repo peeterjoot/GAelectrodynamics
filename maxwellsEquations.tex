@@ -149,7 +149,7 @@ Whether or not to add or subtract is essentially a phase choice for the electric
 \bcF &= \bcE + \eta I \bcH \\
 \lr{ \spacegrad + \inv{v} \PD{t}{} } \bcF
 &=
-%\inv{\epsilon v} 
+%\inv{\epsilon v}
 \eta
 \lr{ v q_\txte - \bcJ }
 + I \lr{ v q_\txtm - \bcM }
@@ -277,7 +277,7 @@ the flexibility to use cyclic permutation within a scalar selection
 
 Explicit left and right acting gradients are required because the gradient operator does not commute with the vector fields.
 
-The gradient action on \( I \bcH \) (from the left) is given by 
+The gradient action on \( I \bcH \) (from the left) is given by
 \cref{eqn:maxwellsEquations:380}.  The right acting gradient action on \( \bcE \) is given by reversing all the products in
 %\spacegrad \bcE = \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)}
 \cref{eqn:maxwellsEquations:360} (in particualar noting that \( I^\dagger = -I \) )
@@ -295,7 +295,7 @@ This gives
 {
 \lr{ \inv{\epsilon} q_\txte + I \bcM + \mu \PD{t}{(I\bcH)} } I \bcH
 +
-\bcE 
+\bcE
 \lr
 {
 \frac{I q_\txtm}{\mu} - \bcJ - \epsilon \PD{t}{\bcE}
@@ -337,15 +337,15 @@ The time harmonic expansion of the Poynting vector is
 \begin{dmath}\label{eqn:maxwellsEquations:820}
 \bcS
 = (I \bcH) \cdot \bcE
-= 
+=
 (I \Real \lr{ \BH e^{j \omega t}} ) \cdot
-\Real \lr{ \BE e^{j \omega t} } 
-= \inv{4} \gpgradeone{ 
+\Real \lr{ \BE e^{j \omega t} }
+= \inv{4} \gpgradeone{
 I \lr{
 \BH e^{j \omega t}
 + \BH^\conj e^{-j \omega t}
 }
-\lr{ \BE e^{j \omega t} + \BE^\conj e^{-j \omega t} } 
+\lr{ \BE e^{j \omega t} + \BE^\conj e^{-j \omega t} }
 }
 =
 \inv{4}

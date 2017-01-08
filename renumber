@@ -59,3 +59,5 @@ perl -p -i ../latex/bin/latexRegex.pl r4nonzerobivectorwedgewithself.tex
 perl -p -i ../latex/bin/latexRegex.pl scalarPermutation.tex
 ../latex/bin/lgrep maxwellsEquations.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl maxwellsEquations.tex
+../latex/bin/lgrep boundary.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl boundary.tex
