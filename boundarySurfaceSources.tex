@@ -3,7 +3,7 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 The difference in the normal and tangential components of the electromagnetic field spanning a surface on which there are
-a surface current or surface charge density, can be related to those surface sources.
+a surface current or surface charge density can be related to those surface sources.
 
 These relationships can be determined by integrating Maxwell's equation over the
 pillbox configuration sketched in \cref{fig:ps3Problem1Pillbox:ps3Problem1PillboxFig1}.
@@ -16,7 +16,7 @@ An assumption that the sources are primarily constrained to the surface can be w
 J = J_s \delta(y),
 \end{dmath}
 
-where the \( y \) coordinate is locally normal to the surface at any given point.  In terms of the scalar and vector potentials, such a surface model is
+where the \( y \) coordinate is locally normal to the surface at any given point.  In terms of the scalar and vector potentials, such a surface source model is
 
 \begin{dmath}\label{eqn:boundary:40}
 J = \lr{ \eta\lr{ v \rho_s - \BJ_s } + I \lr{ v \rho_{ms} - \BM_s } }
@@ -55,7 +55,7 @@ Application of contraction operations gives
 \end{dmath}
 \end{subequations}
 
-Each of these contraction operations can be evaluated over the pillbox volume above, however, the delta function integrals are problematic.  Those integrals dependent on \( \eta \) and \( v \) which vary across the surface, but are also dependent on the delta function surface contribution, which is valid at only the surface.  Consider the vector potential term for electric sources as an example, where the volume integral of that term is
+Each of these contraction operations can be evaluated over the pillbox volume above using the divergence theorem, however, the delta function integrals are problematic.  Those integrals dependent on \( \eta \) and \( v \) which vary across the surface, but are also dependent on the delta function surface contribution, which is valid at only the surface.  Consider the vector potential term for electric sources as an example, where the volume integral of that term is
 
 \begin{dmath}\label{eqn:boundary:180}
 -\int dV \eta \BJ_s \delta(y)
@@ -69,16 +69,16 @@ The delta function is only well defined when integrated across the \( y = 0 \) p
 \begin{subequations}
 \label{eqn:boundary:200}
 \begin{dmath}\label{eqn:boundary:220}
-\gpgradezero{\spacegrad \epsilon \BF} = \rho_s \delta(y)
+\gpgradezero{\spacegrad \cdot \lr{ \epsilon \BF}} = \rho_s \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:240}
-\gpgradeone{\spacegrad \inv{\eta} \BF} = -j \frac{k}{\eta} \BE - \BJ_s \delta(y)
+\gpgradeone{\spacegrad \cdot \lr{ \inv{\eta} \BF}} = -j \frac{k}{\eta} \BE - \BJ_s \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:260}
-\gpgradezero{\spacegrad I \inv{v}\BF} = - \rho_{ms} \delta(y)
+\gpgradezero{\spacegrad \cdot \lr{ I \inv{v}\BF}} = - \rho_{ms} \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:280}
-\gpgradeone{\spacegrad (I \BF)} = j k \eta \BH + \BM_s \delta(y).
+\gpgradeone{\spacegrad \cdot \lr{ I \BF}} = j k \eta \BH + \BM_s \delta(y).
 \end{dmath}
 \end{subequations}
 
@@ -89,16 +89,16 @@ Application of the multivector \R{3} divergence theorem, as stated informally in
 \begin{subequations}
 \label{eqn:boundary:300}
 \begin{dmath}\label{eqn:boundary:320}
-\gpgradezero{\int dV \ncap \epsilon \BF} = \Delta A \rho_s
+\gpgradezero{\int dV \ncap \cdot \lr{ \epsilon \BF}} = \Delta A \rho_s
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:340}
-\gpgradeone{\int dV \ncap \inv{\eta} \BF} = -j \omega \int_y dy \int dA \BD - \Delta A \BJ_s
+\gpgradeone{\int dV \ncap \cdot \lr{ \inv{\eta} \BF}} = -j \omega \int_y dy \int dA \BD - \Delta A \BJ_s
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:360}
-\gpgradezero{\int dV \ncap I \inv{v}\BF} = - \Delta A \rho_{ms}
+\gpgradezero{\int dV \ncap \cdot \lr{ I \inv{v}\BF}} = - \Delta A \rho_{ms}
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:380}
-\gpgradeone{\int dV \ncap (I \BF)} = j \omega \int_y dy \int dA \BB + \Delta A \BM_s
+\gpgradeone{\int dV \ncap \cdot \lr{ I \BF}} = j \omega \int_y dy \int dA \BB + \Delta A \BM_s
 \end{dmath}
 \end{subequations}
 
