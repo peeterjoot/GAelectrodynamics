@@ -66,7 +66,7 @@ include ../latex/make.rules
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
 .PHONY: spellcheck
-spellcheck: $(patsubst %.tex,%.sp,$(PRIMARY_SOURCES))
+spellcheck: $(patsubst %.tex,%.sp,$(wildcard *.tex))
 
 %.sp : %.tex
 	spellcheck $^
