@@ -29,13 +29,13 @@
 
 \paragraph{Context for the project}
 
-An ECE professor from Università di Perugia, Prof. Mauro Mongiardo, has reached out to me to collaborate on a book and papers related to applications of geometric algebra (GA) in electromagnetism, particularly focused on engineering applications in the frequency domain.  As discussed, I am interested in persuing this work for two reasons:
+An ECE professor from Università di Perugia, Prof. Mauro Mongiardo, has reached out to me to collaborate on a book and papers related to applications of geometric algebra (GA) in electromagnetism, particularly focused on engineering applications in the frequency domain.  As discussed, I am interested in perusing this work for two reasons:
 
 \begin{enumerate}
 \item
-It is intrinsicaly interesting to me, and I have a strong impression that there is a lot of potential for interesting applications.
+It is intrinsically interesting to me, and I have a strong impression that there is a great deal of potentially interesting engineering applications.
 \item
-Doing this work in the context of an M.Eng project will help satisify the ECE graduation requirements, especially since the electromagnetics group course offerings in recent years have been very limited.
+Doing this work in the context of an M.Eng project will help satisfy the ECE graduation requirements for the M.Eng degree program I am enrolled in.  This is especially true given that the electromagnetics group course offerings in recent years has been particularly limited.
 \end{enumerate}
 
 I've read and written considerably about applications of geometric algebra outside of a university context.  That writing is scattered throughout the following notes compilations (and probably other locations)
@@ -45,7 +45,7 @@ I've read and written considerably about applications of geometric algebra outsi
 \item Exploring Physics with Geometric Algebra, Part II \citep{gabookII}
 \item Classical Mechanics \citep{classicalmechanics}
 \item Continuum Mechanics \citep{phy454}
-\item Advanced Antenna Theorey \citep{ece1229}
+\item Advanced Antenna Theory \citep{ece1229}
 \end{itemize}
 
 Much of the research into geometric algebra applications to electromagnetism has been in the context of relativistic electromagnetism, where Maxwell's equations take a particularly simple form
@@ -54,7 +54,7 @@ Much of the research into geometric algebra applications to electromagnetism has
 \grad F = \inv{\epsilon} J.
 \end{dmath}
 
-This consolidates the two relativisitic tensor relations for Maxwell's equations
+It can be shown that this consolidates the standard pair of relativistic tensor relations for Maxwell's equations
 
 \begin{dmath}\label{eqn:projectnotes:40}
 \begin{aligned}
@@ -63,7 +63,7 @@ This consolidates the two relativisitic tensor relations for Maxwell's equations
 \end{aligned}
 \end{dmath}
 
-into a single multivector equation, where
+into a single multivector equation.  There is a lot that is left unspecified in the relation above.  A more complete statement has to also define the operators, fields and sources, which are
 
 \begin{dmath}\label{eqn:projectnotes:60}
 \begin{aligned}
@@ -80,10 +80,10 @@ J &= \gamma_0 \lr{ c \rho - \BJ },
 \end{aligned}
 \end{dmath}
 
-where \( \setlr{ \gamma_\mu } \) is a relativisitic four-vector basis satisfying \( (\gamma_0)^2 = 1 \), \( (\gamma^k)^2 = -1 \), and \( \gamma^\mu \gamma_\mu = 1 \).  In this context (referred to as the Space Time Algebra, or STA) all spatial vectors \((\BE, \BB, \BJ)\) are actually bivectors, as is the electromagnetic field \( F \).  This abstraction allows problems to be formulated
-without any explicit reference to either electric or magnetic fields, quantities that are observer dependent.  Lorentz boosts that translate from an observe frame to can be formulated as easily as rotations, which is especially powerful given that rotations in geometric algebra have such a compact representation.
-This power comes with a level of abstraction that makes the subject impalatible for applications in engineering.
-There is also a considerable learning curve for geometric algebra, and that learning curve is made still steeper by requiring the electromagnetic practitioner to also deal with the relativisitic abstractions.
+where \( \setlr{ \gamma_\mu } \) is a relativistic four-vector basis satisfying \( (\gamma_0)^2 = 1 \), \( (\gamma^k)^2 = -1 \), and \( \gamma^\mu \gamma_\mu = 1 \).  The geometric algebra over this Minkowski (or Dirac) basis is referred to as the Space Time Algebra, or STA \citep{doran2003gap}.  In the STA representation, all spatial vectors \((\BE, \BB, \BJ)\) are represented as bivectors, as is the electromagnetic field \( F \).  The STA form of Maxwell's equation allows problems to be formulated without any explicit reference to either electric or magnetic fields, quantities that are observer dependent.  Lorentz boosts that translate from an observe frame to can be formulated as easily as rotations, which is especially powerful given that rotations in geometric algebra have such a compact representation.
+This power comes with a level of abstraction that makes the subject impalpable for applications in engineering.
+
+There is also a considerable learning curve for geometric algebra, and that learning curve is made still steeper by requiring the electromagnetic practitioner to also deal with the relativistic abstractions.
 
 \paragraph{Maxwell's equation in a Euclidean basis}
 
@@ -105,7 +105,7 @@ J &= c \rho - \BJ.
 \end{dmath}
 
 A choice of a fixed observer frame fixes the representation of the four-gradient, expressed here as a multivector operator, but result is otherwise identical to the representation of Maxwell's equation \cref{eqn:projectnotes:20}.
-It is straightforward to show that this representation is equivalent to the normal vectorial form of Maxwell's equations
+It is straightforward to show that this representation is equivalent to the normal vectoral form of Maxwell's equations
 
 \begin{dmath}\label{eqn:projectnotes:100}
 \begin{aligned}
@@ -116,23 +116,42 @@ It is straightforward to show that this representation is equivalent to the norm
 \end{aligned}
 \end{dmath}
 
-While the fixed observer frame GA representation of Maxwell's equation \cref{eqn:projectnotes:80} is only subtlely different from the STA representation, I believe that this representation is preferrable to the study of electromagnetism with respect to engineering applications.  Not having to deal with non-Euclidean geometries and four vectors should considerably reduce the learning curve required to exploit the compact GA representation in real world applications.  A compact representation alone is clearly not the only desirable attribute, for if that were the case, engineers would work exclusively with the tensor form of Maxwell's equations \cref{eqn:projectnotes:40}.  
+While the fixed observer frame GA representation of Maxwell's equation \cref{eqn:projectnotes:80} is only subtly different from the STA representation, I believe that this representation is preferable to the study of electromagnetism with respect to engineering applications.  Not having to deal with non-Euclidean geometries and four vectors should considerably reduce the learning curve required to exploit the compact GA representation in real world applications.  A compact representation alone is clearly not the only desirable attribute, for if that were the case, engineers would work exclusively with the tensor form of Maxwell's equations \cref{eqn:projectnotes:40}.
+
+
 As engineers, having time as an independent variable, and an assumption that the geometry we have to deal with is Euclidean, are definite prerequisites!
 
-\paragraph{scratch notes}
-
-Part of what I'd like to accomplish with this project is to
-Engineering applications of electromagnetism keep time (or frequency) as a distinct quantity of interest, so some thought would be required to figure out how to most naturally express some of the electromagnetic concepts that have concise representation in relativistic geometric algebra where time is just one coordinate of a four vector.
- (i.e. for personal non-academic research), however, it will still take a considerable amount of work to assemble these ideas into a coherent form
-
-  This would also require a fair amount of literature review since some of the relevant material has probably also been presented in a piecemeal fashion.
-
-An example is the electromagnetic stress tensor, which in (relativistic) geometric algebra is just T(a) = -F a F/(2 epsilon), where a is a four vector.  Picking a timelike four vector 'a', produces the Poynting theorem relations, whereas picking spacelike four vectors 'a' produce the rest of the (lesser known) Poynting like conservation relations that bring in all 16 elements of the stress-energy tensor into the mix.  It is not obvious if there is corresponding natural (yet still concise) representation of the complete stress energy tensor representation when using the usual three-spatial+one-time coordinate geometric algebra representation of Maxwell's equations.
-
-
-\paragraph{syllabus}
+\paragraph{Suggested Syllabus topics}
 
 M.Eng project on Engineering applications of Geometric Algebra to engineering electromagnetism.
+
+\begin{itemize}
+\item Literature search and summary of non-relativistic treatments of electromagnetism in the formalism of geometric algebra.
+\item Express the fundamentals of electromagnetism in a fashion that is natural using GA, while also attempting to present that material in a way that does not overwhelm the student with excessive GA theorems.
+\item Attempt to determine what the minimal amount of GA theory that must be presented to a new student that will allow the student to focus to be on applications of electromagnetism.
+\item Explore topics that have natural expression in relativistic GA, and determine where possible the most natural expression of those relationships in a Euclidean and explicit time formalism.  For example the energy momentum relationship in STA form is
+that includes the continuum Lorentz force and Poynting relationships as special cases has an STA form
+
+\begin{dmath}\label{eqn:projectnotes:140}
+\begin{aligned}
+\grad \cdot T(a) &= \inv{\epsilon c} \gpgradezero{ F a J } \\
+T(a) &= -\inv{2} F a F,
+\end{aligned}
+\end{dmath}
+
+where \( a = a^\mu \gamma_\mu \) is a four vector.  The stress-energy tensor, is usually expressed as the considerably more complex form
+
+\begin{dmath}\label{eqn:projectnotes:160}
+T^{\mu\nu} = \frac{1}{\mu_0} \lr{
+F^{\mu \alpha}F^\nu{}_{\alpha} - \frac{1}{4} \eta^{\mu\nu}F_{\alpha\beta} F^{\alpha\beta}
+}.
+\end{dmath}
+
+Note that the Poynting theorem can be recovered from \cref{eqn:projectnotes:140} using a timelike vector such as \( a = \gamma_0 \), whereas the continuum Lorentz force relationships follow by selecting values of \( a \) that are spacelike.
+
+Is there a natural representation Euclidean representation of the energy momentum relationships that is useful for engineering applications, while still highlighting the underlying connections between the Poynting and Lorentz relationships as aspects of a single relativistic concept?
+\item Investigate electromagnetic applications of geometric algebra to topics that have a natural geometric bias that is hard to formulate in traditional vector algebra.  One possible example of such an application could be to exploit the ability to simply express rotations in GA for constructions such as Bessel beams.
+\end{itemize}
 
 %}
 \EndArticle
