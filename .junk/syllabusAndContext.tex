@@ -1,0 +1,72 @@
+\paragraph{Context for the project}
+
+An ECE professor from Università di Perugia, Prof. Mauro Mongiardo, has reached out to me to collaborate on a book and papers related to applications of geometric algebra in electromagnetism, particularly focused on engineering applications in the frequency domain.  As discussed, I am interested in persuing this work for two reasons:
+
+\begin{enumerate}
+\item
+It is intrinsicaly interesting to me, and I have a strong impression that there is a lot of potential for interesting applications.
+\item
+Doing this work in the context of an M.Eng project will help satisify the ECE graduation requirements, especially since the electromagnetics group course offerings in recent years have been very limited.
+\end{enumerate}
+
+I've read and written considerably about applications of geometric algebra outside of a university context.  That writing is scattered throughout the following notes compilations (and probably other locations)
+
+\begin{itemize}
+\item Exploring Physics with Geometric Algebra, Part I \citep{gabookI}
+\item Exploring Physics with Geometric Algebra, Part II \citep{gabookII}
+\item Classical Mechanics \citep{classicalmechanics}
+\item Continuum Mechanics \citep{phy454}
+\item Advanced Antenna Theorey \citep{ece1229}
+\end{itemize}
+
+Much of the research into geometric algebra applications to electromagnetism has been in the context of relativistic electromagnetism, where Maxwell's equations take a particularly simple form
+
+\begin{dmath}\label{eqn:syllabusAndContext:n}
+\grad F = \inv{\epsilon_0} J.
+\end{dmath}
+
+This consolidates the two relativisitic tensor relations for Maxwell's equations
+
+\begin{dmath}\label{eqn:syllabusAndContext:n}
+\begin{aligned}
+\partial_\mu F^{\mu\nu} &= \inv{\epsilon_0} J^\nu \\
+\epsilon^{\alpha\beta\gamma\kappa} \partial_\beta F_{\gamma\kappa} &= 0.
+\end{aligned}
+\end{dmath}
+
+into a single multivector equation, where
+
+\begin{dmath}\label{eqn:syllabusAndContext:n}
+\begin{aligned}
+F &= \BE + I c \BB \\
+I &= \gamma_0 \gamma_1 \gamma_2 \gamma_3 \\
+\BE &= \sum_{k = 1}^3 \gamma_k \gamma_0 E^k \\
+\BB &= \sum_{k = 1}^3 \gamma_k \gamma_0 B^k \\
+\BJ &= \sum_{k = 1}^3 \gamma_k \gamma_0 J^k \\
+\grad &= \gamma^\mu \partial_\mu = \gamma^\mu \PD{x^\mu}{} \\
+x^0 &= c t \\
+\partial_0 &= \inv{c} \PD{t}{} \\
+c &= 1/\sqrt{\mu\epsilon} \\
+J &= \gamma_0 \lr{ c \rho - \BJ },
+\end{aligned}
+\end{dmath}
+
+where \( \setlr{ \gamma_\mu } \) is a relativisitic four-vector basis satisfying \( (\gamma_0)^2 = 1 \), \( (\gamma^k)^2 = -1 \), and \( \gamma^\mu \gamma_\mu = 1 \).  In this context (referred to as the Space Time Algebra, or STA) all spatial vectors \((\BE, \BB, \BJ)\) are actually bivectors, as is the electromagnetic field \( F \).  This abstraction allows problems to be formulated 
+without any explicit reference to either electric or magnetic fields, quantities that are observer dependent.  Lorentz boosts that translate from an observe frame to can be formulated as easily as rotations, which is especially powerful given that rotations in geometric algebra have such a compact representation.
+This power comes with a level of abstraction that makes the subject impalatible for applications in engineering.
+There is also a considerable learning curve for geometric algebra, and that learning curve is made still steeper by requiring the electromagnetic practitioner to also deal with the relativisitic abstractions.
+
+Without introducing the abstractions of four vectors and non-Euclidean geometries required for the STA form of Maxwell's equation 
+
+Part of what I'd like to accomplish with this project is to 
+Engineering applications of electromagnetism keep time (or frequency) as a distinct quantity of interest, so some thought would be required to figure out how to most naturally express some of the electromagnetic concepts that have concise representation in relativistic geometric algebra where time is just one coordinate of a four vector.  
+ (i.e. for personal non-academic research), however, it will still take a considerable amount of work to assemble these ideas into a coherent form
+
+  This would also require a fair amount of literature review since some of the relevant material has probably also been presented in a piecemeal fashion.  
+
+An example is the electromagnetic stress tensor, which in (relativistic) geometric algebra is just T(a) = -F a F/(2 epsilon_0), where a is a four vector.  Picking a timelike four vector 'a', produces the Poynting theorem relations, whereas picking spacelike four vectors 'a' produce the rest of the (lesser known) Poynting like conservation relations that bring in all 16 elements of the stress-energy tensor into the mix.  It is not obvious if there is corresponding natural (yet still concise) representation of the complete stress energy tensor representation when using the usual three-spatial+one-time coordinate geometric algebra representation of Maxwell's equations.
+
+
+\paragraph{syllabus}
+
+M.Eng project on Engineering applications of Geometric Algebra to engineering electromagnetism.
