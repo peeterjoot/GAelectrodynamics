@@ -63,6 +63,9 @@ CLEAN_TARGETS += *.sp FrontBackmatter/*.sp
 
 include ../latex/make.rules
 
+#all :: $(THISBOOK).pdf
+all :: ellipticalWaves.pdf
+
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
 .PHONY: spellcheck
