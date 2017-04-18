@@ -91,6 +91,94 @@ Adding this to its reverse (which negates the sign of the pseudoscalar, but not 
    \bcA = \gpgradeone{ \BA e^{I \lr{ \omega t - \Bk \cdot \Bx }}}.
 \end{dmath}
 
+\paragraph{Electromagnetic plane wave.}
+
+Recall that the electromagnetic field, with \( \BE = \BE_r + j \BE_i \), for a plane wave is
+
+\begin{dmath}\label{eqn:ellipticalWaves:140}
+   F = \Real \lr{ \lr{ 1 + \kcap } \BE e^{j \phi} },
+\end{dmath}
+
+so the real representation, with multivector phasor \( \BE = \BE_r + I \BE_i \), is
+
+\begin{dmath}\label{eqn:ellipticalWaves:160}
+F
+=
+\lr{ 1 + \kcap } \gpgradeone{ \BE e^{I \phi } }
+=
+\inv{2} \lr{ 1 + \kcap } \lr{ \BE e^{I \phi } + \BE^\dagger e^{-I \phi } }.
+\end{dmath}
+
+Note that this is not equal to \(
+\inv{2} \lr{
+   \lr{ 1 + \kcap } \BE e^{I \phi }
+   +
+\lr{ \lr{ 1 + \kcap } \BE e^{I \phi } }^\dagger } \), since \( \lr{ \kcap \BE }^\dagger = -\kcap \BE^\dagger \).
+% because \( \kcap \) is normal to both the \( \BE_r \) and \( \BE_i \) vectors.
+
+Should the electric and magnetic fields be desired explictly, they can be obtained by the grade selection, with
+
+\begin{dmath}\label{eqn:ellipticalWaves:220}
+F =
+\gpgradeone{ \BE e^{I \phi } } +
+\gpgradetwo{ \kcap \BE e^{I \phi } },
+\end{dmath}
+
+where this split into electric (vector) and magnetic (bivector) field components was facilitated by
+the fact that
+\( \kcap \gpgradeone{ \BE e^{I \phi } } = \gpgradetwo{ \kcap \BE e^{I \phi } } \) [exersize].
+
+\makeproblem{}{problem:ellipticalWaves:1}{
+Given \( \BE = \BE_r + I \BE_i \), and \( \kcap \cdot \BE_r = \kcap \cdot \BE_i = 0 \), show that
+\( \kcap \gpgradeone{ \BE e^{I \phi } } = \gpgradetwo{ \kcap \BE e^{I \phi } } \).
+Also show that \( \gpgradetwo{ \kcap \BE e^{I \phi } } \) can be expanded as an antisymmetric sum of the multivector \( \kcap \BE e^{I\phi} \) and its reverse.
+} % problem
+
+\makeanswer{problem:ellipticalWaves:1}{
+\begin{dmath}\label{eqn:ellipticalWaves:180}
+\gpgradetwo{ \kcap \BE e^{I \phi } }
+=
+\gpgradetwo{ \kcap \lr{ \BE_r + I \BE_i} e^{I \phi } }
+=
+\gpgradetwo{ \kcap \lr{ \BE_r \cos\phi - \BE_i \sin\phi + I \BE_i \cos\phi + I \BE_r \sin\phi } }
+=
+\kcap \wedge \BE_r \cos\phi - \kcap \wedge \BE_i \sin\phi
+=
+\kcap \BE_r \cos\phi - \kcap \BE_i \sin\phi
+=
+\kcap \lr{ \BE_r \cos\phi - \kcap \BE_i \sin\phi }
+=
+\kcap \gpgradeone{ \BE e^{I\phi} }.
+\end{dmath}
+
+For the second part, we have
+
+\begin{dmath}\label{eqn:ellipticalWaves:200}
+\inv{2} \lr{ \kcap \BE e^{I \phi } - \lr{ \kcap \BE e^{I \phi } }^\dagger }
+=
+\inv{2} \lr{ \kcap \BE e^{I \phi } - e^{-I \phi } \BE^\dagger \kcap }
+=
+\inv{2} \lr{ \kcap \BE e^{I \phi } + e^{-I \phi } \kcap \BE^\dagger }
+=
+\frac{\kcap}{2} \lr{ \BE e^{I \phi } + \BE^\dagger e^{-I \phi } }
+=
+\frac{\kcap}{2} \lr{ \lr{\BE_r + I \BE_i} \lr{ \cos\phi + I \sin\phi } + \lr{\BE_r - I \BE_i} \lr{ \cos\phi - I \sin\phi } }
+=
+\frac{\kcap}{2} \lr{
+   \BE_r \cos\phi - \BE_i \sin\phi + I \lr{ \BE_i \cos\phi + \BE_r \sin\phi }
++  \BE_r \cos\phi - \BE_i \sin\phi - I \lr{ \BE_i \cos\phi + \BE_r \sin\phi }
+}
+=
+\kcap \lr{ \BE_r \cos\phi - \BE_i \sin\phi }
+=
+\kcap \gpgradeone{ \BE e^{I \phi} }
+=
+\gpgradetwo{ \kcap \BE e^{I \phi} }
+.
+\end{dmath}
+
+} % answer
+
 %}
 %\EndArticle
 \EndNoBibArticle
