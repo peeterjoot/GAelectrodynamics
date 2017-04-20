@@ -93,7 +93,7 @@ Adding this to its reverse (which negates the sign of the pseudoscalar, but not 
 
 \paragraph{Electromagnetic plane wave.}
 
-Recall that the electromagnetic field, with \( \BE = \BE_r + j \BE_i \), for a plane wave is
+Recall that the electromagnetic field, with \( \BE = \BE_r + j \BE_i \), where \( \BE_r \cdot \kcap = \BE_i \cdot \kcap = 0 \), for a plane wave is
 
 \begin{dmath}\label{eqn:ellipticalWaves:140}
    F = \Real \lr{ \lr{ 1 + \kcap } \BE e^{j \phi} },
@@ -128,6 +128,48 @@ F = \bcE + I \eta \bcH
 where this split into electric (vector) and magnetic (bivector) field components was facilitated by
 the fact that
 \( \kcap \gpgradeone{ \BE e^{I \phi } } = \gpgradetwo{ \kcap \BE e^{I \phi } } \) [exersize].
+
+\paragraph{Circular and linear polarized waves.}
+
+The use of the 3D pseudoscalar above to express the sine and cosines was arbitrary, and isn't the only option.  Another obvious choice is the pseudoscalar for the plane perpendicular to the propagation direction.  One such unit pseudoscalar is \( i = I \kcap \), for which \( i^\dagger = -i \), and \( i^2 = -1 \) (as was also the case with the 3D pseudoscalar).
+With \( \BE = \BE_r + i \BE_i \),
+
+\begin{dmath}\label{eqn:ellipticalWaves:240}
+F
+=
+\lr{ 1 + \kcap } \gpgradeone{ \BE e^{i \phi } }.
+\end{dmath}
+
+Observe that for this choice of pseudoscalar, the grade selection is a no-op, so the electromagnetic field is just
+
+\begin{dmath}\label{eqn:ellipticalWaves:260}
+F
+=
+\lr{ 1 + \kcap } \BE e^{i \phi }.
+\end{dmath}
+
+For example, with \( \BE = E_0 \Be_1 \), and \( \kcap = \Be_3 \), \( i = \kcap I = \Be_1 \Be_2 \), this is
+
+\begin{dmath}\label{eqn:ellipticalWaves:280}
+F
+=
+\lr{ 1 + \kcap } \BE e^{i \phi }
+=
+E \lr{ 1 + \Be_3 } \Be_1 \lr{ \cos\phi + \Be_1 \Be_2 \sin\phi }
+=
+E \lr{ 1 + \Be_3 } \lr{ \Be_1 \cos\phi - \Be_2 \sin\phi }.
+\end{dmath}
+
+This particular example is that of a circularly polarized state.  The linear polarized plane wave states can be recovered by superposition.  For example, again with \( \kcap = \Be_3, i = \Be_1 \Be_2 \),
+
+\begin{dmath}\label{eqn:ellipticalWaves:300}
+\begin{aligned}
+   \inv{2} E_0 \Be_1 \lr{ e^{i \phi} + e^{-i\phi} } &= E_0 \Be_1 \cos\phi \\
+   \inv{2} E_0 \Be_1 \lr{ e^{i \phi} - e^{-i\phi} } &= E_0 \Be_2 \sin\phi.
+\end{aligned}
+\end{dmath}
+
+\paragraph{Problems.}
 
 \makeproblem{}{problem:ellipticalWaves:1}{
 Given \( \BE = \BE_r + I \BE_i \), and \( \kcap \cdot \BE_r = \kcap \cdot \BE_i = 0 \), show that
