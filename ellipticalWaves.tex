@@ -45,7 +45,7 @@ A real time dependent field, represented in terms of a complex vector valued pha
 - \BA_i \sin\lr{ \Bk \cdot \Bx - \omega t }.
 \end{dmath}
 
-In the complex representation above, the imaginary \( j \) is not interpreted geometrically, but like the unit pseudoscalar \( I = \Be_1 \Be_2 \Be_3 \), squares to \( -1 \) and commutes with all grades.  It is therefore possible to express the field using the pseudoscalar as the imaginary.  With \( \phi = \Bk \cdot \Bx - \omega t \), that is
+In the complex representation above, the imaginary \( j \) is not interpreted geometrically, but like the unit pseudoscalar \( I = \Be_1 \Be_2 \Be_3 \), squares to \( -1 \) and commutes with all grades.  It is therefore possible to express the field using the pseudoscalar as the imaginary
 
 \begin{dmath}\label{eqn:ellipticalWaves:40}
 \bcA
@@ -63,7 +63,13 @@ In the complex representation above, the imaginary \( j \) is not interpreted ge
 ,
 \end{dmath}
 
-where the field magnitude and orientation has been specified by a ``complex'' (grade-1,3) multivector
+where the phase angle was written as
+
+\begin{dmath}\label{eqn:ellipticalWaves:400}
+\phi = \Bk \cdot \Bx - \omega t,
+\end{dmath}
+
+and where the field magnitude and orientation has been specified by a ``complex'' (grade-1,3) multivector
 
 \begin{dmath}\label{eqn:ellipticalWaves:120}
 \BA = \BA_r + I \BA_i,
@@ -88,18 +94,20 @@ This has the structure of a real-part operation, where the real part is represen
 Adding this to its reverse (which negates the sign of the pseudoscalar, but not the vector), eliminates all the bivector components of this multivector phasor representation.  It is now possible to represent the field completely in terms of real vectors and a vector grade selection operation
 
 \begin{dmath}\label{eqn:ellipticalWaves:100}
-   \bcA = \gpgradeone{ \BA e^{I \lr{ \omega t - \Bk \cdot \Bx }}}.
+\bcA = \gpgradeone{ \BA e^{I \phi } }.
 \end{dmath}
 
 \paragraph{Electromagnetic plane wave.}
 
-Recall that the electromagnetic field, with \( \BE = \BE_r + j \BE_i \), where \( \BE_r \cdot \kcap = \BE_i \cdot \kcap = 0 \), for a plane wave is
+The electromagnetic field, with \( \BE = \BE_r + j \BE_i \), where \( \BE_r \cdot \kcap = \BE_i \cdot \kcap = 0 \), for a plane wave is
 
 \begin{dmath}\label{eqn:ellipticalWaves:140}
-   F = \Real \lr{ \lr{ 1 + \kcap } \BE e^{j \phi} },
+   F = \Real \lr{ \lr{ 1 + \kcap } \BE e^{j \phi} }.
 \end{dmath}
 
-so the real representation, with multivector phasor \( \BE = \BE_r + I \BE_i \), is
+(I have a derivation of this elsewhere, but there is also one in \citep{doran2003gap})
+
+The real representation, with multivector phasor \( \BE = \BE_r + I \BE_i \), is
 
 \begin{dmath}\label{eqn:ellipticalWaves:160}
 F
@@ -129,10 +137,10 @@ where this split into electric (vector) and magnetic (bivector) field components
 the fact that
 \( \kcap \gpgradeone{ \BE e^{I \phi } } = \gpgradetwo{ \kcap \BE e^{I \phi } } \) [exersize].
 
-\paragraph{Circular and linear polarized waves.}
+\paragraph{Circular waves}
 
 The use of the 3D pseudoscalar above to express the sine and cosines was arbitrary, and isn't the only option.  Another obvious choice is the pseudoscalar for the plane perpendicular to the propagation direction.  One such unit pseudoscalar is \( i = I \kcap \), for which \( i^\dagger = -i \), and \( i^2 = -1 \) (as was also the case with the 3D pseudoscalar).
-With \( \BE = \BE_r + i \BE_i \),
+With \( \BE = \BE_r + i \BE_i \), the electromagnetic field can be represented as
 
 \begin{dmath}\label{eqn:ellipticalWaves:240}
 F
@@ -160,7 +168,9 @@ E \lr{ 1 + \Be_3 } \Be_1 \lr{ \cos\phi + \Be_1 \Be_2 \sin\phi }
 E \lr{ 1 + \Be_3 } \lr{ \Be_1 \cos\phi - \Be_2 \sin\phi }.
 \end{dmath}
 
-This particular example is that of a circularly polarized state.  The linear polarized plane wave states can be obtained by superposition.  For example, again with \( \kcap = \Be_3, i = \Be_1 \Be_2 \), linear plane electric field configurations with cosine and sine phase follow from
+\paragraph{Linear polarized waves.}
+
+The example above was of a circularly polarized state.  The linear polarized plane wave states can be obtained by superposition.  For example, again with \( \kcap = \Be_3, i = \Be_1 \Be_2 \), linear plane electric field configurations with cosine and sine phase follow from
 
 \begin{dmath}\label{eqn:ellipticalWaves:300}
 \begin{aligned}
@@ -168,6 +178,51 @@ This particular example is that of a circularly polarized state.  The linear pol
    \inv{2} E_0 \Be_1 \lr{ e^{i \phi} - e^{-i\phi} } &= E_0 \Be_2 \sin\phi.
 \end{aligned}
 \end{dmath}
+
+\paragraph{Elliptically polarized waves.}
+
+While a circle can be parameterized as
+
+\begin{dmath}\label{eqn:ellipticalWaves:320}
+\Br(\phi)
+=
+r \Be_1 e^{i \phi}
+=
+\Be_1 \lr{ \cos\phi + i \sin\phi }
+=
+\Be_1 \cos\phi + \Be_2 \sin\phi,
+\end{dmath}
+
+an ellipse can be parameterized as
+\begin{dmath}\label{eqn:ellipticalWaves:340}
+\Br(\phi)
+=
+a \Be_1 \cos\phi + b \Be_2 \sin\phi.
+\end{dmath}
+
+If \( a, b \) are the semi-major/minor axes of the ellipse (i.e. \( a > b \)),
+and \( \Ba = a \Be_1 e^{i\alpha} \) is the vectorial representation of the semimajor axis (not neccessarily placed along \( \Be_1 \)),
+and \( e = \sqrt{1 - (b/a)^2} \) is the eccentricity of the ellipse,
+then an elliptic parameterization can be written
+\citep{hestenes1999nfc}
+in the compact form
+
+\begin{dmath}\label{eqn:ellipticalWaves:360}
+\Br(\phi)
+=
+e \Ba \cosh( \Atanh(b/a) + i \phi).
+\end{dmath}
+
+This is also real and has only vector grades, so the electromagnetic field for a general elliptic wave has the form
+
+\begin{dmath}\label{eqn:ellipticalWaves:380}
+F
+=
+e \lr{ 1 + \kcap } \BE_a
+\cosh\lr{ \Atanh\lr{ \frac{\Abs{\BE_b}}{\Abs{\BE_a}}} + I \kcap \phi},
+\end{dmath}
+
+where \( \BE_a(\BE_b) \) are the electric field components lying along the semi-major(minor) axes, and the propagation direction \( \kcap \) is perpendicular to both \( \BE_a \) and \(\BE_b\).
 
 \paragraph{Problems.}
 
@@ -223,5 +278,4 @@ For the second part, we have
 } % answer
 
 %}
-%\EndArticle
-\EndNoBibArticle
+\EndArticle
