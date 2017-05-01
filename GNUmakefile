@@ -44,7 +44,8 @@ EXTERNAL_DEPENDENCIES += ../stokesTheorem/bladeDotWedgeSymmetryIdentities.tex
 EXTERNAL_DEPENDENCIES += ../gabookI/appendix/wedgeDistributionIdentityProblems.tex
 EXTERNAL_DEPENDENCIES += ../stokesTheorem/stokesTheoremCoreProblems.tex
 EXTERNAL_DEPENDENCIES += ../gabookI/calculus/fundamentalTheoremOfCalculus.tex
-EXTERNAL_DEPENDENCIES += ../gabookI/calculus/gradientGreensFunction.tex
+#EXTERNAL_DEPENDENCIES += ../gabookI/calculus/gradientGreensFunction.tex
+EXTERNAL_DEPENDENCIES += ../gabookI/calculus/gradientGreensFunctionMaxwells.tex
 EXTERNAL_DEPENDENCIES += ../gabookI/calculus/biotSavartGreens.tex
 EXTERNAL_DEPENDENCIES += ../gabookI/calculus/helmholtzDerviationMultivector.tex
 
@@ -65,6 +66,8 @@ include ../latex/make.rules
 
 #all :: $(THISBOOK).pdf
 all :: ellipticalWaves.pdf
+
+#greens.pdf :: gradientGreensFunctionEuclidean.tex
 
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 

@@ -1,0 +1,250 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+The Green's function for the Laplacian of the Green's function is well known, but there are advantages to utilizing the Green's function for first order gradient equations directly.
+
+\maketheorem{Green's function for the gradient}{thm:gradientGreensFunctionEuclidean:1}{
+
+%A sufficient convergence constraint for \( F \) over the infinite sphere is
+For a
+multivector function \( F \) in a Euclidean space that tends to zero at infinity at least as fast as
+
+\begin{equation*}
+\lim_{\Bx' \rightarrow \infty} \frac{\Norm{F(\Bx')}}{\Norm{\Bx - \Bx'}^{n-1}} \rightarrow 0,
+\end{equation*}
+
+the
+first order multivector gradient equation
+
+\begin{equation*}
+\spacegrad' F(\Bx') = M(\Bx'),
+\end{equation*}
+
+has an inverse
+
+\begin{equation*}
+F(\Bx) = \int_V dV' G(\Bx,\Bx') M(\Bx').
+\end{equation*}
+
+Here \( G \) is the Green's function for the gradient over an infinite spherical boundary, satisfying
+
+\begin{equation*}
+   \spacegrad G = \spacegrad \cdot G = \delta(\Bx - \Bx'),
+\end{equation*}
+
+and is given by
+
+\begin{equation*}
+   G(\Bx, \Bx') = \inv{S_n} \frac{\Bx - \Bx'}{\Norm{\Bx-\Bx'}^n}.
+\end{equation*}
+
+Here \( n \) is the dimension of the space, \( S_n \) is the area of the unit sphere.
+} % theorem
+
+Conventions for the sign of Green's functions or the parameters in the convolution integral often vary.  The sign convention used here is that of \citep{doran2003gap}.
+
+%This result applies not only to gradient equations in Euclidean spaces, but also to multivector (or even just vector) fields \( F \), instead of the usual scalar functions that we usually apply Green's functions to.
+The statement that
+\( \spacegrad G = \spacegrad \cdot G \), or \( \rspacegrad G = G \lspacegrad \), implies that the curl of the Green's function must be zero, which is straightforward to check for all points \( \Bx \ne \Bx' \)
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:140}
+S_n (\spacegrad \wedge G)
+=
+\frac{\spacegrad \wedge (\Bx-\Bx')}{\Norm{\Bx - \Bx'}^{n}}
++
+\spacegrad \inv{\Norm{\Bx - \Bx'}^{n}} \wedge (\Bx-\Bx')
+=
+\frac{\spacegrad \wedge (\Bx-\Bx')}{\Norm{\Bx - \Bx'}^{n}}
+- \cancel{n
+\frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^{n}} \wedge (\Bx-\Bx')}.
+\end{dmath}
+
+However,
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:160}
+\spacegrad \wedge (\Bx-\Bx')
+=
+\spacegrad \wedge \Bx
+=
+\sum_{k,j} e_k \wedge e_j \partial_k \Bx_j
+=
+\sum_{k,j} e_k \wedge e_j \delta_{k j}
+=
+\sum_{k} e_k \wedge e_k
+=
+0.
+\end{dmath}
+
+Next consider the divergence of the Green's function for points \( \Bx \ne \Bx' \).
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:120}
+S_n \spacegrad \cdot G
+=
+\spacegrad \cdot \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^n}
+=
+\lr{ \frac{\spacegrad \cdot \lr{\Bx - \Bx'}}{\Norm{\Bx - \Bx'}^{n}} + \lr{ \spacegrad \inv{\Norm{\Bx - \Bx'}^{n}} } \cdot \lr{ \Bx - \Bx'} }.
+\end{dmath}
+
+However, the gradient of \( 1/\Norm{\Bx - \Bx'}^m \), for points \( \Bx \ne \Bx' \) is
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:100}
+\spacegrad \inv{\Norm{\Bx - \Bx'}^m}
+=
+-\frac{m}{2} \sum_{k,j} \frac{e_k \partial_k (\Bx_j - \Bx_j')(\Bx_j - {\Bx_j}')}{\Norm{\Bx - \Bx'}^{m+2}}
+=
+-\frac{m}{2} 2 \frac{e_k (\Bx_j - \Bx_j') \delta_{k j} }{\Norm{\Bx - \Bx'}^{m+2}}
+=
+-m \frac{ \Bx - \Bx'}{\Norm{\Bx - \Bx'}^{m+2}}.
+\end{dmath}
+
+so everywhere that \( \Bx \ne \Bx' \)
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:340}
+S_n \spacegrad \cdot G
+=
+\frac{n}{\Norm{\Bx - \Bx'}^{n}} + \lr{ -n \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^{n+2} } \cdot \lr{ \Bx - \Bx'} }
+=
+0.
+\end{dmath}
+
+Finally, the Fundamental Theorem of (Geometric) Calculus, is applied to the
+weighted convolution of the Green's function with the
+(bidirectionally acting) gradient
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:60}
+   \int_V G(\Bx,\Bx') d^n \Bx' \lrgrad' F(\Bx')
+=
+\int_V dV' \lr{G(\Bx,\Bx') I \lgrad'} F(\Bx')
++
+\int_V dV' G(\Bx,\Bx') I \lr{ \rgrad' F(\Bx') }
+= \int_{\partial V} G(\Bx,\Bx') d^{n-1} \Bx' F(\Bx').
+\end{dmath}
+
+The boundary integral tends to zero.  To show this,
+let \( d^n \Bx' = dV' I \), \( d^{n-1} \Bx' \Bn = dA' I \), where \( \Bn = \Bn(\Bx') \) is the outward unit normal to the area element \( d^{n-1} \Bx' \).
+The
+pseudoscalar \( I \) either commutes or anticommutes with vectors according to the dimension of the space.  In particular
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:360}
+\begin{aligned}
+\Bn I &= (-1)^{n-1} I \Bn \\
+G I &= (-1)^{n-1} I G,
+\end{aligned}
+\end{dmath}
+
+so
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:80}
+\int_{\partial V} G(\Bx,\Bx') d^{n-1} \Bx' F(\Bx')
+= \int_{\partial V} G(\Bx,\Bx') I \inv{I} d^{n-1} \Bx' F(\Bx')
+= \int_{\partial V} G(\Bx,\Bx') I \inv{I} \Bn dA' I F(\Bx')
+= (-1)^{2(n-1)} I \int_{\partial V} dA' G(\Bx,\Bx') \Bn F(\Bx')
+= I \int_{\partial V} dA' G(\Bx,\Bx') \Bn F(\Bx').
+\end{dmath}
+
+The absolute limit of this boundary integral is therefore bounded by
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:380}
+S_n \Norm{ \int_{\partial V} G(\Bx,\Bx') d^{n-1} \Bx' F(\Bx') }
+= S_n \Norm{ \int_{\partial V} dA' G(\Bx,\Bx') \Bn F(\Bx') }
+\le S_n \int_{\partial V} dA' \Norm{ G(\Bx,\Bx') \Bn F(\Bx') }
+= \int_{\partial V} dA' \Norm{ \frac{\Bx -\Bx'}{\Norm{\Bx - \Bx'}^n} \Bn F(\Bx') }
+\le \int_{\partial V} dA' \Norm{ \frac{\Bx -\Bx'}{\Norm{\Bx - \Bx'}^n} F(\Bx') }
+\le \int_{\partial V} dA' \frac{ \Norm{F(\Bx')}}{\Norm{\Bx - \Bx'}^{n-1} },
+\end{dmath}
+
+so a sufficient limit on \( F \) to kill off this surface integral is given by
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:200}
+\lim_{\Bx' \rightarrow \infty}
+\frac{ \Norm{F(\Bx')}}{\Norm{\Bx - \Bx'}^{n-1} } \rightarrow 0.
+\end{dmath}
+
+This leaves
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:220}
+\int_V G(\Bx,\Bx') d^n \Bx' \lr{ \rgrad' F(\Bx') }
+=
+-\int_V \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'} F(\Bx').
+\end{dmath}
+
+The RHS is zero everywhere that \( \Bx \ne \Bx' \) so it can be restricted to a spherical ball around \( \Bx \).
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:240}
+\int_V \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'} F(\Bx')
+=
+\lim_{\epsilon \rightarrow 0}
+\int_{\Norm{\Bx - \Bx'} < \epsilon} \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'} F(\Bx')
+=
+\lr{ \lim_{\epsilon \rightarrow 0}
+\lr{ 
+\int_{\Norm{\Bx - \Bx'} < \epsilon} \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'}
+F(\overbar{\Bx})
+}
+} 
+\rightarrow 
+\lr{ \lim_{\epsilon \rightarrow 0}
+\lr{ 
+\int_{\Norm{\Bx - \Bx'} < \epsilon} \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'}
+}
+} 
+F(\Bx)
+\end{dmath}
+
+where it was assumed that \( G \) has sufficient continuity for the mean value theorem to allow for a point \( \overbar{\Bx} \) in this infinitesimal hyperspherical region to be selected.
+With an additional assumption that \( F \) is sufficiently well behaved in this region to be pulled out of the limit, 
+the Fundamental theorem can be applied over the inifinitesimal hypersphere centered on \( \Bx \)
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:400}
+\int_V \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'} F(\Bx')
+=
+\lr{ \lim_{\epsilon \rightarrow 0}
+\int_{\Norm{\Bx - \Bx'} = \epsilon} G(\Bx,\Bx') d^{n-1} \Bx'
+} F(\Bx)
+=
+(-1)^{n-1} I
+\lr{ \lim_{\epsilon \rightarrow 0}
+\int_{\Norm{\Bx - \Bx'} = \epsilon} G(\Bx,\Bx') dA' I \Bn
+} F(\Bx)
+=
+(-1)^{n-1} I
+\lr{ \lim_{\epsilon \rightarrow 0}
+\int_{\Norm{\Bx - \Bx'} = \epsilon} dA' G(\Bx,\Bx') \Bn
+} F(\Bx)
+=
+(-1)^{n-1} I
+\lr{ \lim_{\epsilon \rightarrow 0}
+\int_{\Norm{\Bx - \Bx'} = \epsilon} dA' \inv{S_n} \frac{ -\Bn }{ \epsilon^n} \Bn
+} F(\Bx)
+=
+(-1)^{n} I
+\lim_{\epsilon \rightarrow 0}
+\frac{F(\Bx)}{S_n \epsilon^{n-1}}
+\int_{\Norm{\Bx - \Bx'} = \epsilon} dA'
+=
+(-1)^{n} I
+\lim_{\epsilon \rightarrow 0}
+\frac{F(\Bx)}{S_n \epsilon^{n-1}}
+S_n \epsilon^{n-1}
+=
+(-1)^{n} I
+F(\Bx).
+\end{dmath}
+
+Rearranging for \( F \) provides the desired result
+%This is essentially a divergence integral without assuming that the gradient commutes with the Green's function in this infinitesimal region.  
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:280}
+F(\Bx) 
+= 
+(-1)^{n-1} \inv{I}
+\int_V G(\Bx,\Bx') \lr{ \spacegrad' d^n \Bx' F(\Bx') }
+= 
+\int_V dV' G(\Bx,\Bx') \lr{ \spacegrad' F(\Bx') }
+= 
+\int_V dV' G(\Bx,\Bx') M(\Bx').
+\end{dmath}
+
+%}

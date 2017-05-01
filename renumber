@@ -62,7 +62,10 @@
 #../latex/bin/lgrep boundary.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl boundary.tex
 
-../latex/bin/lgrep projectnotes.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl projectnotes.tex
-../latex/bin/lgrep ellipticalWaves.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl ellipticalWaves.tex
+#../latex/bin/lgrep projectnotes.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl projectnotes.tex
+#../latex/bin/lgrep ellipticalWaves.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl ellipticalWaves.tex
+
+../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
