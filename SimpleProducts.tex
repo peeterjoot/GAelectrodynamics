@@ -1,0 +1,110 @@
+\paragraph{Rules}
+
+For Euclidean vector spaces, spaces for which the length of a vector is always positive, the operational rules required for vector multiplication can be expressed in terms of the unit vectors for that space \( \setlr{ \Be_1, \Be_2, \cdots } \).  These rules are enough to give the reader some familiarity with the algebra and derive some important conquences
+
+\makerule{Square of a unit vector.}{rule:simple:square}{
+The square of a unit vector, such as \( \Be_1 \) is 1, a scalar.  Stated more generally
+
+\begin{equation*}
+\Be_i \Be_i = 1, \quad \forall i \in 1, 2, \cdots
+\end{equation*}
+}
+
+\makerule{Orthogonal unit vectors anticommute.}{rule:simple:anticommute}{
+The product of two orthognal unit vectors, such as \( \Be_2 \Be_1 \) anticommutes.  That is \( \Be_2 \Be_1 = - \Be_1 \Be_2 \).  Stated more generally
+\begin{equation*}
+\Be_i \Be_j = -\Be_j \Be_i, \quad \forall i \ne j \in 1, 2, \cdots
+\end{equation*}
+}
+
+In addition to these rules, one must assume that linear combinations of products of unit vectors are well formed, so that something such as \( M \) below, a \boldTextAndIndex{multivector}, is well formed
+
+\begin{equation}\label{eqn:SimpleProducts:20}
+M = \Be_3 \Be_3 + 2 \Be_1 \Be_2 \Be_1 + \Be_2 \Be_3 - 5 \Be_3 \Be_1 \Be_3 \Be_2 + \Be_4 \Be_1 \Be_4 \Be_2 \Be_3 + \Be_1 \Be_2 \Be_1 \Be_3 \Be_4 \Be_5.
+\end{equation}
+
+We must also assume that products of multivectors are distributive with respect to the chosen basis, and that vector products are associative with respect to multiplication.  These rules and assumptions could be used as the axioms of Geometric Algebra, but it will be desirable to express \ref{rule:simple:square} in a slightly more general form, a form that has \ref{rule:simple:anticommute} as a consequence.
+
+\paragraph{Irreducible products and grade}
+
+Using the rules above, some of the terms in the multivector \( M \) above can be simplified.  The first such simplification follows immediately, since by \ref{rule:simple:square}, that term is
+
+\begin{equation}\label{eqn:SimpleProducts:40}
+\Be_3 \Be_3 = 1,
+\end{equation}
+
+demonstrating that multivectors are allowed to contain \boldTextAndIndex{scalars}.  The scalar part of a multivector is said to have a \boldTextAndIndex{grade} of zero, or be of grade-0.  The second term can be reduced by grouping a pair of products and anticommutation
+
+\begin{dmath}\label{eqn:SimpleProducts:60}
+2 \Be_1 \Be_2 \Be_1
+=
+2 \Be_1 \lr{ \Be_2 \Be_1 }
+=
+2 \Be_1 \lr{ - \Be_1 \Be_2 }
+=
+-2 \Be_1 \Be_1 \Be_2
+=
+-2 \lr{ \Be_1 \Be_1 } \Be_2
+=
+-2 \Be_2,
+\end{dmath}
+
+which shows that multivectors are allowed to contain \boldTextAndIndex{vectors}.
+The next term \( \Be_2 \Be_3 \) cannot be reduced using any of the rules in the toolbox.  An irredicible product of two unit vectors will be referred to as a \boldTextAndIndex{bivector}, and will be said to have grade-2.  An interpretation of such a product will be required, but can be thought of for now as an oriented unit area, just as a vector can be thought of as an oriented line.  The next term, a scaled product of four unit vectors can be reduced by a similar process of grouping, anticommutation, and application of rule 1.
+
+\begin{dmath}\label{eqn:SimpleProducts:80}
+- 5 \Be_3 \Be_1 \Be_3 \Be_2
+=
+- 5 \lr{ \Be_3 \Be_1 } \Be_3 \Be_2
+=
++ 5 \lr{ \Be_1 \Be_3 } \Be_3 \Be_2
+=
++ 5 \Be_1 \lr{ \Be_3 \Be_3 } \Be_2
+=
++ 5 \Be_1 \Be_2.
+\end{dmath}
+
+There is freedom to write this as \( - 5 \Be_2 \Be_1 \) if desired, but regardless, it is a
+scaled irredicible product of two orthonormal vectors, so we say it has grade-2, and can call it a bivector like \( \Be_2 \Be_3 \) above.  The next product is also reducible
+
+\begin{dmath}\label{eqn:SimpleProducts:100}
+\Be_4 \Be_1 \Be_4 \Be_2 \Be_3
+=
+\lr{ \Be_4 \Be_1} \Be_4 \Be_2 \Be_3
+=
+-\lr{ \Be_1 \Be_4} \Be_4 \Be_2 \Be_3
+=
+- \Be_1 \lr{ \Be_4 \Be_4 } \Be_2 \Be_3
+=
+- \Be_1 \Be_2 \Be_3.
+\end{dmath}
+
+This could be written in other forms, such as \( \Be_2 \Be_1 \Be_3, \Be_1 \Be_3 \Be_2 \), or \( -\Be_3 \Be_1 \Be_2 \), but it is clearly a scaled irredicible product of three orthonormal vectors.  Such a product is said to have grade-3, and will be called a trivector.  This can be thought of as an oriented volume.
+
+Finally, it is simple to show that the final term of the multivector \( M \) above can be reduced to a scaled product of four orthonormal vectors \( \Be_1 \Be_2 \Be_1 \Be_3 \Be_4 \Be_5 = -\Be_2 \Be_3 \Be_4 \Be_5 \), and is said to have grade-4.  Having called grade-1, grade-2, and grade-3 multivectors components vectors, bivectors and trivectors, one might be inclined to refer to this as a four-vector.  Because four-vector has a specific meaning in physics no such lable will be used here.
+
+This shows that multivector above can be reduced to a much simpler form
+
+\begin{dmath}\label{eqn:SimpleProducts:120}
+M = 1 - 2 \Be_2  + \Be_2 \Be_3 + 5 \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3 -\Be_2 \Be_3 \Be_4 \Be_5.
+\end{dmath}
+
+The most fundamental operator in GA is that of grade selection.  By example, one writes
+
+\begin{dmath}\label{eqn:SimpleProducts:140}
+\begin{aligned}
+   \gpgrade{M}{0} &= 1 \\
+   \gpgradeone{M} &= - 2 \Be_2 \\
+   \gpgradetwo{M} &= \Be_2 \Be_3 + 5 \Be_1 \Be_2 \\
+   \gpgradethree{M} &= - \Be_1 \Be_2 \Be_3 \\
+   \gpgrade{M}{4} &= -\Be_2 \Be_3 \Be_4 \Be_5,
+\end{aligned}
+\end{dmath}
+
+and can then very generally state that a multivector can be expressed as the sum of all its grades, up to the dimension \( N \) of the underlying vector space
+
+\begin{dmath}\label{eqn:SimpleProducts:n}
+   M = \sum_{k = 0^N} \gpgrade{M}{k}.
+\end{dmath}
+
+Note that scalar (or grade-0) selection, due to its utility, is also given the special notation \( \gpgradezero{M} = \gpgrade{M}{0} \).

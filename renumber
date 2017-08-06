@@ -67,5 +67,8 @@
 #../latex/bin/lgrep ellipticalWaves.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl ellipticalWaves.tex
 
-../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
+#../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
+
+../latex/bin/lgrep SimpleProducts.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl SimpleProducts.tex
