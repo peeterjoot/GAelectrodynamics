@@ -188,7 +188,7 @@ y &\rightarrow x \sin\theta  + y \cos\theta \\
 \end{aligned}.
 \end{dmath}
 
-This 
+This
 rotation can also be encoded using a right multiplication with the ``conjugate'' complex exponential (\cref{problem:sandwichMult:1}).
 
 \begin{dmath}\label{eqn:SimpleProducts2:440}
@@ -218,7 +218,7 @@ Later, we will see that this latter half angle rotation operator will be the des
 
 The product of two 2D vectors is illustrative.  Let
 
-\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{dmath}\label{eqn:SimpleProducts2:500}
 \begin{aligned}
    \Bx &= x_1 \Be_1 + x_2 \Be_2 \\
    \By &= y_1 \Be_1 + y_2 \Be_2
@@ -226,7 +226,7 @@ The product of two 2D vectors is illustrative.  Let
 \end{dmath}
 
 and consider their product
-\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{dmath}\label{eqn:SimpleProducts2:520}
 \Bx \By
 =
 \lr{ x_1 \Be_1 + x_2 \Be_2 }
@@ -236,42 +236,82 @@ x_1 y_1 \Be_1 \Be_1 + x_2 y_1 \Be_2 \Be_1
 +
 x_1 y_2 \Be_1 \Be_2 + x_2 y_2 \Be_2 \Be_2
 =
-x_1 y_1 
+x_1 y_1
 - x_2 y_1 \Be_1 \Be_2
-+ x_1 y_2 \Be_1 \Be_2 
++ x_1 y_2 \Be_1 \Be_2
 + x_2 y_2
 =
 x_1 y_1 + x_2 y_2
 + \lr{ x_1 y_2 - x_2 y_1 } \Be_1 \Be_2.
 \end{dmath}
 
-The vector product has a scalar and a bivector component, where the scalar component is completely symmetric, whereas the bivector component is completely antisymmetric.  Observe that the scalar selection from the vector product is the dot product.  A name is required for the bivector (grade-2) selection from this product, and it is called the wedge product.  These are denoted
+The vector product has a scalar and a bivector component, where the scalar component is completely symmetric, whereas the bivector component is completely antisymmetric.  Observe that the scalar selection from the vector product is the dot product.  A name is required for the bivector (grade-2) selection from this product, and it is called the wedge product \( \Bx \wedge \By \), an operation that has to be examined in more depth.  With such a definition, the vector product can be written as
 
-\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{dmath}\label{eqn:SimpleProducts2:540}
 \Bx \By
 = \Bx \cdot \By + \Bx \wedge \By,
 \end{dmath}
 
 where
 
-\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{dmath}\label{eqn:SimpleProducts2:560}
 \begin{aligned}
-\Bx \cdot \By &= \gpgradezero{\Bx\By} = x_1 y_1 + x_2 y_2 \\
-\Bx \wedge \By &= \gpgradetwo{\Bx\By} = \lr{ x_1 y_2 - x_2 y_1 } \Be_1 \Be_2. \\
+\Bx \cdot \By &\equiv \gpgradezero{\Bx\By} = x_1 y_1 + x_2 y_2 \\
+\Bx \wedge \By &\equiv \gpgradetwo{\Bx\By} =
+\begin{vmatrix}
+   x_1 & x_2 \\
+   y_1 & y_2
+\end{vmatrix}
+   \Be_1 \Be_2. \\
 \end{aligned}
 \end{dmath}
 
 Because the wedge product is completely antisymmetric, it must be true that
 
-\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{dmath}\label{eqn:SimpleProducts2:580}
 \By \wedge \Bx = -\Bx \wedge \By,
 \end{dmath}
 
 so
-\begin{dmath}\label{eqn:SimpleProducts2:n}
-\By \Bx 
+\begin{dmath}\label{eqn:SimpleProducts2:600}
+\By \Bx
 = \By \cdot \Bx + \By \wedge \Bx
 = \Bx \cdot \By - \Bx \wedge \By.
 \end{dmath}
 
+Taken together \cref{eqn:SimpleProducts2:540} and \cref{eqn:SimpleProducts2:600} allow for a construction of a coordinate free form of both the dot and wedge products
 
+\begin{dmath}\label{eqn:SimpleProducts2:620}
+\begin{aligned}
+\Bx \cdot \By   &= \inv{2}\lr{ \Bx \By + \By \Bx } \\
+\Bx \wedge \By  &= \inv{2}\lr{ \Bx \By - \By \Bx }.
+\end{aligned}
+\end{dmath}
+
+These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.  Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.  Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way.
+%Some authors will define vector product in terms
+
+\paragraph{Area}
+
+It was previously claimed that the pseudoscalar \( \Be_1 \Be_2 \) could be interpretted as an oriented (signed) area.  Because \( \Be_1 \cdot \Be_2 = 0 \), this vector product is also equal to the wedge
+
+\begin{dmath}\label{eqn:SimpleProducts2:640}
+\Be_1 \Be_2 = \Be_1 \cdot \Be_2 +
+\Be_1 \wedge \Be_2
+=
+\Be_1 \wedge \Be_2.
+\end{dmath}
+
+Recall that the area of the parallopiped spanned by two vectors in a two dimensional space is given by the absolute value of
+
+\begin{dmath}\label{eqn:SimpleProducts2:660}
+\begin{vmatrix}
+   x_1 & x_2 \\
+   y_1 & y_2
+\end{vmatrix},
+\end{dmath}
+
+a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).  It is therefore natural to interpret the wedge product as an oriented area.
+Without reference to a generating pair of vectors, a general bivector will be represented as an oriented area, where the orientation is depicted using a loop, as in
+FIXME:figure.
+In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.  The wedge product will be seen to encode that orientation without introducing a normal direction for spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
