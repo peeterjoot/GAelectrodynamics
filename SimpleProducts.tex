@@ -1,5 +1,4 @@
-%\paragraph{Rules}
-
+\subsection{Rules}
 For Euclidean vector spaces, spaces for which the length of a vector is always positive, the operational rules required for vector multiplication can be expressed in terms of the unit vectors for that space \( \setlr{ \Be_1, \Be_2, \cdots } \).  These rules are enough to give the reader some familiarity with the algebra and derive some important conquences
 
 \makerule{Square of a unit vector.}{rule:simple:square}{
@@ -25,7 +24,7 @@ M = \Be_3 \Be_3 + 2 \Be_1 \Be_2 \Be_1 + \Be_2 \Be_3 - 5 \Be_3 \Be_1 \Be_3 \Be_2 
 
 We must also assume that products of multivectors are distributive with respect to the chosen basis, and that vector products are associative with respect to multiplication.  These rules and assumptions could be used as the axioms of Geometric Algebra, but it will be desirable to express \ref{rule:simple:square} in a slightly more general form, a form that has \ref{rule:simple:anticommute} as a consequence.
 
-\paragraph{Irreducible products and grade}
+\subsection{Irreducible products and grade}
 
 Using the rules above, some of the terms in the multivector \( M \) above can be simplified.  The first such simplification follows immediately, since by \ref{rule:simple:square}, that term is
 
@@ -109,121 +108,3 @@ and can then very generally state that a multivector can be expressed as the sum
 
 Note that scalar (or grade-0) selection, due to its utility, is also given the special notation \( \gpgradezero{M} = \gpgrade{M}{0} \).
 
-\section{Two dimensions}
-
-\paragraph{Multiplication table}
-
-In a 2D space most of the interesting vector products involve the unit bivector \( \Be_1 \Be_2 \).  A product of a spanning set of normal vectors for a space (or subspace) is called a pseudoscalar for that space (or subspace).  The particular pseudoscalar \( \Be_1 \Be_2 \) will be labelled \textbf{the pseudoscalar}.  Computation shows that multiplication with the pseudoscalar anticommutes with the 2D basis vectors
-
-\begin{dmath}\label{eqn:SimpleProducts:180}
-\begin{aligned}
-   \Be_1 \lr{ \Be_1 \Be_2 } &= \lr{ \Be_1 \Be_1 } \Be_2 = \Be_2 \\
-   \lr{ \Be_1 \Be_2 } \Be_1 &= -\lr{ \Be_2 \Be_1 } \Be_1 = -\Be_2 \\
-\end{aligned}
-\end{dmath}
-
-\begin{dmath}\label{eqn:SimpleProducts:200}
-\begin{aligned}
-   \Be_2 \lr{ \Be_1 \Be_2 } &= \lr{ -\Be_1 \Be_2 } \Be_2 = -\Be_1 \\
-   \lr{ \Be_1 \Be_2 } \Be_2 &= \Be_1 \lr{ \Be_2 \Be_2 } l= \Be_1 \\
-\end{aligned}
-\end{dmath}
-
-Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space.  Such a multiplication induces a 90 degree rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.  A hint of the rotational nature of such a product can be gleamed by computing the square of the 2D pseudoscalar
-
-\begin{dmath}\label{eqn:SimpleProducts:220}
-   \lr{ \Be_1 \Be_2 }^2
-   =
-   \Be_1 \Be_2
-   \Be_1 \Be_2
-   =
-   \Be_1 \lr{ \Be_2
-   \Be_1 } \Be_2
-   =
-   \Be_1 \lr{ -\Be_1
-   \Be_2 } \Be_2
-   =
-   -\lr{ \Be_1 \Be_1 }
-   \lr{ \Be_2 \Be_2 }
-   = -1.
-\end{dmath}
-
-This unit bivector is seen to square to minus one like the imaginary in complex algebra.  The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
-This is a very convienient fact, and allows ad-hoc construction of complex number like coordinate systems in any given planar subspace.
-
-The products above are summarized in \cref{tab:SimpleProducts:10}.
-FIXME: make prettier and center.  
-% https://tex.stackexchange.com/a/135421/15
-% https://tex.stackexchange.com/a/298109/15
-% https://tex.stackexchange.com/a/112359/15
-
-\captionedTable{2D Multiplication table.}{tab:SimpleProducts:10}{
-\begin{tabular}{|l||l|l|l|l|}
-\hline
-&
-\( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\
-\hline
-\( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\
-\hline
-\( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\
-\hline
-\( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\
-\hline
-\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\
-\hline
-\end{tabular}
-}
-
-\paragraph{Computing the normal 2D}
-
-Given a coordinate representation of an arbitrary vector in a 2D space
-
-\begin{dmath}\label{eqn:SimpleProducts:240}
-   \Bx = \rho
-\begin{bmatrix}
-   \cos\theta \\
-   \sin\theta \\
-\end{bmatrix},
-\end{dmath}
-
-after counterclockwise rotation by \( \pi/2 \), the rotated coordinates are
-
-\begin{dmath}\label{eqn:SimpleProducts:260}
-\Bx'
-=
-\begin{bmatrix}
-   0 & -1 \\
-   1 & 0 \\
-\end{bmatrix}
-\begin{bmatrix}
-   \cos\theta \\
-   \sin\theta \\
-\end{bmatrix}
-=
-\rho
-\begin{bmatrix}
-   -\sin\theta \\
-   \cos\theta
-\end{bmatrix}.
-\end{dmath}
-
-Expressing this vector in terms of the standard basis
-
-\begin{dmath}\label{eqn:SimpleProducts:280}
-   \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
-\end{dmath}
-
-the same rotation can be observed by right multiplication by the pseudoscalar.
-
-\begin{dmath}\label{eqn:SimpleProducts:300}
-\Bx'
-= \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
-= \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta }.
-\end{dmath}
-
-FIXME: illustration.
-
-It is left to the reader to show that left pseudoscalar multiplication induces a clockwise rotation.
-\input{left2dimaginarymultiplication.tex}
-
-Just as the imaginary rotates complex numbers, the 2D pseudoscalar rotates vectors, with the cavaet that one must be careful about the order that this multiplication is performed.

@@ -1,0 +1,206 @@
+%\section{Two dimensions}
+
+\paragraph{Multiplication table}
+
+In a 2D space most of the interesting vector products involve the unit bivector \( \Be_1 \Be_2 \).  A product of a spanning set of normal vectors for a space (or subspace) is called a pseudoscalar for that space (or subspace).  The particular pseudoscalar \( \Be_1 \Be_2 \) will be labelled \textbf{the pseudoscalar}.  Computation shows that multiplication with the pseudoscalar anticommutes with the 2D basis vectors
+
+\begin{dmath}\label{eqn:SimpleProducts2:180}
+\begin{aligned}
+   \Be_1 \lr{ \Be_1 \Be_2 } &= \lr{ \Be_1 \Be_1 } \Be_2 = \Be_2 \\
+   \lr{ \Be_1 \Be_2 } \Be_1 &= -\lr{ \Be_2 \Be_1 } \Be_1 = -\Be_2 \\
+\end{aligned}
+\end{dmath}
+
+\begin{dmath}\label{eqn:SimpleProducts2:200}
+\begin{aligned}
+   \Be_2 \lr{ \Be_1 \Be_2 } &= \lr{ -\Be_1 \Be_2 } \Be_2 = -\Be_1 \\
+   \lr{ \Be_1 \Be_2 } \Be_2 &= \Be_1 \lr{ \Be_2 \Be_2 } l= \Be_1 \\
+\end{aligned}
+\end{dmath}
+
+Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space.  Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.  A hint of the rotational nature of such a product can be gleamed by computing the square of the 2D pseudoscalar
+
+\begin{dmath}\label{eqn:SimpleProducts2:220}
+   \lr{ \Be_1 \Be_2 }^2
+   =
+   \Be_1 \Be_2
+   \Be_1 \Be_2
+   =
+   \Be_1 \lr{ \Be_2
+   \Be_1 } \Be_2
+   =
+   \Be_1 \lr{ -\Be_1
+   \Be_2 } \Be_2
+   =
+   -\lr{ \Be_1 \Be_1 }
+   \lr{ \Be_2 \Be_2 }
+   = -1.
+\end{dmath}
+
+This unit bivector is seen to square to minus one like the imaginary in complex algebra.  The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
+This is a very convienient fact, and allows ad-hoc construction of complex number like coordinate systems in any given planar subspace.
+
+The products above are summarized in \cref{tab:SimpleProducts2:10}.
+FIXME: make prettier and center.
+% https://tex.stackexchange.com/a/135421/15
+% https://tex.stackexchange.com/a/298109/15
+% https://tex.stackexchange.com/a/112359/15
+
+\captionedTable{2D Multiplication table.}{tab:SimpleProducts2:10}{
+\begin{tabular}{|l||l|l|l|l|}
+\hline
+&
+\( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\
+\hline
+\( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\
+\hline
+\( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\
+\hline
+\( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\
+\hline
+\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\
+\hline
+\end{tabular}
+}
+
+\paragraph{Computing the normal 2D}
+
+Given a coordinate representation of an arbitrary vector in a 2D space
+
+\begin{dmath}\label{eqn:SimpleProducts2:240}
+   \Bx = \rho
+\begin{bmatrix}
+   \cos\theta \\
+   \sin\theta \\
+\end{bmatrix},
+\end{dmath}
+
+after counterclockwise rotation by \( \pi/2 \), the rotated coordinates are
+
+\begin{dmath}\label{eqn:SimpleProducts2:260}
+\Bx'
+=
+\begin{bmatrix}
+   0 & -1 \\
+   1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+   \cos\theta \\
+   \sin\theta \\
+\end{bmatrix}
+=
+\rho
+\begin{bmatrix}
+   -\sin\theta \\
+   \cos\theta
+\end{bmatrix}.
+\end{dmath}
+
+Expressing this vector in terms of the standard basis
+
+\begin{dmath}\label{eqn:SimpleProducts2:280}
+   \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
+\end{dmath}
+
+the same rotation can be observed by right multiplication by the pseudoscalar.
+
+\begin{dmath}\label{eqn:SimpleProducts2:300}
+\Bx'
+= \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
+= \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta }.
+\end{dmath}
+
+FIXME: illustration.
+
+It is left to the reader to show that left pseudoscalar multiplication induces a clockwise rotation.
+\input{left2dimaginarymultiplication.tex}
+
+Just as the imaginary rotates complex numbers, the 2D pseudoscalar rotates vectors, with the cavaet that one must be careful about the order that this multiplication is performed.
+
+\paragraph{Complex numbers and rotations}
+
+The 2D pseudoscalar has been seen to have the characteristics of the complex imaginary.  This analogy can be extended to an isomorphism as the multivector
+
+\begin{dmath}\label{eqn:SimpleProducts2:320}
+z = x + \Be_1 \Be_2 y,
+\end{dmath}
+
+has all the desired behaviour of a complex number, which is obvious if one just introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar.
+
+Of particular interest is the complex exponential \( e^{i \theta} \).  Because \( i \) commutes with itself and any scalars Euler's formula
+
+\begin{dmath}\label{eqn:SimpleProducts2:340}
+e^{i \theta} = \cos\theta + i \sin\theta,
+\end{dmath}
+
+applies equally well with this GA representation of complex numbers.  Having seen that right multiplication of vectors with with the pseudoscalar \( i \) had the effect of inducing a \( \pi/2 \) counterclockwise rotation, it is reasonable to expect that this form of complex exponential will generally rotate a 2D vector.  With
+
+\begin{dmath}\label{eqn:SimpleProducts2:360}
+\Bx
+= x \Be_1 + y \Be_2,
+\end{dmath}
+
+multiplication with \( e^{i\theta} \) gives
+
+\begin{dmath}\label{eqn:SimpleProducts2:380}
+\Bx'
+= \lr{ x \Be_1 + y \Be_2 } e^{i\theta}
+= \lr{ x \Be_1 + y \Be_2 } \lr{ \cos\theta + i \sin\theta }
+= \lr{ x \Be_1 + y \Be_2 } \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
+=
+x \cos\theta \Be_1
++
+x \sin\theta \Be_2
++
+y \cos\theta \Be_2
+-
+y \sin\theta \Be_1
+=
+\lr{ x \cos\theta - y \sin\theta } \Be_1
++
+\lr{ x \sin\theta + y \sin\theta } \Be_2.
+\end{dmath}
+
+Observe that this matches the rotation by \( \theta \) of the coordinates
+
+\begin{dmath}\label{eqn:SimpleProducts2:400}
+\begin{bmatrix}
+   \cos\theta & - \sin\theta \\
+   \sin\theta &   \cos\theta \\
+\end{bmatrix}
+\begin{bmatrix}
+   x \\
+   y
+\end{bmatrix}
+=
+\begin{bmatrix}
+   x \cos\theta  - y \sin\theta \\
+   x \sin\theta  + y \cos\theta \\
+\end{bmatrix},
+\end{dmath}
+
+with both transformations inducing a transformation
+
+\begin{dmath}\label{eqn:SimpleProducts2:420}
+\begin{aligned}
+x &\rightarrow x \cos\theta  - y \sin\theta \\
+y &\rightarrow x \sin\theta  + y \cos\theta \\
+\end{aligned}.
+\end{dmath}
+
+The reader should confirm that this rotation can also be encoded using a right multiplication with the ``conjugate'' complex exponential
+
+\begin{dmath}\label{eqn:SimpleProducts2:440}
+\Bx'
+= e^{-i\theta} \lr{ x \Be_1 + y \Be_2 }.
+\end{dmath}
+
+It is also possible to encode this rotation in a half angle ``sandwich'' form that may be familiar to students of quaterions or of quantum mechanics
+
+\begin{dmath}\label{eqn:SimpleProducts2:460}
+\Bx'
+= e^{-i\theta/2} \lr{ x \Be_1 + y \Be_2 } e^{i \theta/2}.
+\end{dmath}
+
+Later, we will see that this latter half angle rotation operator will be the desired form of a general rotation in \R{N}.
+
