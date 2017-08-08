@@ -72,3 +72,6 @@
 
 ../latex/bin/lgrep SimpleProducts.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl SimpleProducts.tex
+
+../latex/bin/lgrep left2dimaginarymultiplication.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl left2dimaginarymultiplication.tex

@@ -1,0 +1,37 @@
+\makeproblem{2D left pseudoscalar multiplication}{problem:left2dimaginarymultiplication:1}{
+
+Compute the coordinate representation of an arbitrary 2D vector, and its clockwise rotation, and show that left multiplication by the 2D pseudoscalar produces the same result.
+} % problem
+
+\makeanswer{problem:left2dimaginarymultiplication:1}{
+
+   The rotated coordinate vector is
+\begin{dmath}\label{eqn:left2dimaginarymultiplication:20}
+\Bx'
+=
+\begin{bmatrix}
+   0 & 1 \\
+   -1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+   \cos\theta \\
+   \sin\theta \\
+\end{bmatrix}
+=
+\rho
+\begin{bmatrix}
+   \sin\theta \\
+   -\cos\theta
+\end{bmatrix}.
+\end{dmath}
+
+This
+compares identically to left pseudoscalar product with the standard basis representation of the same vector
+
+\begin{dmath}\label{eqn:left2dimaginarymultiplication:40}
+\Bx'
+= \Be_1 \Be_2 \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
+= \rho \lr{ -\Be_2 \cos\theta + \Be_1 \sin\theta },
+\end{dmath}
+
+} % answer
