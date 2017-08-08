@@ -112,7 +112,8 @@ the same rotation can be observed by right multiplication by the pseudoscalar.
 
 FIXME: illustration.
 
-It is left to \cref{left2dimaginarymultiplication.tex} to show that left pseudoscalar multiplication induces a clockwise rotation.
+A similar left pseudoscalar multiplication induces a clockwise rotation.
+(\cref{problem:left2dimaginarymultiplication:1}).
 
 Just as the imaginary rotates complex numbers, the 2D pseudoscalar rotates vectors, with the cavaet that one must be careful about the order that this multiplication is performed.
 
@@ -187,7 +188,8 @@ y &\rightarrow x \sin\theta  + y \cos\theta \\
 \end{aligned}.
 \end{dmath}
 
-It is left to \cref{problem:sandwichMult:1} to confirm that this rotation can also be encoded using a right multiplication with the ``conjugate'' complex exponential
+This 
+rotation can also be encoded using a right multiplication with the ``conjugate'' complex exponential (\cref{problem:sandwichMult:1}).
 
 \begin{dmath}\label{eqn:SimpleProducts2:440}
 \Bx'
@@ -201,16 +203,75 @@ It is also possible to encode this rotation in a half angle ``sandwich'' form th
 = e^{-i\theta/2} \lr{ x \Be_1 + y \Be_2 } e^{i \theta/2}.
 \end{dmath}
 
-This follows from the fact that this complex exponential exhibits conjugate commutation behaviour
+This follows from the fact that this complex exponential exhibits conjugate commutation behaviour (\cref{problem:sandwichMult:1})
 
 \begin{dmath}\label{eqn:SimpleProducts2:480}
 \begin{aligned}
    \Be_1 e^{i\theta} &= e^{-i\theta} \Be_1 \\
    \Be_2 e^{i\theta} &= e^{-i\theta} \Be_2 \\
+\end{aligned}.
+\end{dmath}
+
+Later, we will see that this latter half angle rotation operator will be the desired form of a general rotation in \R{N}.  This generalized rotational structure that follows that such a complex exponential commutes with any vectors that lie outside of the plane (\cref{problem:normalMult:1}).
+
+\paragraph{Vector product.}
+
+The product of two 2D vectors is illustrative.  Let
+
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{aligned}
+   \Bx &= x_1 \Be_1 + x_2 \Be_2 \\
+   \By &= y_1 \Be_1 + y_2 \Be_2
+\end{aligned},
+\end{dmath}
+
+and consider their product
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\Bx \By
+=
+\lr{ x_1 \Be_1 + x_2 \Be_2 }
+\lr{ y_1 \Be_1 + y_2 \Be_2 }
+=
+x_1 y_1 \Be_1 \Be_1 + x_2 y_1 \Be_2 \Be_1
++
+x_1 y_2 \Be_1 \Be_2 + x_2 y_2 \Be_2 \Be_2
+=
+x_1 y_1 
+- x_2 y_1 \Be_1 \Be_2
++ x_1 y_2 \Be_1 \Be_2 
++ x_2 y_2
+=
+x_1 y_1 + x_2 y_2
++ \lr{ x_1 y_2 - x_2 y_1 } \Be_1 \Be_2.
+\end{dmath}
+
+The vector product has a scalar and a bivector component, where the scalar component is completely symmetric, whereas the bivector component is completely antisymmetric.  Observe that the scalar selection from the vector product is the dot product.  A name is required for the bivector (grade-2) selection from this product, and it is called the wedge product.  These are denoted
+
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\Bx \By
+= \Bx \cdot \By + \Bx \wedge \By,
+\end{dmath}
+
+where
+
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{aligned}
+\Bx \cdot \By &= \gpgradezero{\Bx\By} = x_1 y_1 + x_2 y_2 \\
+\Bx \wedge \By &= \gpgradetwo{\Bx\By} = \lr{ x_1 y_2 - x_2 y_1 } \Be_1 \Be_2. \\
 \end{aligned}
 \end{dmath}
 
-The student should demonstrate to themselves that this is the case.
+Because the wedge product is completely antisymmetric, it must be true that
 
-Later, we will see that this latter half angle rotation operator will be the desired form of a general rotation in \R{N}.  This generalized rotational structure that follows that such a complex exponential commutes with any vectors that lie outside of the plane.
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\By \wedge \Bx = -\Bx \wedge \By,
+\end{dmath}
+
+so
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\By \Bx 
+= \By \cdot \Bx + \By \wedge \Bx
+= \Bx \cdot \By - \Bx \wedge \By.
+\end{dmath}
+
 

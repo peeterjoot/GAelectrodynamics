@@ -1,0 +1,23 @@
+\makeproblem{Normal multiplication with complex exponential.}{problem:normalMult:1}{
+Show that any component of a vector normal to the x-y plane commutes with the complex exponential rotation operator for that plane.
+} % problem
+
+\makeanswer{problem:normalMult:1}{
+This can be demonstrated by considering any vector \( \Be_k \), \( k \ne 1,2 \), such as \( \Be_3 \)
+
+\begin{dmath}\label{eqn:normalMult:20}
+\Be_3 e^{i\theta}
+=
+\Be_3 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
+=
+\Be_3 \cos\theta + \Be_3 \Be_1 \Be_2 \sin\theta
+=
+\Be_3 \cos\theta - \Be_1 \Be_3 \Be_2 \sin\theta
+=
+\Be_3 \cos\theta + \Be_1 \Be_2 \Be_3 \sin\theta
+=
+\lr{ \cos\theta + \Be_1 \Be_2 \sin\theta  } \Be_3
+=
+e^{i\theta} \Be_3.
+\end{dmath}
+} % answer

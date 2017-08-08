@@ -84,3 +84,6 @@ perl -p -i ../latex/bin/latexRegex.pl rightComplexMult.tex
 
 ../latex/bin/lgrep sandwichMult.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl sandwichMult.tex
+
+../latex/bin/lgrep normalMult.tex   | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl normalMult.tex  
