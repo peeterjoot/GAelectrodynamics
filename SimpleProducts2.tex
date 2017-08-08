@@ -119,13 +119,13 @@ Just as the imaginary rotates complex numbers, the 2D pseudoscalar rotates vecto
 
 \paragraph{Complex numbers and rotations}
 
-The 2D pseudoscalar has been seen to have the characteristics of the complex imaginary.  This analogy can be extended to an isomorphism as the multivector
+The 2D pseudoscalar has been seen to have the characteristics of the complex imaginary.  This analogy can be extended by noting that the following multivector
 
 \begin{dmath}\label{eqn:SimpleProducts2:320}
 z = x + \Be_1 \Be_2 y,
 \end{dmath}
 
-has all the desired behaviour of a complex number, which is obvious if one just introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar.
+provides an isomorphic representation of a complex number.  This can be made obvious by introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar, since it has the desired characteristics of the imaginary.  
 
 Of particular interest is the complex exponential \( e^{i \theta} \).  Because \( i \) commutes with itself and any scalars Euler's formula
 
@@ -247,10 +247,12 @@ x_1 y_1 + x_2 y_2
 
 The vector product has a scalar and a bivector component, where the scalar component is completely symmetric, whereas the bivector component is completely antisymmetric.  Observe that the scalar selection from the vector product is the dot product.  A name is required for the bivector (grade-2) selection from this product, and it is called the wedge product \( \Bx \wedge \By \), an operation that has to be examined in more depth.  With such a definition, the vector product can be written as
 
-\begin{dmath}\label{eqn:SimpleProducts2:540}
+%\begin{dmath}\label{eqn:SimpleProducts2:540}
+\boxedEquation{eqn:SimpleProducts2:540}{
 \Bx \By
 = \Bx \cdot \By + \Bx \wedge \By,
-\end{dmath}
+}
+%\end{dmath}
 
 where
 
@@ -288,8 +290,7 @@ Taken together \cref{eqn:SimpleProducts2:540} and \cref{eqn:SimpleProducts2:600}
 \end{aligned}
 \end{dmath}
 
-These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.  Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.  Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way.
-%Some authors will define vector product in terms
+These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.  Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.  Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way, and also allows for the generalization of the dot and wedge products with higher order geometric structures to be discussed.
 
 \paragraph{Area}
 
@@ -314,4 +315,9 @@ Recall that the area of the parallopiped spanned by two vectors in a two dimensi
 a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).  It is therefore natural to interpret the wedge product as an oriented area.
 Without reference to a generating pair of vectors, a general bivector will be represented as an oriented area, where the orientation is depicted using a loop, as in
 FIXME:figure.
-In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.  The wedge product will be seen to encode that orientation without introducing a normal direction for spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
+In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.  The wedge product will be seen to encode that orientation without introducing a normal direction for the spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
+
+\paragraph{Projection and rejection}
+
+FIXME: cartesian
+FIXME: polar
