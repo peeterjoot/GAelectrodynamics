@@ -1,0 +1,27 @@
+\makeproblem{Right complex exponential multiplication}{problem:rightComplexMult:1}{
+
+Show that the following product encodes a counterclockwise rotation by \( \theta \)
+\begin{equation*}
+\Bx'
+= e^{-i\theta} \lr{ x \Be_1 + y \Be_2 }.
+\end{equation*}
+} % problem
+
+\makeanswer{problem:rightComplexMult:1}{
+\begin{dmath}\label{eqn:rightComplexMult:20}
+\Bx'
+= e^{-i\theta} \lr{ x \Be_1 + y \Be_2 }
+= \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } \lr{ x \Be_1 + y \Be_2 }
+=
+x \cos\theta \Be_1
+- x \sin\theta \Be_2
++ y \cos\theta \Be_2
++ y \sin\theta \Be_1
+=
+\lr{ x \cos\theta
++ y \sin\theta } \Be_1
++ \lr{
+- x \sin\theta
++ y \cos\theta } \Be_2
+\end{dmath}
+} % answer

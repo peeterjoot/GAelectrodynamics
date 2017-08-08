@@ -1,0 +1,31 @@
+\makeproblem{Exponential commutation in a plane}{problem:sandwichMult:1}{
+Prove \cref{eqn:SimpleProducts2:480}.
+} % problem
+
+\makeanswer{problem:sandwichMult:1}{
+\begin{dmath}\label{eqn:sandwichMult:20}
+\Be_1 e^{i\theta}
+=
+\Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
+=
+\Be_1 \cos\theta + \Be_2 \sin\theta
+=
+\lr{ \cos\theta + \Be_2 \Be_1 \sin\theta } \Be_1
+=
+\lr{ \cos\theta - \Be_1 \Be_2 \sin\theta } \Be_1
+=
+e^{-i\theta} \Be_1.
+\end{dmath}
+
+\begin{dmath}\label{eqn:sandwichMult:40}
+\Be_2 e^{i\theta}
+=
+\Be_2 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
+=
+\Be_2 \cos\theta - \Be_1 \sin\theta
+=
+\lr{ \cos\theta - \Be_1 \Be_2 \sin\theta } \Be_2
+=
+e^{-i\theta} \Be_2.
+\end{dmath}
+} % answer
