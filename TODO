@@ -34,3 +34,8 @@
 
 - incorporate Mauro's potential_v2 which was nicely done.
 
+- Use \Norm for norm instead of \Abs
+
+- fixmes:
+
+grep -ni fixme *.tex
