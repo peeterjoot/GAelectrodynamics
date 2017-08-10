@@ -18,7 +18,19 @@ In a 2D space most of the interesting vector products involve the unit bivector 
 \end{aligned}
 \end{dmath}
 
-Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space.  Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.  A hint of the rotational nature of such a product can be gleamed by computing the square of the 2D pseudoscalar
+Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space, as illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
+\imageThreeFiguresOneLine
+{../figures/GAelectrodynamics/rotationOfe1Fig1}
+{../figures/GAelectrodynamics/rotationOfe2Fig1}
+{../figures/GAelectrodynamics/rotationOfVFig1}
+{Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.3}
+%\cref{fig:rotationOfe1:rotationOfe1Fig1}.
+%\imageFigure{../figures/GAelectrodynamics/rotationOfe1Fig1}{CAPTION: rotationOfe1Fig1}{fig:rotationOfe1:rotationOfe1Fig1}{0.3}
+%\cref{fig:rotationOfe2:rotationOfe2Fig1}.
+%\imageFigure{../figures/GAelectrodynamics/rotationOfe2Fig1}{CAPTION: rotationOfe2Fig1}{fig:rotationOfe2:rotationOfe2Fig1}{0.3}
+%\cref{fig:rotationOfV:rotationOfVFig1}.
+%\imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{CAPTION: rotationOfVFig1}{fig:rotationOfV:rotationOfVFig1}{0.3}
+Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.  A hint of the rotational nature of such a product can be gleamed by computing the square of the 2D pseudoscalar
 
 \begin{dmath}\label{eqn:SimpleProducts2:220}
    \lr{ \Be_1 \Be_2 }^2
@@ -283,12 +295,14 @@ so
 
 Taken together \cref{eqn:SimpleProducts2:540} and \cref{eqn:SimpleProducts2:600} allow for a construction of a coordinate free form of both the dot and wedge products
 
-\begin{dmath}\label{eqn:SimpleProducts2:620}
+%\begin{dmath}\label{eqn:SimpleProducts2:620}
+\boxedEquation{eqn:SimpleProducts2:620}{
 \begin{aligned}
 \Bx \cdot \By   &= \inv{2}\lr{ \Bx \By + \By \Bx } \\
 \Bx \wedge \By  &= \inv{2}\lr{ \Bx \By - \By \Bx }.
 \end{aligned}
-\end{dmath}
+}
+%\end{dmath}
 
 These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.  Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.  Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way, and also allows for the generalization of the dot and wedge products with higher order geometric structures to be discussed.
 
@@ -312,9 +326,10 @@ Recall that the area of the parallopiped spanned by two vectors in a two dimensi
 \end{vmatrix},
 \end{dmath}
 
-a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).  It is therefore natural to interpret the wedge product as an oriented area.
+a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).  It is therefore natural to interpret the wedge product as an oriented area.  In \cref{fig:orientedParallelogram:orientedParallelogramFig1} are examples of the wedge product oriented area interpretation.
+\imageFigure{../figures/GAelectrodynamics/orientedParallelogramFig1}{Oriented area interpretation of \( \Bv_1 \wedge \Bv_2 \) and \( \Bv_2 \wedge \Bv_1 \).}{fig:orientedParallelogram:orientedParallelogramFig1}{0.3}
 Without reference to a generating pair of vectors, a general bivector will be represented as an oriented area, where the orientation is depicted using a loop, as in
-FIXME:figure.
+%FIXME:figure.
 In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.  The wedge product will be seen to encode that orientation without introducing a normal direction for the spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
 
 \paragraph{Projection and rejection}
