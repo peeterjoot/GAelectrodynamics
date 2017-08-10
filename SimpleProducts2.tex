@@ -14,22 +14,19 @@ In a 2D space most of the interesting vector products involve the unit bivector 
 \begin{dmath}\label{eqn:SimpleProducts2:200}
 \begin{aligned}
    \Be_2 \lr{ \Be_1 \Be_2 } &= \lr{ -\Be_1 \Be_2 } \Be_2 = -\Be_1 \\
-   \lr{ \Be_1 \Be_2 } \Be_2 &= \Be_1 \lr{ \Be_2 \Be_2 } l= \Be_1 \\
+   \lr{ \Be_1 \Be_2 } \Be_2 &= \Be_1 \lr{ \Be_2 \Be_2 } = \Be_1 \\
 \end{aligned}
 \end{dmath}
 
 Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space, as illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
-\imageThreeFiguresOneLine
+\imageTwoFigures
 {../figures/GAelectrodynamics/rotationOfe1Fig1}
 {../figures/GAelectrodynamics/rotationOfe2Fig1}
-{../figures/GAelectrodynamics/rotationOfVFig1}
-{Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.3}
+{Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.5}
 %\cref{fig:rotationOfe1:rotationOfe1Fig1}.
 %\imageFigure{../figures/GAelectrodynamics/rotationOfe1Fig1}{CAPTION: rotationOfe1Fig1}{fig:rotationOfe1:rotationOfe1Fig1}{0.3}
 %\cref{fig:rotationOfe2:rotationOfe2Fig1}.
 %\imageFigure{../figures/GAelectrodynamics/rotationOfe2Fig1}{CAPTION: rotationOfe2Fig1}{fig:rotationOfe2:rotationOfe2Fig1}{0.3}
-%\cref{fig:rotationOfV:rotationOfVFig1}.
-%\imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{CAPTION: rotationOfVFig1}{fig:rotationOfV:rotationOfVFig1}{0.3}
 Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.  A hint of the rotational nature of such a product can be gleamed by computing the square of the 2D pseudoscalar
 
 \begin{dmath}\label{eqn:SimpleProducts2:220}
@@ -122,7 +119,8 @@ the same rotation can be observed by right multiplication by the pseudoscalar.
 = \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta }.
 \end{dmath}
 
-FIXME: illustration.
+This is illustrated in \cref{fig:rotationOfV:rotationOfVFig1}.
+\imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{\( \pi/2\) rotation using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}
 
 A similar left pseudoscalar multiplication induces a clockwise rotation.
 (\cref{problem:left2dimaginarymultiplication:1}).
@@ -137,7 +135,7 @@ The 2D pseudoscalar has been seen to have the characteristics of the complex ima
 z = x + \Be_1 \Be_2 y,
 \end{dmath}
 
-provides an isomorphic representation of a complex number.  This can be made obvious by introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar, since it has the desired characteristics of the imaginary.  
+provides an isomorphic representation of a complex number.  This can be made obvious by introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar, since it has the desired characteristics of the imaginary.
 
 Of particular interest is the complex exponential \( e^{i \theta} \).  Because \( i \) commutes with itself and any scalars Euler's formula
 
@@ -191,7 +189,8 @@ Observe that this matches the rotation by \( \theta \) of the coordinates
 \end{bmatrix},
 \end{dmath}
 
-with both transformations inducing a transformation
+with both transformations inducing a general rotation transformation, illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
+\imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
 
 \begin{dmath}\label{eqn:SimpleProducts2:420}
 \begin{aligned}
@@ -200,22 +199,16 @@ y &\rightarrow x \sin\theta  + y \cos\theta \\
 \end{aligned}.
 \end{dmath}
 
-This
-rotation can also be encoded using a right multiplication with the ``conjugate'' complex exponential (\cref{problem:sandwichMult:1}).
+\Cref{problem:sandwichMult:1}, and \cref{problem:sandwichMult:1} will demonstrate that this rotation can be expressed in a number of equivalent forms, with left multiplication by the complex exponential, right multiplication by the ``conjucate'' complex exponential, or in a ``sandwich'' form that may be familiar to students of quaterions or of quantum mechanics (Pauli matrix rotation formula)
 
-\begin{dmath}\label{eqn:SimpleProducts2:440}
+\boxedEquation{eqn:SimpleProducts2:n}{
 \Bx'
-= e^{-i\theta} \lr{ x \Be_1 + y \Be_2 }.
-\end{dmath}
+= \Bx e^{i\theta}
+= e^{-i\theta} \Bx
+= e^{-i\theta/2} \Bx e^{i\theta}.
+}
 
-It is also possible to encode this rotation in a half angle ``sandwich'' form that may be familiar to students of quaterions or of quantum mechanics
-
-\begin{dmath}\label{eqn:SimpleProducts2:460}
-\Bx'
-= e^{-i\theta/2} \lr{ x \Be_1 + y \Be_2 } e^{i \theta/2}.
-\end{dmath}
-
-This follows from the fact that this complex exponential exhibits conjugate commutation behaviour (\cref{problem:sandwichMult:1})
+Both of these alternate forms follow from the fact that this complex exponential exhibits conjugate commutation behaviour
 
 \begin{dmath}\label{eqn:SimpleProducts2:480}
 \begin{aligned}
@@ -224,7 +217,7 @@ This follows from the fact that this complex exponential exhibits conjugate comm
 \end{aligned}.
 \end{dmath}
 
-Later, we will see that this latter half angle rotation operator will be the desired form of a general rotation in \R{N}.  This generalized rotational structure that follows that such a complex exponential commutes with any vectors that lie outside of the plane (\cref{problem:normalMult:1}).
+The sandwich rotation structure is the desired form of a general rotation in \R{N}, which can be demonstrated by noting that such a complex exponential commutes with any vectors that lie outside of the plane of the rotation (\cref{problem:normalMult:1}).
 
 \paragraph{Vector product.}
 
@@ -334,5 +327,97 @@ In higher dimensonal spaces, the bivector factor not only encodes a sign for thi
 
 \paragraph{Projection and rejection}
 
-FIXME: cartesian
-FIXME: polar
+An immediate application of the vector product is the computation of the projective and rejective components of a vector with respect to another.  This follows by a unit vector factoring of unity \( \ucap^2 = 1 \),
+
+\begin{dmath}\label{eqn:SimpleProducts2:680}
+\Bx =
+\Bx \ucap \ucap
+=
+\lr{ \Bx \ucap } \ucap
+=
+\lr{ \Bx \cdot \ucap + \Bx \wedge \ucap } \ucap
+=
+\lr{ \Bx \cdot \ucap } \ucap + \lr{ \Bx \wedge \ucap } \ucap.
+\end{dmath}
+
+The first term \( \lr{ \Bx \cdot \ucap } \ucap \) is the familiar projection along the direction \( \ucap \).  Since both sides of the equation must be a vector, this means that the multivector
+
+\begin{dmath}\label{eqn:SimpleProducts2:700}
+\lr{ \Bx \wedge \ucap } \ucap
+=\Bx - \lr{ \Bx \cdot \ucap } \ucap,
+\end{dmath}
+
+is also a vector.  Subtracting the projection from the vector itself is the perpendicular projection, called the \boldTextAndIndex{rejection} in GA literature.  A few of the expected algebraic properties of this multivector rejection expression can be demonstrated.  Recall that the dot product can be computed using scalar grade selection, so
+
+\begin{dmath}\label{eqn:SimpleProducts2:720}
+\lr{ \lr{ \Bx \wedge \ucap } \ucap } \cdot \lr{ \ucap \lr{ \Bx \cdot \ucap } }
+=
+\gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap \ucap \lr{ \Bx \cdot \ucap } }
+=
+\lr{ \Bx \cdot \ucap }
+\gpgradezero{ \Bx \wedge \ucap }
+= 0.
+\end{dmath}
+
+Here the scalar \( \ucap \ucap \lr{ \Bx \cdot \ucap } = \Bx \cdot \ucap \) was brought outside of the grade selection operator, leaving a scalar selection of a bivector, which is zero by definition.  This shows explicitly that the projection and the rejection are perpendicular.  The pythagorean property of these two vector components can also be checked.  Computing the squared length using \( \Abs{\By}^2 = \By \cdot \By = \By^2 \), the squared length of the projective component is
+
+\begin{dmath}\label{eqn:SimpleProducts2:740}
+\lr{ \lr{\Bx \cdot \ucap } \ucap }^2
+=
+\lr{\Bx \cdot \ucap }^2
+=
+(x_1 u_1 + x_2 u_2)^2
+=
+x_1^2 u_1^2 + x_2^2 u_2^2 + 2 x_1 x_2 u_1 u_2.
+\end{dmath}
+
+The squared length of the rejective component is
+\begin{dmath}\label{eqn:SimpleProducts2:760}
+\lr{ \lr{\Bx \wedge \ucap } \ucap }^2
+=
+-(\Bx \wedge \ucap) \ucap^2 (\Bx \wedge \ucap)
+=
+-
+\lr{\begin{vmatrix}
+   x_1 & x_2 \\
+   u_1 & u_2
+\end{vmatrix}}^2
+(\Be_1 \Be_2)^2
+=
+x_1^2 u_2^2 + x_2^2 u_1^2 - 2 x_1 x_2 u_1 u_2.
+\end{dmath}
+
+Adding these together gives
+
+\begin{dmath}\label{eqn:SimpleProducts2:780}
+\lr{ \lr{\Bx \cdot \ucap } \ucap }^2 + \lr{ \lr{\Bx \wedge \ucap } \ucap }^2
+=
+x_1^2 u_1^2 + x_2^2 u_2^2
++x_1^2 u_2^2 + x_2^2 u_1^2
+=
+x_1^2 ( u_1^2 + u_2^2 )
++
+x_2^2 ( u_1^2 + u_2^2 )
+=
+\Bx^2,
+\end{dmath}
+
+recovering the squared length of the vector as expected.  It is generally true in higher dimensions that the projection and rejection can be written as
+
+\begin{dmath}\label{eqn:SimpleProducts2:800}
+\begin{aligned}
+\Proj_\ucap(\Bx) &= (\Bx \cdot \ucap) \ucap \\
+\RejName_\ucap(\Bx) &= (\Bx \wedge \ucap) \ucap.
+\end{aligned}
+\end{dmath}
+
+This general fact will be demonstrated later in a coordinate free fashion after some additional identities have been derived.
+Given that the wedge product has the ``cross product like'' properties \( \Bx \wedge \Bx = 0 \), and \( \Bx \wedge \By = -\By \wedge \Bx \),
+and because
+the \R{3} expression of the rejection is
+
+\begin{equation}\label{eqn:SimpleProducts2:820}
+\RejName_\ucap(\Bx) = \Bx - (\Bx \cdot \ucap) \ucap = \ucap \cross (\Bx \cross \ucap),
+\end{equation}
+
+the observant reader may see from this expression that the wedge product in \R{3} seems to be related to the cross product in some fashion.  The precise nature of that relationship will be detailed later.
