@@ -34,7 +34,7 @@
 
 - incorporate Mauro's potential_v2 which was nicely done.
 
-- Use \Norm for norm instead of \Abs
+- Review the whole doc for the use of \Abs instead of \Norm (believe that all the .tex files in this directory are now converted)
 
 - fixmes:
 
@@ -45,3 +45,5 @@ grep -ni fixme *.tex
 - add lots of indexing to SimpleProducts2.tex SimpleProducts.tex
 
 - figure for projection and rejection.  move from later material into SimpleProducts2
+
+- use the word also too much.  It seems to often be superfluous.

@@ -74,7 +74,7 @@ The next term, a scaled product of four unit vectors can be reduced by a similar
 There is freedom to write this as \( - 5 \Be_2 \Be_1 \) if desired, but regardless, it is a
 scaled irredicible product of two orthonormal vectors, so we say it has grade-2, and can call it a bivector like \( \Be_2 \Be_3 \) above.
 
-The next product is also reducible
+As the next product has repeated indexes, is it reducible too
 
 \begin{dmath}\label{eqn:SimpleProducts:100}
 \Be_4 \Be_1 \Be_4 \Be_2 \Be_3
@@ -101,6 +101,13 @@ With these various reductions calculated, the multivector \cref{eqn:SimpleProduc
 M = 1 - 2 \Be_2  + \Be_2 \Be_3 + 5 \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3 -\Be_2 \Be_3 \Be_4 \Be_5.
 \end{dmath}
 
+It is often convienent to utilize a subscript shorthand for products of the orthonormal basis vectors, writing \( \Be_{12} = \Be_1 \Be_2 \).  With such short hand the illustrative multivector above would be written
+
+\begin{dmath}\label{eqn:SimpleProducts:120}
+M = 1 - 2 \Be_2  + \Be_{23} + 5 \Be_{12} - \Be_{123} -\Be_{2345}.
+\end{dmath}
+
+%Observe that this shorthand makes it a bit easier to pick out the grades 
 \subsection{Grade selection}
 
 Being able to identify the grades of a multivector of fundamenal importance and utility.  The grade
@@ -117,7 +124,7 @@ By example, using the multivector of \cref{eqn:SimpleProducts:20}, one writes
 \end{aligned}
 \end{dmath}
 
-The scalar (or grade-0) selection is particularly useful, and is also given the special notation
+The scalar (or grade-0) selection is particularly useful, and is given the special notation
 
 \begin{dmath}\label{eqn:SimpleProducts:180}
 \gpgradezero{M} = \gpgrade{M}{0}.

@@ -46,26 +46,26 @@ Given the toolbox of traditional vector algebra, the best answer that a new stud
 
 \begin{dmath}\label{eqn:GAmotivation:60}
 \begin{aligned}
-\Ba \cdot \Bb &= a_1 b_1 + a_2 b_2 + a_3 b_3 = \Abs{\Ba} \Abs{\Bb} \cos \theta_{ab} \\
+\Ba \cdot \Bb &= a_1 b_1 + a_2 b_2 + a_3 b_3 = \Norm{\Ba} \Norm{\Bb} \cos \theta_{ab} \\
 \Ba \cross \Bb &=
 \begin{vmatrix}
 \Be_1 & \Be_2 & \Be_3 \\
 a_1 & a_2 & a_3 \\
 b_1 & b_2 & b_3 \\
 \end{vmatrix}
-= \ncap_{ab} \Abs{\Ba} \Abs{\Bb} \sin\theta_{ab}.
+= \ncap_{ab} \Norm{\Ba} \Norm{\Bb} \sin\theta_{ab}.
 \end{aligned}
 \end{dmath}
 
 Both of these multiplication like operations live in very different spaces, one scalar, and the other a vector that lies outside of the span of its two vector factors.  Observe that the magnitudes of these two product operations are related to the product of the vectors in a Pythagorean sense
 
 \begin{dmath}\label{eqn:GAmotivation:180}
-\lr{ \Ba \cdot \Bb }^2 + \Abs{ \Ba \cross \Bb }^2
+\lr{ \Ba \cdot \Bb }^2 + \Norm{ \Ba \cross \Bb }^2
 =
-\Abs{\Ba}^2 \Abs{\Bb}^2 \cos^2 \theta_{ab}
-+\Abs{\Ba}^2 \Abs{\Bb}^2 \sin^2 \theta_{ab}
+\Norm{\Ba}^2 \Norm{\Bb}^2 \cos^2 \theta_{ab}
++\Norm{\Ba}^2 \Norm{\Bb}^2 \sin^2 \theta_{ab}
 =
-\Abs{\Ba}^2 \Abs{\Bb}^2.
+\Norm{\Ba}^2 \Norm{\Bb}^2.
 \end{dmath}
 
 This can be seen as a hint that the dot and cross products might be components of a single vector product operation, but the precise form of that product is not obvious.
@@ -97,7 +97,7 @@ z w^\conj \leftrightarrow ( a a' + b b', a' b - a b' ).
 \end{dmath}
 
 One component is completely symmetric, whereas the other component of this product has a component that is completely antisymmetric.
-The 3D cross product also has this antisymmetry, and that antisymmetry will be seen later to be the key to the generalization of the cross product.  In this particular case, one can view this antisymmetric sum \( a' b - a b' \) as one
+The 3D cross product components also have this antisymmetry, and that antisymmetry will be seen later to be the key to the generalization of the cross product.  In this particular case, one can view this antisymmetric sum \( a' b - a b' \) as one
 answer of how the cross product ``generalizes'' from 3D to 2D without requiring the introduction of a normal dimension.
 
 The answer to questions of exactly how the vector products, in particular the cross product, should generalize to higher dimensional spaces are still outstanding.  It should be expected that this cross product generalization will involve antisymmetry, just as the dot product generalization in higher dimensional spaces is completely symmetric.

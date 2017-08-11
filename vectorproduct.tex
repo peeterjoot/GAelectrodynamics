@@ -184,11 +184,11 @@ and the rejection (the component of \( \By \) perpendicular to \( \Bx \)), is
 =
 \By - \xcap \lr{ \xcap \cdot \By }
 =
-\Abs{\By} \lr{ \ycap - \xcap \lr{ \xcap \cdot \By } }
+\Norm{\By} \lr{ \ycap - \xcap \lr{ \xcap \cdot \By } }
 =
-\Abs{\By} \xcap \lr{ \xcap \ycap - \xcap \cdot \By }
+\Norm{\By} \xcap \lr{ \xcap \ycap - \xcap \cdot \By }
 =
-\Abs{\By} \xcap \lr{ \xcap \wedge \ycap }
+\Norm{\By} \xcap \lr{ \xcap \wedge \ycap }
 =
 \xcap \lr{ \xcap \wedge \By }.
 \end{dmath}
@@ -203,8 +203,8 @@ The magnitudes of \( \xcap \lr{ \xcap \cdot \ycap } \), and \( \xcap \lr{ \xcap 
 
 \begin{dmath}\label{eqn:vectorproduct:460}
 \begin{aligned}
-\Abs{ \xcap \lr{ \xcap \cdot \ycap } }^2 &= \lr{ \xcap \cdot \ycap }^2 \\
-\Abs{ \xcap \lr{ \xcap \wedge \ycap } }^2 &= -\lr{ \xcap \wedge \ycap }^2,
+\Norm{ \xcap \lr{ \xcap \cdot \ycap } }^2 &= \lr{ \xcap \cdot \ycap }^2 \\
+\Norm{ \xcap \lr{ \xcap \wedge \ycap } }^2 &= -\lr{ \xcap \wedge \ycap }^2,
 \end{aligned}
 \end{dmath}
 
@@ -212,11 +212,11 @@ which allows an identification
 \begin{dmath}\label{eqn:vectorproduct:500}
 \begin{aligned}
 \cos\theta &= \xcap \cdot \ycap \\
-\sin\theta &= \Abs{\xcap \wedge \ycap},
+\sin\theta &= \Norm{\xcap \wedge \ycap},
 \end{aligned}
 \end{dmath}
 
-where \( \Abs{\xcap \wedge \ycap} = \sqrt{ -\lr{\xcap \wedge \ycap}^2 } \).
+where \( \Norm{\xcap \wedge \ycap} = \sqrt{ -\lr{\xcap \wedge \ycap}^2 } \).
 
 It is now possible to express the product of vectors in a trigonometric or exponential form
 
@@ -226,10 +226,10 @@ It is now possible to express the product of vectors in a trigonometric or expon
 + \xcap \wedge \ycap
 =
 \xcap \cdot \ycap
-+ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \Abs{\xcap \wedge \ycap}
++ \frac{\xcap \wedge \ycap}{\Norm{\xcap \wedge \ycap}} \Norm{\xcap \wedge \ycap}
 =
 \cos\theta
-+ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \sin\theta,
++ \frac{\xcap \wedge \ycap}{\Norm{\xcap \wedge \ycap}} \sin\theta,
 \end{dmath}
 
 or
@@ -237,9 +237,9 @@ or
 \boxedEquation{eqn:vectorproduct:520}{
 \Bx \By
 =
-\Abs{\Bx}
-\Abs{\By}
-\exp\lr{ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \theta }.
+\Norm{\Bx}
+\Norm{\By}
+\exp\lr{ \frac{\xcap \wedge \ycap}{\Norm{\xcap \wedge \ycap}} \theta }.
 }
 
 The interpretation of this is that the product of two vectors produces a rotation operator that acts in the plane spanned by these vectors, but also scales any such rotated vector from this plane by the product of the magnitudes of the vector product factors.  When those vectors are unit vectors, the vector product is a non-scaling rotation operator
@@ -247,7 +247,7 @@ The interpretation of this is that the product of two vectors produces a rotatio
 \begin{dmath}\label{eqn:vectorproduct:560}
 \xcap \ycap
 =
-\exp\lr{ \frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}} \theta },
+\exp\lr{ \frac{\xcap \wedge \ycap}{\Norm{\xcap \wedge \ycap}} \theta },
 \end{dmath}
 
 that (when applied from the right) rotates any vector in \( \Span{\xcap, \ycap} \) by \( \theta \) radians in the direction of shortest rotation from \( \xcap \) to \( \ycap \), and when applied from the left rotates by \( -\theta \).
@@ -262,9 +262,9 @@ R(\theta)
 For \R{3} the wedge product in \cref{eqn:vectorproduct:520} can be expressed as a cross product
 
 \begin{equation}\label{eqn:vectorproduct:540}
-\frac{\xcap \wedge \ycap}{\Abs{\xcap \wedge \ycap}}
+\frac{\xcap \wedge \ycap}{\Norm{\xcap \wedge \ycap}}
 =
-I \frac{\xcap \cross \ycap}{\Abs{\xcap \cross \ycap}}
+I \frac{\xcap \cross \ycap}{\Norm{\xcap \cross \ycap}}
 =
 I \ncap,
 \end{equation}
@@ -274,8 +274,8 @@ This allows the \R{3} vector product to be written as
 \begin{equation}\label{eqn:vectorproduct:600}
 \Bx \By
 =
-\Abs{\Bx}
-\Abs{\By}
+\Norm{\Bx}
+\Norm{\By}
 \exp\lr{ I \ncap \theta }.
 \end{equation}
 
