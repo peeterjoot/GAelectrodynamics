@@ -18,6 +18,8 @@ In a 2D space most of the interesting vector products involve the unit bivector 
 \end{aligned}
 \end{dmath}
 
+The products above are tabulated below.
+
 Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space, as illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
 \imageTwoFigures
 {../figures/GAelectrodynamics/rotationOfe1Fig1}
@@ -49,28 +51,34 @@ Such a multiplication induces a \( \pi/2 \) rotation, the direction of which dep
 This unit bivector is seen to square to minus one like the imaginary in complex algebra.  The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
 This is a very convienient fact, and allows ad-hoc construction of complex number like coordinate systems in any given planar subspace.
 
-The products above are summarized in \cref{tab:SimpleProducts2:10}.
-FIXME: make prettier and center.
+%\ref{tab:SimpleProducts2:10}.
+%FIXME: how to reference a tcolorbox table?
+% examples in http://ctan.mirrors.hoobly.com/macros/latex/contrib/tcolorbox/tcolorbox.pdf section 5.1
+% requires setting up a counter variable like some of the others (theorem environments)
+
+% various options for prettier than default table:
 % https://tex.stackexchange.com/a/135421/15
 % https://tex.stackexchange.com/a/298109/15
 % https://tex.stackexchange.com/a/112359/15
+%\captionedTable{2D Multiplication table.}{tab:SimpleProducts2:10}{
+%\begin{tabular}{|l||l|l|l|l|}
+%\hline
+%        & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
+%\( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
+%\( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\ \hline
+%\( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\ \hline
+%\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
+%\end{tabular}
+%}
 
-\captionedTable{2D Multiplication table.}{tab:SimpleProducts2:10}{
-\begin{tabular}{|l||l|l|l|l|}
-\hline
-&
-\( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\
-\hline
-\( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\
-\hline
-\( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\
-\hline
-\( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\
-\hline
-\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\
-\hline
-\end{tabular}
-}
+%\label{tab:SimpleProducts2:10}
+\begin{tcolorbox}[tab2,tabularx={X||Y|Y|Y|Y},title=2D Multiplication table.,boxrule=0.5pt]
+        & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
+\( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
+\( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\ \hline
+\( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\ \hline
+\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
+\end{tcolorbox}
 
 \paragraph{Computing the normal 2D}
 
@@ -201,7 +209,7 @@ y &\rightarrow x \sin\theta  + y \cos\theta \\
 
 \Cref{problem:sandwichMult:1}, and \cref{problem:sandwichMult:1} will demonstrate that this rotation can be expressed in a number of equivalent forms, with left multiplication by the complex exponential, right multiplication by the ``conjucate'' complex exponential, or in a ``sandwich'' form that may be familiar to students of quaterions or of quantum mechanics (Pauli matrix rotation formula)
 
-\boxedEquation{eqn:SimpleProducts2:n}{
+\boxedEquation{eqn:SimpleProducts2:840}{
 \Bx'
 = \Bx e^{i\theta}
 = e^{-i\theta} \Bx
@@ -321,9 +329,10 @@ Recall that the area of the parallopiped spanned by two vectors in a two dimensi
 
 a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).  It is therefore natural to interpret the wedge product as an oriented area.  In \cref{fig:orientedParallelogram:orientedParallelogramFig1} are examples of the wedge product oriented area interpretation.
 \imageFigure{../figures/GAelectrodynamics/orientedParallelogramFig1}{Oriented area interpretation of \( \Bv_1 \wedge \Bv_2 \) and \( \Bv_2 \wedge \Bv_1 \).}{fig:orientedParallelogram:orientedParallelogramFig1}{0.3}
-Without reference to a generating pair of vectors, a general bivector will be represented as an oriented area, where the orientation is depicted using a loop, as in
-FIXME:figure.
 In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.  The wedge product will be seen to encode that orientation without introducing a normal direction for the spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
+
+Because there are many possible pairs of generating vectors for any given bivector, any oriented area in a given plane with a specified area are all equally valid interpretations of a bivector.  This is illustrated in \cref{fig:orientedAreasVariety:orientedAreasVarietyFig1}.
+\imageFigure{../figures/GAelectrodynamics/orientedAreasVarietyFig1}{Different shape representations of a given bivector.}{fig:orientedAreasVariety:orientedAreasVarietyFig1}{0.2}
 
 \paragraph{Projection and rejection}
 
@@ -411,17 +420,55 @@ recovering the squared length of the vector as expected.  It is generally true i
 \end{aligned}
 \end{dmath}
 
-The Pythagorean aspect of this statement in higher degree spaces 
+The Pythagorean aspect of this statement in higher degree spaces
 will be demonstrated later in a coordinate free fashion after some additional identities have been derived.
+
+The unit vector restriction defining the direction of projection and rejection can be relaxed in a compact fashion by introducing the vector \boldTextAndIndex{inverse}, which is always well defined and unique in a Euclidean space
+
+\boxedEquation{eqn:SimpleProducts2:860}{
+\inv{\Bu} \equiv \frac{\Bu}{\Bu^2}.
+}
+
+Now the projection and rejection onto the direction of \( \Bu \) are
+
+\boxedEquation{eqn:SimpleProducts2:880}{
+\begin{aligned}
+\Proj_\Bu(\Bx) &= (\Bx \cdot \Bu) \inv{\Bu} \\
+\RejName_\Bu(\Bx) &= (\Bx \wedge \Bu) \inv{\Bu}.
+\end{aligned}
+}
+\index{projection}
+\index{rejection}
 
 \makedigression{Wedge and cross product relationships}{
 Given that the wedge product has the ``cross product like'' properties \( \Bx \wedge \Bx = 0 \), and \( \Bx \wedge \By = -\By \wedge \Bx \),
-and because
-the \R{3} expression of the rejection is
+and because the \R{3} expression of the rejection is
 
 \begin{equation}\label{eqn:SimpleProducts2:820}
 \RejName_\ucap(\Bx) = \Bx - (\Bx \cdot \ucap) \ucap = \ucap \cross (\Bx \cross \ucap),
 \end{equation}
 
-the observant reader may see from this expression that the wedge product in \R{3} seems to be related to the cross product in some fashion.  The precise nature of that relationship will be detailed later.
+which is clearly similar to that of \cref{eqn:SimpleProducts2:800}, the observant reader may see from this expression that the wedge product in \R{3} seems to be related to the cross product in some fashion.  The precise nature of that relationship will be detailed later.
 } % digression
+
+\paragraph{Reflection}
+\index{reflection}
+FIXME: figure
+
+Computation of the reflection of a vector through the origin, across the direction given by the vector \( \Bu \) (also passing through the origin) can now be expressed compactly.  That is
+
+\begin{dmath}\label{eqn:SimpleProducts2:900}
+\Bx'
+= \lr{ \Bx \cdot \Bu }\Bu - \lr{ \Bx \wedge \Bu } \inv{\Bu }
+= \lr{ \Bx \cdot \Bu - \Bx \wedge \Bu } \inv{\Bu }
+= \inv{2} \lr{ \Bx \Bu + \Bu \Bx - \Bx \Bu + \Bu \Bx } \inv{\Bu },
+\end{dmath}
+
+or
+\boxedEquation{eqn:SimpleProducts2:920}{
+\Bx' = \Bu \Bx \inv{\Bu}.
+}
+
+\paragraph{solution of linear systems}
+
+FIXME: todo.

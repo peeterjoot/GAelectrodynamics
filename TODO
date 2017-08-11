@@ -39,3 +39,9 @@
 - fixmes:
 
 grep -ni fixme *.tex
+
+- table (2d multiplication) uses different color scheme, doesn't have a label or table number, and is too wide.
+
+- add lots of indexing to SimpleProducts2.tex SimpleProducts.tex
+
+- figure for projection and rejection.  move from later material into SimpleProducts2
