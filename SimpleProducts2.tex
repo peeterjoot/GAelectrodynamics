@@ -151,81 +151,56 @@ Of particular interest is the complex exponential \( e^{i \theta} \).  Because \
 e^{i \theta} = \cos\theta + i \sin\theta,
 \end{dmath}
 
-applies equally well with this GA representation of complex numbers.  Having seen that right multiplication of vectors with with the pseudoscalar \( i \) had the effect of inducing a \( \pi/2 \) counterclockwise rotation, it is reasonable to expect that this form of complex exponential will generally rotate a 2D vector.  With
+applies equally well with this GA representation of complex numbers.
+Having seen that right multiplication of vectors with with the pseudoscalar \( i \) had the effect of inducing a \( \pi/2 \) counterclockwise rotation, it is reasonable to expect that this form of complex exponential will generally rotate a 2D vector.  This can be seen by considering an arbitrarily rotated unit vector, from which a complex exponential can be factored out
 
-\begin{dmath}\label{eqn:SimpleProducts2:360}
-\Bx
-= x \Be_1 + y \Be_2,
+\begin{dmath}\label{eqn:SimpleProducts2:940}
+\xcap
+=
+\Be_1 \cos\theta + \Be_2 \sin\theta
+=
+\Be_1 \cos\theta + \Be_1 \Be_1 \Be_2 \sin\theta
+=
+\Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
+=
+\Be_1 \lr{ \cos\theta + i \sin\theta }
+=
+\Be_1 e^{i\theta}.
 \end{dmath}
 
-multiplication with \( e^{i\theta} \) gives
+Alternatively, for the same vector, a complex exponential can be factored out on the left
 
-\begin{dmath}\label{eqn:SimpleProducts2:380}
-\Bx'
-= \lr{ x \Be_1 + y \Be_2 } e^{i\theta}
-= \lr{ x \Be_1 + y \Be_2 } \lr{ \cos\theta + i \sin\theta }
-= \lr{ x \Be_1 + y \Be_2 } \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
+\begin{dmath}\label{eqn:SimpleProducts2:960}
+\xcap
 =
-x \cos\theta \Be_1
-+
-x \sin\theta \Be_2
-+
-y \cos\theta \Be_2
--
-y \sin\theta \Be_1
+\Be_1 \cos\theta + \Be_2 \sin\theta
 =
-\lr{ x \cos\theta - y \sin\theta } \Be_1
-+
-\lr{ x \sin\theta + y \sin\theta } \Be_2.
+\Be_1 \cos\theta + \Be_2 \Be_1 \Be_1 \sin\theta
+=
+\lr{ \cos\theta - \Be_1 \Be_2 \sin\theta } \Be_1
+=
+\lr{ \cos\theta + i \sin\theta } \Be_1
+=
+e^{-i\theta} \Be_1.
 \end{dmath}
 
-Observe that this matches the rotation by \( \theta \) of the coordinates
-
-\begin{dmath}\label{eqn:SimpleProducts2:400}
-\begin{bmatrix}
-   \cos\theta & - \sin\theta \\
-   \sin\theta &   \cos\theta \\
-\end{bmatrix}
-\begin{bmatrix}
-   x \\
-   y
-\end{bmatrix}
-=
-\begin{bmatrix}
-   x \cos\theta  - y \sin\theta \\
-   x \sin\theta  + y \cos\theta \\
-\end{bmatrix},
-\end{dmath}
-
-with both transformations inducing a general rotation transformation, illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
+The conclusion is that left multiplication by \( e^{i\theta} \) rotates a vector clockwise, whereas right multiplication with the same complex exponential rotates a vector counterclockwise, as
+illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 \imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
 
-\begin{dmath}\label{eqn:SimpleProducts2:420}
-\begin{aligned}
-x &\rightarrow x \cos\theta  - y \sin\theta \\
-y &\rightarrow x \sin\theta  + y \cos\theta \\
-\end{aligned}.
-\end{dmath}
-
-\Cref{problem:sandwichMult:1}, and \cref{problem:sandwichMult:1} will demonstrate that this rotation can be expressed in a number of equivalent forms, with left multiplication by the complex exponential, right multiplication by the ``conjucate'' complex exponential, or in a ``sandwich'' form that may be familiar to students of quaterions or of quantum mechanics (Pauli matrix rotation formula)
+Such a complex exponential only rotates vectors that lie in the plane of the bivector, and commute with vector (or vector components) that lie outside of the rotational plane (\cref{problem:normalMult:1}).  This means that conjugate complex exponentials applied from both sides,
+rotate the components of the vector that lie in the rotational plane, but leave the normal components unaltered.  The desired expression of a \R{N} rotation \footnote{Also the structure of a Pauli matrix rotation and quaternionic rotations} has the ``sandwich'' structure
 
 \boxedEquation{eqn:SimpleProducts2:840}{
-\Bx'
-= \Bx e^{i\theta}
-= e^{-i\theta} \Bx
-= e^{-i\theta/2} \Bx e^{i\theta}.
+\Bx' =
+e^{-i\theta/2} \Bx e^{i \theta/2},
 }
 
-Both of these alternate forms follow from the fact that this complex exponential exhibits conjugate commutation behaviour
+where \( i \) is the unit bivector for the plane of rotation.  When the vector has no components outside of the plane, single sided rotations can be used, which is often convienient
 
-\begin{dmath}\label{eqn:SimpleProducts2:480}
-\begin{aligned}
-   \Be_1 e^{i\theta} &= e^{-i\theta} \Be_1 \\
-   \Be_2 e^{i\theta} &= e^{-i\theta} \Be_2 \\
-\end{aligned}.
-\end{dmath}
-
-The sandwich rotation structure is the desired form of a general rotation in \R{N}, which can be demonstrated by noting that such a complex exponential commutes with any vectors that lie outside of the plane of the rotation (\cref{problem:normalMult:1}).
+\begin{equation}\label{eqn:SimpleProducts2:980}
+\Bx' = \Bx e^{i \theta} = e^{-i\theta} \Bx.
+\end{equation}
 
 \paragraph{Vector product.}
 

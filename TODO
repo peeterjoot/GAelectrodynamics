@@ -47,3 +47,6 @@ grep -ni fixme *.tex
 - figure for projection and rejection.  move from later material into SimpleProducts2
 
 - use the word also too much.  It seems to often be superfluous.
+
+- move the magnetic field example to an e&m chapter.
+
