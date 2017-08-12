@@ -1,0 +1,17 @@
+\makeproblem{Linear intersection in \R{3}}{problem:crossProductLinearIntersectionProblem:1}{
+Solve \cref{eqn:crossProductLinearIntersectionProblem:1060} in \R{3} using the cross product.
+} % problem
+
+\makeanswer{problem:crossProductLinearIntersectionProblem:1}{
+
+Because vector division in \R{3} is not traditionally available, the solution would have to take the form
+
+\begin{dmath}\label{eqn:crossProductLinearIntersectionProblem:10}
+\begin{aligned}
+s &= -\frac{(\Bd \cross \Bu_2) \cdot (\Bu_1 \cross \Bu_2)}{\Norm{\Bu_1 \cross \Bu_2}^2} \\
+t &= -\frac{(\Bd \cross \Bu_1) \cdot (\Bu_1 \cross \Bu_2)}{\Norm{\Bu_1 \cross \Bu_2}^2},
+\end{aligned}
+\end{dmath}
+
+where the restriction required for solution validity would be \( ( \Bd \cross \Bu_2 ) \cross (\Bu_1 \cross \Bu_2 ) = 0 \).
+} % answer

@@ -451,6 +451,60 @@ An illustration of the geometry of reflection is provided in \cref{fig:reflectio
 
 \imageFigure{../figures/GAelectrodynamics/reflectionFig1}{Reflection}{fig:reflection:reflectionFig1}{0.3}
 
-\paragraph{solution of linear systems}
+\paragraph{Solution of linear systems}
 
-FIXME: todo.
+Various types of linear systems can be solved using the wedge product.  An illustrative example is that of the intersection of two lines as illustrated in \cref{fig:intersectionOfLines:intersectionOfLinesFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/intersectionOfLinesFig1}{Intersection of two lines.}{fig:intersectionOfLines:intersectionOfLinesFig1}{0.3}
+
+In parametric form, the lines in this problem are
+
+\begin{dmath}\label{eqn:SimpleProducts2:1000}
+\begin{aligned}
+\Br_1(s) &= \Ba_0 + s( \Ba_1 - \Ba_2 ) \\
+\Br_2(t) &= \Bb_0 + t( \Bb_1 - \Bb_2 ),
+\end{aligned}
+\end{dmath}
+
+so the solution, if it exists, is found at the point satisfying the equality
+
+\begin{dmath}\label{eqn:SimpleProducts2:1020}
+\Ba_0 + s( \Ba_1 - \Ba_2 ) = \Bb_0 + t( \Bb_1 - \Bb_2 ).
+\end{dmath}
+
+With
+\begin{dmath}\label{eqn:SimpleProducts2:1040}
+\begin{aligned}
+\Bu_1 &= \Ba_1 - \Ba_2 \\
+\Bu_2 &= \Bb_1 - \Bb_2 \\
+\Bd &= \Ba_0 - \Bb_0,
+\end{aligned}
+\end{dmath}
+
+so the desired equation to solve is
+
+\begin{dmath}\label{eqn:SimpleProducts2:1060}
+\Bd + s \Bu_1 = t \Bu_2.
+\end{dmath}
+
+In \R{3} this problem can solved using the cross product (\cref{problem:crossProductLinearIntersectionProblem:1}), however, this can be solved more generally as a 
+bivector equation by wedging both sides with either \( \Bu_1 \) or \( \Bu_2 \)
+
+\begin{dmath}\label{eqn:SimpleProducts2:1080}
+\begin{aligned}
+\Bd \wedge \Bu_1 &= t \Bu_2 \wedge \Bu_1 \\
+\Bd \wedge \Bu_2 + s \Bu_1 \wedge \Bu_2 &= 0,
+\end{aligned}
+\end{dmath}
+
+In \R{2} these equations have a solution if \( \Bu_1 \wedge \Bu_2 \ne 0 \), and in \R{N} these have solutions if the bivectors on each sides of the equations describe the same plane.  Put another way, these have solutions when \( s \) and \( t \) are scalars and
+
+\begin{dmath}\label{eqn:SimpleProducts2:1100}
+\begin{aligned}
+s &= \frac{\Bu_2 \wedge \Bd}{\Bu_1 \wedge \Bu_2} \\
+t &= \frac{\Bu_1 \wedge \Bd}{\Bu_1 \wedge \Bu_2}.
+\end{aligned}
+\end{dmath}
+
+For \R{2}, 
+where the wedge product can be expressed as a (unit bivector scaled) determinant, this is precisely the Cramer's rule solution of the equivalent matrix equation.
