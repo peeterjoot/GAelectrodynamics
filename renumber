@@ -87,3 +87,6 @@ perl -p -i ../latex/bin/latexRegex.pl sandwichMult.tex
 
 ../latex/bin/lgrep normalMult.tex   | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl normalMult.tex  
+
+../latex/bin/lgrep coordinateNinetyDegreeRotation.tex   | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl coordinateNinetyDegreeRotation.tex  

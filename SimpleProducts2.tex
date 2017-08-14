@@ -82,58 +82,38 @@ This is a very convienient fact, and allows ad-hoc construction of complex numbe
 
 \paragraph{Computing the normal 2D}
 
-Given a coordinate representation of an arbitrary vector in a 2D space
-
-\begin{dmath}\label{eqn:SimpleProducts2:240}
-   \Bx = \rho
-\begin{bmatrix}
-   \cos\theta \\
-   \sin\theta \\
-\end{bmatrix},
-\end{dmath}
-
-after counterclockwise rotation by \( \pi/2 \), the rotated coordinates are
-
-\begin{dmath}\label{eqn:SimpleProducts2:260}
-\Bx'
-=
-\begin{bmatrix}
-   0 & -1 \\
-   1 & 0 \\
-\end{bmatrix}
-\begin{bmatrix}
-   \cos\theta \\
-   \sin\theta \\
-\end{bmatrix}
-=
-\rho
-\begin{bmatrix}
-   -\sin\theta \\
-   \cos\theta
-\end{bmatrix}.
-\end{dmath}
-
-Expressing this vector in terms of the standard basis
+Similar to multiplication by the complex number \( i \),
+left and right multiplication by the pseudoscalar also rotate vectors by \( \pi/2 \) radians, however, the sign of the rotation depends on whether the multiplication is from the left or from the right.  With
 
 \begin{dmath}\label{eqn:SimpleProducts2:280}
    \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
 \end{dmath}
 
-the same rotation can be observed by right multiplication by the pseudoscalar.
+and multiplication from the right
 
 \begin{dmath}\label{eqn:SimpleProducts2:300}
 \Bx'
+= \Bx \Be_1 \Be_2
 = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
-= \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta }.
+= \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta },
 \end{dmath}
 
+which is the counterclockwise rotation of the vector (\cref{problem:coordinateNinetyDegreeRotation:1}).
+From the left
+
+\begin{dmath}\label{eqn:SimpleProducts2:310}
+\Bx''
+= \Be_1 \Be_2 \Bx
+= \rho \Be_1 \Be_2 \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
+= \rho \lr{ -\Be_2 \cos\theta + \Be_1 \sin\theta },
+\end{dmath}
+
+the vector is rotated clockwise by \( \pi/2).
+% (\cref{problem:left2dimaginarymultiplication:1}).
+%Just as the imaginary rotates complex numbers, the 2D pseudoscalar rotates vectors, with the cavaet that one must be careful about the order that this multiplication is performed.
+%
 This is illustrated in \cref{fig:rotationOfV:rotationOfVFig1}.
 \imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{\( \pi/2\) rotation using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}
-
-A similar left pseudoscalar multiplication induces a clockwise rotation.
-(\cref{problem:left2dimaginarymultiplication:1}).
-
-Just as the imaginary rotates complex numbers, the 2D pseudoscalar rotates vectors, with the cavaet that one must be careful about the order that this multiplication is performed.
 
 \paragraph{Complex numbers and rotations}
 
@@ -189,7 +169,7 @@ illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 \imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
 
 Such a complex exponential only rotates vectors that lie in the plane of the bivector, and commute with vector (or vector components) that lie outside of the rotational plane (\cref{problem:normalMult:1}).  This means that conjugate complex exponentials applied from both sides,
-rotate the components of the vector that lie in the rotational plane, but leave the normal components unaltered.  The desired expression of a \R{N} rotation 
+rotate the components of the vector that lie in the rotational plane, but leave the normal components unaltered.  The desired expression of a \R{N} rotation
 has the ``sandwich'' structure
 \footnote{Dual sided rotations of this form are also found in Pauli (matrix) algebra and quaternion formalisms, both of which, like complex numbers, can be considered special cases of geometric algebras.}
 
@@ -489,7 +469,7 @@ so the desired equation to solve is
 \Bd + s \Bu_1 = t \Bu_2.
 \end{dmath}
 
-In \R{3} this problem can solved using the cross product (\cref{problem:crossProductLinearIntersectionProblem:1}), however, this can be solved more generally as a 
+In \R{3} this problem can solved using the cross product (\cref{problem:crossProductLinearIntersectionProblem:1}), however, this can be solved more generally as a
 bivector equation by wedging both sides with either \( \Bu_1 \) or \( \Bu_2 \)
 
 \begin{dmath}\label{eqn:SimpleProducts2:1080}
@@ -508,5 +488,5 @@ t &= \frac{\Bu_1 \wedge \Bd}{\Bu_1 \wedge \Bu_2}.
 \end{aligned}
 \end{dmath}
 
-For \R{2}, 
+For \R{2},
 where the wedge product can be expressed as a (unit bivector scaled) determinant, this is precisely the Cramer's rule solution of the equivalent matrix equation.

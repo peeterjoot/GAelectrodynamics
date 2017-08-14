@@ -1,0 +1,69 @@
+\makeproblem{Ninety degree rotation in coordinates.}{problem:coordinateNinetyDegreeRotation:1}{
+
+Rotate the vector
+
+\begin{dmath}\label{eqn:coordinateNinetyDegreeRotation:240}
+   \Bx = \rho
+\begin{bmatrix}
+   \cos\theta \\
+   \sin\theta \\
+\end{bmatrix},
+\end{dmath}
+
+in the \( x,y \) plane by \(\pm \pi/2\) using the 2D rotation matrix
+\begin{dmath}\label{eqn:coordinateNinetyDegreeRotation:280}
+R_\theta =
+\begin{bmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{bmatrix},
+\end{dmath}
+
+and compare the result with \cref{eqn:SimpleProducts2:300} and \cref{eqn:SimpleProducts2:310}.
+} % problem
+
+\makeanswer{problem:coordinateNinetyDegreeRotation:1}{
+The counterclockwise (positive) rotation is
+
+\begin{dmath}\label{eqn:coordinateNinetyDegreeRotation:260}
+\Bx'
+=
+\begin{bmatrix}
+   0 & -1 \\
+   1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+   \cos\theta \\
+   \sin\theta \\
+\end{bmatrix}
+=
+\rho
+\begin{bmatrix}
+   -\sin\theta \\
+   \cos\theta
+\end{bmatrix},
+\end{dmath}
+
+consistent with \cref{eqn:SimpleProducts2:300}.  The clockwise rotation is
+
+\begin{dmath}\label{eqn:coordinateNinetyDegreeRotation:300}
+\Bx''
+=
+\begin{bmatrix}
+   0 & 1 \\
+   -1 & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+   \cos\theta \\
+   \sin\theta \\
+\end{bmatrix}
+=
+\rho
+\begin{bmatrix}
+   \sin\theta \\
+   -\cos\theta
+\end{bmatrix},
+\end{dmath}
+
+which matches \cref{eqn:SimpleProducts2:310}.
+} % answer
