@@ -1,9 +1,9 @@
 \section{Notation and prerequisite definitions.}
 
 \makedefinition{Vector space.}{def:multiplication:vectorspace}{
-A vector space is a set \( V \), the elements of which are called vectors.
-For all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \),
-the addition and multiplication operations must satisfy the following axioms
+A vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that 
+for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \),
+the following axioms are satisfied
 
 \begin{tcolorbox}[tab2,tabularx={X|Y},title=Vector space axioms.,boxrule=0.5pt]
     Addition is closed. & \( \Bx + \By \in V \) \\ \hline
@@ -18,9 +18,12 @@ the addition and multiplication operations must satisfy the following axioms
 \end{tcolorbox}
 }
 
+% FIXME: this is now the only chicken and egg problem left (normal used before its definition).  Probably have to define linear independence to resolve.
 \makedefinition{Dimension}{dfn:multivector:dimension}{
    The dimension of a vector space is a count of the number of normal directions in that space.
 } % definition
+
+Only finite dimensional vector spaces will be used in this book.
 
 \makedefinition{Basis and coordinates}{dfn:multivector:basis}{
    If \( N \) is the dimension of a vector space \( V \), a set of \( N \) vectors \( B = \setlr{ \Ba_1, \Ba_2, \cdots \Ba_N } \) is a basis for that vector space, if it is possible to form any vector \( \Bx \in V \) as a linear combination of those vectors \( \Ba_k \).  That is, there exists scalars \( c_k \) such that for any \( \Bx \in V \)
@@ -38,66 +41,64 @@ It is common to represent a vector \( \Bx \) strictly in terms of that vectors c
 \begin{bmatrix}
    c_1 \\
    c_2 \\
-   \hdots \\
+   \vdots \\
    c_N \\
 \end{bmatrix}.
 \end{dmath}
 
 In this book, if coordinates are ever used, they will be used explicitly along with their associated basis.
 
-\makedefinition{Quadratic form}{dfn:multivector:quadraticform}{
-   Given a basis \( B \) and coordinates \( c_i \) of a vector \( \Bx \) with respect to that basis, a quadratic form over those coordinates is a scalar mapping
+\makedefinition{Standard basis and norm}{dfn:multivector:standardbasis}{
+   Any vector space \( V \) used in this book will be assumed to have been generated from a basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), associated with a dot product that has the properties
+
+\begin{enumerate}
+   \item \( \Be_i \cdot \Be_i = \pm 1 \).
+   \item \( \Be_i \cdot \Be_j = 0 \) for any \( i \ne j \).
+\end{enumerate}
+
+Such a basis will called a standard basis.  When these dot products are always positive, the vector space is a Euclidean vector space.
+}
+
+There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
+
+The only non-Euclidean vector space of interest in this book (for relativistic material), has a Minkowski dot product.  For such a space, the standard basis elements will be labelled \( \setlr{ \gamma_0, \gamma_1, \gamma_2, \gamma_3 } \), where for \( i \in [1,3] \), \( \gamma_0 \cdot \gamma_0 = \pm 1 = -\gamma_i \cdot \gamma_i \).  The positive sign convention will be used.
+
+\makedefinition{Norm-squared}{dfn:multivector:norm}{
+   The squared norm of a vector \( \Bx \) is defined as
+
+\begin{dmath}\label{eqn:multivector:200}
+   \Norm{\Bx}^2 = \Bx \cdot \Bx.
+\end{dmath}
+
+This quantity need not be positive.
+}
+
+\makedefinition{Length}{dfn:multivector:length}{
+   The length of a vector \( \Bx \) is defined as 
 
 \begin{equation*}
-   q(c_1, \cdots, c_N) = \sum_{i,j = 1}^N c_i a_{ij} c_j.
+\Norm{\Bx} = 
+\sqrt{\Abs{ \Norm{\Bx}^2 }}.
 \end{equation*}
 }
-
-It is possible to show (Jacobi) that any quadratic form can be reduced to a diagonal form
-
-\begin{equation}\label{eqn:multivector:200}
-\sum_{i=1}^N \tilde{c}_i^2 \lambda_i.
-\end{equation}
-
-\makedefinition{Norm}{dfn:multivector:norm}{
-   For the purposes of this book a norm for elements
-   \( \Bx \in V \) of a vector space is a length operations \( \Norm{\Bx} \) that can be reduced to a diagonal
-   quadradic form as in \cref{eqn:multivector:200} where all the constants \( \lambda_i \) are \( \pm 1 \).
-   Such a norm is called Euclidean if all such \( \lambda_i \) values equal one, and non-Euclidean if that is not the case.
-
-   The only non-Euclidean norm of interest in electromagnetism is the norm for ``spacetime'' vectors, for which
-   \( \lambda_1 = \lambda_2 = \lambda_3 = 1 = -\lambda_0 \), or
-   \( \lambda_1 = \lambda_2 = \lambda_3 = -1 = -\lambda_0 \) depending on the sign convention in effect.
-}
-
-%\begin{enumerate}
-%   \item \( \Norm{\Bx} \ge 0 \), and \( \Norm{\Bx} = 0 \iff \Bx = 0 \).
-%   \item \( \Norm{a \Bx} = \Abs{a} \Norm{\Bx} \).
-%   \item \( \Norm{\Bx + \By} \le \Norm{\Bx} + \Norm{\By} \).
-%\end{enumerate}
 
 \makedefinition{Unit vector}{dfn:multivector:unitvector}{
-   A vector \( \Bu \), in a Euclidean vector space is called a unit vector if its length is one, \( \Norm{\Bu} = 1 \).
-   A vector in a non-Euclidean vector space \( \Bu \) is called a unit vector if its absolute length is one, \( \Norm{\Bu} = \pm 1 \).
+   A vector \( \Bx \) is called a unit vector if its length is one.
 } % definition
 
-\makedefinition{Normal}{dfn:multivector:normal}{
-   Two Euclidean\footnote{The general definition of normal, also applying to non-Euclidean spaces, is best deferred to the point where the dot product is defined.} vectors \( \Bx, \By \) are normal, or perpendicular, with respect to a length operation \( \Norm{\cdot} \), if the length of a sum or difference has a Pythagorean relationship
+A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
 
-\begin{equation*}
-   \Norm{\Bx \pm \By}^2 = \Norm{\Bx}^2 + \Norm{\By}^2.
-\end{equation*}
+\begin{dmath}\label{eqn:multivector:220}
+\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
+\end{dmath}
+
+\makedefinition{Normal}{dfn:multivector:normal}{
+   Two vectors are normal, or perpendicular, if their dot product is zero.
 }
 
 \makedefinition{Orthonormal}{dfn:multivector:orthonormal}{
    A set of vectors \( \setlr{ \Bx, \By, \cdots \Bz } \) is a an orthonormal set if all pairs of vectors in that set are perpendicular and are also unit vectors.
 } % definition
-
-\makedefinition{Standard basis}{dfn:multivector:standardbases}{
-   A basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), where \( N \) is the dimension of the space is referred to as a standard basis if all pairs \( \Be_i, \Be_j \), \( i \ne j \) are orthonormal.
-} % definition
-
-There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
 
 \subsection{Problems}
 \makeproblem{One dimensional multivector space.}{problem:multivector:30}{
@@ -130,6 +131,45 @@ Using the results of \partref{problem:multivector:20:b}, show that
 %This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
 } % problem
 
+\makeproblem{Explicit squared norm}{problem:multivector:60}{
+   Given a coordinate representation of a vector with respect to a standard basis
+\begin{dmath}\label{eqn:multivector:240}
+   \Bx = \sum_{i = 1}^N x_i \Be_i,
+\end{dmath}
+
+show that the squared norm is
+\begin{dmath}\label{eqn:multivector:260}
+   \Norm{\Bx}^2 = \Bx \cdot \Bx = \sum_{i = 1}^N x_i^2 (\Be_i \cdot \Be_i).
+\end{dmath}
+
+Observe that for a Euclidean vector space this is the squared length in the Pythagorean sense.
+}
+
+\makeproblem{Null vector}{problem:multivector:80}{
+Given a two dimensional non-Euclidean vector space with basis elements satisfying 
+\( \gamma_0 \cdot \gamma_0 = 1 = -\gamma_1 \cdot \gamma_1 \), construct a vector that has a squared
+norm of 0.  Such a vector is called a null vector.
+%   \Bx = \gamma_0 + \gamma_1,
+}
+
+%%%\makeproblem{}{problem:multivector:50}{
+%%%The most general definition of an Euclidean norm satisfies all of the properties
+%%%
+%%%\begin{enumerate}
+%%%   \item \( \Norm{\Bx} \ge 0 \), and \( \Norm{\Bx} = 0 \iff \Bx = 0 \).
+%%%   \item \( \Norm{a \Bx} = \Abs{a} \Norm{\Bx} \).
+%%%   \item \( \Norm{\Bx + \By} \le \Norm{\Bx} + \Norm{\By} \).
+%%%\end{enumerate}
+%%%
+%%%If the coordinates of a vector with respect to the standard basis are \( x_i \) then show that the Euclidean norm defined in
+%%%that the Pythagorean norm
+%%%\begin{equation*}
+%%%\Norm{\Bx}^2 = \sum_{i = 1}^N x_i^2,
+%%%\end{equation*}
+%%%
+%%%satisfies these properties.
+%%%} % problem
+%%%
 \section{Multivector}
 Geometric Algebra (\textAndIndex{GA}) generalizes the concept of vector and a normed vector space, introducing a vector multiplication operation into the mix, and a vector generalization called a \textAndIndex{multivector}.
 
@@ -291,17 +331,3 @@ The product of any two normal vectors \(\Bu\), and \(\Bv\) anticommute.
 %%
 %%is not considered meaningful.  This is
 %%
-%%Vectors and scalars, or their sums
-%%It is assumed here that the student is familiar with coordinate representations of vectors, the concepts of
-%%The reader should be familiar with
-%%Vectors will be represented algebraically as scaled sums
-%%A vector may also be represented algebraically in terms  as the sum of directed
-%%or in its algebraic sense, such as the \R{2} vector
-%%
-%%Vectors, and abstraction representing quantities with magnitude and orientation are types of multivectors.  Scalars (numbers), which have magnitude but no orientation, are also multivectors.  Multivectors that represented oriented areas, oriented volumes, and oriented higher dimensional spaces will also be defined.  The
-%%
-%%.  Sets of multivectors can be assembled
-%%
-%%s and multivector spaces, and introduces a multiplication operation for vectors
-%%
-%%, is built around the \boldTextAndIndex{multivector}.  The purpose of this section is to provide a definition of the multivector, and
