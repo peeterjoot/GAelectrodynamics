@@ -1,6 +1,4 @@
-\section{Multivector}
-Geometric Algebra (\boldTextAndIndex{GA}) generalizes the concept of vector and a normed vector space, introducing a vector multiplication operation into the mix.  
-To detail that generalization, it is helpful to first recall the definition of a vector space
+\section{Notation and prerequisite definitions.}
 
 \makedefinition{Vector space.}{def:multiplication:vectorspace}{
 A vector space is a set \( V \), the elements of which are called vectors.
@@ -20,7 +18,88 @@ the addition and multiplication operations must satisfy the following axioms
 \end{tcolorbox}
 }
 
-A vector space that also defines a length operation \( \Norm{\Bx} \) is called a normed vector space.  Geometric algebras are built from normed vector spaces as follows
+\makedefinition{Euclidean vector space}{dfn:multivector:euclidean}{
+   A vector space is Euclidean if all vectors \( \Bx \) in that space have a non-negative length \( \Norm{\Bx} >= 0 \).
+} % definition
+
+\makedefinition{Unit vector}{dfn:multivector:unitvector}{
+   A vector \( \Bu \), in a Euclidean vector space is called a unit vector if its length is one, \( \Norm{\Bu} = 1 \).
+   A vector in a non-Euclidean vector space \( \Bu \) is called a unit vector if its absolute length is one, \( \Norm{\Bu} = \pm 1 \).
+} % definition
+
+\makedefinition{Normal}{dfn:multivector:normal}{
+   Two Euclidean vectors \( \Bx, \By \) are normal, or perpendicular, with respect to a length operation \( \Norm{\cdot} \), if the length of a sum or difference has a Pythagorean relationship
+
+\begin{equation*}
+   \Norm{\Bx \pm \By}^2 = \Norm{\Bx}^2 + \Norm{\By}^2.
+\end{equation*}
+}
+
+\makedefinition{Orthonormal}{dfn:multivector:orthonormal}{
+   A set of vectors \( \setlr{ \Bx, \By, \cdots \Bz } \) is a an orthonormal set if all pairs of vectors in that set are perpendicular and are also unit vectors.
+} % definition
+
+\makedefinition{Dimension}{dfn:multivector:dimension}{
+   The dimension of a vector space is a count of the number of normal directions in that space.
+} % definition
+
+\makedefinition{Standard basis}{dfn:multivector:standardbases}{
+   A set of vectors \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), where \( N \) is the dimension of the space is referred to as a standard basis if all pairs \( \Be_i, \Be_j \), \( i \ne j \) are orthonormal.
+} % definition
+
+There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
+
+\subsection{Problems}
+\makeproblem{One dimensional multivector space.}{problem:multivector:30}{
+   Given \( f(x) = e^x \) and \( g(x) = x^2 \), and scalars \( a,b \in \bbR \) determine whether the set
+   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space.
+} % problem
+
+\makeproblem{Pauli matrix vector space.}{problem:multivector:20}{
+The Pauli matrices are defined as
+
+\begin{dmath}\label{eqn:multivector:160}
+\begin{aligned}
+   \sigma_1 &= \PauliX \\
+   \sigma_2 &= \PauliY \\
+   \sigma_3 &= \PauliZ.
+\end{aligned}
+\end{dmath}
+
+\makesubproblem{}{problem:multivector:20:a}
+Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \sigma_1 + b \sigma_2 + c \sigma_3 } \) is a vector space, and determine the required form of the unit multiplicative identity element.
+
+\makesubproblem{}{problem:multivector:20:b}
+
+Show that \( \sigma_k^2 = I \), where \( I \) is the 2x2 identity matrix, and that \( \sigma_k \sigma_j = -\sigma_k \sigma_j \) for all \( k \ne j \).
+
+\makesubproblem{}{problem:multivector:20:c}
+
+Using the results of \cref{problem:multivector:20:b}, show that 
+\( \lr{ a \sigma_x + b \sigma_y + c \sigma_z }^2 = (a^2 + b^2 + c^2) I \), where \( I \) is the 2x2 identity matrix.
+%This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
+} % problem
+
+\section{Multivector}
+Geometric Algebra (\textAndIndex{GA}) generalizes the concept of vector and a normed vector space, introducing a vector multiplication operation into the mix, and a vector generalization called a \textAndIndex{multivector}.
+
+The multivector is a hybrid object that may contain any sum of all or some of
+
+\begin{enumerate}
+   \item scalars, numeric quantities with magnitude and no direction,
+   \item vectors, quantities with magnitude and direction,
+   \item k-vectors, generalizatized line, area or volume elements, representing subspaces with orientation and magnitude.
+\end{enumerate}
+
+Scalars and vectors (1-vectors) are assumed to be familiar, however, a sum of a scalar and vector is a new and arguable strange idea.  The k-vectors with \( k=2 \) and \( k = 3 \) are also called bivectors and trivectors, and represent oriented planes and volumes in space respectively.
+Bivectors, trivectors, and k-vectors in general, will be defined later in a more precise fashion, as will orientation.  For now, orientation can be thought of algebraically as a sign, but physically may have an interpretation of sidedness, direction of a normal to the surface\footnote{In three dimensional spaces where a normal can be defined.}, or a rotational sense.
+
+The vector multiplication operation is a new type of vector product.  The vector product is distinct from, but relatied to, the familiar dot or cross products in a way that will become clear.
+
+The algebraic description of a multivector space is very similar to that of the vector space, the definition of which is
+
+Multivectors are built from normed vector spaces, vector spaces that have an associated
+length operation \( \Norm{\Bx} \).  Specifically
 
 \makedefinition{Multivector space.}{def:multiplication:multivectorspace}{
    Given a normed vector space \( V \), with elements \( \setlr{ \Bx, \By, \cdots, \Bz} \in V \),
@@ -45,35 +124,79 @@ A multivector space \( M \) is the set of all possible multivectors that can be 
 \end{tcolorbox}
 }
 
-Some work is required to systematically examine the consequences of this unfortunately abstract definition.  
+Some work is required to systematically examine the consequences of this abstract definition.
 
 Observe first that since a scalar multiple of the square of a vector is as scalar by the definition above,
 any scalar is also a multivector.  For example, if \( \Be_1 \) is the unit vector along the x-axis and \( s \) is a scalar, then
 
-\begin{equation}\label{eqn:multivector:n}
+\begin{equation}\label{eqn:multivector:20}
    x = s \Be_1^2 = s,
 \end{equation}
 
 is a multivector.  Since vectors (a product of one vector, or a scalar multiple thereof) is also a multivector, this
 means that vectors are multivectors, and that ``wierd'' sums of scalars and vectors, such as
 
-\begin{dmath}\label{eqn:multivector:n}
+\begin{dmath}\label{eqn:multivector:40}
    x = 1 + \Be_1,
 \end{dmath}
 
-are also multivectors!
+are also multivectors!  A quantity like
 
-\makeproblem{One dimensional multivector space.}{problem:multivector:1}{
+\begin{dmath}\label{eqn:multivector:40}
+   x = 1 + \Be_1 + \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3,
+\end{dmath}
+
+where \( \Be_k \) are the standard orthonormal basis vectors for \R{3} (unit vectors that are mutually perperpendicular), is also a multivector.  The product \( \Be_1 \Be_2 \) is a bivector, and represents a positively oriented unit magnitude area in the x-y plane, whereas \( - \Be_1 \Be_2 \Be_3 \) is a trivector, representing a negatively oriented unit volume (inwards normals).
+
+\section{Unpacking the axioms}
+Now consider some consequences of the contraction axiom.  In particular,
+requires the square of a unit (Euclidean) vector \( \Be_i \) to be unity
+
+%\begin{equation}\label{eqn:multiplication:60}
+\boxedEquation{eqn:multiplication:60}{
+\Be_i^2 = 1.
+}
+%\end{equation}
+
+With this implication noted, now consider the square of a simple two dimensional vector
+
+\begin{dmath}\label{eqn:gaTutorial:80}
+2
+=
+(\Be_1 + \Be_2)^2
+= (\Be_1 + \Be_2)(\Be_1 + \Be_2)
+= \Be_1^2 + \Be_2 \Be_1 + \Be_1 \Be_2 + \Be_2^2
+= 2 + \Be_2 \Be_1 + \Be_1 \Be_2.
+\end{dmath}
+
+The sum above with both scalar terms and terms that are composed of products of vectors is called a multivector.
+A product of two perpendicular vectors (or a sum of such products) is called a bivector, and can be used to represent an oriented plane.
+Geometric Algebra allows for sums of scalars, vectors, bivectors, and higher degree products.
+
+Observe that for this identity to hold, the bivector terms must sum to zero.  That is
+
+%\begin{dmath}\label{eqn:multiplication:140}
+\boxedEquation{eqn:multiplication:140}{
+\Be_1 \Be_2 = -\Be_1 \Be_2.
+}
+%\end{dmath}
+
+This implies that the product of two orthonormal vectors anticommutes.  In general it is also true that
+
+\maketheorem{Normal anticommutation}{thm:multiplication:anticommutationNormal}{
+The product of any two normal vectors \(\Bu\), and \(\Bv\) anticommute.
+\begin{equation*}
+\Bu \Bv = -\Bv \Bu.
+\end{equation*}
+} % theorem
+
+%
+
+
+\subsection{Problems}
+\makeproblem{One dimensional multivector space.}{problem:multivector:40}{
    Verify that for \( c, d \in \bbR \) the set \( M = \setlr{ c + d \Be_1 } \) satisifies all the multivector axioms.
 } % problem
-
-A scalar can be interpretted as a quantity with magnitude, but no direction.  A vector can be interpretted geometrically
-as a 
-object with direction and magnitude, so we see that a multivector can represent either or both such quantities.  We will also see that multivectors will be able to represent oriented planes (i.e. planes with a definitive notion of an ``up'' or ``down'' direction).  Multivectors will also be able to represent volumes and higher dimensional analogues of oriented planes.
-
-\section{Real Euclidean multivectors}
-
-To do so, consider the multivectors that can be formed from the real Euclidean vector space \R{N}.  Elements of this vector space will be expressed as linear combinations of a presumed standard basis \( \setlr{ \Be_i, i \in [1, N] } \) for that space, a complete set of mutually perpendicular unit vectors.
 
 %%\makedefinition{Scalar}{def:multiplication:scalar}{
 %%   A (real) number with no implied direction.
@@ -86,18 +209,18 @@ To do so, consider the multivectors that can be formed from the real Euclidean v
 %%\href{https://youtu.be/bOIe0DIMbI8?t=19}{A quantity with direction and magnitude.}
 %%}
 %%
-%%In this book, 
+%%In this book,
 %%In order to express
-%%\begin{dmath}\label{eqn:multivector:n}
+%%\begin{dmath}\label{eqn:multivector:60}
 %%\Bx = c_1 \Be_1 + c_2 \Be_2,
 %%\end{dmath}
 %%
-%%where \( \Be_1 \) and \( \Be_2 \) are a pair of perpendicular vectors of length one along the x and y axis respectively, as illustrated in 
+%%where \( \Be_1 \) and \( \Be_2 \) are a pair of perpendicular vectors of length one along the x and y axis respectively, as illustrated in
 %%
 %%FIXME: figure.
-%%These 
+%%These
 %%
-%%, as represented pictorially as an arrow 
+%%, as represented pictorially as an arrow
 %%
 %%
 %%
@@ -107,29 +230,29 @@ To do so, consider the multivectors that can be formed from the real Euclidean v
 %%
 %%Geometric Algebra, or \boldTextAndIndex{GA} defines a multiplication operation for vectors.
 %%GA also
-%%generalizes the concept of a vector, introducing a new type of mathematical object, the multivector.  
+%%generalizes the concept of a vector, introducing a new type of mathematical object, the multivector.
 %%
 %%
 %%
 %%In traditional vector algebra, a sum of a scalar and a vector, such as
 %%
-%%\begin{dmath}\label{eqn:multivector:n}
+%%\begin{dmath}\label{eqn:multivector:80}
 %%M = 1 + 2 \Be_1,
 %%\end{dmath}
 %%
-%%is not considered meaningful.  This is 
+%%is not considered meaningful.  This is
 %%
 %%Vectors and scalars, or their sums
-%%It is assumed here that the student is familiar with coordinate representations of vectors, the concepts of 
-%%The reader should be familiar with 
-%%Vectors will be represented algebraically as scaled sums 
-%%A vector may also be represented algebraically in terms  as the sum of directed 
+%%It is assumed here that the student is familiar with coordinate representations of vectors, the concepts of
+%%The reader should be familiar with
+%%Vectors will be represented algebraically as scaled sums
+%%A vector may also be represented algebraically in terms  as the sum of directed
 %%or in its algebraic sense, such as the \R{2} vector
 %%
-%%Vectors, and abstraction representing quantities with magnitude and orientation are types of multivectors.  Scalars (numbers), which have magnitude but no orientation, are also multivectors.  Multivectors that represented oriented areas, oriented volumes, and oriented higher dimensional spaces will also be defined.  The 
+%%Vectors, and abstraction representing quantities with magnitude and orientation are types of multivectors.  Scalars (numbers), which have magnitude but no orientation, are also multivectors.  Multivectors that represented oriented areas, oriented volumes, and oriented higher dimensional spaces will also be defined.  The
 %%
-%%.  Sets of multivectors can be assembled 
+%%.  Sets of multivectors can be assembled
 %%
 %%s and multivector spaces, and introduces a multiplication operation for vectors
 %%
-%%, is built around the \boldTextAndIndex{multivector}.  The purpose of this section is to provide a definition of the multivector, and 
+%%, is built around the \boldTextAndIndex{multivector}.  The purpose of this section is to provide a definition of the multivector, and
