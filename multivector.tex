@@ -1,4 +1,6 @@
-Geometric Algebra (\boldTextAndIndex{GA}) generalizes the concept of vector and a normed vector space, introducing a vector multiplication operation into the mix.  Before detailing that generalization, recall the definition of a vector space
+\section{Multivector}
+Geometric Algebra (\boldTextAndIndex{GA}) generalizes the concept of vector and a normed vector space, introducing a vector multiplication operation into the mix.  
+To detail that generalization, it is helpful to first recall the definition of a vector space
 
 \makedefinition{Vector space.}{def:multiplication:vectorspace}{
 A vector space is a set \( V \), the elements of which are called vectors.
@@ -21,11 +23,16 @@ the addition and multiplication operations must satisfy the following axioms
 A vector space that also defines a length operation \( \Norm{\Bx} \) is called a normed vector space.  Geometric algebras are built from normed vector spaces as follows
 
 \makedefinition{Multivector space.}{def:multiplication:multivectorspace}{
-   Given a normed vector space \( V \), a multivector is a sum of products of vectors from \( V \).  
-A multivector space is the set \( M \) of such multivectors, provided that 
-for all multivectors \( x, y, z \in M \) the following axioms are satisfied
+   Given a normed vector space \( V \), with elements \( \setlr{ \Bx, \By, \cdots, \Bz} \in V \),
+   a multivector can be formed from any product of one or more of these vectors \( \Bx \By \cdots \Bz \), a scalar multiple of such a product, or the sum thereof.  These vector products are constrained by the contraction axiom, a requirement that,
+   for any vector \( \Bx \in V \) the square of that vector is the squared length of that vector
+
+\begin{equation*}
+    \Bx^2 = \Norm{\Bx}^2.
+\end{equation*}
+
+A multivector space \( M \) is the set of all possible multivectors that can be formed from the generating vector space \( V \).  All multivectors \( x, y, z \in M \) must satisfy the following additional axioms
 \begin{tcolorbox}[tab2,tabularx={X|Y},title=Multivector space axioms.,boxrule=0.5pt]
-    Vector contraction. & \( \Bx^2 = \Norm{\Bx}^2 \) \\ \hline
     Addition is closed. & \( x + y \in M \) \\ \hline
     Multiplication is closed. & \( x y \in M \) \\ \hline
     Addition is associative. & \( (x + y) + z = x + (y + z) \) \\ \hline
@@ -38,17 +45,36 @@ for all multivectors \( x, y, z \in M \) the following axioms are satisfied
 \end{tcolorbox}
 }
 
-This is an unfortunately abstract statement.
-The key to understanding this abstraction is the contraction axiom, the requirement that the square of a vector is the squared length of that vector.
+Some work is required to systematically examine the consequences of this unfortunately abstract definition.  
 
-%%representation of a directed quantity with a non-negative length (Euclidean).
-%%A vector 
-%%ThThe multivectors We seek to build an abstraction using ordinary \R{N} vectors, primarily for \( N \le 3 \).
-%%In mathematics and physics, the term vector has a general meaning, and can include abstract quantities such the functions used in Fourier analysis, or the state vectors of quantum mechanics.
-%%Here it is primarily vectors in \R{3} that are of interest, where a vector is an 
-%%
-%%Some preliminary definitions are useful before 
-%%
+Observe first that since a scalar multiple of the square of a vector is as scalar by the definition above,
+any scalar is also a multivector.  For example, if \( \Be_1 \) is the unit vector along the x-axis and \( s \) is a scalar, then
+
+\begin{equation}\label{eqn:multivector:n}
+   x = s \Be_1^2 = s,
+\end{equation}
+
+is a multivector.  Since vectors (a product of one vector, or a scalar multiple thereof) is also a multivector, this
+means that vectors are multivectors, and that ``wierd'' sums of scalars and vectors, such as
+
+\begin{dmath}\label{eqn:multivector:n}
+   x = 1 + \Be_1,
+\end{dmath}
+
+are also multivectors!
+
+\makeproblem{One dimensional multivector space.}{problem:multivector:1}{
+   Verify that for \( c, d \in \bbR \) the set \( M = \setlr{ c + d \Be_1 } \) satisifies all the multivector axioms.
+} % problem
+
+A scalar can be interpretted as a quantity with magnitude, but no direction.  A vector can be interpretted geometrically
+as a 
+object with direction and magnitude, so we see that a multivector can represent either or both such quantities.  We will also see that multivectors will be able to represent oriented planes (i.e. planes with a definitive notion of an ``up'' or ``down'' direction).  Multivectors will also be able to represent volumes and higher dimensional analogues of oriented planes.
+
+\section{Real Euclidean multivectors}
+
+To do so, consider the multivectors that can be formed from the real Euclidean vector space \R{N}.  Elements of this vector space will be expressed as linear combinations of a presumed standard basis \( \setlr{ \Be_i, i \in [1, N] } \) for that space, a complete set of mutually perpendicular unit vectors.
+
 %%\makedefinition{Scalar}{def:multiplication:scalar}{
 %%   A (real) number with no implied direction.
 %%}
@@ -59,15 +85,6 @@ The key to understanding this abstraction is the contraction axiom, the requirem
 %%%\href{https://www.youtube.com/watch?v=bOIe0DIMbI8}{A quantity with direction and magnitude.}
 %%\href{https://youtu.be/bOIe0DIMbI8?t=19}{A quantity with direction and magnitude.}
 %%}
-%%
-%%A vector may be represented as a coordinate tuple, such as \( \Bx = (1,2) \), or explicitly, in terms of 
-%%
-%%\makedefinition{Unit vector}{def:multiplication:unitvector}{
-%%   A vector 
-%%}
-%%
-%%
-%%
 %%
 %%In this book, 
 %%In order to express
