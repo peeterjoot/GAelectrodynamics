@@ -18,9 +18,63 @@ the addition and multiplication operations must satisfy the following axioms
 \end{tcolorbox}
 }
 
-\makedefinition{Euclidean vector space}{dfn:multivector:euclidean}{
-   A vector space is Euclidean if all vectors \( \Bx \) in that space have a non-negative length \( \Norm{\Bx} >= 0 \).
+\makedefinition{Dimension}{dfn:multivector:dimension}{
+   The dimension of a vector space is a count of the number of normal directions in that space.
 } % definition
+
+\makedefinition{Basis and coordinates}{dfn:multivector:basis}{
+   If \( N \) is the dimension of a vector space \( V \), a set of \( N \) vectors \( B = \setlr{ \Ba_1, \Ba_2, \cdots \Ba_N } \) is a basis for that vector space, if it is possible to form any vector \( \Bx \in V \) as a linear combination of those vectors \( \Ba_k \).  That is, there exists scalars \( c_k \) such that for any \( \Bx \in V \)
+
+\begin{equation*}
+   \Bx = \sum_{k = 1}^N c_k \Ba_k.
+\end{equation*}
+
+The numbers \( (c_1, c_2, \cdots, c_N ) \) are referred to as the coordinates of the vector \( \Bx \) with respect to the basis \( B \).
+}
+
+It is common to represent a vector \( \Bx \) strictly in terms of that vectors coordinates with respect to a basis, writing
+\begin{dmath}\label{eqn:multivector:180}
+   \Bx =
+\begin{bmatrix}
+   c_1 \\
+   c_2 \\
+   \hdots \\
+   c_N \\
+\end{bmatrix}.
+\end{dmath}
+
+In this book, if coordinates are ever used, they will be used explicitly along with their associated basis.
+
+\makedefinition{Quadratic form}{dfn:multivector:quadraticform}{
+   Given a basis \( B \) and coordinates \( c_i \) of a vector \( \Bx \) with respect to that basis, a quadratic form over those coordinates is a scalar mapping
+
+\begin{equation*}
+   q(c_1, \cdots, c_N) = \sum_{i,j = 1}^N c_i a_{ij} c_j.
+\end{equation*}
+}
+
+It is possible to show (Jacobi) that any quadratic form can be reduced to a diagonal form
+
+\begin{equation}\label{eqn:multivector:200}
+\sum_{i=1}^N \tilde{c}_i^2 \lambda_i.
+\end{equation}
+
+\makedefinition{Norm}{dfn:multivector:norm}{
+   For the purposes of this book a norm for elements
+   \( \Bx \in V \) of a vector space is a length operations \( \Norm{\Bx} \) that can be reduced to a diagonal
+   quadradic form as in \cref{eqn:multivector:200} where all the constants \( \lambda_i \) are \( \pm 1 \).
+   Such a norm is called Euclidean if all such \( \lambda_i \) values equal one, and non-Euclidean if that is not the case.
+
+   The only non-Euclidean norm of interest in electromagnetism is the norm for ``spacetime'' vectors, for which
+   \( \lambda_1 = \lambda_2 = \lambda_3 = 1 = -\lambda_0 \), or
+   \( \lambda_1 = \lambda_2 = \lambda_3 = -1 = -\lambda_0 \) depending on the sign convention in effect.
+}
+
+%\begin{enumerate}
+%   \item \( \Norm{\Bx} \ge 0 \), and \( \Norm{\Bx} = 0 \iff \Bx = 0 \).
+%   \item \( \Norm{a \Bx} = \Abs{a} \Norm{\Bx} \).
+%   \item \( \Norm{\Bx + \By} \le \Norm{\Bx} + \Norm{\By} \).
+%\end{enumerate}
 
 \makedefinition{Unit vector}{dfn:multivector:unitvector}{
    A vector \( \Bu \), in a Euclidean vector space is called a unit vector if its length is one, \( \Norm{\Bu} = 1 \).
@@ -39,12 +93,8 @@ the addition and multiplication operations must satisfy the following axioms
    A set of vectors \( \setlr{ \Bx, \By, \cdots \Bz } \) is a an orthonormal set if all pairs of vectors in that set are perpendicular and are also unit vectors.
 } % definition
 
-\makedefinition{Dimension}{dfn:multivector:dimension}{
-   The dimension of a vector space is a count of the number of normal directions in that space.
-} % definition
-
 \makedefinition{Standard basis}{dfn:multivector:standardbases}{
-   A set of vectors \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), where \( N \) is the dimension of the space is referred to as a standard basis if all pairs \( \Be_i, \Be_j \), \( i \ne j \) are orthonormal.
+   A basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), where \( N \) is the dimension of the space is referred to as a standard basis if all pairs \( \Be_i, \Be_j \), \( i \ne j \) are orthonormal.
 } % definition
 
 There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
@@ -75,7 +125,7 @@ Show that \( \sigma_k^2 = I \), where \( I \) is the 2x2 identity matrix, and th
 
 \makesubproblem{}{problem:multivector:20:c}
 
-Using the results of \cref{problem:multivector:20:b}, show that 
+Using the results of \partref{problem:multivector:20:b}, show that
 \( \lr{ a \sigma_x + b \sigma_y + c \sigma_z }^2 = (a^2 + b^2 + c^2) I \), where \( I \) is the 2x2 identity matrix.
 %This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
 } % problem
@@ -98,8 +148,7 @@ The vector multiplication operation is a new type of vector product.  The vector
 
 The algebraic description of a multivector space is very similar to that of the vector space, the definition of which is
 
-Multivectors are built from normed vector spaces, vector spaces that have an associated
-length operation \( \Norm{\Bx} \).  Specifically
+Multivectors are built from normed vector spaces as follows
 
 \makedefinition{Multivector space.}{def:multiplication:multivectorspace}{
    Given a normed vector space \( V \), with elements \( \setlr{ \Bx, \By, \cdots, \Bz} \in V \),
@@ -142,7 +191,7 @@ means that vectors are multivectors, and that ``wierd'' sums of scalars and vect
 
 are also multivectors!  A quantity like
 
-\begin{dmath}\label{eqn:multivector:40}
+\begin{dmath}\label{eqn:multivector:45}
    x = 1 + \Be_1 + \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3,
 \end{dmath}
 
