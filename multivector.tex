@@ -1,0 +1,140 @@
+Geometric Algebra (\boldTextAndIndex{GA}) generalizes the concept of vector and a normed vector space, introducing a vector multiplication operation into the mix.  Before detailing that generalization, recall the definition of a vector space
+
+\makedefinition{Vector space.}{def:multiplication:vectorspace}{
+A vector space is a set \( V \), the elements of which are called vectors, which is closed under addition and scalar multiplication operations, or
+
+\begin{enumerate}[(a)]
+   \item given any pair of vectors \( \Bx, \By \in V \) the additive result is a vector \( \Bx + \By \in V \), and
+   \item given any vector \( \Bx \) and any scalar \( c \in \bbR \) (a number), the product of the two is a vector \( c \Bx \in V \).
+\end{enumerate}
+
+For all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \),
+the addition and multiplication operations must satisfy the following axioms
+
+\begin{tcolorbox}[tab2,tabularx={X|Y},title=Vector space axioms.,boxrule=0.5pt]
+    Addition is associative. & \( (\Bx + \By) + \Bz = \Bx + (\By + \Bz) \) \\ \hline
+    Addition is commutative. & \( \By + \Bx = \Bx + \By \) \\ \hline
+    There exists a zero element \( 0 \in V \).  & \( \Bx + 0 = \Bx \) \\ \hline
+    For any \( \Bx \in V \) there exists a negative additive inverse \( -\Bx \in V \). & \( \Bx + (-\Bx) = 0 \) \\ \hline
+    multiplication (by scalars) is distributive.  & \( a( \Bx + \By ) = a \Bx + a \By \), \( (a + b)\Bx = a \Bx + b\Bx \) \\ \hline
+    scalar multiplication is associative. & \( (a b) \Bx = a ( b \Bx ) \) \\ \hline
+    There exists a scalar multiplicative identity \( 1 \). & \( 1 \Bx = \Bx \) \\ \hline
+\end{tcolorbox}
+}
+
+A vector space that also defines a length operation \( \Norm{\Bx} \) is called a normed vector space.  Geometric algebras are built from normed vector spaces as follows
+
+\makedefinition{Multivector space.}{def:multiplication:multivectorspace}{
+A multivector space \( M \), associated with a normed vector space \( V \), the elements of which are called multivectors, is closed under addition and multivector multiplication operations, or
+
+\begin{enumerate}[(a)]
+   \item given any pair of multivectors \( x, y \in M \), the additive result is a multivector \( x + y \in M \), and
+   \item given any pair of multivectors \( x, y \in M \), the product of the two is a multivector \( x y \in M \).
+\end{enumerate}
+
+For all multivectors \( x, y, z \in M \) and vectors \( \Bx \in V \),
+the addition and multiplication operations must satisfy the following axioms
+
+\begin{tcolorbox}[tab2,tabularx={X|Y},title=Multivector space axioms.,boxrule=0.5pt]
+    Vector contraction. & \( \Bx^2 = \Norm{\Bx}^2 \) \\ \hline
+    Addition is associative. & \( (x + y) + z = x + (y + z) \) \\ \hline
+    Addition is commutative. & \( y + x = x + y \) \\ \hline
+    There exists a zero element \( 0 \in M \).  & \( x + 0 = x \) \\ \hline
+    For any \( x \in M \) there exists a negative additive inverse \( -x \in M \). & \( x + (-x) = 0 \) \\ \hline
+    multiplication is distributive.  & \( z( x + y ) = z x + z y \), \( (z + w)x = z x + w x \) \\ \hline
+    multiplication is associative. & \( (a b) x = a ( b x ) \) \\ \hline
+    There exists a scalar multiplicative identity \( 1 \). & \( 1 x = x \) \\ \hline
+\end{tcolorbox}
+}
+
+
+%%
+%%Given a 
+%%Geometric Algebras are constructed from vectors for which a length and product operation is defined.
+%%
+%%
+%%with an associated length and product operation.
+%%
+%%is based introduces a multiplication operation for vectors
+%%
+%%, generalizes the concept of a vector, introducing a new type of mathematical object, the \boldTextAndIndex{multivector}.  
+%%A multivector is formed from sums of products of vectors.
+%%GA introduces a vector multiplication operation, the vector product. 
+%%Multivectors are 
+%%
+%%
+%%representation of a directed quantity with a non-negative length (Euclidean).
+%%A vector 
+%%ThThe multivectors We seek to build an abstraction using ordinary \R{N} vectors, primarily for \( N \le 3 \).
+%%In mathematics and physics, the term vector has a general meaning, and can include abstract quantities such the functions used in Fourier analysis, or the state vectors of quantum mechanics.
+%%Here it is primarily vectors in \R{3} that are of interest, where a vector is an 
+%%
+%%Some preliminary definitions are useful before 
+%%
+%%\makedefinition{Scalar}{def:multiplication:scalar}{
+%%   A (real) number with no implied direction.
+%%}
+%%
+%%Examples of scalars are \( \pi, 3, -4 \), and \( 0 \).
+%%
+%%\makedefinition{Vector}{def:multiplication:vector}{
+%%%\href{https://www.youtube.com/watch?v=bOIe0DIMbI8}{A quantity with direction and magnitude.}
+%%\href{https://youtu.be/bOIe0DIMbI8?t=19}{A quantity with direction and magnitude.}
+%%}
+%%
+%%A vector may be represented as a coordinate tuple, such as \( \Bx = (1,2) \), or explicitly, in terms of 
+%%
+%%\makedefinition{Unit vector}{def:multiplication:unitvector}{
+%%   A vector 
+%%}
+%%
+%%
+%%
+%%
+%%In this book, 
+%%In order to express
+%%\begin{dmath}\label{eqn:multivector:n}
+%%\Bx = c_1 \Be_1 + c_2 \Be_2,
+%%\end{dmath}
+%%
+%%where \( \Be_1 \) and \( \Be_2 \) are a pair of perpendicular vectors of length one along the x and y axis respectively, as illustrated in 
+%%
+%%FIXME: figure.
+%%These 
+%%
+%%, as represented pictorially as an arrow 
+%%
+%%
+%%
+%%\section{Vector space}
+%%\section{Vector multiplication}
+%%\section{Multivector}
+%%
+%%Geometric Algebra, or \boldTextAndIndex{GA} defines a multiplication operation for vectors.
+%%GA also
+%%generalizes the concept of a vector, introducing a new type of mathematical object, the multivector.  
+%%
+%%
+%%
+%%In traditional vector algebra, a sum of a scalar and a vector, such as
+%%
+%%\begin{dmath}\label{eqn:multivector:n}
+%%M = 1 + 2 \Be_1,
+%%\end{dmath}
+%%
+%%is not considered meaningful.  This is 
+%%
+%%Vectors and scalars, or their sums
+%%It is assumed here that the student is familiar with coordinate representations of vectors, the concepts of 
+%%The reader should be familiar with 
+%%Vectors will be represented algebraically as scaled sums 
+%%A vector may also be represented algebraically in terms  as the sum of directed 
+%%or in its algebraic sense, such as the \R{2} vector
+%%
+%%Vectors, and abstraction representing quantities with magnitude and orientation are types of multivectors.  Scalars (numbers), which have magnitude but no orientation, are also multivectors.  Multivectors that represented oriented areas, oriented volumes, and oriented higher dimensional spaces will also be defined.  The 
+%%
+%%.  Sets of multivectors can be assembled 
+%%
+%%s and multivector spaces, and introduces a multiplication operation for vectors
+%%
+%%, is built around the \boldTextAndIndex{multivector}.  The purpose of this section is to provide a definition of the multivector, and 

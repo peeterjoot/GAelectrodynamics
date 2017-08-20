@@ -4,22 +4,30 @@
 %
 %----------------------------------------------------------------------------------------
 \part{Geometric Algebra}
-   \chapter{Introduction}
-      \section{Vector products in various algebras.}
-         \input{GAmotivation.tex}
-         \subsection{Problems}
-            \input{ComplexInnerProductVsDotAndCrossProduct.tex}
-      \section{Problem solutions}
-         \shipoutAnswer
+%<WRITING HERE IS TOO OBSCURE, NOT FOR THE TARGET AUDIENCE>
+%
+% WRITE NEW INTRODUCTION LATER AFTER THE CONTENT.
+%
+%   \chapter{Introduction}
+%      \section{Vector products in various algebras.}
+%         \input{GAmotivation.tex}
+%         \subsection{Problems}
+%            \input{ComplexInnerProductVsDotAndCrossProduct.tex}
+%      \section{Problem solutions}
+%         \shipoutAnswer
+%<WRITING HERE IS TOO OBSCURE, NOT FOR THE TARGET AUDIENCE>
+   \chapter{Geometric Algebra}
+      \input{multivector.tex}
+\part{First two drafts}
    \chapter{Basics}
       \section{Vector products.}
          \input{SimpleProducts.tex}
       \section{Two dimensions.}
          \input{SimpleProducts2.tex}
          \subsection{Problems}
-            \input{left2dimaginarymultiplication.tex}
+            %\input{left2dimaginarymultiplication.tex}
             \input{coordinateNinetyDegreeRotation.tex}
-            %\input{rightComplexMult.tex}
+            \input{rightComplexMult.tex}
             \input{sandwichMult.tex}
             \input{normalMult.tex}
             \input{crossProductLinearIntersectionProblem.tex}
@@ -66,22 +74,8 @@
             \input{../gabookI/appendix/wedgeDistributionIdentityProblems.tex}
       \section{Problem solutions}
          \shipoutAnswer
-   \chapter{Geometry}
-      \section{Bivectors}
-%gabookI: 3.9
-      %\subsection{Problems}
-      \section{Trivectors}
-      %\subsection{Problems}
-      %\section{Projection and rejection}
-      %\subsection{Problems}
-      \section{Rotations}
-%gabookI: 2.5 rotations. esp fig 2.1, fig 2.2.
-         % contains 'We see' type language, inconsistent with the new writing.
-         \input{../gabookI/basics/gaQuickIntroRotations.tex}
-%      \subsection{Problems}
-%gabookI: 10.4.3 bivector generator of rotations.
-%gabookI: 29.1
-
+%         % contains 'We see' type language, inconsistent with the new writing.
+%         \input{../gabookI/basics/gaQuickIntroRotations.tex}
 
 %%iii) Transformation of a vector  from one cs to another is trivial and is performed via dot multiplication with a sigma matrix
 %%
@@ -114,105 +108,106 @@
 %         \subsection{Problems}
 %      \section{Problem solutions}
 %         \shipoutAnswer
-   \chapter{Vector calculus}
-      \section{Reciprocal frames}
-         \input{reciprocal.tex}
-         \subsection{Problems}
-            \input{2dreciprocalMatrixCalculation.tex}
-            \input{2subspaceR3reciprocalExample.tex}
-      \section{Curvilinear coordinates}
-         \input{../curvilinear/curvilinearDefined.tex}
-         \input{../curvilinear/curvilinearGradient.tex}
 
-Many of the concepts are illuminated nicely by considering some examples.
-
-         \subsection{Cylindrical coordinates.}
-            \input{../curvilinear/2Dcylindrical.tex}
-
-         \subsection{Spherical coordinates.}
-            \input{../curvilinear/curvilinearspherical.tex}
-
-         \subsection{Toroidal coordinates.}
-            \input{../gabookI/physics/torusCenterOfMassParameterization.tex}
-
-         \subsection{Problems}
-            \input{../curvilinear/sphericaldot.tex}
-            \input{../curvilinear/volumeselection.tex}
-
-%gabook: 31.1
-%Also: Stokes chapter.  Lots of examples there that should really be separated out from the stokes core content
-%(now included here).
-      \section{Green's theorem}
-         \input{../gabookI/calculus/greensTheorem.tex}
-         %\subsection{Problems}
-      \section{Stokes' theorem}
-         \subsection{Statement}
-            \input{../stokesTheorem/statement.tex}
-         \subsection{One parameter specialization of Stokes' theorem.}
-            \input{../stokesTheorem/oneparameter.tex}
-         \subsection{Two parameter specialization of Stokes' theorem.}
-            \input{../stokesTheorem/twoparameter.tex}
-         \subsection{Three parameter specialization of Stokes' theorem.}
-            \input{../stokesTheorem/threeparameter.tex}
-         \subsection{Using scalar volume elements}
-            \input{../stokesTheorem/scalarVolumeElement.tex}
-         \subsection{Problems}
-            \input{../stokesTheorem/stokesAndGreens.tex}
-            \input{../stokesTheorem/stokesTheoremCoreProblems.tex}
-
-      \section{Fundamental theorem of geometric calculus}
-         \subsection{Fundamental Theorem of Geometric Calculus}
-            \input{../gabookI/calculus/fundamentalTheoremOfCalculus.tex}
-         \subsection{Green's function for the gradient in Euclidean spaces.}
-            %\input{../gabookI/calculus/gradientGreensFunction.tex}
-            \input{gradientGreensFunctionEuclidean.tex}
-            % example:
-            \input{../gabookI/calculus/biotSavartGreens.tex}
-         %\subsection{Problems}
-         \subsection{Helmholtz theorem}
-            \input{../gabookI/calculus/helmholtzDerviationMultivectorStatement.tex}
-            \input{../gabookI/calculus/helmholtzDerviationMultivectorSolution.tex}
-      \section{Problem solutions}
-         \shipoutAnswer
-
-\part{Electromagnetism}
-   \chapter{Maxwell's equations}
-      \input{maxwellsEquations.tex}
-      \section{Potentials}
-         \input{../potentialMethods/potentialSection.tex}
-      \section{Boundary value conditions}
-         \input{boundarySurfaceSources.tex}
-      \section{Problem solutions}
-         \shipoutAnswer
-   \chapter{Electrostatics}
-      \section{Problem solutions}
-         \shipoutAnswer
-   \chapter{Magnetostatics}
-      \section{Problem solutions}
-         \shipoutAnswer
-   \chapter{Constitutive relations}
-      \section{Problem solutions}
-         \shipoutAnswer
-%   \chapter{Time harmonic fields}
-%      \section{Frequency domain}
-%         \input{../frequencydomain/frequencydomainMaxwells.tex}
-%      \section{Plane waves}
-%         \input{../frequencydomain/frequencydomainPlaneWaves.tex}
-%      \section{Problem solutions}
-%         \shipoutAnswer
-   \chapter{Polarization}
-      \section{Problem solutions}
-         \shipoutAnswer
-   \chapter{Green's functions}
-      \section{Problem solutions}
-         \shipoutAnswer
-   \chapter{Wave equations}
-      \section{Problem solutions}
-         \shipoutAnswer
-   \chapter{Radiation and scattering}
-      \section{Problem solutions}
-         \shipoutAnswer
-%\end{itemize}
-
-
-
+%<TEMPORARY COMMENT OUT FOR QUICKER BUILD.>
+%%%%
+%%%%   \chapter{Vector calculus}
+%%%%      \section{Reciprocal frames}
+%%%%         \input{reciprocal.tex}
+%%%%         \subsection{Problems}
+%%%%            \input{2dreciprocalMatrixCalculation.tex}
+%%%%            \input{2subspaceR3reciprocalExample.tex}
+%%%%      \section{Curvilinear coordinates}
+%%%%         \input{../curvilinear/curvilinearDefined.tex}
+%%%%         \input{../curvilinear/curvilinearGradient.tex}
+%%%%
+%%%%Many of the concepts are illuminated nicely by considering some examples.
+%%%%
+%%%%         \subsection{Cylindrical coordinates.}
+%%%%            \input{../curvilinear/2Dcylindrical.tex}
+%%%%
+%%%%         \subsection{Spherical coordinates.}
+%%%%            \input{../curvilinear/curvilinearspherical.tex}
+%%%%
+%%%%         \subsection{Toroidal coordinates.}
+%%%%            \input{../gabookI/physics/torusCenterOfMassParameterization.tex}
+%%%%
+%%%%         \subsection{Problems}
+%%%%            \input{../curvilinear/sphericaldot.tex}
+%%%%            \input{../curvilinear/volumeselection.tex}
+%%%%
+%%%%%gabook: 31.1
+%%%%%Also: Stokes chapter.  Lots of examples there that should really be separated out from the stokes core content
+%%%%%(now included here).
+%%%%      \section{Green's theorem}
+%%%%         \input{../gabookI/calculus/greensTheorem.tex}
+%%%%         %\subsection{Problems}
+%%%%      \section{Stokes' theorem}
+%%%%         \subsection{Statement}
+%%%%            \input{../stokesTheorem/statement.tex}
+%%%%         \subsection{One parameter specialization of Stokes' theorem.}
+%%%%            \input{../stokesTheorem/oneparameter.tex}
+%%%%         \subsection{Two parameter specialization of Stokes' theorem.}
+%%%%            \input{../stokesTheorem/twoparameter.tex}
+%%%%         \subsection{Three parameter specialization of Stokes' theorem.}
+%%%%            \input{../stokesTheorem/threeparameter.tex}
+%%%%         \subsection{Using scalar volume elements}
+%%%%            \input{../stokesTheorem/scalarVolumeElement.tex}
+%%%%         \subsection{Problems}
+%%%%            \input{../stokesTheorem/stokesAndGreens.tex}
+%%%%            \input{../stokesTheorem/stokesTheoremCoreProblems.tex}
+%%%%
+%%%%      \section{Fundamental theorem of geometric calculus}
+%%%%         \subsection{Fundamental Theorem of Geometric Calculus}
+%%%%            \input{../gabookI/calculus/fundamentalTheoremOfCalculus.tex}
+%%%%         \subsection{Green's function for the gradient in Euclidean spaces.}
+%%%%            %\input{../gabookI/calculus/gradientGreensFunction.tex}
+%%%%            \input{gradientGreensFunctionEuclidean.tex}
+%%%%            % example:
+%%%%            \input{../gabookI/calculus/biotSavartGreens.tex}
+%%%%         %\subsection{Problems}
+%%%%         \subsection{Helmholtz theorem}
+%%%%            \input{../gabookI/calculus/helmholtzDerviationMultivectorStatement.tex}
+%%%%            \input{../gabookI/calculus/helmholtzDerviationMultivectorSolution.tex}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%
+%%%%\part{Electromagnetism}
+%%%%   \chapter{Maxwell's equations}
+%%%%      \input{maxwellsEquations.tex}
+%%%%      \section{Potentials}
+%%%%         \input{../potentialMethods/potentialSection.tex}
+%%%%      \section{Boundary value conditions}
+%%%%         \input{boundarySurfaceSources.tex}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%   \chapter{Electrostatics}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%   \chapter{Magnetostatics}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%   \chapter{Constitutive relations}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%%   \chapter{Time harmonic fields}
+%%%%%      \section{Frequency domain}
+%%%%%         \input{../frequencydomain/frequencydomainMaxwells.tex}
+%%%%%      \section{Plane waves}
+%%%%%         \input{../frequencydomain/frequencydomainPlaneWaves.tex}
+%%%%%      \section{Problem solutions}
+%%%%%         \shipoutAnswer
+%%%%   \chapter{Polarization}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%   \chapter{Green's functions}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%   \chapter{Wave equations}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%   \chapter{Radiation and scattering}
+%%%%      \section{Problem solutions}
+%%%%         \shipoutAnswer
+%%%%XX
+%</TEMPORARY COMMENT OUT FOR QUICKER BUILD.>

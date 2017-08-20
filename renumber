@@ -70,23 +70,26 @@
 #../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
 
-../latex/bin/lgrep SimpleProducts.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl SimpleProducts.tex
+../latex/bin/lgrep multivector.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl multivector.tex
 
-../latex/bin/lgrep left2dimaginarymultiplication.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl left2dimaginarymultiplication.tex
+#../latex/bin/lgrep SimpleProducts.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl SimpleProducts.tex
 
-../latex/bin/lgrep SimpleProducts2.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl SimpleProducts2.tex
+#../latex/bin/lgrep left2dimaginarymultiplication.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl left2dimaginarymultiplication.tex
 
-../latex/bin/lgrep rightComplexMult.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl rightComplexMult.tex
+#../latex/bin/lgrep SimpleProducts2.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl SimpleProducts2.tex
 
-../latex/bin/lgrep sandwichMult.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl sandwichMult.tex
+#../latex/bin/lgrep rightComplexMult.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl rightComplexMult.tex
 
-../latex/bin/lgrep normalMult.tex   | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl normalMult.tex  
+#../latex/bin/lgrep sandwichMult.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl sandwichMult.tex
 
-../latex/bin/lgrep coordinateNinetyDegreeRotation.tex   | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl coordinateNinetyDegreeRotation.tex  
+#../latex/bin/lgrep normalMult.tex   | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl normalMult.tex  
+
+#../latex/bin/lgrep coordinateNinetyDegreeRotation.tex   | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl coordinateNinetyDegreeRotation.tex  
