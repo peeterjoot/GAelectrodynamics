@@ -1,6 +1,8 @@
+As Geometric Algegra 
+generalizes the concept of vector space, a quick review of some of the more fundamental definitions from linear and vector algebra is worthwhile.
 
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
-A vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that 
+A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that 
 for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \),
 the following axioms are satisfied
 
@@ -17,32 +19,153 @@ the following axioms are satisfied
 \end{tcolorbox}
 }
 
-All of the vector spaces used in this book will also be real dot product spaces.  Vectors \( \Bx, \By \in V \) for a vector space \( V \) have an associated dot product \( \Bx \cdot \By = \By \cdot \Bx \) that defines the notion of perpendicularity for the space.  The generalization of geometric algebras to (complex) inner product spaces where the inner product operator is order dependent, that is \( \innerprod{\Bx}{\By} \ne \innerprod{\By}{\Bx} \) (in general), is known as Clifford Algebra.  That abstraction will not be required for any of the physical applications to be considered.
+The concept of vector space encapsulates the rules common to a number of mathematical structures, and allows seemingly unrelated mathematical constructs like
+ordered tuples, matrices, directed ``arrows in space'', and functions to be treated in a unified fashion.  
+That said, the general properties of vector spaces are not of primary interest here.  Instead, our use of Geometric algebra uses one of two types of vector spaces as building blocks
 
-In the study of electromagnetic waves, scalar multiples of vectors will be allowed to be complex.  However, the underlying direction vectors will be assumed to be always real, and no notion of complex conjugatation will be built into the dot product itself.
+\begin{enumerate}
+\item Vector spaces that represent lines, planes and volumes, and for which there is an associated Pythagorean notion of perpendicularity (Euclidean spaces).
+\item Vector spaces that represent points in ``space-time'', with a time-like direction and one to three space-like directions.
+\end{enumerate}
 
-% TODO: rework dimension by adding:
-% - span
-% - linear dependence
-% - linear independence
-% - subspace
-% - (then finally) dimension
-% FIXME: this is now the only chicken and egg problem left (normal used before its definition).  Probably have to define linear independence to resolve.
-\makedefinition{Dimension}{dfn:multivector:dimension}{
-   The dimension of a vector space is a count of the number of normal directions in that space.
-} % definition
+In either case the dimensionality of the underlying vector space is small and finite, with no more than four dimensions required.  
+Perpendicularity will be defined by a dot product associated with the vector space, however, in neither case do we require an order dependent, or complex, 
+dot product (i.e. an inner product).
+There will be circumstances where we allow the coeffients of our vectors to be complex, but the underlying direction vectors should be thought of as real.
 
-Only finite dimensional vector spaces will be used in this book.
-
-\makedefinition{Basis and coordinates}{dfn:multivector:basis}{
-   If \( N \) is the dimension of a vector space \( V \), a set of \( N \) vectors \( B = \setlr{ \Ba_1, \Ba_2, \cdots , \Ba_N } \) is a basis for that vector space, if it is possible to form any vector \( \Bx \in V \) as a linear combination of those vectors \( \Ba_k \).  That is, there exists scalars \( c_k \) such that for any \( \Bx \in V \)
+\makeproblem{\R{3}}{problem:prerequisites:R3}{
+Define \R{3} as the set of triples \( \setlr{ (x_1, x_2, x_3) | x_i \in \bbR } \).  Given 
+\( \Bx = (x_1, x_2, x_3) \in \bbR^3 \), 
+\( \By = (y_1, y_2, y_3) \in \bbR^3 \), and \( c \in \bbR \), then addition and multiplication operations can be defined respectively as
 
 \begin{equation*}
-   \Bx = \sum_{k = 1}^N c_k \Ba_k.
+\begin{aligned}
+\Bx + \By &\equiv (x_1 + y_1, x_2 + y_2, x_3 + y_3) \\
+c \Bx &\equiv (c x_1 , c x_2 , c x_3 ).
+\end{aligned}
 \end{equation*}
 
-The numbers \( (c_1, c_2, \cdots, c_N ) \) are referred to as the coordinates of the vector \( \Bx \) with respect to the basis \( B \).
-}
+Show that \R{3} is a vector space.
+} % problem
+
+\makeproblem{Pauli matrices.}{problem:multivector:20}{
+The Pauli matrices are defined as
+
+\begin{equation}\label{eqn:multivector:160}
+   \sigma_1 = \PauliX,\quad
+   \sigma_2 = \PauliY,\quad
+   \sigma_3 = \PauliZ.
+\end{equation}
+
+Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \sigma_1 + b \sigma_2 + c \sigma_3 } \) is a vector space with respect to the operations of matrix addition and multiplication, and 
+determine the form of the zero and identity elements.
+
+% FIXME: make this a problem at at location where it makes sense:
+%\makesubproblem{}{problem:multivector:20:b}
+%
+%Show that \( \sigma_k^2 = I \), where \( I \) is the 2x2 identity matrix, and that \( \sigma_k \sigma_j = -\sigma_k \sigma_j \) for all \( k \ne j \).
+%
+%\makesubproblem{}{problem:multivector:20:c}
+%
+%Using the results of \partref{problem:multivector:20:b}, show that
+%\( \lr{ a \sigma_x + b \sigma_y + c \sigma_z }^2 = (a^2 + b^2 + c^2) I \), where \( I \) is the 2x2 identity matrix.
+%%This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
+} % problem
+
+\makeproblem{Function space.}{problem:multivector:30}{
+   Given real functions \( f(x) = e^x \) and \( g(x) = x^2 \), and scalars \( a,b \in \bbR \) determine whether the set
+   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space, and if so, 
+determine the form of the zero and identity elements.
+} % problem
+
+\makedefinition{Linear combination}{dfn:prerequisites:linearcombination}{
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  
+A linear combination of vectors in \( S \) is any sum
+\begin{equation*}
+a_1 \Bx_1 
++
+a_2 \Bx_2 
++ 
+\cdots
++
+a_k \Bx_k.
+\end{equation*}
+} % definition
+
+\makedefinition{Linear dependence.}{dfn:prerequisites:dependence}{
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  
+This set \( S \) is linearly dependent if any equation
+\begin{equation*}
+0 =
+a_1 \Bx_1 
++
+a_2 \Bx_2 
++ 
+\cdots
++
+a_k \Bx_k,
+\end{equation*}
+
+can be constructed for which not all of the coefficients \( a_i \) are zero.
+} % definition
+
+\makedefinition{Linear independence.}{dfn:prerequisites:independence}{
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  
+This set is linearly independent if the there are no equations with \( a_i \ne 0 \) such that
+\begin{equation*}
+0 =
+a_1 \Bx_1 
++
+a_2 \Bx_2 
++ 
+\cdots
++
+a_k \Bx_k.
+\end{equation*}
+} % definition
+
+\makedefinition{Span.}{dfn:prerequisites:span}{
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  The span
+of this set is the set of all linear combinations of these vectors, denoted
+\begin{equation*}
+\Span(S) =
+\setlr{
+a_1 \Bx_1 
++
+a_2 \Bx_2 
++ 
+\cdots
++
+a_k \Bx_k}.
+\end{equation*}
+} % definition
+
+\makedefinition{Subspace.}{dfn:prerequisites:subspace}{
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  This subset is 
+a subspace if \( S \) is a vector space under the multiplication and addition operations of the vector space \( V \).
+} % definition
+
+\makedefinition{Basis and dimension}{dfn:multivector:basisanddimension}{
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_n } \) be a linearly independent subset of \( V \).  This set is a basis if \( \Span(S) = V \).  The number of vectors \( n \) in this set is called the dimension of the space.
+} % definition
+
+\makedefinition{Coordinates.}{dfn:prerequisites:coordinates}{
+FIXME: define
+} % definition
+
+\makedefinition{Standard basis.}{dfn:prerequisites:standardbasis}{
+FIXME: define
+} % definition
+
+%\makedefinition{Basis and coordinates}{dfn:multivector:basis}{
+%   If \( N \) is the dimension of a vector space \( V \), a set of \( N \) vectors \( B = \setlr{ \Ba_1, \Ba_2, \cdots , \Ba_N } \) is a basis for that vector space, if it is possible to form any vector \( \Bx \in V \) as a linear combination of those vectors \( \Ba_k \).  That is, there exists scalars \( c_k \) such that for any \( \Bx \in V \)
+%
+%\begin{equation*}
+%   \Bx = \sum_{k = 1}^N c_k \Ba_k.
+%\end{equation*}
+%
+%The numbers \( (c_1, c_2, \cdots, c_N ) \) are referred to as the coordinates of the vector \( \Bx \) with respect to the basis \( B \).
+%}
 
 While it is common, especially in engineering, to represent a vector \( \Bx \) as a tuple or column vector, say,
 
@@ -58,7 +181,7 @@ While it is common, especially in engineering, to represent a vector \( \Bx \) a
 
 where the basis associated with the vector is implied, this will not be done here.  Instead, whenever coordinates are used, they will be explicitly paired with their associated basis vectors.
 
-\makedefinition{Standard basis, and inner product properties}{dfn:multivector:standardbasis}{
+\makedefinition{Standard basis, and dot product properties.}{dfn:multivector:standardbasis}{
    Any vector space \( V \) used in this book will be assumed to have been generated from a basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), associated with a dot product that has the properties
 
 \begin{enumerate}
@@ -72,6 +195,15 @@ Such a basis will called a standard basis.  When these dot products are always p
 There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
 
 The only non-Euclidean vector space of interest in this book (for relativistic material), has a Minkowski dot product.  For such a space, the standard basis elements will be labelled \( \setlr{ \gamma_0, \gamma_1, \gamma_2, \gamma_3 } \), where for \( i \in [1,3] \), \( \gamma_0 \cdot \gamma_0 = \pm 1 = -\gamma_i \cdot \gamma_i \).  The positive sign convention will be used.
+
+GA requires the vector space to have an associated
+dot product \( \Bx \cdot \By \) that 
+defines the notion of perpendicularity for the space.  We will want to extend the scalar multiplication operation of the vector 
+space to complex numbers, but 
+will not require a (complex) order dependent inner product \( \innerprod{\Bx}{\By} \) for our vector space.
+Effectively, this means that our underlying direction vectors are always real.
+
+
 
 \makedefinition{Norm-squared}{dfn:multivector:norm}{
    The squared norm of a vector \( \Bx \) is defined as
@@ -113,36 +245,6 @@ A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a 
 } % definition
 
 \subsection{Problems}
-\makeproblem{One dimensional multivector space.}{problem:multivector:30}{
-   Given \( f(x) = e^x \) and \( g(x) = x^2 \), and scalars \( a,b \in \bbR \) determine whether the set
-   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space.
-} % problem
-
-\makeproblem{Pauli matrix vector space.}{problem:multivector:20}{
-The Pauli matrices are defined as
-
-\begin{dmath}\label{eqn:multivector:160}
-\begin{aligned}
-   \sigma_1 &= \PauliX \\
-   \sigma_2 &= \PauliY \\
-   \sigma_3 &= \PauliZ.
-\end{aligned}
-\end{dmath}
-
-\makesubproblem{}{problem:multivector:20:a}
-Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \sigma_1 + b \sigma_2 + c \sigma_3 } \) is a vector space, and determine the required form of the unit multiplicative identity element.
-
-\makesubproblem{}{problem:multivector:20:b}
-
-Show that \( \sigma_k^2 = I \), where \( I \) is the 2x2 identity matrix, and that \( \sigma_k \sigma_j = -\sigma_k \sigma_j \) for all \( k \ne j \).
-
-\makesubproblem{}{problem:multivector:20:c}
-
-Using the results of \partref{problem:multivector:20:b}, show that
-\( \lr{ a \sigma_x + b \sigma_y + c \sigma_z }^2 = (a^2 + b^2 + c^2) I \), where \( I \) is the 2x2 identity matrix.
-%This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
-} % problem
-
 \makeproblem{Explicit squared norm}{problem:multivector:60}{
    Given a coordinate representation of a vector with respect to a standard basis
 \begin{dmath}\label{eqn:multivector:240}
