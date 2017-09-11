@@ -1,7 +1,44 @@
-The mathematical objects of Geometric Algegra are elements of what is called a multivector space.  Perhaps unsuprisingly, the definition of a multivector space is very similar to that of a vector space, so it is worthwhile to first review the definition of a vector space.
+Geometric algebra generalizes and extends vector algebra, providing a mathematical representation for
+
+\begin{itemize}
+\item
+oriented (signed) points with magnitude (scalars, or 0-vectors),
+\item
+oriented line segments (vectors, or 1-vectors),
+\item
+oriented planes (bivectors, or 2-vectors),
+\item
+oriented volumes (trivectors, or 3-vectors),
+\item
+oriented hypervolumes (i.e. k-vectors).
+\end{itemize}
+
+Sums of scalars, vectors, bivectors, trivectors, or k-vectors, are called multivectors.
+A non-commutative (order matters) multivector multiplication operation is also defined.
+In particular, a product of two or more vectors is defined.  This vector product explicitly
+relates the dot and cross products of traditional three-dimensional vector algebra.
+The products of two or more mutually perpendicular vectors generate the higher degree k-vectors in the algebra.
+For example, a bivector can be formed from the product of
+two perpendicular vectors or sums of such products, and a trivector can be constructed from products of three perpendicular vectors.
+%In general a k-vector is a product of \( k \) mutually perpendicular vectors, or a sum of such products.
+
+Vectors already have many generalizations in mathematics, where directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, quantum states, and other objects can all be considered vectors.
+In Geometric algebra we are generally not interested in vectors in this abstract sense,
+% (matrices, functions, polynomials, tuples of complex numbers, ...),
+nor are we interested in infinite dimensional vectors.
+The vectors that are the building blocks of Geometric algebra can be thought of as a representation of directed ``arrows in space'' (or space-time), that is, a line segment with direction and magnitude.
+Much of our attention can be focused on the familiar vectors of one, two, or three-dimensional space that would be represented as a tuple or column vector of coordinates such as \( \Bv = (x, y, z)\) in vector or linear algebra.
+We will prefer to use a representation such as \( \Bv = x \Be_1 + y \Be_2 + z \Be_3 \) where the coordinates are never found isolated from their respective direction vectors.
+%, \Bv = x \xcap + y \ycap + z \zcap, or \Bv = x \ahat_x + y \ahat_y + z \ahat_z.
+
+\paragraph{Vector space}
+
+A vector space is an enumeration of the properties and operations that are common to such a set of (perhaps seemingly unrelated) vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation.
+The definition of a multivector space will have a striking resemblance to the definition of a vector space, with some subtle but important differences.
+It is worthwhile to explicitly state the definition of a vector space, both as a reminder for the reader, and for comparison with the multivector space definition to come.  Some additional concepts from linear algebra are also reviewed here in the lead up to the definition of a multivector space.
 
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
-A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that 
+A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that
 for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \),
 the following axioms are satisfied
 
@@ -18,24 +55,9 @@ the following axioms are satisfied
 \end{tcolorbox}
 }
 
-The concept of vector space encapsulates the rules common to a number of mathematical structures, and allows seemingly unrelated mathematical constructs like ordered tuples, matrices, directed ``arrows in space'', and functions to be treated in a unified fashion.  
-
-That said, the general properties of vector spaces are not of primary interest here.  Instead, 
-our use of Geometric algebra uses one of two types of vector spaces as building blocks
-
-\begin{enumerate}
-\item Vector spaces that represent lines, planes and volumes, and for which there is an associated Pythagorean notion of perpendicularity and length (Euclidean spaces).
-\item Vector spaces that represent points in ``space-time'', with a time-like direction and one to three space-like directions.
-\end{enumerate}
-
-In either case the dimensionality of the underlying vector space is small and finite, with no more than four dimensions required.  
-Perpendicularity and length will be defined by a dot product associated with the vector space, however, in neither case do we require an order dependent, or complex, 
-dot product (i.e. an inner product).
-There will be circumstances where we allow the coeffients of our vectors to be complex, but the underlying direction vectors should be thought of as real.
-
 \makeproblem{\R{3}}{problem:prerequisites:R3}{
-Define \R{3} as the set of triples \( \setlr{ (x_1, x_2, x_3) | x_i \in \bbR } \).  Given 
-\( \Bx = (x_1, x_2, x_3) \in \bbR^3 \), 
+Define \R{3} as the set of triples \( \setlr{ (x_1, x_2, x_3) | x_i \in \bbR } \).  Given
+\( \Bx = (x_1, x_2, x_3) \in \bbR^3 \),
 \( \By = (y_1, y_2, y_3) \in \bbR^3 \), and \( c \in \bbR \), then addition and multiplication operations can be defined respectively as
 
 \begin{equation*}
@@ -57,7 +79,7 @@ The Pauli matrices are defined as
    \sigma_3 = \PauliZ.
 \end{equation}
 
-Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \sigma_1 + b \sigma_2 + c \sigma_3 } \) is a vector space with respect to the operations of matrix addition and multiplication, and 
+Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \sigma_1 + b \sigma_2 + c \sigma_3 } \) is a vector space with respect to the operations of matrix addition and multiplication, and
 determine the form of the zero and identity elements.
 
 % FIXME: make this a problem at at location where it makes sense:
@@ -74,18 +96,24 @@ determine the form of the zero and identity elements.
 
 \makeproblem{Function space.}{problem:multivector:30}{
    Given real functions \( f(x) = e^x \) and \( g(x) = x^2 \), and scalars \( a,b \in \bbR \) determine whether the set
-   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space, and if so, 
+   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space, and if so,
 determine the form of the zero and identity elements.
 } % problem
 
+\makeproblem{Polynomial vector space.}{problem:multivector:35}{
+  Determine whether or not the set of N'th degree polynomials \( V = \setlr{ \sum_{k=0}^N a_k x^k \mid a_k \in \bbR } \) is a vector space.
+} % problem
+
+\paragraph{Basis, span and dimension.}
+
 \makedefinition{Linear combination}{dfn:prerequisites:linearcombination}{
-Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
 A linear combination of vectors in \( S \) is any sum
 \begin{equation*}
-a_1 \Bx_1 
+a_1 \Bx_1
 +
-a_2 \Bx_2 
-+ 
+a_2 \Bx_2
++
 \cdots
 +
 a_k \Bx_k.
@@ -93,14 +121,14 @@ a_k \Bx_k.
 } % definition
 
 \makedefinition{Linear dependence.}{dfn:prerequisites:dependence}{
-Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
 This set \( S \) is linearly dependent if any equation
 \begin{equation*}
 0 =
-a_1 \Bx_1 
+a_1 \Bx_1
 +
-a_2 \Bx_2 
-+ 
+a_2 \Bx_2
++
 \cdots
 +
 a_k \Bx_k,
@@ -110,14 +138,14 @@ can be constructed for which not all of the coefficients \( a_i \) are zero.
 } % definition
 
 \makedefinition{Linear independence.}{dfn:prerequisites:independence}{
-Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
 This set is linearly independent if the there are no equations with \( a_i \ne 0 \) such that
 \begin{equation*}
 0 =
-a_1 \Bx_1 
+a_1 \Bx_1
 +
-a_2 \Bx_2 
-+ 
+a_2 \Bx_2
++
 \cdots
 +
 a_k \Bx_k.
@@ -130,10 +158,10 @@ of this set is the set of all linear combinations of these vectors, denoted
 \begin{equation*}
 \Span(S) =
 \setlr{
-a_1 \Bx_1 
+a_1 \Bx_1
 +
-a_2 \Bx_2 
-+ 
+a_2 \Bx_2
++
 \cdots
 +
 a_k \Bx_k}.
@@ -141,7 +169,7 @@ a_k \Bx_k}.
 } % definition
 
 \makedefinition{Subspace.}{dfn:prerequisites:subspace}{
-Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  This subset is 
+Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  This subset is
 a subspace if \( S \) is a vector space under the multiplication and addition operations of the vector space \( V \).
 } % definition
 
@@ -149,8 +177,10 @@ a subspace if \( S \) is a vector space under the multiplication and addition op
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_n } \) be a linearly independent subset of \( V \).  This set is a basis if \( \Span(S) = V \).  The number of vectors \( n \) in this set is called the dimension of the space.
 } % definition
 
+\paragraph{Coordinates and standard basis.}
+
 \makedefinition{Coordinates.}{dfn:prerequisites:coordinates}{
-%Given a basis \( B = 
+%Given a basis \( B =
 FIXME: define
 } % definition
 
@@ -193,17 +223,27 @@ where the basis associated with the vector is implied, this will not be done her
 Such a basis will called a standard basis.  When these dot products are always positive, the vector space is referred to as a Euclidean vector space.
 }
 
+\paragraph{FIXME: remove?}
 There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
-
 The only non-Euclidean vector space of interest in this book (for relativistic material), has a Minkowski dot product.  For such a space, the standard basis elements will be labelled \( \setlr{ \gamma_0, \gamma_1, \gamma_2, \gamma_3 } \), where for \( i \in [1,3] \), \( \gamma_0 \cdot \gamma_0 = \pm 1 = -\gamma_i \cdot \gamma_i \).  The positive sign convention will be used.
 
-GA requires the vector space to have an associated
-dot product \( \Bx \cdot \By \) that 
-defines the notion of perpendicularity for the space.  We will want to extend the scalar multiplication operation of the vector 
-space to complex numbers, but 
-will not require a (complex) order dependent inner product \( \innerprod{\Bx}{\By} \) for our vector space.
-Effectively, this means that our underlying direction vectors are always real.
+%GA requires the vector space to have an associated
+%dot product \( \Bx \cdot \By \) that
+%defines the notion of perpendicularity for the space.  We will want to extend the scalar multiplication operation of the vector
+%space to complex numbers, but
+%will not require a (complex) order dependent inner product \( \innerprod{\Bx}{\By} \) for our vector space.
+%
+%XX: new content.
 
+\paragraph{The metric, length and normality.}
+
+An abstract vector need not have an associated notion of length, nor a notion of perpendicularity (normality).
+In abstract vector algebra, length and normality are provided by defining an associated dot product \(\Bx \cdot \By\), or inner product \(\innerprod{\Bx}{\By}\).
+In Geometric algebra, length and normality of two vectors are provided by a metric \(g(\Bx, \By)\).
+Like the dot product where \( \Bx \cdot \By = \By \cdot \Bx\), this metric is independent of order, a property that is not generally required of the inner product.
+However, unlike both the dot and inner products of abstract vector algebra, where \( \Bx \cdot \Bx \ge 0\), and \( \innerprod{\Bx}{\Bx} \ge 0\), the metric \(g(\Bx, \Bx)\) may be negative (i.e. for spacetime vectors).
+If \(c \) is any real or complex number, the metric in Geometric algebra is \( g(c \Bx, c \Bx) = c^2 g(\Bx, \Bx)\), unlike the inner product in complex spaces, where \( \innerprod{c \Bx}{c \Bx} = \Abs{c}^2 \innerprod{c \Bx}{c \Bx} \).
+Effectively, this means that our underlying direction vectors are always real.
 
 
 \makedefinition{Norm-squared}{dfn:multivector:norm}{
@@ -217,15 +257,15 @@ This quantity need not be positive.
 }
 
 \makedefinition{Length}{dfn:multivector:length}{
-   The length of a vector \( \Bx \) is defined as 
+   The length of a vector \( \Bx \) is defined as
 
 \begin{equation*}
-\Norm{\Bx} = 
+\Norm{\Bx} =
 \sqrt{\Abs{ \Norm{\Bx}^2 }}.
 \end{equation*}
 }
 
-A vector space with an associated norm based length is called a normed vector space.  Any dot product space is also a normed vector space.
+%A vector space with an associated norm based length is called a normed vector space.  Any dot product space is also a normed vector space.
 
 \makedefinition{Unit vector}{dfn:multivector:unitvector}{
    A vector \( \Bx \) is called a unit vector if its length is one.
@@ -261,7 +301,7 @@ Observe that for a Euclidean vector space this is the squared length in the Pyth
 }
 
 \makeproblem{Null vector}{problem:multivector:80}{
-Given a two dimensional non-Euclidean vector space with basis elements satisfying 
+Given a two dimensional non-Euclidean vector space with basis elements satisfying
 \( \gamma_0 \cdot \gamma_0 = 1 = -\gamma_1 \cdot \gamma_1 \), construct a vector that has a squared
 norm of 0.  Such a vector is called a null vector.
 %   \Bx = \gamma_0 + \gamma_1,
