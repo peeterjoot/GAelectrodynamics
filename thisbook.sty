@@ -22,7 +22,12 @@ coltitle=black,center title}}
 
 %-----------------------------------------
 
-\newcommand{\boldTextAndIndex}[1]{\textbf{#1}\index{#1}}
+%\newcommand{\boldTextAndIndex}[1]{\textbf{#1}\index{#1}}
+%\newcommand{\boldTextAndIndex}[1]{{\color{Maroon}{#1}}\index{#1}}
+\newcommand{\boldTextAndIndex}[1]{%
+{\color{Maroon}{#1}}%
+\index{#1}%
+}
 
 %-----------------------------------------
 %\usepackage{censor}

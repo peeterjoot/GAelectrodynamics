@@ -1,41 +1,58 @@
-Geometric algebra generalizes and extends vector algebra, providing a mathematical representation for
+\section{Basic ideas before we get to the math}
+Geometric algebra, or GA for short, generalizes and extends vector algebra, providing a mathematical representation for geometrical objects of each dimension in the space.
+In a three dimensional space, there are representations for all of
 
 \begin{itemize}
 \item
-oriented (signed) points with magnitude (scalars, or 0-vectors),
+oriented (signed) points with magnitude (\boldTextAndIndex{scalars}, or 0-vectors),
 \item
-oriented line segments (vectors, or 1-vectors),
+oriented line segments (\boldTextAndIndex{vectors}, or 1-vectors),
 \item
-oriented planes (bivectors, or 2-vectors),
+oriented planes (\boldTextAndIndex{bivectors}, or 2-vectors), and
 \item
-oriented volumes (trivectors, or 3-vectors),
-\item
-oriented hypervolumes (i.e. k-vectors).
+oriented volumes (\boldTextAndIndex{trivectors}, or 3-vectors),
 \end{itemize}
 
-Sums of scalars, vectors, bivectors, trivectors, or k-vectors, are called multivectors.
-A non-commutative (order matters) multivector multiplication operation is also defined.
-In particular, a product of two or more vectors is defined.  This vector product explicitly
-relates the dot and cross products of traditional three-dimensional vector algebra.
-The products of two or more mutually perpendicular vectors generate the higher degree k-vectors in the algebra.
-For example, a bivector can be formed from the product of
-two perpendicular vectors or sums of such products, and a trivector can be constructed from products of three perpendicular vectors.
-%In general a k-vector is a product of \( k \) mutually perpendicular vectors, or a sum of such products.
+and in higher dimensional spaces, any oriented hypervolume of dimension \( k \), a \boldTextAndIndex{k-vector}, can be representated.
+Exactly what is meant by an oriented plane or volume will be discussed later.
 
-Vectors already have many generalizations in mathematics, where directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, quantum states, and other objects can all be considered vectors.
-In Geometric algebra we are generally not interested in vectors in this abstract sense,
-% (matrices, functions, polynomials, tuples of complex numbers, ...),
-nor are we interested in infinite dimensional vectors.
-The vectors that are the building blocks of Geometric algebra can be thought of as a representation of directed ``arrows in space'' (or space-time), that is, a line segment with direction and magnitude.
-Much of our attention can be focused on the familiar vectors of one, two, or three-dimensional space that would be represented as a tuple or column vector of coordinates such as \( \Bv = (x, y, z)\) in vector or linear algebra.
-We will prefer to use a representation such as \( \Bv = x \Be_1 + y \Be_2 + z \Be_3 \) where the coordinates are never found isolated from their respective direction vectors.
-%, \Bv = x \xcap + y \ycap + z \zcap, or \Bv = x \ahat_x + y \ahat_y + z \ahat_z.
+What
+differentiates GA from vector algebra is the presumption of a \boldTextAndIndex{multiplication operation}.
+This
+multiplication operation is not generally commutative (i.e. order matters), and is the generator of higher order k-vectors.
+In particular,
+bivectors are formed from the products of two perpendicular vectors,
+and trivectors are constructed from products of three perpendicular vectors.
+In general, k-vectors are constructed by multiplying \( k \) mutually perpendicular vectors, or by summing such products.
+This multiplication operation will be seen to relate the dot and cross products of three dimensional vector algebra.
+
+When we first learn vector algebra, it is stressed that addition of scalars and vectors is undefined.
+That is not the case in GA, where a sum of k-vectors (with different \(k\)), called a \boldTextAndIndex{multivector}, is
+not only well formed, but is required to represent some products.
+For example, the general product of two vectors will be seen to have a scalar (0-vector) and a bivector (2-vector) component.
+
+%  We have the special names, bivector and trivector for \( k = 2 \) and \( k = 3 \) respectively, but
+%Such an object is called a k-vector, however, for \( k > 3 \) there no special names (bivector
+
+\section{Linear algebra review and prerequisite concepts}
 
 \paragraph{Vector space}
 
+Vectors have many generalizations in mathematics, where directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, quantum states, and other objects can all be considered vectors.
+In GA we are generally not interested in vectors in this abstract sense,
+% (matrices, functions, polynomials, tuples of complex numbers, ...),
+nor are we interested in infinite dimensional vectors.
+The vectors that are the building blocks of GA can be thought of as a representation of directed ``arrows in space'' (or space-time), that is, a line segment with direction and magnitude, and much of our attention can be focused on the familiar vectors of one, two, or three-dimensional space.
+% 
+%We will use a representation such as \( \Bv = x \Be_1 + y \Be_2 + z \Be_3 \) for such vectors, where the 
+%coordinates are always paired with their respective direction vectors, and will not use 
+%column vector of coordinates or tuples such as \( \Bv = (x, y, z)\).
+%, \Bv = x \xcap + y \ycap + z \zcap, or \Bv = x \ahat_x + y \ahat_y + z \ahat_z.
+
 A vector space is an enumeration of the properties and operations that are common to such a set of (perhaps seemingly unrelated) vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation.
 The definition of a multivector space will have a striking resemblance to the definition of a vector space, with some subtle but important differences.
-It is worthwhile to explicitly state the definition of a vector space, both as a reminder for the reader, and for comparison with the multivector space definition to come.  Some additional concepts from linear algebra are also reviewed here in the lead up to the definition of a multivector space.
+It is worthwhile to explicitly state the definition of a vector space, both as a reminder for the reader, and for comparison with the multivector space definition to come.
+Some additional concepts from linear algebra are also reviewed here in the lead up to the definition of a multivector space.
 
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
 A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that
@@ -239,10 +256,10 @@ The only non-Euclidean vector space of interest in this book (for relativistic m
 
 An abstract vector need not have an associated notion of length, nor a notion of perpendicularity (normality).
 In abstract vector algebra, length and normality are provided by defining an associated dot product \(\Bx \cdot \By\), or inner product \(\innerprod{\Bx}{\By}\).
-In Geometric algebra, length and normality of two vectors are provided by a metric \(g(\Bx, \By)\).
+In GA, length and normality of two vectors are provided by a metric \(g(\Bx, \By)\).
 Like the dot product where \( \Bx \cdot \By = \By \cdot \Bx\), this metric is independent of order, a property that is not generally required of the inner product.
 However, unlike both the dot and inner products of abstract vector algebra, where \( \Bx \cdot \Bx \ge 0\), and \( \innerprod{\Bx}{\Bx} \ge 0\), the metric \(g(\Bx, \Bx)\) may be negative (i.e. for spacetime vectors).
-If \(c \) is any real or complex number, the metric in Geometric algebra is \( g(c \Bx, c \Bx) = c^2 g(\Bx, \Bx)\), unlike the inner product in complex spaces, where \( \innerprod{c \Bx}{c \Bx} = \Abs{c}^2 \innerprod{c \Bx}{c \Bx} \).
+If \(c \) is any real or complex number, the metric in GA is \( g(c \Bx, c \Bx) = c^2 g(\Bx, \Bx)\), unlike the inner product in complex spaces, where \( \innerprod{c \Bx}{c \Bx} = \Abs{c}^2 \innerprod{c \Bx}{c \Bx} \).
 Effectively, this means that our underlying direction vectors are always real.
 
 
@@ -306,6 +323,18 @@ Given a two dimensional non-Euclidean vector space with basis elements satisfyin
 norm of 0.  Such a vector is called a null vector.
 %   \Bx = \gamma_0 + \gamma_1,
 }
+
+
+
+\paragraph{Orientation}
+We are familiar with the idea of an oriented line segment (a vector), a quantity that can be visualized as an arrow with direction and magnitude.
+The idea of an oriented plane, volume, or hypervolume is probably less familiar.
+An oriented plane segment, in addition to having a specific area and a direction in space, can be visualized as having a
+circulation direction, or handedness.
+In a three dimensional space, this circulation direction can be associated with one of the two possible normal directions for the plane.
+An oriented volume, in addition to having a given magnitude, is considered to have an associated circulation direction along its surface.
+In a three dimensional space, an oriented volume can be conceptualized as a volume with either an inwards or outwards normal.
+
 
 %%%\makeproblem{}{problem:multivector:50}{
 %%%The most general definition of an Euclidean norm satisfies all of the properties
