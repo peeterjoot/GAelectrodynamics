@@ -19,7 +19,7 @@ Exactly what is meant by an oriented plane or volume will be discussed later.
 What
 differentiates GA from vector algebra is the presumption of a \boldTextAndIndex{multiplication operation}.
 This
-multiplication operation is not generally commutative (i.e. order matters), and is the generator of higher order k-vectors.
+multiplication operation is generally non-commutative (i.e. order matters), and is the generator of higher order k-vectors.
 In particular,
 bivectors are formed from the products of two perpendicular vectors,
 and trivectors are constructed from products of three perpendicular vectors.
@@ -27,8 +27,8 @@ In general, k-vectors are constructed by multiplying \( k \) mutually perpendicu
 This multiplication operation will be seen to relate the dot and cross products of three dimensional vector algebra.
 
 When we first learn vector algebra, it is stressed that addition of scalars and vectors is undefined.
-That is not the case in GA, where a sum of k-vectors (with different \(k\)), called a \boldTextAndIndex{multivector}, is
-not only well formed, but is required to represent some products.
+That is not the case in GA, where a sum of k-vectors (with different \(k\)), called a \boldTextAndIndex{multivector},
+is well formed and also required to represent some products.
 For example, the general product of two vectors will be seen to have a scalar (0-vector) and a bivector (2-vector) component.
 
 %  We have the special names, bivector and trivector for \( k = 2 \) and \( k = 3 \) respectively, but
@@ -36,23 +36,15 @@ For example, the general product of two vectors will be seen to have a scalar (0
 
 \section{Linear algebra review and prerequisite concepts}
 
-\paragraph{Vector space}
-
-Vectors have many generalizations in mathematics, where directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, quantum states, and other objects can all be considered vectors.
-In GA we are generally not interested in vectors in this abstract sense,
-% (matrices, functions, polynomials, tuples of complex numbers, ...),
-nor are we interested in infinite dimensional vectors.
-The vectors that are the building blocks of GA can be thought of as a representation of directed ``arrows in space'' (or space-time), that is, a line segment with direction and magnitude, and much of our attention can be focused on the familiar vectors of one, two, or three-dimensional space.
-% 
-%We will use a representation such as \( \Bv = x \Be_1 + y \Be_2 + z \Be_3 \) for such vectors, where the 
-%coordinates are always paired with their respective direction vectors, and will not use 
-%column vector of coordinates or tuples such as \( \Bv = (x, y, z)\).
-%, \Bv = x \xcap + y \ycap + z \zcap, or \Bv = x \ahat_x + y \ahat_y + z \ahat_z.
-
-A vector space is an enumeration of the properties and operations that are common to such a set of (perhaps seemingly unrelated) vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation.
-The definition of a multivector space will have a striking resemblance to the definition of a vector space, with some subtle but important differences.
-It is worthwhile to explicitly state the definition of a vector space, both as a reminder for the reader, and for comparison with the multivector space definition to come.
-Some additional concepts from linear algebra are also reviewed here in the lead up to the definition of a multivector space.
+Vectors have many generalizations in mathematics, where directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, quantum states, and other
+(perhaps seemingly unrelated)
+mathematical objects
+can all be considered vectors.
+A vector space is an enumeration of the properties and operations that are common to such a set of
+vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation.
+Our initial goal is to define a \boldTextAndIndex{multivector space}, a construct with
+striking resemblance to that of a vector space, with some subtle but important differences.
+To highlight those differences, it is worthwhile to first review the definition of a vector space and some other basic ideas from linear algebra.
 
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
 A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that
@@ -71,6 +63,13 @@ the following axioms are satisfied
     There exists a multiplicative identity \( 1 \). & \( 1 \Bx = \Bx \) \\ \hline
 \end{tcolorbox}
 }
+
+Despite the generality of this definition, it should be noted that in GA
+we are generally not interested in vector spaces with abstract elements like matrices, functions, polynomials, or
+tuples of complex numbers, nor are we interested in infinite dimensional vector spaces.
+For electromagnetic applications of GA we are generally interested in two or three dimensional real vector spaces (i.e.
+\R{2} and \R{3}), or in the
+space-time vector spaces of special relativity, where a time like ``direction'' is added into the mix along with 1-3 spatial directions.
 
 \makeproblem{\R{3}}{problem:prerequisites:R3}{
 Define \R{3} as the set of triples \( \setlr{ (x_1, x_2, x_3) | x_i \in \bbR } \).  Given
@@ -196,6 +195,10 @@ Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_n } \) be a linearly independent su
 
 \paragraph{Coordinates and standard basis.}
 
+%We will use a representation such as \( \Bv = x \Be_1 + y \Be_2 + z \Be_3 \) for such vectors, where the
+%coordinates are always paired with their respective direction vectors, and will not use
+%column vector of coordinates or tuples such as \( \Bv = (x, y, z)\).
+%, \Bv = x \xcap + y \ycap + z \zcap, or \Bv = x \ahat_x + y \ahat_y + z \ahat_z.
 \makedefinition{Coordinates.}{dfn:prerequisites:coordinates}{
 %Given a basis \( B =
 FIXME: define
