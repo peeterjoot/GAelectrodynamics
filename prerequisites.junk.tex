@@ -1,0 +1,214 @@
+
+\section{Junk?}
+
+\subsection{Problems}
+%\makeproblem{Explicit squared norm}{problem:multivector:60}{
+%   Given a coordinate representation of a vector with respect to a standard basis
+%\begin{dmath}\label{eqn:multivector:240}
+%   \Bx = \sum_{i = 1}^N x_i \Be_i,
+%\end{dmath}
+%
+%show that the squared norm is
+%\begin{dmath}\label{eqn:multivector:260}
+%   \Norm{\Bx}^2 = \Bx \cdot \Bx = \sum_{i = 1}^N x_i^2 (\Be_i \cdot \Be_i).
+%\end{dmath}
+%
+%Observe that for a Euclidean vector space this is the squared length in the Pythagorean sense.
+%}
+%
+\makeproblem{Null vector}{problem:multivector:80}{
+Given a two dimensional non-Euclidean vector space with basis elements satisfying
+\( \gamma_0 \cdot \gamma_0 = 1 = -\gamma_1 \cdot \gamma_1 \), construct a vector that has a squared
+norm of 0.  Such a vector is called a null vector.
+%   \Bx = \gamma_0 + \gamma_1,
+}
+
+
+\subsection{basis, norm, ...}
+
+%We will use a representation such as \( \Bv = x \Be_1 + y \Be_2 + z \Be_3 \) for such vectors, where the
+%coordinates are always paired with their respective direction vectors, and will not use
+%column vector of coordinates or tuples such as \( \Bv = (x, y, z)\).
+%, \Bv = x \xcap + y \ycap + z \zcap, or \Bv = x \ahat_x + y \ahat_y + z \ahat_z.
+\makedefinition{Coordinates.}{dfn:prerequisites:coordinates}{
+%Given a basis \( B =
+FIXME: define
+} % definition
+
+%\makedefinition{Basis and coordinates}{dfn:multivector:basis}{
+%   If \( N \) is the dimension of a vector space \( V \), a set of \( N \) vectors \( B = \setlr{ \Ba_1, \Ba_2, \cdots , \Ba_N } \) is a basis for that vector space, if it is possible to form any vector \( \Bx \in V \) as a linear combination of those vectors \( \Ba_k \).  That is, there exists scalars \( c_k \) such that for any \( \Bx \in V \)
+%
+%\begin{equation*}
+%   \Bx = \sum_{k = 1}^N c_k \Ba_k.
+%\end{equation*}
+%
+%The numbers \( (c_1, c_2, \cdots, c_N ) \) are referred to as the coordinates of the vector \( \Bx \) with respect to the basis \( B \).
+%}
+
+\makedefinition{Standard basis, and dot product properties.}{dfn:multivector:standardbasis}{
+   Any vector space \( V \) used in this book will be assumed to have been generated from a basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), associated with a dot product that has the properties
+
+\begin{enumerate}
+   \item \( \Be_i \cdot \Be_i = \pm 1 \).
+   \item \( \Be_i \cdot \Be_j = 0 \) for any \( i \ne j \).
+\end{enumerate}
+
+Such a basis will called a standard basis.  When these dot products are always positive, the vector space is referred to as a Euclidean vector space.
+}
+
+\paragraph{FIXME: remove?}
+There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
+The only non-Euclidean vector space of interest in this book (for relativistic material), has a Minkowski dot product.  For such a space, the standard basis elements will be labelled \( \setlr{ \gamma_0, \gamma_1, \gamma_2, \gamma_3 } \), where for \( i \in [1,3] \), \( \gamma_0 \cdot \gamma_0 = \pm 1 = -\gamma_i \cdot \gamma_i \).  The positive sign convention will be used.
+
+%GA requires the vector space to have an associated
+%dot product \( \Bx \cdot \By \) that
+%defines the notion of perpendicularity for the space.  We will want to extend the scalar multiplication operation of the vector
+%space to complex numbers, but
+%will not require a (complex) order dependent inner product \( \innerprod{\Bx}{\By} \) for our vector space.
+%
+
+\paragraph{The metric, length and normality.}
+
+An abstract vector need not have an associated notion of length, nor a notion of perpendicularity (normality).
+In abstract vector algebra, length and normality are provided by defining an associated dot product \(\Bx \cdot \By\), or inner product \(\innerprod{\Bx}{\By}\).
+In GA, length and normality of two vectors are provided by a metric \(g(\Bx, \By)\).
+Like the dot product where \( \Bx \cdot \By = \By \cdot \Bx\), this metric is independent of order, a property that is not generally required of the inner product.
+However, unlike both the dot and inner products of abstract vector algebra, where \( \Bx \cdot \Bx \ge 0\), and \( \innerprod{\Bx}{\Bx} \ge 0\), the metric \(g(\Bx, \Bx)\) may be negative (i.e. for spacetime vectors).
+If \(c \) is any real or complex number, the metric in GA is \( g(c \Bx, c \Bx) = c^2 g(\Bx, \Bx)\), unlike the inner product in complex spaces, where \( \innerprod{c \Bx}{c \Bx} = \Abs{c}^2 \innerprod{c \Bx}{c \Bx} \).
+Effectively, this means that our underlying direction vectors are always real.
+
+\subsection{Orientation}
+We are familiar with the idea of an oriented line segment (a vector), a quantity that can be visualized as an arrow with direction and magnitude.
+The idea of an oriented plane, volume, or hypervolume is probably less familiar.
+An oriented plane segment, in addition to having a specific area and a direction in space, can be visualized as having a
+circulation direction, or handedness.
+In a three dimensional space, this circulation direction can be associated with one of the two possible normal directions for the plane.
+An oriented volume, in addition to having a given magnitude, is considered to have an associated circulation direction along its surface.
+In a three dimensional space, an oriented volume can be conceptualized as a volume with either an inwards or outwards normal.
+
+\subsection{dot and metric original text}
+
+Vectors are often represented with an implied basis, with tuples like \( \Bx = (x,y,z) \), or with column (or row) vectors like
+\(
+   \Bx =
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+\).
+The values \( x, y, z \) in these representations are called the coordinates of the vectors, but only have specific meaning once a direction and magnitude is associated with each coordinate (i.e. a basis is chosen).
+In three dimensions, the simplest such basis choice (the standard basis), associates the respective coordinates with a set of mutually perpendicular (normal) directions.
+This is conventionally a right handed triple of direction vectors of unit length, perhaps designated \( \xcap, \ycap, \zcap \) or \( \Be_1, \Be_2, \Be_3 \).
+
+In GA, when working with coordinates, we generally prefer to make the basis explicit, so instead of writing a vector as a set of coordinates, these coordinates
+will be explicitly paired with their associated basis vectors.
+For example in \R{3} a vector with coordinates \( x, y, z \) will be written as
+
+\begin{dmath}\label{eqn:prerequisites:280}
+x \Be_1 + y \Be_2 + z \Be_3.
+\end{dmath}
+
+By convention, we understand that \( \Be_1, \Be_2, \Be_3 \) in \cref{eqn:prerequisites:280} are unit length vectors, and are all mutually perpendicular (orthonormal).
+The vector space must be augmented with a dot product (or inner product) to provide a measure of length and normality.  
+
+%\makedefinition{Inner product.}{dfn:prerequisites:innerproduct}{
+%The inner product 
+%} % definition
+
+For \R{3}, the dot product satisfies the following conditions
+
+\begin{equation}\label{eqn:prerequisites:320}
+\Be_i \cdot \Be_j = \delta_{ij} \, \forall i, j \in [1,3],
+\end{equation}
+
+where \( \delta_{ij} \) is the Kronecker delta \( \delta_{ij} = 1 \) for \( i = j \) and \( \delta_{ij} = 0 \) for \( i \ne j \).
+Specifying the action of the dot product on all the unit vectors, completely specifies the action of the dot product on any two vectors, provided one assumes that the dot product is a bilinear operator.
+For example, given
+
+\begin{dmath}\label{eqn:prerequisites:340}
+\begin{aligned}
+\Ba &= a_1 \Be_1 + a_2 \Be_2 + a_3 \Be_3 \\
+\Bb &= b_1 \Be_1 + b_2 \Be_2 + b_3 \Be_3,
+\end{aligned}
+\end{dmath}
+
+or \( \Ba = \sum_i a_i \Be_i, \Bb = \sum_j b_j \Be_j \), we recover the familiar coordinate description of the dot product
+
+\begin{dmath}\label{eqn:prerequisites:360}
+\Ba \cdot \Bb
+=
+\lr{ \sum_i a_i \Be_i } \cdot \lr{ \sum_j b_j \Be_j }
+=
+\sum_{i,j} a_i b_j \lr{ \Be_i \cdot \Be_j }
+=
+\sum_{i,j} a_i b_j \delta_{ij}
+=
+\sum_{i} a_i b_i.
+\end{dmath}
+
+Electromagnetism is intrinsically relativistic, and there will be circumstances where vectors with both space and time components are required.
+In physics, these are called four-vectors, but we will call them spacetime vectors here to avoid confusion with \( k = 4 \) k-vectors.
+Following \citep{doran2003gap}, the Dirac (matrix) notation will be used as the relativistic basis, so a spacetime vector might be written like
+
+\begin{dmath}\label{eqn:prerequisites:300}
+A = c t \gamma_0 + x \gamma_1 + y \gamma_2 + z \gamma_3.
+\end{dmath}
+
+It will be seen later that our spacetime vector representation has similar properties to Dirac matrices, but we need not refer to any specific matrix representation.
+
+For spacetime vectors, we can also assume a dot product operation between the basis vectors.  For example, given two spacetime vectors
+
+\begin{dmath}\label{eqn:prerequisites:380}
+\begin{aligned}
+A &= c t \gamma_0 + x \gamma_1 + y \gamma_2 + z \gamma_3 \\
+B &= c t' \gamma_0 + x' \gamma_1 + y' \gamma_2 + z' \gamma_3,
+\end{aligned}
+\end{dmath}
+
+if the action of a ``dot-product'' is known between all basis vectors \( \gamma_\mu, \mu \in [0,3] \), then it will be possible to compute the dot-product of any pair of four vectors as done above for the \R{3} example.  Special relativity constrains the properties of four-vector dot products, requiring the following of the four-vector basis
+
+\begin{dmath}\label{eqn:prerequisites:400}
+\left\{
+\begin{array}{l l}
+\gamma_\mu \cdot \gamma_\nu = 0 & \quad \mbox{ \( \mu \ne \nu ; \mu, \nu \in [0,3] \) } \\
+\gamma_0 \cdot \gamma_0 = -\gamma_i \cdot \gamma_i = \pm 1 & \quad \mbox{ \( i \in [1,3] \) }
+\end{array}
+\right.
+\end{dmath}
+
+Strictly speaking, this is a specification of a metric, not a dot product, since this four vector dot product specification does not satisfy the positive definite property required by most dot product definitions (i.e. \( A \cdot A \ge 0 \)).
+There is a sign ambiguity in the metric specification above.  The physics of relativity is independent of the sign convention used, but we will use the positive sign convention, consistent with field theory and most matrix representations of the Dirac matrices.
+\footnote{In general relativitity, many authors will use the opposite sign convention.}
+
+Stated explicitly, we use a metric where the basis vectors satisfy the following properties
+
+\begin{dmath}\label{eqn:prerequisites:420}
+\left\{
+\begin{array}{l l}
+\gamma_\mu \cdot \gamma_\nu = 0 & \quad \mbox{ \( \mu \ne \nu ; \mu, \nu \in [0,3] \) } \\
+\gamma_i \cdot \gamma_i = -1& \quad \mbox{ \( i \in [1,3] \) } \\
+\gamma_0 \cdot \gamma_0 = 1. &\\
+\end{array}
+\right.
+\end{dmath}
+
+
+%%%\makeproblem{}{problem:multivector:50}{
+%%%The most general definition of an Euclidean norm satisfies all of the properties
+%%%
+%%%\begin{enumerate}
+%%%   \item \( \Norm{\Bx} \ge 0 \), and \( \Norm{\Bx} = 0 \iff \Bx = 0 \).
+%%%   \item \( \Norm{a \Bx} = \Abs{a} \Norm{\Bx} \).
+%%%   \item \( \Norm{\Bx + \By} \le \Norm{\Bx} + \Norm{\By} \).
+%%%\end{enumerate}
+%%%
+%%%If the coordinates of a vector with respect to the standard basis are \( x_i \) then show that the Euclidean norm defined in
+%%%that the Pythagorean norm
+%%%\begin{equation*}
+%%%\Norm{\Bx}^2 = \sum_{i = 1}^N x_i^2,
+%%%\end{equation*}
+%%%
+%%%satisfies these properties.
+%%%} % problem
+%%%

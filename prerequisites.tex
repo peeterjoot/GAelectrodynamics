@@ -36,6 +36,12 @@ For example, the general product of two vectors will be seen to have a scalar (0
 
 \section{Linear algebra review and prerequisite concepts}
 
+The following section reviews concepts from linear algebra that are required to algebraically express the concepts of perpendicularity, and systematically introduce definitons for k-vectors, multivectors, and multivector spaces.
+
+It should be pointed out that GA uses an unconventional definition of dot product, where the dot product of a vector with itself may be negative.
+
+\subsection{Vector space}
+
 Vectors have many generalizations in mathematics, where directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, quantum states, and other
 (perhaps seemingly unrelated)
 mathematical objects
@@ -110,17 +116,17 @@ determine the form of the zero and identity elements.
 %%This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
 } % problem
 
-\makeproblem{Function space.}{problem:multivector:30}{
-   Given real functions \( f(x) = e^x \) and \( g(x) = x^2 \), and scalars \( a,b \in \bbR \) determine whether the set
-   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space, and if so,
-determine the form of the zero and identity elements.
-} % problem
+%\makeproblem{Function space.}{problem:multivector:30}{
+%   Given real functions \( f(x) = e^x \) and \( g(x) = x^2 \), and scalars \( a,b \in \bbR \) determine whether the set
+%   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space, and if so,
+%determine the form of the zero and identity elements.
+%} % problem
 
 \makeproblem{Polynomial vector space.}{problem:multivector:35}{
-  Determine whether or not the set of N'th degree polynomials \( V = \setlr{ \sum_{k=0}^N a_k x^k \mid a_k \in \bbR } \) is a vector space.
+  Show that the set of N'th degree polynomials \( V = \setlr{ \sum_{k=0}^N a_k x^k \mid a_k \in \bbR } \) is a vector space.
 } % problem
 
-\paragraph{Basis, span and dimension.}
+\subsection{Basis, span and dimension.}
 
 \makedefinition{Linear combination}{dfn:prerequisites:linearcombination}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
@@ -193,91 +199,68 @@ a subspace if \( S \) is a vector space under the multiplication and addition op
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_n } \) be a linearly independent subset of \( V \).  This set is a basis if \( \Span(S) = V \).  The number of vectors \( n \) in this set is called the dimension of the space.
 } % definition
 
-\paragraph{Coordinates and standard basis.}
+\subsection{Standard basis, length and normality.}
 
-%We will use a representation such as \( \Bv = x \Be_1 + y \Be_2 + z \Be_3 \) for such vectors, where the
-%coordinates are always paired with their respective direction vectors, and will not use
-%column vector of coordinates or tuples such as \( \Bv = (x, y, z)\).
-%, \Bv = x \xcap + y \ycap + z \zcap, or \Bv = x \ahat_x + y \ahat_y + z \ahat_z.
-\makedefinition{Coordinates.}{dfn:prerequisites:coordinates}{
-%Given a basis \( B =
-FIXME: define
+\makedefinition{Dot product.}{dfn:prerequisites:dotproduct}{
+Let \( \Bx, \By \) be vectors from a vector space \( V \).
+A dot product \( \Bx \cdot \By \) is a mapping \( V \cross V \rightarrow \bbR \)
+with the following properties
+
+\begin{tcolorbox}[tab2,tabularx={X|Y},title=Dot product properties.,boxrule=0.5pt]
+    Symmetric in both arguments & \( \Bx \cdot \By = \By \cdot \Bx \) \\ \hline
+    Bilinear & \( (a \Bx + b \By) \cdot (a' \Bx' + b' \By' ) = 
+a a' (\Bx \cdot \Bx') + b b' (\By \cdot \By')
++
+a b' (\Bx \cdot \By') + b a' (\By \cdot \Bx') \)
+\\ \hline
+    (Optional) Positive definite & \( \Bx \cdot \Bx \ge 0 \) \\ \hline
+\end{tcolorbox}
 } % definition
 
-\makedefinition{Standard basis.}{dfn:prerequisites:standardbasis}{
-FIXME: define
-} % definition
+In GA it can be useful to omit the requirement for a dot product to have the positive definite property.  This has specific relevance in electrodynamics, when four-vector (relativistic) vector spaces are used.
 
-%\makedefinition{Basis and coordinates}{dfn:multivector:basis}{
-%   If \( N \) is the dimension of a vector space \( V \), a set of \( N \) vectors \( B = \setlr{ \Ba_1, \Ba_2, \cdots , \Ba_N } \) is a basis for that vector space, if it is possible to form any vector \( \Bx \in V \) as a linear combination of those vectors \( \Ba_k \).  That is, there exists scalars \( c_k \) such that for any \( \Bx \in V \)
-%
-%\begin{equation*}
-%   \Bx = \sum_{k = 1}^N c_k \Ba_k.
-%\end{equation*}
-%
-%The numbers \( (c_1, c_2, \cdots, c_N ) \) are referred to as the coordinates of the vector \( \Bx \) with respect to the basis \( B \).
-%}
+Because the dot product is bilinear, it is
+specified completely by the dot products of a set of basis elements for the space.  For example,
+given a basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \), and two vectors
 
-While it is common, especially in engineering, to represent a vector \( \Bx \) as a tuple or column vector, say,
-
-\begin{dmath}\label{eqn:multivector:180}
-   \Bx =
-\begin{bmatrix}
-   c_1 \\
-   c_2 \\
-   \vdots \\
-   c_N \\
-\end{bmatrix},
+\begin{dmath}\label{eqn:multivector:240}
+\begin{aligned}
+   \Bx &= \sum_{i = 1}^N x_i \Be_i \\
+   \By &= \sum_{i = 1}^N y_i \Be_i,
+\end{aligned}
 \end{dmath}
 
-where the basis associated with the vector is implied, this will not be done here.  Instead, whenever coordinates are used, they will be explicitly paired with their associated basis vectors.
+the dot product of the two is
 
-\makedefinition{Standard basis, and dot product properties.}{dfn:multivector:standardbasis}{
-   Any vector space \( V \) used in this book will be assumed to have been generated from a basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), associated with a dot product that has the properties
+\begin{dmath}\label{eqn:prerequisites:260}
+\Bx \cdot \By
+=
+   \lr{ \sum_{i = 1}^N x_i \Be_i } \cdot
+   \lr{ \sum_{j = 1}^N y_j \Be_j }
+=
+   \sum_{i,j = 1}^N x_i y_j \lr{ \Be_i \cdot \Be_j }.
+\end{dmath}
 
-\begin{enumerate}
-   \item \( \Be_i \cdot \Be_i = \pm 1 \).
-   \item \( \Be_i \cdot \Be_j = 0 \) for any \( i \ne j \).
-\end{enumerate}
+Such an expansion in coordinates can be written in matrix form as
 
-Such a basis will called a standard basis.  When these dot products are always positive, the vector space is referred to as a Euclidean vector space.
-}
+\begin{dmath}\label{eqn:prerequisites:280}
+\Bx \cdot \By
+=
+\Bx^\T G \By,
+\end{dmath}
 
-\paragraph{FIXME: remove?}
-There are many possible standard bases sets.  In \R{3}, it is conventional to refer to \( \Be_1, \Be_2, \Be_3 \) as the standard bases elements if these represent the directions of the x, y, and z directions respectively.  Unless otherwise noted \( \Be_k \) refers to the direction vector for the k-th direction in a standard basis for that space.
-The only non-Euclidean vector space of interest in this book (for relativistic material), has a Minkowski dot product.  For such a space, the standard basis elements will be labelled \( \setlr{ \gamma_0, \gamma_1, \gamma_2, \gamma_3 } \), where for \( i \in [1,3] \), \( \gamma_0 \cdot \gamma_0 = \pm 1 = -\gamma_i \cdot \gamma_i \).  The positive sign convention will be used.
+where \( G \) is the symmetric matrix with elements \( \Be_i \cdot \Be_j \).  This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space.
 
-%GA requires the vector space to have an associated
-%dot product \( \Bx \cdot \By \) that
-%defines the notion of perpendicularity for the space.  We will want to extend the scalar multiplication operation of the vector
-%space to complex numbers, but
-%will not require a (complex) order dependent inner product \( \innerprod{\Bx}{\By} \) for our vector space.
-%
-%XX: new content.
+In this book the metric is always diagonal, with all diagonal values having an absolute value of one.
 
-\paragraph{The metric, length and normality.}
-
-An abstract vector need not have an associated notion of length, nor a notion of perpendicularity (normality).
-In abstract vector algebra, length and normality are provided by defining an associated dot product \(\Bx \cdot \By\), or inner product \(\innerprod{\Bx}{\By}\).
-In GA, length and normality of two vectors are provided by a metric \(g(\Bx, \By)\).
-Like the dot product where \( \Bx \cdot \By = \By \cdot \Bx\), this metric is independent of order, a property that is not generally required of the inner product.
-However, unlike both the dot and inner products of abstract vector algebra, where \( \Bx \cdot \Bx \ge 0\), and \( \innerprod{\Bx}{\Bx} \ge 0\), the metric \(g(\Bx, \Bx)\) may be negative (i.e. for spacetime vectors).
-If \(c \) is any real or complex number, the metric in GA is \( g(c \Bx, c \Bx) = c^2 g(\Bx, \Bx)\), unlike the inner product in complex spaces, where \( \innerprod{c \Bx}{c \Bx} = \Abs{c}^2 \innerprod{c \Bx}{c \Bx} \).
-Effectively, this means that our underlying direction vectors are always real.
-
-
-\makedefinition{Norm-squared}{dfn:multivector:norm}{
+\makedefinition{Length}{dfn:multivector:norm}{
    The squared norm of a vector \( \Bx \) is defined as
 
 \begin{dmath}\label{eqn:multivector:200}
-   \Norm{\Bx}^2 = \Bx \cdot \Bx.
+   \Norm{\Bx}^2 = \Bx \cdot \Bx,
 \end{dmath}
 
-This quantity need not be positive.
-}
-
-\makedefinition{Length}{dfn:multivector:length}{
-   The length of a vector \( \Bx \) is defined as
+a quantity that need not be positive.  The length of a vector \( \Bx \) is defined as
 
 \begin{equation*}
 \Norm{\Bx} =
@@ -288,72 +271,35 @@ This quantity need not be positive.
 %A vector space with an associated norm based length is called a normed vector space.  Any dot product space is also a normed vector space.
 
 \makedefinition{Unit vector}{dfn:multivector:unitvector}{
-   A vector \( \Bx \) is called a unit vector if its length is one.
+   A vector \( \Bx \) is called a unit vector if its absolute squared length is one, \( \Abs{\Bx \cdot \Bx} = 1 \).
 } % definition
 
-A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
-
-\begin{dmath}\label{eqn:multivector:220}
-\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
-\end{dmath}
-
+%A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
+%
+%\begin{dmath}\label{eqn:multivector:220}
+%\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
+%\end{dmath}
+%
 \makedefinition{Normal}{dfn:multivector:normal}{
-   Two vectors are normal, or perpendicular, if their dot product is zero.
+   Two vectors \( \Bx, \By \) are normal, or orthogonal, if their dot product is zero, \( \Bx \cdot \By = 0 \).
 }
 
 \makedefinition{Orthonormal}{dfn:multivector:orthonormal}{
-   A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are normal and are also unit vectors.
+   Two vectors are orthonormal if they are both unit vectors and normal to each other, \( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = 1, \Abs{\By \cdot \By} = 1 \).
+
+   A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
+}
+
+\makedefinition{Standard basis.}{dfn:prerequisites:standardbasis}{
+   A basis
+\( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called a standard basis if that set is orthonormal.
 } % definition
 
-\subsection{Problems}
-\makeproblem{Explicit squared norm}{problem:multivector:60}{
-   Given a coordinate representation of a vector with respect to a standard basis
-\begin{dmath}\label{eqn:multivector:240}
-   \Bx = \sum_{i = 1}^N x_i \Be_i,
-\end{dmath}
+\makedefinition{Euclidean space.}{dfn:prerequisites:euclideanspace}{
+   A vector space with basis
+   \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called Euclidean if all the dot product pairs between the basis elements are not only orthonormal, but positive definite.  That is
 
-show that the squared norm is
-\begin{dmath}\label{eqn:multivector:260}
-   \Norm{\Bx}^2 = \Bx \cdot \Bx = \sum_{i = 1}^N x_i^2 (\Be_i \cdot \Be_i).
-\end{dmath}
-
-Observe that for a Euclidean vector space this is the squared length in the Pythagorean sense.
-}
-
-\makeproblem{Null vector}{problem:multivector:80}{
-Given a two dimensional non-Euclidean vector space with basis elements satisfying
-\( \gamma_0 \cdot \gamma_0 = 1 = -\gamma_1 \cdot \gamma_1 \), construct a vector that has a squared
-norm of 0.  Such a vector is called a null vector.
-%   \Bx = \gamma_0 + \gamma_1,
-}
-
-
-
-\paragraph{Orientation}
-We are familiar with the idea of an oriented line segment (a vector), a quantity that can be visualized as an arrow with direction and magnitude.
-The idea of an oriented plane, volume, or hypervolume is probably less familiar.
-An oriented plane segment, in addition to having a specific area and a direction in space, can be visualized as having a
-circulation direction, or handedness.
-In a three dimensional space, this circulation direction can be associated with one of the two possible normal directions for the plane.
-An oriented volume, in addition to having a given magnitude, is considered to have an associated circulation direction along its surface.
-In a three dimensional space, an oriented volume can be conceptualized as a volume with either an inwards or outwards normal.
-
-
-%%%\makeproblem{}{problem:multivector:50}{
-%%%The most general definition of an Euclidean norm satisfies all of the properties
-%%%
-%%%\begin{enumerate}
-%%%   \item \( \Norm{\Bx} \ge 0 \), and \( \Norm{\Bx} = 0 \iff \Bx = 0 \).
-%%%   \item \( \Norm{a \Bx} = \Abs{a} \Norm{\Bx} \).
-%%%   \item \( \Norm{\Bx + \By} \le \Norm{\Bx} + \Norm{\By} \).
-%%%\end{enumerate}
-%%%
-%%%If the coordinates of a vector with respect to the standard basis are \( x_i \) then show that the Euclidean norm defined in
-%%%that the Pythagorean norm
-%%%\begin{equation*}
-%%%\Norm{\Bx}^2 = \sum_{i = 1}^N x_i^2,
-%%%\end{equation*}
-%%%
-%%%satisfies these properties.
-%%%} % problem
-%%%
+\begin{equation*}
+\Be_i \cdot \Be_j = \delta_{ij}.
+\end{equation*}
+} % definition
