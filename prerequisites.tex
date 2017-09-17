@@ -17,7 +17,7 @@ and in higher dimensional spaces, any oriented hypervolume of dimension \( k \),
 Exactly what is meant by an oriented plane or volume will be discussed later.
 
 What
-differentiates GA from vector algebra is the presumption of a \boldTextAndIndex{multiplication operation}.
+differentiates GA from vector algebra is a \boldTextAndIndex{multiplication operation}.
 This
 multiplication operation is generally non-commutative (i.e. order matters), and is the generator of higher order k-vectors.
 In particular,
@@ -26,10 +26,11 @@ and trivectors are constructed from products of three perpendicular vectors.
 In general, k-vectors are constructed by multiplying \( k \) mutually perpendicular vectors, or by summing such products.
 This multiplication operation will be seen to relate the dot and cross products of three dimensional vector algebra.
 
-When we first learn vector algebra, it is stressed that addition of scalars and vectors is undefined.
-That is not the case in GA, where a sum of k-vectors (with different \(k\)), called a \boldTextAndIndex{multivector},
-is well formed and also required to represent some products.
-For example, the general product of two vectors will be seen to have a scalar (0-vector) and a bivector (2-vector) component.
+When we first learn vector algebra, it is stressed that addition of scalars and vectors is undefined, which is not the case in GA.
+A sum of k-vectors (with different \(k\)) is called a \boldTextAndIndex{multivector}.  Such a sum is 
+required to represent some products.  
+The 
+product of two vectors is such an example, and will be seen to have a scalar (0-vector) and a bivector (2-vector) component.
 
 %  We have the special names, bivector and trivector for \( k = 2 \) and \( k = 3 \) respectively, but
 %Such an object is called a k-vector, however, for \( k > 3 \) there no special names (bivector
@@ -42,15 +43,15 @@ It should be pointed out that GA uses an unconventional definition of dot produc
 
 \subsection{Vector space}
 
-Vectors have many generalizations in mathematics, where directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, quantum states, and other
-(perhaps seemingly unrelated)
-mathematical objects
+Vectors have many generalizations in mathematics.
+A number of seemingly unrelated mathematical objects, such as
+directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, and quantum states 
 can all be considered vectors.
 A vector space is an enumeration of the properties and operations that are common to such a set of
 vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation.
-Our initial goal is to define a \boldTextAndIndex{multivector space}, a construct with
-striking resemblance to that of a vector space, with some subtle but important differences.
-To highlight those differences, it is worthwhile to first review the definition of a vector space and some other basic ideas from linear algebra.
+The definition of a vector space and some other basic ideas from linear algebra are all reviewed here.
+This review will set the stage for the definition of a 
+\boldTextAndIndex{multivector space}.
 
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
 A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that
@@ -285,7 +286,7 @@ a quantity that need not be positive.  The length of a vector \( \Bx \) is defin
 }
 
 \makedefinition{Orthonormal}{dfn:multivector:orthonormal}{
-   Two vectors are orthonormal if they are both unit vectors and normal to each other, \( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = 1, \Abs{\By \cdot \By} = 1 \).
+   Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and normal to each other, \( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = \Abs{\By \cdot \By} = 1 \).
 
    A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
 }
