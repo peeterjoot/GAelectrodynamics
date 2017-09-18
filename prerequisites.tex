@@ -1,57 +1,19 @@
-\section{Basic ideas before we get to the math}
-Geometric algebra, or GA for short, generalizes and extends vector algebra, providing a mathematical representation for geometrical objects of each dimension in the space.
-In a three dimensional space, there are representations for all of
-
-\begin{itemize}
-\item
-oriented (signed) points with magnitude (\boldTextAndIndex{scalars}, or 0-vectors),
-\item
-oriented line segments (\boldTextAndIndex{vectors}, or 1-vectors),
-\item
-oriented planes (\boldTextAndIndex{bivectors}, or 2-vectors), and
-\item
-oriented volumes (\boldTextAndIndex{trivectors}, or 3-vectors),
-\end{itemize}
-
-and in higher dimensional spaces, any oriented hypervolume of dimension \( k \), a \boldTextAndIndex{k-vector}, can be representated.
-Exactly what is meant by an oriented plane or volume will be discussed later.
-
-What
-differentiates GA from vector algebra is a \boldTextAndIndex{multiplication operation}.
-This
-multiplication operation is generally non-commutative (i.e. order matters), and is the generator of higher order k-vectors.
-In particular,
-bivectors are formed from the products of two perpendicular vectors,
-and trivectors are constructed from products of three perpendicular vectors.
-In general, k-vectors are constructed by multiplying \( k \) mutually perpendicular vectors, or by summing such products.
-This multiplication operation will be seen to relate the dot and cross products of three dimensional vector algebra.
-
-When we first learn vector algebra, it is stressed that addition of scalars and vectors is undefined, which is not the case in GA.
-A sum of k-vectors (with different \(k\)) is called a \boldTextAndIndex{multivector}.  Such a sum is 
-required to represent some products.  
-The 
-product of two vectors is such an example, and will be seen to have a scalar (0-vector) and a bivector (2-vector) component.
-
-%  We have the special names, bivector and trivector for \( k = 2 \) and \( k = 3 \) respectively, but
-%Such an object is called a k-vector, however, for \( k > 3 \) there no special names (bivector
-
 \section{Linear algebra review and prerequisite concepts}
 
-The following section reviews concepts from linear algebra that are required to algebraically express the concepts of perpendicularity, and systematically introduce definitons for k-vectors, multivectors, and multivector spaces.
+Geometric algebra (GA for short), generalizes and extends vector algebra.  Because vector algebra is the foundation for GA, it is worthwhile to systematically review some of that foundation.  In particular, we want to review the concepts of vector space, basis, and orthonormality.
 
-It should be pointed out that GA uses an unconventional definition of dot product, where the dot product of a vector with itself may be negative.
+While most of the following should be review, please take note of the unconventional definition of dot product used in GA, which does not require the dot product of a vector with itself to be positive.
 
 \subsection{Vector space}
 
 Vectors have many generalizations in mathematics.
 A number of seemingly unrelated mathematical objects, such as
-directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, and quantum states 
+directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, and quantum states
 can all be considered vectors.
 A vector space is an enumeration of the properties and operations that are common to such a set of
 vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation.
-The definition of a vector space and some other basic ideas from linear algebra are all reviewed here.
-This review will set the stage for the definition of a 
-\boldTextAndIndex{multivector space}.
+%The definition of a vector space and some other basic ideas from linear algebra are all reviewed here.
+%This review will set the stage for the definition of a \boldTextAndIndex{multivector space}, the GA analogue of a vector space.
 
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
 A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that
@@ -93,10 +55,10 @@ c \Bx &\equiv (c x_1 , c x_2 , c x_3 ).
 Show that \R{3} is a vector space.
 } % problem
 
-\makeproblem{Pauli matrices.}{problem:multivector:20}{
+\makeproblem{Pauli matrices.}{problem:prerequisites:20}{
 The Pauli matrices are defined as
 
-\begin{equation}\label{eqn:multivector:160}
+\begin{equation}\label{eqn:prerequisites:160}
    \sigma_1 = \PauliX,\quad
    \sigma_2 = \PauliY,\quad
    \sigma_3 = \PauliZ.
@@ -106,24 +68,24 @@ Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \si
 determine the form of the zero and identity elements.
 
 % FIXME: make this a problem at at location where it makes sense:
-%\makesubproblem{}{problem:multivector:20:b}
+%\makesubproblem{}{problem:prerequisites:20:b}
 %
 %Show that \( \sigma_k^2 = I \), where \( I \) is the 2x2 identity matrix, and that \( \sigma_k \sigma_j = -\sigma_k \sigma_j \) for all \( k \ne j \).
 %
-%\makesubproblem{}{problem:multivector:20:c}
+%\makesubproblem{}{problem:prerequisites:20:c}
 %
-%Using the results of \partref{problem:multivector:20:b}, show that
+%Using the results of \partref{problem:prerequisites:20:b}, show that
 %\( \lr{ a \sigma_x + b \sigma_y + c \sigma_z }^2 = (a^2 + b^2 + c^2) I \), where \( I \) is the 2x2 identity matrix.
 %%This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
 } % problem
 
-%\makeproblem{Function space.}{problem:multivector:30}{
+%\makeproblem{Function space.}{problem:prerequisites:30}{
 %   Given real functions \( f(x) = e^x \) and \( g(x) = x^2 \), and scalars \( a,b \in \bbR \) determine whether the set
 %   \( V = \setlr{ a f(x) + b g(x) } \) is a vector space, and if so,
 %determine the form of the zero and identity elements.
 %} % problem
 
-\makeproblem{Polynomial vector space.}{problem:multivector:35}{
+\makeproblem{Polynomial vector space.}{problem:prerequisites:35}{
   Show that the set of N'th degree polynomials \( V = \setlr{ \sum_{k=0}^N a_k x^k \mid a_k \in \bbR } \) is a vector space.
 } % problem
 
@@ -196,7 +158,7 @@ Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector spac
 a subspace if \( S \) is a vector space under the multiplication and addition operations of the vector space \( V \).
 } % definition
 
-\makedefinition{Basis and dimension}{dfn:multivector:basisanddimension}{
+\makedefinition{Basis and dimension}{dfn:prerequisites:basisanddimension}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_n } \) be a linearly independent subset of \( V \).  This set is a basis if \( \Span(S) = V \).  The number of vectors \( n \) in this set is called the dimension of the space.
 } % definition
 
@@ -209,7 +171,7 @@ with the following properties
 
 \begin{tcolorbox}[tab2,tabularx={X|Y},title=Dot product properties.,boxrule=0.5pt]
     Symmetric in both arguments & \( \Bx \cdot \By = \By \cdot \Bx \) \\ \hline
-    Bilinear & \( (a \Bx + b \By) \cdot (a' \Bx' + b' \By' ) = 
+    Bilinear & \( (a \Bx + b \By) \cdot (a' \Bx' + b' \By' ) =
 a a' (\Bx \cdot \Bx') + b b' (\By \cdot \By')
 +
 a b' (\Bx \cdot \By') + b a' (\By \cdot \Bx') \)
@@ -218,13 +180,14 @@ a b' (\Bx \cdot \By') + b a' (\By \cdot \Bx') \)
 \end{tcolorbox}
 } % definition
 
-In GA it can be useful to omit the requirement for a dot product to have the positive definite property.  This has specific relevance in electrodynamics, when four-vector (relativistic) vector spaces are used.
+In GA it can be useful to omit the requirement for a dot product to have the positive definite property.
+This has specific relevance in electrodynamics, since Maxwell's equations take their simplest form when expressed in terms of four-vector (relativistic) vector spaces.
 
 Because the dot product is bilinear, it is
 specified completely by the dot products of a set of basis elements for the space.  For example,
 given a basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \), and two vectors
 
-\begin{dmath}\label{eqn:multivector:240}
+\begin{dmath}\label{eqn:prerequisites:240}
 \begin{aligned}
    \Bx &= \sum_{i = 1}^N x_i \Be_i \\
    \By &= \sum_{i = 1}^N y_i \Be_i,
@@ -250,14 +213,14 @@ Such an expansion in coordinates can be written in matrix form as
 \Bx^\T G \By,
 \end{dmath}
 
-where \( G \) is the symmetric matrix with elements \( \Be_i \cdot \Be_j \).  This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space.
+where \( G \) is the symmetric matrix with elements \( g_{ij} = \Be_i \cdot \Be_j \).  This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space.
 
 In this book the metric is always diagonal, with all diagonal values having an absolute value of one.
 
-\makedefinition{Length}{dfn:multivector:norm}{
+\makedefinition{Length}{dfn:prerequisites:norm}{
    The squared norm of a vector \( \Bx \) is defined as
 
-\begin{dmath}\label{eqn:multivector:200}
+\begin{dmath}\label{eqn:prerequisites:200}
    \Norm{\Bx}^2 = \Bx \cdot \Bx,
 \end{dmath}
 
@@ -271,21 +234,21 @@ a quantity that need not be positive.  The length of a vector \( \Bx \) is defin
 
 %A vector space with an associated norm based length is called a normed vector space.  Any dot product space is also a normed vector space.
 
-\makedefinition{Unit vector}{dfn:multivector:unitvector}{
+\makedefinition{Unit vector}{dfn:prerequisites:unitvector}{
    A vector \( \Bx \) is called a unit vector if its absolute squared length is one, \( \Abs{\Bx \cdot \Bx} = 1 \).
 } % definition
 
 %A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
 %
-%\begin{dmath}\label{eqn:multivector:220}
+%\begin{dmath}\label{eqn:prerequisites:220}
 %\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
 %\end{dmath}
 %
-\makedefinition{Normal}{dfn:multivector:normal}{
+\makedefinition{Normal}{dfn:prerequisites:normal}{
    Two vectors \( \Bx, \By \) are normal, or orthogonal, if their dot product is zero, \( \Bx \cdot \By = 0 \).
 }
 
-\makedefinition{Orthonormal}{dfn:multivector:orthonormal}{
+\makedefinition{Orthonormal}{dfn:prerequisites:orthonormal}{
    Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and normal to each other, \( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = \Abs{\By \cdot \By} = 1 \).
 
    A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.

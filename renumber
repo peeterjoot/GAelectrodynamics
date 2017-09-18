@@ -70,9 +70,6 @@
 #../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
 
-#../latex/bin/lgrep multivector.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl multivector.tex
-
 #../latex/bin/lgrep SimpleProducts.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl SimpleProducts.tex
 
@@ -93,6 +90,9 @@
 
 #../latex/bin/lgrep coordinateNinetyDegreeRotation.tex   | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl coordinateNinetyDegreeRotation.tex  
+
+../latex/bin/lgrep multivector.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl multivector.tex
 
 ../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex

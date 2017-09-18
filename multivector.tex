@@ -1,25 +1,25 @@
 %\chapter{Multivector spaces}
 \section{Multivectors}
 
-We are now ready to introduce the core axioms of GA.
+\subsection{Multivector space.}
 
-FIXME: define multivector, bivector, ... before multivector space.
-
-The algebraic description of a multivector space is very similar to that of the vector space, the definition of which is
-
-Multivectors are built from normed vector spaces as follows
+The first lesson that must be learned in the study in GA, is to unlearn claims
+%\footnote{I heard such claims from high school math and physics teachers.}
+that vectors cannot be multiplied.
+Instead we start by assuming that a multiplication operation between any number of vectors can be defined,
+and that sums, called multivectors, of scalars, vectors, and any products of vectors are also well defined.
+These rules are formalized in the definition of a multivector space.
 
 \makedefinition{Multivector space.}{def:multiplication:multivectorspace}{
-   Given a normed vector space \( V \), with elements \( \setlr{ \Bx, \By, \cdots, \Bz} \in V \),
-   a multivector can be formed from any product of one or more of these vectors \( \Bx \By \cdots \Bz \), a scalar multiple of such a product, or the sum thereof.  These vector products are constrained by the contraction axiom, a requirement that,
-   for any vector \( \Bx \in V \) the square of that vector is the squared length of that vector
+   Given a (generating) vector space \( V \) with a basis \( \setlr{ \Bx_1, \Bx_2, \cdots } \), a multivector is any sum
 
-\begin{equation*}
-    \Bx^2 = \Norm{\Bx}^2.
-\end{equation*}
+   \( a_0 + \sum_i a_i \Bx_i + \sum_{ij} a_{ij} \Bx_i \Bx_j + \sum_{ijk} \Bx_i \Bx_j \Bx_k + \cdots \), where \( a_0, a_i, a_{ij}, \cdots \) are scalars,
+and vector multiplication is represented by juxtaposition.
 
-A multivector space \( M \) is the set of all possible multivectors that can be formed from the generating vector space \( V \).  All multivectors \( x, y, z \in M \) must satisfy the following additional axioms
+   A multivector space is a set \( M = \setlr{ x, y, z, \cdots } \) of multivectors, where the following axioms are satisfied
+
 \begin{tcolorbox}[tab2,tabularx={X|Y},title=Multivector space axioms.,boxrule=0.5pt]
+    Contraction. & \( \Bx^2 = \Bx \cdot \Bx, \forall \Bx \in V \) \\ \hline
     Addition is closed. & \( x + y \in M \) \\ \hline
     Multiplication is closed. & \( x y \in M \) \\ \hline
     Addition is associative. & \( (x + y) + z = x + (y + z) \) \\ \hline
@@ -32,16 +32,112 @@ A multivector space \( M \) is the set of all possible multivectors that can be 
 \end{tcolorbox}
 }
 
+The definition of a multivector space is strikingly similar to that of a vector space
+\cref{def:prerequisites:vectorspace}, with the following changes
+
+\begin{itemize}
+\item References to vectors in the axioms, are changed to multivectors.
+\item Scalar multiplication is generalized to multivector multiplication (of which scalar multiplication is a special case).
+\item The vector addition operation is generalized to multivector addition.
+\item A vector multiplication operation is presumed.
+\item A rule that specifies the meaning of a product of a vector with itself is provided (the contraction axiom).
+\end{itemize}
+
 Some work is required to systematically examine the consequences of this abstract definition.
 
+\subsection{Nomenclature: grade, k-vector, bivector, trivector.}
+
+To facilitate discussion, it is useful to first introduce some nomenclature.
+
+%\makedefinition{Vector multiplication.}{dfn:multivector:vectormultiplication}{
+%Given elements \( \Bx, \By, \Bz \) from a vector space with an associated dot product, define a multiplication operation,
+%written using juxtaposition (\( \Bx \By, \Bx \By \Bz, \cdots \)), with properties
+%
+%\begin{tcolorbox}[tab2,tabularx={X|Y},title=Vector multiplication properties.,boxrule=0.5pt]
+%    Contraction. &\( \Bx^2 = \Bx \cdot \Bx \) \\ \hline
+%    Distribution.  & \( \Bz( \Bx + \By ) = \Bz \Bx + \Bz \By \),
+%\( (\Bx + \By)\Bz = \Bx \Bz + \By \Bz \) \\ \hline
+%    Associativity. & \( (\Bx \By) \Bz = \Bx ( \By \Bz ) \) \\ \hline
+%    Non-commutativity (order matters). & In general, \( \Bx \By \ne \By \Bx \) \\ \hline
+%\end{tcolorbox}
+%} % definition
+
+\makedefinition{Grade and k-vector.}{dfn:multivector:kvector}{
+A product of
+\( k \) mutually perpendicular vectors, or a sum of such products, is called a k-vector.
+The number \( k \) of such products is called the grade.
+Scalars are grade zero k-vectors.  
+} % definition
+
+Multivectors are therefore sums of k-vectors with different grades.  
+
+Examples of k-vectors with grades 0, 1, 2, and 3 respectively are
+
+\begin{dmath}\label{eqn:multivector:180}
+\begin{aligned}
+&1 \\
+&\Be_1, \Be_2, \Be_3 \\
+&\Be_1 \Be_2, \Be_2 \Be_1, \Be_1 \Be_2 + \Be_2 \Be_3, \Be_1 \Be_2 + \Be_3 \Be_4 \\
+&\Be_1 \Be_2 \Be_3, \Be_1 \Be_3 \Be_2, \Be_1 \Be_4 \Be_2
+\end{aligned}
+\end{dmath}
+
+\makedefinition{Bivector.}{dfn:multivector:bivector}{
+A bivector, or 2-vector, is a k-vector with grade 2.
+} % definition
+
+Each of \( \Be_1 \Be_2, \Be_2 \Be_1, \Be_1 \Be_2 + \Be_2 \Be_3 \), and \( \Be_1 \Be_2 + \Be_3 \Be_4 \) are bivectors.
+%All but the last of these represents an oriented plane segment.
+
+\makedefinition{Trivector.}{dfn:multivector:trivector}{
+A trivector, or 3-vector, is a k-vector with grade 3.
+} % definition
+
+Each of \( \Be_1 \Be_2 \Be_3, \Be_1 \Be_3 \Be_2, \Be_1 \Be_4 \Be_2 \) are trivectors.
+% , and represent oriented volumes.
+
+\paragraph{Mixed grade sums}
+In traditional vector algebra, the 
+``weird'' sum of a scalar and vector is forbidden and undefined, but is explicitly allowed in GA.  For example, 
+
+\begin{dmath}\label{eqn:multivector:240}
+1 + \Be_1,
+\end{dmath}
+
+is a simple mixed grade multivector.
+Such mixed grade mathematical objects are not only well defined in GA, but are required to represent some vector products.  One of the simplest examples is the following vector product
+
+\begin{dmath}\label{eqn:multivector:260}
+\Be_1 ( \Be_1 + \Be_2 )
+=
+\Be_1 \Be_1 + \Be_1 \Be_2
+=
+\Be_1 \cdot \Be_1 + \Be_1 \Be_2
+=
+1 + \Be_1 \Be_2,
+\end{dmath}
+
+where the last step assumes the vector space is Euclidean.
+
+
+%\makedefinition{multivector}{dfn:multivector:multivector}{
+%A multivector is a sum of k-vectors.  The grades of any such summands may differ.
+%} % definition
+
+This last object, the multivector, assumes an addition operation that allows different k-vectors to be added, even if their grades differ.
+
+XX
+
 Observe first that since a scalar multiple of the square of a vector is as scalar by the definition above,
-any scalar is also a multivector.  For example, if \( \Be_1 \) is the unit vector along the x-axis and \( s \) is a scalar, then
+any scalar is also a multivector.
+For example, if \( \Be_1 \) is the unit vector along the x-axis and \( s \) is a scalar, then
 
 \begin{equation}\label{eqn:multivector:20}
    x = s \Be_1^2 = s,
 \end{equation}
 
-is a multivector.  Since vectors (a product of one vector, or a scalar multiple thereof) is also a multivector, this
+is a multivector.
+Since vectors (a product of one vector, or a scalar multiple thereof) is also a multivector, this
 means that vectors are multivectors, and that ``wierd'' sums of scalars and vectors, such as
 
 \begin{dmath}\label{eqn:multivector:40}
@@ -54,10 +150,13 @@ are also multivectors!  A quantity like
    x = 1 + \Be_1 + \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3,
 \end{dmath}
 
-where \( \Be_k \) are the standard orthonormal basis vectors for \R{3} (unit vectors that are mutually perperpendicular), is also a multivector.  The product \( \Be_1 \Be_2 \) is a bivector, and represents a positively oriented unit magnitude area in the x-y plane, whereas \( - \Be_1 \Be_2 \Be_3 \) is a trivector, representing a negatively oriented unit volume (inwards normals).
+where \( \Be_k \) are the standard orthonormal basis vectors for \R{3} (unit vectors that are mutually perperpendicular), is also a multivector.
+The product \( \Be_1 \Be_2 \) is a bivector, and represents a positively oriented unit magnitude area in the x-y plane, whereas \( - \Be_1 \Be_2 \Be_3 \) is a trivector, representing a negatively oriented unit volume (inwards normals).
 
-\section{Unpacking the axioms}
-Now consider some consequences of the contraction axiom.  In particular,
+XX
+\subsection{Unpacking the axioms}
+Now consider some consequences of the contraction axiom.
+In particular,
 requires the square of a unit (Euclidean) vector \( \Be_i \) to be unity
 
 %\begin{equation}\label{eqn:multiplication:60}
@@ -81,7 +180,8 @@ The sum above with both scalar terms and terms that are composed of products of 
 A product of two perpendicular vectors (or a sum of such products) is called a bivector, and can be used to represent an oriented plane.
 Geometric Algebra allows for sums of scalars, vectors, bivectors, and higher degree products.
 
-Observe that for this identity to hold, the bivector terms must sum to zero.  That is
+Observe that for this identity to hold, the bivector terms must sum to zero.
+That is
 
 %\begin{dmath}\label{eqn:multiplication:140}
 \boxedEquation{eqn:multiplication:140}{
@@ -89,7 +189,8 @@ Observe that for this identity to hold, the bivector terms must sum to zero.  Th
 }
 %\end{dmath}
 
-This implies that the product of two orthonormal vectors anticommutes.  In general it is also true that
+This implies that the product of two orthonormal vectors anticommutes.
+In general it is also true that
 
 \maketheorem{Normal anticommutation}{thm:multiplication:anticommutationNormal}{
 The product of any two normal vectors \(\Bu\), and \(\Bv\) anticommute.
@@ -105,4 +206,21 @@ The product of any two normal vectors \(\Bu\), and \(\Bv\) anticommute.
 \makeproblem{One dimensional multivector space.}{problem:multivector:40}{
    Verify that for \( c, d \in \bbR \) the set \( M = \setlr{ c + d \Be_1 } \) satisifies all the multivector axioms.
 } % problem
+
+\subsection{Orientation.  figure out where to put this}
+Geometric algebra provides a mathematical representation for geometrical objects of each dimension in the space.
+In a three dimensional space, there are representations for all of
+
+\begin{itemize}
+\item
+oriented (signed) points with magnitude
+\item
+oriented line segments,
+\item
+oriented planes,
+\item
+oriented volumes,
+\end{itemize}
+
+and in higher dimensional spaces, it will be possible to represent higher dimensonal oriented hypervolumes.
 
