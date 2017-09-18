@@ -119,45 +119,11 @@ Such mixed grade mathematical objects are not only well defined in GA, but are r
 
 where the last step assumes the vector space is Euclidean.
 
-
-%\makedefinition{multivector}{dfn:multivector:multivector}{
-%A multivector is a sum of k-vectors.  The grades of any such summands may differ.
-%} % definition
-
-This last object, the multivector, assumes an addition operation that allows different k-vectors to be added, even if their grades differ.
-
-XX
-
-Observe first that since a scalar multiple of the square of a vector is as scalar by the definition above,
-any scalar is also a multivector.
-For example, if \( \Be_1 \) is the unit vector along the x-axis and \( s \) is a scalar, then
-
-\begin{equation}\label{eqn:multivector:20}
-   x = s \Be_1^2 = s,
-\end{equation}
-
-is a multivector.
-Since vectors (a product of one vector, or a scalar multiple thereof) is also a multivector, this
-means that vectors are multivectors, and that ``wierd'' sums of scalars and vectors, such as
-
-\begin{dmath}\label{eqn:multivector:40}
-   x = 1 + \Be_1,
-\end{dmath}
-
-are also multivectors!  A quantity like
-
-\begin{dmath}\label{eqn:multivector:45}
-   x = 1 + \Be_1 + \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3,
-\end{dmath}
-
-where \( \Be_k \) are the standard orthonormal basis vectors for \R{3} (unit vectors that are mutually perperpendicular), is also a multivector.
-The product \( \Be_1 \Be_2 \) is a bivector, and represents a positively oriented unit magnitude area in the x-y plane, whereas \( - \Be_1 \Be_2 \Be_3 \) is a trivector, representing a negatively oriented unit volume (inwards normals).
-
-XX
 \subsection{Unpacking the axioms}
-Now consider some consequences of the contraction axiom.
-In particular,
-requires the square of a unit (Euclidean) vector \( \Be_i \) to be unity
+
+Until otherwise stated, we assume a Euclidean vector space with an orthonormal basis \( \setlr{\Be_1, \Be_2, \cdots } \).  Generalizations for non-Euclidean spaces are left to the reader.
+
+By the contraction axiom, the square of a unit vector is also unity
 
 %\begin{equation}\label{eqn:multiplication:60}
 \boxedEquation{eqn:multiplication:60}{
