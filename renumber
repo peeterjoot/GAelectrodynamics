@@ -18,10 +18,10 @@
 #perl -p -i ../latex/bin/latexRegex.pl vectorproduct.tex
 #perl -p -i ../latex/bin/latexRegex.pl vectorproductCyclicPermutation.tex
 #perl -p -i ../latex/bin/latexRegex.pl wedgeantisym.tex
-#perl -p -i ~/physicsplay/bin/latexRegex.pl GAmotivation.tex
-#perl -p -i ~/physicsplay/bin/latexRegex.pl definitions.tex
-#perl -p -i ~/physicsplay/bin/latexRegex.pl gradeselection.tex
-#perl -p -i ~/physicsplay/bin/latexRegex.pl vectorproduct.tex
+#perl -p -i ../latex/bin/latexRegex.pl GAmotivation.tex
+#perl -p -i ../latex/bin/latexRegex.pl definitions.tex
+#perl -p -i ../latex/bin/latexRegex.pl gradeselection.tex
+#perl -p -i ../latex/bin/latexRegex.pl vectorproduct.tex
 #../latex/bin/lgrep 2dvectorsquare.tex | tee o ; . ./o
 #../latex/bin/lgrep ComplexInnerProductVsDotAndCrossProduct.tex | tee o ; . ./o
 #../latex/bin/lgrep GAmotivation.tex | tee o ; . ./o
@@ -47,7 +47,7 @@
 #../latex/bin/lgrep bivectorDot.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl bivectorDot.tex
 #../latex/bin/lgrep reciprocal.tex | tee o ; . ./o
-#perl -p -i ~/physicsplay/bin/latexRegex.pl reciprocal.tex
+#perl -p -i ../latex/bin/latexRegex.pl reciprocal.tex
 #../latex/bin/lgrep 2subspaceR3reciprocalExample.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2subspaceR3reciprocalExample.tex
 #../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
