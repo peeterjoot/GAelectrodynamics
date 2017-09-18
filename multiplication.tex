@@ -3,100 +3,43 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-%%\input{../blogpost.tex}
-%%\renewcommand{\basename}{multiplication}
-%%%\renewcommand{\dirname}{notes/phy1520/}
-%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%%%\newcommand{\dateintitle}{}
-%%%\newcommand{\keywords}{}
-%%
-%%\input{../peeter_prologue_print2.tex}
-%%
-%%\usepackage{peeters_layout_exercise}
-%%\usepackage{peeters_braket}
-%%\usepackage{peeters_figures}
-%%\usepackage{siunitx}
-%%%\usepackage{mhchem} % \ce{}
-%%%\usepackage{macros_bm} % \bcM
-%%%\usepackage{txfonts} % \ointclockwise
-%%
-%%\beginArtNoToc
-%%
-%%\generatetitle{Vector multiplication}
-%%%\chapter{Vector multiplication}
-%%%\label{chap:multiplication}
-%%
-Geometric Algebra defines a multiplication operation for vectors, forming a vector space spanned by all the possible vector products.  This algebra is described by the following small set of axioms
 
-\makeaxiom{Associative multiplication.}{axiom:multiplication:associative}{
-
-The product of any three vectors \(\Ba,\Bb,\Bc\) is associative.
-
-\begin{equation*}\label{eqn:multiplication:160}
-\Ba (\Bb \Bc)
-= (\Ba \Bb) \Bc
-= \Ba \Bb \Bc.
-\end{equation*}
-}
-
-\makeaxiom{Linearity.}{axiom:multiplication:linear}{
-Vector products are linear with respect to addition and subtraction.
-
-\begin{dmath*}\label{eqn:multiplication:180}
-\begin{aligned}
-(\Ba + 3 \Bb \Bd) \Bc &= \Ba \Bb + 3 \Bb \Bd \Bc \\
-\Ba (\Bb \Bd - 2 \Bc) &= \Ba \Bb \Bd - 2 \Ba \Bc.
-\end{aligned}
-\end{dmath*}
-}
-
-\makeaxiom{Contraction.}{axiom:multiplication:contraction}{
-
-The square of a vector is the squared length of the vector.
-
-\begin{dmath*}\label{eqn:multiplication:200}
-\Ba^2 = \Norm{\Ba}^2.
-\end{dmath*}
-
-The notion of length here is metric dependent.  For the problems considered in these notes
-it can be assumed that there is an orthonormal Euclidean basis, where the vector length is always positive.
-For special relativistic calculations, also of interest in electrodynamics, but not the focus of these notes, the length of a (four-)vector may generally be negative or positive.
-}
-
-These axioms are simple enough, but have a rich set of consequences
 %\footnote{Similar to Feynman on gravitation \citep{feynman1963flp} ``... have shall said everything required, for a sufficiently talented mathematician could then deduce all the consequences of these principles.  However, since you are not assumed to be sufficiently talented yet, we shall discuss the consequences in more detail''.}.
 
-The linearity and associativity axioms need little comment, but the contraction property might be surprising.  For one justification of this rule, consider a one dimensional vector space spanned by a single unit vector \( \setlr{ \Be } \).  That span, for real \( x \) is all the values
+The contraction axiom is arguably the most important of the multivector space axioms, but may be unintuitive.
+
+For one justification of this rule, consider a one dimensional vector space spanned by a single unit vector \( \setlr{ \Be } \).  That span, for real \( x \) is all the values
 
 \begin{dmath}\label{eqn:multiplication:20}
 \Bx = x \Be.
 \end{dmath}
 
-Two vectors \( -3\Be, 7 \Be \) in a one dimensional space are plotted in
+A one dimensional vector space is isomorphic with a number line \( \setlr{x}, x \in \bbR \), so can we use the rules for numeric multiplication to justify a rule for vector multiplication in a one dimensional vector space?
+
+Consider, for example, two vectors \( -3\Be \) and \( 7 \Be \), in \R{1} and in the number line space as plotted in
 \cref{fig:1Darrows:1DarrowsFig2}.
+\imageTwoFigures
+{../figures/GAelectrodynamics/1DarrowsFig2}
+{../figures/GAelectrodynamics/1DnumberlineFig1}
+{Equivalent vectors in \R{1} and on a number line.}{fig:1Darrows:1DarrowsFig2}{scale=0.5}
+%\imageFigure{../figures/GAelectrodynamics/1DarrowsFig2}{Vectors in 1D space.}{fig:1Darrows:1DarrowsFig2}{0.03}
+%\imageFigure{../figures/GAelectrodynamics/1DnumberlineFig1}{Points on a number line.}{fig:1Dnumberline:1DnumberlineFig1}{0.045}
+%\cref{fig:1Dnumberline:1DnumberlineFig1}.
 
-\imageFigure{../figures/GAelectrodynamics/1DarrowsFig2}{Vectors in 1D space.}{fig:1Darrows:1DarrowsFig2}{0.03}
+The multiplication rules for real numbers require that for any point \( x \) distant from the origin, we have
 
-A one dimensional vector space is isomorphic with a number line, all the possible real values \( x \).  An equivalent representation of these vectors is to record just the coordinates of the end points, as plotted in
-\cref{fig:1Dnumberline:1DnumberlineFig1}.
-
-\imageFigure{../figures/GAelectrodynamics/1DnumberlineFig1}{Points on a number line.}{fig:1Dnumberline:1DnumberlineFig1}{0.045}
-
-Given a positive number \( x \), the multiplication rules for real numbers require that \( (\pm x)^2 = x^2 \).
-The square of a number provides the (squared) length of the number, its distance from the origin.  Given this isomorphism it is not unreasonable to impose the same rule for calculation of the length of a one dimensional vector, as the rule for the magnitude of a number, specically, that the (squared) distance from the origin equals the square of the vector itself.   Such a rule is consistent with the rules of scalar multiplication, and for the one dimensional vectors of \cref{eqn:multiplication:20} can be stated as
-
-\begin{equation}\label{eqn:multiplication:40}
-\Bx^2 = x^2.
+\begin{equation}\label{eqn:multiplication:60}
+(\pm x)^2 = \Abs{x}^2 = x^2.
 \end{equation}
 
-This contraction axiom, justified or not, has additional implications
+Requiring this of the equivalent one dimensional vector space requires
 
-\begin{dmath}\label{eqn:multiplication:80}
-x^2
-= \Bx^2
-= (x \Be)(x \Be)
-= x^2 \Be^2.
-\end{dmath}
+\begin{equation}\label{eqn:multiplication:40}
+(\pm \Bx)^2 = \Abs{x}^2 = x^2,
+\end{equation}
+
+which is a statement of the contraction axiom for a one dimensional Euclidean vector space.
+In this sense the contraction axiom is just taking the rule for real multiplication, and applying it to vector spaces.
 
 %%}
 %%%\EndArticle

@@ -12,7 +12,6 @@
 #perl -p -i ../latex/bin/latexRegex.pl gradeselVectorWedge.tex
 #perl -p -i ../latex/bin/latexRegex.pl gradeselection.tex
 #perl -p -i ../latex/bin/latexRegex.pl gradethreeselectionWedge.tex
-#perl -p -i ../latex/bin/latexRegex.pl multiplication.tex
 #perl -p -i ../latex/bin/latexRegex.pl normalAnticommutation.tex
 #perl -p -i ../latex/bin/latexRegex.pl planeRotationsExponentials.tex
 #perl -p -i ../latex/bin/latexRegex.pl vectorBivectorDot.tex
@@ -22,7 +21,6 @@
 #perl -p -i ~/physicsplay/bin/latexRegex.pl GAmotivation.tex
 #perl -p -i ~/physicsplay/bin/latexRegex.pl definitions.tex
 #perl -p -i ~/physicsplay/bin/latexRegex.pl gradeselection.tex
-#perl -p -i ~/physicsplay/bin/latexRegex.pl multiplication.tex
 #perl -p -i ~/physicsplay/bin/latexRegex.pl vectorproduct.tex
 #../latex/bin/lgrep 2dvectorsquare.tex | tee o ; . ./o
 #../latex/bin/lgrep ComplexInnerProductVsDotAndCrossProduct.tex | tee o ; . ./o
@@ -38,7 +36,6 @@
 #../latex/bin/lgrep gradeselVectorWedge.tex | tee o ; . ./o
 #../latex/bin/lgrep gradeselection.tex | tee o ; . ./o
 #../latex/bin/lgrep gradethreeselectionWedge.tex | tee o ; . ./o
-#../latex/bin/lgrep multiplication.tex | tee o ; . ./o
 #../latex/bin/lgrep normalAnticommutation.tex | tee o ; . ./o
 #../latex/bin/lgrep planeRotationsExponentials.tex | tee o ; . ./o
 #../latex/bin/lgrep vectorBivectorDot.tex | tee o ; . ./o
@@ -90,6 +87,9 @@
 
 #../latex/bin/lgrep coordinateNinetyDegreeRotation.tex   | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl coordinateNinetyDegreeRotation.tex  
+
+../latex/bin/lgrep multiplication.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl multiplication.tex
 
 ../latex/bin/lgrep multivector.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl multivector.tex

@@ -29,65 +29,7 @@
 
 A few new GA terms have been introduced in an ad-hoc fashion as required.  Here is a systematic exposition of some of the key definitions used to refer to the types of the geometric objects that will be encountered.
 
-\makedefinition{Bivector}{def:multiplication:bivector}{
-A product of two normal vectors, or a sum thereof.
-}
-
-The product \( \Be_1 \Be_2 \) is a bivector, as is \( \Be_2 \Be_3 + 3 \Be_4 \Be_1 \)
-
-\makedefinition{Trivector}{def:multiplication:trivector}{
-A product of three mutually normal vectors, or a sum thereof.
-}
-
-The quantity \( \Be_3 \Be_1 \Be_2 \) is a trivector, as is \( \Be_1 \Be_2 \Be_3 + 3 \Be_5 \Be_4 \Be_1 \).
-
-\makedefinition{Blade}{def:multiplication:blade}{
-A scalar, vector, bivector, or a trivector (or higher degree analogue), that can be constructed by multiplication of a number of vectors, but not an unfactorable sum of thereof.
-}
-
-The factorable quantity
-\begin{dmath}\label{eqn:multiplication:220}
-\Be_1 \Be_2 + 3 \Be_1 \Be_3
-=
-\Be_1 (\Be_2 + 3 \Be_3)
-\end{dmath}
-
-is a blade, whereas
-
-\begin{dmath}\label{eqn:multiplication:240}
-\Be_1 \Be_2 + 3 \Be_3 \Be_4,
-\end{dmath}
-
-and
-\begin{dmath}\label{eqn:multiplication:260}
-\Be_1 \Be_2 + \Be_2 \Be_3 + \Be_3 \Be_1
-\end{dmath}
-
-are not.
-
-Scalar, vector, bivector, and trivectors are also referred to as sums of 0-blades, 1-blades, 2-blades, and 3-blades respectively.
-
-\makedefinition{Grade.}{def:multiplication:grade}{
-The minimum number of vector products required to form a given blade.
-}
-
 The grade of a scalar, vector, bivector, and trivector are 0, 1, 2, and 3 respectively.
-
-The quantities
-\begin{dmath}\label{eqn:multiplication:300}
-\begin{aligned}
-\Be_2 + \Be_1 \Be_2 \Be_2 &= \Be_1 + \Be_2 \\
-\Be_1 \Be_2 \Be_2 \Be_2 \Be_3 &= \Be_1 \Be_2 \Be_3 \\
-\end{aligned}
-\end{dmath}
-
-have grades 1 and 3 respectively.
-
-Quantities with higher grades than 3 are not generally given explicit names, but can be referred to having grade-k.  When an object of grade-k is
-also a blade, it can be referred to as a k-blade.
-The statement \( F \in \bigwedge^k \) is interpretted as \( F \) has grade \( k \).
-
-In a three dimensional space the highest grade possible is 3.  Blades can have grades higher than 3 in higher dimensional vector spaces.
 
 \makedefinition{Pseudoscalar.}{def:multiplication:pseudoscalar}{
 A blade with grade that matches the dimension of the space.
