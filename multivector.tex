@@ -36,7 +36,7 @@ The definition of a multivector space is strikingly similar to that of a vector 
 \cref{def:prerequisites:vectorspace}, with the following changes
 
 \begin{itemize}
-\item References to vectors in the axioms, are changed to multivectors.
+\item In the axioms, any references to vectors are changed to multivectors.
 \item Scalar multiplication is generalized to multivector multiplication (of which scalar multiplication is a special case).
 \item The vector addition operation is generalized to multivector addition.
 \item A vector multiplication operation is presumed.
@@ -96,6 +96,58 @@ A trivector, or 3-vector, is a k-vector with grade 3.
 Each of \( \Be_1 \Be_2 \Be_3, \Be_1 \Be_3 \Be_2, \Be_1 \Be_4 \Be_2 \) are trivectors.
 % , and represent oriented volumes.
 
+\subsection{Unpacking the axioms}
+
+\paragraph{Effects of commutation of normal vectors.}
+
+Until otherwise stated, a Euclidean vector space with an orthonormal basis \( \setlr{\Be_1, \Be_2, \cdots } \) is assumed in the following discussion.  Generalizations required for non-Euclidean spaces will be discussed when spacetime vectors are introduced.
+%  At that point, it is a good exersize for the reader to come back to this, and determine where any result 
+
+The contraction axiom is arguably the most important of the multivector space axioms.  The simplest consequence of this is that the 
+the square of any unit vector, such as any \( \Be_i \) is also unity
+
+%\begin{equation}\label{eqn:multiplication:60}
+\boxedEquation{eqn:multiplication:60}{
+\Be_i^2 = 1.
+}
+%\end{equation}
+
+Now consider the square of the vector with its head at \( (1,1) \), as sketched in \cref{fig:unitSum:unitSumFig1}.  
+\imageFigure{../figures/GAelectrodynamics/unitSumFig1}{\( \Be_1 + \Be_2 \).}{fig:unitSum:unitSumFig1}{0.3}
+By the contraction axiom, the square of this vector is \( 2\), but can also be computed by expansion, and a second application of the contraction axiom
+
+\begin{dmath}\label{eqn:gaTutorial:80}
+2
+=
+(\Be_1 + \Be_2)^2
+= (\Be_1 + \Be_2)(\Be_1 + \Be_2)
+= \Be_1^2 + \Be_2 \Be_1 + \Be_1 \Be_2 + \Be_2^2
+= 2 + \Be_2 \Be_1 + \Be_1 \Be_2.
+\end{dmath}
+
+This equation has a scalar component on the left hand side, and a mixed grade multivector with grades zero and two on the right hand side.
+The only possible solution requires that the grade two components of this equation are zero.  That is
+
+\begin{dmath}\label{eqn:multivector:n}
+\Be_2 \Be_1 + \Be_1 \Be_2 = 0,
+\end{dmath}
+
+or
+%\begin{dmath}\label{eqn:multiplication:140}
+\boxedEquation{eqn:multiplication:140}{
+\Be_1 \Be_2 = -\Be_1 \Be_2.
+}
+%\end{dmath}
+
+We see that this product of two orthonormal vectors anticommutes (changing the order, changes the sign).  In general this is true of any normal vectors.
+
+\maketheorem{Normal anticommutation}{thm:multiplication:anticommutationNormal}{
+The product of any two normal vectors \(\Bu\), and \(\Bv\) anticommute.
+\begin{equation*}
+\Bu \Bv = -\Bv \Bu.
+\end{equation*}
+} % theorem
+
 \paragraph{Mixed grade sums}
 In traditional vector algebra, the 
 ``weird'' sum of a scalar and vector is forbidden and undefined, but is explicitly allowed in GA.  For example, 
@@ -119,74 +171,13 @@ Such mixed grade mathematical objects are not only well defined in GA, but are r
 
 where the last step assumes the vector space is Euclidean.
 
-\subsection{Unpacking the axioms}
-
-Until otherwise stated, we assume a Euclidean vector space with an orthonormal basis \( \setlr{\Be_1, \Be_2, \cdots } \).  Generalizations for non-Euclidean spaces are left to the reader.
-
-By the contraction axiom, the square of a unit vector is also unity
-
-%\begin{equation}\label{eqn:multiplication:60}
-\boxedEquation{eqn:multiplication:60}{
-\Be_i^2 = 1.
-}
-%\end{equation}
-
-With this implication noted, now consider the square of a simple two dimensional vector
-
-\begin{dmath}\label{eqn:gaTutorial:80}
-2
-=
-(\Be_1 + \Be_2)^2
-= (\Be_1 + \Be_2)(\Be_1 + \Be_2)
-= \Be_1^2 + \Be_2 \Be_1 + \Be_1 \Be_2 + \Be_2^2
-= 2 + \Be_2 \Be_1 + \Be_1 \Be_2.
-\end{dmath}
-
-The sum above with both scalar terms and terms that are composed of products of vectors is called a multivector.
-A product of two perpendicular vectors (or a sum of such products) is called a bivector, and can be used to represent an oriented plane.
-Geometric Algebra allows for sums of scalars, vectors, bivectors, and higher degree products.
-
-Observe that for this identity to hold, the bivector terms must sum to zero.
-That is
-
-%\begin{dmath}\label{eqn:multiplication:140}
-\boxedEquation{eqn:multiplication:140}{
-\Be_1 \Be_2 = -\Be_1 \Be_2.
-}
-%\end{dmath}
-
-This implies that the product of two orthonormal vectors anticommutes.
-In general it is also true that
-
-\maketheorem{Normal anticommutation}{thm:multiplication:anticommutationNormal}{
-The product of any two normal vectors \(\Bu\), and \(\Bv\) anticommute.
-\begin{equation*}
-\Bu \Bv = -\Bv \Bu.
-\end{equation*}
-} % theorem
-
-%
-
-
 \subsection{Problems}
+
 \makeproblem{One dimensional multivector space.}{problem:multivector:40}{
    Verify that for \( c, d \in \bbR \) the set \( M = \setlr{ c + d \Be_1 } \) satisifies all the multivector axioms.
 } % problem
 
-\subsection{Orientation.  figure out where to put this}
-Geometric algebra provides a mathematical representation for geometrical objects of each dimension in the space.
-In a three dimensional space, there are representations for all of
-
-\begin{itemize}
-\item
-oriented (signed) points with magnitude
-\item
-oriented line segments,
-\item
-oriented planes,
-\item
-oriented volumes,
-\end{itemize}
-
-and in higher dimensional spaces, it will be possible to represent higher dimensonal oriented hypervolumes.
+\makeproblem{Normal anticommutation.}{problem:multiplication:anticommutationNormal}{
+Prove \cref{thm:multiplication:anticommutationNormal}.
+}
 
