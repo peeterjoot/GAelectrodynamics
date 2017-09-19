@@ -1,98 +1,60 @@
 
 For example, the \boldTextAndIndex{multivector} \( M \) below is well formed
+(cut)
 
-\begin{equation}\label{eqn:SimpleProducts:20}
-M = \Be_3 \Be_3 + 2 \Be_1 \Be_2 \Be_1 + \Be_2 \Be_3 - 5 \Be_3 \Be_1 \Be_3 \Be_2 + \Be_4 \Be_1 \Be_4 \Be_2 \Be_3 + \Be_1 \Be_2 \Be_1 \Be_3 \Be_4 \Be_5.
-\end{equation}
-
-It must also be assumed that products of multivectors are distributive with respect to the chosen basis, and that vector products are associative with respect to multiplication.  These rules and assumptions could be used as the axioms of Geometric Algebra, but it will be desirable to express \ref{rule:simple:square} in a slightly more general form, a form that has both \ref{rule:simple:anticommute} and \ref{rule:simple:square} as consequences.
+It must also be assumed that products of multivectors are distributive with respect to the chosen basis, and that vector products are associative with respect to multiplication.
+These rules and assumptions could be used as the axioms of Geometric Algebra, but it will be desirable to express \ref{rule:simple:square} in a slightly more general form, a form that has both \ref{rule:simple:anticommute} and \ref{rule:simple:square} as consequences.
 
 \subsection{Irreducible products and grade}
 
-Using the rules above, some of the terms in the multivector \( M \) above can be simplified.  The first such simplification follows immediately, since by \ref{rule:simple:square}, that term is
+Using the rules above, some of the terms in the multivector \( M \) above can be simplified.
+The first such simplification follows immediately, since by \ref{rule:simple:square}, that term is
 
-\begin{equation}\label{eqn:SimpleProducts:40}
-\Be_3 \Be_3 = 1,
-\end{equation}
+(cut)
 
-demonstrating that multivectors are allowed to contain \boldTextAndIndex{scalars}.  The scalar part of a multivector is said to have a \boldTextAndIndex{grade} of zero, or be of grade-0.  The second term can be reduced by grouping a pair of products and anticommutation
+demonstrating that multivectors are allowed to contain \boldTextAndIndex{scalars}.
+The scalar part of a multivector is said to have a \boldTextAndIndex{grade} of zero, or be of grade-0.
+The second term can be reduced by grouping a pair of products and anticommutation
 
-\begin{dmath}\label{eqn:SimpleProducts:60}
-2 \Be_1 \Be_2 \Be_1
-=
-2 \Be_1 \lr{ \Be_2 \Be_1 }
-=
-2 \Be_1 \lr{ - \Be_1 \Be_2 }
-=
--2 \Be_1 \Be_1 \Be_2
-=
--2 \lr{ \Be_1 \Be_1 } \Be_2
-=
--2 \Be_2,
-\end{dmath}
+(cut)
 
 which shows that multivectors are allowed to contain \boldTextAndIndex{vectors}.
-The next term \( \Be_2 \Be_3 \) cannot be reduced using any of the rules in the toolbox.  An irredicible product of two unit vectors will be referred to as a \boldTextAndIndex{bivector}, and will be said to have grade-2.  An interpretation of such a product will be required, but can be thought of for now as an oriented unit area, just as a vector can be thought of as an oriented line.  This sort of oriented area is sketched in
+The next term \( \Be_2 \Be_3 \) cannot be reduced using any of the rules in the toolbox.
+An irredicible product of two unit vectors will be referred to as a \boldTextAndIndex{bivector}, and will be said to have grade-2.
+An interpretation of such a product will be required, but can be thought of for now as an oriented unit area, just as a vector can be thought of as an oriented line.
+This sort of oriented area is sketched in
 \cref{fig:orientedAreas:orientedAreasFig1}.
 
 \imageFigure{../figures/GAelectrodynamics/orientedAreasFig1}{Oriented unit areas in the x-y plane.}{fig:orientedAreas:orientedAreasFig1}{0.2}
 
 The next term, a scaled product of four unit vectors can be reduced by a similar process of grouping, anticommutation, and application of rule 1.
 
-\begin{dmath}\label{eqn:SimpleProducts:80}
-- 5 \Be_3 \Be_1 \Be_3 \Be_2
-=
-- 5 \lr{ \Be_3 \Be_1 } \Be_3 \Be_2
-=
-+ 5 \lr{ \Be_1 \Be_3 } \Be_3 \Be_2
-=
-+ 5 \Be_1 \lr{ \Be_3 \Be_3 } \Be_2
-=
-+ 5 \Be_1 \Be_2.
-\end{dmath}
-
+(cut)
 There is freedom to write this as \( - 5 \Be_2 \Be_1 \) if desired, but regardless, it is a
 scaled irredicible product of two orthonormal vectors, so we say it has grade-2, and can call it a bivector like \( \Be_2 \Be_3 \) above.
+(cut)
 
-As the next product has repeated indexes, is it reducible too
-
-\begin{dmath}\label{eqn:SimpleProducts:100}
-\Be_4 \Be_1 \Be_4 \Be_2 \Be_3
-=
-\lr{ \Be_4 \Be_1} \Be_4 \Be_2 \Be_3
-=
--\lr{ \Be_1 \Be_4} \Be_4 \Be_2 \Be_3
-=
-- \Be_1 \lr{ \Be_4 \Be_4 } \Be_2 \Be_3
-=
-- \Be_1 \Be_2 \Be_3.
-\end{dmath}
-
-This could be written in other forms, such as \( \Be_2 \Be_1 \Be_3, \Be_1 \Be_3 \Be_2 \), or \( -\Be_3 \Be_1 \Be_2 \), but it is clearly a scaled irredicible product of three orthonormal vectors.  Such a product is said to have grade-3, and will be called a \boldTextAndIndex{trivector}.  This can be thought of as an oriented volume.
+This could be written in other forms, such as \( \Be_2 \Be_1 \Be_3, \Be_1 \Be_3 \Be_2 \), or \( -\Be_3 \Be_1 \Be_2 \), but it is clearly a scaled irredicible product of three orthonormal vectors.
+Such a product is said to have grade-3, and will be called a \boldTextAndIndex{trivector}.
+This can be thought of as an oriented volume.
 %Like an oriented area, the geometrical interpretations of this trivector can be deformed into other shapes.
 A spherical representation of an oriented volume is plotted in \cref{fig:orientedVolume:orientedVolumeFig1}.
 \imageFigure{../figures/GAelectrodynamics/orientedVolumeFig1}{Oriented Volume}{fig:orientedVolume:orientedVolumeFig1}{0.3}
 
-As an exercise the reader should show that the final term of the multivector \( M \) above can be reduced to a scaled product of four orthonormal vectors \( \Be_1 \Be_2 \Be_1 \Be_3 \Be_4 \Be_5 = -\Be_2 \Be_3 \Be_4 \Be_5 \).  Such a product has grade-4.  Unlike bi- and tri- vectors, such a product is not generally given a special name in higher degree Euclidean vector spaces.
-%Having called grade-1, grade-2, and grade-3 multivectors components vectors, bivectors and trivectors respectively, one might be inclined to refer to this as a four-vector.  Such a label is not generally used, likely because of the existing meaning of four-vector in relativity.
+(cut)
+Unlike bi- and tri- vectors, such a product is not generally given a special name in higher degree Euclidean vector spaces.
+%Having called grade-1, grade-2, and grade-3 multivectors components vectors, bivectors and trivectors respectively, one might be inclined to refer to this as a four-vector.
+%Such a label is not generally used, likely because of the existing meaning of four-vector in relativity.
 
 With these various reductions calculated, the multivector \cref{eqn:SimpleProducts:20} is simplified to
 
-\begin{dmath}\label{eqn:SimpleProducts:120}
-M = 1 - 2 \Be_2  + \Be_2 \Be_3 + 5 \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3 -\Be_2 \Be_3 \Be_4 \Be_5.
-\end{dmath}
-
-It is often convienent to utilize a subscript shorthand for products of the orthonormal basis vectors, writing \( \Be_{12} = \Be_1 \Be_2 \).  With such short hand the illustrative multivector above would be written
-
-\begin{dmath}\label{eqn:SimpleProducts:130}
-M = 1 - 2 \Be_2  + \Be_{23} + 5 \Be_{12} - \Be_{123} -\Be_{2345}.
-\end{dmath}
+(cut)
 
 %Observe that this shorthand makes it a bit easier to pick out the grades
 \subsection{Grade selection}
 
-Being able to identify the grades of a multivector of fundamenal importance and utility.  The grade
-selection operator is defined for this purpose.
+Being able to identify the grades of a multivector of fundamenal importance and utility.
+The grade selection operator is defined for this purpose.
 By example, using the multivector of \cref{eqn:SimpleProducts:20}, one writes
 
 \begin{dmath}\label{eqn:SimpleProducts:140}

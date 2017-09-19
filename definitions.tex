@@ -31,40 +31,6 @@ A few new GA terms have been introduced in an ad-hoc fashion as required.  Here 
 
 The grade of a scalar, vector, bivector, and trivector are 0, 1, 2, and 3 respectively.
 
-\makedefinition{Pseudoscalar.}{def:multiplication:pseudoscalar}{
-A blade with grade that matches the dimension of the space.
-}
-
-In a two dimensional space \( \Be_2 \Be_1 \) is a pseudoscalar.  In a three dimensional space
-\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( \Be_3 \Be_1 (\Be_2 + \Be_3 ) \).  A pseudoscalar has an implied orientation, which can be
-associated with the handedness of the underlying basis.  It is conventional to refer to
-
-\begin{dmath}\label{eqn:definitions:320}
-i = \Be_1 \Be_2,
-\end{dmath}
-
-as ``the pseudoscalar'' for a two dimensional space, and to
-
-\begin{dmath}\label{eqn:definitions:340}
-I = \Be_1 \Be_2 \Be_3,
-\end{dmath}
-
-as ``the pseudoscalar'' for a three dimensional space.
-
-\makedefinition{Multivector.}{def:multiplication:multivector}{
-A sum of zero or more blades.
-}
-
-Examples include
-\begin{dmath}\label{eqn:multiplication:280}
-\begin{aligned}
-&3 \\
-& 1 + \Be_1 \Be_2 \\
-& 2 - \Be_1 \Be_2 \Be_3 \\
-& \Be_1 + 2 \Be_1 \Be_2 + \Be_2 \Be_3 - 3 \Be_3 \Be_1 + \Be_1 \Be_2 \Be_4
-\end{aligned}
-\end{dmath}
-
 \makedefinition{Dual}{dfn:definitions:dual}{
 The dual of a multivector is the product of that multivector with a pseudoscalar for a subspace that contains the multivector.  Such multiplication is referred to as a duality transformation.
 } % definition
@@ -121,27 +87,6 @@ In a sense that can be defined more precisely once the general dot product opera
 The dual of any scalar is a pseudoscalar, whereas the dual of a pseudoscalar is a scalar.
 
 %When working with multivector integrals it will be useful to consider the differential volume element a volume weighted pseudoscalar.
-
-% relative path because this is shared with gabookI
-\input{../GAelectrodynamics/reverseDefined.tex}
-
-Given a k-blade \( A_k = \Ba_1 \Ba_2 \cdots \Ba_k \), then
-
-\begin{dmath}\label{eqn:scalarPermutation:81}
-\begin{aligned}
-A_k^\dagger
-&= \Ba_k \Ba_{k-1} \cdots \Ba_1 \\
-&= (-1)^{k-1} \Ba_1 \Ba_k \Ba_{k-1} \cdots \Ba_2 \\
-&= (-1)^{k-1} (-1)^{k-2} \Ba_1 \Ba_2 \Ba_k \Ba_{k-1} \cdots \Ba_3 \\
-&\vdots \\
-&= (-1)^{k-1} (-1)^{k-2} \cdots (-1)^1 \Ba_1 \Ba_2 \cdots \Ba_k,
-\end{aligned}
-\end{dmath}
-
-or
-\begin{dmath}\label{eqn:scalarPermutation:101}
-A_k^\dagger = (-1)^{k(k-1)/2} A_k.
-\end{dmath}
 
 %%%}
 %%%\EndArticle

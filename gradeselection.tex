@@ -29,35 +29,6 @@
 %
 Having defined the axioms and definitions of Geometric Algebra, it desirable to define the grade selection operator, the dot product operator and the wedge product operator, and consider some simple examples of each.
 
-\makedefinition{Grade selection operator}{dfn:gradeselection:gradeselection}{
-Given a multivector \( M \) containing k-grade components \( M_k \)
-
-\begin{equation*}
-M = \sum_{i = 0}^N M_i,
-\end{equation*}
-
-the grade selection operator is defined as
-
-\begin{equation*}\label{eqn:gradeselection:40}
-\gpgrade{M}{k} \equiv M_k.
-\end{equation*}
-
-Selection of the (scalar) zero grade is often written as
-\begin{equation*}
-\gpgradezero{M} \equiv \gpgrade{M}{0} = M_0.
-\end{equation*}
-}
-
-For example, if \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 \), then
-\begin{equation}\label{eqn:gradeselection:80}
-\begin{aligned}
-\gpgradezero{M} &= 3 \\
-\gpgrade{M}{1} &= - \Be_3 \\
-\gpgrade{M}{2} &= 2 \Be_1 \Be_2 \\
-\gpgrade{M}{3} &= 0.
-\end{aligned}
-\end{equation}
-
 \makedefinition{Dot product}{dfn:gradeselection:100}{
 The dot (or inner) product of two multivectors
 
