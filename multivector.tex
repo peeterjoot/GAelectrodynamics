@@ -26,23 +26,28 @@ and vector multiplication is represented by juxtaposition.
     Addition is commutative. & \( y + x = x + y \) \\ \hline
     There exists a zero element \( 0 \in M \).  & \( x + 0 = x \) \\ \hline
     There exists a negative additive inverse \( -x \in M \). & \( x + (-x) = 0 \) \\ \hline
-    Multiplication is distributive.  & \( z( x + y ) = z x + z y \), \( (z + w)x = z x + w x \) \\ \hline
+    Multiplication is distributive.  & \( x( y + z ) = x y + x z \), \( (x + y)z = x z + y z \) \\ \hline
     Multiplication is associative. & \( (x y) z = x ( y z ) \) \\ \hline
     There exists a multiplicative identity \( 1 \). & \( 1 x = x \) \\ \hline
 \end{tcolorbox}
 }
 
-The definition of a multivector space is strikingly similar to that of the vector space, def'n. \ref{def:prerequisites:vectorspace}, with the following changes
+Compared to the vector space, def'n. \ref{def:prerequisites:vectorspace}, the multivector space
 
 \begin{itemize}
-\item A vector multiplication operation is presumed.
-\item Vector addition is generalized to multivector addition.
-\item Scalar multiplication is generalized to multivector multiplication (of which scalar multiplication is a special case).
-\item A (new) rule that specifies the meaning of a product of a vector with itself is provided (the contraction axiom).
+\item presumes a vector multiplication operation, which is not assumed to be commutative (order matters),
+\item generalizes vector addition to multivector addition,
+\item generalizes scalar multiplication to multivector multiplication (of which scalar multiplication is a special case),
+\item and most importantly, specifies a rule providing the meaning of a squared vector (the contraction axiom).
 \end{itemize}
 
 The contraction axiom is arguably the most important of the multivector space axioms, since multiplicative closure would not be possible without it.
-%\footnote{A student familiar with abstract algebra may notice that all the non-contraction axioms can be replaced by the single statement that multivectors form a non-commutative ring with identity (\citep{van1943modern}).}
+The remaining set of non-contraction axioms of a multivector space are almost that of a field
+\footnote{A mathematician would call a multivector space a non-commutative ring with identity \citep{van1943modern}, and could state the multivector space definition much more compactly without listing all those properties explicitly.}
+(as encountered in the study of complex inner products),
+as they describe most of the properties one 
+would expect of a ``well behaved'' set of number-like quantities.
+However, a field also requires a multiplicitive inverse element for all elements of the space, which exists for some multivector subspaces, but not in general.
 
 %These axioms may seem simple enough, especially since they are not that different from the familiar axioms of the vector space,
 %but it will take considerable work to extract all their consequences.
@@ -146,6 +151,24 @@ For example, if \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 \), then
 \gpgrade{M}{1} &= - \Be_3 \\
 \gpgrade{M}{2} &= 2 \Be_1 \Be_2 \\
 \gpgrade{M}{3} &= 0.
+\end{aligned}
+\end{equation}
+
+\makedefinition{Orthonormal product shorthand.}{dfn:multivector:shorthand}{
+Given an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \), a multiple indexed quantity \( \Be_{ij\cdots k} \) should be interpretted as the product of the basis elements with those indexes
+
+\begin{equation*}
+\Be_{ij\cdots k} = \Be_i \Be_j \cdots \Be_k.
+\end{equation*}
+} % definition
+
+For example, 
+
+\begin{equation}\label{eqn:multivector:n}
+\begin{aligned}
+\Be_{12} &= \Be_1 \Be_2 \\
+\Be_{123} &= \Be_1 \Be_2 \Be_3 \\
+\Be_{23121} &= \Be_2 \Be_3 \Be_1 \Be_2 \Be_1.
 \end{aligned}
 \end{equation}
 
@@ -268,12 +291,7 @@ The reader should demonstrate that the final term has grade four, and can be red
 
 \begin{dmath}\label{eqn:SimpleProducts:120}
 M = 1 - 2 \Be_2  + \Be_2 \Be_3 + 5 \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3 -\Be_2 \Be_3 \Be_4 \Be_5.
-\end{dmath}
-
-It is often convienent to utilize a subscript shorthand for products of the orthonormal basis vectors, writing \( \Be_{12} = \Be_1 \Be_2 \), 
-
-\begin{dmath}\label{eqn:SimpleProducts:130}
-M = 1 - 2 \Be_2  + \Be_{23} + 5 \Be_{12} - \Be_{123} -\Be_{2345}.
+  = 1 - 2 \Be_2  + \Be_{23} + 5 \Be_{12} - \Be_{123} -\Be_{2345}.
 \end{dmath}
 
 \subsection{Mixed grade sums}
