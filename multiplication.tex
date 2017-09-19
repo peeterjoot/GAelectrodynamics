@@ -6,17 +6,19 @@
 
 %\footnote{Similar to Feynman on gravitation \citep{feynman1963flp} ``... have shall said everything required, for a sufficiently talented mathematician could then deduce all the consequences of these principles.  However, since you are not assumed to be sufficiently talented yet, we shall discuss the consequences in more detail''.}.
 
-The contraction axiom is arguably the most important of the multivector space axioms, but may be unintuitive.
+The contraction axiom is arguably the most important of the multivector space axioms.  
+The use of this axiom was not justified or motivated in any way.  
+It could be argued that the subsequent use of the axiom provides justification, but that may be an unsatisfactory argument.
 
-For one justification of this rule, consider a one dimensional vector space spanned by a single unit vector \( \setlr{ \Be } \).  That span, for real \( x \) is all the values
+Here I make an argument that the contraction axiom is consistent with the rules for multiplying numbers, in particular, with the rule for squaring a number.
+It that is the case, and the rules for multiplying numbers should be consistent with the rules for multiplying vectors in a one dimensional vector space, or with the rules for multiplying vectors in any one dimensional vector subspace, then we have a justification for the contraction axiom for multiplication of vectors from arbitrary vector spaces.
 
-\begin{dmath}\label{eqn:multiplication:20}
-\Bx = x \Be.
-\end{dmath}
+Consider \R{1}, a one dimensional vector space, spanned by a single unit vector \( \setlr{ \Be_1 } \).
+A point \( x \) on a real number line can be associated with each vector \( x \Be_1 \) in this space.
+This establishes an isomorphism \( x \leftrightarrow x \Be_1 \) between the real number line \( \setlr{x}, x \in \bbR \), and this one dimensional vector space \( \setlr{
+\Bx = x \Be_1, x \in \bbR} \).
 
-A one dimensional vector space is isomorphic with a number line \( \setlr{x}, x \in \bbR \).
-
-To illustrate this isomorphism, the vectors \( -3\Be \) and \( 7 \Be \) are plotted in
+To illustrate this isomorphism, the vectors \( -3\Be_1 \) and \( 7 \Be_1 \) are plotted in
 \cref{fig:1Darrows:1DarrowsFig2} for both \R{1} and the real number line.
 \imageTwoFigures
 {../figures/GAelectrodynamics/1DarrowsFig2}
@@ -26,7 +28,8 @@ To illustrate this isomorphism, the vectors \( -3\Be \) and \( 7 \Be \) are plot
 %\imageFigure{../figures/GAelectrodynamics/1DnumberlineFig1}{Points on a number line.}{fig:1Dnumberline:1DnumberlineFig1}{0.045}
 %\cref{fig:1Dnumberline:1DnumberlineFig1}.
 
-The rules for real numbers require that for any point \( x \) distant from the origin, we have
+We know how to multiply real numbers, so can we use the same implicit rules to determine how we should multiply one dimensional vectors?  In particular,
+the rules for real numbers require that for any point \( x \) distant from the origin, we have
 
 \begin{equation}\label{eqn:multiplication:60}
 (\pm x)^2 = \Abs{x}^2 = x^2.
@@ -34,7 +37,7 @@ The rules for real numbers require that for any point \( x \) distant from the o
 
 This is the familar rule for real number multiplication, the square of a number (positive or negative) equals the squared distance of that number from zero (i.e. numbers squared are positive).
 
-The equivalent statement for the square of a vector in \R{1} is
+An equivalent statement for the square of a vector in \R{1} is
 
 \begin{equation}\label{eqn:multiplication:40}
 (\pm \Bx)^2 = \Abs{x}^2 = x^2.
