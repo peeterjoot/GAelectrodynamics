@@ -14,10 +14,10 @@ For one justification of this rule, consider a one dimensional vector space span
 \Bx = x \Be.
 \end{dmath}
 
-A one dimensional vector space is isomorphic with a number line \( \setlr{x}, x \in \bbR \), so can we use the rules for numeric multiplication to justify a rule for vector multiplication in a one dimensional vector space?
+A one dimensional vector space is isomorphic with a number line \( \setlr{x}, x \in \bbR \).
 
-Consider, for example, two vectors \( -3\Be \) and \( 7 \Be \), in \R{1} and in the number line space as plotted in
-\cref{fig:1Darrows:1DarrowsFig2}.
+To illustrate this isomorphism, the vectors \( -3\Be \) and \( 7 \Be \) are plotted in
+\cref{fig:1Darrows:1DarrowsFig2} for both \R{1} and the real number line.
 \imageTwoFigures
 {../figures/GAelectrodynamics/1DarrowsFig2}
 {../figures/GAelectrodynamics/1DnumberlineFig1}
@@ -26,20 +26,23 @@ Consider, for example, two vectors \( -3\Be \) and \( 7 \Be \), in \R{1} and in 
 %\imageFigure{../figures/GAelectrodynamics/1DnumberlineFig1}{Points on a number line.}{fig:1Dnumberline:1DnumberlineFig1}{0.045}
 %\cref{fig:1Dnumberline:1DnumberlineFig1}.
 
-The multiplication rules for real numbers require that for any point \( x \) distant from the origin, we have
+The rules for real numbers require that for any point \( x \) distant from the origin, we have
 
 \begin{equation}\label{eqn:multiplication:60}
 (\pm x)^2 = \Abs{x}^2 = x^2.
 \end{equation}
 
-Requiring this of the equivalent one dimensional vector space requires
+This is the familar rule for real number multiplication, the square of a number (positive or negative) equals the squared distance of that number from zero (i.e. numbers squared are positive).
+
+The equivalent statement for the square of a vector in \R{1} is
 
 \begin{equation}\label{eqn:multiplication:40}
-(\pm \Bx)^2 = \Abs{x}^2 = x^2,
+(\pm \Bx)^2 = \Abs{x}^2 = x^2.
 \end{equation}
 
-which is a statement of the contraction axiom for a one dimensional Euclidean vector space.
-In this sense the contraction axiom is just taking the rule for real multiplication, and applying it to vector spaces.
+Observe that this is identical to the contraction axiom for a one dimensional Euclidean vector space.  If this the desired behaviour of a vector square in \R{1}, then it should also be the rule for squaring any vector lying in a one dimensional vector subspace, therefore providing a justification of the contraction axiom in general.
+
+In this sense the contraction axiom can be conceptualized as the vector space equivalent of the numeric multiplication rule ``the square of a number is positive''.
 
 %%}
 %%%\EndArticle
