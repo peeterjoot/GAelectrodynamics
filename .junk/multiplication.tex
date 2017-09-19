@@ -1,0 +1,73 @@
+
+%%\input{../blogpost.tex}
+%%\renewcommand{\basename}{multiplication}
+%%%\renewcommand{\dirname}{notes/phy1520/}
+%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%\newcommand{\dateintitle}{}
+%%%\newcommand{\keywords}{}
+%%
+%%\input{../peeter_prologue_print2.tex}
+%%
+%%\usepackage{peeters_layout_exercise}
+%%\usepackage{peeters_braket}
+%%\usepackage{peeters_figures}
+%%\usepackage{siunitx}
+%%%\usepackage{mhchem} % \ce{}
+%%%\usepackage{macros_bm} % \bcM
+%%%\usepackage{txfonts} % \ointclockwise
+%%
+%%\beginArtNoToc
+%%
+%%\generatetitle{Vector multiplication}
+%%%\chapter{Vector multiplication}
+%%%\label{chap:multiplication}
+%%
+Geometric Algebra defines a multiplication operation for vectors, forming a vector space spanned by all the possible vector products.  This algebra is described by the following small set of axioms
+
+\makeaxiom{Associative multiplication.}{axiom:multiplication:associative}{
+
+The product of any three vectors \(\Ba,\Bb,\Bc\) is associative.
+
+\begin{equation*}\label{eqn:multiplication:160}
+\Ba (\Bb \Bc)
+= (\Ba \Bb) \Bc
+= \Ba \Bb \Bc.
+\end{equation*}
+}
+
+\makeaxiom{Linearity.}{axiom:multiplication:linear}{
+Vector products are linear with respect to addition and subtraction.
+
+\begin{dmath*}\label{eqn:multiplication:180}
+\begin{aligned}
+(\Ba + 3 \Bb \Bd) \Bc &= \Ba \Bb + 3 \Bb \Bd \Bc \\
+\Ba (\Bb \Bd - 2 \Bc) &= \Ba \Bb \Bd - 2 \Ba \Bc.
+\end{aligned}
+\end{dmath*}
+}
+
+\makeaxiom{Contraction.}{axiom:multiplication:contraction}{
+
+The square of a vector is the squared length of the vector.
+
+\begin{dmath*}\label{eqn:multiplication:200}
+\Ba^2 = \Norm{\Ba}^2.
+\end{dmath*}
+
+The notion of length here is metric dependent.  For the problems considered in these notes
+it can be assumed that there is an orthonormal Euclidean basis, where the vector length is always positive.
+For special relativistic calculations, also of interest in electrodynamics, but not the focus of these notes, the length of a (four-)vector may generally be negative or positive.
+}
+
+...
+
+This contraction axiom, justified or not, has additional implications
+
+\begin{dmath}\label{eqn:multiplication:80}
+x^2
+= \Bx^2
+= (x \Be)(x \Be)
+= x^2 \Be^2.
+\end{dmath}
+
+
