@@ -45,7 +45,7 @@ The contraction axiom is arguably the most important of the multivector space ax
 The remaining set of non-contraction axioms of a multivector space are almost that of a field
 \footnote{A mathematician would call a multivector space a non-commutative ring with identity \citep{van1943modern}, and could state the multivector space definition much more compactly without listing all those properties explicitly.}
 (as encountered in the study of complex inner products),
-as they describe most of the properties one 
+as they describe most of the properties one
 would expect of a ``well behaved'' set of number-like quantities.
 However, a field also requires a multiplicitive inverse element for all elements of the space, which exists for some multivector subspaces, but not in general.
 
@@ -162,7 +162,7 @@ Given an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \), a multiple inde
 \end{equation*}
 } % definition
 
-For example, 
+For example,
 
 \begin{equation}\label{eqn:multivector:n}
 \begin{aligned}
@@ -178,32 +178,73 @@ Unless otherwise stated, a Euclidean vector space with an orthonormal basis \( \
 Generalizations required for non-Euclidean spaces will be discussed when spacetime vectors are introduced.
 %  At that point, it is a good exersize for the reader to come back to this, and determine where any result
 
-\paragraph{Effects of commutation of normal vectors.}
+\subsubsection{Colinear vectors.}
 
-One of the consequences of the contraction axiom is that
-the square of any unit vector, such as any \( \Be_i \) is also unity
+It was pointed out that the vector multiplication operation was not assumed to be commutative (order matters).  The only condition for which the product of two vectors is order independent, is when those vectors are colinear.
 
+\maketheorem{Commutation}{thm:multiplication:anticommutationNormal}{
+Let \(\Bu\), and \(\Bv\) be two non-zero colinear vectors.  The product of these vectors commute (is unchanged by interchange).
+
+\begin{equation*}
+\Bu \Bv = \Bv \Bu.
+\end{equation*}
+} % theorem
+
+The proof is simple.  Because these vectors are colinear there exists some \( \alpha \) for which \( \Bv = \alpha \Bu \), so
+
+\begin{dmath}\label{eqn:multivector:n}
+\Bv \Bu
+=
+\alpha \Bu \Bu
+=
+\Bu \alpha \Bu
+=
+\Bu \Bv.
+\end{dmath}
+
+Also observe that, because of the contraction axiom, the product of two colinear vectors is a scalar.  In particular, the square of a unit vector is unity, something that should be highlighted explicitly, since this property will be used again and again
 %\begin{equation}\label{eqn:multiplication:300}
 \boxedEquation{eqn:multiplication:320}{
-\Be_i^2 = 1.
+\xcap^2 = 1.
 }
 %\end{equation}
 
-Now consider the square of the vector with its head at \( (1,1) \), as sketched in \cref{fig:unitSum:unitSumFig1}.
+For example, the squares of any orthonormal basis vectors are unity \( \Be_1^2 = \Be_2^2 = \Be^3 = 1 \).
+
+A corollory of this is that any scalar can also be factored into a product of two colinear vectors.
+In particular, the square \( 1 \) can be factored into the square of any unit vector
+
+\boxedEquation{eqn:multiplication:n}{
+1 = \xcap \xcap.
+}
+
+This has been highlighted explicitly, because this factorization trick will be used repeatedly.
+
+\subsubsection{Normal vectors.}
+
+The simplest bivectors are products of two different orthonormal vectors.  For \R{3} all such bivectors that can be formed from the basis elements are \( \Be_1 \Be_2, \Be_2 \Be_1, \Be_2 \Be_3, \Be_3 \Be_2, \Be_3 \Be_1, \Be_1 \Be_3 \).
+
+It turns out that these are not all independent.  To see this, consider the square of the vector \( \Be_1 + \Be_2 \),
+as sketched in \cref{fig:unitSum:unitSumFig1}.
 \imageFigure{../figures/GAelectrodynamics/unitSumFig1}{\( \Be_1 + \Be_2 \).}{fig:unitSum:unitSumFig1}{0.3}
-By the contraction axiom, the square of this vector is \( 2\), but can also be computed by expansion, and a second application of the contraction axiom
+By the contraction axiom, the square of this vector is \( 2 \)
+
+\begin{dmath}\label{eqn:multivector:n}
+\lr{ \Be_1 + \Be_2 }^2 = 2.
+\end{dmath}
+
+Computing this same square by expansion should give the same result
 
 \begin{dmath}\label{eqn:gaTutorial:80}
-2
-=
 (\Be_1 + \Be_2)^2
 = (\Be_1 + \Be_2)(\Be_1 + \Be_2)
 = \Be_1^2 + \Be_2 \Be_1 + \Be_1 \Be_2 + \Be_2^2
+= 1 + \Be_2 \Be_1 + \Be_1 \Be_2 + 1
 = 2 + \Be_2 \Be_1 + \Be_1 \Be_2.
 \end{dmath}
 
-This equation has a scalar component on the left hand side, and a mixed grade multivector with grades zero and two on the right hand side.
-The only possible solution requires that the grade two components of this equation are zero.  That is
+This expanded RHS is a mixed grade multivector with grades zero and two, however, it must equal \( 2 \).
+The only possible solution requires that the grade two components of this equation are zero
 
 \begin{dmath}\label{eqn:multivector:280}
 \Be_2 \Be_1 + \Be_1 \Be_2 = 0,
@@ -216,13 +257,17 @@ or
 }
 %\end{dmath}
 
-We see that this product of two orthonormal vectors anticommutes (changing the order, changes the sign).  In general this is true of any normal vectors.
+The same computation could have been performed for any two orthonormal vectors, so we conclude that any interchange of two orthonormal vectors changes the sign.  In general this is true of any normal vectors.
 
-\maketheorem{Normal anticommutation}{thm:multiplication:anticommutationNormal}{
-The product of any two normal vectors \(\Bu\), and \(\Bv\) anticommute.
+\maketheorem{Anticommutation}{thm:multiplication:anticommutationNormal}{
+Let \(\Bu\), and \(\Bv\) be two normal vectors, the product of which \( \Bu \Bv \) is a bivector.
+Changing the order of these products toggles the sign of the bivector.
+
 \begin{equation*}
 \Bu \Bv = -\Bv \Bu.
 \end{equation*}
+
+This sign change on interchange is called anticommutation.
 } % theorem
 
 \subsection{Irreducible products}
@@ -320,9 +365,9 @@ A blade with grade that matches the dimension of the space.
 }
 
 In a two dimensional space \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \).  In a three dimensional space
-\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 (\Be_2 + \Be_3 ) \).  
+\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 (\Be_2 + \Be_3 ) \).
 %A pseudoscalar has an implied orientation, which can be
-%associated with the handedness of the underlying basis.  
+%associated with the handedness of the underlying basis.
 It is conventional to refer to
 
 \begin{dmath}\label{eqn:definitions:320}

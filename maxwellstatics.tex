@@ -1,0 +1,59 @@
+\makeexample{Electrostatic and magnetostatics.}{example:vectorproduct:electrostatics}{
+
+With no magnetic current, no magnetic sources, and no time derivatives, Maxwell's equations in simple media take the form
+
+\begin{dmath}\label{eqn:vectorproduct:120}
+\begin{aligned}
+\spacegrad \cdot \BB &= 0 \\
+\spacegrad \cross \BB &= \mu \BJ \\
+\spacegrad \cross \BE &= 0 \\
+\spacegrad \cdot \BE &= \frac{\rho}{\epsilon}.
+\end{aligned}
+\end{dmath}
+
+For electrostatic conditions \( \BJ = 0 \), so using \cref{eqn:vectorproduct:100} the first and last equations can be combined into a single first order homogeneous multivector gradient equation
+
+\begin{equation}\label{eqn:vectorproduct:140}
+\spacegrad \BB
+=
+\spacegrad \cdot \BB +I (\spacegrad \cross \BB )
+=
+0.
+\end{equation}
+
+The electric gradient equation is
+
+\begin{equation}\label{eqn:vectorproduct:160}
+\spacegrad \BE
+=
+\spacegrad \cdot \BE +I (\spacegrad \cross \BE )
+=
+\frac{\rho}{\epsilon}.
+\end{equation}
+
+Maxwell's equations are reduced to two multivector equations with this transformation
+\begin{dmath}\label{eqn:vectorproduct:180}
+\begin{aligned}
+\spacegrad \BE &= \frac{\rho}{\epsilon} \\
+\spacegrad \BB &= 0.
+\end{aligned}
+\end{dmath}
+
+For magnetostatics \( \rho = 0 \), and the same assembly of Maxwell's equations gives
+
+\begin{dmath}\label{eqn:vectorproduct:220}
+\begin{aligned}
+\spacegrad \BB &= I \mu \BJ \\
+\spacegrad \BE &= 0.
+\end{aligned}
+\end{dmath}
+
+It will be seen later that it is actually more natural to express magnetic fields as a bivector \( I \BB \).  Using \( I^2 = -1 \) (\cref{problem:gradeselection:R3PseudoscalarSquare}) the magnetostatic equation takes the form
+
+\begin{dmath}\label{eqn:vectorproduct:240}
+\spacegrad (I \BB) = - \mu \BJ.
+\end{dmath}
+
+Both the electrostatic and magnetostatic equations can be solved directly using the Green's function for the gradient, producing the Coulomb integral for the electric field and Biot-Savart's law for the magnetic field.
+Before demonstrating this, the concepts required to attack multivector integrals must be formulated.
+} % example
