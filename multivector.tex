@@ -164,7 +164,7 @@ Given an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \), a multiple inde
 
 For example,
 
-\begin{equation}\label{eqn:multivector:n}
+\begin{equation}\label{eqn:multivector:360}
 \begin{aligned}
 \Be_{12} &= \Be_1 \Be_2 \\
 \Be_{123} &= \Be_1 \Be_2 \Be_3 \\
@@ -172,17 +172,40 @@ For example,
 \end{aligned}
 \end{equation}
 
-\subsection{Unpacking the axioms.}
+\makedefinition{Pseudoscalar.}{def:multiplication:pseudoscalar}{
+A blade with grade that matches the dimension of the space.
+}
+
+In a two dimensional space \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \).  In a three dimensional space
+\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 \Be_2 \).
+%A pseudoscalar has an implied orientation, which can be
+%associated with the handedness of the underlying basis.
+It is conventional to refer to
+
+\begin{dmath}\label{eqn:definitions:320}
+i = \Be_1 \Be_2,
+\end{dmath}
+
+as ``the pseudoscalar'' for a two dimensional space, and to
+
+\begin{dmath}\label{eqn:definitions:340}
+I = \Be_1 \Be_2 \Be_3,
+\end{dmath}
+
+as ``the pseudoscalar'' for a three dimensional space.
+
+
+\section{Unpacking the axioms.}
 
 Unless otherwise stated, a Euclidean vector space with an orthonormal basis \( \setlr{\Be_1, \Be_2, \cdots } \) is assumed for the remainder of this chapter.
 Generalizations required for non-Euclidean spaces will be discussed when spacetime vectors are introduced.
 %  At that point, it is a good exersize for the reader to come back to this, and determine where any result
 
-\subsubsection{Colinear vectors.}
+\subsection{Colinear vectors.}
 
 It was pointed out that the vector multiplication operation was not assumed to be commutative (order matters).  The only condition for which the product of two vectors is order independent, is when those vectors are colinear.
 
-\maketheorem{Commutation}{thm:multiplication:anticommutationNormal}{
+\maketheorem{Commutation}{thm:multiplication:commutation}{
 Let \(\Bu\), and \(\Bv\) be two non-zero colinear vectors.  The product of these vectors commute (is unchanged by interchange).
 
 \begin{equation*}
@@ -192,12 +215,16 @@ Let \(\Bu\), and \(\Bv\) be two non-zero colinear vectors.  The product of these
 
 The proof is simple.  Because these vectors are colinear there exists some \( \alpha \) for which \( \Bv = \alpha \Bu \), so
 
-\begin{dmath}\label{eqn:multivector:n}
+\begin{dmath}\label{eqn:multivector:380}
 \Bv \Bu
+=
+(\alpha \Bu) \Bu
 =
 \alpha \Bu \Bu
 =
 \Bu \alpha \Bu
+=
+\Bu (\alpha \Bu)
 =
 \Bu \Bv.
 \end{dmath}
@@ -214,13 +241,13 @@ For example, the squares of any orthonormal basis vectors are unity \( \Be_1^2 =
 A corollory of this is that any scalar can also be factored into a product of two colinear vectors.
 In particular, the square \( 1 \) can be factored into the square of any unit vector
 
-\boxedEquation{eqn:multiplication:n}{
+\boxedEquation{eqn:multiplication:400}{
 1 = \xcap \xcap.
 }
 
 This has been highlighted explicitly, because this factorization trick will be used repeatedly.
 
-\subsubsection{Normal vectors.}
+\subsection{Normal vectors.}
 
 The simplest bivectors are products of two different orthonormal vectors.  For \R{3} all such bivectors that can be formed from the basis elements are \( \Be_1 \Be_2, \Be_2 \Be_1, \Be_2 \Be_3, \Be_3 \Be_2, \Be_3 \Be_1, \Be_1 \Be_3 \).
 
@@ -229,11 +256,23 @@ as sketched in \cref{fig:unitSum:unitSumFig1}.
 \imageFigure{../figures/GAelectrodynamics/unitSumFig1}{\( \Be_1 + \Be_2 \).}{fig:unitSum:unitSumFig1}{0.3}
 By the contraction axiom, the square of this vector is \( 2 \)
 
-\begin{dmath}\label{eqn:multivector:n}
-\lr{ \Be_1 + \Be_2 }^2 = 2.
+\begin{dmath}\label{eqn:multivector:420}
+\lr{ \Be_1 + \Be_2 }^2 = 
+\lr{ \Be_1 + \Be_2 } \cdot
+\lr{ \Be_1 + \Be_2 }
+= 
+\Be_1 \cdot \Be_1 
++
+\cancel{\Be_1 \cdot \Be_2}
++
+\cancel{\Be_2 \cdot \Be_1}
++
+\Be_2 \cdot \Be_2 
+=
+2.
 \end{dmath}
 
-Computing this same square by expansion should give the same result
+Computing this same square by expansion in vector products must give the same result, but for that we get
 
 \begin{dmath}\label{eqn:gaTutorial:80}
 (\Be_1 + \Be_2)^2
@@ -243,8 +282,8 @@ Computing this same square by expansion should give the same result
 = 2 + \Be_2 \Be_1 + \Be_1 \Be_2.
 \end{dmath}
 
-This expanded RHS is a mixed grade multivector with grades zero and two, however, it must equal \( 2 \).
-The only possible solution requires that the grade two components of this equation are zero
+The right hand side is a mixed grade multivector with grades zero and two, however, it must also equal \( 2 \).
+The only possible solution requires that the sum of all the grade two components of this equation are zero
 
 \begin{dmath}\label{eqn:multivector:280}
 \Be_2 \Be_1 + \Be_1 \Be_2 = 0,
@@ -269,147 +308,4 @@ Changing the order of these products toggles the sign of the bivector.
 
 This sign change on interchange is called anticommutation.
 } % theorem
-
-\subsection{Irreducible products}
-
-Armed with the contraction axiom and \cref{eqn:multiplication:140} it is now possible to show how to put a multivector into an irreducible form.  As an example, consider
-
-\begin{equation}\label{eqn:SimpleProducts:20}
-M = \Be_3 \Be_3 + 2 \Be_1 \Be_2 \Be_1 + \Be_2 \Be_3 - 5 \Be_3 \Be_1 \Be_3 \Be_2 + \Be_4 \Be_1 \Be_4 \Be_2 \Be_3 + \Be_1 \Be_2 \Be_1 \Be_3 \Be_4 \Be_5.
-\end{equation}
-
-Application of the contraction axiom shows that the first term is a scalar
-
-\begin{equation}\label{eqn:SimpleProducts:40}
-\Be_3 \Be_3 = 1.
-\end{equation}
-
-The second term is a vector, as it is possible to reorder normal products (changing sign each time) and regroup terms to apply the contraction axiom, as follows
-
-\begin{dmath}\label{eqn:SimpleProducts:60}
-2 \Be_1 \Be_2 \Be_1
-=
-2 \Be_1 \lr{ \Be_2 \Be_1 }
-=
-2 \Be_1 \lr{ - \Be_1 \Be_2 }
-=
--2 \Be_1 \Be_1 \Be_2
-=
--2 \lr{ \Be_1 \Be_1 } \Be_2
-=
--2 \Be_2.
-\end{dmath}
-
-The third term is a bivector and cannot be reduced further.  The fourth term is also a bivector
-
-\begin{dmath}\label{eqn:SimpleProducts:80}
-- 5 \Be_3 \Be_1 \Be_3 \Be_2
-=
-- 5 \lr{ \Be_3 \Be_1 } \Be_3 \Be_2
-=
-+ 5 \lr{ \Be_1 \Be_3 } \Be_3 \Be_2
-=
-+ 5 \Be_1 \lr{ \Be_3 \Be_3 } \Be_2
-=
-+ 5 \Be_1 \Be_2.
-\end{dmath}
-
-As the fifth term has repeated indexes, is is also reducible too
-
-\begin{dmath}\label{eqn:SimpleProducts:100}
-\Be_4 \Be_1 \Be_4 \Be_2 \Be_3
-=
-\lr{ \Be_4 \Be_1} \Be_4 \Be_2 \Be_3
-=
--\lr{ \Be_1 \Be_4} \Be_4 \Be_2 \Be_3
-=
-- \Be_1 \lr{ \Be_4 \Be_4 } \Be_2 \Be_3
-=
-- \Be_1 \Be_2 \Be_3.
-\end{dmath}
-
-The reader should demonstrate that the final term has grade four, and can be reduced to \( -\Be_2 \Be_3 \Be_4 \Be_5 \).
-
-\begin{dmath}\label{eqn:SimpleProducts:120}
-M = 1 - 2 \Be_2  + \Be_2 \Be_3 + 5 \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3 -\Be_2 \Be_3 \Be_4 \Be_5.
-  = 1 - 2 \Be_2  + \Be_{23} + 5 \Be_{12} - \Be_{123} -\Be_{2345}.
-\end{dmath}
-
-\subsection{Mixed grade sums}
-In traditional vector algebra, the
-``weird'' sum of a scalar and vector is forbidden and undefined, but is explicitly allowed in GA.  For example,
-
-\begin{dmath}\label{eqn:multivector:240}
-1 + \Be_1,
-\end{dmath}
-
-is a simple mixed grade multivector.
-Such mixed grade mathematical objects are not only well defined in GA, but are required to represent some vector products.  One of the simplest examples is the following vector product
-
-\begin{dmath}\label{eqn:multivector:260}
-\Be_1 ( \Be_1 + \Be_2 )
-=
-\Be_1 \Be_1 + \Be_1 \Be_2
-=
-\Be_1 \cdot \Be_1 + \Be_1 \Be_2
-=
-1 + \Be_1 \Be_2,
-\end{dmath}
-
-where the last step assumes the vector space is Euclidean.
-
-\subsection{Nomenclature: pseudoscalar and reverse.}
-
-\makedefinition{Pseudoscalar.}{def:multiplication:pseudoscalar}{
-A blade with grade that matches the dimension of the space.
-}
-
-In a two dimensional space \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \).  In a three dimensional space
-\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 (\Be_2 + \Be_3 ) \).
-%A pseudoscalar has an implied orientation, which can be
-%associated with the handedness of the underlying basis.
-It is conventional to refer to
-
-\begin{dmath}\label{eqn:definitions:320}
-i = \Be_1 \Be_2,
-\end{dmath}
-
-as ``the pseudoscalar'' for a two dimensional space, and to
-
-\begin{dmath}\label{eqn:definitions:340}
-I = \Be_1 \Be_2 \Be_3,
-\end{dmath}
-
-as ``the pseudoscalar'' for a three dimensional space.
-
-% relative path because this is shared with gabookI
-\input{../GAelectrodynamics/reverseDefined.tex}
-
-Given a k-blade \( A_k = \Ba_1 \Ba_2 \cdots \Ba_k \), then
-
-\begin{dmath}\label{eqn:scalarPermutation:81}
-\begin{aligned}
-A_k^\dagger
-&= \Ba_k \Ba_{k-1} \cdots \Ba_1 \\
-&= (-1)^{k-1} \Ba_1 \Ba_k \Ba_{k-1} \cdots \Ba_2 \\
-&= (-1)^{k-1} (-1)^{k-2} \Ba_1 \Ba_2 \Ba_k \Ba_{k-1} \cdots \Ba_3 \\
-&\vdots \\
-&= (-1)^{k-1} (-1)^{k-2} \cdots (-1)^1 \Ba_1 \Ba_2 \cdots \Ba_k,
-\end{aligned}
-\end{dmath}
-
-or
-\begin{dmath}\label{eqn:scalarPermutation:101}
-A_k^\dagger = (-1)^{k(k-1)/2} A_k.
-\end{dmath}
-
-\subsection{Problems}
-
-\makeproblem{One dimensional multivector space.}{problem:multivector:40}{
-   Verify that for \( c, d \in \bbR \) the set \( M = \setlr{ c + d \Be_1 } \) satisifies all the multivector axioms.
-} % problem
-
-\makeproblem{Normal anticommutation.}{problem:multiplication:anticommutationNormal}{
-Prove \cref{thm:multiplication:anticommutationNormal}.
-}
 

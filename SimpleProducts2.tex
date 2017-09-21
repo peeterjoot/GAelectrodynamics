@@ -1,8 +1,34 @@
 %\section{Two dimensions}
 
-\paragraph{Multiplication table}
+\subsection{2D Multiplication table}
 
-In a 2D space most of the interesting vector products involve the unit bivector \( \Be_1 \Be_2 \).  A product of a spanning set of normal vectors for a space (or subspace) is called a pseudoscalar for that space (or subspace).  The particular pseudoscalar \( \Be_1 \Be_2 \) will be labelled \textbf{the pseudoscalar}.  Computation shows that multiplication with the pseudoscalar anticommutes with the 2D basis vectors
+In a 2D space most of the interesting vector products involve the unit bivector \( i = \Be_1 \Be_2 \).
+It is not a coincidence that the symbol for the complex imaginary \( i \) is used for this bivector.
+
+\begin{dmath}\label{eqn:SimpleProducts2:220}
+   \lr{ \Be_1 \Be_2 }^2
+   =
+   \Be_1 \Be_2
+   \Be_1 \Be_2
+   =
+   \Be_1 \lr{ \Be_2 \Be_1 } \Be_2
+   =
+   \Be_1 \lr{ -\Be_1 \Be_2 } \Be_2
+   =
+   -\lr{ \Be_1 \Be_1 }
+   \lr{ \Be_2 \Be_2 }
+   = -1.
+\end{dmath}
+
+In complex algebra, multiplication by \( \pm i \) will rotate a complex number \( z \) by \( \pm \pi/2 \) radians.
+The plane pseudoscalar rotates plane vectors in a similar fashion, however, the rotation direction depends on whether left of right multiplication is used.
+
+FIXME: rework from here.
+
+
+A product of a spanning set of normal vectors for a space (or subspace) is called a pseudoscalar for that space (or subspace).
+The particular pseudoscalar \( \Be_1 \Be_2 \) will be labelled \textbf{the pseudoscalar}.
+Computation shows that multiplication with the pseudoscalar anticommutes with the 2D basis vectors
 
 \begin{dmath}\label{eqn:SimpleProducts2:180}
 \begin{aligned}
@@ -29,26 +55,10 @@ Observe that in \R{2} the product of any basis vector with a pseudoscalar is nor
 %\imageFigure{../figures/GAelectrodynamics/rotationOfe1Fig1}{CAPTION: rotationOfe1Fig1}{fig:rotationOfe1:rotationOfe1Fig1}{0.3}
 %\cref{fig:rotationOfe2:rotationOfe2Fig1}.
 %\imageFigure{../figures/GAelectrodynamics/rotationOfe2Fig1}{CAPTION: rotationOfe2Fig1}{fig:rotationOfe2:rotationOfe2Fig1}{0.3}
-Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.  A hint of the rotational nature of such a product can be gleamed by computing the square of the 2D pseudoscalar
+Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.
 
-\begin{dmath}\label{eqn:SimpleProducts2:220}
-   \lr{ \Be_1 \Be_2 }^2
-   =
-   \Be_1 \Be_2
-   \Be_1 \Be_2
-   =
-   \Be_1 \lr{ \Be_2
-   \Be_1 } \Be_2
-   =
-   \Be_1 \lr{ -\Be_1
-   \Be_2 } \Be_2
-   =
-   -\lr{ \Be_1 \Be_1 }
-   \lr{ \Be_2 \Be_2 }
-   = -1.
-\end{dmath}
-
-This unit bivector is seen to square to minus one like the imaginary in complex algebra.  The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
+This unit bivector is seen to square to minus one like the imaginary in complex algebra.
+The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
 This is a very convienient fact, and allows ad-hoc construction of complex number like coordinate systems in any given planar subspace.
 
 %\ref{tab:SimpleProducts2:10}.
@@ -80,10 +90,12 @@ This is a very convienient fact, and allows ad-hoc construction of complex numbe
 \( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
 \end{tcolorbox}
 
+\section{Rework}
 \paragraph{Computing the normal 2D}
 
 Similar to multiplication by the complex number \( i \),
-left and right multiplication by the pseudoscalar also rotate vectors by \( \pi/2 \) radians, however, the sign of the rotation depends on whether the multiplication is from the left or from the right.  With
+left and right multiplication by the pseudoscalar also rotate vectors by \( \pi/2 \) radians, however, the sign of the rotation depends on whether the multiplication is from the left or from the right.
+With
 
 \begin{dmath}\label{eqn:SimpleProducts2:280}
    \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
@@ -117,22 +129,26 @@ This is illustrated in \cref{fig:rotationOfV:rotationOfVFig1}.
 
 \paragraph{Complex numbers and rotations}
 
-The 2D pseudoscalar has been seen to have the characteristics of the complex imaginary.  This analogy can be extended by noting that the following multivector
+The 2D pseudoscalar has been seen to have the characteristics of the complex imaginary.
+This analogy can be extended by noting that the following multivector
 
 \begin{dmath}\label{eqn:SimpleProducts2:320}
 z = x + \Be_1 \Be_2 y,
 \end{dmath}
 
-provides an isomorphic representation of a complex number.  This can be made obvious by introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar, since it has the desired characteristics of the imaginary.
+provides an isomorphic representation of a complex number.
+This can be made obvious by introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar, since it has the desired characteristics of the imaginary.
 
-Of particular interest is the complex exponential \( e^{i \theta} \).  Because \( i \) commutes with itself and any scalars Euler's formula
+Of particular interest is the complex exponential \( e^{i \theta} \).
+Because \( i \) commutes with itself and any scalars Euler's formula
 
 \begin{dmath}\label{eqn:SimpleProducts2:340}
 e^{i \theta} = \cos\theta + i \sin\theta,
 \end{dmath}
 
 applies equally well with this GA representation of complex numbers.
-Having seen that right multiplication of vectors with with the pseudoscalar \( i \) had the effect of inducing a \( \pi/2 \) counterclockwise rotation, it is reasonable to expect that this form of complex exponential will generally rotate a 2D vector.  This can be seen by considering an arbitrarily rotated unit vector, from which a complex exponential can be factored out
+Having seen that right multiplication of vectors with with the pseudoscalar \( i \) had the effect of inducing a \( \pi/2 \) counterclockwise rotation, it is reasonable to expect that this form of complex exponential will generally rotate a 2D vector.
+This can be seen by considering an arbitrarily rotated unit vector, from which a complex exponential can be factored out
 
 \begin{dmath}\label{eqn:SimpleProducts2:940}
 \xcap
@@ -168,8 +184,10 @@ The conclusion is that left multiplication by \( e^{i\theta} \) rotates a vector
 illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 \imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
 
-Such a complex exponential only rotates vectors that lie in the plane of the bivector, and commute with vector (or vector components) that lie outside of the rotational plane (\cref{problem:normalMult:1}).  This means that conjugate complex exponentials applied from both sides,
-rotate the components of the vector that lie in the rotational plane, but leave the normal components unaltered.  The desired expression of a \R{N} rotation
+Such a complex exponential only rotates vectors that lie in the plane of the bivector, and commute with vector (or vector components) that lie outside of the rotational plane (\cref{problem:normalMult:1}).
+This means that conjugate complex exponentials applied from both sides,
+rotate the components of the vector that lie in the rotational plane, but leave the normal components unaltered.
+The desired expression of a \R{N} rotation
 has the ``sandwich'' structure
 \footnote{Dual sided rotations of this form are also found in Pauli (matrix) algebra and quaternion formalisms, both of which, like complex numbers, can be considered special cases of geometric algebras.}
 
@@ -178,7 +196,8 @@ has the ``sandwich'' structure
 e^{-i\theta/2} \Bx e^{i \theta/2},
 }
 
-where \( i \) is the unit bivector for the plane of rotation.  When the vector has no components outside of the plane, single sided rotations can be used, which is often convienient
+where \( i \) is the unit bivector for the plane of rotation.
+When the vector has no components outside of the plane, single sided rotations can be used, which is often convienient
 
 \begin{equation}\label{eqn:SimpleProducts2:980}
 \Bx' = \Bx e^{i \theta} = e^{-i\theta} \Bx.
@@ -186,7 +205,8 @@ where \( i \) is the unit bivector for the plane of rotation.  When the vector h
 
 \paragraph{Vector product.}
 
-The product of two 2D vectors is illustrative.  Let
+The product of two 2D vectors is illustrative.
+Let
 
 \begin{dmath}\label{eqn:SimpleProducts2:500}
 \begin{aligned}
@@ -215,7 +235,10 @@ x_1 y_1 + x_2 y_2
 + \lr{ x_1 y_2 - x_2 y_1 } \Be_1 \Be_2.
 \end{dmath}
 
-The vector product has a scalar and a bivector component, where the scalar component is completely symmetric, whereas the bivector component is completely antisymmetric.  Observe that the scalar selection from the vector product is the dot product.  A name is required for the bivector (grade-2) selection from this product, and it is called the wedge product \( \Bx \wedge \By \), an operation that has to be examined in more depth.  With such a definition, the vector product can be written as
+The vector product has a scalar and a bivector component, where the scalar component is completely symmetric, whereas the bivector component is completely antisymmetric.
+Observe that the scalar selection from the vector product is the dot product.
+A name is required for the bivector (grade-2) selection from this product, and it is called the wedge product \( \Bx \wedge \By \), an operation that has to be examined in more depth.
+With such a definition, the vector product can be written as
 
 %\begin{dmath}\label{eqn:SimpleProducts2:540}
 \boxedEquation{eqn:SimpleProducts2:540}{
@@ -262,11 +285,14 @@ Taken together \cref{eqn:SimpleProducts2:540} and \cref{eqn:SimpleProducts2:600}
 }
 %\end{dmath}
 
-These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.  Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.  Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way, and also allows for the generalization of the dot and wedge products with higher order geometric structures to be discussed.
+These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.
+Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.
+Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way, and also allows for the generalization of the dot and wedge products with higher order geometric structures to be discussed.
 
 \paragraph{Area}
 
-It was previously claimed that the pseudoscalar \( \Be_1 \Be_2 \) could be interpretted as an oriented (signed) area.  Because \( \Be_1 \cdot \Be_2 = 0 \), this vector product is also equal to the wedge
+It was previously claimed that the pseudoscalar \( \Be_1 \Be_2 \) could be interpretted as an oriented (signed) area.
+Because \( \Be_1 \cdot \Be_2 = 0 \), this vector product is also equal to the wedge
 
 \begin{dmath}\label{eqn:SimpleProducts2:640}
 \Be_1 \Be_2 = \Be_1 \cdot \Be_2 +
@@ -284,16 +310,21 @@ Recall that the area of the parallopiped spanned by two vectors in a two dimensi
 \end{vmatrix},
 \end{dmath}
 
-a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).  It is therefore natural to interpret the wedge product as an oriented area.  In \cref{fig:orientedParallelogram:orientedParallelogramFig1} are examples of the wedge product oriented area interpretation.
+a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).
+It is therefore natural to interpret the wedge product as an oriented area.
+In \cref{fig:orientedParallelogram:orientedParallelogramFig1} are examples of the wedge product oriented area interpretation.
 \imageFigure{../figures/GAelectrodynamics/orientedParallelogramFig1}{Oriented area interpretation of \( \Bv_1 \wedge \Bv_2 \) and \( \Bv_2 \wedge \Bv_1 \).}{fig:orientedParallelogram:orientedParallelogramFig1}{0.3}
-In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.  The wedge product will be seen to encode that orientation without introducing a normal direction for the spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
+In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.
+The wedge product will be seen to encode that orientation without introducing a normal direction for the spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
 
-Because there are many possible pairs of generating vectors for any given bivector, any oriented area in a given plane with a specified area are all equally valid interpretations of a bivector.  This is illustrated in \cref{fig:orientedAreasVariety:orientedAreasVarietyFig1}.
+Because there are many possible pairs of generating vectors for any given bivector, any oriented area in a given plane with a specified area are all equally valid interpretations of a bivector.
+This is illustrated in \cref{fig:orientedAreasVariety:orientedAreasVarietyFig1}.
 \imageFigure{../figures/GAelectrodynamics/orientedAreasVarietyFig1}{Different shape representations of a given bivector.}{fig:orientedAreasVariety:orientedAreasVarietyFig1}{0.2}
 
 \paragraph{Projection and rejection}
 
-An immediate application of the vector product is the computation of the projective and rejective components of a vector with respect to another.  This follows by a unit vector factoring of unity \( \ucap^2 = 1 \),
+An immediate application of the vector product is the computation of the projective and rejective components of a vector with respect to another.
+This follows by a unit vector factoring of unity \( \ucap^2 = 1 \),
 
 \begin{dmath}\label{eqn:SimpleProducts2:680}
 \Bx =
@@ -306,14 +337,18 @@ An immediate application of the vector product is the computation of the project
 \lr{ \Bx \cdot \ucap } \ucap + \lr{ \Bx \wedge \ucap } \ucap.
 \end{dmath}
 
-The first term \( \lr{ \Bx \cdot \ucap } \ucap \) is the familiar projection along the direction \( \ucap \).  Since both sides of the equation must be a vector, this means that the multivector
+The first term \( \lr{ \Bx \cdot \ucap } \ucap \) is the familiar projection along the direction \( \ucap \).
+Since both sides of the equation must be a vector, this means that the multivector
 
 \begin{dmath}\label{eqn:SimpleProducts2:700}
 \lr{ \Bx \wedge \ucap } \ucap
 =\Bx - \lr{ \Bx \cdot \ucap } \ucap,
 \end{dmath}
 
-is also a vector.  Subtracting the projection from the vector itself is the perpendicular projection, called the \boldTextAndIndex{rejection} in GA literature.  A few of the expected algebraic properties of this multivector rejection expression can be demonstrated.  Recall that the dot product can be computed using scalar grade selection, so
+is also a vector.
+Subtracting the projection from the vector itself is the perpendicular projection, called the \boldTextAndIndex{rejection} in GA literature.
+A few of the expected algebraic properties of this multivector rejection expression can be demonstrated.
+Recall that the dot product can be computed using scalar grade selection, so
 
 \begin{dmath}\label{eqn:SimpleProducts2:720}
 \lr{ \lr{ \Bx \wedge \ucap } \ucap } \cdot \lr{ \ucap \lr{ \Bx \cdot \ucap } }
@@ -325,7 +360,10 @@ is also a vector.  Subtracting the projection from the vector itself is the perp
 = 0.
 \end{dmath}
 
-Here the scalar \( \ucap \ucap \lr{ \Bx \cdot \ucap } = \Bx \cdot \ucap \) was brought outside of the grade selection operator, leaving a scalar selection of a bivector, which is zero by definition.  This shows explicitly that the projection and the rejection are perpendicular.  The pythagorean property of these two vector components can also be checked.  Computing the squared length using \( \Norm{\By}^2 = \By \cdot \By = \By^2 \), the squared length of the projective component is
+Here the scalar \( \ucap \ucap \lr{ \Bx \cdot \ucap } = \Bx \cdot \ucap \) was brought outside of the grade selection operator, leaving a scalar selection of a bivector, which is zero by definition.
+This shows explicitly that the projection and the rejection are perpendicular.
+The pythagorean property of these two vector components can also be checked.
+Computing the squared length using \( \Norm{\By}^2 = \By \cdot \By = \By^2 \), the squared length of the projective component is
 
 \begin{dmath}\label{eqn:SimpleProducts2:740}
 \lr{ \lr{\Bx \cdot \ucap } \ucap }^2
@@ -368,7 +406,8 @@ x_2^2 ( u_1^2 + u_2^2 )
 \Bx^2,
 \end{dmath}
 
-recovering the squared length of the vector as expected.  It is generally true in higher dimensions that the projection and rejection can be written as
+recovering the squared length of the vector as expected.
+It is generally true in higher dimensions that the projection and rejection can be written as
 
 \begin{dmath}\label{eqn:SimpleProducts2:800}
 \begin{aligned}
@@ -409,13 +448,15 @@ and because the \R{3} expression of the rejection is
 \RejName_\ucap(\Bx) = \Bx - (\Bx \cdot \ucap) \ucap = \ucap \cross (\Bx \cross \ucap),
 \end{equation}
 
-which is clearly similar to that of \cref{eqn:SimpleProducts2:800}, the observant reader may see from this expression that the wedge product in \R{3} seems to be related to the cross product in some fashion.  The precise nature of that relationship will be detailed later.
+which is clearly similar to that of \cref{eqn:SimpleProducts2:800}, the observant reader may see from this expression that the wedge product in \R{3} seems to be related to the cross product in some fashion.
+The precise nature of that relationship will be detailed later.
 } % digression
 
 \paragraph{Reflection}
 \index{reflection}
 
-Computation of the reflection of a vector through the origin, across the direction given by the vector \( \Bu \) (also passing through the origin) can now be expressed compactly.  That is
+Computation of the reflection of a vector through the origin, across the direction given by the vector \( \Bu \) (also passing through the origin) can now be expressed compactly.
+That is
 
 \begin{dmath}\label{eqn:SimpleProducts2:900}
 \Bx'
@@ -435,7 +476,8 @@ An illustration of the geometry of reflection is provided in \cref{fig:reflectio
 
 \paragraph{Solution of linear systems}
 
-Various types of linear systems can be solved using the wedge product.  An illustrative example is that of the intersection of two lines as illustrated in \cref{fig:intersectionOfLines:intersectionOfLinesFig1}.
+Various types of linear systems can be solved using the wedge product.
+An illustrative example is that of the intersection of two lines as illustrated in \cref{fig:intersectionOfLines:intersectionOfLinesFig1}.
 
 \imageFigure{../figures/GAelectrodynamics/intersectionOfLinesFig1}{Intersection of two lines.}{fig:intersectionOfLines:intersectionOfLinesFig1}{0.3}
 
@@ -479,7 +521,8 @@ bivector equation by wedging both sides with either \( \Bu_1 \) or \( \Bu_2 \)
 \end{aligned}
 \end{dmath}
 
-In \R{2} these equations have a solution if \( \Bu_1 \wedge \Bu_2 \ne 0 \), and in \R{N} these have solutions if the bivectors on each sides of the equations describe the same plane.  Put another way, these have solutions when \( s \) and \( t \) are scalars and
+In \R{2} these equations have a solution if \( \Bu_1 \wedge \Bu_2 \ne 0 \), and in \R{N} these have solutions if the bivectors on each sides of the equations describe the same plane.
+Put another way, these have solutions when \( s \) and \( t \) are scalars and
 
 \begin{dmath}\label{eqn:SimpleProducts2:1100}
 \begin{aligned}
