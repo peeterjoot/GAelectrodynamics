@@ -2,7 +2,7 @@
 
 \subsection{Two dimensions}
 
-In a 2D space many of the interesting vector products involve the unit bivector \( i = \Be_1 \Be_2 \).
+In \R{2} many of the interesting vector products involve the unit bivector \( i = \Be_1 \Be_2 \), the \R{2} unit pseudoscalar.
 It is not a coincidence that the symbol for the complex imaginary \( i \) is used for this bivector.
 The square of this bivector
 
@@ -25,7 +25,7 @@ like the complex imaginary, also squares to \( -1 \).
 
 In complex algebra, multiplication by \( \pm i \) will rotate a complex number \( z = x + i y \) by \( \pm \pi/2 \) radians.
 Multiplying by the pseudoscalar \( i = \Be_1 \Be_2 \) rotates vectors by \( \pi/2 \) as well, however the rotation direction depends on whether left of right multiplication is used.
-Computing the left and right products of \( i \) with the basis vectors provides a 
+Computing the left and right products of \( i \) with the basis vectors provides a
 simple illustratation of these rotational effects
 
 \begin{dmath}\label{eqn:SimpleProducts2:180}
@@ -34,12 +34,12 @@ simple illustratation of these rotational effects
            &= \lr{ \Be_1 \Be_1 } \Be_2 \\
            &= \Be_2 \\
    i \Be_1 &= \lr{ \Be_1 \Be_2 } \Be_1 \\
-           &= -\lr{ \Be_2 \Be_1 } \Be_1 \\
+           &= \lr{ -\Be_2 \Be_1 } \Be_1 \\
            &= -\Be_2 \lr{ \Be_1 \Be_1 } \\
            &= -\Be_2 \\
    \Be_2 i &= \Be_2 \lr{ \Be_1 \Be_2 } \\
-           &= \lr{ -\Be_1 \Be_2 } \Be_2 \\
-           &= -\Be_1 \lr{ \Be_2 \Be_2 } \\
+           &= \Be_2 \lr{ -\Be_2 \Be_1 } \\
+           &= -\lr{ \Be_2 \Be_2 }\Be_1 \\
            &= -\Be_1 \\
    i \Be_2 &= \lr{ \Be_1 \Be_2 } \Be_2 \\
            &= \Be_1 \lr{ \Be_2 \Be_2 } \\
@@ -47,27 +47,22 @@ simple illustratation of these rotational effects
 \end{aligned}
 \end{dmath}
 
-Observe that the pseudoscalar \( i \) does not commute with either basis vector.  It is left as a problem to show that \( i \) anticommutes with any vector in the plane.
-The products tabulated in \cref{eqn:SimpleProducts2:180} are illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
+There are a number of noteworthy aspects of these calculations.
+
+\begin{itemize}
+\item The pseudoscalar \( i \) does not commute with either basis vector, but instead anticommute with both, since \( i \Be_1 = - \Be_1 i \), and \( i \Be_2 = - \Be_2 i \).  By superposition \( i \) anticommutes with any vector in the plane.
+\item The \( i \) products do rotate the basis vectors as claimed, which is 
+illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
+\end{itemize}
 
 \imageTwoFigures
 {../figures/GAelectrodynamics/rotationOfe1Fig1}
 {../figures/GAelectrodynamics/rotationOfe2Fig1}
 {Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.5}
 
-\paragraph{fixme.  rewriting up to here.}
-
-Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space, 
-(snip)
-%\cref{fig:rotationOfe1:rotationOfe1Fig1}.
-%\imageFigure{../figures/GAelectrodynamics/rotationOfe1Fig1}{CAPTION: rotationOfe1Fig1}{fig:rotationOfe1:rotationOfe1Fig1}{0.3}
-%\cref{fig:rotationOfe2:rotationOfe2Fig1}.
-%\imageFigure{../figures/GAelectrodynamics/rotationOfe2Fig1}{CAPTION: rotationOfe2Fig1}{fig:rotationOfe2:rotationOfe2Fig1}{0.3}
-Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.
-
-This unit bivector is seen to square to minus one like the imaginary in complex algebra.
-The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
-This is a very convienient fact, and allows ad-hoc construction of complex number like coordinate systems in any given planar subspace.
+The products of
+\cref{eqn:SimpleProducts2:220}
+\cref{eqn:SimpleProducts2:180} can now be tabulated.
 
 %\ref{tab:SimpleProducts2:10}.
 %FIXME: how to reference a tcolorbox table?
@@ -97,6 +92,20 @@ This is a very convienient fact, and allows ad-hoc construction of complex numbe
 \( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\ \hline
 \( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
 \end{tcolorbox}
+
+\paragraph{fixme.  rewriting up to here.}
+
+Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space,
+(snip)
+%\cref{fig:rotationOfe1:rotationOfe1Fig1}.
+%\imageFigure{../figures/GAelectrodynamics/rotationOfe1Fig1}{CAPTION: rotationOfe1Fig1}{fig:rotationOfe1:rotationOfe1Fig1}{0.3}
+%\cref{fig:rotationOfe2:rotationOfe2Fig1}.
+%\imageFigure{../figures/GAelectrodynamics/rotationOfe2Fig1}{CAPTION: rotationOfe2Fig1}{fig:rotationOfe2:rotationOfe2Fig1}{0.3}
+Such a multiplication induces a \( \pi/2 \) rotation, the direction of which depends on the orientation of pseudoscalar, and upon whether the multiplication is performed from the left or the right.
+
+This unit bivector is seen to square to minus one like the imaginary in complex algebra.
+The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
+This is a very convienient fact, and allows ad-hoc construction of complex number like coordinate systems in any given planar subspace.
 
 \section{Rework}
 \paragraph{Computing the normal 2D}
