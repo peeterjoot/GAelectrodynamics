@@ -1,9 +1,10 @@
 %\section{Two dimensions}
 
-\subsection{2D Multiplication table}
+\subsection{Two dimensions}
 
-In a 2D space most of the interesting vector products involve the unit bivector \( i = \Be_1 \Be_2 \).
+In a 2D space many of the interesting vector products involve the unit bivector \( i = \Be_1 \Be_2 \).
 It is not a coincidence that the symbol for the complex imaginary \( i \) is used for this bivector.
+The square of this bivector
 
 \begin{dmath}\label{eqn:SimpleProducts2:220}
    \lr{ \Be_1 \Be_2 }^2
@@ -17,40 +18,47 @@ It is not a coincidence that the symbol for the complex imaginary \( i \) is use
    =
    -\lr{ \Be_1 \Be_1 }
    \lr{ \Be_2 \Be_2 }
-   = -1.
+   = -1,
 \end{dmath}
 
-In complex algebra, multiplication by \( \pm i \) will rotate a complex number \( z \) by \( \pm \pi/2 \) radians.
-The plane pseudoscalar rotates plane vectors in a similar fashion, however, the rotation direction depends on whether left of right multiplication is used.
+like the complex imaginary, also squares to \( -1 \).
 
-FIXME: rework from here.
-
-
-A product of a spanning set of normal vectors for a space (or subspace) is called a pseudoscalar for that space (or subspace).
-The particular pseudoscalar \( \Be_1 \Be_2 \) will be labelled \textbf{the pseudoscalar}.
-Computation shows that multiplication with the pseudoscalar anticommutes with the 2D basis vectors
+In complex algebra, multiplication by \( \pm i \) will rotate a complex number \( z = x + i y \) by \( \pm \pi/2 \) radians.
+Multiplying by the pseudoscalar \( i = \Be_1 \Be_2 \) rotates vectors by \( \pi/2 \) as well, however the rotation direction depends on whether left of right multiplication is used.
+Computing the left and right products of \( i \) with the basis vectors provides a 
+simple illustratation of these rotational effects
 
 \begin{dmath}\label{eqn:SimpleProducts2:180}
 \begin{aligned}
-   \Be_1 \lr{ \Be_1 \Be_2 } &= \lr{ \Be_1 \Be_1 } \Be_2 = \Be_2 \\
-   \lr{ \Be_1 \Be_2 } \Be_1 &= -\lr{ \Be_2 \Be_1 } \Be_1 = -\Be_2 \\
+   \Be_1 i &= \Be_1 \lr{ \Be_1 \Be_2 } \\
+           &= \lr{ \Be_1 \Be_1 } \Be_2 \\
+           &= \Be_2 \\
+   i \Be_1 &= \lr{ \Be_1 \Be_2 } \Be_1 \\
+           &= -\lr{ \Be_2 \Be_1 } \Be_1 \\
+           &= -\Be_2 \lr{ \Be_1 \Be_1 } \\
+           &= -\Be_2 \\
+   \Be_2 i &= \Be_2 \lr{ \Be_1 \Be_2 } \\
+           &= \lr{ -\Be_1 \Be_2 } \Be_2 \\
+           &= -\Be_1 \lr{ \Be_2 \Be_2 } \\
+           &= -\Be_1 \\
+   i \Be_2 &= \lr{ \Be_1 \Be_2 } \Be_2 \\
+           &= \Be_1 \lr{ \Be_2 \Be_2 } \\
+           &= \Be_1.
 \end{aligned}
 \end{dmath}
 
-\begin{dmath}\label{eqn:SimpleProducts2:200}
-\begin{aligned}
-   \Be_2 \lr{ \Be_1 \Be_2 } &= \lr{ -\Be_1 \Be_2 } \Be_2 = -\Be_1 \\
-   \lr{ \Be_1 \Be_2 } \Be_2 &= \Be_1 \lr{ \Be_2 \Be_2 } = \Be_1 \\
-\end{aligned}
-\end{dmath}
+Observe that the pseudoscalar \( i \) does not commute with either basis vector.  It is left as a problem to show that \( i \) anticommutes with any vector in the plane.
+The products tabulated in \cref{eqn:SimpleProducts2:180} are illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
 
-The products above are tabulated below.
-
-Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space, as illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
 \imageTwoFigures
 {../figures/GAelectrodynamics/rotationOfe1Fig1}
 {../figures/GAelectrodynamics/rotationOfe2Fig1}
 {Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.5}
+
+\paragraph{fixme.  rewriting up to here.}
+
+Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space, 
+(snip)
 %\cref{fig:rotationOfe1:rotationOfe1Fig1}.
 %\imageFigure{../figures/GAelectrodynamics/rotationOfe1Fig1}{CAPTION: rotationOfe1Fig1}{fig:rotationOfe1:rotationOfe1Fig1}{0.3}
 %\cref{fig:rotationOfe2:rotationOfe2Fig1}.
