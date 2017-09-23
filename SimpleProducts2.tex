@@ -1,6 +1,6 @@
 %\section{Two dimensions}
 
-\subsection{Two dimensions}
+\subsection{\R{2} multiplication table and rotations}
 
 In \R{2} many of the interesting vector products involve the unit bivector \( i = \Be_1 \Be_2 \), the \R{2} unit pseudoscalar.
 It is not a coincidence that the symbol for the complex imaginary \( i \) is used for this bivector.
@@ -24,8 +24,8 @@ The square of this bivector
 like the complex imaginary, also squares to \( -1 \).
 
 In complex algebra, multiplication by \( \pm i \) will rotate a complex number \( z = x + i y \) by \( \pm \pi/2 \) radians.
-Multiplying by the pseudoscalar \( i = \Be_1 \Be_2 \) rotates vectors by \( \pi/2 \) as well, however the rotation direction depends on whether left of right multiplication is used.
-Computing the left and right products of \( i \) with the basis vectors provides a
+Multiplying an \R{2} vector by \( i = \Be_1 \Be_2 \) also produces \( \pi/2 \) rotations, however the rotation direction depends on whether left of right multiplication is used.
+Computing the left and right products of \( i \) with the \R{2} basis vectors provides a
 simple illustratation of these rotational effects
 
 \begin{dmath}\label{eqn:SimpleProducts2:180}
@@ -50,19 +50,18 @@ simple illustratation of these rotational effects
 There are a number of noteworthy aspects of these calculations.
 
 \begin{itemize}
-\item The pseudoscalar \( i \) does not commute with either basis vector, but instead anticommute with both, since \( i \Be_1 = - \Be_1 i \), and \( i \Be_2 = - \Be_2 i \).  By superposition \( i \) anticommutes with any vector in the plane.
-\item The \( i \) products do rotate the basis vectors as claimed, which is 
+\item The pseudoscalar \( i \) does not commute with either basis vector, but anticommutes with both, since \( i \Be_1 = - \Be_1 i \), and \( i \Be_2 = - \Be_2 i \).  By superposition \( i \) anticommutes with any vector in the plane.
+\item The \( i \) products do rotate the basis vectors as claimed, which is
 illustrated in \cref{fig:rotationOfe1:rotationOfe1Fig1}.
+\item The products of
+\cref{eqn:SimpleProducts2:220}
+\cref{eqn:SimpleProducts2:180} can now be tabulated, constructing the geometric algebra multiplication table associated with the \R{2} standard basis.
 \end{itemize}
 
 \imageTwoFigures
 {../figures/GAelectrodynamics/rotationOfe1Fig1}
 {../figures/GAelectrodynamics/rotationOfe2Fig1}
 {Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.5}
-
-The products of
-\cref{eqn:SimpleProducts2:220}
-\cref{eqn:SimpleProducts2:180} can now be tabulated.
 
 %\ref{tab:SimpleProducts2:10}.
 %FIXME: how to reference a tcolorbox table?
@@ -93,7 +92,93 @@ The products of
 \( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
 \end{tcolorbox}
 
-\paragraph{fixme.  rewriting up to here.}
+Given an arbitrary vector in a polar representation
+
+\begin{dmath}\label{eqn:SimpleProducts2:280}
+   \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
+\end{dmath}
+
+left and right multiplication by the unit pseudoscalar gives
+
+\begin{dmath}\label{eqn:SimpleProducts2:300}
+\begin{aligned}
+\Bx i
+&= \Bx \Be_1 \Be_2 \\
+&= \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2 \\
+&= \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta } \\
+i \Bx &= \Be_1 \Be_2 \Bx \\
+&= \rho \Be_1 \Be_2 \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2 \\
+&= \rho \lr{ -\Be_2 \cos\theta + \Be_1 \sin\theta }.
+\end{aligned}
+\end{dmath}
+
+It is left as a problem for the reader to show (using familiar methods, such as rotation matrices)
+that \cref{eqn:SimpleProducts2:300} are the \( \pi/2 \) counterclockwise and clockwise rotations of \cref{eqn:SimpleProducts2:280} respectively.  These rotations are illustrated in \cref{fig:rotationOfV:rotationOfVFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{\( \pi/2\) rotation using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}
+
+We can use Euler's formula with the \R{2} pseudoscalar representation of the complex imaginary
+
+\begin{dmath}\label{eqn:SimpleProducts2:340}
+e^{i \theta} = \cos\theta + i \sin\theta.
+\end{dmath}
+
+This can be justified by the fact that \( i = \Be_1 \Be_2 \) commutes with itself.
+
+It is somewhat remarkable that \( \Be_1 \) can be directly factored from the 
+polar vector representation \cref{eqn:SimpleProducts2:280}, leaving a complex exponential.
+This factorization relies on the trick mentioned earlier, utilizing a unit vector factorization of unity
+\( 1 = \Be_1 \Be_1 \).  First factoring \( \Be_1 \) to the left, 
+
+\begin{dmath}\label{eqn:SimpleProducts2:940}
+\Bx
+=
+\rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
+=
+\rho \lr{ \Be_1 \cos\theta + (\Be_1 \Be_1) \Be_2 \sin\theta }
+=
+\rho \Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
+=
+\rho \Be_1 \lr{ \cos\theta + i \sin\theta }
+=
+\rho \Be_1 e^{i\theta},
+\end{dmath}
+
+a complex exponential (a multivector with grades 0,2) is left as a right factor.
+
+Alternatively, by factoring \( \Be_1 \) to the right
+
+\begin{dmath}\label{eqn:SimpleProducts2:960}
+\Bx
+=
+\rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
+=
+\rho \lr{ \Be_1 \cos\theta + \Be_2 (\Be_1 \Be_1) \sin\theta }
+=
+\rho \lr{ \cos\theta - \Be_1 \Be_2 \sin\theta } \Be_1
+=
+\rho \lr{ \cos\theta - i \sin\theta } \Be_1
+=
+\rho e^{-i\theta} \Be_1,
+\end{dmath}
+
+a complex exponential (with negative sign) is left factor.
+The polar representation can therefore be expressed as either left or right complex exponential rotation of the vector \( \rho \Be_1 \).
+
+\begin{equation}\label{eqn:SimpleProducts2:1120}
+\rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
+= \rho e^{-i\theta} \Be_1 = \rho \Be_1 e^{i\theta}
+\end{equation}
+
+In general a positive right complex exponential multiplication (of any vector) rotates that vector counterclockwise (i.e. from \( \Be_1 \) to \( \Be_2 \)), whereas a positive left complex exponential multiplication would rotate that vector clockwise.  This is 
+illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
+\imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
+
+\makedigression{Orientation}{
+This is the first hint that a bivector can be thought of having a rotational sense, or orientation.  This is very similar to the orientation change that a vector undergoes by changing its sign.  As we think of vectors as oriented line segments, we will eventually come to think of bivectors as oriented plane segments, trivectors as oriented volume elements, and k-vectors as oriented hypervolumes.
+}
+
+\section{Rewriting marker end.}
 
 Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space,
 (snip)
@@ -114,36 +199,12 @@ Similar to multiplication by the complex number \( i \),
 left and right multiplication by the pseudoscalar also rotate vectors by \( \pi/2 \) radians, however, the sign of the rotation depends on whether the multiplication is from the left or from the right.
 With
 
-\begin{dmath}\label{eqn:SimpleProducts2:280}
-   \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
-\end{dmath}
-
 and multiplication from the right
-
-\begin{dmath}\label{eqn:SimpleProducts2:300}
-\Bx'
-= \Bx \Be_1 \Be_2
-= \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
-= \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta },
-\end{dmath}
-
-which is the counterclockwise rotation of the vector (\cref{problem:coordinateNinetyDegreeRotation:1}).
-From the left
-
-\begin{dmath}\label{eqn:SimpleProducts2:310}
-\Bx''
-= \Be_1 \Be_2 \Bx
-= \rho \Be_1 \Be_2 \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
-= \rho \lr{ -\Be_2 \cos\theta + \Be_1 \sin\theta },
-\end{dmath}
 
 the vector is rotated clockwise by \( \pi/2 \).
 % (\cref{problem:left2dimaginarymultiplication:1}).
 %Just as the imaginary rotates complex numbers, the 2D pseudoscalar rotates vectors, with the cavaet that one must be careful about the order that this multiplication is performed.
 %
-This is illustrated in \cref{fig:rotationOfV:rotationOfVFig1}.
-\imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{\( \pi/2\) rotation using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}
-
 \paragraph{Complex numbers and rotations}
 
 The 2D pseudoscalar has been seen to have the characteristics of the complex imaginary.
@@ -156,51 +217,7 @@ z = x + \Be_1 \Be_2 y,
 provides an isomorphic representation of a complex number.
 This can be made obvious by introduces the lable \( i = \Be_1 \Be_2 \) for the pseudoscalar, since it has the desired characteristics of the imaginary.
 
-Of particular interest is the complex exponential \( e^{i \theta} \).
-Because \( i \) commutes with itself and any scalars Euler's formula
-
-\begin{dmath}\label{eqn:SimpleProducts2:340}
-e^{i \theta} = \cos\theta + i \sin\theta,
-\end{dmath}
-
-applies equally well with this GA representation of complex numbers.
-Having seen that right multiplication of vectors with with the pseudoscalar \( i \) had the effect of inducing a \( \pi/2 \) counterclockwise rotation, it is reasonable to expect that this form of complex exponential will generally rotate a 2D vector.
-This can be seen by considering an arbitrarily rotated unit vector, from which a complex exponential can be factored out
-
-\begin{dmath}\label{eqn:SimpleProducts2:940}
-\xcap
-=
-\Be_1 \cos\theta + \Be_2 \sin\theta
-=
-\Be_1 \cos\theta + \Be_1 \Be_1 \Be_2 \sin\theta
-=
-\Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
-=
-\Be_1 \lr{ \cos\theta + i \sin\theta }
-=
-\Be_1 e^{i\theta}.
-\end{dmath}
-
-Alternatively, for the same vector, a complex exponential can be factored out on the left
-
-\begin{dmath}\label{eqn:SimpleProducts2:960}
-\xcap
-=
-\Be_1 \cos\theta + \Be_2 \sin\theta
-=
-\Be_1 \cos\theta + \Be_2 \Be_1 \Be_1 \sin\theta
-=
-\lr{ \cos\theta - \Be_1 \Be_2 \sin\theta } \Be_1
-=
-\lr{ \cos\theta + i \sin\theta } \Be_1
-=
-e^{-i\theta} \Be_1.
-\end{dmath}
-
-The conclusion is that left multiplication by \( e^{i\theta} \) rotates a vector clockwise, whereas right multiplication with the same complex exponential rotates a vector counterclockwise, as
-illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
-\imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
-
+(cut)
 Such a complex exponential only rotates vectors that lie in the plane of the bivector, and commute with vector (or vector components) that lie outside of the rotational plane (\cref{problem:normalMult:1}).
 This means that conjugate complex exponentials applied from both sides,
 rotate the components of the vector that lie in the rotational plane, but leave the normal components unaltered.
