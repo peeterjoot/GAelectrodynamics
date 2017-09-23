@@ -29,23 +29,7 @@
 %
 Having defined the axioms and definitions of Geometric Algebra, it desirable to define the grade selection operator, the dot product operator and the wedge product operator, and consider some simple examples of each.
 
-\makedefinition{Dot product}{dfn:gradeselection:100}{
-The dot (or inner) product of two multivectors
-
-\begin{equation*}
-\begin{aligned}
-A &= \sum_{i = 0}^N A_i, \\
-B &= \sum_{i = 0}^N B_i,
-\end{aligned}
-\end{equation*}
-
-is defined as
-\begin{equation*}
-A \cdot B \equiv
-\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{\Abs{i - j}}
-\end{equation*}
-} % definition
-
+(cut)
 As an example, consider two vectors in a 2D space
 
 \begin{dmath}\label{eqn:gradeselection:140}
@@ -119,15 +103,7 @@ For a non-trivial vector-bivector dot product, consider
 
 The vector-bivector dot product filters out products that no common factors, since such products result in trivector components.
 
-\makedefinition{Wedge product.}{dfn:gradeselection:480}{
-For the multivectors \( A, B \) defined in \cref{dfn:gradeselection:100}, the wedge (or outer) product is defined as
-
-\begin{equation*}
-A \wedge B
-\equiv
-\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i + j}.
-\end{equation*}
-} % definition
+(cut)
 
 For example, the wedge product of the 2D vectors of \cref{eqn:gradeselection:140} is
 

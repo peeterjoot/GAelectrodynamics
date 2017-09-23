@@ -125,10 +125,10 @@ e^{i \theta} = \cos\theta + i \sin\theta.
 
 This can be justified by the fact that \( i = \Be_1 \Be_2 \) commutes with itself.
 
-It is somewhat remarkable that \( \Be_1 \) can be directly factored from the 
+It is somewhat remarkable that \( \Be_1 \) can be directly factored from the
 polar vector representation \cref{eqn:SimpleProducts2:280}, leaving a complex exponential.
 This factorization relies on the trick mentioned earlier, utilizing a unit vector factorization of unity
-\( 1 = \Be_1 \Be_1 \).  First factoring \( \Be_1 \) to the left, 
+\( 1 = \Be_1 \Be_1 \).  First factoring \( \Be_1 \) to the left,
 
 \begin{dmath}\label{eqn:SimpleProducts2:940}
 \Bx
@@ -170,7 +170,7 @@ The polar representation can therefore be expressed as either left or right comp
 = \rho e^{-i\theta} \Be_1 = \rho \Be_1 e^{i\theta}
 \end{equation}
 
-In general a positive right complex exponential multiplication (of any vector) rotates that vector counterclockwise (i.e. from \( \Be_1 \) to \( \Be_2 \)), whereas a positive left complex exponential multiplication would rotate that vector clockwise.  This is 
+In general a positive right complex exponential multiplication (of any vector) rotates that vector counterclockwise (i.e. from \( \Be_1 \) to \( \Be_2 \)), whereas a positive left complex exponential multiplication would rotate that vector clockwise.  This is
 illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 \imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
 
@@ -178,7 +178,186 @@ illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 This is the first hint that a bivector can be thought of having a rotational sense, or orientation.  This is very similar to the orientation change that a vector undergoes by changing its sign.  As we think of vectors as oriented line segments, we will eventually come to think of bivectors as oriented plane segments, trivectors as oriented volume elements, and k-vectors as oriented hypervolumes.
 }
 
-\section{Rewriting marker end.}
+\subsection{Vector product, dot product and wedge product.}
+
+In order to discuss the product of two vectors, we have to introduce two additional operators.  The first of these is a generalization of the dot product to multivectors
+
+\makedefinition{Dot product}{dfn:gradeselection:100}{
+The dot (or inner) product of two multivectors
+
+\begin{equation*}
+\begin{aligned}
+A &= \sum_{i = 0}^N A_i = \sum_{i = 0}^N \gpgrade{A}{i}, \\
+B &= \sum_{i = 0}^N B_i = \sum_{i = 0}^N \gpgrade{B}{i},
+\end{aligned}
+\end{equation*}
+
+is defined as
+\begin{equation*}
+A \cdot B \equiv
+\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{\Abs{i - j}}
+\end{equation*}
+} % definition
+
+By this definition, the dot product of two vectors \( \Ba, \Bb \), is
+
+\boxedEquation{eqn:SimpleProducts2:1140}{
+\Ba \cdot \Bb
+=
+\gpgradezero{ \Ba \Bb }.
+}
+
+Before anything else, let's check that this definition agrees with our expectations for a vector dot product.  Let
+
+\begin{dmath}\label{eqn:SimpleProducts2:1160}
+\begin{aligned}
+\Ba &= \sum_i a_i \Be_i \\
+\Bb &= \sum_i b_i \Be_i,
+\end{aligned}
+\end{dmath}
+
+so the generalized dot product is
+
+\begin{dmath}\label{eqn:SimpleProducts2:1180}
+\Ba \cdot \Bb
+=
+\gpgradezero{ \Ba \Bb }
+=
+\gpgradezero{ \lr{ \sum_i a_i \Be_i }
+\lr{ \sum_j b_j \Be_j }
+}
+=
+\sum_{ij} a_i b_j \gpgradezero{ \Be_i \Be_j }.
+\end{dmath}
+
+Here a change of index variables was used for \( \Bb \) and the sums and scalars were all factored out of the grade selection operator.  The multivectors \( \Be_i \Be_j \) are unit scalars whenever \( i = j \) and are bivectors whenever \( i \ne j \), so the scalar selection is a Kronecker delta function, leaving
+
+\begin{dmath}\label{eqn:SimpleProducts2:1200}
+\Ba \cdot \Bb
+=
+\sum_{ij} a_i b_j \delta_{ij}
+=
+\sum_{i} a_i b_i.
+\end{dmath}
+
+As claimed this is the familiar (Euclidean) dot product.
+Some examples of vector-bivector, bivector-bivector, and vector-trivector dot products will be considered later.
+Since immediate goal is examination of the geometric product of two vectors, we need our second special case grade selection operator, the wedge product
+
+\makedefinition{Wedge product.}{dfn:gradeselection:480}{
+For the multivectors \( A, B \) defined in \cref{dfn:gradeselection:100}, the wedge (or outer) product is defined as
+
+\begin{equation*}
+A \wedge B
+\equiv
+\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i + j}.
+\end{equation*}
+} % definition
+
+In particular, the wedge product of two vectors \( \Ba, \Bb \) is
+
+\boxedEquation{eqn:SimpleProducts2:1220}{
+\Ba \wedge \Bb = \gpgradetwo{ \Ba \Bb }.
+}
+
+Using the coordinate expansion \cref{eqn:SimpleProducts2:1160}, the wedge product of two vectors is
+
+\begin{dmath}\label{eqn:SimpleProducts2:1240}
+\Ba \wedge \Bb
+=
+\gpgradetwo{ \Ba \Bb }
+=
+\gpgradetwo{ \lr{ \sum_i a_i \Be_i }
+\lr{ \sum_j b_j \Be_j }
+}
+=
+\sum_{ij} a_i b_j \gpgradetwo{ \Be_i \Be_j }
+\end{dmath}
+
+As pointed out \( \Be_i \Be_j \) is a (unit) scalar whenever \( i = j \), and is a bivector (grade 2) whenever \( i \ne j \), so
+
+\begin{dmath}\label{eqn:SimpleProducts2:1260}
+\Ba \wedge \Bb
+=
+\sum_{i \ne j} a_i b_j \Be_i \Be_j
+=
+\inv{2}
+\sum_{i \ne j} a_i b_j
+\Be_i \Be_j
++
+\inv{2}
+\sum_{r \ne t} a_r b_t
+\Be_r \Be_t.
+\end{dmath}
+
+The sum has been halved and doubled using a second set of indexes.  This is a sneaky trick often used in physics with indexed (tensor) equations, and worth knowing.  That second sum can now be manipulated
+
+\begin{dmath}\label{eqn:SimpleProducts2:1280}
+\inv{2}
+\sum_{r \ne t} a_r b_t
+\Be_r \Be_t
+=
+\inv{2}
+\sum_{r \ne t} a_r b_t
+(-\Be_t \Be_r)
+=
+-\inv{2}
+\sum_{j \ne i} a_j b_i
+\Be_i \Be_j.
+\end{dmath}
+
+The normal vectors \( \Be_r, \Be_t \) were first anticommuted (swap the order and the sign), and then a final substitution of summation indexes was made.  Adding the two halves together again gives
+
+\begin{dmath}\label{eqn:SimpleProducts2:1300}
+\Ba \wedge \Bb
+=
+\inv{2} \sum_{i \ne j} (a_i b_j - a_j b_i) \Be_i \Be_j,
+\end{dmath}
+
+or, in terms of determinants
+
+\boxedEquation{eqn:SimpleProducts2:1320}{
+\Ba \wedge \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \Be_j.
+}
+
+The \R{2} expansion of the wedge product is just
+
+\begin{dmath}\label{eqn:SimpleProducts2:1340}
+\Ba \wedge \Bb
+=
+\begin{vmatrix}
+a_1 & a_2 \\
+b_1 & b_2
+\end{vmatrix}
+\Be_1 \Be_2.
+\end{dmath}
+
+Recall (\cref{problem:SimpleProducts2:areaofparallelogram}) that the absolute value of this determinant is precisely the area of the parallelogram formed by the vectors \( \Ba \) and \( \Bb \).  The wedge product, a bivector, can therefore be interpretted as an oriented (signed) area.  This is illustrated in \cref{fig:orientedParallelogram:orientedParallelogramFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/orientedParallelogramFig1}{Oriented area interpretation of \( \Bv_1 \wedge \Bv_2 \) and \( \Bv_2 \wedge \Bv_1 \).}{fig:orientedParallelogram:orientedParallelogramFig1}{0.3}
+
+\makeproblem{Area of a parallelogram.}{problem:SimpleProducts2:areaofparallelogram}{
+Show that the area of a parallelogram formed by the \R{2} vectors \( \Ba = (a_1, a_2) \) and \( \Bb = (b_1, b_2) \) is the absolute value of
+
+\begin{equation*}
+\begin{vmatrix}
+a_1 & a_2 \\
+b_1 & b_2
+\end{vmatrix}.
+\end{equation*}
+} % problem
+
+%\makeanswer{problem:SimpleProducts2:areaofparallelogram}{
+%} % answer
+
+\section{REWRITING MARKER END.}
 
 Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space,
 (snip)
@@ -346,8 +525,7 @@ Recall that the area of the parallopiped spanned by two vectors in a two dimensi
 
 a factor that was also found in the coordinate expansion of the wedge product (\cref{eqn:SimpleProducts2:560}).
 It is therefore natural to interpret the wedge product as an oriented area.
-In \cref{fig:orientedParallelogram:orientedParallelogramFig1} are examples of the wedge product oriented area interpretation.
-\imageFigure{../figures/GAelectrodynamics/orientedParallelogramFig1}{Oriented area interpretation of \( \Bv_1 \wedge \Bv_2 \) and \( \Bv_2 \wedge \Bv_1 \).}{fig:orientedParallelogram:orientedParallelogramFig1}{0.3}
+(cut)
 In higher dimensonal spaces, the bivector factor not only encodes a sign for this area, but also its orientation in space.
 The wedge product will be seen to encode that orientation without introducing a normal direction for the spanning plane, a nice feature in higher dimensional spaces where a single normal direction is ambiguous.
 
