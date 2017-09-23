@@ -180,7 +180,61 @@ This is the first hint that a bivector can be thought of having a rotational sen
 
 \subsection{Vector product, dot product and wedge product.}
 
-In order to discuss the product of two vectors, we have to introduce two additional operators.  The first of these is a generalization of the dot product to multivectors
+The product of two colinear vectors was seen to be a scalar, whereas the product of two normal vectors was a bivector.
+It is reasonable to ask what the product of two vectors in general when neither of these special conditions hold.
+
+To start answering this question we can consider this product in terms of a coordinate expansion.  Let
+
+\begin{dmath}\label{eqn:SimpleProducts2:1160}
+\begin{aligned}
+\Ba &= \sum_i a_i \Be_i \\
+\Bb &= \sum_i b_i \Be_i,
+\end{aligned}
+\end{dmath}
+
+For this pair of vectors the product is
+
+\begin{dmath}\label{eqn:SimpleProducts2:1360}
+\Ba \Bb
+=
+\lr{ \sum_i a_i \Be_i } \lr{ \sum_j b_j \Be_j }
+=
+\sum_{ij} a_i b_j \Be_i \Be_j
+=
+\sum_{i = j} a_i b_j \Be_i \Be_j
++
+\sum_{i \ne j} a_i b_j \Be_i \Be_j
+=
+\sum_{i} a_i b_i \Be_i \Be_i
++
+\sum_{i \ne j} a_i b_j \Be_i \Be_j
+=
+\sum_{i} a_i b_i
++
+\sum_{i \ne j} a_i b_j \Be_i \Be_j.
+=
+\Ba \cdot \Bb
++
+\sum_{i \ne j} a_i b_j \Be_i \Be_j.
+\end{dmath}
+
+The split into matching and different pairs of indexes was to group the multivector components into grade 0 and grade 2 components.  This was possible since, by the contraction axiom,
+\( \Be_i \Be_j \) is a (unit) scalar value whenever \( i = j \), and whenever \( i \ne j \), this product is a bivector.
+We see that the
+general product of two vectors is a multivector with a scalar (grade 0) component, and a bivector (grade 2) component, something that can be written
+symbolically as
+
+\boxedEquation{eqn:SimpleProducts2:1380}{
+\Ba \Bb = \gpgradezero{ \Ba \Bb } + \gpgradetwo{ \Ba \Bb }.
+}
+
+Moreover, as a side effect of having performed this expansion, we now have an alternate way of computing the dot product of two vectors, and can do this by scalar grade selection
+
+\boxedEquation{eqn:SimpleProducts2:1400}{
+\Ba \cdot \Bb = \gpgradezero{ \Ba \Bb }.
+}
+
+This form of dot product motivates a more general definition of dot product for multivectors, which is
 
 \makedefinition{Dot product}{dfn:gradeselection:100}{
 The dot (or inner) product of two multivectors
@@ -199,6 +253,108 @@ A \cdot B \equiv
 \end{equation*}
 } % definition
 
+We will call the second product the wedge product, written as
+
+\boxedEquation{eqn:SimpleProducts2:1420}{
+\Ba \wedge \Bb \equiv \gpgradetwo{ \Ba \Bb },
+}
+
+and define a general wedge product for multivectors as
+
+\makedefinition{Wedge product.}{dfn:gradeselection:480}{
+For the multivectors \( A, B \) defined in \cref{dfn:gradeselection:100}, the wedge (or outer) product is defined as
+
+\begin{equation*}
+A \wedge B
+\equiv
+\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i + j}.
+\end{equation*}
+} % definition
+
+With these definitions in place, the product of two vectors can now be written out in terms of these scalar (dot product) and bivector (wedge product) operators
+
+\boxedEquation{eqn:SimpleProducts2:1440}{
+\Ba \Bb = \Ba \cdot \Bb + \Ba \wedge \Bb.
+}
+
+Knowing that \( \Ba \Bb \) is a scalar when these vectors are colinear means that \( \Ba \wedge \Bb = 0 \) for any pair of colinear vectors.  Let's also show this explicitly from the coordinate expansion
+
+\begin{dmath}\label{eqn:SimpleProducts2:1460}
+\Ba \wedge \Bb
+=
+\sum_{i \ne j} a_i b_j \Be_i \Be_j
+=
+\sum_{i < j} a_i b_j \Be_i \Be_j
++
+\sum_{j < i} a_i b_j \Be_i \Be_j
+=
+\sum_{i < j} a_i b_j \Be_i \Be_j
++
+\sum_{i < j} a_j b_i \Be_j \Be_i
+=
+\sum_{i < j} a_i b_j \Be_i \Be_j
++
+\sum_{i < j} a_j b_i (-\Be_i \Be_j)
+=
+\sum_{i < j} (a_i b_j - a_j b_i) \Be_i \Be_j.
+\end{dmath}
+
+This expansion in coordinates can be put into a tidy compact form by writing the scalar factors as a determinants
+
+\boxedEquation{eqn:SimpleProducts2:1320}{
+\Ba \wedge \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \Be_j.
+}
+
+Recall that the \R{3} cross product also has the filtering property \( \Ba \cross (\alpha \Ba) = 0 \), and also had an expansion in determinants.  
+The wedge product is related to the cross product, but can generalizes the cross product to two dimensions where there is no normal direction, and can generalize the cross product to greater than three dimensions, where any plane has too many normal directions.  
+Recall that the cross product was a (pseudo)vector that has a magnitude equal to the area of the parallelogram spanned by the crossed vectors, but is pointed normal to the plane of those vectors.
+It will be possible to interpret the wedge product as the oriented (signed) area of that parallelogram itself without reference to any normal direction.
+In the same sense that a vector is a representation of an oriented line segment, we will see that the 
+wedge product of two vectors can be thought of as a representation of a oriented plane segment.
+
+\makeproblem{Wedge product of colinear vectors.}{problem:SimpleProducts2:wedgecolinear}{
+Given \( \Bb = \alpha \Ba \), use
+\cref{eqn:SimpleProducts2:1320} to show that the wedge product of any pair of colinear vectors is zero.
+} % problem
+
+\subsection{Geometric interpretation of the wedge product.}
+
+\section{END MARKER}
+
+XX
+
+The scalar portion of this product is the dot product, whereas the bivector portion is something else.
+
+
+We will show that this bivector is related to the \R{3} cross product.
+Low
+We have found that it is possible to represent the dot product of two
+
+XX
+What is the product of two vectors that
+
+\begin{dmath}\label{eqn:SimpleProducts2:1180}
+\Ba \cdot \Bb
+=
+\gpgradezero{ \Ba \Bb }
+=
+\gpgradezero{ \lr{ \sum_i a_i \Be_i }
+\lr{ \sum_j b_j \Be_j }
+}
+=
+\sum_{ij} a_i b_j \gpgradezero{ \Be_i \Be_j }.
+\end{dmath}
+
+
+In order to discuss the product of two vectors, we have to introduce two additional operators.  The first of these is a generalization of the dot product to multivectors
+
 By this definition, the dot product of two vectors \( \Ba, \Bb \), is
 
 \boxedEquation{eqn:SimpleProducts2:1140}{
@@ -208,14 +364,7 @@ By this definition, the dot product of two vectors \( \Ba, \Bb \), is
 }
 
 Before anything else, let's check that this definition agrees with our expectations for a vector dot product.  Let
-
-\begin{dmath}\label{eqn:SimpleProducts2:1160}
-\begin{aligned}
-\Ba &= \sum_i a_i \Be_i \\
-\Bb &= \sum_i b_i \Be_i,
-\end{aligned}
-\end{dmath}
-
+(cut)
 so the generalized dot product is
 
 \begin{dmath}\label{eqn:SimpleProducts2:1180}
@@ -244,15 +393,6 @@ As claimed this is the familiar (Euclidean) dot product.
 Some examples of vector-bivector, bivector-bivector, and vector-trivector dot products will be considered later.
 Since immediate goal is examination of the geometric product of two vectors, we need our second special case grade selection operator, the wedge product
 
-\makedefinition{Wedge product.}{dfn:gradeselection:480}{
-For the multivectors \( A, B \) defined in \cref{dfn:gradeselection:100}, the wedge (or outer) product is defined as
-
-\begin{equation*}
-A \wedge B
-\equiv
-\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i + j}.
-\end{equation*}
-} % definition
 
 In particular, the wedge product of two vectors \( \Ba, \Bb \) is
 
@@ -315,17 +455,6 @@ The normal vectors \( \Be_r, \Be_t \) were first anticommuted (swap the order an
 \end{dmath}
 
 or, in terms of determinants
-
-\boxedEquation{eqn:SimpleProducts2:1320}{
-\Ba \wedge \Bb
-=
-\sum_{i < j}
-\begin{vmatrix}
-a_i & a_j \\
-b_i & b_j
-\end{vmatrix}
-\Be_i \Be_j.
-}
 
 The \R{2} expansion of the wedge product is just
 
