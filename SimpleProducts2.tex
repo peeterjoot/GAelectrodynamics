@@ -376,8 +376,36 @@ We also see that the wedge product is antisymmetric (exchanging the vectors togg
 -\Bb \wedge \Ba,
 }
 
-Here's a tabulation of some properties of the cross product against those of the wedge product.
-%\label{tab:SimpleProducts2:10}
+It's helpful to write out the coordinate expansion of
+\cref{eqn:SimpleProducts2:1320} explicitly for \R{2} and \R{3}.
+For \R{2} there is only one term in this sum
+
+\begin{dmath}\label{eqn:SimpleProducts2:1720}
+\Ba \wedge \Bb
+=
+\begin{vmatrix}
+a_1 & a_2 \\
+b_1 & b_2
+\end{vmatr1x}
+\Be_1 \Be_2.
+\end{dmath}
+
+For \R{3} this can be written in the compact form
+
+\begin{dmath}\label{eqn:SimpleProducts2:1740}
+\Ba \wedge \Bb
+=
+\begin{vmatrix}
+\Be_2 \Be_3 & \Be_3 \Be_1 & \Be_1 \Be_2 \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+\end{vmatrix},
+\end{dmath}
+
+which is clearly cross product like.
+
+Let's summarize the wedge product properties and relations we have found so far, and compare those to the cross product
+
 \begin{tcolorbox}[tab2,tabularx={X||Y|Y},title=Cross product and \R{3} wedge product comparison.,boxrule=0.5pt]
 Property & Cross product & Wedge product
 \\ \hline
@@ -413,7 +441,7 @@ Polar form &
 \\ \hline
 \end{tcolorbox}
 
-Note that the determinant expansion of the wedge product in the table above is only valid for \R{3}, but all the other wedge product properies are general.
+All the wedge properties except the determinant expansion above are valid in any dimension.
 It is reasonable to guess that the \R{3} wedge product is related to the cross product by some constant multivector factor \( i_{ab} = A \ncap_{ab} \).  In coordinate form, this requires a simultaneous solution to
 
 \begin{dmath}\label{eqn:SimpleProducts2:1580}
