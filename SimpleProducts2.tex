@@ -180,10 +180,8 @@ This is the first hint that a bivector can be thought of having a rotational sen
 
 \subsection{Vector product, dot product and wedge product.}
 
-The product of two colinear vectors was seen to be a scalar, whereas the product of two normal vectors was a bivector.
-It is reasonable to ask what the product of two vectors in general when neither of these special conditions hold.
-
-To start answering this question we can consider this product in terms of a coordinate expansion.  Let
+The product of two colinear vectors is a scalar, and the product of two normal vectors is a bivector.
+To understand the form for a product of two unrestricted vectors, consider their product expressed as a coordinate expansion.  Let
 
 \begin{dmath}\label{eqn:SimpleProducts2:1160}
 \begin{aligned}
@@ -192,7 +190,7 @@ To start answering this question we can consider this product in terms of a coor
 \end{aligned}
 \end{dmath}
 
-For this pair of vectors the product is
+The product of these vectors is
 
 \begin{dmath}\label{eqn:SimpleProducts2:1360}
 \Ba \Bb
@@ -204,31 +202,25 @@ For this pair of vectors the product is
 \sum_{i = j} a_i b_j \Be_i \Be_j
 +
 \sum_{i \ne j} a_i b_j \Be_i \Be_j
-=
-\sum_{i} a_i b_i \Be_i \Be_i
-+
-\sum_{i \ne j} a_i b_j \Be_i \Be_j
-=
-\sum_{i} a_i b_i
-+
-\sum_{i \ne j} a_i b_j \Be_i \Be_j.
+\end{dmath}
+
+The first sum over \( i = j \) is just the dot product since \( \Be_i \Be_i = 1 \), so the general product of two vectors is
+
+\begin{dmath}\label{eqn:SimpleProducts2:1480}
+\Ba \Bb
 =
 \Ba \cdot \Bb
 +
 \sum_{i \ne j} a_i b_j \Be_i \Be_j.
 \end{dmath}
 
-The split into matching and different pairs of indexes was to group the multivector components into grade 0 and grade 2 components.  This was possible since, by the contraction axiom,
-\( \Be_i \Be_j \) is a (unit) scalar value whenever \( i = j \), and whenever \( i \ne j \), this product is a bivector.
-We see that the
-general product of two vectors is a multivector with a scalar (grade 0) component, and a bivector (grade 2) component, something that can be written
-symbolically as
+The product of two vectors is a multivector with a scalar (grade 0) component, and a bivector (grade 2) component.  This can be written symbolically as
 
 \boxedEquation{eqn:SimpleProducts2:1380}{
 \Ba \Bb = \gpgradezero{ \Ba \Bb } + \gpgradetwo{ \Ba \Bb }.
 }
 
-Moreover, as a side effect of having performed this expansion, we now have an alternate way of computing the dot product of two vectors, and can do this by scalar grade selection
+As a side effect of having performed this expansion, we see that it is possible to compute the dot product of two vectors by scalar grade selection
 
 \boxedEquation{eqn:SimpleProducts2:1400}{
 \Ba \cdot \Bb = \gpgradezero{ \Ba \Bb }.
@@ -236,7 +228,7 @@ Moreover, as a side effect of having performed this expansion, we now have an al
 
 This form of dot product motivates a more general definition of dot product for multivectors, which is
 
-\makedefinition{Dot product}{dfn:gradeselection:100}{
+\makedefinition{Multivector dot product}{dfn:gradeselection:100}{
 The dot (or inner) product of two multivectors
 
 \begin{equation*}
@@ -253,15 +245,16 @@ A \cdot B \equiv
 \end{equation*}
 } % definition
 
-We will call the second product the wedge product, written as
+The bivector term of the vector product is called the wedge product, and written as
 
 \boxedEquation{eqn:SimpleProducts2:1420}{
-\Ba \wedge \Bb \equiv \gpgradetwo{ \Ba \Bb },
+\Ba \wedge \Bb \equiv \gpgradetwo{ \Ba \Bb }.
 }
 
-and define a general wedge product for multivectors as
+Similar to the multivector dot product, the multivector wedge product that generalizes
+\cref{eqn:SimpleProducts2:1420} is defined as
 
-\makedefinition{Wedge product.}{dfn:gradeselection:480}{
+\makedefinition{Multivector wedge product.}{dfn:gradeselection:480}{
 For the multivectors \( A, B \) defined in \cref{dfn:gradeselection:100}, the wedge (or outer) product is defined as
 
 \begin{equation*}
@@ -271,13 +264,68 @@ A \wedge B
 \end{equation*}
 } % definition
 
-With these definitions in place, the product of two vectors can now be written out in terms of these scalar (dot product) and bivector (wedge product) operators
+Instead of using grade selection, \cref{eqn:SimpleProducts2:1400} can now be expressed as a sum of dot and wedge products
 
 \boxedEquation{eqn:SimpleProducts2:1440}{
 \Ba \Bb = \Ba \cdot \Bb + \Ba \wedge \Bb.
 }
 
-Knowing that \( \Ba \Bb \) is a scalar when these vectors are colinear means that \( \Ba \wedge \Bb = 0 \) for any pair of colinear vectors.  Let's also show this explicitly from the coordinate expansion
+This is a very important identity, and will have a number of applications.  
+It is premature to consider applications since 
+the properties and geometry of the wedge product have not been explored.
+
+To start exploring that geometry let's consider the polar form of the vector, dot and wedge products for two vectors \( \Ba \) and \( \Bb \).
+Let \( i_{ab} \) be the unit pseudoscalar for the plane containing these two vectors (where \( \Bb \) is at a positive angle with respect to \( \Ba \) in this plane), and let
+
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{aligned}
+\Ba &= a \Be_1 e^{ i_{ab} \theta_a } = a e^{ -i_{ab} \theta_a } \Be_1 \\
+\Bb &= b \Be_1 e^{ i_{ab} \theta_b } = b e^{ -i_{ab} \theta_b } \Be_1,
+\end{aligned}
+\end{dmath}
+
+as illustrated in (FIXME).  The vector product of these two vectors is
+
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\Ba \Bb
+=
+\lr{ a e^{ -i_{ab} \theta_a } \Be_1 } \lr{ b \Be_1 e^{ i_{ab} \theta_b } }
+=
+a b 
+e^{ -i_{ab} \theta_a } ( \Be_1 \Be_1 ) e^{ i_{ab} \theta_b }
+= 
+a b 
+e^{ i_{ab} (\theta_b - \theta_a)} ,
+\end{dmath}
+
+or
+\boxedEquation{eqn:SimpleProducts2:n}{
+\begin{aligned}
+\Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} (\theta_b - \theta_a) } \\
+\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos( \theta_b - \theta_a ) \\
+\Ba \wedge \Bb &= i_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a ) \\
+\end{aligned}
+}
+
+The product of two vectors is the product of their magnitudes, multiplied by a ``unit'' complex exponential multivector with grades 0,2.  Recalling that the cross product can be written as \( \Ba \cross \Bb = \ncap_{ab} \sin(\theta_b - \theta_a) \) we see a strong hint that the wedge and cross products are also related.
+
+Let's continue to examine those relationships by examining the properties of the wedge product.
+
+A general property of the wedge product follows by setting \( \Bb = \Ba \) in
+\cref{eqn:SimpleProducts2:1440}, which gives
+
+\begin{dmath}\label{eqn:SimpleProducts2:1500}
+\Ba \Ba = \Ba \cdot \Ba + \Ba \wedge \Ba,
+\end{dmath}
+
+but since \( \Ba \Ba = \Ba \cdot \Ba \), we conclude that
+
+\boxedEquation{eqn:SimpleProducts2:1520}{
+\Ba \wedge \Ba = 0.
+}
+
+A similar argument shows that the wedge product of any colinear vectors is also zero.
+The coordinate expansion of the wedge product (bivector) term in \cref{eqn:SimpleProducts2:1480} can be tidied up to show this explicitly
 
 \begin{dmath}\label{eqn:SimpleProducts2:1460}
 \Ba \wedge \Bb
@@ -299,7 +347,7 @@ Knowing that \( \Ba \Bb \) is a scalar when these vectors are colinear means tha
 \sum_{i < j} (a_i b_j - a_j b_i) \Be_i \Be_j.
 \end{dmath}
 
-This expansion in coordinates can be put into a tidy compact form by writing the scalar factors as a determinants
+The scalar factors can be written as a determinants, yielding a tidy coordinate expansion of the wedge product of two vectors
 
 \boxedEquation{eqn:SimpleProducts2:1320}{
 \Ba \wedge \Bb
@@ -312,16 +360,110 @@ b_i & b_j
 \Be_i \Be_j.
 }
 
-Recall that the \R{3} cross product also has the filtering property \( \Ba \cross (\alpha \Ba) = 0 \), and also had an expansion in determinants.  
-The wedge product is related to the cross product, but can generalizes the cross product to two dimensions where there is no normal direction, and can generalize the cross product to greater than three dimensions, where any plane has too many normal directions.  
-Recall that the cross product was a (pseudo)vector that has a magnitude equal to the area of the parallelogram spanned by the crossed vectors, but is pointed normal to the plane of those vectors.
-It will be possible to interpret the wedge product as the oriented (signed) area of that parallelogram itself without reference to any normal direction.
-In the same sense that a vector is a representation of an oriented line segment, we will see that the 
-wedge product of two vectors can be thought of as a representation of a oriented plane segment.
+This expansion shows that the wedge product is antisymmetric (exchanging the vectors toggles the sign), or
+
+\boxedEquation{eqn:SimpleProducts2:1540}{
+\Ba \wedge \Bb
+=
+-\Bb \wedge \Ba,
+}
+
+We keep finding similarities between
+the wedge product and the cross product, which is not a coincidence.
+These similarities can be highlighted by tabulating the cross product properties against those of the (\R{3}) wedge product.
+
+%\label{tab:SimpleProducts2:10}
+\begin{tcolorbox}[tab2,tabularx={X||Y|Y},title=Cross product and \R{3} wedge product comparison.,boxrule=0.5pt]
+Property & Cross product & Wedge product
+\\ \hline
+Same vectors & \( \Ba \cross \Ba = 0 \) & \( \Ba \wedge \Ba = 0 \)
+\\ \hline
+Antisymmetry & \( \Bb \cross \Ba = -\Ba \cross \Bb \) & \( \Bb \wedge \Ba = -\Ba \wedge \Bb \)
+\\ \hline
+Determinant expansion
+&
+\(
+\Ba \cross \Bb
+=
+\begin{vmatrix}
+\Be_1 & \Be_2 & \Be_3 \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+\end{vmatrix}
+\)
+&
+\(
+\Ba \wedge \Bb
+=
+\begin{vmatrix}
+\Be_2 \Be_3 & \Be_3 \Be_1 & \Be_1 \Be_2 \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+\end{vmatrix}
+\)
+\\ \hline
+Polar form & 
+\( \ncap_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \) &
+\( i_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \)
+\\ \hline
+\end{tcolorbox}
+
+It is reasonable to guess that the wedge and cross products are related by some constant multivector factor \( i_{ab} = A \ncap_{ab} \).  In coordinate form, this requires a simultaneous solution to
+
+\begin{dmath}\label{eqn:SimpleProducts2:1580}
+\begin{aligned}
+\Be_2 \Be_3 &= A \Be_1 \\
+\Be_3 \Be_1 &= A \Be_2 \\
+\Be_1 \Be_2 &= A \Be_3.
+\end{aligned}
+\end{dmath}
+
+Multiplying on the right by \( \Be_1, \Be_2, \Be_3 \) respectively, this factor seems to be
+
+\begin{equation}\label{eqn:SimpleProducts2:1600}
+A = \Be_2 \Be_3 \Be_1 = \Be_3 \Be_1 \Be_2 = \Be_1 \Be_2 \Be_3,
+\end{equation}
+
+which are all permutations of the \R{3} unit pseudoscalar \( I = \Be_1 \Be_2 \Be_3 \).
+This indicates that the cyclic permutations of the \R{3} pseudoscalar must all be identical (\cref{problem:SimpleProducts2:permutationspseudoscalar}).
+
+We now have a coordinate free relationship for the \R{3} wedge product and the cross product
+
+\boxedEquation{eqn:SimpleProducts2:1620}{
+\Ba \wedge \Bb = I ( \Ba \cross \Bb ),
+}
+
+and can also express the 
+\R{3} vector product as a multivector combination of the dot and cross products
+
+\boxedEquation{eqn:SimpleProducts2:1640}{
+\Ba \Bb = \Ba \cdot \Bb + I(\Ba \cross \Bb).
+}
+
+Like
+\cref{eqn:SimpleProducts2:1440}, this is also a very important relationship.
+In particular, this identity will be what we use to assemble all the separate scalar and vector Maxwell's equations into a single multivector equation.
+
+
+%Recall that the \R{3} cross product also has the filtering property \( \Ba \cross (\alpha \Ba) = 0 \), and also had an expansion in determinants.
+%The wedge product is related to the cross product, but can generalizes the cross product to two dimensions where there is no normal direction, and can generalize the cross product to greater than three dimensions, where any plane has too many normal directions.
+%The cross product is a (pseudo)vector that has a magnitude equal to the area of the parallelogram spanned by the crossed vectors, but is pointed normal to the plane of those vectors.
+%It will be possible to interpret the wedge product as the oriented (signed) area of that parallelogram itself without reference to any normal direction.
+%In the same sense that a vector is a representation of an oriented line segment, we will see that the
+%wedge product of two vectors can be thought of as a representation of a oriented plane segment.
 
 \makeproblem{Wedge product of colinear vectors.}{problem:SimpleProducts2:wedgecolinear}{
 Given \( \Bb = \alpha \Ba \), use
 \cref{eqn:SimpleProducts2:1320} to show that the wedge product of any pair of colinear vectors is zero.
+} % problem
+
+\makeproblem{Wedge product antisymmetry.}{problem:SimpleProducts2:1560}{
+Prove \cref{eqn:SimpleProducts2:1540} using \cref{eqn:SimpleProducts2:1320}.
+} % problem
+
+\makeproblem{Permutations of the \R{3} pseudoscalar}{problem:SimpleProducts2:permutationspseudoscalar}{
+Show that each of the permutations of
+\cref{eqn:SimpleProducts2:1600} are all equal as required.
 } % problem
 
 \subsection{Geometric interpretation of the wedge product.}
@@ -367,7 +509,7 @@ Before anything else, let's check that this definition agrees with our expectati
 (cut)
 so the generalized dot product is
 
-\begin{dmath}\label{eqn:SimpleProducts2:1180}
+\begin{dmath}\label{eqn:SimpleProducts2:1560}
 \Ba \cdot \Bb
 =
 \gpgradezero{ \Ba \Bb }
