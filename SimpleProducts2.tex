@@ -270,14 +270,14 @@ Instead of using grade selection, \cref{eqn:SimpleProducts2:1400} can now be exp
 \Ba \Bb = \Ba \cdot \Bb + \Ba \wedge \Bb.
 }
 
-This is a very important identity, and will have a number of applications.  
-It is premature to consider applications since 
+This is a very important identity, and will have a number of applications.
+It is premature to consider applications since
 the properties and geometry of the wedge product have not been explored.
 
 To start exploring that geometry let's consider the polar form of the vector, dot and wedge products for two vectors \( \Ba \) and \( \Bb \).
 Let \( i_{ab} \) be the unit pseudoscalar for the plane containing these two vectors (where \( \Bb \) is at a positive angle with respect to \( \Ba \) in this plane), and let
 
-\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{dmath}\label{eqn:SimpleProducts2:1660}
 \begin{aligned}
 \Ba &= a \Be_1 e^{ i_{ab} \theta_a } = a e^{ -i_{ab} \theta_a } \Be_1 \\
 \Bb &= b \Be_1 e^{ i_{ab} \theta_b } = b e^{ -i_{ab} \theta_b } \Be_1,
@@ -286,20 +286,20 @@ Let \( i_{ab} \) be the unit pseudoscalar for the plane containing these two vec
 
 as illustrated in (FIXME).  The vector product of these two vectors is
 
-\begin{dmath}\label{eqn:SimpleProducts2:n}
+\begin{dmath}\label{eqn:SimpleProducts2:1680}
 \Ba \Bb
 =
 \lr{ a e^{ -i_{ab} \theta_a } \Be_1 } \lr{ b \Be_1 e^{ i_{ab} \theta_b } }
 =
-a b 
+a b
 e^{ -i_{ab} \theta_a } ( \Be_1 \Be_1 ) e^{ i_{ab} \theta_b }
-= 
-a b 
+=
+a b
 e^{ i_{ab} (\theta_b - \theta_a)} ,
 \end{dmath}
 
 or
-\boxedEquation{eqn:SimpleProducts2:n}{
+\boxedEquation{eqn:SimpleProducts2:1700}{
 \begin{aligned}
 \Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} (\theta_b - \theta_a) } \\
 \Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos( \theta_b - \theta_a ) \\
@@ -307,11 +307,13 @@ or
 \end{aligned}
 }
 
-The product of two vectors is the product of their magnitudes, multiplied by a ``unit'' complex exponential multivector with grades 0,2.  Recalling that the cross product can be written as \( \Ba \cross \Bb = \ncap_{ab} \sin(\theta_b - \theta_a) \) we see a strong hint that the wedge and cross products are also related.
+The product of two vectors is the product of their magnitudes, multiplied by a ``unit'' complex exponential multivector with grades 0,2.
 
-Let's continue to examine those relationships by examining the properties of the wedge product.
+Since the cross product can be written as \( \Ba \cross \Bb = \ncap_{ab} \sin(\theta_b - \theta_a) \),
+\cref{eqn:SimpleProducts2:1700} provides a strong hint that the
+wedge and cross products are related.
 
-A general property of the wedge product follows by setting \( \Bb = \Ba \) in
+One property of the wedge product follows by setting \( \Bb = \Ba \) in
 \cref{eqn:SimpleProducts2:1440}, which gives
 
 \begin{dmath}\label{eqn:SimpleProducts2:1500}
@@ -324,8 +326,13 @@ but since \( \Ba \Ba = \Ba \cdot \Ba \), we conclude that
 \Ba \wedge \Ba = 0.
 }
 
-A similar argument shows that the wedge product of any colinear vectors is also zero.
-The coordinate expansion of the wedge product (bivector) term in \cref{eqn:SimpleProducts2:1480} can be tidied up to show this explicitly
+Like the cross product, the
+wedge product of any colinear vectors is also zero, which should be clear from the polar form
+of the wedge product in
+\cref{eqn:SimpleProducts2:1700}.
+
+Let's compare the coordinate expansion of the wedge product to that of the cross product, by
+eliminating the redundant terms in the bivector term of \cref{eqn:SimpleProducts2:1480}
 
 \begin{dmath}\label{eqn:SimpleProducts2:1460}
 \Ba \wedge \Bb
@@ -360,7 +367,8 @@ b_i & b_j
 \Be_i \Be_j.
 }
 
-This expansion shows that the wedge product is antisymmetric (exchanging the vectors toggles the sign), or
+This coordinate expansion can also be used to show that the wedge product of any colinear vectors is zero.
+We also see that the wedge product is antisymmetric (exchanging the vectors toggles the sign), or
 
 \boxedEquation{eqn:SimpleProducts2:1540}{
 \Ba \wedge \Bb
@@ -368,10 +376,7 @@ This expansion shows that the wedge product is antisymmetric (exchanging the vec
 -\Bb \wedge \Ba,
 }
 
-We keep finding similarities between
-the wedge product and the cross product, which is not a coincidence.
-These similarities can be highlighted by tabulating the cross product properties against those of the (\R{3}) wedge product.
-
+Here's a tabulation of some properties of the cross product against those of the wedge product.
 %\label{tab:SimpleProducts2:10}
 \begin{tcolorbox}[tab2,tabularx={X||Y|Y},title=Cross product and \R{3} wedge product comparison.,boxrule=0.5pt]
 Property & Cross product & Wedge product
@@ -402,13 +407,14 @@ b_1 & b_2 & b_3 \\
 \end{vmatrix}
 \)
 \\ \hline
-Polar form & 
+Polar form &
 \( \ncap_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \) &
 \( i_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \)
 \\ \hline
 \end{tcolorbox}
 
-It is reasonable to guess that the wedge and cross products are related by some constant multivector factor \( i_{ab} = A \ncap_{ab} \).  In coordinate form, this requires a simultaneous solution to
+Note that the determinant expansion of the wedge product in the table above is only valid for \R{3}, but all the other wedge product properies are general.
+It is reasonable to guess that the \R{3} wedge product is related to the cross product by some constant multivector factor \( i_{ab} = A \ncap_{ab} \).  In coordinate form, this requires a simultaneous solution to
 
 \begin{dmath}\label{eqn:SimpleProducts2:1580}
 \begin{aligned}
@@ -433,7 +439,7 @@ We now have a coordinate free relationship for the \R{3} wedge product and the c
 \Ba \wedge \Bb = I ( \Ba \cross \Bb ),
 }
 
-and can also express the 
+and can also express the
 \R{3} vector product as a multivector combination of the dot and cross products
 
 \boxedEquation{eqn:SimpleProducts2:1640}{
