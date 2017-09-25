@@ -15,7 +15,7 @@ e^{-i\theta} \Bx.
 
 The higher dimensional generalization of these results are
 
-\maketheorem{Commutation and conjugation rules for wedge products and complex exponentials.}{thm:SimpleProducts2:1780}{
+\maketheorem{Wedge and exponential commutation and conjugation rules.}{thm:SimpleProducts2:1780}{
 Given two
 non-colinear vectors \( \Ba, \Bb \), let
 the planar subspace formed by their span be designated
@@ -110,29 +110,29 @@ which completes the proof.
 The point of this somewhat abstract seeming theorem is to prepare for the statement of a general \R{N} rotation, which is
 
 \makedefinition{General rotation}{dfn:generalRotation:generalrotation}{
-Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap \).  The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
+Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap, i^2 = -1\).  The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
 
 \begin{equation*}
 R_\theta(\Bx) = e^{ - i \theta/2 } \Bx e^{ i\theta/2 }.
 \end{equation*}
 
-Here the rotation sense is that of the \( \pi/2 \) rotation from \( \pcap \) to \( \qcap \) in the subspace \( S = \span B \).
+Here the rotation sense is that of the \( \pi/2 \) rotation from \( \pcap \) to \( \qcap \) in the subspace \( S = \Span B \).
 } % definition
 
-This statement did not make any mention to a normal direction which is not unique for dimensions higher than 3, nor defined for two dimensions.  
-Instead the rotational sense is defined by the ordering of the factors in the bivector \( i \).  
+This statement did not make any mention to a normal direction which is not unique for dimensions higher than 3, nor defined for two dimensions.
+Instead the rotational sense is defined by the ordering of the factors in the bivector \( i \).
 Let's consider the action of this definition and verify that it has the desired semantics.
 
 Let \( \Bx = \Ba + \Bn \), where \( \Ba \in S \) and \( \Bn \cdot \Bp = 0 \forall \Bp \in S \).  Then
 
-\begin{dmath}\label{eqn:generalRotation:n}
-R_\theta(\Bx) 
-= 
+\begin{dmath}\label{eqn:generalRotation:1880}
+R_\theta(\Bx)
+=
 e^{ - i \theta/2 } \Bx e^{ i\theta/2 }
-= 
+=
 e^{ - i \theta/2 } \lr{ \Ba + \Bn } e^{ i\theta/2 }
-= 
-\Ba e^{ i\theta } + 
+=
+\Ba e^{ i\theta } +
 \Bn e^{ - i \theta/2 } e^{ i\theta/2 }
 =
 \Ba e^{ i\theta } + \Bn.
