@@ -1,0 +1,46 @@
+
+\Cref{eqn:SimpleProducts2:180} showed that the \R{2} pseudoscalar anticommutes with any vector \( \Bx \in \bbR^{2} \),
+
+\begin{dmath}\label{eqn:SimpleProducts2:1760}
+\Bx i = -i \Bx.
+\end{dmath}
+
+The higher dimensional generalization of this result is
+
+\maketheorem{Commutation rules for wedge products.}{thm:SimpleProducts2:1780}{
+Given a planar subspace formed by the span of two non-colinear vectors \( S = \Span \setlr{ \Ba, \Bb } \), any vector \( \Bp \in S \) anticommutes with the wedge product \( \Ba \wedge \Bb \)
+
+\begin{equation*}
+\Bp (\Ba \wedge \Bb) = - (\Ba \wedge \Bb) \Bp.
+\end{equation*}
+
+Moreover, any vector \( \Bn \) normal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 \)) commutes with this wedge product
+\begin{equation*}
+\Bn (\Ba \wedge \Bb) = (\Ba \wedge \Bb) \Bn.
+\end{equation*}
+} % theorem
+
+The proof relies on the fact that a normal factorization of the wedge product is possible.  If \( \Bp \) is one of those factors, then the other is uniquely determined by the multivector equation \( \Ba \wedge \Bb = \Bp \Bq \), for which we must have \( \Bq \in S \) and \( \Bp \cdot \Bq = 0 \).  Then
+
+\begin{dmath}\label{eqn:wedgeProductArea:n}
+\Bp (\Ba \wedge \Bb)
+= \Bp (\Bp \Bq)
+= \Bp (-\Bq \Bp)
+= -(\Bp \Bq) \Bp
+= 
+-(\Ba \wedge \Bb) \Bp.
+\end{dmath}
+
+Any normal \( \Bn \) must also be perpendicular to the factors \( \Bp, \Bq \), with \( \Bn \cdot \Bp = \Bn \cdot \Bq = 0 \), so
+
+\begin{dmath}\label{eqn:wedgeProductArea:n}
+\Bn (\Ba \wedge \Bb)
+= \Bn (\Bp \Bq)
+= (-\Bp \Bn) \Bq
+= -\Bp (-\Bq \Bn)
+= (\Bp \Bq) \Bn
+(\Ba \wedge \Bb) \Bn,
+\end{dmath}
+
+which completes the proof.
+
