@@ -521,7 +521,7 @@ The wedge product of any two non-colinear vectors \( \Ba, \Bb \) always has a no
 \end{equation*}
 } % theorem
 
-The significant of \cref{thm:SimpleProducts2:wnormalfactorize} means that the square of any wedge product is negative
+The significance of \cref{thm:SimpleProducts2:wnormalfactorize} is that the square of any wedge product is negative
 
 \begin{dmath}\label{eqn:SimpleProducts2:1820}
 (\Bu \Bv)^2
@@ -535,115 +535,32 @@ The significant of \cref{thm:SimpleProducts2:wnormalfactorize} means that the sq
 
 which in turn means that exponentials with wedge product arguments can be used as rotation operators.
 
-To prove \cref{thm:SimpleProducts2:wnormalfactorize}, first assume that there is an orthonormal basis \( \setlr{\ucap, \vcap} \) for the planar subspace \( P = \Span\setlr{ \Ba, \Bb } \), for which
+One such factorization is simply
 
-\begin{dmath}\label{eqn:SimpleProducts2:1840}
-\begin{aligned}
-\Ba &= (\Ba \cdot \ucap) \ucap + (\Ba \cdot \vcap) \vcap \\
-\Bb &= (\Bb \cdot \ucap) \ucap + (\Bb \cdot \vcap) \vcap.
-\end{aligned}
-\end{dmath}
-
-The wedge of \( \Ba, \Bb \) in terms of this basis is
-
-\begin{dmath}\label{eqn:SimpleProducts2:1860}
+\begin{dmath}\label{eqn:SimpleProducts2:n}
 \Ba \wedge \Bb
+= \Ba \Rej{\Ba}{\Bb}.
+\end{dmath}
+
+This follows because this rejection is normal to \( \Ba \) so
+
+\begin{dmath}\label{eqn:SimpleProducts2:n}
+\Ba \Rej{\Ba}{\Bb}
 =
-\gpgradetwo{
-   \lr{
-   (\Ba \cdot \ucap) \ucap + (\Ba \cdot \vcap) \vcap
-   }
-   \lr{
-   (\Bb \cdot \ucap) \ucap + (\Bb \cdot \vcap) \vcap
-   }
-}
-=
-\gpgradetwo{
-\cancel{
-   (\Ba \cdot \ucap) (\Bb \cdot \ucap) \ucap^2
-}
+\cancel{\Ba \cdot \Rej{\Ba}{\Bb}}
 +
-\cancel{
-   (\Ba \cdot \vcap) (\Bb \cdot \vcap) \vcap^2
-}
-+
-\lr{
-      (\Ba \cdot \ucap)
-   (\Bb \cdot \vcap)
-   -
-   (\Ba \cdot \vcap) (\Bb \cdot \ucap)
-}
-\ucap \vcap
-}
+\Ba \wedge \Rej{\Ba}{\Bb}
 =
-\lr{
-      (\Ba \cdot \ucap)
-   (\Bb \cdot \vcap)
-   -
-   (\Ba \cdot \vcap) (\Bb \cdot \ucap)
-}
-\ucap \vcap.
+\Ba \wedge \lr{ \Bb - \frac{\Bb \cdot \Ba}{\Norm{\Ba}^2} \Ba }
+=
+\Ba \wedge \Bb,
 \end{dmath}
 
-Such a basis allows for the most compact (single term) coordinate representation of the wedge product
-
-\begin{dmath}\label{eqn:SimpleProducts2:1880}
-\Ba \wedge \Bb
-=
-\begin{vmatrix}
-   \Ba \cdot \ucap & \Ba \cdot \vcap \\
-   \Bb \cdot \ucap & \Bb \cdot \vcap
-\end{vmatrix}
-\ucap \vcap.
-\end{dmath}
-
-The wedge product is therefore the (possibly signed) area of the parallelopiped formed by the vectors \( \Ba, \Bb \), multiplied by a unit pseudoscalar for the subspace of the plane \( P \).  Provided the area of this parallelopiped is non-zero, which is always the case for non-colinear vectors, there are clearly many possible normal factorizations for the wedge product.
-
-\subsection{General rotation.}
-
-\Cref{eqn:SimpleProducts2:180} showed that the \R{2} pseudoscalar anticommutes with any vector \( \Bx \in \bbR^{2} \),
-
-\begin{dmath}\label{eqn:SimpleProducts2:1760}
-\Bx i = -i \Bx.
-\end{dmath}
-
-The higher dimensional generalization of this result is
-
-\maketheorem{Commutation rules for wedge products.}{thm:SimpleProducts2:1780}{
-Given a planar subspace formed by the span of two non-colinear vectors \( S = \Span \setlr{ \Ba, \Bb } \), any vector \( \Bx \in S \) anticommutes with the wedge product \( \Ba \wedge \Bb \)
-
-\begin{equation*}
-\Bx (\Ba \wedge \Bb) = - (\Ba \wedge \Bb) \Bx.
-\end{equation*}
-
-Moreover, any vector \( \Bn \) normal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 \)) commutes with this wedge product
-\begin{equation*}
-\Bn (\Ba \wedge \Bb) = (\Ba \wedge \Bb) \Bn.
-\end{equation*}
-} % theorem
-
-A simple inelegant way to prove this is to specify a coordinate system for which \( \Ba, \Bb \) both lie in the \( x,y \) plane.  Then \( \Ba \wedge \Bb = \alpha i \) for some \( \alpha \), and the anticommutation part of the theorem follows from
-%the \R{2} result
-\cref{eqn:SimpleProducts2:1760}.  For the normal commutation part of the theorem, pick any vector normal to the \(x, y\) plane, say \( \Be_3\), for which we have
-
-\begin{dmath}\label{eqn:SimpleProducts2:1780}
-\Be_3  (\Ba \wedge \Bb)
-=
-\Be_3 \alpha i
-=
-\alpha \Be_3 \Be_1 \Be_2
-=
-\alpha (-\Be_1 \Be_3) \Be_2
-=
--\alpha \Be_1 (\Be_3 \Be_2)
-=
--\alpha \Be_1 (-\Be_2 \Be_3)
-= (\Ba \wedge \Bb) \Be_3.
-\end{dmath}
-
-In dimensions with more normals, say \( \Be_4, \cdots \), the steps of \cref{eqn:SimpleProducts2:1780} can be repeated.  The general normal commuation result follows by superposition.
+since \( \Ba \wedge (\alpha \Ba) = 0 \) for any scalar \( \alpha \).
 
 \subsection{The wedge product as an area element.}
+\input{wedgeProductArea.tex}
+
 \subsection{Symmetric and antisymmetric vector sums.}
 \subsection{Duality}
 \subsection{Cyclic permutation in scalar selection.}
