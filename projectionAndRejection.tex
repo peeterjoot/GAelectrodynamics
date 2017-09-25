@@ -1,0 +1,243 @@
+Let's now look at how
+\cref{eqn:SimpleProducts2:1440},
+the dot and wedge product decomposition of the vector product, can be applied to compute vector projection and rejection, which are defined as
+
+\makedefinition{Projection and rejection}{dfn:projectionAndRejection:projectionandrejection}{
+Given a vector \( \Bx \) and vector \( \Bu \) the projection of \( \Bx \) onto the direction of \( \Bu \) is defined as
+
+\begin{equation*}
+\Proj_\Bu(\Bx) = (\Bx \cdot \ucap) \ucap,
+\end{equation*}
+
+where \( \ucap = \Bu/\Norm{\Bu} \).  The rejection of \( \Bu \) from \( \Bx \) is defined as the component of \( \Bx \) that is
+normal to \( \Bu \)
+
+\begin{equation*}
+\Rej{\Bu}{\Bx} = \Bx - \Proj_\Bu(\Bx).
+\end{equation*}
+} % definition
+
+It is possible to factor unity as \( 1 = \ucap \ucap \) to derive a useful GA representation of the projective and rejective components of a vector
+
+\begin{dmath}\label{eqn:SimpleProducts2:680}
+\Bx =
+\Bx \ucap \ucap
+=
+\lr{ \Bx \ucap } \ucap
+=
+\Biglr{ \Bx \cdot \ucap + \Bx \wedge \ucap } \ucap
+=
+\lr{ \Bx \cdot \ucap } \ucap + \lr{ \Bx \wedge \ucap } \ucap.
+\end{dmath}
+
+The vector \( \Bx \) is split nicely into its projection and rejective components in a complementary fashion
+
+\begin{dmath}\label{eqn:projectionAndRejection:900}
+\begin{aligned}
+\Proj_\Bu(\Bx) &= \lr{ \Bx \cdot \ucap } \ucap \\
+\Rej{\Bu}{\Bx} &= \lr{ \Bx \wedge \ucap } \ucap.
+\end{aligned}
+\end{dmath}
+
+By construction,
+\( \lr{ \Bx \wedge \ucap } \ucap \) must be a vector, despite any appearance of a multivector nature.
+
+The utility of this multivector rejection formula is not for hand (or computer algebra) calculations, where it will generally be faster and simpler to compute \( \Bx - (\Bx \cdot \ucap) \ucap \).  Instead this will come in handy as a new abstract algebraic tool.
+
+When it is desirable to perform this calculation explicitly, it can be done more effieciently using a no-op grade selection operation.
+In particular, a vector can be written as it's own grade-1 selection
+
+\begin{dmath}\label{eqn:projectionAndRejection:920}
+\Bx = \gpgradeone{ \Bx },
+\end{dmath}
+
+so the rejection can be reexpressed as a generalized bivector-vector dot product
+
+\begin{dmath}\label{eqn:projectionAndRejection:940}
+\Rej{\Bu}{\Bx}
+= \gpgradeone{ \lr{ \Bx \wedge \ucap } \ucap }
+= \lr{ \Bx \wedge \ucap } \cdot \ucap,
+\end{dmath}
+
+using
+\cref{dfn:gradeselection:100}.
+
+Let's consider some example rejection calculations to verify that this produces the expected results, starting with a simple two dimensional example
+
+\makeexample{\R{2} rejection}{example:projectionAndRejection:1}{
+
+Let \( \Bx = a \Be_1 + b \Be_2 \) and \( \Bu = \Be_1 \) for which the wedge is \( \Bx \wedge \ucap = b \Be_2 \Be_1 ).
+
+The rejection of \( \Bu \) from \( \Bx \) is
+\begin{dmath}\label{eqn:projectionAndRejection:1000}
+\Rej{\Bu}{\Bx}
+=
+\lr{ \Bx \wedge \ucap } \ucap
+=
+(b \Be_2 \Be_1 )\Be_1
+=
+b \Be_2 (\Be_1 \Be_1)
+=
+b \Be_2,
+\end{dmath}
+
+as expected.
+} % example
+
+Geometrically, the wedge operation produces a pseudoscalar for the plane spanned by \( \setlr{\Bx, \Bu} \), and multiplication of that pseudoscalar by \( \ucap \) rotates \( \ucap \) by \( \pi/2 \) radians in that plane, yeilding the normal component of the vector \( \Bx \).
+
+Here's a slightly less trivial \R{3} example
+
+\makeexample{\R{3} rejection.}{example:projectionAndRejection:r3rejection}{
+Let \( \Bx = a \Be_2 + b \Be_3 \) and \( \ucap = ( \Be_1 + \Be_2 )/\sqrt{2} \) for which the 
+wedge product is
+
+\begin{dmath}\label{eqn:projectionAndRejection:1040}
+\Bx \wedge \ucap = \inv{\sqrt{2}}
+\begin{vmatrix}
+\Be_{23} & \Be_{31} & \Be_{12} \\
+0 & a & b \\
+1 & 1 & 0
+\end{vmatrix}
+=
+\inv{\sqrt{2}}
+\lr{
+\Be_{23}(-b) - \Be_{31}(-b) + \Be_{12} (-a)
+}
+=
+\inv{\sqrt{2}}
+\lr{
+b (\Be_{32} + \Be_{31} ) + a \Be_{21}
+}.
+\end{dmath}
+
+Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bu \) from \( \Bx \) is
+
+\begin{dmath}\label{eqn:projectionAndRejection:1060}
+(\Bx \wedge \ucap) \cdot \ucap
+=
+\inv{2}
+\lr{ b (\Be_{32} + \Be_{31} ) + a \Be_{21} } \cdot ( \Be_1 + \Be_2 )
+=
+\inv{2}
+\lr{ b \Be_3 + a \Be_2 + b \Be_3 - a \Be_1 }
+=
+b \Be_3 + \frac{a}{2}( \Be_2 - \Be_1 ).
+\end{dmath}
+
+The reader should confirm that this equals \( \Bx - (\Bx \cdot \ucap) \ucap \).
+} % example
+
+The normal nature of the projection and rejection in this form can be demonstrated by calculating the dot product using the scalar selection operator
+
+\begin{dmath}\label{eqn:SimpleProducts2:720}
+\Rej{\Bu}{\Bx} \cdot \Proj_\Bu(\Bx)
+=
+\gpgradezero{ \Rej{\Bu}{\Bx} \Proj_\Bu(\Bx) }
+=
+\gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap \lr{ \Bx \cdot \ucap } \ucap }
+=
+\lr{ \Bx \cdot \ucap } \gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap^2 }
+=
+\lr{ \Bx \cdot \ucap } \gpgradezero{ \Bx \wedge \ucap },
+\end{dmath}
+
+however, selecting the scalar grade of the wedge product, a (grade-2) bivector, is zero.
+
+(cut)
+The pythagorean property of these two vector components can also be checked.
+Computing the squared length using \( \Norm{\By}^2 = \By \cdot \By = \By^2 \), the squared length of the projective component is
+
+\begin{dmath}\label{eqn:SimpleProducts2:740}
+\lr{ \lr{\Bx \cdot \ucap } \ucap }^2
+=
+\lr{\Bx \cdot \ucap }^2
+=
+(x_1 u_1 + x_2 u_2)^2
+=
+x_1^2 u_1^2 + x_2^2 u_2^2 + 2 x_1 x_2 u_1 u_2.
+\end{dmath}
+
+The squared length of the rejective component is
+\begin{dmath}\label{eqn:SimpleProducts2:760}
+\lr{ \lr{\Bx \wedge \ucap } \ucap }^2
+=
+-(\Bx \wedge \ucap) \ucap^2 (\Bx \wedge \ucap)
+=
+-
+\lr{\begin{vmatrix}
+   x_1 & x_2 \\
+   u_1 & u_2
+\end{vmatrix}}^2
+(\Be_1 \Be_2)^2
+=
+x_1^2 u_2^2 + x_2^2 u_1^2 - 2 x_1 x_2 u_1 u_2.
+\end{dmath}
+
+Adding these together gives
+
+\begin{dmath}\label{eqn:SimpleProducts2:780}
+\lr{ \lr{\Bx \cdot \ucap } \ucap }^2 + \lr{ \lr{\Bx \wedge \ucap } \ucap }^2
+=
+x_1^2 u_1^2 + x_2^2 u_2^2
++x_1^2 u_2^2 + x_2^2 u_1^2
+=
+x_1^2 ( u_1^2 + u_2^2 )
++
+x_2^2 ( u_1^2 + u_2^2 )
+=
+\Bx^2,
+\end{dmath}
+
+recovering the squared length of the vector as expected.
+It is generally true in higher dimensions that the projection and rejection can be written as
+
+\begin{dmath}\label{eqn:SimpleProducts2:800}
+\begin{aligned}
+\Proj_\ucap(\Bx) &= (\Bx \cdot \ucap) \ucap \\
+\RejName_\ucap(\Bx) &= (\Bx \wedge \ucap) \ucap.
+\end{aligned}
+\end{dmath}
+
+The Pythagorean aspect of this statement in higher degree spaces
+will be demonstrated later in a coordinate free fashion after some additional identities have been derived.
+
+The unit vector restriction defining the direction of projection and rejection can be relaxed in a compact fashion by introducing the vector \boldTextAndIndex{inverse}, which is always well defined and unique in a Euclidean space
+
+\boxedEquation{eqn:SimpleProducts2:860}{
+\inv{\Bu} \equiv \frac{\Bu}{\Bu^2}.
+}
+
+Now the projection and rejection onto the direction of \( \Bu \) are
+
+\boxedEquation{eqn:SimpleProducts2:880}{
+\begin{aligned}
+\Proj_\Bu(\Bx) &= (\Bx \cdot \Bu) \inv{\Bu} \\
+\RejName_\Bu(\Bx) &= (\Bx \wedge \Bu) \inv{\Bu}.
+\end{aligned}
+}
+\index{projection}
+\index{rejection}
+
+An illustrative example of both projection and rejection is plotted in \cref{fig:projectionAndRejection:projectionAndRejectionFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.3}
+
+\makedigression{Wedge and cross product relationships}{
+Given that the wedge product has the ``cross product like'' properties \( \Bx \wedge \Bx = 0 \), and \( \Bx \wedge \By = -\By \wedge \Bx \),
+and because the \R{3} expression of the rejection is
+
+\begin{equation}\label{eqn:SimpleProducts2:820}
+\RejName_\ucap(\Bx) = \Bx - (\Bx \cdot \ucap) \ucap = \ucap \cross (\Bx \cross \ucap),
+\end{equation}
+
+which is clearly similar to that of \cref{eqn:SimpleProducts2:800}, the observant reader may see from this expression that the wedge product in \R{3} seems to be related to the cross product in some fashion.
+The precise nature of that relationship will be detailed later.
+} % digression
+
+\makeproblem{Rejection normality}{problem:projectionAndRejection:rejectionnormality}{
+Prove, without any use of GA, that \( \Bx - \Proj_\Bu(\Bx) \) is normal to \( \Bu \), as claimed in
+\cref{dfn:projectionAndRejection:projectionandrejection}.
+} % problem
+
+
