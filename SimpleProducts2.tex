@@ -274,36 +274,40 @@ This is a very important identity, and will have a number of applications.
 It is premature to consider applications since
 the properties and geometry of the wedge product have not been explored.
 
-To start exploring that geometry let's consider the polar form of the vector, dot and wedge products for two vectors \( \Ba \) and \( \Bb \).
-Let \( i_{ab} \) be the unit pseudoscalar for the plane containing these two vectors (where \( \Bb \) is at a positive angle with respect to \( \Ba \) in this plane), and let
+To start exploring that geometry let's consider the polar form of the vector, dot and wedge products for two vectors \( \Ba \) and \( \Bb \), with respective magnitudes \( a, b \).  
+Let \( \ucap \) and \( \vcap \) be an orthonormal pair of vectors in the plane of \( \Ba \) and \( \Bb \), oriented in a positive rotational sense as illustrated in 
+\cref{fig:Parallelogram:ParallelogramFig1}.
+\imageFigure{../figures/GAelectrodynamics/ParallelogramFig1}{Two vectors in a plane.}{fig:Parallelogram:ParallelogramFig1}{0.3}
+If \( i_{ab} = \ucap \vcap \) is the unit pseudoscalar for the plane containing these vectors, then the polar forms are
 
 \begin{dmath}\label{eqn:SimpleProducts2:1660}
 \begin{aligned}
-\Ba &= a \Be_1 e^{ i_{ab} \theta_a } = a e^{ -i_{ab} \theta_a } \Be_1 \\
-\Bb &= b \Be_1 e^{ i_{ab} \theta_b } = b e^{ -i_{ab} \theta_b } \Be_1,
+\Ba &= a \ucap e^{ i_{ab} \theta_a } = a e^{ -i_{ab} \theta_a } \ucap \\
+\Bb &= b \ucap e^{ i_{ab} \theta_b } = b e^{ -i_{ab} \theta_b } \ucap,
 \end{aligned}
 \end{dmath}
 
-as illustrated in (FIXME).  The vector product of these two vectors is
+The vector product of these two vectors is
 
 \begin{dmath}\label{eqn:SimpleProducts2:1680}
 \Ba \Bb
 =
-\lr{ a e^{ -i_{ab} \theta_a } \Be_1 } \lr{ b \Be_1 e^{ i_{ab} \theta_b } }
+\lr{ a e^{ -i_{ab} \theta_a } \ucap } \lr{ b \ucap e^{ i_{ab} \theta_b } }
 =
 a b
-e^{ -i_{ab} \theta_a } ( \Be_1 \Be_1 ) e^{ i_{ab} \theta_b }
+e^{ -i_{ab} \theta_a } ( \ucap \ucap ) e^{ i_{ab} \theta_b }
 =
 a b
-e^{ i_{ab} (\theta_b - \theta_a)} ,
+e^{ i_{ab} (\theta_b - \theta_a)}.
 \end{dmath}
 
-or
+The vector, dot and wedge products are therefore
+
 \boxedEquation{eqn:SimpleProducts2:1700}{
 \begin{aligned}
 \Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} (\theta_b - \theta_a) } \\
 \Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos( \theta_b - \theta_a ) \\
-\Ba \wedge \Bb &= i_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a ) \\
+\Ba \wedge \Bb &= i_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a ).
 \end{aligned}
 }
 
