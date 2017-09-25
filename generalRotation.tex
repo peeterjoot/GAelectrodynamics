@@ -2,45 +2,142 @@
 \Cref{eqn:SimpleProducts2:180} showed that the \R{2} pseudoscalar anticommutes with any vector \( \Bx \in \bbR^{2} \),
 
 \begin{dmath}\label{eqn:SimpleProducts2:1760}
-\Bx i = -i \Bx.
+\Bx i = -i \Bx,
 \end{dmath}
 
-The higher dimensional generalization of this result is
+and that the complex exponential ``conjugate'' anticommutes with any vector
 
-\maketheorem{Commutation rules for wedge products.}{thm:SimpleProducts2:1780}{
-Given a planar subspace formed by the span of two non-colinear vectors \( S = \Span \setlr{ \Ba, \Bb } \), any vector \( \Bp \in S \) anticommutes with the wedge product \( \Ba \wedge \Bb \)
+\begin{dmath}\label{eqn:generalRotation:1820}
+\Bx e^{i\theta}
+=
+e^{-i\theta} \Bx.
+\end{dmath}
+
+The higher dimensional generalization of these results are
+
+\maketheorem{Commutation and conjugation rules for wedge products and complex exponentials.}{thm:SimpleProducts2:1780}{
+Given two
+non-colinear vectors \( \Ba, \Bb \), let
+the planar subspace formed by their span be designated
+\( S = \Span \setlr{ \Ba, \Bb } \).
+
+\begin{enumerate}[(a)]
+\item
+Any vector \( \Bp \in S \) anticommutes with the wedge product \( \Ba \wedge \Bb \)
 
 \begin{equation*}
 \Bp (\Ba \wedge \Bb) = - (\Ba \wedge \Bb) \Bp.
 \end{equation*}
-
-Moreover, any vector \( \Bn \) normal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 \)) commutes with this wedge product
+\item
+Any vector \( \Bn \) normal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 \)) commutes with this wedge product
 \begin{equation*}
 \Bn (\Ba \wedge \Bb) = (\Ba \wedge \Bb) \Bn.
 \end{equation*}
+\end{enumerate}
+\item
+Given a ``complex'' exponential \( e^{ \Ba \wedge \Bb } \), commutation
+of vectors \( \Bp \in S \) result in a ``conjugation'' of the exponential argument, whereas normal vectors \( \Bn \) commute with such an exponential, as follows
+
+\begin{equation*}
+\begin{aligned}
+\Bp e^{\Ba \wedge \Bb} &= e^{-\Ba \wedge \Bb} \Bp \\
+\Bn e^{\Ba \wedge \Bb} &= e^{\Ba \wedge \Bb} \Bn \\
+\end{aligned}
+\end{equation*}
 } % theorem
 
-The proof relies on the fact that a normal factorization of the wedge product is possible.  If \( \Bp \) is one of those factors, then the other is uniquely determined by the multivector equation \( \Ba \wedge \Bb = \Bp \Bq \), for which we must have \( \Bq \in S \) and \( \Bp \cdot \Bq = 0 \).  Then
+The proof relies on the fact that a normal factorization of the wedge product is possible.
+If \( \Bp \) is one of those factors, then the other is uniquely determined by the multivector equation \( \Ba \wedge \Bb = \Bp \Bq \), for which we must have \( \Bq = \inv{\Bx}(\Ba \wedge \Bb) \in S \) and \( \Bp \cdot \Bq = 0 \)
+\footnote{The identities required to show that \( \Bq \) above has no trivector grades, and to evaluate it explicitly in terms of \( \Ba, \Bb, \Bx \), will be derived later.}
+.
+Then
 
-\begin{dmath}\label{eqn:wedgeProductArea:n}
+\begin{dmath}\label{eqn:wedgeProductArea:1780}
 \Bp (\Ba \wedge \Bb)
 = \Bp (\Bp \Bq)
 = \Bp (-\Bq \Bp)
 = -(\Bp \Bq) \Bp
-= 
+=
 -(\Ba \wedge \Bb) \Bp.
 \end{dmath}
 
 Any normal \( \Bn \) must also be perpendicular to the factors \( \Bp, \Bq \), with \( \Bn \cdot \Bp = \Bn \cdot \Bq = 0 \), so
 
-\begin{dmath}\label{eqn:wedgeProductArea:n}
+\begin{dmath}\label{eqn:wedgeProductArea:1800}
 \Bn (\Ba \wedge \Bb)
 = \Bn (\Bp \Bq)
 = (-\Bp \Bn) \Bq
 = -\Bp (-\Bq \Bn)
 = (\Bp \Bq) \Bn
-(\Ba \wedge \Bb) \Bn,
+=
+(\Ba \wedge \Bb) \Bn.
+\end{dmath}
+
+For the complex exponentials, introduce a unit pseudoscalar for the plane \( i = \pcap \qcap \) satisfying \( i^2 = -1 \) and a scalar rotation angle \( \theta = \ifrac{ (\Ba \wedge \Bb) }{i} \), then for vectors \( \Bp \in S \)
+
+\begin{dmath}\label{eqn:generalRotation:1840}
+\Bp e^{ \Ba \wedge \Bb }
+=
+\Bp e^{ i \theta }
+=
+\Bp \lr{ \cos\theta + i \sin\theta }
+=
+\lr{ \cos\theta - i \sin\theta } \Bp
+=
+e^{-i\theta} \Bp
+=
+e^{- \Ba \wedge \Bb} \Bp,
+\end{dmath}
+
+and for vectors \( \Bn \) normal to \( S \)
+
+\begin{dmath}\label{eqn:generalRotation:1860}
+\Bn e^{ \Ba \wedge \Bb }
+=
+\Bn e^{ i \theta }
+=
+\Bn \lr{ \cos\theta + i \sin\theta }
+=
+\lr{ \cos\theta + i \sin\theta } \Bn
+=
+e^{i\theta} \Bn
+=
+e^{\Ba \wedge \Bb} \Bn,
 \end{dmath}
 
 which completes the proof.
 
+The point of this somewhat abstract seeming theorem is to prepare for the statement of a general \R{N} rotation, which is
+
+\makedefinition{General rotation}{dfn:generalRotation:generalrotation}{
+Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap \).  The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
+
+\begin{equation*}
+R_\theta(\Bx) = e^{ - i \theta/2 } \Bx e^{ i\theta/2 }.
+\end{equation*}
+
+Here the rotation sense is that of the \( \pi/2 \) rotation from \( \pcap \) to \( \qcap \) in the subspace \( S = \span B \).
+} % definition
+
+This statement did not make any mention to a normal direction which is not unique for dimensions higher than 3, nor defined for two dimensions.  
+Instead the rotational sense is defined by the ordering of the factors in the bivector \( i \).  
+Let's consider the action of this definition and verify that it has the desired semantics.
+
+Let \( \Bx = \Ba + \Bn \), where \( \Ba \in S \) and \( \Bn \cdot \Bp = 0 \forall \Bp \in S \).  Then
+
+\begin{dmath}\label{eqn:generalRotation:n}
+R_\theta(\Bx) 
+= 
+e^{ - i \theta/2 } \Bx e^{ i\theta/2 }
+= 
+e^{ - i \theta/2 } \lr{ \Ba + \Bn } e^{ i\theta/2 }
+= 
+\Ba e^{ i\theta } + 
+\Bn e^{ - i \theta/2 } e^{ i\theta/2 }
+=
+\Ba e^{ i\theta } + \Bn.
+\end{dmath}
+
+This rotation operation rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), and leaves any normal components of the vector unchanged.
+
+FIXME: illustration.
