@@ -3,39 +3,45 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 
-\makeproblem{\R{3} pseudoscalar square}{problem:gradeselection:R3PseudoscalarSquare}{
-With the \R{3} pseudoscalar of \cref{eqn:definitions:340} show that \( I^2 = -1 \).
-} % problem
+As with the use of the symbol \( i \) for the \R{2} pseudoscalar, it is not a coincidence that \( I \) was used 
+for the 
+\R{3} pseudoscalar.  It is also true that 
+\( I = \Be_1 \Be_2 \Be_3 \) behaves like a complex imaginary with \( I^2 = -1 \).  This follows 
+directly from repeated anticommutation
 
-\makeanswer{problem:gradeselection:R3PseudoscalarSquare}{
-
-Squaring the pseudoscalar gives
-
-\begin{dmath}\label{eqn:gaTutorial:160}
+\begin{dmath}\label{eqn:projectionAndRejection:1140}
 I^2
 =
-(\Be_1 \Be_2 \Be_3)
-(\Be_1 \Be_2 \Be_3)
+(\Be_1 \Be_2 \Be_3)(\Be_1 \Be_2 \Be_3)
 =
-\Be_1 \Be_2 (\Be_3
-\Be_1) \Be_2 \Be_3
+\Be_1 \Be_2 (\Be_3 \Be_1) \Be_2 \Be_3
 =
--\Be_1 \Be_2 \Be_1
-\Be_3 \Be_2 \Be_3
+\Be_1 \Be_2 (-\Be_1 \Be_3) \Be_2 \Be_3
 =
--\Be_1 (\Be_2 \Be_1)
-(\Be_3 \Be_2) \Be_3
+-\Be_1 \Be_2 \Be_1 (\Be_3 \Be_2) \Be_3
 =
--\Be_1 (\Be_1 \Be_2)
-(\Be_2 \Be_3) \Be_3
+-\Be_1 \Be_2 \Be_1 (-\Be_2 \Be_3) \Be_3
 =
--
-\Be_1^2
-\Be_2^2
-\Be_3^2
++\Be_1 \Be_2 \Be_1 \Be_2 (\Be_3 \Be_3)
 =
--1,
+(\Be_1 \Be_2)^2
+=
+-1.
 \end{dmath}
 
-as expected, showing that this quantity also has characteristics of an imaginary number.
-} % answer
+%\makeproblem{\R{3} pseudoscalar square}{problem:gradeselection:R3PseudoscalarSquare}{
+%With the \R{3} pseudoscalar of \cref{eqn:definitions:340} show that \( I^2 = -1 \).
+%} % problem
+%
+%\makeanswer{problem:gradeselection:R3PseudoscalarSquare}{
+%
+%\begin{dmath}\label{eqn:gaTutorial:160}
+%I^2
+%=
+%...
+%=
+%-1,
+%\end{dmath}
+%
+%as expected, showing that this quantity also has characteristics of an imaginary number.
+%} % answer

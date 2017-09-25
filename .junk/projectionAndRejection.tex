@@ -1,0 +1,81 @@
+
+(cut)
+The pythagorean property of these two vector components can also be checked.
+Computing the squared length using \( \Norm{\By}^2 = \By \cdot \By = \By^2 \), the squared length of the projective component is
+
+\begin{dmath}\label{eqn:SimpleProducts2:740}
+\lr{ \lr{\Bx \cdot \ucap } \ucap }^2
+=
+\lr{\Bx \cdot \ucap }^2
+=
+(x_1 u_1 + x_2 u_2)^2
+=
+x_1^2 u_1^2 + x_2^2 u_2^2 + 2 x_1 x_2 u_1 u_2.
+\end{dmath}
+
+The squared length of the rejective component is
+\begin{dmath}\label{eqn:SimpleProducts2:760}
+\lr{ \lr{\Bx \wedge \ucap } \ucap }^2
+=
+-(\Bx \wedge \ucap) \ucap^2 (\Bx \wedge \ucap)
+=
+-
+\lr{\begin{vmatrix}
+   x_1 & x_2 \\
+   u_1 & u_2
+\end{vmatrix}}^2
+(\Be_1 \Be_2)^2
+=
+x_1^2 u_2^2 + x_2^2 u_1^2 - 2 x_1 x_2 u_1 u_2.
+\end{dmath}
+
+Adding these together gives
+
+\begin{dmath}\label{eqn:SimpleProducts2:780}
+\lr{ \lr{\Bx \cdot \ucap } \ucap }^2 + \lr{ \lr{\Bx \wedge \ucap } \ucap }^2
+=
+x_1^2 u_1^2 + x_2^2 u_2^2
++x_1^2 u_2^2 + x_2^2 u_1^2
+=
+x_1^2 ( u_1^2 + u_2^2 )
++
+x_2^2 ( u_1^2 + u_2^2 )
+=
+\Bx^2,
+\end{dmath}
+
+recovering the squared length of the vector as expected.
+It is generally true in higher dimensions that the projection and rejection can be written as
+
+\begin{dmath}\label{eqn:SimpleProducts2:800}
+\begin{aligned}
+\Proj_\ucap(\Bx) &= (\Bx \cdot \ucap) \ucap \\
+\RejName_\ucap(\Bx) &= (\Bx \wedge \ucap) \ucap.
+\end{aligned}
+\end{dmath}
+
+The Pythagorean aspect of this statement in higher degree spaces
+will be demonstrated later in a coordinate free fashion after some additional identities have been derived.
+
+The unit vector restriction defining the direction of projection and rejection can be relaxed in a compact fashion by introducing the vector \boldTextAndIndex{inverse}, which is always well defined and unique in a Euclidean space
+
+\boxedEquation{eqn:SimpleProducts2:860}{
+\inv{\Bu} \equiv \frac{\Bu}{\Bu^2}.
+}
+
+Now the projection and rejection onto the direction of \( \Bu \) are
+
+\boxedEquation{eqn:SimpleProducts2:880}{
+\begin{aligned}
+\Proj_\Bu(\Bx) &= (\Bx \cdot \Bu) \inv{\Bu} \\
+\RejName_\Bu(\Bx) &= (\Bx \wedge \Bu) \inv{\Bu}.
+\end{aligned}
+}
+
+%\makelemma{\R{3} pseudoscalar commutation.}{dfn:projectionAndRejection:r3pcommutation}{
+%The \R{3} pseudoscalar \( I = \Be_1 \Be_2 \Be_3 \) commutes with all \R{3} multivectors.
+%} % lemma
+%
+%To prove this, it is sufficient to consider the commutation of \( I \) with each of the standard basis vectors \( \Be_1, \Be_2, \Be_3 \) (\cref{problem:projectionAndRejection:1160}).
+%
+Now the cross product form of the rejection equation can be determined
