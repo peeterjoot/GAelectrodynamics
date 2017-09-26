@@ -5,7 +5,7 @@
 \Bx i = -i \Bx,
 \end{dmath}
 
-and that the complex exponential ``conjugate'' anticommutes with any vector
+and that the complex exponential is conjugated under commutatation with any \R{2} vector
 
 \begin{dmath}\label{eqn:generalRotation:1820}
 \Bx e^{i\theta}
@@ -33,17 +33,20 @@ Any vector \( \Bn \) normal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 
 \begin{equation*}
 \Bn (\Ba \wedge \Bb) = (\Ba \wedge \Bb) \Bn.
 \end{equation*}
-\end{enumerate}
 \item
-Given a ``complex'' exponential \( e^{ \Ba \wedge \Bb } \), commutation
-of vectors \( \Bp \in S \) result in a ``conjugation'' of the exponential argument, whereas normal vectors \( \Bn \) commute with such an exponential, as follows
+The sign of the argument of a ``complex'' exponential \( e^{ \Ba \wedge \Bb } \) is toggled in a commutation operation with a vector \( \Bp \in S \)
 
 \begin{equation*}
-\begin{aligned}
-\Bp e^{\Ba \wedge \Bb} &= e^{-\Ba \wedge \Bb} \Bp \\
-\Bn e^{\Ba \wedge \Bb} &= e^{\Ba \wedge \Bb} \Bn \\
-\end{aligned}
+\Bp e^{\Ba \wedge \Bb} = e^{-\Ba \wedge \Bb} \Bp.
 \end{equation*}
+
+This sign change on interchange will be called conjugation.
+\item
+Any normal vectors \( \Bn \) commute with a such a complex exponential
+\begin{equation*}
+\Bn e^{\Ba \wedge \Bb} = e^{\Ba \wedge \Bb} \Bn.
+\end{equation*}
+\end{enumerate}
 } % theorem
 
 The proof relies on the fact that a normal factorization of the wedge product is possible.
@@ -110,7 +113,7 @@ which completes the proof.
 The point of this somewhat abstract seeming theorem is to prepare for the statement of a general \R{N} rotation, which is
 
 \makedefinition{General rotation}{dfn:generalRotation:generalrotation}{
-Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap, i^2 = -1\).  The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
+Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap \) where \( i^2 = -1\).  The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
 
 \begin{equation*}
 R_\theta(\Bx) = e^{ - i \theta/2 } \Bx e^{ i\theta/2 }.
@@ -119,25 +122,27 @@ R_\theta(\Bx) = e^{ - i \theta/2 } \Bx e^{ i\theta/2 }.
 Here the rotation sense is that of the \( \pi/2 \) rotation from \( \pcap \) to \( \qcap \) in the subspace \( S = \Span B \).
 } % definition
 
-This statement did not make any mention to a normal direction which is not unique for dimensions higher than 3, nor defined for two dimensions.
+This statement did not make any mention of a normal direction.
+Such a normal direction is not unique for dimensions higher than 3, nor defined for two dimensions.
 Instead the rotational sense is defined by the ordering of the factors in the bivector \( i \).
-Let's consider the action of this definition and verify that it has the desired semantics.
 
-Let \( \Bx = \Ba + \Bn \), where \( \Ba \in S \) and \( \Bn \cdot \Bp = 0 \forall \Bp \in S \).  Then
+To check that this operation has the desired semantics, 
+let \( \Bx = \Bx_\parallel + \Bx_\perp \), where \( \Bx_\parallel \in S \) and \( \Bx_\perp \cdot \Bp = 0 \forall \Bp \in S \).  Then
 
 \begin{dmath}\label{eqn:generalRotation:1880}
 R_\theta(\Bx)
 =
 e^{ - i \theta/2 } \Bx e^{ i\theta/2 }
 =
-e^{ - i \theta/2 } \lr{ \Ba + \Bn } e^{ i\theta/2 }
+e^{ - i \theta/2 } \lr{ \Bx_\parallel + \Bx_\perp } e^{ i\theta/2 }
 =
-\Ba e^{ i\theta } +
-\Bn e^{ - i \theta/2 } e^{ i\theta/2 }
+\Bx_\parallel e^{ i\theta } +
+\Bx_\perp e^{ - i \theta/2 } e^{ i\theta/2 }
 =
-\Ba e^{ i\theta } + \Bn.
+\Bx_\parallel e^{ i\theta } + \Bx_\perp.
 \end{dmath}
 
-This rotation operation rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), and leaves any normal components of the vector unchanged.  An illustration can be found in \cref{fig:Rotation:RotationFig1}.
+This rotation operation is illustration in \cref{fig:Rotation:RotationFig1}, and is seen to 
+rotate components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the normal components of the vector unchanged.
 
-\imageFigure{../figures/GAelectrodynamics/RotationFig1}{Rotation through plane of pseudoscalar.}{fig:Rotation:RotationFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/RotationFig1}{Rotation through plane of pseudoscalar.}{fig:Rotation:RotationFig1}{0.5}

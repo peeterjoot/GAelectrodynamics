@@ -41,34 +41,6 @@ This is a very convienient fact, and allows ad-hoc construction of complex numbe
 
 \section{Rework}
 (cut)
-Because the wedge product is completely antisymmetric, it must be true that
-
-\begin{dmath}\label{eqn:SimpleProducts2:580}
-\By \wedge \Bx = -\Bx \wedge \By,
-\end{dmath}
-
-so
-\begin{dmath}\label{eqn:SimpleProducts2:600}
-\By \Bx
-= \By \cdot \Bx + \By \wedge \Bx
-= \Bx \cdot \By - \Bx \wedge \By.
-\end{dmath}
-
-Taken together \cref{eqn:SimpleProducts2:540} and \cref{eqn:SimpleProducts2:600} allow for a construction of a coordinate free form of both the dot and wedge products
-
-%\begin{dmath}\label{eqn:SimpleProducts2:620}
-\boxedEquation{eqn:SimpleProducts2:620}{
-\begin{aligned}
-\Bx \cdot \By   &= \inv{2}\lr{ \Bx \By + \By \Bx } \\
-\Bx \wedge \By  &= \inv{2}\lr{ \Bx \By - \By \Bx }.
-\end{aligned}
-}
-%\end{dmath}
-
-These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.
-Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.
-Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way, and also allows for the generalization of the dot and wedge products with higher order geometric structures to be discussed.
-
 \paragraph{Area}
 
 It was previously claimed that the pseudoscalar \( \Be_1 \Be_2 \) could be interpretted as an oriented (signed) area.
@@ -101,28 +73,6 @@ This is illustrated in \cref{fig:orientedAreasVariety:orientedAreasVarietyFig1}.
 \imageFigure{../figures/GAelectrodynamics/orientedAreasVarietyFig1}{Different shape representations of a given bivector.}{fig:orientedAreasVariety:orientedAreasVarietyFig1}{0.2}
 
 (cut)
-\paragraph{Reflection}
-\index{reflection}
-
-Computation of the reflection of a vector through the origin, across the direction given by the vector \( \Bu \) (also passing through the origin) can now be expressed compactly.
-That is
-
-\begin{dmath}\label{eqn:SimpleProducts2:900}
-\Bx'
-= \lr{ \Bx \cdot \Bu }\Bu - \lr{ \Bx \wedge \Bu } \inv{\Bu }
-= \lr{ \Bx \cdot \Bu - \Bx \wedge \Bu } \inv{\Bu }
-= \inv{2} \lr{ \Bx \Bu + \Bu \Bx - \Bx \Bu + \Bu \Bx } \inv{\Bu },
-\end{dmath}
-
-or
-\boxedEquation{eqn:SimpleProducts2:920}{
-\Bx' = \Bu \Bx \inv{\Bu}.
-}
-
-An illustration of the geometry of reflection is provided in \cref{fig:reflection:reflectionFig1}.
-
-\imageFigure{../figures/GAelectrodynamics/reflectionFig1}{Reflection}{fig:reflection:reflectionFig1}{0.3}
-
 \paragraph{Solution of linear systems}
 
 Various types of linear systems can be solved using the wedge product.

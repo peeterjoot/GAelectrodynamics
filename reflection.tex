@@ -1,0 +1,28 @@
+\subsection{Reflection}
+\index{reflection}
+
+Geometrically the reflection of a vector \( \Bx \) across a line directed along \( \Bu \) is the difference of the projection and rejection
+
+\begin{dmath}\label{eqn:SimpleProducts2:900}
+\Bx'
+= \lr{ \Bx \cdot \Bu }\Bu - \lr{ \Bx \wedge \Bu } \inv{\Bu }
+= \lr{ \Bx \cdot \Bu - \Bx \wedge \Bu } \inv{\Bu }
+\end{dmath}
+
+Using the symmetric and antisymmetric sum representations of the dot and wedge products 
+cref{FIXME}, the reflection can be expressed as vector products
+
+\begin{dmath}\label{eqn:reflection:n}
+\Bx'
+= \inv{2} \lr{ \cancel{\Bx \Bu} + \Bu \Bx - \cancel{\Bx \Bu} + \Bu \Bx } \inv{\Bu }.
+\end{dmath}
+
+or
+\boxedEquation{eqn:SimpleProducts2:920}{
+\Bx' = \Bu \Bx \inv{\Bu}.
+}
+
+An illustration of the geometry of reflection is provided in \cref{fig:reflection:reflectionFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/reflectionFig1}{Reflection}{fig:reflection:reflectionFig1}{0.3}
+
