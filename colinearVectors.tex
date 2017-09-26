@@ -1,0 +1,47 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+It was pointed out that the vector multiplication operation was not assumed to be commutative (order matters).  The only condition for which the product of two vectors is order independent, is when those vectors are colinear.
+
+\maketheorem{Commutation}{thm:multiplication:commutation}{
+Let \(\Bu\), and \(\Bv\) be two non-zero colinear vectors.  The product of these vectors commute (is unchanged by interchange).
+
+\begin{equation*}
+\Bu \Bv = \Bv \Bu.
+\end{equation*}
+} % theorem
+
+The proof is simple.  Because these vectors are colinear there exists some \( \alpha \) for which \( \Bv = \alpha \Bu \), so
+
+\begin{dmath}\label{eqn:multivector:380}
+\Bv \Bu
+=
+(\alpha \Bu) \Bu
+=
+\alpha \Bu \Bu
+=
+\Bu \alpha \Bu
+=
+\Bu (\alpha \Bu)
+=
+\Bu \Bv.
+\end{dmath}
+
+Also observe that, because of the contraction axiom, the product of two colinear vectors is a scalar.  In particular, the square of a unit vector is unity, something that should be highlighted explicitly, since this property will be used again and again
+%\begin{equation}\label{eqn:multiplication:300}
+\boxedEquation{eqn:multiplication:320}{
+\xcap^2 = 1.
+}
+%\end{equation}
+
+For example, the squares of any orthonormal basis vectors are unity \( \Be_1^2 = \Be_2^2 = \Be^3 = 1 \).
+
+A corollory of this is that any scalar can also be factored into a product of two colinear vectors.
+In particular, the square \( 1 \) can be factored into the square of any unit vector
+
+\boxedEquation{eqn:multiplication:400}{
+1 = \xcap \xcap.
+}
+
+This has been highlighted explicitly, because this factorization trick will be used repeatedly.
