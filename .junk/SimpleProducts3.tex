@@ -2,8 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-\section{END MARKER}
-
+\section{MESS}
 The wedge product is related to the cross product, but can generalizes the cross product to two dimensions where there is no normal direction, and can generalize the cross product to greater than three dimensions, where any plane has too many normal directions.
 The cross product is a (pseudo)vector that has a magnitude equal to the area of the parallelogram spanned by the crossed vectors, but is pointed normal to the plane of those vectors.
 It will be possible to interpret the wedge product as the oriented (signed) area of that parallelogram itself without reference to any normal direction.
@@ -14,22 +13,7 @@ Recall (\cref{problem:SimpleProducts2:areaofparallelogram}) that the absolute va
 
 \imageFigure{../figures/GAelectrodynamics/orientedParallelogramFig1}{Oriented area interpretation of \( \Bv_1 \wedge \Bv_2 \) and \( \Bv_2 \wedge \Bv_1 \).}{fig:orientedParallelogram:orientedParallelogramFig1}{0.3}
 
-\makeproblem{Area of a parallelogram.}{problem:SimpleProducts2:areaofparallelogram}{
-Show that the area of a parallelogram formed by the \R{2} vectors \( \Ba = (a_1, a_2) \) and \( \Bb = (b_1, b_2) \) is the absolute value of
-
-\begin{equation*}
-\begin{vmatrix}
-a_1 & a_2 \\
-b_1 & b_2
-\end{vmatrix}.
-\end{equation*}
-} % problem
-
-%\makeanswer{problem:SimpleProducts2:areaofparallelogram}{
-%} % answer
-
-
-\section{mess of stuff to merge or delete.}
+(cut)
 
 Observe that in \R{2} the product of any basis vector with a pseudoscalar is normal to the original vector, which is also generally true for any vector in a 2D space,
 (snip)
@@ -43,9 +27,7 @@ This unit bivector is seen to square to minus one like the imaginary in complex 
 The reader can confirm easily that this is generally true for any unit bivector \( \Be_i \Be_j, \, i \ne j \).
 This is a very convienient fact, and allows ad-hoc construction of complex number like coordinate systems in any given planar subspace.
 
-\section{Rework}
 (cut)
-\paragraph{Area}
 
 It was previously claimed that the pseudoscalar \( \Be_1 \Be_2 \) could be interpretted as an oriented (signed) area.
 Because \( \Be_1 \cdot \Be_2 = 0 \), this vector product is also equal to the wedge
@@ -74,62 +56,3 @@ The wedge product will be seen to encode that orientation without introducing a 
 
 Because there are many possible pairs of generating vectors for any given bivector, any oriented area in a given plane with a specified area are all equally valid interpretations of a bivector.
 (cut)
-\paragraph{Solution of linear systems}
-
-Various types of linear systems can be solved using the wedge product.
-An illustrative example is that of the intersection of two lines as illustrated in \cref{fig:intersectionOfLines:intersectionOfLinesFig1}.
-
-\imageFigure{../figures/GAelectrodynamics/intersectionOfLinesFig1}{Intersection of two lines.}{fig:intersectionOfLines:intersectionOfLinesFig1}{0.3}
-
-In parametric form, the lines in this problem are
-
-\begin{dmath}\label{eqn:SimpleProducts2:1000}
-\begin{aligned}
-\Br_1(s) &= \Ba_0 + s( \Ba_1 - \Ba_2 ) \\
-\Br_2(t) &= \Bb_0 + t( \Bb_1 - \Bb_2 ),
-\end{aligned}
-\end{dmath}
-
-so the solution, if it exists, is found at the point satisfying the equality
-
-\begin{dmath}\label{eqn:SimpleProducts2:1020}
-\Ba_0 + s( \Ba_1 - \Ba_2 ) = \Bb_0 + t( \Bb_1 - \Bb_2 ).
-\end{dmath}
-
-With
-\begin{dmath}\label{eqn:SimpleProducts2:1040}
-\begin{aligned}
-\Bu_1 &= \Ba_1 - \Ba_2 \\
-\Bu_2 &= \Bb_1 - \Bb_2 \\
-\Bd &= \Ba_0 - \Bb_0,
-\end{aligned}
-\end{dmath}
-
-so the desired equation to solve is
-
-\begin{dmath}\label{eqn:SimpleProducts2:1060}
-\Bd + s \Bu_1 = t \Bu_2.
-\end{dmath}
-
-In \R{3} this problem can solved using the cross product (\cref{problem:crossProductLinearIntersectionProblem:1}), however, this can be solved more generally as a
-bivector equation by wedging both sides with either \( \Bu_1 \) or \( \Bu_2 \)
-
-\begin{dmath}\label{eqn:SimpleProducts2:1080}
-\begin{aligned}
-\Bd \wedge \Bu_1 &= t \Bu_2 \wedge \Bu_1 \\
-\Bd \wedge \Bu_2 + s \Bu_1 \wedge \Bu_2 &= 0,
-\end{aligned}
-\end{dmath}
-
-In \R{2} these equations have a solution if \( \Bu_1 \wedge \Bu_2 \ne 0 \), and in \R{N} these have solutions if the bivectors on each sides of the equations describe the same plane.
-Put another way, these have solutions when \( s \) and \( t \) are scalars and
-
-\begin{dmath}\label{eqn:SimpleProducts2:1100}
-\begin{aligned}
-s &= \frac{\Bu_2 \wedge \Bd}{\Bu_1 \wedge \Bu_2} \\
-t &= \frac{\Bu_1 \wedge \Bd}{\Bu_1 \wedge \Bu_2}.
-\end{aligned}
-\end{dmath}
-
-For \R{2},
-where the wedge product can be expressed as a (unit bivector scaled) determinant, this is precisely the Cramer's rule solution of the equivalent matrix equation.
