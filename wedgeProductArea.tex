@@ -15,7 +15,7 @@ The coordinate representation in this basis is
 \end{aligned}
 \end{dmath}
 
-Wedging these vectors gives
+Wedging these vectors using a grade 2 selection gives
 
 \begin{dmath}\label{eqn:SimpleProducts2:1860}
 \Ba \wedge \Bb
@@ -68,8 +68,61 @@ Such a basis allows for the most compact (single term) coordinate representation
 \ucap \vcap.
 \end{dmath}
 
-FIXME: justify an geometric interpretation (area).  show that multiple factorizations are possible, so there is naturally no preferred geometry for a bivector.  tie this to orientation.
+If a counterclockwise rotation by \( \pi/2 \) takes \( \ucap \) to \( \vcap \) the determinant will equal the area of the parallelogram spanned by \( \Ba \) and \( \Bb \).  Let that area be designated
 
-The wedge product is therefore the (possibly signed) area of the parallelopiped formed by the vectors \( \Ba, \Bb \), multiplied by a unit pseudoscalar for the subspace of the plane \( P \).
-Provided the area of this parallelopiped is non-zero, which is always the case for non-colinear vectors, there are clearly many possible normal factorizations for the wedge product.
+\begin{dmath}\label{eqn:wedgeProductArea:1920}
+A =
+\begin{vmatrix}
+   \Ba \cdot \ucap & \Ba \cdot \vcap \\
+   \Bb \cdot \ucap & \Bb \cdot \vcap
+\end{vmatrix}.
+\end{dmath}
+
+Any number of possible wedge (or normal) product representations of the same numeric 2-blade quantity are possible
+
+\begin{dmath}\label{eqn:wedgeProductArea:1940}
+\begin{aligned}
+\Ba \wedge \Bb
+&= (\Ba + \beta \Bb ) \wedge \Bb \\
+&= \Ba \wedge ( \Bb + \alpha \Ba ) \\
+&= (A \ucap) \wedge \vcap \\
+&= \ucap \wedge (A \vcap) \\
+&= (\alpha A \ucap) \wedge \frac{\vcap}{\alpha} \\
+&= (\beta A \ucap') \wedge \frac{\vcap'}{\beta} \\
+\end{aligned}
+\end{dmath}
+
+These equivalent values can be thought of as different possible parallelogram possible geometrical representations of the same object, provided the spanned area and relative ordering of the wedged vectors remains constant.
+Some different parallelogram representations of a single 2-blade are illustrated in \cref{fig:parrallelograms:parrallelogramsFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/parrallelogramsFig1}{Parallelogram representations of wedge products.}{fig:parrallelograms:parrallelogramsFig1}{0.3}
+
+An arbitrary 2-blade need not be ``factored'' into any pair of normal vectors, nor is there any a-priori reason to represent such an object as a wedge product of two specific vectors.  In this sense there is no definitive geometry to a 2-blade, and it can be represented as any fixed area with a given cyclic orientation, as 
+illustrated in \cref{fig:orientedAreasVariety:orientedAreasVarietyFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/orientedAreasVarietyFig1}{Different shape representations of a given bivector.}{fig:orientedAreasVariety:orientedAreasVarietyFig1}{0.2}
+
+\makeproblem{Parallelogram area.}{problem:wedgeProductArea:R2parallelogramarea}{
+Show that the area \( A \) of the parallelogram spanned by vectors
+
+\begin{equation*}
+\begin{aligned}
+\Ba &= a_1 \Be_1 + a_2 \Be_2 \\
+\Bb &= b_1 \Be_1 + b_2 \Be_2,
+\end{aligned}
+\end{equation*}
+
+is
+\begin{equation*}
+A =
+\pm
+\begin{vmatrix}
+   a_1 & a_2 \\
+   b_1 & b_2 \\
+\end{vmatrix}
+,
+\end{equation*}
+
+and that the sign is positive if the rotation angle \( \theta \) that takes \( \acap \) to \( \bcap \) is positive, \( \theta \in (0,\pi) \).
+} % problem
 
