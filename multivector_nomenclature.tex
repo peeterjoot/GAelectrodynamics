@@ -4,6 +4,8 @@
 %
 A fair amount of nomenclature and notation is unfortunately required before systematically examining the implications of the multivector space axioms that define geometric algebra.
 
+\index{blade}
+\index{grade}
 \makedefinition{Blade and grade}{def:multiplication:blade}{
 A product of \( k \) perpendicular vectors is called a k-blade, or a blade of grade \( k \).
 A grade zero blade is a scalar.
@@ -45,6 +47,7 @@ and
 
 which cannot be factored into two vector products, are not blades.
 
+\index{k-vector}
 \makedefinition{k-vector.}{dfn:multivector:kvector}{
 A sum of k-blades is called a k-vector.
 } % definition
@@ -54,6 +57,7 @@ Multivectors are therefore sums of k-vectors with different grades.
 All the k-blade examples above are also k-vectors.
 K-vectors with grades 2 and 3 are so pervasive that they are given special names.
 
+\index{bivector}
 \makedefinition{Bivector.}{dfn:multivector:bivector}{
 A bivector, or 2-vector, is a k-vector with grade 2.
 } % definition
@@ -62,6 +66,7 @@ The product \( \Be_1 \Be_2 \) is a bivector, as is \( \Be_2 \Be_3 + 3 \Be_4 \Be_
 %Each of \( \Be_1 \Be_2, \Be_2 \Be_1, \Be_1 \Be_2 + \Be_2 \Be_3 \), and \( \Be_1 \Be_2 + \Be_3 \Be_4 \) are bivectors.
 %All but the last of these represents an oriented plane segment.
 
+\index{trivector}
 \makedefinition{Trivector.}{dfn:multivector:trivector}{
 A trivector, or 3-vector, is a k-vector with grade 3.
 } % definition
@@ -71,6 +76,7 @@ The multivector \( \Be_3 \Be_1 \Be_2 \) is a trivector, as is \( \Be_1 \Be_2 \Be
 %Each of \( \Be_1 \Be_2 \Be_3, \Be_1 \Be_3 \Be_2, \Be_1 \Be_4 \Be_2 \) are trivectors.
 % , and represent oriented volumes.
 
+\index{grade selection}
 \makedefinition{Grade selection operator}{dfn:gradeselection:gradeselection}{
 Given a set of k-vectors \( M_k, k \in [0,N] \), and any multivector of their sum
 
@@ -100,6 +106,7 @@ For example, if \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 \), then
 \end{aligned}
 \end{equation}
 
+\index{orthonormal blades}
 \makedefinition{Orthonormal product shorthand.}{dfn:multivector:shorthand}{
 Given an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \), a multiple indexed quantity \( \Be_{ij\cdots k} \) should be interpretted as the product (in the same order) of the basis elements with those indexes
 
@@ -118,6 +125,7 @@ For example,
 \end{aligned}
 \end{equation}
 
+\index{pseudoscalar}
 \makedefinition{Pseudoscalar.}{def:multiplication:pseudoscalar}{
 A blade with grade that matches the dimension of the space.
 }

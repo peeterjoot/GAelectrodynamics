@@ -2,6 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+\index{linear combination}
 \makedefinition{Linear combination}{dfn:prerequisites:linearcombination}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
 A linear combination of vectors in \( S \) is any sum
@@ -16,6 +17,7 @@ a_k \Bx_k.
 \end{equation*}
 } % definition
 
+\index{linear dependence}
 \makedefinition{Linear dependence.}{dfn:prerequisites:dependence}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
 This set \( S \) is linearly dependent if any equation
@@ -33,6 +35,7 @@ a_k \Bx_k,
 can be constructed for which not all of the coefficients \( a_i \) are zero.
 } % definition
 
+\index{linear independence}
 \makedefinition{Linear independence.}{dfn:prerequisites:independence}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
 This set is linearly independent if the there are no equations with \( a_i \ne 0 \) such that
@@ -48,6 +51,7 @@ a_k \Bx_k.
 \end{equation*}
 } % definition
 
+\index{span}
 \makedefinition{Span.}{dfn:prerequisites:span}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  The span
 of this set is the set of all linear combinations of these vectors, denoted
@@ -64,11 +68,14 @@ a_k \Bx_k}.
 \end{equation*}
 } % definition
 
+\index{subspace}
 \makedefinition{Subspace.}{dfn:prerequisites:subspace}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).  This subset is
 a subspace if \( S \) is a vector space under the multiplication and addition operations of the vector space \( V \).
 } % definition
 
+\index{basis}
+\index{dimension}
 \makedefinition{Basis and dimension}{dfn:prerequisites:basisanddimension}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_n } \) be a linearly independent subset of \( V \).  This set is a basis if \( \Span(S) = V \).  The number of vectors \( n \) in this set is called the dimension of the space.
 } % definition

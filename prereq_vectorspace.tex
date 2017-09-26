@@ -2,16 +2,17 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-Vectors have many generalizations in mathematics.
-A number of disparate mathematical objects
+Vectors have many generalizations in mathematics, where 
+a number of disparate mathematical objects
 %, such as
 %directed ``arrows'', tuples of real or complex numbers, matrices, functions, polynomials, and quantum states
 can all be considered vectors.
-A vector space is an enumeration of the properties and operations that are common to such a set of
-vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation.
+A vector space is an enumeration of the properties and operations that are common to a set of
+vector-like objects, allowing them to be treated in a unified fashion, regardless of their representation and application.
 %The definition of a vector space and some other basic ideas from linear algebra are all reviewed here.
 %This review will set the stage for the definition of a \boldTextAndIndex{multivector space}, the GA analogue of a vector space.
 
+\index{vector space}
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
 A (real) vector space is a set \( V \), the elements of which are called vectors, which has an addition and scalar multiplication operations, such that
 for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \),
@@ -37,23 +38,17 @@ infinite dimensional vector spaces.
 The only unconventional vector space of interest will be a ``space-time'' vector space containing a 
 time like ``direction'', 1-3 spatial directions, and a generalized length operation that can be negative.
 
+\index{\R{N}}
 \makeproblem{\R{N}}{problem:prerequisites:RN}{
 Define \R{N} as the set of tuples \( \setlr{ (x_1, x_2, \cdots) | x_i \in \bbR } \).  
-Let
-\( \Bx = (x_1, x_2, \cdots) \), 
-\( \By = (y_1, y_2, \cdots) \).
-
 Show that \R{N} is a vector space when the 
-addition operation for \( \Bx, \By \in \bbR^N \) is defined as
-
-\begin{equation*}
-\Bx + \By \equiv (x_1 + y_1, x_2 + y_2, \cdots),
-\end{equation*}
-
-and scalar multiplication for any 
-\( a \in \bbR \) is defined as
-
-\begin{equation*}
-a \Bx \equiv (a x_1 , a x_2 , \cdots ).
-\end{equation*}
+addition operation is defined as
+\( \Bx + \By \equiv (x_1 + y_1, x_2 + y_2, \cdots) \)
+, and
+scalar multiplication 
+is defined as
+\( a \Bx \equiv (a x_1 , a x_2 , \cdots ) \) for any 
+\( \Bx = (x_1, x_2, \cdots) \in \bbR^N \),
+\( \By = (y_1, y_2, \cdots) \in \bbR^N \), and
+\( a \in \bbR \).
 } % problem

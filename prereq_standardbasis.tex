@@ -2,6 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+\index{dot product}
 \makedefinition{Dot product.}{dfn:prerequisites:dotproduct}{
 Let \( \Bx, \By \) be vectors from a vector space \( V \).
 A dot product \( \Bx \cdot \By \) is a mapping \( V \cross V \rightarrow \bbR \)
@@ -17,9 +18,6 @@ a b' (\Bx \cdot \By') + b a' (\By \cdot \Bx') \)
     (Optional) Positive definite & \( \Bx \cdot \Bx \ge 0 \) \\ \hline
 \end{tcolorbox}
 } % definition
-
-In GA it can be useful to omit the requirement for a dot product to have the positive definite property.
-This has specific relevance in electrodynamics, since Maxwell's equations take their simplest form when expressed in terms of four-vector (relativistic) vector spaces.
 
 Because the dot product is bilinear, it is
 specified completely by the dot products of a set of basis elements for the space.  For example,
@@ -53,8 +51,12 @@ Such an expansion in coordinates can be written in matrix form as
 
 where \( G \) is the symmetric matrix with elements \( g_{ij} = \Be_i \cdot \Be_j \).  This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space.
 
-In this book the metric is always diagonal, with all diagonal values having an absolute value of one.
+In this book the metric is always diagonal, with all diagonal values having an absolute value of one.  
+The positive definite property \( \Bx^\T G \By \ge 0 \) is not required of the metric or its associated dot product.  
+This omission has specific 
+relevance in electrodynamics, since Maxwell's equations take their simplest form when expressed in terms of four-vector (relativistic) vector spaces, where some of the metric matrix elements are negative.
 
+\index{length}
 \makedefinition{Length}{dfn:prerequisites:norm}{
    The squared norm of a vector \( \Bx \) is defined as
 
@@ -72,6 +74,7 @@ a quantity that need not be positive.  The length of a vector \( \Bx \) is defin
 
 %A vector space with an associated norm based length is called a normed vector space.  Any dot product space is also a normed vector space.
 
+\index{unit vector}
 \makedefinition{Unit vector}{dfn:prerequisites:unitvector}{
    A vector \( \Bx \) is called a unit vector if its absolute squared length is one, \( \Abs{\Bx \cdot \Bx} = 1 \).
 } % definition
@@ -82,21 +85,25 @@ a quantity that need not be positive.  The length of a vector \( \Bx \) is defin
 %\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
 %\end{dmath}
 %
+\index{normal}
 \makedefinition{Normal}{dfn:prerequisites:normal}{
    Two vectors \( \Bx, \By \) are normal, or orthogonal, if their dot product is zero, \( \Bx \cdot \By = 0 \).
 }
 
+\index{orthonormal}
 \makedefinition{Orthonormal}{dfn:prerequisites:orthonormal}{
    Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and normal to each other, \( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = \Abs{\By \cdot \By} = 1 \).
 
    A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
 }
 
+\index{standard basis}
 \makedefinition{Standard basis.}{dfn:prerequisites:standardbasis}{
    A basis
 \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called a standard basis if that set is orthonormal.
 } % definition
 
+\index{Euclidean space}
 \makedefinition{Euclidean space.}{dfn:prerequisites:euclideanspace}{
    A vector space with basis
    \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called Euclidean if all the dot product pairs between the basis elements are not only orthonormal, but positive definite.  That is
