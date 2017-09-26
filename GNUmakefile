@@ -66,6 +66,7 @@ include ../latex/make.rules
 
 #all :: $(THISBOOK).pdf
 all :: ellipticalWaves.pdf
+all :: junk.pdf
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 
