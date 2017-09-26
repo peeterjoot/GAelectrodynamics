@@ -1,14 +1,21 @@
+The coordinate representation of the \R{2} wedge product (\cref{eqn:SimpleProducts2:1720}) had a single \( \Be_{12} \) determinant factor, whereas the expansion in coordinates for the general \R{N} wedge product was considerably messier (\cref{eqn:SimpleProducts2:1320}).
+This difference is essentially just one of the choice of basis.
 
-To prove \cref{thm:SimpleProducts2:wnormalfactorize}, first assume that there is an orthonormal basis \( \setlr{\ucap, \vcap} \) for the planar subspace \( P = \Span\setlr{ \Ba, \Bb } \), for which
+A simpler coordinate representation for the \R{N} wedge product follows by choosing an
+orthonormal basis
+for the planar subspace spanned by the wedge vectors.
+Given vectors \( \Ba, \Bb \), let \( \setlr{\ucap, \vcap} \) be an orthonormal basis for the plane subspace
+\( P = \Span\setlr{ \Ba, \Bb } \).
+The coordinate representation in this basis is
 
-\begin{dmath}\label{eqn:SimpleProducts2:1840}
+\begin{dmath}\label{eqn:wedgeProductArea:1900}
 \begin{aligned}
 \Ba &= (\Ba \cdot \ucap) \ucap + (\Ba \cdot \vcap) \vcap \\
 \Bb &= (\Bb \cdot \ucap) \ucap + (\Bb \cdot \vcap) \vcap.
 \end{aligned}
 \end{dmath}
 
-The wedge of \( \Ba, \Bb \) in terms of this basis is
+Wedging these vectors gives
 
 \begin{dmath}\label{eqn:SimpleProducts2:1860}
 \Ba \wedge \Bb
@@ -61,5 +68,6 @@ Such a basis allows for the most compact (single term) coordinate representation
 \ucap \vcap.
 \end{dmath}
 
-The wedge product is therefore the (possibly signed) area of the parallelopiped formed by the vectors \( \Ba, \Bb \), multiplied by a unit pseudoscalar for the subspace of the plane \( P \).  Provided the area of this parallelopiped is non-zero, which is always the case for non-colinear vectors, there are clearly many possible normal factorizations for the wedge product.
+The wedge product is therefore the (possibly signed) area of the parallelopiped formed by the vectors \( \Ba, \Bb \), multiplied by a unit pseudoscalar for the subspace of the plane \( P \).
+Provided the area of this parallelopiped is non-zero, which is always the case for non-colinear vectors, there are clearly many possible normal factorizations for the wedge product.
 

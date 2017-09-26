@@ -103,3 +103,9 @@ perl -p -i ../latex/bin/latexRegex.pl projectionAndRejection.tex
 ../latex/bin/lgrep generalRotation.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl generalRotation.tex
 
+../latex/bin/lgrep wedgeProductArea.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl wedgeProductArea.tex
+
+../latex/bin/lgrep symmetricAndAntiSymmetricVectorSums.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl symmetricAndAntiSymmetricVectorSums.tex
+

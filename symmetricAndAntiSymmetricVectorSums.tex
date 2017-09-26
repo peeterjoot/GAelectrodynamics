@@ -1,29 +1,39 @@
-Because the wedge product is completely antisymmetric, it must be true that
 
-\begin{dmath}\label{eqn:SimpleProducts2:580}
-\By \wedge \Bx = -\Bx \wedge \By,
+\maketheorem{Symmetric and antisymmetric vector products.}{thm:symmetricAndAntiSymmetricVectorSums:symmetricAndAnti}{
+\begin{enumerate}
+\item The dot product of vectors \( \Bx, \By \) can be written as
+\begin{equation*}
+\Bx \cdot \By = \inv{2}\lr{ \Bx \By + \By \Bx }.
+\end{equation*}
+
+This sum, including all permutations of the products of \( \Bx \) and \( \By \) is called a completely symmetric sum.
+\item The wedge product of vectors \( \Bx, \By \) can be written as
+\begin{equation*}
+\Bx \wedge \By = \inv{2}\lr{ \Bx \By - \By \Bx }.
+\end{equation*}
+
+This sum, including all permutations of the products \( \Bx \) and \( \By \), with a sign change for any interchange, is called a completely antisymmetric sum.
+\end{enumerate}
+} % theorem
+
+These identities highlight the symmetric and antisymmetric nature of the respective dot and wedge products in a coordinate free form, and will be useful in the manipulation of various identities.
+The proof follows by direct compuation after first noting that the respect vector products are
+
+\begin{subequations}
+\label{eqn:symmetricAndAntiSymmetricVectorSums:660}
+\begin{dmath}\label{eqn:symmetricAndAntiSymmetricVectorSums:640}
+\Bx \By = \Bx \cdot \By + \Bx \wedge \By
 \end{dmath}
-
-so
-\begin{dmath}\label{eqn:SimpleProducts2:600}
+\begin{dmath}\label{eqn:symmetricAndAntiSymmetricVectorSums:680}
 \By \Bx
 = \By \cdot \Bx + \By \wedge \Bx
 = \Bx \cdot \By - \Bx \wedge \By.
 \end{dmath}
+\end{subequations}
 
-Taken together \cref{eqn:SimpleProducts2:540} and \cref{eqn:SimpleProducts2:600} allow for a construction of a coordinate free form of both the dot and wedge products
+In \cref{eqn:symmetricAndAntiSymmetricVectorSums:680} the interchange utilized the respective symmetric and antisymmetric nature of the dot and wedge products.
 
-%\begin{dmath}\label{eqn:SimpleProducts2:620}
-\boxedEquation{eqn:SimpleProducts2:620}{
-\begin{aligned}
-\Bx \cdot \By   &= \inv{2}\lr{ \Bx \By + \By \Bx } \\
-\Bx \wedge \By  &= \inv{2}\lr{ \Bx \By - \By \Bx }.
-\end{aligned}
-}
-%\end{dmath}
+Adding and subtracting \cref{eqn:symmetricAndAntiSymmetricVectorSums:660} proves the result.
 
-These highlight the symmetric and antisymmetric nature of the respective dot and wedge products.
-Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.
-Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way, and also allows for the generalization of the dot and wedge products with higher order geometric structures to be discussed.
-
-
+%Some authors will use \cref{eqn:SimpleProducts2:620} as the definitions of the dot and wedge products instead of defining them in terms of grade selection.
+%Grade selection is preferred here since it allows for a generalization of the wedge product to multiple vectors in higher degree spaces in a particularily simple way, and also allows for the generalization of the dot and wedge products with higher order geometric structures to be discussed.
