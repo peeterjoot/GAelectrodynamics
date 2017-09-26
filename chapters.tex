@@ -7,11 +7,19 @@
    \chapter{Geometric Algebra}
       \section{Prerequesits}
          \input{prerequisites.tex}
+         \subsection{Vector space}
+            \input{prereq_vectorspace.tex}
+         \subsection{Basis, span and dimension.}
+            \input{prereq_basisspandim.tex}
+         \subsection{Standard basis, length and normality.}
+            \input{prereq_standardbasis.tex}
       \section{Definitions}
-         \input{multivector.tex}
+         \subsection{Multivector space.}
+            \input{multivector.tex}
+         \subsection{Nomenclature.}
+            \input{multivector_nomenclature.tex}
       \section{Analysis.}
-         \paragraph{Unless otherwise stated, a Euclidean vector space with an orthonormal basis \( \setlr{\Be_1, \Be_2, \cdots } \) is assumed for the remainder of this chapter.}
-Generalizations required for non-Euclidean spaces will be discussed when spacetime vectors are introduced.
+         \input{analysis_cavaet.tex}
          \subsection{Colinear vectors.}
             \input{colinearVectors.tex}
          \subsection{Normal vectors.}
@@ -34,6 +42,7 @@ Generalizations required for non-Euclidean spaces will be discussed when spaceti
             \input{symmetricAndAntiSymmetricVectorSums.tex}
          \subsection{Reflection.}
             \input{reflection.tex}
+   \chapter{REWORK}
          \section{REWORK}
             \subsection{Duality}
                \input{dual.tex}
@@ -47,8 +56,6 @@ Generalizations required for non-Euclidean spaces will be discussed when spaceti
                \input{solutionOfLinearSystem.tex}
             \subsection{Reverse}
                \input{reverse.tex}
-            \subsection{Reverse 2?}
-               \input{reverseDefined.tex}
             \subsection{Miscellanious theorems}
                \input{../stokesTheorem/bladeDotWedgeSymmetryIdentitiesTheorem.tex}
                \input{../gabookI/appendix/wedgeDistributionIdentity.tex}
@@ -62,39 +69,12 @@ Generalizations required for non-Euclidean spaces will be discussed when spaceti
                \input{gradethreeselectionWedge.tex}
                \input{../stokesTheorem/bladeDotWedgeSymmetryIdentities.tex}
                \input{../gabookI/appendix/wedgeDistributionIdentityProblems.tex}
-      \section{Problem solutions}
-         \shipoutAnswer
-%%iii) Transformation of a vector  from one cs to another is trivial and is performed via dot multiplication with a sigma matrix
-%%
-%%But that matrix is not the representation of a vector.  Instead, it is a representation of a scalar+bivector multivector of the form
-%%
-%%vec{y} = vec{x} e^B
-%%
-%%where 
-%%
-%%e^B = vec{y} 1/(vec{x}).
-%%
-%%Here B is a bivector that has the orientation of the plane of rotation between x and y, and whos magnitude is the rotation angle between the two.
-%%
-%%
-%%By the way I have another question for you. Is there any relation between rotations and change of coordinates?
-%%Yes.  Given the rotation operator that describes the change of basis, the coordinates in both frames can be computed without too much trouble.
-%%
-%%A change of basis rotation in GA is generally written in a two sided form
-%%
-%%\vec{x} \rightarrow R^\dagger \vec{x} R
-%%
-%%The coordinates associated with a vector in either frame can be extracted using dot products (and those dot products can be assembled into a conventional rotation matrix).
-%%
-%%A chapter on rotations in the GA book is definitely on order.  This should include translation to conventional matrix methods, and change of basis transformations.
-%%
 %      \section{Equivalent identities}
 %gabookI: 4.1+
 %      \section{Cramer's rule}
 %gabookI: 5.  Generalize examples to higher dimensions.
-%         \subsection{Problems}
-%      \section{Problem solutions}
-%         \shipoutAnswer
+      \section{Problem solutions}
+         \shipoutAnswer
 
 %<TEMPORARY COMMENT OUT FOR QUICKER BUILD.>
 %%%%
