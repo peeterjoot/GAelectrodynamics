@@ -8,7 +8,7 @@ The differential form of Maxwell's equations, with extensions for magnetic sourc
 
 \input{../ece1229-antenna/MaxwellsStatement.tex}
 
-The magnetic sources can be considered fictional, but are useful for modelling real phenomina such as infinitesimal current loops, especially in antenna theory.
+The magnetic sources can be considered fictional, but are useful for modelling real phenomena such as infinitesimal current loops, especially in antenna theory.
 
 \input{../ece1229-antenna/MaxwellsFieldAndSourceDescription.tex}
 
@@ -88,7 +88,7 @@ leaves a pair of bivector and a pair of scalar equations
 %%%\end{subequations}
 %%%
 %Each of these forms can be useful in different circumstances, however the real power of GA in electromagnetism follows 
-Constituative relationships between the pairs of electric and magnetic fields are required
+Constitutive relationships between the pairs of electric and magnetic fields are required
 
 \begin{subequations}
 \label{eqn:maxwellsEquations:300}
@@ -100,10 +100,10 @@ Constituative relationships between the pairs of electric and magnetic fields ar
 \end{dmath}
 \end{subequations}
 
-where \( \epsilon \) is the permitivitity of the medium [\si{F/m}] (Farads/meter), and \( \mu \) is the permeability of the medium [\si{H/m}] (Henries/meter).
-The permitivitity and permeability may be functions of both time and position, and model the materials that the fields are propagating through.  In general, the these may be non-isotropic tensor operators, however, unless otherwise specified, isotropic media will be assumed in these notes.
+where \( \epsilon \) is the permittivity of the medium [\si{F/m}] (Farads/meter), and \( \mu \) is the permeability of the medium [\si{H/m}] (Henries/meter).
+The permittivity and permeability may be functions of both time and position, and model the materials that the fields are propagating through.  In general, the these may be non-isotropic tensor operators, however, unless otherwise specified, isotropic media will be assumed in these notes.
 
-With this constitutative relationship assumed (and a bit of rescaling), the dot and wedge products of \cref{eqn:maxwellsEquations:60}, \cref{eqn:maxwellsEquations:100} can be added, as can those of \cref{eqn:maxwellsEquations:80}, \cref{eqn:maxwellsEquations:120}.  This reduces Maxwell's equations to a pair of first order coupled gradient equations
+With this constitutive relationship assumed (and a bit of rescaling), the dot and wedge products of \cref{eqn:maxwellsEquations:60}, \cref{eqn:maxwellsEquations:100} can be added, as can those of \cref{eqn:maxwellsEquations:80}, \cref{eqn:maxwellsEquations:120}.  This reduces Maxwell's equations to a pair of first order coupled gradient equations
 
 \begin{subequations}
 \label{eqn:maxwellsEquations:361}
@@ -255,7 +255,7 @@ The theorem follows from computing the divergence of the Poynting vector \( \bcS
 (I \bcH) \cdot \bcE.
 \end{equation}
 
-Similarily, the Poynting divergence is most compactly expressed as a scalar selection operation
+Similarly, the Poynting divergence is most compactly expressed as a scalar selection operation
 
 \begin{equation}\label{eqn:maxwellsEquations:640}
 \spacegrad \cdot \lr{ \bcE \cross \bcH }
@@ -284,7 +284,7 @@ Explicit left and right acting gradients are required because the gradient opera
 The gradient action on \( I \bcH \) (from the left) is given by
 \cref{eqn:maxwellsEquations:380}.  The right acting gradient action on \( \bcE \) is given by reversing all the products in
 %\spacegrad \bcE = \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)}
-\cref{eqn:maxwellsEquations:360} (in particualar noting that \( I^\dagger = -I \) )
+\cref{eqn:maxwellsEquations:360} (in particular noting that \( I^\dagger = -I \) )
 
 \begin{dmath}\label{eqn:maxwellsEquations:660}
 %I \bcH \lspacegrad = \frac{I q_\txtm}{\mu} + \bcJ + \epsilon \PD{t}{\bcE}.
