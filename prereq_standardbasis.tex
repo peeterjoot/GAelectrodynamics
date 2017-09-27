@@ -60,15 +60,15 @@ relevance in electrodynamics, since Maxwell's equations take their simplest form
 \makedefinition{Length}{dfn:prerequisites:norm}{
    The squared norm of a vector \( \Bx \) is defined as
 
-\begin{dmath}\label{eqn:prerequisites:200}
+\begin{equation*}
    \Norm{\Bx}^2 = \Bx \cdot \Bx,
-\end{dmath}
+\end{equation*}
 
 a quantity that need not be positive.  The length of a vector \( \Bx \) is defined as
 
 \begin{equation*}
 \Norm{\Bx} =
-\sqrt{\Abs{ \Norm{\Bx}^2 }}.
+\sqrt{\Abs{ \Bx \cdot \Bx }}.
 \end{equation*}
 }
 
@@ -76,7 +76,7 @@ a quantity that need not be positive.  The length of a vector \( \Bx \) is defin
 
 \index{unit vector}
 \makedefinition{Unit vector}{dfn:prerequisites:unitvector}{
-   A vector \( \Bx \) is called a unit vector if its absolute squared length is one, \( \Abs{\Bx \cdot \Bx} = 1 \).
+   A vector \( \Bx \) is called a unit vector if its absolute squared norm is one (\( \Abs{\Bx \cdot \Bx} = 1 \)).
 } % definition
 
 %A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
@@ -87,12 +87,12 @@ a quantity that need not be positive.  The length of a vector \( \Bx \) is defin
 %
 \index{normal}
 \makedefinition{Normal}{dfn:prerequisites:normal}{
-   Two vectors \( \Bx, \By \) are normal, or orthogonal, if their dot product is zero, \( \Bx \cdot \By = 0 \).
+   Two vectors from a vector space \( V \) are normal, or orthogonal, if their dot product is zero, \( \Bx \cdot \By = 0 \forall \Bx, \By \in V \).
 }
 
 \index{orthonormal}
 \makedefinition{Orthonormal}{dfn:prerequisites:orthonormal}{
-   Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and normal to each other, \( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = \Abs{\By \cdot \By} = 1 \).
+   Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and normal to each other (\( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = \Abs{\By \cdot \By} = 1 \)).
 
    A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
 }
