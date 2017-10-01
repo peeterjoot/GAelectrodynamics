@@ -5,14 +5,10 @@
 
 \index{dual}
 \makedefinition{Dual}{dfn:definitions:dual}{
-The dual of a multivector is the product of that multivector with a pseudoscalar for a subspace that contains the multivector.  Such multiplication is referred to as a duality transformation.
+The dual of a multivector is the product of that multivector with a pseudoscalar for a subspace that contains the multivector.  Such multiplication is referred to as a duality transformation, and can often be interpretted as an operation that produces a normal.
 } % definition
 
-For example, given \( M = 1 + \Be_1 \Be_2 \), multiplication by \( i = \Be_1 \Be_2 \) is a duality transformation with respect to the x-y plane, and multiplication by \( I = \Be_1 \Be_2 \Be_3 \) is a duality transformation with \R{3}.
-
-(cut)
-consider some concrete examples of duality transformations of blades.
-The dual vectors to the basis vectors of a 2D space are those same vectors rotated by \( \pi/2 \)
+The dual vectors to the \R{2} basis vectors are those same vectors rotated by \( \pi/2 \)
 
 \begin{dmath}\label{eqn:definitions:360}
 \begin{aligned}
@@ -53,5 +49,15 @@ whereas the duals to those bivectors with respect to the pseudoscalar \( I^{-1} 
 In a sense that can be defined more precisely once the general dot product operator is defined, the dual to a given blade represents an object that is normal to the original blade.
 
 The dual of any scalar is a pseudoscalar, whereas the dual of a pseudoscalar is a scalar.
+
+A duality transformation can also be applied to multivectors.  
+For example in \R{2}, given \( M = 1 + i\), its dual is
+
+\begin{dmath}\label{eqn:dual:n}
+M i = i - 1.
+\end{dmath}
+
+Because this particular multivector had a complex structure the duality operation can be interpretted as a rotation of a vector.  
+How to geometrically interpret the duality transformation of a general multivector is not obvious.
 
 %When working with multivector integrals it will be useful to consider the differential volume element a volume weighted pseudoscalar.
