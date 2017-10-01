@@ -7,7 +7,7 @@ A fair amount of nomenclature and notation is unfortunately required before syst
 \index{blade}
 \index{grade}
 \makedefinition{Blade and grade}{def:multiplication:blade}{
-A product of \( k \) perpendicular vectors is called a k-blade, or a blade of grade \( k \).
+A product of \( k \) normal vectors is called a k-blade, or a blade of grade \( k \).
 A grade zero blade is a scalar.
 
 The notation \( F \in \bigwedge^k \) is used in the literature to indicate that \( F \) is a blade of grade \( k \).
@@ -27,7 +27,7 @@ Examples of blades with grades 0, 1, 2, and 3 respectively are
 \end{aligned}
 \end{dmath}
 
-Multivectors which can be factored into perpendicular vector products, such as
+Multivectors which can be factored into normal vector products, such as
 \begin{dmath}\label{eqn:multiplication:220}
 \Be_1 \Be_2 + 3 \Be_1 \Be_3
 =
@@ -64,7 +64,7 @@ K-vectors with grades 2 and 3 are so pervasive that they are given special names
 A bivector, or 2-vector, is a k-vector with grade 2.
 } % definition
 
-The product \( \Be_1 \Be_2 \) is a bivector, as is \( \Be_2 \Be_3 + 3 \Be_4 \Be_1 \)
+Any 2-blade, such as the product \( \Be_1 \Be_2 \) is a bivector.  Any sum of 2-blades, such as \( \Be_2 \Be_3 + 3 \Be_4 \Be_1 \), is also a bivector.
 %Each of \( \Be_1 \Be_2, \Be_2 \Be_1, \Be_1 \Be_2 + \Be_2 \Be_3 \), and \( \Be_1 \Be_2 + \Be_3 \Be_4 \) are bivectors.
 %All but the last of these represents an oriented plane segment.
 
@@ -132,22 +132,32 @@ For example,
 A blade with grade that matches the dimension of the space.
 }
 
-In a two dimensional space \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \).  In a three dimensional space
-\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 \Be_2 \).
+In a two dimensional space \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \).  We will see shortly that these are related by a constant factor.
+In a three dimensional space the 3-blade
+\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 \Be_2 \).  Both of these are also related by a constant factor.
 %A pseudoscalar has an implied orientation, which can be
 %associated with the handedness of the underlying basis.
 It is conventional to refer to
 
-\begin{dmath}\label{eqn:definitions:320}
-i = \Be_1 \Be_2,
-\end{dmath}
+\boxedEquation{eqn:definitions:320}{
+\Be_{12} = \Be_1 \Be_2,
+}
 
 as ``the pseudoscalar'' for a two dimensional space, and to
 
-\begin{dmath}\label{eqn:definitions:340}
-I = \Be_1 \Be_2 \Be_3,
-\end{dmath}
+\boxedEquation{eqn:definitions:340}{
+\Be_{123} = \Be_1 \Be_2 \Be_3,
+}
 
 as ``the pseudoscalar'' for a three dimensional space.
 
+We will see that geometric algebra allows for many quantities that have a complex imaginary nature, and that the pseudoscalars of \cref{eqn:definitions:320} and \cref{eqn:definitions:340} both square to \(-1\).  
 
+For this reason, it is often convienent to use a imaginary notation for the \R{2} and \R{3} pseudoscalars
+
+\begin{dmath}\label{eqn:multivector_nomenclature:42}
+\begin{aligned}
+i &= \Be_{12} \\
+I &= \Be_{123}.
+\end{aligned}
+\end{dmath}

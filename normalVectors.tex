@@ -2,12 +2,13 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-The simplest bivectors are products of two different orthonormal vectors.  For \R{3} all such bivectors that can be formed from the basis elements are \( \Be_1 \Be_2, \Be_2 \Be_1, \Be_2 \Be_3, \Be_3 \Be_2, \Be_3 \Be_1, \Be_1 \Be_3 \).
+An interchange of the order of the products of two normal factors results in a change of sign,
+for example \( \Be_2 \Be_1 = -\Be_1 \Be_2 \).
+This is a consequence of the contraction axiom, and can be demonstrated by squaring the vector
+\( \Be_1 + \Be_2 \) (\cref{fig:unitSum:unitSumFig1}).
 
-These are not all independent, which an be demonstrated simply by consider the square of the vector \( \Be_1 + \Be_2 \),
-as sketched in \cref{fig:unitSum:unitSumFig1}.
 \imageFigure{../figures/GAelectrodynamics/unitSumFig1}{\( \Be_1 + \Be_2 \).}{fig:unitSum:unitSumFig1}{0.3}
-By the contraction axiom, the square of this vector is \( 2 \)
+By the contraction axiom, the square of this vector is \( 2 \), the squared length of the vector
 
 \begin{dmath}\label{eqn:multivector:420}
 \lr{ \Be_1 + \Be_2 }^2 =
@@ -25,7 +26,7 @@ By the contraction axiom, the square of this vector is \( 2 \)
 2.
 \end{dmath}
 
-Computing this same square by expansion in vector products must give the same result, but for that we get
+On the other hand, deferring the application of the contraction axiom until after the vectors products have been distributed gives
 
 \begin{dmath}\label{eqn:gaTutorial:80}
 (\Be_1 + \Be_2)^2
@@ -35,8 +36,10 @@ Computing this same square by expansion in vector products must give the same re
 = 2 + \Be_2 \Be_1 + \Be_1 \Be_2.
 \end{dmath}
 
-The right hand side is a mixed grade multivector with grades zero and two, however, it must also equal \( 2 \).
-The only possible solution requires that the sum of all the grade two components of this equation are zero
+The right hand side of 
+\cref{eqn:gaTutorial:80}, 
+a mixed grade multivector with grades zero and two, must also equal \cref{eqn:multivector:420}.
+A solution requires that the grade two components all sum to zero
 
 \begin{dmath}\label{eqn:multivector:280}
 \Be_2 \Be_1 + \Be_1 \Be_2 = 0,
@@ -62,4 +65,3 @@ Changing the order of these products toggles the sign of the bivector.
 
 This sign change on interchange is called anticommutation.
 } % theorem
-

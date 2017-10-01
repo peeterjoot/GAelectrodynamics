@@ -106,6 +106,9 @@ perl -p -i ../latex/bin/latexRegex.pl generalRotation.tex
 ../latex/bin/lgrep wedgeProductArea.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl wedgeProductArea.tex
 
+../latex/bin/lgrep 2dRotations.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl 2dRotations.tex
+
 ../latex/bin/lgrep symmetricAndAntiSymmetricVectorSums.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl symmetricAndAntiSymmetricVectorSums.tex
 
