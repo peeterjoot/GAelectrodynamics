@@ -8,7 +8,7 @@
 \Bx i = -i \Bx,
 \end{dmath}
 
-and that the complex exponential is conjugated under commutatation with any \R{2} vector
+and that the sign of the 2-blade exponential parameter must be negated to maintain the value of the vector \( \Bx \in \bbR^2 \) on interchange
 
 \begin{dmath}\label{eqn:generalRotation:1820}
 \Bx e^{i\theta}
@@ -29,7 +29,6 @@ the planar subspace formed by their span be designated
 \begin{enumerate}[(a)]
 \item
 Any vector \( \Bp \in S \) anticommutes with the wedge product \( \Ba \wedge \Bb \)
-
 \begin{equation*}
 \Bp (\Ba \wedge \Bb) = - (\Ba \wedge \Bb) \Bp.
 \end{equation*}
@@ -39,8 +38,9 @@ Any vector \( \Bn \) normal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 
 \Bn (\Ba \wedge \Bb) = (\Ba \wedge \Bb) \Bn.
 \end{equation*}
 \item
-The sign of the argument of a ``complex'' exponential \( e^{ \Ba \wedge \Bb } \) is toggled in a commutation operation with a vector \( \Bp \in S \)
-
+Reversing the order of multipication of a
+vector \( \Bp \in S \) with an exponential 
+\( e^{ \Ba \wedge \Bb } \), requires the sign of the exponential arguement to be negated
 \begin{equation*}
 \Bp e^{\Ba \wedge \Bb} = e^{-\Ba \wedge \Bb} \Bp.
 \end{equation*}
@@ -120,7 +120,6 @@ The point of this somewhat abstract seeming theorem is to prepare for the statem
 \index{rotation}
 \makedefinition{General rotation}{dfn:generalRotation:generalrotation}{
 Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap \) where \( i^2 = -1\).  The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
-
 \begin{equation*}
 R_\theta(\Bx) = e^{ - i \theta/2 } \Bx e^{ i\theta/2 }.
 \end{equation*}
@@ -149,6 +148,6 @@ e^{ - i \theta/2 } \lr{ \Bx_\parallel + \Bx_\perp } e^{ i\theta/2 }
 \end{dmath}
 
 As desired, this rotation operation
-rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the normal components of the vector unchanged, as illustrated in \cref{fig:Rotation:RotationFig1}.
+rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the normal components of the vector unchanged, as illustrated in \cref{fig:Rotation:RotationFig1}.  This is what we can call rotation around a normal in \R{3}.
 
 \imageFigure{../figures/GAelectrodynamics/RotationFig1}{Rotation with respect to a plane.}{fig:Rotation:RotationFig1}{0.5}

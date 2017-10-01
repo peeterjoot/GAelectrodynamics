@@ -9,20 +9,18 @@ decomposition of the vector product can be applied to compute vector projection 
 \index{rejection}
 \makedefinition{Projection and rejection}{dfn:projectionAndRejection:projectionandrejection}{
 Given a vector \( \Bx \) and vector \( \Bu \) the projection of \( \Bx \) onto the direction of \( \Bu \) is defined as
-
 \begin{equation*}
 \Proj_\Bu(\Bx) = (\Bx \cdot \ucap) \ucap,
 \end{equation*}
 
 where \( \ucap = \Bu/\Norm{\Bu} \).  The rejection of \( \Bu \) from \( \Bx \) is defined as the component of \( \Bx \) that is
 normal to \( \Bu \)
-
 \begin{equation*}
 \Rej{\Bu}{\Bx} = \Bx - \Proj_\Bu(\Bx).
 \end{equation*}
 } % definition
 
-It is possible to factor unity as \( 1 = \ucap \ucap \) to derive a useful GA representation of the projective and rejective components of a vector
+Computation of the projective and rejective components of a vector \( \Bx \) relative to a direction \( \ucap \) requires little more than a multiplication by \( 1 = \ucap \ucap \), and some rearrangement
 
 \begin{dmath}\label{eqn:SimpleProducts2:680}
 \Bx =
@@ -50,7 +48,8 @@ The vector \( \Bx \) is split nicely into its projection and rejective component
 By construction,
 \( \lr{ \Bx \wedge \ucap } \ucap \) must be a vector, despite any appearance of a multivector nature.
 
-The utility of this multivector rejection formula is not for hand or computer algebra calculations, where it will generally be faster and simpler to compute \( \Bx - (\Bx \cdot \ucap) \ucap \).  Instead this will come in handy as a new abstract algebraic tool.
+The utility of this multivector rejection formula is not for hand or computer algebra calculations, where it will generally be faster and simpler to compute \( \Bx - (\Bx \cdot \ucap) \ucap \), than to use \cref{eqn:projectionAndRejection:910}.
+Instead this will come in handy as a new abstract algebraic tool.
 
 When it is desirable to perform this calculation explicitly, it can be done more efficiently using a no-op grade selection operation.
 In particular, a vector can be written as it's own grade-1 selection
@@ -68,6 +67,8 @@ as a generalized bivector-vector dot product
 = \gpgradeone{ \lr{ \Bx \wedge \ucap } \ucap }
 = \lr{ \Bx \wedge \ucap } \cdot \ucap.
 \end{equation}
+
+FIXME: merge in the examples of these sorts of dot products into generalizedDotAndWedge.tex so this makes more sense.
 
 To help establish some confidence with these new additions to our toolbox, here are a
 pair of illustrative examples using
@@ -175,7 +176,8 @@ Using this notation, an example of projection and rejection with respect to a di
 
 \imageFigure{../figures/GAelectrodynamics/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.3}
 
-It was claimed in the definition of rejection that the rejection is normal to the projection.  This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).  This also follows naturally using the grade selection operator, which illustrates another useful new GA technique
+It was claimed in the definition of rejection that the rejection is normal to the projection.  This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).  
+This also follows naturally using the grade selection operator representation of the dot product
 
 \begin{dmath}\label{eqn:SimpleProducts2:720}
 \Rej{\Bu}{\Bx} \cdot \Proj_\Bu(\Bx)
@@ -186,11 +188,11 @@ It was claimed in the definition of rejection that the rejection is normal to th
 =
 \lr{ \Bx \cdot \ucap } \gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap^2 }
 =
-\lr{ \Bx \cdot \ucap } \gpgradezero{ \Bx \wedge \ucap }.
+\lr{ \Bx \cdot \ucap } \gpgradezero{ \Bx \wedge \ucap }
+= 0.
 \end{dmath}
 
-Since the scalar grade of a wedge product, a (grade-2) bivector, is zero,
-this demonstrates that the projection and rejection are normal.
+This is zero because the scalar grade of a wedge product, a bivector, is zero by definition.
 
 Finally, since the \R{3} wedge product is related to the cross product through \cref{eqn:SimpleProducts2:1620},
 it is reasonable to ask how the wedge product form of the rejection operator can be
@@ -231,12 +233,14 @@ Application of \cref{eqn:SimpleProducts2:1620} a second time to the remaining ve
    \ucap \cross \lr{ \Bx \cross \ucap }.
 \end{dmath}
 
-This is a result that may already be familiar.
+This is a result that may already be familiar,
 % implicitly used in the front cover of Jackson
-Without GA, one can prove that \cref{eqn:projectionAndRejection:1180} matches the rejection definition by choosing a coordinate system so that \( \ucap \) is aligned with one of the standard basis vectors.
-It is also possible to prove this using the identity \( \Ba \cross ( \Bb \cross \Bc ) = (\Ba \cdot \Bc) \Bb - (\Ba \cdot \Bb) \Bc \) (\citep{jackson1975cew}).
+%Without GA, one can prove that \cref{eqn:projectionAndRejection:1180} matches the rejection definition by choosing a coordinate system so that \( \ucap \) is aligned with one of the standard basis vectors.
+%It is also possible to prove this using 
+as it follows from
+the identity \( \Ba \cross ( \Bb \cross \Bc ) = (\Ba \cdot \Bc) \Bb - (\Ba \cdot \Bb) \Bc \) (\citep{jackson1975cew}).
 A very compact proof using coordinates and using tensor contraction methods is also possible (see: \citep{landau1951classical}).
-These methods are all arguably less elegant than this coordinate free GA approach.
+These methods are all arguably less elegant than this GA derivation.
 
 \makeproblem{Rejection normality}{problem:projectionAndRejection:rejectionnormality}{
 Prove, without any use of GA, that \( \Bx - \Proj_\Bu(\Bx) \) is normal to \( \Bu \), as claimed in

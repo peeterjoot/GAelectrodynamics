@@ -343,36 +343,3 @@ Note that these imply the wedge product also has the cross product filtering pro
 %\Ba \wedge \Ba = 0.
 %\end{dmath}
 %
-\subsection{Multivector dot and wedge products.}
-
-The dot product with scalar grade selection allows
-identification,
-in general we define the dot product of multivectors in terms of a similar grade selection
-
-\index{multivector dot product}
-\makedefinition{Multivector dot product}{dfn:gradeselection:100}{
-The dot (or inner) product of two multivectors
-\( A = \sum_{i = 0}^N \gpgrade{A}{i}, B = \sum_{i = 0}^N \gpgrade{B}{i} \)
-is defined as
-
-\begin{equation*}
-A \cdot B \equiv
-\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{\Abs{i - j}},
-\end{equation*}
-
-where \( A_i = \gpgrade{ A }{i} \)
-and \( B_i = \gpgrade{ B }{i} \) are the respective grades of the multivectors \( A, B \).
-} % definition
-
-Like the multivector dot product, we define a multivector wedge product as a grade selection operation
-
-\index{multivector wedge product}
-\makedefinition{Multivector wedge product.}{dfn:gradeselection:480}{
-For the multivectors \( A, B \) defined in \cref{dfn:gradeselection:100}, the wedge (or outer) product is defined as
-
-\begin{equation*}
-A \wedge B
-\equiv
-\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i + j}.
-\end{equation*}
-} % definition
