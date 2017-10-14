@@ -1,0 +1,62 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+The dot product has been identified with scalar grade selection.  This motivates a general
+multivector dot product definition.
+
+\index{multivector dot product}
+\makedefinition{Multivector dot product}{dfn:generalizedDot:100}{
+The dot (or inner) product of two multivectors
+\( A = \sum_{i = 0}^N \gpgrade{A}{i}, B = \sum_{i = 0}^N \gpgrade{B}{i} \)
+is defined as
+\begin{equation*}
+A \cdot B \equiv
+\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{\Abs{i - j}},
+\end{equation*}
+}
+
+In many cases we are interested only in dot products between pairs of k-vectors.
+If \( A, B \) are a k-vectors with grades \( i, j \) respectively, then their dot product is just a single grade selection operation
+
+\begin{dmath}\label{eqn:generalizedDot:580}
+A \cdot B = \gpgrade{ A B }{\Abs{i - j}}.
+\end{dmath}
+
+In particular, when the grades of two k-vectors are equal, the dot product is just the scalar selection of their product
+
+\begin{dmath}\label{eqn:generalizedDot:580}
+A \cdot B = \gpgradezero{ A B }.
+\end{dmath}
+
+As a first example, consider a specific vector-bivector dot product
+
+\begin{dmath}\label{eqn:generalizedDot:560}
+\lr{ \Be_1 + \Be_2 } \cdot \lr{ \Be_1 \Be_2 + 3 \Be_2 \Be_3 }
+=
+\gpgradeone{
+\lr{ \Be_1 + \Be_2 } \lr{ \Be_1 \Be_2 + 3 \Be_2 \Be_3 }
+}
+=
+\gpgradeone{
+\Be_1^2 \Be_2 + 3 \Be_1 \Be_2 \Be_3
++
+\Be_2^2 \lr{ -\Be_1 + 3 \Be_3 }
+}
+=
+\gpgradeone{
+\Be_2 + 3 \cancel{\Be_1 \Be_2 \Be_3}
+-
+\Be_1 + 3 \Be_3
+}
+=
+\Be_2 - \Be_1 + 3 \Be_3.
+\end{dmath}
+
+Observe that the vector-bivector dot product selects only products with common factors, since any others are trivectors.
+
+\subsubsection{Problems.}
+   \input{vectorBivectorDot.tex}
+         \shipoutAnswer
+   \input{bivectorDot.tex}
+         \shipoutAnswer

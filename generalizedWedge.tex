@@ -1,0 +1,74 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+Like the multivector dot product, we define a multivector wedge product as a grade selection operation
+
+\index{multivector wedge product}
+\makedefinition{Multivector wedge product.}{dfn:generalizedWedge:480}{
+For the multivectors \( A, B \) defined in \cref{dfn:generalizedWedge:100}, the wedge (or outer) product is defined as
+\begin{equation*}
+A \wedge B
+\equiv
+\sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i + j}.
+\end{equation*}
+} % definition
+
+\paragraph{examples}
+
+For example, the wedge product of the 2D vectors of \cref{eqn:generalizedWedge:140} is
+
+\begin{dmath}\label{eqn:generalizedWedge:500}
+\Ba \wedge \Bb
+=
+\gpgradetwo{
+\lr{ x \Be_1 + y \Be_2 }
+\lr{ x' \Be_1 + y' \Be_2 }
+}
+=
+\gpgradetwo{
+(x x' + y y') + (x y' - x' y) \Be_1 \Be_2
+}
+=
+(x y' - x' y) \Be_1 \Be_2.
+\end{dmath}
+
+The wedge product of two vectors in a plane contains an antisymmetrized sum of the vector coefficients, but is weighted by a ``unit'' bivector, the pseudoscalar for the plane.
+
+As another example consider
+
+\begin{dmath}\label{eqn:generalizedWedge:520}
+\Be_1 \wedge \lr{ 2\Be_1 + 3 \Be_2 }
+=
+\gpgradetwo{
+\Be_1 \lr{ 2\Be_1 + 3 \Be_2 }
+}
+=
+\gpgradetwo{
+2 \Be_1^2 + 3 \Be_1 \Be_2
+}
+=
+3 \Be_1 \Be_2.
+\end{dmath}
+
+Components of the vectors are that colinear are filtered out.  In this case that is the \( \Be_1 \) component of the second vector \( \Be_1 + 3 \Be_2 \).  It is not coincidence that this is also a property of the cross product.  That relationship will be explored in (\cref{problem:generalizedWedge:WedgeRelationshipToCrossProduct}).
+
+As a final example, consider the wedge product of a vector with a bivector
+
+\begin{dmath}\label{eqn:generalizedWedge:540}
+\Be_1 \wedge \lr{ \Be_1 \Be_2 - 7 \Be_2 \Be_3 }
+=
+\gpgradethree{
+\Be_1 \lr{ \Be_1 \Be_2 - 7 \Be_2 \Be_3 }
+}
+=
+\gpgradethree{
+\Be_1^2 \Be_2 - 7 \Be_1 \Be_2 \Be_3
+}
+=
+- 7 \Be_1 \Be_2 \Be_3.
+\end{dmath}
+
+Because \( \Be_1 \Be_2 \) has a common factor with \( \Be_1 \) it is filtered out of the resulting wedge product.  The end result, in this case, is a 3D pseudoscalar.
+
+The wedge product of two bivectors in \R{3}, by this definition, is always zero, since there can be no grade 4 term in such a product.  It is also the case that the components of any \R{3} bivectors wedged together will also have a common factor, which necessarily kills the wedge product of any two \R{3} bivectors.  This is not the case for arbitrary \R{N} bivectors, an example of which is \( \Be_1 \Be_2 + \Be_3 \Be_4 \).  There is no common factor in this bivector, so it can be wedged with itself and still produce a non-zero result (i.e. this bivector is not a blade).
