@@ -3,11 +3,11 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %----------------------------------------------------------------------------------------
-\part{Geometric Algebra}
-   \chapter{Geometric Algebra}
-      \section{Prerequesits}
+\part{Geometric Algebra.}
+   \chapter{Geometric Algebra.}
+      \section{Prerequisites.}
          \input{prerequisites.tex}
-         \subsection{Vector space}
+         \subsection{Vector space.}
             \input{prereq_vectorspace.tex}
          \subsection{Basis, span and dimension.}
             \input{prereq_basisspandim.tex}
@@ -32,15 +32,40 @@
             \input{products.tex}
          \subsection{Multivector dot product.}
             \input{generalizedDot.tex}
+            \subsubsection{Theorems.}
+               \input{../stokesTheorem/bladeDotWedgeSymmetryIdentitiesTheorem.tex}
+            \subsubsection{Problems.}
+               \input{vectorBivectorDot.tex}
+                  \shipoutAnswer
+               \input{bivectorDot.tex}
+                  \shipoutAnswer
+         \subsection{Scalar selection theorems.}
+            FIXME: Find a home for these.
+            \subsubsection{Problems.}
+               \input{cyclicpermutationtwo.tex}
+                  \shipoutAnswer
+               \input{scalarPermutation.tex}
+                  \shipoutAnswer
          \subsection{Multivector wedge product.}
             \input{generalizedWedge.tex}
-         \subsection{Duality}
+            \subsubsection{Problems.}
+               \input{r4nonzerobivectorwedgewithself.tex}
+                  \shipoutAnswer
+               \input{vectorTrivectorDot.tex}
+                  \shipoutAnswer
+               \input{gradethreeselectionWedge.tex}
+                  \shipoutAnswer
+               \input{../gabookI/appendix/wedgeDistributionIdentityProblems.tex}
+                  \shipoutAnswer
+               \input{../gabookI/appendix/wedgeDistributionIdentity.tex}
+                  \shipoutAnswer
+         \subsection{Duality.}
            \input{dual.tex}
-         \subsection{Reverse}
+         \subsection{Reverse.}
             \input{reverse.tex}
          \subsection{Imaginary nature of the \R{3} pseudoscalar.}
             \input{R3PseudoscalarSquare.tex}
-         \subsection{Projection and rejection}
+         \subsection{Projection and rejection.}
             \input{projectionAndRejection.tex}
          \subsection{Normal factorization of the wedge product.}
             \input{normalFactorization.tex}
@@ -52,34 +77,10 @@
             \input{symmetricAndAntiSymmetricVectorSums.tex}
          \subsection{Reflection.}
             \input{reflection.tex}
-         \subsection{Linear systems}
+         \subsection{Linear systems.}
             \input{solutionOfLinearSystem.tex}
-%XX
-   \chapter{REWORK}
-            \subsection{Orientation}
-              \input{orientation.tex}
-            \subsection{Cyclic permutation in scalar selection.}
-            %\subsection{Dot products of other blades.}
-            \subsection{Orientation.}
-            \subsection{Wedge of multiple vectors.}
-            \subsection{Miscellanious theorems}
-               \input{../stokesTheorem/bladeDotWedgeSymmetryIdentitiesTheorem.tex}
-               \input{../gabookI/appendix/wedgeDistributionIdentity.tex}
-            \subsection{Problems}
-               \input{cyclicpermutationtwo.tex}
-               \input{vectorTrivectorDot.tex}
-               \input{r4nonzerobivectorwedgewithself.tex}
-               \input{scalarPermutation.tex}
-               \input{gradethreeselectionWedge.tex}
-               \input{../stokesTheorem/bladeDotWedgeSymmetryIdentities.tex}
-               \input{../gabookI/appendix/wedgeDistributionIdentityProblems.tex}
-%      \section{Equivalent identities}
-%gabookI: 4.1+
-%      \section{Cramer's rule}
-%gabookI: 5.  Generalize examples to higher dimensions.
-      \section{Problem solutions}
-         \shipoutAnswer
-%XX
+         \subsection{Orientation.}
+            \input{orientation.tex}
 
 %<TEMPORARY COMMENT OUT FOR QUICKER BUILD.>
 %%%%

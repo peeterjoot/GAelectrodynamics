@@ -6,7 +6,7 @@ Like the multivector dot product, we define a multivector wedge product as a gra
 
 \index{multivector wedge product}
 \makedefinition{Multivector wedge product.}{dfn:generalizedWedge:480}{
-For the multivectors \( A, B \) defined in \cref{dfn:generalizedWedge:100}, the wedge (or outer) product is defined as
+For the multivectors \( A, B \) defined in \cref{dfn:generalizedDot:100}, the wedge (or outer) product is defined as
 \begin{equation*}
 A \wedge B
 \equiv
@@ -16,44 +16,45 @@ A \wedge B
 
 \paragraph{examples}
 
-For example, the wedge product of the 2D vectors of \cref{eqn:generalizedWedge:140} is
-
-\begin{dmath}\label{eqn:generalizedWedge:500}
-\Ba \wedge \Bb
-=
-\gpgradetwo{
-\lr{ x \Be_1 + y \Be_2 }
-\lr{ x' \Be_1 + y' \Be_2 }
-}
-=
-\gpgradetwo{
-(x x' + y y') + (x y' - x' y) \Be_1 \Be_2
-}
-=
-(x y' - x' y) \Be_1 \Be_2.
-\end{dmath}
-
-The wedge product of two vectors in a plane contains an antisymmetrized sum of the vector coefficients, but is weighted by a ``unit'' bivector, the pseudoscalar for the plane.
-
-As another example consider
-
-\begin{dmath}\label{eqn:generalizedWedge:520}
-\Be_1 \wedge \lr{ 2\Be_1 + 3 \Be_2 }
-=
-\gpgradetwo{
-\Be_1 \lr{ 2\Be_1 + 3 \Be_2 }
-}
-=
-\gpgradetwo{
-2 \Be_1^2 + 3 \Be_1 \Be_2
-}
-=
-3 \Be_1 \Be_2.
-\end{dmath}
-
-Components of the vectors are that colinear are filtered out.  In this case that is the \( \Be_1 \) component of the second vector \( \Be_1 + 3 \Be_2 \).  It is not coincidence that this is also a property of the cross product.  That relationship will be explored in (\cref{problem:generalizedWedge:WedgeRelationshipToCrossProduct}).
-
-As a final example, consider the wedge product of a vector with a bivector
+%For example, the wedge product of the 2D vectors 
+%\cref{eqn:generalizedWedge:140} is
+%
+%\begin{dmath}\label{eqn:generalizedWedge:500}
+%\Ba \wedge \Bb
+%=
+%\gpgradetwo{
+%\lr{ x \Be_1 + y \Be_2 }
+%\lr{ x' \Be_1 + y' \Be_2 }
+%}
+%=
+%\gpgradetwo{
+%(x x' + y y') + (x y' - x' y) \Be_1 \Be_2
+%}
+%=
+%(x y' - x' y) \Be_1 \Be_2.
+%\end{dmath}
+%
+%The wedge product of two vectors in a plane contains an antisymmetrized sum of the vector coefficients, but is weighted by a ``unit'' bivector, the pseudoscalar for the plane.
+%
+%As another example consider
+%
+%\begin{dmath}\label{eqn:generalizedWedge:520}
+%\Be_1 \wedge \lr{ 2\Be_1 + 3 \Be_2 }
+%=
+%\gpgradetwo{
+%\Be_1 \lr{ 2\Be_1 + 3 \Be_2 }
+%}
+%=
+%\gpgradetwo{
+%2 \Be_1^2 + 3 \Be_1 \Be_2
+%}
+%=
+%3 \Be_1 \Be_2.
+%\end{dmath}
+%
+%Components of the vectors are that colinear are filtered out.  In this case that is the \( \Be_1 \) component of the second vector \( \Be_1 + 3 \Be_2 \).  It is not coincidence that this is also a property of the cross product.  That relationship will be explored in (\cref{problem:generalizedWedge:WedgeRelationshipToCrossProduct}).
+%
+As an example, consider a specific vector-bivector wedge product
 
 \begin{dmath}\label{eqn:generalizedWedge:540}
 \Be_1 \wedge \lr{ \Be_1 \Be_2 - 7 \Be_2 \Be_3 }
