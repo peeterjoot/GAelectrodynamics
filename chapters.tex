@@ -35,8 +35,16 @@
             \subsubsection{Theorems.}
                \input{../stokesTheorem/bladeDotWedgeSymmetryIdentitiesTheorem.tex}
             \subsubsection{Problems.}
-               %\input{vectorBivectorDot.tex}
-               %   \shipoutAnswer
+               \makeproblem{Distribution of unit vector-bivector dot product.}{problem:generalizedDot:distributionUnitVectors}{
+\makesubproblem{}{problem:generalizedDot:distributionUnitVectors:a}
+Given indexes \( j \ne k \), prove that
+\begin{equation*}
+\gpgradeone{ \Be_i \Be_j \Be_k } \\
+= \gpgradeone{ \Be_k \Be_j \Be_i }.
+\end{equation*}
+\makesubproblem{}{problem:generalizedDot:distributionUnitVectors:a}
+Prove \cref{{eqn:generalizedDot:980}.
+} % problem
                \input{bivectorDot.tex}
                   \shipoutAnswer
          \subsection{Scalar selection theorems.}
