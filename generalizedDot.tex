@@ -86,7 +86,7 @@ There are (somewhat tricky) coordinate free ways to prove this theorem, but a du
 
 \begin{dmath}\label{eqn:gradeselectionProblems:681}
 \begin{aligned}
-\Ba \cdot \lr{ \Bb \wedge \Bc } &= \sum_{i, j, k} a_i b_j c_k \Be_i \cdot (\Be_j \wedge \Be_k) 
+\Ba \cdot \lr{ \Bb \wedge \Bc } &= \sum_{i, j, k} a_i b_j c_k \Be_i \cdot (\Be_j \wedge \Be_k)
 = \sum_{i, j \ne k} a_i b_j c_k \gpgradeone{ \Be_i \Be_j \Be_k }
 \\
 \lr{ \Bc \wedge \Bb } \cdot \Ba &= \sum_{i, j, k} a_i b_j c_k (\Be_k \wedge \Be_j) \cdot \Be_i
@@ -103,7 +103,7 @@ If all of \( i, j, k \) are unique then \( \gpgradeone{ \Be_i \Be_j \Be_k } = 0 
 \end{aligned}
 \end{dmath}
 
-Given \( j \ne k \), and \( i = j \) or \( i = k \),  then it is simple to show 
+Given \( j \ne k \), and \( i = j \) or \( i = k \),  then it is simple to show
 (\cref{problem:generalizedDot:distributionUnitVectorsa})
 that
 
@@ -133,6 +133,7 @@ Plugging \cref{eqn:generalizedDot:980} back into \cref{eqn:gradeselectionProblem
 - \lr{ \Ba \cdot \Bc } \Bb.
 \end{dmath}
 
+The LHS of \cref{eqn:generalizedDot:1060} might look familiar as it is related to the \R{3} triple cross product.
 \maketheorem{}{thm:generalizedDot:tripleCross}{
 For vectors in \R{3}, the dot product of a vector and vector wedge product can be expressed as a triple cross product
 \begin{equation*}
@@ -142,7 +143,14 @@ For vectors in \R{3}, the dot product of a vector and vector wedge product can b
 \end{equation*}
 } % theorem
 
-This can be proved by comparing the distribution identity for the triple cross product to that of the vector-bivector dot product.
+This can be proven by invoking the well known
+identity for the triple cross product
+(\citep{jackson1975cew})
+
+\begin{dmath}\label{eqn:generalizedDot:1100}
+\Ba \cross ( \Bb \cross \Bc ) = (\Ba \cdot \Bc) \Bb - (\Ba \cdot \Bb) \Bc.
+\end{dmath}
+
 Alternatively, it can be proven directly by applying the identity \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) to the vector-bivector product, and then selecting the vector grade
 
 \begin{dmath}\label{eqn:generalizedDot:1000}
@@ -163,12 +171,106 @@ I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 \lr{ \Bb \cross \Bc } \cross \Ba.
 \end{dmath}
 
-This multivector has a pseudoscalar (grade 3) component, and a vector component, so
+This multivector has a pseudoscalar (grade 3) component, and a vector component, so selecting the grade one component proves the theorem
 
-\begin{dmath}\label{eqn:generalizedDot:1080}
-\Ba \cdot \lr{ \Bb \wedge \Bc }
-=
+\begin{equation}\label{eqn:generalizedDot:1080}
 \gpgradeone{ \Ba \lr{ \Bb \wedge \Bc } }
 =
+\Ba \cdot \lr{ \Bb \wedge \Bc }
+=
 \lr{ \Bb \cross \Bc } \cross \Ba.
+\end{equation}
+
+\subsubsection{Bivector dot product.}
+
+Being able to compute the generalized dot product of two bivectors will also have a number of applications.
+When those bivectors are 2-blades, there is a useful distribution identity for this dot product.
+
+\maketheorem{2-blade dot product distribution.}{thm:generalizedDot:bivectorDot}{
+Given two 2-blades \( \Ba \wedge \Bb \), and \( \Bc \wedge \Bd \), the dot products of these blades is
+\begin{equation*}
+(\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
+=
+\lr{ (\Ba \wedge \Bb) \cdot \Bc} \cdot \Bd
+=
+(\Bb \cdot \Bc) (\Ba \cdot \Bd)
+-(\Ba \cdot \Bc)( \Bb \cdot \Bd).
+\end{equation*}
+} % theorem
+
+To prove this, we compute the scalar grade selection of the product \( (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd) = \gpgradezero{ (\Ba \wedge \Bb) (\Bc \wedge \Bd) } \).  That product can be split into multivector and bivector components
+
+\begin{dmath}\label{eqn:generalizedDot:1160}
+(\Ba \wedge \Bb) (\Bc \wedge \Bd)
+=
+(\Ba \wedge \Bb) (\Bc \Bd - \Bc \cdot \Bd)
+=
+(\Ba \wedge \Bb) \Bc \Bd -
+(\Ba \wedge \Bb) (\Bc \cdot \Bd).
+\end{dmath}
+
+The (second) bivector term is not of interest since it will be killed by the scalar selection operation.
+The remainder can be expanded in grades, first making use of the fact that a bivector-vector product has only
+grade 1 and 3 components
+
+\begin{dmath}\label{eqn:generalizedDot:1180}
+(\Ba \wedge \Bb) \Bc
+=
+(\Ba \wedge \Bb) \cdot \Bc
++ \gpgradethree{ (\Ba \wedge \Bb) \Bc }.
+\end{dmath}
+
+Further multiplication by \( \Bd \) produces a
+
+\begin{dmath}\label{eqn:generalizedDot:1200}
+(\Ba \wedge \Bb) \Bc \Bd
+=
+((\Ba \wedge \Bb) \cdot \Bc )\cdot \Bd
++ ((\Ba \wedge \Bb) \cdot \Bc) \wedge \Bd
++ \gpgrade{ \gpgradethree{ (\Ba \wedge \Bb) \Bc } \Bd }{2}.
++ \gpgrade{ \gpgradethree{ (\Ba \wedge \Bb) \Bc } \Bd }{4}.
+\end{dmath}
+
+Only the first (scalar) term is of interest, proving that
+
+\begin{dmath}\label{eqn:generalizedDot:1220}
+(\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
+= \gpgradezero{ (\Ba \wedge \Bb) (\Bc \wedge \Bd) }
+=
+((\Ba \wedge \Bb) \cdot \Bc )\cdot \Bd.
+\end{dmath}
+
+\Cref{thm:generalizedDot:wedgeDotDistribution} can be used to expand \cref{eqn:generalizedDot:1220} further
+\begin{dmath}\label{eqn:generalizedDot:1240}
+((\Ba \wedge \Bb) \cdot \Bc )\cdot \Bd
+=
+\biglr{ \Ba (\Bb \cdot \Bc) - \Bb (\Ba \cdot \Bc) } \cdot \Bd
+=
+(\Ba \cdot \Bd) (\Bb \cdot \Bc) - (\Bb \cdot \Bd) (\Ba \cdot \Bc) },
+\end{dmath}
+
+completing the proof.  In \R{3} this identity also has a cross product equivalent
+
+\maketheorem{2-blade dot product as cross products.}{thm:generalizedDot:bivectorDotAsCrossProducts}{
+The dot product of two \R{3} 2-blades can be expressed as cross products
+\begin{equation*}
+(\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
+=
+-(\Ba \cross \Bb) \cdot (\Bc \cross \Bd).
+\end{equation*}
+} % theorem
+
+This follows by scalar grade selection
+\begin{dmath}\label{eqn:generalizedDot:1140}
+(\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
+=
+\gpgradezero{
+(\Ba \wedge \Bb) (\Bc \wedge \Bd)
+}
+=
+\gpgradezero{
+I (\Ba \cross \Bb) I (\Bc \cross \Bd)
+}
+=
+-(\Ba \cross \Bb) \cdot (\Bc \cross \Bd).
 \end{dmath}

@@ -79,3 +79,54 @@ Now the projection and rejection onto the direction of \( \Bu \) are
 %To prove this, it is sufficient to consider the commutation of \( I \) with each of the standard basis vectors \( \Be_1, \Be_2, \Be_3 \) (\cref{problem:projectionAndRejection:1160}).
 %
 Now the cross product form of the rejection equation can be determined
+
+(cut)
+FIXME: this is now redunant, with the vector-bivector dot product having done this.
+
+Finally, since the \R{3} wedge product is related to the cross product through \cref{eqn:SimpleProducts2:1620},
+it is reasonable to ask how the wedge product form of the rejection operator can be
+expressed using the cross product.
+Using the grade selection form of \cref{eqn:projectionAndRejection:940}, we find
+
+\begin{dmath}\label{eqn:projectionAndRejection:1160}
+\Rej{\Bu}{\Bx}
+%=
+%\lr{ \Bx \wedge \ucap } \cdot \ucap
+=
+\gpgradeone{ \lr{ \Bx \wedge \ucap } \ucap }
+=
+\gpgradeone{ I \lr{ \Bx \cross \ucap } \ucap }
+=
+\gpgradeone{ I
+\biglr{
+   \lr{ \Bx \cross \ucap } \cdot \ucap
++
+   \lr{ \Bx \cross \ucap } \wedge \ucap
+}
+}
+=
+\lr{ \lr{ \Bx \cross \ucap } \cdot \ucap }
+\cancel{ \gpgradeone{ I } }
++
+\gpgradeone{ I^2
+   \lr{ \Bx \cross \ucap } \cross \ucap
+}
+\end{dmath}
+
+A grade 1 selection from the pseudoscalar is zero, since the pseudoscalar is grade 3.
+Application of \cref{eqn:SimpleProducts2:1620} a second time to the remaining vector term produces a (scalar) \( I^2 = -1 \) factor, so after reordering the cross product, the rejection is
+
+\begin{dmath}\label{eqn:projectionAndRejection:1180}
+\Rej{\Bu}{\Bx}
+=
+   \ucap \cross \lr{ \Bx \cross \ucap }.
+\end{dmath}
+
+This is a result that may already be familiar,
+% implicitly used in the front cover of Jackson
+%Without GA, one can prove that \cref{eqn:projectionAndRejection:1180} matches the rejection definition by choosing a coordinate system so that \( \ucap \) is aligned with one of the standard basis vectors.
+%It is also possible to prove this using
+as it follows from
+the identity \( \Ba \cross ( \Bb \cross \Bc ) = (\Ba \cdot \Bc) \Bb - (\Ba \cdot \Bb) \Bc \) (\citep{jackson1975cew}).
+A very compact proof using coordinates and using tensor contraction methods is also possible (see: \citep{landau1951classical}).
+These methods are all arguably less elegant than this GA derivation.
