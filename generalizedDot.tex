@@ -55,7 +55,7 @@ Unlike the dot product of two vectors, a vector-bivector dot product is order de
 The vector dot product is zero when the two vectors are normal.  This is also true if the vector and bivector are normal, that is, having no common factor, as in
 
 \begin{equation}\label{eqn:generalizedDot:661}
-\Be_1 \cdot \Be_{12} = \gpgradeone{ \Be_{123} } = 0.
+\Be_1 \cdot \Be_{23} = \gpgradeone{ \Be_{123} } = 0.
 \end{equation}
 
 On the other hand, a non-zero vector-bivector dot product requires the vector to have some overlap with the bivector.
@@ -68,7 +68,7 @@ A bivector formed from the product of two normal vectors \( B = \Ba \Bb, \, \Ba 
 \end{dmath}
 
 There is a direct relationship between the
-dot product of a vector and a 2-blade (i.e. wedge of two vectors) with a familiar \R{3} vector algebra result.  That expansion is
+dot product of a vector and a 2-blade (i.e. wedge of two vectors) that has a familiar equivalent in \R{3} vector algebra result.  That expansion is
 
 \maketheorem{Dot product of vector and 2-blade.}{thm:generalizedDot:wedgeDotDistribution}{
 The dot product of a vector and a wedge product of two vectors distributes as
@@ -80,8 +80,61 @@ The dot product of a vector and a wedge product of two vectors distributes as
 ( \Ba \cdot \Bb ) \Bc
 -( \Ba \cdot \Bc ) \Bb.
 \end{equation*}
+} % theorem
 
-For vectors in \R{3}, this dot product can be expressed as a triple cross product
+There are (somewhat tricky) coordinate free ways to prove this theorem, but a dumber simple expansion in coordinates also does the job.
+
+\begin{dmath}\label{eqn:gradeselectionProblems:681}
+\begin{aligned}
+\Ba \cdot \lr{ \Bb \wedge \Bc } &= \sum_{i, j, k} a_i b_j c_k \Be_i \cdot (\Be_j \wedge \Be_k) 
+= \sum_{i, j \ne k} a_i b_j c_k \gpgradeone{ \Be_i \Be_j \Be_k }
+\\
+\lr{ \Bc \wedge \Bb } \cdot \Ba &= \sum_{i, j, k} a_i b_j c_k (\Be_k \wedge \Be_j) \cdot \Be_i
+= \sum_{i, j \ne k} a_i b_j c_k \gpgradeone{ \Be_k \Be_j \Be_i }
+\end{aligned}
+\end{dmath}
+
+If all of \( i, j, k \) are unique then \( \gpgradeone{ \Be_i \Be_j \Be_k } = 0 \), so the vector selection is non-zero only when \( i \) equals one of \( j, k \).  For example
+
+\begin{dmath}\label{eqn:generalizedDot:1040}
+\begin{aligned}
+\gpgradeone{ \Be_1 \Be_1 \Be_2 } &= \Be_2 \\
+\gpgradeone{ \Be_1 \Be_2 \Be_1 } &= -\Be_1.
+\end{aligned}
+\end{dmath}
+
+Given \( j \ne k \), and \( i = j \) or \( i = k \),  then it is simple to show 
+(\cref{problem:generalizedDot:distributionUnitVectorsa})
+that
+
+\begin{equation}\label{eqn:generalizedDot:1020}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+= \gpgradeone{ \Be_k \Be_j \Be_i },
+\end{equation}
+
+so \( \Ba \cdot \lr{ \Bb \wedge \Bc } = \lr{ \Bc \wedge \Bb } \cdot \Ba \).  Additionally
+(\cref{problem:generalizedDot:distributionUnitVectorsb})
+
+\begin{equation}\label{eqn:generalizedDot:980}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+=
+\Be_k \lr{ \Be_j \cdot \Be_i }
+-\Be_j \lr{ \Be_k \cdot \Be_i }.
+\end{equation}
+
+Plugging \cref{eqn:generalizedDot:980} back into \cref{eqn:gradeselectionProblems:681} proves the theorem
+
+\begin{dmath}\label{eqn:generalizedDot:1060}
+\Ba \cdot \lr{ \Bb \wedge \Bc }
+= \sum_{i, j, k} a_i b_j c_k \lr{ \Be_k \lr{ \Be_j \cdot \Be_i }
+-\Be_j \lr{ \Be_k \cdot \Be_i } }
+=
+\lr{ \Ba \cdot \Bb } \Bc
+- \lr{ \Ba \cdot \Bc } \Bb.
+\end{dmath}
+
+\maketheorem{}{thm:generalizedDot:tripleCross}{
+For vectors in \R{3}, the dot product of a vector and vector wedge product can be expressed as a triple cross product
 \begin{equation*}
 \Ba \cdot \lr{ \Bb \wedge \Bc }
 =
@@ -89,60 +142,8 @@ For vectors in \R{3}, this dot product can be expressed as a triple cross produc
 \end{equation*}
 } % theorem
 
-There are (somewhat tricky) coordinate free ways to prove the distribution identity of this theorem, but a dumber simple expansion in coordinates also does the job.
-
-\begin{dmath}\label{eqn:gradeselectionProblems:681}
-\begin{aligned}
-\Ba \cdot \lr{ \Bb \wedge \Bc } &= \sum_{i, j, k} a_i b_j c_k \Be_i \cdot (\Be_j \wedge \Be_k) \\
-\lr{ \Bc \wedge \Bb } \cdot \Ba &= \sum_{i, j, k} a_i b_j c_k (\Be_k \wedge \Be_j) \cdot \Be_i
-\end{aligned}
-\end{dmath}
-
-Since only \( j \ne k \) terms need be considered, either of these dot products can be written as a grade selection operation
-
-\begin{equation}\label{eqn:generalizedDot:n}
-\begin{aligned}
-\Be_i \cdot (\Be_j \wedge \Be_k) 
-&= \gpgradeone{ \Be_i \Be_j \Be_k } \\
-&= \gpgradeone{ \Be_k \Be_j \Be_i } \\
-&=
-(\Be_k \wedge \Be_j) \cdot \Be_i.
-\end{aligned}
-\end{equation}
-
-If all of \( i, j, k \) are unique then \( \gpgradeone{ \Be_i \Be_j \Be_k } = 0 \), so it is non-zero only when \( i \) equals one of \( j, k \).  For example
-
-\begin{dmath}\label{eqn:generalizedDot:n}
-\begin{aligned}
-\gpgradeone{ \Be_1 \Be_1 \Be_2 } &= \Be_2 \\
-\gpgradeone{ \Be_1 \Be_2 \Be_1 } &= -\Be_1.
-\end{aligned}
-\end{dmath}
-
-In general
-(\cref{problem:generalizedDot:distributionUnitVectors}), this grade selection can be expanded as 
-
-\begin{equation}\label{eqn:generalizedDot:980}
-\gpgradeone{ \Be_i \Be_j \Be_k } \\
-=
-\Be_k \lr{ \Be_j \cdot \Be_i }
--\Be_j \lr{ \Be_k \cdot \Be_i },
-\end{equation}
-
-so
-
-\begin{dmath}\label{eqn:generalizedDot:n}
-\Ba \cdot \lr{ \Bb \wedge \Bc } 
-= \sum_{i, j, k} a_i b_j c_k \lr{ \Be_k \lr{ \Be_j \cdot \Be_i }
--\Be_j \lr{ \Be_k \cdot \Be_i } }
-=
-\lr{ \Ba \cdot \Bb } \Bc
-- \lr{ \Ba \cdot \Bc } \Bb,
-\end{dmath}
-
-proving the distribution part of the theorem.
-
-The \R{3} triple cross product part of this theorem, can be proven by repeated use of \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) in the expansion of the product of the vector and bivector
+This can be proved by comparing the distribution identity for the triple cross product to that of the vector-bivector dot product.
+Alternatively, it can be proven directly by applying the identity \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) to the vector-bivector product, and then selecting the vector grade
 
 \begin{dmath}\label{eqn:generalizedDot:1000}
 \Ba \lr{ \Bb \wedge \Bc }
@@ -162,6 +163,12 @@ I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 \lr{ \Bb \cross \Bc } \cross \Ba.
 \end{dmath}
 
-This multivector has a pseudoscalar (grade 3) component, and a vector components.
-The triple cross product identity follows since the
-vector-bivector dot product selects just the vector component.
+This multivector has a pseudoscalar (grade 3) component, and a vector component, so
+
+\begin{dmath}\label{eqn:generalizedDot:1080}
+\Ba \cdot \lr{ \Bb \wedge \Bc }
+=
+\gpgradeone{ \Ba \lr{ \Bb \wedge \Bc } }
+=
+\lr{ \Bb \cross \Bc } \cross \Ba.
+\end{dmath}
