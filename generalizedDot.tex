@@ -41,10 +41,10 @@ If \( A, B \) are k-vectors with equal grade, then the dot product is just the s
 A \cdot B = \gpgradezero{ A B },
 \end{dmath}
 
-and if \( A, B \) are a k-vectors with grades \( i \ne j \) respectively, then their dot product is a single grade selection
+and if \( A, B \) are a k-vectors with grades \( r \ne s \) respectively, then their dot product is a single grade selection
 
 \begin{dmath}\label{eqn:generalizedDot:581}
-A \cdot B = \gpgrade{ A B }{\Abs{i - j}}.
+A \cdot B = \gpgrade{ A B }{\Abs{r - s}}.
 \end{dmath}
 
 \subsubsection{Dot product of a vector and bivector}
@@ -160,7 +160,7 @@ Alternatively, it can be proven directly by applying the identity \( \Ba \wedge 
 =
 I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 +
-I \Ba \wedge \lr{ \Bb \cross \Bc }
+I \lr{ \Ba \wedge \lr{ \Bb \cross \Bc } }
 =
 I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 +
@@ -198,7 +198,7 @@ Given two 2-blades \( \Ba \wedge \Bb \), and \( \Bc \wedge \Bd \), the dot produ
 \end{equation*}
 } % theorem
 
-To prove this, we compute the scalar grade selection of the product \( (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd) = \gpgradezero{ (\Ba \wedge \Bb) (\Bc \wedge \Bd) } \).  That product can be split into multivector and bivector components
+To prove this, select the scalar grade of the product \( (\Ba \wedge \Bb) (\Bc \wedge \Bd) \)
 
 \begin{dmath}\label{eqn:generalizedDot:1160}
 (\Ba \wedge \Bb) (\Bc \wedge \Bd)
@@ -209,7 +209,7 @@ To prove this, we compute the scalar grade selection of the product \( (\Ba \wed
 (\Ba \wedge \Bb) (\Bc \cdot \Bd).
 \end{dmath}
 
-The (second) bivector term is not of interest since it will be killed by the scalar selection operation.
+The second term, a bivector, is not of interest since it will be killed by the scalar selection operation.
 The remainder can be expanded in grades, first making use of the fact that a bivector-vector product has only
 grade 1 and 3 components
 
@@ -220,18 +220,9 @@ grade 1 and 3 components
 + \gpgradethree{ (\Ba \wedge \Bb) \Bc }.
 \end{dmath}
 
-Further multiplication by \( \Bd \) produces a
-
-\begin{dmath}\label{eqn:generalizedDot:1200}
-(\Ba \wedge \Bb) \Bc \Bd
-=
-((\Ba \wedge \Bb) \cdot \Bc )\cdot \Bd
-+ ((\Ba \wedge \Bb) \cdot \Bc) \wedge \Bd
-+ \gpgrade{ \gpgradethree{ (\Ba \wedge \Bb) \Bc } \Bd }{2}.
-+ \gpgrade{ \gpgradethree{ (\Ba \wedge \Bb) \Bc } \Bd }{4}.
-\end{dmath}
-
-Only the first (scalar) term is of interest, proving that
+Multiplication of the trivector term by \( \Bd \) produces a grade 2,4 multivector which can be ignored.  The product
+of \( (\Ba \wedge \Bb) \cdot \Bc \), a vector, with \( \Bd \) is a grade 0,2 multivector, of which only the scalar grade is of interest.
+That is
 
 \begin{dmath}\label{eqn:generalizedDot:1220}
 (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
@@ -240,16 +231,17 @@ Only the first (scalar) term is of interest, proving that
 ((\Ba \wedge \Bb) \cdot \Bc )\cdot \Bd.
 \end{dmath}
 
-\Cref{thm:generalizedDot:wedgeDotDistribution} can be used to expand \cref{eqn:generalizedDot:1220} further
+To complete the proof, we apply \cref{thm:generalizedDot:wedgeDotDistribution}
+
 \begin{dmath}\label{eqn:generalizedDot:1240}
 ((\Ba \wedge \Bb) \cdot \Bc )\cdot \Bd
 =
 \biglr{ \Ba (\Bb \cdot \Bc) - \Bb (\Ba \cdot \Bc) } \cdot \Bd
 =
-(\Ba \cdot \Bd) (\Bb \cdot \Bc) - (\Bb \cdot \Bd) (\Ba \cdot \Bc) },
+(\Ba \cdot \Bd) (\Bb \cdot \Bc) - (\Bb \cdot \Bd) (\Ba \cdot \Bc).
 \end{dmath}
 
-completing the proof.  In \R{3} this identity also has a cross product equivalent
+In \R{3} this identity also has a cross product equivalent
 
 \maketheorem{2-blade dot product as cross products.}{thm:generalizedDot:bivectorDotAsCrossProducts}{
 The dot product of two \R{3} 2-blades can be expressed as cross products

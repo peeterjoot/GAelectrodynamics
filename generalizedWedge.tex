@@ -2,7 +2,9 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-Like the multivector dot product, we define a multivector wedge product as a grade selection operation
+We've identified the vector wedge product with scalar grade selection of their vector product, the selection of the highest grade of their product.
+Looking back to the multivector products of \cref{eqn:generalizedDot:601}, and \cref{eqn:generalizedDot:621} as motivation, 
+a generalized wedge product can be defined that selects the highest grade terms of a given multivector product
 
 \index{multivector wedge product}
 \makedefinition{Multivector wedge product.}{dfn:generalizedWedge:480}{
@@ -14,49 +16,19 @@ A \wedge B
 \end{equation*}
 } % definition
 
+If \( A, B \) are a k-vectors with grades \( r, s \) respectively, then their wedge product is a single grade selection
+
+\begin{dmath}\label{eqn:generalizedDot:581}
+A \wedge B = \gpgrade{ A B }{ r + s}.
+\end{dmath}
+
 \paragraph{examples}
 
-%For example, the wedge product of the 2D vectors
-%\cref{eqn:generalizedWedge:140} is
-%
-%\begin{dmath}\label{eqn:generalizedWedge:500}
-%\Ba \wedge \Bb
-%=
-%\gpgradetwo{
-%\lr{ x \Be_1 + y \Be_2 }
-%\lr{ x' \Be_1 + y' \Be_2 }
-%}
-%=
-%\gpgradetwo{
-%(x x' + y y') + (x y' - x' y) \Be_1 \Be_2
-%}
-%=
-%(x y' - x' y) \Be_1 \Be_2.
-%\end{dmath}
-%
-%The wedge product of two vectors in a plane contains an antisymmetrized sum of the vector coefficients, but is weighted by a ``unit'' bivector, the pseudoscalar for the plane.
-%
-%As another example consider
-%
-%\begin{dmath}\label{eqn:generalizedWedge:520}
-%\Be_1 \wedge \lr{ 2\Be_1 + 3 \Be_2 }
-%=
-%\gpgradetwo{
-%\Be_1 \lr{ 2\Be_1 + 3 \Be_2 }
-%}
-%=
-%\gpgradetwo{
-%2 \Be_1^2 + 3 \Be_1 \Be_2
-%}
-%=
-%3 \Be_1 \Be_2.
-%\end{dmath}
-%
-%Components of the vectors are that colinear are filtered out.  In this case that is the \( \Be_1 \) component of the second vector \( \Be_1 + 3 \Be_2 \).  It is not coincidence that this is also a property of the cross product.  That relationship will be explored in (\cref{problem:generalizedWedge:WedgeRelationshipToCrossProduct}).
-%
 As an example, consider a specific vector-bivector wedge product
 
 \begin{dmath}\label{eqn:generalizedWedge:540}
+\Be_1 \wedge \lr{ \Be_2 \wedge (-\Be_1 - 7 \Be_3) }
+=
 \Be_1 \wedge \lr{ \Be_1 \Be_2 - 7 \Be_2 \Be_3 }
 =
 \gpgradethree{
