@@ -4,25 +4,8 @@
 %
 
 \makeproblem{\R{4} wedge of a non-blade with itself.}{problem:gradeselection:r4nonzerobivectorwedgewithself}{
-With \( B = \Be_1 \Be_2 + \Be_3 \Be_4 \), show that \( B \wedge B \ne 0 \).
+While the wedge product of a blade with itself is always zero, this is not generally true of the wedge products of arbitrary k-vectors in higher dimensional spaces.
+To demonstrate this, show that the wedge of the bivector 
+\( B = \Be_1 \Be_2 + \Be_3 \Be_4 \) with itself is non-zero.  Why is this bivector not a blade?
+%, show that \( B \wedge B \ne 0 \).
 } % problem
-
-\makeanswer{problem:gradeselection:r4nonzerobivectorwedgewithself}{
-\begin{dmath}\label{eqn:r4nonzerobivectorwedgewithself:20}
-B \wedge B
-=
-\gpgrade{ B B }{4}
-=
-\gpgrade{
-\lr{ \Be_1 \Be_2 + \Be_3 \Be_4 }
-\lr{ \Be_1 \Be_2 + \Be_3 \Be_4 }
-}{4}
-=
-\Be_3 \Be_4 \Be_1 \Be_2
-+
-\Be_1 \Be_2 \Be_3 \Be_4
-=
-2 \Be_1 \Be_2 \Be_3 \Be_4
-\ne 0.
-\end{dmath}
-} % answer

@@ -1,0 +1,32 @@
+
+If the maximum grades of \( A \) and \( B \) are \( a \) and \( b \) respectively, then
+
+\begin{equation}\label{eqn:scalarPermutation:41}
+\gpgradezero{A B}
+=
+\sum_{r = 0}^a \sum_{s = 0}^b \gpgradezero{A_r B_s}
+=
+\sum_{k = 0}^{\min(a,b)} \gpgradezero{A_k B_k}.
+\end{equation}
+
+%If we can show that \( \gpgradezero{A_k B_k} = \gpgradezero{B_k A_k} \) for any k-vectors \( A_k, B_k \), we are done.
+%
+Because \( \gpgradezero{M}^\dagger = \gpgradezero{M^\dagger} = \gpgradezero{M} \), reversing all the factors in each of these grade zero selections leaves the result unchanged.  That is
+
+\begin{equation}\label{eqn:scalarPermutation:61}
+\gpgradezero{A B}
+=
+\sum_{k = 0}^{\min(a,b)} \gpgradezero{B_k^\dagger A_k^\dagger}.
+\end{equation}
+
+Using \cref{eqn:scalarPermutation:101}, this is
+
+\begin{dmath}\label{eqn:scalarPermutation:121}
+\gpgradezero{A B}
+=
+\sum_{k = 0}^{\min(a,b)} \lr{(-1)^{k(k-1)/2} }^2 \gpgradezero{B_k A_k}
+=
+\sum_{k = 0}^{\min(a,b)} \gpgradezero{B_k A_k}
+=
+\gpgradezero{ B A }. \qedmarker
+\end{dmath}

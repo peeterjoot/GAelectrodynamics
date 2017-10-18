@@ -3,7 +3,7 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 We've identified the vector wedge product with scalar grade selection of their vector product, the selection of the highest grade of their product.
-Looking back to the multivector products of \cref{eqn:generalizedDot:601}, and \cref{eqn:generalizedDot:621} as motivation, 
+Looking back to the multivector products of \cref{eqn:generalizedDot:601}, and \cref{eqn:generalizedDot:621} as motivation,
 a generalized wedge product can be defined that selects the highest grade terms of a given multivector product
 
 \index{multivector wedge product}
@@ -18,30 +18,96 @@ A \wedge B
 
 If \( A, B \) are a k-vectors with grades \( r, s \) respectively, then their wedge product is a single grade selection
 
-\begin{dmath}\label{eqn:generalizedDot:581}
+\begin{dmath}\label{eqn:generalizedWedge:560}
 A \wedge B = \gpgrade{ A B }{ r + s}.
 \end{dmath}
 
-\paragraph{examples}
+The most important example of the generalized wedge is the wedge product of a vector with a 2-blade
 
-As an example, consider a specific vector-bivector wedge product
+\maketheorem{Wedge of three vectors.}{thm:generalizedWedge:vectorTwoBlade}{
+The wedge product of three vectors is associative
+\begin{equation*}
+(\Ba \wedge \Bb) \wedge \Bc = \Ba \wedge (\Bb \wedge \Bc),
+\end{equation*}
+so can be written simply as \( \Ba \wedge \Bb \wedge \Bc \).
+} % theorem
 
-\begin{dmath}\label{eqn:generalizedWedge:540}
-\Be_1 \wedge \lr{ \Be_2 \wedge (-\Be_1 - 7 \Be_3) }
+The proof follows directly from the definition
+
+\begin{dmath}\label{eqn:generalizedWedge:580}
+(\Ba \wedge \Bb) \wedge \Bc
 =
-\Be_1 \wedge \lr{ \Be_1 \Be_2 - 7 \Be_2 \Be_3 }
+\gpgradethree{ (\Ba \wedge \Bb) \Bc }
 =
-\gpgradethree{
-\Be_1 \lr{ \Be_1 \Be_2 - 7 \Be_2 \Be_3 }
-}
+\gpgradethree{ (\Ba \Bb -\Ba \cdot \Bb) \Bc }
 =
-\gpgradethree{
-\Be_1^2 \Be_2 - 7 \Be_1 \Be_2 \Be_3
-}
-=
-- 7 \Be_1 \Be_2 \Be_3.
+\gpgradethree{ \Ba \Bb \Bc }.
 \end{dmath}
 
-Because \( \Be_1 \Be_2 \) has a common factor with \( \Be_1 \) it is filtered out of the resulting wedge product.  The end result, in this case, is a 3D pseudoscalar.
+Similarly
 
-The wedge product of two bivectors in \R{3}, by this definition, is always zero, since there can be no grade 4 term in such a product.  It is also the case that the components of any \R{3} bivectors wedged together will also have a common factor, which necessarily kills the wedge product of any two \R{3} bivectors.  This is not the case for arbitrary \R{N} bivectors, an example of which is \( \Be_1 \Be_2 + \Be_3 \Be_4 \).  There is no common factor in this bivector, so it can be wedged with itself and still produce a non-zero result (i.e. this bivector is not a blade).
+\begin{dmath}\label{eqn:generalizedWedge:600}
+\Ba \wedge (\Bb \wedge \Bc)
+=
+\gpgradethree{ \Ba (\Bb \wedge \Bc) }
+=
+\gpgradethree{ \Ba (\Bb \Bc - \Bb \cdot \Bc) }
+=
+\gpgradethree{ \Ba \Bb \Bc },
+\end{dmath}
+
+which proves the theorem.
+It is simple to show that the wedge of three vectors is completely antisymmetric (any interchange of vectors changes the sign), and that cyclic permutation \( \Ba \rightarrow \Bb \rightarrow \Bc \rightarrow \Ba \) of the vectors leaves it unchanged
+(\cref{problem:generalizedWedge:tripleWedgeProperties}).
+These properties are also common to the triple product of \R{3} vector algebra, a fact that is associated with the fact that there is also a determinant structure to the triple wedge product, which can be shown by direct expansion in coordinates
+
+\begin{dmath}\label{eqn:generalizedWedge:620}
+\Ba \wedge \Bb \wedge \Bc
+=
+\gpgradethree{ a_i b_j c_k \Be_i \Be_j \Be_k }
+=
+\sum_{i \ne j \ne k}
+a_i b_j c_k \Be_i \Be_j \Be_k
+=
+\sum_{i < j < k}
+\begin{vmatrix}
+a_i & a_j & a_k \\
+b_i & b_j & b_k \\
+c_i & c_j & c_k \\
+\end{vmatrix}
+\Be_{i j k}.
+\end{dmath}
+
+This shows that the \R{3} wedge of three vectors is triple product times the pseudoscalar
+
+\boxedEquation{eqn:generalizedWedge:640}{
+\Ba \wedge \Bb \wedge \Bc
+=
+\lr{ \Ba \cdot (\Bb \cross \Bc) } I.
+}
+
+Note that the wedge of \( n \) vectors is also associative.
+A full proof is possible by induction, which won't be done here.
+Instead, as a hint of how to proceed if desired,
+consider the coordinate expansion of a trivector wedged with a vector
+
+\begin{dmath}\label{eqn:generalizedWedge:660}
+(\Ba \wedge \Bb \wedge \Bc) \wedge \Bd
+=
+\sum_{i \ne j \ne k, l}
+\gpgrade{
+a_i b_j c_k
+\Be_i \Be_j \Be_k
+d_l \Be_l
+}{4}
+=
+\sum_{i \ne j \ne k \ne l}
+a_i b_j c_k d_l
+\Be_i \Be_j \Be_k \Be_l.
+\end{dmath}
+
+This can be rewritten with any desired grouping \( ((\Ba \wedge \Bb) \wedge \Bc) \wedge \Bd = (\Ba \wedge \Bb) \wedge ( \Bc \wedge \Bd) = \Ba \wedge (\Bb \wedge \Bc \wedge \Bd) = \cdots \).
+Observe that this can also be put into a determinant form like that of
+\cref{eqn:generalizedWedge:620}.
+Whenever the number of vectors matches the dimension of the underlying vector space, this will be a single determinant of all the coordinates of the vectors multiplied by the unit pseudoscalar for the vector space.
+

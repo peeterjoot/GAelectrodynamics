@@ -1,0 +1,34 @@
+As scalar selection is at the heart of the 
+generalized dot product, it is worth knowing
+some of the ways that such a selection operation can be manipulated.
+
+\maketheorem{Permutation of multivector products in scalar selection.}{theorem:scalarPermutation:1}{
+The factors within a scalar grade selection of a pair of multivector products may be permuted or may be cyclically permuted
+\begin{equation*}
+\begin{aligned}
+\gpgradezero{A B} &= \gpgradezero{B A} \\
+\gpgradezero{A B \cdots Y Z} &= \gpgradezero{Z A B \cdots Y}.
+\end{aligned}
+\end{equation*}
+} % problem
+
+It is suffient to prove just the two multivector permutation case.
+One simple, but inelegant method, is to first expand the pair of multivectors in coordinates.  Let
+
+\begin{equation}\label{eqn:scalarSelectionPermutation:40}
+\begin{aligned}
+A &= a_0 + \sum_i a_i \Be_i + \sum_{i < j} a_{ij} \Be_{ij} + \cdots \\
+B &= b_0 + \sum_i b_i \Be_i + \sum_{i < j} b_{ij} \Be_{ij} + \cdots
+\end{aligned}
+\end{equation}
+
+Only the products of like unit blades can contribute scalar components to the sum, so the
+the scalar selection of the products must have the form
+
+\begin{dmath}\label{eqn:scalarSelectionPermutation:60}
+\gpgradezero{ A B }
+=
+a_0 b_0 + \sum_i a_i b_i \Be_i^2 + \sum_{i < j} a_{ij} b_{ij} \Be_{ij}^2 + \cdots
+\end{dmath}
+
+This sum is also clearly equal to \( \gpgradezero{ B A } \), completing the proof.

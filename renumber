@@ -121,3 +121,6 @@ perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
 ../latex/bin/lgrep generalizedWedge.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
 
+../latex/bin/lgrep scalarSelectionPermutation.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl scalarSelectionPermutation.tex
+

@@ -5,7 +5,16 @@
 % relative path because this is shared with gabookI
 \input{../GAelectrodynamics/reverseDefined.tex}
 
-Given a k-blade \( A_k = \Ba_1 \Ba_2 \cdots \Ba_k \), then
+The reverse of a k-blade has useful closed form expression
+
+\maketheorem{Reverse of k-blade.}{thm:reverse:kBlade}{
+The reverse of a k-blade \( A_k = \Ba_1 \Ba_2 \cdots \Ba_k \) is given by
+\begin{equation*}
+A_k^\dagger = (-1)^{k(k-1)/2} A_k.
+\end{equation*}
+} % theorem
+
+This can be proven by successive interchange of the factors
 
 \begin{dmath}\label{eqn:scalarPermutation:81}
 \begin{aligned}
@@ -15,16 +24,13 @@ A_k^\dagger
 &= (-1)^{k-1} (-1)^{k-2} \Ba_1 \Ba_2 \Ba_k \Ba_{k-1} \cdots \Ba_3 \\
 &\qquad \vdots \\
 &= (-1)^{k-1} (-1)^{k-2} \cdots (-1)^1 \Ba_1 \Ba_2 \cdots \Ba_k,
+&= (-1)^{k(k-1)/2} \Ba_1 \Ba_2 \cdots \Ba_k. \qquad \qedmarker
 \end{aligned}
 \end{dmath}
 
-or
-\begin{dmath}\label{eqn:scalarPermutation:101}
-A_k^\dagger = (-1)^{k(k-1)/2} A_k.
-\end{dmath}
+A special, but important case, is the reverse of the \R{3} pseudoscalar, which is negated by reversion
 
-In particular the \R{3} pseudoscalar is negated by reversion
-
-\begin{dmath}\label{eqn:reverse:103}
+\boxedEquation{eqn:reverse:103}{
 I^\dagger = -I.
-\end{dmath}
+}
+
