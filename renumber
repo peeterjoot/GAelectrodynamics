@@ -124,3 +124,6 @@ perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
 ../latex/bin/lgrep scalarSelectionPermutation.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl scalarSelectionPermutation.tex
 
+../latex/bin/lgrep freespace.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl freespace.tex
+

@@ -1,0 +1,106 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+Maxwell's equations provide an abstraction, the field, that aggregates the effects of an arbitrary electric charge and current
+distribution on a ``test'' charge distribution.
+The test charge is assumed to be small and isolated enough that it does not also appreciably change the fields themselves.
+Once the fields are determined, the Lorentz force equation can be used to determine the dynamics of the
+test particle.  These dynamics can be determined without having to
+compute all the interactions of that charge with all the charges and currents in space, nor having to continually account for
+the interactions of those charge with each other.
+
+We will start with the traditional vector differential form of Maxwell's equations in free space
+
+\begin{subequations}
+\label{eqn:freespace:99}
+\begin{dmath}\label{eqn:freespace:100}
+\spacegrad \cross \BE = - \PD{t}{\BB}
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:120}
+\spacegrad \cross \BB = \mu_0 \lr{ \BJ + \epsilon_0 \PD{t}{\BE} }
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:140}
+\spacegrad \cdot \BE = \frac{\rho}{\epsilon_0}
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:160}
+\spacegrad \cdot \BB = 0.
+\end{dmath}
+\end{subequations}
+
+These equations relate the electric and magnetic fields
+
+\begin{itemize}
+	\item \( \BE(\Bx, t) \) : Electric field intensity [\si{V/m}] (Volts/meter)
+	\item \( \BB(\Bx, t) \) : Magnetic flux density [\si{W/m^2}] (Webers/square meter)
+\end{itemize}
+
+to charge and current densities
+
+\begin{itemize}
+	\item \( \rho(\Bx, t) \) : Electric charge density [\si{C/m^3}] (Coulombs/cubic meter)
+	\item \( \BJ(\Bx, t) \) : Electric current density [\si{A/m^2}] (Amperes/square meter),
+\end{itemize}
+
+both of which can vary in space and time, and are specified here in SI units.  The constants are
+
+\begin{itemize}
+\item \( \epsilon_0 = 8.85 \times 10^{-12} \si{C^2/N/m^2}\) : Permutivity of free space (Coulombs squared/Newton/square meter)
+\item \( \mu_0 = 4 \pi \times 10^{-7} \si{N/A^2}\) : Permeability of free space (Newtons/Ampere-squared).
+\end{itemize}
+
+These constants are related to the speed of light, \( c = 3.00 \times 10^8 \si{m/s} \) by \( \mu_0 \epsilon_0 = 1/c^2 \).
+
+Continuous models for charge and current distributions are used in Maxwell's equations, despite the
+fact that charges (i.e. electrons) are particles, and are not distributed in space.
+The discrete nature of electronic charge can be modelled using a delta function representation of the charge and current densities
+
+\begin{dmath}\label{eqn:freespace:240}
+\begin{aligned}
+\rho(\Bx, t) &= \sum_a q_a \delta( \Bx - \Bx_a( t) ) \\
+\BJ(\Bx, t) &= \sum_a q_a \Bv_a \delta( \Bx - \Bx_a( t) ).
+\end{aligned}
+\end{dmath}
+
+This model is inherently non-quantum mechanical, as it assumes that it is possible to
+simultaneous measure the position and velocity of an electron.
+%Additionally, irrespective of an electron's wave function distribution, this model requires that all electron interactions occur at fixed points in space and time.
+
+The dynamics of particle interaction with the fields are provided by the
+Lorentz force and power equations
+
+\begin{subequations}
+\label{eqn:freespace:180}
+\begin{dmath}\label{eqn:freespace:200}
+\ddt{\Bp} = q \lr{ \BE + \Bv \cross \BB }
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:220}
+\ddt{\calE} = q \BE \cdot \Bv.
+\end{dmath}
+\end{subequations}
+
+The quantities involved are
+
+\begin{itemize}
+	\item \( \Bp(\Bx, t) \) : Test particle momentum [\si{kg\, m/s}] (Kilogram meters/second)
+	\item \( \calE(\Bx, t) \) : Test particle kinetic energy [\si{J}] (Joules, kilogram meter^2/second^2)
+	\item \( q \) : Test particle charge [\si{C}] (Coulombs)
+	\item \( \Bv \) : Test particle velocity [\si{m/s}] (Meters/second)
+\end{itemize}
+
+As Maxwell's equations are inherently relativistic, and
+energy and momentum are intimately coupled in special relativity,
+the Lorentz power equation has been included here for completeness, although it can be argued that this is redundant
+(\cref{problem:freespace:LorentzPower}).
+
+\makeoproblem{Lorentz power and force relationship.}{problem:freespace:LorentzPower}{\S 17 \citep{landau1980classical}}{
+Using the relativistic definitions of momentum and energy
+\begin{equation*}
+\begin{aligned}
+	\Bp(\Bx, t) &= \frac{m \Bv}{\sqrt{1-\Bv^2/c^2}} \\
+	\calE(\Bx, t) &= \frac{m c^2}{\sqrt{1-\Bv^2/c^2}},
+\end{aligned}
+\end{equation*}
+show that \( d\calE/dt = \Bv \cdot d\Bp/dt \), and use this to derive
+\cref{eqn:freespace:220} from \cref{eqn:freespace:200}.
+} % problem
