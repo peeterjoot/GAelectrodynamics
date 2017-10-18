@@ -48,13 +48,6 @@
                \input{r4nonzerobivectorwedgewithself.tex}
          \subsection{Duality.}
            \input{dual.tex}
-         %\subsection{Scalar selection theorems.}
-         %   FIXME: Find a home for these.
-         %   \subsubsection{Problems.}
-         %      \input{cyclicpermutationtwo.tex}
-         %         \shipoutAnswer
-         %      \input{scalarPermutation.tex}
-         %         \shipoutAnswer
          \subsection{Projection and rejection.}
             \input{projectionAndRejection.tex}
          \subsection{Normal factorization of the wedge product.}
@@ -69,111 +62,107 @@
             \input{reflection.tex}
          \subsection{Linear systems.}
             \input{solutionOfLinearSystem.tex}
-         \subsection{Orientation.}
-            \input{orientation.tex}
+         %\subsection{Orientation.}
+         %   \input{orientation.tex}
+   \chapter{Vector calculus}
+      \section{Reciprocal frames}
+         \input{reciprocal.tex}
+         \subsection{Problems}
+            \input{2dreciprocalMatrixCalculation.tex}
+            \input{2subspaceR3reciprocalExample.tex}
+      \section{Curvilinear coordinates}
+         \input{../curvilinear/curvilinearDefined.tex}
+         \input{../curvilinear/curvilinearGradient.tex}
 
-%<TEMPORARY COMMENT OUT FOR QUICKER BUILD.>
-%%%%
-%%%%   \chapter{Vector calculus}
-%%%%      \section{Reciprocal frames}
-%%%%         \input{reciprocal.tex}
-%%%%         \subsection{Problems}
-%%%%            \input{2dreciprocalMatrixCalculation.tex}
-%%%%            \input{2subspaceR3reciprocalExample.tex}
-%%%%      \section{Curvilinear coordinates}
-%%%%         \input{../curvilinear/curvilinearDefined.tex}
-%%%%         \input{../curvilinear/curvilinearGradient.tex}
-%%%%
-%%%%Many of the concepts are illuminated nicely by considering some examples.
-%%%%
-%%%%         \subsection{Cylindrical coordinates.}
-%%%%            \input{../curvilinear/2Dcylindrical.tex}
-%%%%
-%%%%         \subsection{Spherical coordinates.}
-%%%%            \input{../curvilinear/curvilinearspherical.tex}
-%%%%
-%%%%         \subsection{Toroidal coordinates.}
-%%%%            \input{../gabookI/physics/torusCenterOfMassParameterization.tex}
-%%%%
-%%%%         \subsection{Problems}
-%%%%            \input{../curvilinear/sphericaldot.tex}
-%%%%            \input{../curvilinear/volumeselection.tex}
-%%%%
-%%%%%gabook: 31.1
-%%%%%Also: Stokes chapter.  Lots of examples there that should really be separated out from the stokes core content
-%%%%%(now included here).
-%%%%      \section{Green's theorem}
-%%%%         \input{../gabookI/calculus/greensTheorem.tex}
-%%%%         %\subsection{Problems}
-%%%%      \section{Stokes' theorem}
-%%%%         \subsection{Statement}
-%%%%            \input{../stokesTheorem/statement.tex}
-%%%%         \subsection{One parameter specialization of Stokes' theorem.}
-%%%%            \input{../stokesTheorem/oneparameter.tex}
-%%%%         \subsection{Two parameter specialization of Stokes' theorem.}
-%%%%            \input{../stokesTheorem/twoparameter.tex}
-%%%%         \subsection{Three parameter specialization of Stokes' theorem.}
-%%%%            \input{../stokesTheorem/threeparameter.tex}
-%%%%         \subsection{Using scalar volume elements}
-%%%%            \input{../stokesTheorem/scalarVolumeElement.tex}
-%%%%         \subsection{Problems}
-%%%%            \input{../stokesTheorem/stokesAndGreens.tex}
-%%%%            \input{../stokesTheorem/stokesTheoremCoreProblems.tex}
-%%%%
-%%%%      \section{Fundamental theorem of geometric calculus}
-%%%%         \subsection{Fundamental Theorem of Geometric Calculus}
-%%%%            \input{../gabookI/calculus/fundamentalTheoremOfCalculus.tex}
-%%%%         \subsection{Green's function for the gradient in Euclidean spaces.}
-%%%%            %\input{../gabookI/calculus/gradientGreensFunction.tex}
-%%%%            \input{gradientGreensFunctionEuclidean.tex}
-%%%%            % example:
-%%%%            \input{../gabookI/calculus/biotSavartGreens.tex}
-%%%%         %\subsection{Problems}
-%%%%         \subsection{Helmholtz theorem}
-%%%%            \input{../gabookI/calculus/helmholtzDerviationMultivectorStatement.tex}
-%%%%            \input{../gabookI/calculus/helmholtzDerviationMultivectorSolution.tex}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%
-%%%%\part{Electromagnetism}
-%%%%   \chapter{Statics}
-%%%%      \input{maxwellstatics.tex} % find a proper home for this
-%%%%   \chapter{Maxwell's equations}
-%%%%      \input{maxwellsEquations.tex}
-%%%%      \section{Potentials}
-%%%%         \input{../potentialMethods/potentialSection.tex}
-%%%%      \section{Boundary value conditions}
-%%%%         \input{boundarySurfaceSources.tex}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%   \chapter{Electrostatics}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%   \chapter{Magnetostatics}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%   \chapter{Constitutive relations}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%%   \chapter{Time harmonic fields}
-%%%%%      \section{Frequency domain}
-%%%%%         \input{../frequencydomain/frequencydomainMaxwells.tex}
-%%%%%      \section{Plane waves}
-%%%%%         \input{../frequencydomain/frequencydomainPlaneWaves.tex}
-%%%%%      \section{Problem solutions}
-%%%%%         \shipoutAnswer
-%%%%   \chapter{Polarization}
-%%%%      \input{ellipticalWavesPhasor.tex}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%   \chapter{Green's functions}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%   \chapter{Wave equations}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%   \chapter{Radiation and scattering}
-%%%%      \section{Problem solutions}
-%%%%         \shipoutAnswer
-%%%%XX
+Many of the concepts are illuminated nicely by considering some examples.
+
+         \subsection{Cylindrical coordinates.}
+            \input{../curvilinear/2Dcylindrical.tex}
+
+         \subsection{Spherical coordinates.}
+            \input{../curvilinear/curvilinearspherical.tex}
+
+         \subsection{Toroidal coordinates.}
+            \input{../gabookI/physics/torusCenterOfMassParameterization.tex}
+
+         \subsection{Problems}
+            \input{../curvilinear/sphericaldot.tex}
+            \input{../curvilinear/volumeselection.tex}
+
+%gabook: 31.1
+%Also: Stokes chapter.  Lots of examples there that should really be separated out from the stokes core content
+%(now included here).
+      \section{Green's theorem}
+         \input{../gabookI/calculus/greensTheorem.tex}
+         %\subsection{Problems}
+      \section{Stokes' theorem}
+         \subsection{Statement}
+            \input{../stokesTheorem/statement.tex}
+         \subsection{One parameter specialization of Stokes' theorem.}
+            \input{../stokesTheorem/oneparameter.tex}
+         \subsection{Two parameter specialization of Stokes' theorem.}
+            \input{../stokesTheorem/twoparameter.tex}
+         \subsection{Three parameter specialization of Stokes' theorem.}
+            \input{../stokesTheorem/threeparameter.tex}
+         \subsection{Using scalar volume elements}
+            \input{../stokesTheorem/scalarVolumeElement.tex}
+         \subsection{Problems}
+            \input{../stokesTheorem/stokesAndGreens.tex}
+            \input{../stokesTheorem/stokesTheoremCoreProblems.tex}
+
+      \section{Fundamental theorem of geometric calculus}
+         \subsection{Fundamental Theorem of Geometric Calculus}
+            \input{../gabookI/calculus/fundamentalTheoremOfCalculus.tex}
+         \subsection{Green's function for the gradient in Euclidean spaces.}
+            %\input{../gabookI/calculus/gradientGreensFunction.tex}
+            \input{gradientGreensFunctionEuclidean.tex}
+         %\subsection{Problems}
+         \subsection{Helmholtz theorem}
+            \input{../gabookI/calculus/helmholtzDerviationMultivectorStatement.tex}
+            \input{../gabookI/calculus/helmholtzDerviationMultivectorSolution.tex}
+      \section{Problem solutions}
+         \shipoutAnswer
+
+\part{Electromagnetism}
+   \chapter{Statics}
+      \input{maxwellstatics.tex} % find a proper home for this
+   \chapter{Maxwell's equations}
+      \input{maxwellsEquations.tex}
+      \section{Potentials}
+         \input{../potentialMethods/potentialSection.tex}
+      \section{Boundary value conditions}
+         \input{boundarySurfaceSources.tex}
+      \section{Problem solutions}
+         \shipoutAnswer
+   \chapter{Electrostatics}
+      \section{Problem solutions}
+         \shipoutAnswer
+   \chapter{Magnetostatics}
+            % example:
+            \input{../gabookI/calculus/biotSavartGreens.tex}
+      \section{Problem solutions}
+         \shipoutAnswer
+   \chapter{Constitutive relations}
+      \section{Problem solutions}
+         \shipoutAnswer
+%   \chapter{Time harmonic fields}
+%      \section{Frequency domain}
+%         \input{../frequencydomain/frequencydomainMaxwells.tex}
+%      \section{Plane waves}
+%         \input{../frequencydomain/frequencydomainPlaneWaves.tex}
+%      \section{Problem solutions}
+%         \shipoutAnswer
+   \chapter{Polarization}
+      \input{ellipticalWavesPhasor.tex}
+      \section{Problem solutions}
+         \shipoutAnswer
+   \chapter{Green's functions}
+      \section{Problem solutions}
+         \shipoutAnswer
+   \chapter{Wave equations}
+      \section{Problem solutions}
+         \shipoutAnswer
+   \chapter{Radiation and scattering}
+      \section{Problem solutions}
+         \shipoutAnswer
 %</TEMPORARY COMMENT OUT FOR QUICKER BUILD.>
