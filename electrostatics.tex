@@ -26,17 +26,63 @@ Utilizing \cref{eqn:SimpleProducts2:1640}, the geometric product of the gradient
 \spacegrad \Bb = \spacegrad \cdot \Bb + I(\spacegrad \cross \Bb).
 \end{dmath}
 
-\Cref{eqn:electrostatics:240} can be used to rewrite \cref{eqn:electrostatics:99} as a pair of multivector gradient equations
+\Cref{eqn:electrostatics:240} can be used to rewrite the electrostatic Maxwell equations (\cref{eqn:electrostatics:99}), as a pair of multivector gradient equations
 
 \begin{subequations}
-\label{eqn:electrostatics:180}
-\begin{equation}\label{eqn:electrostatics:200}
+\label{eqn:electrostatics:360}
+\begin{equation}\label{eqn:electrostatics:380}
 \spacegrad \BE = \frac{\rho}{\epsilon_0}
 \end{equation}
-\begin{equation}\label{eqn:electrostatics:220}
+\begin{equation}\label{eqn:electrostatics:400}
 \spacegrad \BB = 0.
 \end{equation}
 \end{subequations}
+
+\subsection{Enclosed charge.}
+
+The charge in a volume can be related to the electric field by integrating \cref{eqn:electrostatics:380}
+
+\begin{dmath}\label{eqn:electrostatics:420}
+\int_V d^3 \Bx \spacegrad \BE = \inv{\epsilon_0} \int_V d^3 \Bx \rho(\Bx).
+\end{dmath}
+
+This is an oriented integral, where \( d^3 \Bx \) is a pseudoscalar volume element.  For example, when using a cartesian parameterization of the volume, this volume element is
+
+\begin{dmath}\label{eqn:electrostatics:440}
+d^3 \Bx = (\Be_1 dx) \wedge (\Be_2 dy) \wedge (\Be_3 dz) = I dx dy dz.
+\end{dmath}
+
+The LHS integral can be evaluated using the fundamental theorem \cref{thm:fundamentalTheoremOfCalculus:1}
+
+\begin{dmath}\label{eqn:electrostatics:461}
+\int_{\partial V} d^2 \Bx \BE = \frac{I}{\epsilon_0} \int_V dV \rho(\Bx).
+\end{dmath}
+
+The bivector surface area element can be parameterized in terms of an outwards normal \( d^2 \Bx = I \ncap dA \), which allows the pseudoscalar factors on both
+sides to be cancelled
+
+\begin{dmath}\label{eqn:electrostatics:460}
+\int_{\partial V} dA \ncap \BE = \frac{1}{\epsilon_0} \int_V dV \rho(\Bx).
+\end{dmath}
+
+This is a multivector equation which must be simultaneously satisfied by its scalar and bivector components
+
+\begin{subequations}
+\label{eqn:electrostatics:481}
+\begin{dmath}\label{eqn:electrostatics:501}
+\int_{\partial V} dA \ncap \cdot \BE = \frac{1}{\epsilon_0} \int_V dV \rho(\Bx)
+\end{dmath}
+\begin{dmath}\label{eqn:electrostatics:521}
+\int_{\partial V} dA \ncap \wedge \BE = 0.
+\end{dmath}
+\end{subequations}
+
+The first equation is the familiar relationship between the divergence and the enclosed charge, which could have been derived from \cref{eqn:electrostatics:140} directly.
+The second provides a constraint on the tangential components of the field with respect to the enclosed volume, and could have been derived from
+\cref{eqn:electrostatics:100} directly.
+The multivector equation \cref{eqn:electrostatics:460} simulaneously encodes both of these relationships, simultaneously incorporating the contributions of the Maxwell divergence and curl equations for the electric field, relating both to the enclosed charge.
+
+\subsection{Inverting the gradient equations.}
 
 From \cref{thm:gradientGreensFunctionEuclidean:1}, the
 \R{3} Green's function for the gradient (on an infinite spherical bounding surface) is
@@ -45,14 +91,18 @@ From \cref{thm:gradientGreensFunctionEuclidean:1}, the
 G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3}.
 \end{dmath}
 
-This allows our two electrostatics Maxwell equations to be inverted directly
+Our two gradient equations can now be inverted directly.
+The magnetic field is found to be zero everywhere
+\begin{dmath}\label{eqn:electrostatics:320}
+\BB(\Bx) = 0,
+\end{dmath}
+since it is the convolution over sources that are zero everywhere.
+The convolution integral that solves for the electric field gives
 
-\boxedEquation{eqn:electrostatics:280}{
-\begin{aligned}
-\BE(\Bx) &=
-\inv{4 \pi} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3} \\
-\BB(\Bx) &= 0.
-\end{aligned}
-}
+\begin{dmath}\label{eqn:electrostatics:340}
+\BE(\Bx) =
+\inv{4 \pi} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3} ,
+\end{dmath}
 
-The electric field solution of \cref{eqn:electrostatics:280} is Coulomb's law, which is often the starting point of electrostatic analysis.
+which recovers Coulomb's law.
+
