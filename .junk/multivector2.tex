@@ -1,0 +1,92 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\subsection{Irreducible products}
+
+Armed with the contraction axiom and \cref{eqn:multiplication:140} it is now possible to show how to put a multivector into an irreducible form.  As an example, consider
+
+\begin{equation}\label{eqn:SimpleProducts:20}
+M = \Be_3 \Be_3 + 2 \Be_1 \Be_2 \Be_1 + \Be_2 \Be_3 - 5 \Be_3 \Be_1 \Be_3 \Be_2 + \Be_4 \Be_1 \Be_4 \Be_2 \Be_3 + \Be_1 \Be_2 \Be_1 \Be_3 \Be_4 \Be_5.
+\end{equation}
+
+Application of the contraction axiom shows that the first term is a scalar
+
+\begin{equation}\label{eqn:SimpleProducts:40}
+\Be_3 \Be_3 = 1.
+\end{equation}
+
+The second term is a vector, as it is possible to reorder normal products (changing sign each time) and regroup terms to apply the contraction axiom, as follows
+
+\begin{dmath}\label{eqn:SimpleProducts:60}
+2 \Be_1 \Be_2 \Be_1
+=
+2 \Be_1 \lr{ \Be_2 \Be_1 }
+=
+2 \Be_1 \lr{ - \Be_1 \Be_2 }
+=
+-2 \Be_1 \Be_1 \Be_2
+=
+-2 \lr{ \Be_1 \Be_1 } \Be_2
+=
+-2 \Be_2.
+\end{dmath}
+
+The third term is a bivector and cannot be reduced further.  The fourth term is also a bivector
+
+\begin{dmath}\label{eqn:SimpleProducts:80}
+- 5 \Be_3 \Be_1 \Be_3 \Be_2
+=
+- 5 \lr{ \Be_3 \Be_1 } \Be_3 \Be_2
+=
++ 5 \lr{ \Be_1 \Be_3 } \Be_3 \Be_2
+=
++ 5 \Be_1 \lr{ \Be_3 \Be_3 } \Be_2
+=
++ 5 \Be_1 \Be_2.
+\end{dmath}
+
+As the fifth term has repeated indexes, is is also reducible too
+
+\begin{dmath}\label{eqn:SimpleProducts:100}
+\Be_4 \Be_1 \Be_4 \Be_2 \Be_3
+=
+\lr{ \Be_4 \Be_1} \Be_4 \Be_2 \Be_3
+=
+-\lr{ \Be_1 \Be_4} \Be_4 \Be_2 \Be_3
+=
+- \Be_1 \lr{ \Be_4 \Be_4 } \Be_2 \Be_3
+=
+- \Be_1 \Be_2 \Be_3.
+\end{dmath}
+
+The reader should demonstrate that the final term has grade four, and can be reduced to \( -\Be_2 \Be_3 \Be_4 \Be_5 \).
+
+\begin{dmath}\label{eqn:SimpleProducts:120}
+M = 1 - 2 \Be_2  + \Be_2 \Be_3 + 5 \Be_1 \Be_2 - \Be_1 \Be_2 \Be_3 -\Be_2 \Be_3 \Be_4 \Be_5.
+  = 1 - 2 \Be_2  + \Be_{23} + 5 \Be_{12} - \Be_{123} -\Be_{2345}.
+\end{dmath}
+
+\subsection{Mixed grade sums}
+In traditional vector algebra, the
+``weird'' sum of a scalar and vector is forbidden and undefined, but is explicitly allowed in GA.  For example,
+
+\begin{dmath}\label{eqn:multivector:240}
+1 + \Be_1,
+\end{dmath}
+
+is a simple mixed grade multivector.
+Such mixed grade mathematical objects are not only well defined in GA, but are required to represent some vector products.  One of the simplest examples is the following vector product
+
+\begin{dmath}\label{eqn:multivector:260}
+\Be_1 ( \Be_1 + \Be_2 )
+=
+\Be_1 \Be_1 + \Be_1 \Be_2
+=
+\Be_1 \cdot \Be_1 + \Be_1 \Be_2
+=
+1 + \Be_1 \Be_2,
+\end{dmath}
+
+where the last step assumes the vector space is Euclidean.
+
