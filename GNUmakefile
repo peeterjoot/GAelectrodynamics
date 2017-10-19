@@ -69,7 +69,8 @@ all :: ellipticalWaves.pdf
 all :: junk.pdf
 all :: maxwells.pdf
 #maxwells.pdf : freespace.tex
-maxwells.pdf : electrostatics.tex
+#maxwells.pdf : electrostatics.tex
+maxwells.pdf : magnetostatics.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

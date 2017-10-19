@@ -1,0 +1,96 @@
+Electromagnetics is the study of Maxwell's equations where
+a time independent restriction of the fields is imposed, and
+it assumed that there are no static charge distributions.
+As was the case under the condition of electrostatics, 
+Maxwell's equations are simplified considerably
+
+\begin{subequations}
+\label{eqn:magnetostatics:99}
+\begin{dmath}\label{eqn:magnetostatics:100}
+\spacegrad \cross \BE = 0
+\end{dmath}
+\begin{dmath}\label{eqn:magnetostatics:120}
+\spacegrad \cross \BB = \mu_0 \BJ
+\end{dmath}
+\begin{dmath}\label{eqn:magnetostatics:140}
+\spacegrad \cdot \BE = 0
+\end{dmath}
+\begin{dmath}\label{eqn:magnetostatics:160}
+\spacegrad \cdot \BB = 0.
+\end{dmath}
+\end{subequations}
+
+\Cref{eqn:magnetostatics:240} can be used to rewrite the magnetostatic Maxwell equations (\cref{eqn:magnetostatics:99}), as a pair of multivector gradient equations
+
+\begin{subequations}
+\label{eqn:magnetostatics:360}
+\begin{equation}\label{eqn:magnetostatics:380}
+\spacegrad \BB = \mu_0 I \BJ
+\end{equation}
+\begin{equation}\label{eqn:magnetostatics:400}
+\spacegrad \BE = 0.
+\end{equation}
+\end{subequations}
+
+\subsection{rewrite}
+
+The magnetostatics equation in linear media has the Geometric Algebra form
+%A previous example of inverting a gradient equation was the electrostatics equation.  We can do the same for the magnetostatics equation, which has the following Geometric Algebra form in linear media
+
+\begin{dmath}\label{eqn:biotSavartGreens:20}
+\spacegrad I \BB = - \mu \BJ.
+\end{dmath}
+
+The Green's inversion of this is
+\begin{dmath}\label{eqn:biotSavartGreens:40}
+I \BB(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx')
+= \gpgradeone{ \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx') }
+= \int_V dV' \gpgradeone{ G(\Bx, \Bx') (-\mu \BJ(\Bx')) }
+= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \wedge (-\mu \BJ(\Bx'))
+= \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+\end{dmath}
+
+A duality transformation can be used to obtain the usual cross product form of the Biot-Savart law if desired.
+
+Note that freedom to insert a no-op vector grade selection was utilized to simplify the calculation above.
+It can be demonstrated that the scalar component of this integral is explicitly zero with some of the usual trickery
+\begin{dmath}\label{eqn:biotSavartGreens:60}
+-\frac{\mu}{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
+= \frac{\mu}{4\pi} \int_V dV' \lr{ \spacegrad \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
+= -\frac{\mu}{4\pi} \int_V dV' \lr{ \spacegrad' \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
+= -\frac{\mu}{4\pi} \int_V dV' \lr{
+\spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
+-
+\frac{\spacegrad' \cdot \BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
+}.
+\end{dmath}
+
+By premultiplying \cref{eqn:biotSavartGreens:20} by the gradient, we have
+
+\begin{dmath}\label{eqn:biotSavartGreens:80}
+\spacegrad^2 I \BB = -\mu \spacegrad \BJ,
+\end{dmath}
+
+showing that the current \( \BJ \) is not unconstrained.  In particular, since
+the LHS is a bivector, the gradient of the current must also be a bivector
+\( \spacegrad \BJ = \spacegrad \wedge \BJ \),
+or equivaalently the divergence of the current must be zero 
+\( \spacegrad \cdot \BJ = 0 \).  This kills the \( \spacegrad' \cdot \BJ(\Bx') \) integrand numerator in \cref{eqn:biotSavartGreens:60}, leaving
+
+\begin{dmath}\label{eqn:biotSavartGreens:100}
+-\frac{\mu}{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
+= -\frac{\mu}{4\pi} \int_V dV' \spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
+= -\frac{\mu}{4\pi} \int_{\partial V} dA' \ncap \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }.
+\end{dmath}
+
+Provided the normal component of \( \BJ/\Abs{\Bx - \Bx'} \) vanishes on the boundary of the infinite sphere, we see that the 
+the scalar selection of the convolution integral is zero, justifying the vector selection operation.
+%Observe that the traditional vector form of the Biot-Savart law can be obtained by premultiplying both sides with \( -I \), leaving
+%
+%\begin{dmath}\label{eqn:biotSavartGreens:140}
+%\BB(\Bx)
+%= \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \cross \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+%\end{dmath}
+%
+%This checks against a trusted source such as \citep{griffiths1999introduction} (eq. 5.39).
