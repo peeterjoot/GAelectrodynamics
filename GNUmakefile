@@ -68,8 +68,8 @@ include ../latex/make.rules
 all :: ellipticalWaves.pdf
 all :: junk.pdf
 all :: maxwells.pdf
-
-maxwells.pdf : freespace.tex
+#maxwells.pdf : freespace.tex
+maxwells.pdf : electrostatics.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

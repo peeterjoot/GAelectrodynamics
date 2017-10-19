@@ -1,0 +1,58 @@
+The study of
+field and charge distributions that are independent of time is called electrostatics.
+Under these conditions, Maxwell's equations are simplified considerably
+
+\begin{subequations}
+\label{eqn:electrostatics:99}
+\begin{dmath}\label{eqn:electrostatics:100}
+\spacegrad \cross \BE = - \cancel{\PD{t}{\BB}}
+\end{dmath}
+\begin{dmath}\label{eqn:electrostatics:120}
+\spacegrad \cross \BB = \mu_0 \lr{ \cancel{\BJ} + \epsilon_0 \cancel{\PD{t}{\BE}} }
+\end{dmath}
+\begin{dmath}\label{eqn:electrostatics:140}
+\spacegrad \cdot \BE = \frac{\rho}{\epsilon_0}
+\end{dmath}
+\begin{dmath}\label{eqn:electrostatics:160}
+\spacegrad \cdot \BB = 0.
+\end{dmath}
+\end{subequations}
+
+All the complicated coupling of the electric and magnetic fields is eliminated, and the only source term remaining is a time independent charge density \( \rho = \rho(\Bx) \).
+
+Utilizing \cref{eqn:SimpleProducts2:1640}, the geometric product of the gradient \( \spacegrad \) with a vector \( \Bb \) is
+
+\begin{dmath}\label{eqn:electrostatics:240}
+\spacegrad \Bb = \spacegrad \cdot \Bb + I(\spacegrad \cross \Bb).
+\end{dmath}
+
+\Cref{eqn:electrostatics:240} can be used to rewrite \cref{eqn:electrostatics:99} as a pair of multivector gradient equations
+
+\begin{subequations}
+\label{eqn:electrostatics:180}
+\begin{equation}\label{eqn:electrostatics:200}
+\spacegrad \BE = \frac{\rho}{\epsilon_0}
+\end{equation}
+\begin{equation}\label{eqn:electrostatics:220}
+\spacegrad \BB = 0.
+\end{equation}
+\end{subequations}
+
+From \cref{thm:gradientGreensFunctionEuclidean:1}, the
+\R{3} Green's function for the gradient (on an infinite spherical bounding surface) is
+
+\begin{dmath}\label{eqn:electrostatics:260}
+G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3}.
+\end{dmath}
+
+This allows our two electrostatics Maxwell equations to be inverted directly
+
+\boxedEquation{eqn:electrostatics:280}{
+\begin{aligned}
+\BE(\Bx) &=
+\inv{4 \pi} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3} \\
+\BB(\Bx) &= 0.
+\end{aligned}
+}
+
+The electric field solution of \cref{eqn:electrostatics:280} is Coulomb's law, which is often the starting point of electrostatic analysis.

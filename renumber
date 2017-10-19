@@ -127,3 +127,6 @@ perl -p -i ../latex/bin/latexRegex.pl scalarSelectionPermutation.tex
 ../latex/bin/lgrep freespace.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl freespace.tex
 
+../latex/bin/lgrep electrostatics.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl electrostatics.tex
+
