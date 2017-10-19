@@ -46,11 +46,8 @@ The charge in a volume can be related to the electric field by integrating \cref
 \int_V d^3 \Bx \spacegrad \BE = \inv{\epsilon_0} \int_V d^3 \Bx \rho(\Bx).
 \end{dmath}
 
-This is an oriented integral, where \( d^3 \Bx \) is a pseudoscalar volume element.  For example, when using a cartesian parameterization of the volume, this volume element is
-
-\begin{dmath}\label{eqn:electrostatics:440}
-d^3 \Bx = (\Be_1 dx) \wedge (\Be_2 dy) \wedge (\Be_3 dz) = I dx dy dz.
-\end{dmath}
+This is an oriented integral, where \( d^3 \Bx \) is a pseudoscalar volume element, such as
+\( d^3 \Bx = (\Be_1 dx) \wedge (\Be_2 dy) \wedge (\Be_3 dz) = I dx dy dz \).
 
 The LHS integral can be evaluated using the fundamental theorem \cref{thm:fundamentalTheoremOfCalculus:1}
 
@@ -58,12 +55,15 @@ The LHS integral can be evaluated using the fundamental theorem \cref{thm:fundam
 \int_{\partial V} d^2 \Bx \BE = \frac{I}{\epsilon_0} \int_V dV \rho(\Bx).
 \end{dmath}
 
-The bivector surface area element can be parameterized in terms of an outwards normal \( d^2 \Bx = I \ncap dA \), which allows the pseudoscalar factors on both
+An outward normal \( \ncap \) can be used to 
+parameterize the bivector surface area element \( d^2 \Bx = I \ncap dA \), which allows the pseudoscalar factors on both
 sides to be cancelled
 
-\begin{dmath}\label{eqn:electrostatics:460}
+%\begin{dmath}\label{eqn:electrostatics:460}
+\boxedEquation{eqn:electrostatics:460}{
 \int_{\partial V} dA \ncap \BE = \frac{1}{\epsilon_0} \int_V dV \rho(\Bx).
-\end{dmath}
+}
+%\end{dmath}
 
 This is a multivector equation which must be simultaneously satisfied by its scalar and bivector components
 
@@ -80,7 +80,7 @@ This is a multivector equation which must be simultaneously satisfied by its sca
 The first equation is the familiar relationship between the divergence and the enclosed charge, which could have been derived from \cref{eqn:electrostatics:140} directly.
 The second provides a constraint on the tangential components of the field with respect to the enclosed volume, and could have been derived from
 \cref{eqn:electrostatics:100} directly.
-The multivector equation \cref{eqn:electrostatics:460} simulaneously encodes both of these relationships, simultaneously incorporating the contributions of the Maxwell divergence and curl equations for the electric field, relating both to the enclosed charge.
+The multivector equation \cref{eqn:electrostatics:460} encodes both of these relationships, simultaneously incorporating the contributions of the Maxwell divergence and curl equations for the electric field, relating both to the enclosed charge.
 
 \subsection{Inverting the gradient equations.}
 
