@@ -19,7 +19,7 @@ These constraints simpify Maxwell's equations considerably
 \end{dmath}
 \end{subequations}
 
-\Cref{eqn:magnetostatics:240} can be used to rewrite the magnetostatic Maxwell equations (\cref{eqn:magnetostatics:99}), as a pair of multivector gradient equations.  The electric field equation is just
+\Cref{eqn:electrostatics:240} can be used to rewrite the magnetostatic Maxwell equations (\cref{eqn:magnetostatics:99}), as a pair of multivector gradient equations.  The electric field equation is just
 
 \begin{equation}\label{eqn:magnetostatics:400}
 \spacegrad \BE = 0,
@@ -69,15 +69,19 @@ a vector potential \( \BA \) solution for the dual of the magnetic field can be 
 As the right hand side is a bivector, we must have \( \spacegrad \cdot \BA = 0 \) for this presumed solution to be valid.
 Assuming (for now) a zero divergence constraint for the vector potential, then \cref{eqn:magnetostatics:380} is reduced to
 
-\begin{dmath}\label{eqn:magnetostatics:540}
+%\begin{dmath}\label{eqn:magnetostatics:540}
+\boxedEquation{eqn:magnetostatics:540}{
 \spacegrad^2 \BA = -\mu_0 \BJ,
-\end{dmath}
+}
+%\end{dmath}
 
 which can be solved immediately
 
-\begin{dmath}\label{eqn:magnetostatics:560}
+%\begin{dmath}\label{eqn:magnetostatics:560}
+\boxedEquation{eqn:magnetostatics:560}{
 \BA(\Bx) = \frac{\mu_0}{4\pi} \int dV' \frac{ \BJ(\Bx') }{\Norm{\Bx - \Bx'}}.
-\end{dmath}
+}
+%\end{dmath}
 
 The zero divergence constraint for the vector potential is easily dealt with by adding a gradient to the vector potential with the
 transformation \( \BA \rightarrow \overbar{\BA} + \spacegrad \chi \).  This gives
@@ -110,9 +114,11 @@ A volume integral of \cref{eqn:magnetostatics:380} provides a relationship betwe
 With a normal parameterization of the oriented surface area element \( d^2 \Bx = I \ncap dA \), and \( d^3 \Bx = I dV \),
 \cref{eqn:magnetostatics:580} is reduced to
 
-\begin{dmath}\label{eqn:magnetostatics:600}
+%\begin{dmath}\label{eqn:magnetostatics:600}
+\boxedEquation{eqn:magnetostatics:600}{
 \int_{\partial V} dA I \ncap \BB = \mu_0  \int_V dV \BJ.
-\end{dmath}
+}
+%\end{dmath}
 
 This can be split into two grades
 
@@ -143,9 +149,14 @@ This expansion can be simplified by inserting a no-op grade selection operation
 I \BB(\Bx)
 = \gpgradetwo{ \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx') }
 = \int_V dV' \gpgradetwo{ G(\Bx, \Bx') (-\mu_0 \BJ(\Bx')) }
-= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \wedge (-\mu_0 \BJ(\Bx'))
-= \frac{\mu_0}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \wedge (-\mu_0 \BJ(\Bx')),
 \end{dmath}
+or
+
+\boxedEquation{eqn:magnetostatics:n}{
+I \BB(\Bx)
+= \frac{\mu_0}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+}
 
 This is the Biot-Savart law in its GA form.  The traditional expression requires only a duality transformation \( \BJ \wedge \Bf = I ( \BJ \cross \Bf) \), or
 
@@ -154,14 +165,15 @@ This is the Biot-Savart law in its GA form.  The traditional expression requires
 = \frac{\mu_0}{4\pi} \int_V dV' \BJ(\Bx') \cross \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
 \end{dmath}
 
-The freedom to insert a no-op vector grade selection may seem like a sneaky move.  It is possible to avoid that
-by showing that the scalar integrands discarded in \cref{eqn:magnetostatics:680} are explicitly zero.
+The freedom to insert a no-op vector grade selection may seem like a sneaky move.
+To remove any doubt about the validity of this move, here is a demonstration that 
+the scalar grade discarded by the grade selection operation on the integrand of \cref{eqn:magnetostatics:680} is explicitly zero.
 
 \begin{dmath}\label{eqn:biotSavartGreens:60}
--\frac{\mu_0}{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
+ \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
 = \frac{\mu_0}{4\pi} \int_V dV' \lr{ \spacegrad \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
-= -\frac{\mu_0}{4\pi} \int_V dV' \lr{ \spacegrad' \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
-= -\frac{\mu_0}{4\pi} \int_V dV' \lr{
+=  \int_V dV' \lr{ \spacegrad' \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
+=  \int_V dV' \lr{
 \spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
 -
 \frac{\spacegrad' \cdot \BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
@@ -171,9 +183,9 @@ by showing that the scalar integrands discarded in \cref{eqn:magnetostatics:680}
 By \cref{eqn:magnetostatics:460}, the divergence of the current density is zero, which kills the second term.  The divergence theorem can be used to express the remaining integral as a surface integral, so
 
 \begin{dmath}\label{eqn:biotSavartGreens:100}
--\frac{\mu_0}{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
-= -\frac{\mu_0}{4\pi} \int_V dV' \spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
-= -\frac{\mu_0}{4\pi} \int_{\partial V} dA' \ncap \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }.
+ \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
+=  \int_V dV' \spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
+=  \int_{\partial V} dA' \ncap \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }.
 \end{dmath}
 
 Provided the normal component of \( \BJ(\Bx')/\Abs{\Bx - \Bx'} \) vanishes on the boundary of an infinite sphere, we see that the
