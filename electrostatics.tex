@@ -82,9 +82,27 @@ The second provides a constraint on the tangential components of the field with 
 \cref{eqn:electrostatics:100} directly.
 The multivector equation \cref{eqn:electrostatics:460} encodes both of these relationships, simultaneously incorporating the contributions of the Maxwell divergence and curl equations for the electric field, relating both to the enclosed charge.
 
-\subsection{Inverting the gradient equations.}
+\subsection{Electric potential.}
 
-FIXME: like magnetostatics.tex, include the Green's convolution integral here explicitly for clarity.
+If a gradient representation of the electric field is assumed
+
+\begin{dmath}\label{eqn:electrostatics:561}
+\BE(\Bx) = -\spacegrad \phi(\Bx),
+\end{dmath}
+
+then
+inserting
+this assumed representation into \cref{eqn:electrostatics:380} provides the
+Poisson equation directly
+
+%\begin{dmath}\label{eqn:electrostatics:581}
+\boxedEquation{eqn:electrostatics:581}{
+\spacegrad^2 \phi = -\frac{\rho}{\epsilon_0}.
+}
+%\end{dmath}
+
+%This has solution \cref{eqn:electrostatics:601} but can also be solved using
+\subsection{Inverting the gradient equations.}
 
 From \cref{thm:gradientGreensFunctionEuclidean:1}, the
 \R{3} Green's function for the gradient (on an infinite spherical bounding surface) is
@@ -93,47 +111,72 @@ From \cref{thm:gradientGreensFunctionEuclidean:1}, the
 G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3}.
 \end{dmath}
 
-Our two gradient equations can now be inverted directly.
-The magnetic field is found to be zero everywhere
-\begin{dmath}\label{eqn:electrostatics:320}
-\BB(\Bx) = 0,
+The Green's function convolution that inverts the electric field gradient equation is
+\begin{dmath}\label{eqn:electrostatics:621}
+\BE(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' \BE(\Bx')
+= \int_V dV' G(\Bx, \Bx') \lr{ \inv{\epsilon_0}\rho(\Bx') }
+= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \lr{ \inv{\epsilon_0}\rho(\Bx') },
 \end{dmath}
-since it is the convolution over sources that are zero everywhere.
-The convolution integral that solves for the electric field gives
 
-\begin{dmath}\label{eqn:electrostatics:340}
+or
+%\begin{dmath}\label{eqn:electrostatics:340}
+\boxedEquation{eqn:electrostatics:340}{
 \BE(\Bx) =
-\inv{4 \pi \epsilon_0} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3} ,
+\inv{4 \pi \epsilon_0} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3},
+}
+%\end{dmath}
+
+which is Coulomb's law.
+
+The convolution for the magnetic field is trivial
+\begin{dmath}\label{eqn:electrostatics:641}
+\BB(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' \BB(\Bx')
+= \int_V dV' G(\Bx, \Bx') (0),
 \end{dmath}
 
-which recovers Coulomb's law.
+so the magnetic field is zero everywhere
+\begin{dmath}\label{eqn:electrostatics:320}
+\BB(\Bx) = 0.
+\end{dmath}
 
-\subsection{Electric potential.}
+%Question: would a non-zero magnetic field solution be possible if a Green's function for a finite bounded surface were to be used instead?
 
-FIXME: rework this so that it does not depend on the Green's solution, and comes first (as it is simpler).
+\subsection{Poisson equation solution.}
 
-Provided \( \Bx \ne \Bx' \), it is simple to show that
+Provided \( \Bx \ne \Bx' \), it is simple to show that (\cref{problem:electrostatics:gradrelation})
 
 \begin{dmath}\label{eqn:electrostatics:541}
 \spacegrad \Norm{\Bx - \Bx'}^k = k (\Bx - \Bx') \Norm{ \Bx - \Bx' }^{k-2}.
 \end{dmath}
 
-This can be applied to Coulomb's law \cref{eqn:electrostatics:340}, to express the electric field as a gradient
+In particular
 
-\begin{dmath}\label{eqn:electrostatics:561}
-\BE(\Bx) = -\spacegrad \phi(\Bx),
+\begin{dmath}\label{eqn:electrostatics:541}
+\spacegrad \inv{\Norm{\Bx - \Bx'}} = - \frac{(\Bx - \Bx')}{\Norm{ \Bx - \Bx' }^{3}}.
 \end{dmath}
 
-where
-\begin{dmath}\label{eqn:electrostatics:601}
+Inserting this into Coulomb's law \cref{eqn:electrostatics:340} gives
+\begin{dmath}\label{eqn:electrostatics:661}
+\BE(\Bx)
+=
+-\inv{4 \pi \epsilon_0} \int dV' \rho(\Bx') \spacegrad \inv{\Norm{\Bx - \Bx'}}
+=
+- \spacegrad \inv{4 \pi \epsilon_0} \int dV' \frac{\rho(\Bx')}{\Norm{\Bx - \Bx'}},
+\end{dmath}
+
+which implicitly provides the solution to the Poisson equation \cref{eqn:electrostatics:581}
+
+%\begin{dmath}\label{eqn:electrostatics:601}
+\boxedEquation{eqn:electrostatics:601}{
 \phi(\Bx) = \inv{4 \pi \epsilon_0} \int dV' \frac{ \rho(\Bx') }{\Norm{\Bx - \Bx'}}.
-\end{dmath}
+}
+%\end{dmath}
 
-Alternatively, it can be assumed that a gradient representation \cref{eqn:electrostatics:561} of the electric field exists.  Inserting
-this assumed representation inserted into \cref{eqn:electrostatics:380} yields the Poisson equation
+\subsection{Problems.}
 
-\begin{dmath}\label{eqn:electrostatics:581}
-\spacegrad^2 \phi = -\frac{\rho}{\epsilon_0}.
-\end{dmath}
+\makeproblem{Gradients relation.}{problem:electrostatics:gradrelation}{
+Prove \cref{eqn:electrostatics:541}.
+} % problem
 
-%This has solution \cref{eqn:electrostatics:601} but can also be solved using 
