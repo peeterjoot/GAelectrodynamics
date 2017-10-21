@@ -1,0 +1,133 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+Here is a summary that compares various GA expressions with close equivalents in traditional vector (or complex) algebra.
+
+\begin{tcolorbox}[tab2,tabularx={X||Y|Y},title=Comparison of traditional and geometric algebra identities.,boxrule=0.5pt]
+Name         & Geometric algebra & Traditional algebra
+\\ \hline
+Norm squared & \( \Bx^2 \)            & \( \Bx \cdot \Bx \)
+\\ \hline
+complex imaginary & \( \Be_{12}, \Be_{123}, \cdots \) & i
+\\ \hline
+complex number & \( x + \Be_{12} y \) & \( x + i y \)
+\\ \hline
+vector products & \begin{equation*}
+\begin{aligned}
+\Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} \Delta \theta } \\
+\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
+\Ba \wedge \Bb &= i_{ab} \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta } \\
+\end{aligned}
+\end{equation*}
+& \begin{equation*}
+\begin{aligned}
+\Ba \Bb &= \mbox{n/a.} \\
+\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
+\Ba \cross \Bb &= \ncap \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta } \\
+\end{aligned}
+\end{equation*},\quad (\( i_{ab} \ncap = \Be_{123} \)).
+\\ \hline
+wedge/cross product antisymmetry
+& \( \Ba \wedge \Bb = -\Bb \wedge \Ba \)
+& \( \Ba \cross \Bb = -\Bb \cross \Ba \)
+\\ \hline
+wedge/cross filtering
+& \( \Ba \wedge (\alpha \Ba + \Bb) = \Ba \wedge \Bb \)
+& \( \Ba \cross (\alpha \Ba + \Bb) = \Ba \cross \Bb \)
+\\ \hline
+wedge/cross coordinate expansion
+& \(
+\Ba \wedge \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \Be_j \)
+& \(
+\Ba \cross \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \cross \Be_j \)
+\\ \hline
+wedge/cross determinant expansion
+& \( \Ba \wedge \Bb = \begin{vmatrix}
+\Be_2 \Be_3 & \Be_3 \Be_1 & \Be_1 \Be_2 \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+\end{vmatrix} \)
+& \( \Ba \cross \Bb = \begin{vmatrix}
+\Be_1 & \Be_2 & \Be_3 \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+\end{vmatrix} \)
+\\ \hline
+vector-bivector dot product (
+triple cross product) & \( \Ba \cdot ( \Bb \wedge \Bc ) \) & \( (\Bb \cross \Bc) \cross \Ba \)
+\\ \hline
+bivector dot product (dot product of cross products) &
+\( (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd) \)
+&
+\( -(\Ba \cross \Bb) \cdot (\Bc \cross \Bd) \)
+\\ \hline
+Triple wedge (triple product) &
+\( \Ba \wedge \Bb \wedge \Bc
+=
+\begin{vmatrix}
+a_i & a_j & a_k \\
+b_i & b_j & b_k \\
+c_i & c_j & c_k \\
+\end{vmatrix}
+I \)
+&
+\( \Ba \cdot (\Bb \cross \Bc)
+=
+\begin{vmatrix}
+a_i & a_j & a_k \\
+b_i & b_j & b_k \\
+c_i & c_j & c_k \\
+\end{vmatrix}
+\)
+\\ \hline
+Normal to vectors \( \Ba, \Bb \) & \( I (\Ba \wedge \Bb) \) & \( \Ba \cross \Bb \)
+\\ \hline
+Plane normal to a vector \( \Bn \) & \( (I \Bn) \wedge \Bx = 0 \) & \( \Bn \cdot \Bx = 0 \)
+\\ \hline
+Plane normal to vectors \( \Ba, \Bb \) & \( (\Ba \wedge \Bb) \wedge \Bx = 0 \) & \( (\Ba \cross \Bb) \cdot \Bx = 0 \)
+\\ \hline
+Projection & \( (\Bx \cdot \ucap) \ucap \) & \( (\Bx \cdot \ucap ) \ucap \)
+\\ \hline
+Rejection & \( (\Bx \wedge \ucap) \ucap \) & \( (\ucap \cross \Bx ) \cross \ucap \)
+\\ \hline
+2D rotation & \( \Bx e^{i \theta}, \quad i = \Be_{12} \) & \(
+\begin{bmatrix}
+\cos\theta & \sin\theta \\
+-\sin\theta & \cos\theta \\
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+\)
+\\ \hline
+3D rotation in the plane of \( \ucap, \vcap \), where \( \ucap \cdot \vcap = 0 \)
+&
+\( e^{-\ucap \vcap \theta /2} \Bx e^{\ucap \vcap \theta/2} \)
+&
+\(
+(\Bx \cdot \ucap) (\ucap \cos\theta + \vcap \sin\theta) +
+(\Bx \cdot \vcap) (\vcap \cos\theta - \ucap \sin\theta) +
+(\ucap \cross \Bx) \cross \ucap
+\)
+\\ \hline
+Reflection & \( \ucap \Bx \ucap\) & \( (\Bx \cdot \ucap) \ucap + \ucap \cross (\ucap \cross \Bx) \)
+\\ \hline
+\end{tcolorbox}
+

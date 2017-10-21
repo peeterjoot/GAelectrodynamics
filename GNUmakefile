@@ -67,10 +67,11 @@ include ../latex/make.rules
 #all :: $(THISBOOK).pdf
 all :: ellipticalWaves.pdf
 all :: junk.pdf
-#all :: maxwells.pdf
+all :: maxwells.pdf
 #maxwells.pdf : freespace.tex
 #maxwells.pdf : electrostatics.tex
 maxwells.pdf : magnetostatics.tex
+#maxwells.pdf : gacomparison.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 
