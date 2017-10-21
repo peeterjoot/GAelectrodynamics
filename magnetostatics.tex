@@ -165,9 +165,10 @@ This is the Biot-Savart law in its GA form.  The traditional expression requires
 = \frac{\mu_0}{4\pi} \int_V dV' \BJ(\Bx') \cross \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
 \end{dmath}
 
-The freedom to insert a no-op vector grade selection may seem like a sneaky move.
-To remove any doubt about the validity of this move, here is a demonstration that 
-the scalar grade discarded by the grade selection operation on the integrand of \cref{eqn:magnetostatics:680} is explicitly zero.
+The freedom to insert a no-op bivector grade selection may seem like a sneaky move.
+To remove doubt about the validity of this move, here is a demonstration that
+the scalar grade discarded by the grade selection operation on the integrand of \cref{eqn:magnetostatics:680} is explicitly zero,
+provided the current density vanishes faster than \( r \) on the infinite sphere.
 
 \begin{dmath}\label{eqn:biotSavartGreens:60}
  \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
