@@ -136,11 +136,45 @@ I \int_{\partial V} dA \ncap \cdot \BB = 0
 \end{dmath}
 \end{subequations}
 
-\Cref{eqn:magnetostatics:640} should not be a surprise since it is a direct consequence of Gauss's law \( \spacegrad \cdot \BB = 0 \).  \Cref{eqn:magnetostatics:660} provides a relationship between the tangential components of the magnetic field and the total enclosed current density.
+\Cref{eqn:magnetostatics:640} states that the magnetic flux through a closed surface is zero, which is not be a surprise since it is a direct consequence of Gauss's law \( \spacegrad \cdot \BB = 0 \).  \Cref{eqn:magnetostatics:660} provides a relationship between the tangential components of the magnetic field and the total enclosed current density.
 
 \subsection{Enclosed current.}
 
-Todo.
+Starting with
+\cref{eqn:magnetostatics:380}, the
+integral of the
+charge density through an open surface can be calculated
+
+\begin{dmath}\label{eqn:magnetostatics:720}
+\mu_0 \int_S d^2 \Bx \cdot (I \BJ)
+=
+\int_S d^2 \Bx \cdot (\spacegrad \BB)
+=
+\int_S d^2 \Bx \cdot (\spacegrad \wedge \BB)
+=
+\int_{\partial S} d^1 \Bx \cdot \BB.
+\end{dmath}
+
+The specific orientation of the path around the surface for a two parameter expansion of Stokes' theorem (\cref{eqn:stokesTheoremCore:280}), was a clockwise loop.  Let
+\( d^2 \Bx = I \ncap dA \), \( d^1 \Bx = d\Bl \), giving
+
+\begin{dmath}\label{eqn:magnetostatics:740}
+\ointclockwise_{\partial S} d\Bl \cdot \BB
+= \mu_0 \int_S dA (\ncap I) \cdot (I \BJ)
+= -\mu_0 \int_S dA \ncap \cdot \BJ.
+\end{dmath}
+
+The circulation of the magnetic field around the boundary of a surface that the current density is flowing through is the enclosed surface.  This can be written as a bivector product of the current density, or in the traditional form as a dot product of the current density with the outwards normal to the surface
+
+%\begin{equation}\label{eqn:magnetostatics:780}
+\boxedEquation{eqn:magnetostatics:800}{
+\ointctrclockwise_{\partial S} d\Bl \cdot \BB
+= \mu_0 \int_S dA (\ncap I) \cdot (-I \BJ)
+= \mu_0 \int_S dA \ncap \cdot \BJ.
+}
+%\end{equation}
+
+%The bivector form of the dot product makes some geometrical sense, as we take a per unit area quantity (\(-I \BJ\)) with bivector grade and multiply it with a bivector area element, producing exactly the enclosed current flowing through the surface.
 
 \subsection{Biot-Savart law.}
 
@@ -161,7 +195,7 @@ I \BB(\Bx)
 \end{dmath}
 or
 
-\boxedEquation{eqn:magnetostatics:n}{
+\boxedEquation{eqn:magnetostatics:760}{
 I \BB(\Bx)
 = \frac{\mu_0}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
 }
