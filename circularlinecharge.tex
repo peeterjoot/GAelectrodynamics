@@ -3,10 +3,100 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %\makeexample{Circular line charge.}{example:circularlinecharge:circularlinecharge}{
-In this example we look at the electric field for a field observed at the spherical coordinate point \( (r, \theta, \phi) \) due to a line charge density of \( \lambda \) along a circular arc segment \( [a,b] \) in the x-y plane.
-This is illustrated in FIXME.
-%\cref{fig:linecharge:linechargeFig1}.
+In this example we will examine the electric field due to a line charge density of \( \lambda \) along a circular arc segment \( \phi' \in [a,b] \), of radius \( r \) in the x-y plane.
+The field will be evaluated at the
+spherical coordinate point \( (R, \theta, \phi) \), as illustrated in \cref{fig:circularlinecharge:circularlinechargeFig1}.  (FIXME: better figure).
 
+\imageFigure{../figures/GAelectrodynamics/circularlinechargeFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.3}
 
+To setup this problem, first consider a GA factorization of the spherical radial point.  Let
+\( i = \Be_{12} \), so that
+
+\begin{dmath}\label{eqn:circularlinecharge:20}
+\Bx
+= R \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta }
+= R \Be_1 \sin\theta ( \cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta
+= R \Be_1 \sin\theta e^{i \phi} + \Be_3 \cos\theta
+= R \Be_3 \lr{ \cos\theta + \Be_{31} e^{i \phi} \sin\theta }.
+\end{dmath}
+
+Let the bivector for the rotational plane between \( R \Be_3 \rightarrow \Bx \) be represented by
+
+\begin{dmath}\label{eqn:circularlinecharge:40}
+j = \Be_{31} e^{i \phi}.
+\end{dmath}
+
+The bivector \( j \) is a function of the azimuthal angle \( \phi \), but encodes all the geometry of the rotation.
+The observation point now has the simple representation
+
+\begin{dmath}\label{eqn:circularlinecharge:60}
+\Bx = R \Be_3 e^{j \theta },
+\end{dmath}
+
+and is the product of a polar directed vector with a complex exponential whos argument is the polar rotation angle.
+To sum the contributions of the charge elements we need the distance between the charge element and the observation point.  That vector difference is
+
+\begin{dmath}\label{eqn:circularlinecharge:80}
+\Bx - \Bx'
+=
+R \Be_3 e^{j \theta } - r \Be_1 e^{i \phi'}.
+\end{dmath}
+
+Compare this to the tuple representation
+
+\begin{dmath}\label{eqn:circularlinecharge:100}
+\Bx - \Bx'
+= ( R \sin\theta \cos\phi - r \cos\phi', R \sin\theta \sin\phi - r \cos\phi', \cos\theta ),
+\end{dmath}
+
+for which the prospect of working with is considerably less attractive.  The squared length of \cref{eqn:circularlinecharge:80} is
+\begin{dmath}\label{eqn:circularlinecharge:120}
+(\Bx - \Bx')^2
+=
+R^2 + r^2 - 2 R r \lr{\Be_3 e^{j \theta} } \cdot \lr{ \Be_1 e^{i \phi'} }.
+\end{dmath}
+
+The dot product of unit vectors in \cref{eqn:circularlinecharge:120} can be reduced using scalar grade selection
+
+\begin{dmath}\label{eqn:circularlinecharge:140}
+\lr{\Be_3 e^{j \theta }} \cdot \lr{ \Be_1 e^{i \phi'} }
+=
+\gpgradezero{
+\lr{ \Be_1 \sin\theta e^{i \phi} } \lr{ \Be_1 e^{i \phi'}}
+}
+=
+\sin\theta
+\gpgradezero{
+e^{-i \phi} e^{i \phi'}
+}
+=
+\sin\theta \cos( \phi' - \phi ),
+\end{dmath}
+
+so
+\begin{dmath}\label{eqn:circularlinecharge:160}
+\Norm{ \Bx - \Bx' }
+=
+\sqrt{
+R^2 + r^2 - 2 R r \sin\theta \cos( \phi' - \phi )
+}.
+\end{dmath}
+
+The electric field is
+\begin{dmath}\label{eqn:circularlinecharge:180}
+\BE = \frac{1}{4 \pi \epsilon_0} \int_a^b \lambda r d\phi' \frac{ R \Be_3 e^{j \theta } - r \Be_1 e^{i \phi'} }{\lr{ R^2 + r^2 - 2 R r \sin\theta \cos( \phi' - \phi ) }^{3/2} }.
+\end{dmath}
+
+Non-dimensionalizing \cref{eqn:circularlinecharge:180} with \( u = r/R \), a change of variables \( \alpha = \phi' - \phi \), and noting that \( i \phicap = \Be_1 e^{i \phi} \), the field is
+
+\begin{dmath}\label{eqn:circularlinecharge:200}
+\BE
+= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \Be_3 e^{j \theta } - u \Be_1 e^{i\phi} e^{i \alpha} }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
+= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \rcap + u \phicap i e^{i \alpha } }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }.
+\end{dmath}
+
+The radial integral \( \int dx \lr{ a^2 - 2 b \cos x }^{-3/2} \) scales the radial electric field component without rotating it.
+The azimuthal integral \( \int dx \lr{ a^2 - 2 b \cos x }^{-3/2} \) scales and rotates the azimuthal electric field component within the azimuthal plane.
+Evaluating \cref{eqn:circularlinecharge:200} using CAS software with no direct GA support requires care, since the bivectors \( i, j \) do not commute and cannot be assembled into a single complex integrand as was possible for the linear line charge.  These integrals can be computed separately without trouble.
 
 %} % example
