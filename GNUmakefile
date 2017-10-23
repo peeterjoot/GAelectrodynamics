@@ -70,8 +70,10 @@ all :: junk.pdf
 #all :: maxwells.pdf
 #maxwells.pdf : freespace.tex
 #maxwells.pdf : electrostatics.tex
-maxwells.pdf : magnetostatics.tex
+#maxwells.pdf : magnetostatics.tex
+#maxwells.pdf : linecharge.tex
 #maxwells.pdf : gacomparison.tex
+maxwells.pdf : circularlinecharge.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

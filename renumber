@@ -133,3 +133,6 @@ perl -p -i ../latex/bin/latexRegex.pl electrostatics.tex
 ../latex/bin/lgrep magnetostatics.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl magnetostatics.tex
 
+../latex/bin/lgrep linecharge.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl linecharge.tex
+
