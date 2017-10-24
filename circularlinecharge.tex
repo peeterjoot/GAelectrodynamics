@@ -9,31 +9,33 @@ spherical coordinate point \( (R, \theta, \phi) \), as illustrated in \cref{fig:
 
 \imageFigure{../figures/GAelectrodynamics/circularlinechargeFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.3}
 
-To setup this problem, first consider a GA factorization of the spherical radial point.  Let
-\( i = \Be_{12} \), so that
-
-\begin{dmath}\label{eqn:circularlinecharge:20}
-\Bx
-= R \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta }
-= R \Be_1 \sin\theta ( \cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta
-= R \Be_1 \sin\theta e^{i \phi} + \Be_3 \cos\theta
-= R \Be_3 \lr{ \cos\theta + \Be_{31} e^{i \phi} \sin\theta }.
-\end{dmath}
-
-Let the bivector for the rotational plane between \( R \Be_3 \rightarrow \Bx \) be represented by
-
-\begin{dmath}\label{eqn:circularlinecharge:40}
-j = \Be_{31} e^{i \phi}.
-\end{dmath}
-
-The bivector \( j \) is a function of the azimuthal angle \( \phi \), but encodes all the geometry of the rotation.
-The observation point now has the simple representation
+Using the GA spherical parameterization of \cref{eqn:curvilinearspherical:40}, and \cref{eqn:curvilinearspherical:60}, the 
+%To setup this problem, first consider a GA factorization of the spherical radial point.  Let
+%\( i = \Be_{12} \), so that
+%
+%\begin{dmath}\label{eqn:circularlinecharge:20}
+%\Bx
+%= R \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta }
+%= R \Be_1 \sin\theta ( \cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta
+%= R \Be_1 \sin\theta e^{i \phi} + \Be_3 \cos\theta
+%= R \Be_3 \lr{ \cos\theta + \Be_{31} e^{i \phi} \sin\theta }.
+%\end{dmath}
+%
+%Let the bivector for the rotational plane between \( R \Be_3 \rightarrow \Bx \) be represented by
+%
+%\begin{dmath}\label{eqn:circularlinecharge:40}
+%j = \Be_{31} e^{i \phi}.
+%\end{dmath}
+%
+%The bivector \( j \) is a function of the azimuthal angle \( \phi \), but encodes all the geometry of the rotation.
+observation point now has the simple representation
 
 \begin{dmath}\label{eqn:circularlinecharge:60}
 \Bx = R \Be_3 e^{j \theta },
 \end{dmath}
 
 and is the product of a polar directed vector with a complex exponential whos argument is the polar rotation angle.
+The bivector \( j \) is a function of the azimuthal angle \( \phi \), and encodes all the geometry of the rotation.
 To sum the contributions of the charge elements we need the distance between the charge element and the observation point.  That vector difference is
 
 \begin{dmath}\label{eqn:circularlinecharge:80}
