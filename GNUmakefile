@@ -73,7 +73,8 @@ all :: junk.pdf
 #maxwells.pdf : magnetostatics.tex
 #maxwells.pdf : linecharge.tex
 #maxwells.pdf : gacomparison.tex
-maxwells.pdf : circularlinecharge.tex
+#maxwells.pdf : circularlinecharge.tex
+maxwells.pdf : isotropicMaxwells.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

@@ -10,39 +10,92 @@ test particle.  These dynamics can be determined without having to
 compute all the interactions of that charge with all the charges and currents in space, nor having to continually account for
 the interactions of those charge with each other.
 
-We will start with the traditional vector differential form of Maxwell's equations in free space
+We will use vector differential form of Maxwell's equations with antenna theory extensions as our starting point
+
+\index{magnetic charge density}
+\index{electric charge density}
+\index{magnetic current density}
+\index{electric current density}
 
 \begin{subequations}
 \label{eqn:freespace:99}
 \begin{dmath}\label{eqn:freespace:100}
-\spacegrad \cross \BE = - \PD{t}{\BB}
+%\spacegrad \cross \BE = - \PD{t}{\BB}
+\spacegrad \cross \BE = - \BM - \PD{t}{\BB}
 \end{dmath}
 \begin{dmath}\label{eqn:freespace:120}
-\spacegrad \cross \BB = \mu_0 \lr{ \BJ + \epsilon_0 \PD{t}{\BE} }
+%\spacegrad \cross \BB = \mu_0 \lr{ \BJ + \epsilon_0 \PD{t}{\BE} }
+\spacegrad \cross \BH = \BJ + \PD{t}{\BD}
 \end{dmath}
 \begin{dmath}\label{eqn:freespace:140}
-\spacegrad \cdot \BE = \frac{\rho}{\epsilon_0}
+%\spacegrad \cdot \BE = \frac{\rho}{\epsilon_0}
+\spacegrad \cdot \BD = \rho
 \end{dmath}
 \begin{dmath}\label{eqn:freespace:160}
-\spacegrad \cdot \BB = 0.
+%\spacegrad \cdot \BB = 0.
+\spacegrad \cdot \BB = \rho_\txtm.
 \end{dmath}
 \end{subequations}
 
-These equations relate the electric and magnetic fields
+These equations relate the primary electric and magnetic fields
 
 \begin{itemize}
 	\item \( \BE(\Bx, t) \) : Electric field intensity [\si{V/m}] (Volts/meter)
-	\item \( \BB(\Bx, t) \) : Magnetic flux density [\si{W/m^2}] (Webers/square meter)
+	\item \( \BH(\Bx, t) \) : Magnetic field intensity [\si{A/m}] (Amperes/meter),
 \end{itemize}
 
-to charge and current densities
+and the induced electric and magnetic fields
+
+\begin{itemize}
+	\item \( \BD(\Bx, t) \) : Electric flux density (or displacement vector) [\si{C/m}] (Coulombs/meter)
+	\item \( \BB(\Bx, t) \) : Magnetic flux density [\si{W/m^2}] (Webers/square meter),
+\end{itemize}
+
+to the charge densities
 
 \begin{itemize}
 	\item \( \rho(\Bx, t) \) : Electric charge density [\si{C/m^3}] (Coulombs/cubic meter)
-	\item \( \BJ(\Bx, t) \) : Electric current density [\si{A/m^2}] (Amperes/square meter),
+   \item \( \rho_\txtm(\Bx, t) \) : Magnetic charge density [\si{W/m^3}] (Webers/cubic meter),
 \end{itemize}
 
-both of which can vary in space and time, and are specified here in SI units.  The constants are
+and the current densities
+
+\begin{itemize}
+	\item \( \BJ(\Bx, t) \) : Electric current density [\si{A/m^2}] (Amperes/square meter),
+   \item \( \BM(\Bx, t) \) : Magnetic current density [\si{V/m^2}] (Volts/square meter).
+\end{itemize}
+
+All of the fields and sources can vary in space and time, and are specified here in SI units.  
+The sources \( \BM, \rho_\txtm \) can be considered fictional, representing physical phenomina such as infinitesimal current loops.
+
+In general, the relationship between the electric and magnetic fields (constitutivity relationships) may be complicated
+non-isotropic tensor operators, functions of all of \( \BE, \BD, \BB \) and \( \BH \).
+It will often be useful to assume that the these constitutive relationships between the electric and magnetic fields are independent
+
+\begin{subequations}
+\label{eqn:maxwellsEquations:300}
+\begin{dmath}\label{eqn:maxwellsEquations:320}
+\BB = \mu \BH
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:340}
+\BD = \epsilon \BE,
+\end{dmath}
+\end{subequations}
+
+where \( \epsilon \) is the permittivity of the medium [\si{F/m}] (Farads/meter), and \( \mu \) is the permeability of the medium [\si{H/m}] (Henries/meter).
+The permittivity and permeability may be functions of both time and position, and model the materials that the fields are propagating through.  In free space these relationships are simply
+
+\begin{subequations}
+\label{eqn:maxwellsEquations:301}
+\begin{dmath}\label{eqn:maxwellsEquations:321}
+\BB = \mu_0 \BH
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:341}
+\BD = \epsilon_0 \BE,
+\end{dmath}
+\end{subequations}
+
+where
 
 \begin{itemize}
 \item \( \epsilon_0 = 8.85 \times 10^{-12} \si{C^2/N/m^2}\) : Permittivity of free space (Coulombs squared/Newton/square meter)
@@ -51,6 +104,46 @@ both of which can vary in space and time, and are specified here in SI units.  T
 
 These constants are related to the speed of light, \( c = 3.00 \times 10^8 \si{m/s} \) by \( \mu_0 \epsilon_0 = 1/c^2 \).
 
+Antenna theory extends Maxwell's equations with fictional magnetic charge and current densities that are useful to model
+real phenomena such as infinitesimal current loops.
+
+The fields and sources are all real valued functions of both space and time.  
+In many situations it will be desirable to work with a time harmonic (frequency-domain phasor) form of Maxwell's equations.
+Two conventions exist for the frequency dependence
+\index{time harmonic}
+
+\begin{subequations}
+\label{eqn:maxwellsEquations:900}
+\begin{dmath}\label{eqn:maxwellsEquations:20}
+\BY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{j\omega t} )
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:40}
+\BY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{-i\omega t} ).
+\end{dmath}
+\end{subequations}
+
+\Cref{eqn:maxwellsEquations:20} is the engineering convension (used herein), and \cref{eqn:maxwellsEquations:40} is the physics convension.  
+Care is required by the reader to understand which form of frequency dependence has been assumed.
+In either representation the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued.  
+Given this frequency dependence Maxwell's equations take the form
+
+%\input{../ece1229-antenna/MaxwellsTimeHarmonic.tex}
+\begin{subequations}
+\label{eqn:chapter3Notes:99}
+\begin{dmath}\label{eqn:chapter3Notes:100}
+\spacegrad \cross \BE = - \BM - j \omega \BB
+\end{dmath}
+\begin{dmath}\label{eqn:chapter3Notes:120}
+\spacegrad \cross \BH = \BJ + j \omega \BD
+\end{dmath}
+\begin{dmath}\label{eqn:chapter3Notes:140}
+\spacegrad \cdot \BD = \rho
+\end{dmath}
+\begin{dmath}\label{eqn:chapter3Notes:160}
+\spacegrad \cdot \BB = \rho_\txtm.
+\end{dmath}
+\end{subequations}
+
 Continuous models for charge and current distributions are used in Maxwell's equations, despite the
 fact that charges (i.e. electrons) are particles, and are not distributed in space.
 The discrete nature of electronic charge can be modelled using a delta function representation of the charge and current densities
@@ -58,7 +151,7 @@ The discrete nature of electronic charge can be modelled using a delta function 
 \begin{dmath}\label{eqn:freespace:240}
 \begin{aligned}
 \rho(\Bx, t) &= \sum_a q_a \delta( \Bx - \Bx_a( t) ) \\
-\BJ(\Bx, t) &= \sum_a q_a \Bv_a \delta( \Bx - \Bx_a( t) ).
+\BJ(\Bx, t) &= \sum_a q_a \Bv_a( \Bx, \Bt )
 \end{aligned}
 \end{dmath}
 

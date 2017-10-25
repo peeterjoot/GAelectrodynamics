@@ -1,0 +1,121 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+Assuming 
+isotropic constituency relationships \cref{eqn:maxwellsEquations:300}, and 
+eliminating cross products in favor of wedge products, 
+Maxwell's equations \cref{eqn:freespace:99} become
+
+\begin{subequations}
+\label{eqn:maxwellsEquations:61}
+\begin{dmath}\label{eqn:maxwellsEquations:60}
+\spacegrad \wedge \BE = - I \BM - \mu \PD{t}{(I\BH)}
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:80}
+\spacegrad \wedge \BH = I \BJ + I \epsilon \PD{t}{\BE}
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:100}
+\spacegrad \cdot \BE = \rho/\epsilon
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:120}
+\spacegrad \cdot \BH = \rho_\txtm/\mu.
+\end{dmath}
+\end{subequations}
+
+With a bit of rescaling, the dot and wedge products of \cref{eqn:maxwellsEquations:60}, \cref{eqn:maxwellsEquations:100} can be added, as can those of \cref{eqn:maxwellsEquations:80}, \cref{eqn:maxwellsEquations:120}.  This reduces Maxwell's equations to a pair of first order coupled gradient equations
+
+\begin{subequations}
+\label{eqn:maxwellsEquations:361}
+\begin{dmath}\label{eqn:maxwellsEquations:360}
+\spacegrad \BE = \inv{\epsilon} \rho - I \BM - \mu \PD{t}{(I\BH)}
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:380}
+\spacegrad (I \BH) = \frac{I \rho_\txtm}{\mu} - \BJ - \epsilon \PD{t}{\BE}.
+\end{dmath}
+\end{subequations}
+
+There is a symmetry in \cref{eqn:maxwellsEquations:361} that an be made more apparent by 
+making a transformation to fields with the same dimensions \( \sqrt{\epsilon} \BE, \sqrt{\mu} \BH \)
+
+\begin{subequations}
+\begin{dmath}\label{eqn:maxwellsEquations:400}
+\spacegrad (\sqrt{\epsilon} \BE) = \inv{\sqrt{\epsilon}} \rho - I \sqrt{\epsilon} \BM - \sqrt{\epsilon \mu} \PD{t}{(I\sqrt{\mu} \BH)}
+\end{dmath}
+\begin{dmath}\label{eqn:maxwellsEquations:420}
+\spacegrad (I \sqrt{\mu} \BH) = \frac{I \rho_\txtm}{\sqrt{\mu}} - \sqrt{\mu} \BJ - \sqrt{\epsilon\mu} \PD{t}{\sqrt{\epsilon} \BE}.
+\end{dmath}
+\end{subequations}
+
+Observations
+\begin{itemize}
+\item
+The electric charge density of \cref{eqn:maxwellsEquations:400} has a corresponding dual magnetic charge density in \cref{eqn:maxwellsEquations:420}.  
+\item
+There is a similar dual relationship between the electric and magnetic current densities and the fields themselves.
+\item
+The multivector equation \cref{eqn:maxwellsEquations:400} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:maxwellsEquations:420} has grades 1,3 (vector, pseudoscalar).  
+\item
+The 
+dimensions of the space and time differential operators \( [\spacegrad] = [\sqrt{\epsilon\mu} \PDi{t}{}] = 1/L = [\sqrt{\epsilon\mu}\PDi{t}{}]\) are equal.
+now equal,
+\end{itemize}
+
+Without any overlap of grades, it is possible to add (or subtract) these equations without any loss of information, as
+the original equations could always be recovered by grade selection.
+Adding \cref{eqn:maxwellsEquations:400} gives
+
+\begin{dmath}\label{eqn:maxwellsEquations:440}
+\lr{ \spacegrad + \sqrt{\epsilon\mu} \PD{t}{} }
+\lr{ \sqrt{\epsilon} \BE
++
+I \sqrt{\mu} \BH
+}
+=
+\inv{\sqrt{\epsilon}} \rho
+- I \sqrt{\epsilon} \BM
++\lr{
+\frac{I \rho_\txtm}{\sqrt{\mu}}
+- \sqrt{\mu} \BJ
+}
+.
+\end{dmath}
+
+With the engineering convension, using \( \BE \) and \( \BH \) as the primary fields, we have constructed the GA Maxwell equation
+
+\boxedEquation{eqn:maxwellsEquations:460}{
+\begin{aligned}
+F &= \BE + \eta I \BH \\
+J &= 
+\eta
+\lr{ v \rho - \BJ }
++ I \lr{ v \rho_\txtm - \BM } \\
+\lr{ \spacegrad + \inv{v} \PD{t}{} } F
+&= J.
+\end{aligned}
+}
+
+Here
+
+\begin{itemize}
+\item \( F = \BE + \eta I \BH \) [\si{V/m}] (Volts/meter), is the electromagnetic field intensity.  This is a multivector field with vector and bivector components.
+\item \( J = \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM } \) ([\si{A/m^2}] (Amperes/square meter)), 
+is a multivector source containing all the electric and magnetic charge and current densities.  This source multivector has one grade for each possible source (scalar, vector, bivector, trivector).
+\item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media, and
+\item \( v = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.
+\end{itemize}
+
+Maxwell's equation \cref{eqn:maxwellsEquations:460} is a 
+single multivector equation that relates a combined electromagnetic field to all the sources, including fictional magnetic sources if desired.  
+%With electric and magnetic fields being observer frame dependent, we 
+
+There will be a number of problems where it will be simpler to solve for the electromagnetic field than to solve separately for the electric and magnetic fields.  Given such a field solution, the electric and magnetic fields can be recovered by grade selection 
+
+\begin{dmath}\label{eqn:isotropicMaxwells:n}
+\begin{aligned}
+\BE &= \gpgradeone{F} \\
+I \BH &= \inv{\eta} \gpgradetwo{F}.
+\end{aligned}
+\end{dmath}
+
+

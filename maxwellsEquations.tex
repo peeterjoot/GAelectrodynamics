@@ -2,217 +2,11 @@
 % Copyright © 2016 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-\section{Conventional differential form}
-
-The differential form of Maxwell's equations, with extensions for magnetic sources, is the starting point for all the analysis in these notes.  Those equations are
-
-\input{../ece1229-antenna/MaxwellsStatement.tex}
-
-The magnetic sources can be considered fictional, but are useful for modelling real phenomena such as infinitesimal current loops, especially in antenna theory.
-
-\input{../ece1229-antenna/MaxwellsFieldAndSourceDescription.tex}
-
-The fields and sources are all real valued functions of both space and time.  In many situations it will be desirable to work with a time harmonic (frequency-domain phasor) form of Maxwell's equations.  In engineering, a time harmonic representation presumes that all sources and fields have a frequency dependence of the form
-\index{time harmonic}
-
-\begin{dmath}\label{eqn:maxwellsEquations:20}
-\bcY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{j\omega t} ),
-\end{dmath}
-
-where the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued.  Given this frequency dependence Maxwell's equations take the form
-
-\input{../ece1229-antenna/MaxwellsTimeHarmonic.tex}
-
-Note that the time harmonic convention typically used in physics literature presumes a frequency dependence of the form
-
-\begin{dmath}\label{eqn:maxwellsEquations:40}
-\bcY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{-i\omega t} ),
-\end{dmath}
-
-which alters the sign of any imaginary originating from a time derivative.  Care is required by the reader to understand which form of frequency dependence has been assumed.
-
-\section{GA differential form}
-
-Geometric Algebra admits a number of alternative representations of Maxwell's equations.  Eliminating the cross products 
-%The first follows from expressing the cross products all as wedge products, leaving 
-leaves a pair of bivector and a pair of scalar equations
-
-\begin{subequations}
-\label{eqn:maxwellsEquations:61}
-\begin{dmath}\label{eqn:maxwellsEquations:60}
-\spacegrad \wedge \bcE = - I \bcM - \PD{t}{I\bcB}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:80}
-\spacegrad \wedge \bcH = I \bcJ + I \PD{t}{\bcD}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:100}
-\spacegrad \cdot \bcD = q_\txte
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:120}
-\spacegrad \cdot \bcB = q_\txtm.
-\end{dmath}
-\end{subequations}
-
-%%%Alternatively, the duality transformation \( \Ba \wedge \Bb = -I \Ba \cdot (I \Bb) \) allows Maxwell's equations to be all written as dot products
-%%%
-%%%\begin{subequations}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:140}
-%%%\spacegrad \cdot (I \bcE) = \bcM + \PD{t}{\bcB}
-%%%\end{dmath}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:160}
-%%%\spacegrad \cdot (I \bcH) = -\bcJ - \PD{t}{\bcD}
-%%%\end{dmath}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:180}
-%%%\spacegrad \cdot \bcD = q_\txte
-%%%\end{dmath}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:200}
-%%%\spacegrad \cdot \bcB = q_\txtm,
-%%%\end{dmath}
-%%%\end{subequations}
-%%%
-%%%or, using the duality transformation \( \Ba \cdot \Bb = -I (\Ba \wedge (I \Bb) \), Maxwell's equations can all be written as wedge products
-%%%
-%%%\begin{subequations}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:220}
-%%%\spacegrad \wedge \bcE = - I \bcM - \PD{t}{I\bcB}
-%%%\end{dmath}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:240}
-%%%\spacegrad \wedge \bcH = I \bcJ + I \PD{t}{\bcD}
-%%%\end{dmath}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:260}
-%%%\spacegrad \wedge (I\bcD) = I q_\txte
-%%%\end{dmath}
-%%%\begin{dmath}\label{eqn:maxwellsEquations:280}
-%%%\spacegrad \wedge (I\bcB) = I q_\txtm.
-%%%\end{dmath}
-%%%\end{subequations}
-%%%
-%Each of these forms can be useful in different circumstances, however the real power of GA in electromagnetism follows 
-Constitutive relationships between the pairs of electric and magnetic fields are required
-
-\begin{subequations}
-\label{eqn:maxwellsEquations:300}
-\begin{dmath}\label{eqn:maxwellsEquations:320}
-\bcB = \mu \bcH
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:340}
-\bcD = \epsilon \bcE,
-\end{dmath}
-\end{subequations}
-
-where \( \epsilon \) is the permittivity of the medium [\si{F/m}] (Farads/meter), and \( \mu \) is the permeability of the medium [\si{H/m}] (Henries/meter).
-The permittivity and permeability may be functions of both time and position, and model the materials that the fields are propagating through.  In general, the these may be non-isotropic tensor operators, however, unless otherwise specified, isotropic media will be assumed in these notes.
-
-With this constitutive relationship assumed (and a bit of rescaling), the dot and wedge products of \cref{eqn:maxwellsEquations:60}, \cref{eqn:maxwellsEquations:100} can be added, as can those of \cref{eqn:maxwellsEquations:80}, \cref{eqn:maxwellsEquations:120}.  This reduces Maxwell's equations to a pair of first order coupled gradient equations
-
-\begin{subequations}
-\label{eqn:maxwellsEquations:361}
-\begin{dmath}\label{eqn:maxwellsEquations:360}
-\spacegrad \bcE = \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:380}
-\spacegrad (I \bcH) = \frac{I q_\txtm}{\mu} - \bcJ - \epsilon \PD{t}{\bcE}.
-\end{dmath}
-\end{subequations}
-
-Note that it is more natural to work with a bivector magnetic field \( I \bcH \) in GA, than it is to work with a vector field \( \bcH \).  Observe that, when magnetic sources are included, this pair of coupled equations have sources of each grade (scalar, vector, bivector, and pseudoscalar).
-
-The multivector equation \cref{eqn:maxwellsEquations:360} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:maxwellsEquations:380} has grades 1,3 (vector, pseudoscalar).  This means that arbitrary linear combinations of these equations, such as \( \spacegrad (a \bcE + b I \bcH ) \), are possible without any loss of information, since the original equations can then be recovered by grade selection.  To determine a desirable scaling of such a sum, these equations can be non-dimensionalized by expressing the fields as \( \sqrt{\epsilon} \bcE, \sqrt{\mu} \bcH \)
-
-\begin{subequations}
-\begin{dmath}\label{eqn:maxwellsEquations:400}
-\spacegrad \sqrt{\epsilon} \bcE = \inv{\sqrt{\epsilon}} q_\txte - I \sqrt{\epsilon} \bcM - \sqrt{\epsilon \mu} \PD{t}{(I\sqrt{\mu} \bcH)}
-\end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:420}
-\spacegrad (I \sqrt{\mu} \bcH) = \frac{I q_\txtm}{\sqrt{\mu}} - \sqrt{\mu} \bcJ - \sqrt{\epsilon\mu} \PD{t}{\sqrt{\epsilon} \bcE}.
-\end{dmath}
-\end{subequations}
-
-The dimensions of both differential operators are now equal \( [\spacegrad] = [\sqrt{\epsilon\mu} \PDi{t}{}] = 1/L \), allowing the remaining two multivector Maxwell equations to be decoupled into a single first order equation to solve for the multivector field \( \sqrt{\epsilon} \bcE + I \sqrt{\mu} \bcH \)
-
-\begin{dmath}\label{eqn:maxwellsEquations:440}
-\lr{ \spacegrad + \sqrt{\epsilon\mu} \PDi{t}{} }
-\lr{ \sqrt{\epsilon} \bcE
-\pm
-I \sqrt{\mu} \bcH
-}
-=
-\inv{\sqrt{\epsilon}} q_\txte
-- I \sqrt{\epsilon} \bcM
-\pm \lr{
-+ \frac{I q_\txtm}{\sqrt{\mu}}
-- \sqrt{\mu} \bcJ
-}
-.
-\end{dmath}
-
-Whether or not to add or subtract is essentially a phase choice for the electric field relative to the magnetic field.  It is conventional to pick the sum rather than the difference.  In engineering, with \( \bcE \) and \( \bcH \) as the primary fields, Maxwell's equation can now be expressed in its multivector form
-
-\boxedEquation{eqn:maxwellsEquations:460}{
-\begin{aligned}
-\bcF &= \bcE + \eta I \bcH \\
-\lr{ \spacegrad + \inv{v} \PD{t}{} } \bcF
-&=
-%\inv{\epsilon v}
-\eta
-\lr{ v q_\txte - \bcJ }
-+ I \lr{ v q_\txtm - \bcM }
-,
-\end{aligned}
-}
-
-where \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms)
-is the impedance of the media
-, and \( v = 1/\sqrt{\epsilon\mu} \)
-([\si{m/s}] meters/second)
-is the group velocity of a wave in the media.
-
-In the time harmonic representation the electromagnetic field will be of the form
-
-\begin{dmath}\label{eqn:maxwellsEquations:620}
-F = \BE + \eta I \BH,
-\end{dmath}
-
-where \( \BE \) and \( \BH \) are complex.
+\section{Maxwell's equations for antenna theory.}
 
 \makedigression{
 \input{../frequencydomain/frequencydomainMaxwellsExtraction.tex}
 }
-
-\section{Wave equation.}
-
-Having assembled all of Maxwell's equations into \cref{eqn:maxwellsEquations:460}, some results now follow almost trivially.  One such result is the wave equation in space free of sources.  In such a region, Maxwell's equation is just
-
-\begin{dmath}\label{eqn:maxwellsEquations:480}
-\lr{ \spacegrad + \inv{v} \PD{t}{} } \bcF = 0.
-\end{dmath}
-
-This can be multiplied with \( \spacegrad - \inv{v} \PD{t}{} \), to give
-
-\begin{dmath}\label{eqn:maxwellsEquations:500}
-0 =
-\lr{ \spacegrad - \inv{v} \PD{t}{} }
-\lr{ \spacegrad + \inv{v} \PD{t}{} } \bcF
-=
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \bcF,
-\end{dmath}
-
-or
-
-\begin{dmath}\label{eqn:maxwellsEquations:520}
-\spacegrad^2 \bcF = \inv{v^2} \PDSq{t}{\bcF}.
-\end{dmath}
-
-Since \( \spacegrad^2 \) is a scalar operator, selection of the vector and bivector components of \cref{eqn:maxwellsEquations:520} gives
-
-\begin{dmath}\label{eqn:maxwellsEquations:540}
-\begin{aligned}
-\spacegrad^2 \bcE &= \inv{v^2} \PDSq{t}{\bcE} \\
-\spacegrad^2 (I \bcH) &= \inv{v^2} \PDSq{t}{(I \bcH)} \\
-\end{aligned}
-\end{dmath}
-
-These equations can be solved independently, provided the solutions are also constrained by Maxwell's equation \cref{eqn:maxwellsEquations:480}.
 
 \section{Plane waves.}
 
@@ -243,26 +37,26 @@ F = F_0 e^{-j \Bk \cdot \Bx}.
 \section{Poynting theorem}
 
 Poynting's theorem describes the relationship between the flux of energy through a surface bounding a volume.
-The theorem follows from computing the divergence of the Poynting vector \( \bcS = \bcE \cross \bcH \).  In terms of \( \bcE \) and \( \bcH \) the Poynting vector can be written in dual form as a dot product
+The theorem follows from computing the divergence of the Poynting vector \( \BS = \BE \cross \BH \).  In terms of \( \BE \) and \( \BH \) the Poynting vector can be written in dual form as a dot product
 
 \begin{equation}\label{eqn:maxwellsEquations:780}
-\bcE \cross \bcH
+\BE \cross \BH
 =
-\gpgradeone{ I (\bcH \wedge \bcE) }
+\gpgradeone{ I (\BH \wedge \BE) }
 =
-\gpgradeone{ I \bcH \bcE }
+\gpgradeone{ I \BH \BE }
 =
-(I \bcH) \cdot \bcE.
+(I \BH) \cdot \BE.
 \end{equation}
 
 Similarly, the Poynting divergence is most compactly expressed as a scalar selection operation
 
 \begin{equation}\label{eqn:maxwellsEquations:640}
-\spacegrad \cdot \lr{ \bcE \cross \bcH }
+\spacegrad \cdot \lr{ \BE \cross \BH }
 =
-\gpgradezero{ \spacegrad I \lr{ \bcH \wedge \bcE } }
+\gpgradezero{ \spacegrad I \lr{ \BH \wedge \BE } }
 =
-\gpgradezero{ \spacegrad I \bcH \bcE }.
+\gpgradezero{ \spacegrad I \BH \BE }.
 \end{equation}
 
 Here the gradient is acting on everything to the right, however, allowing the gradient to act bidirectionally, and employing the
@@ -271,38 +65,38 @@ the flexibility to use cyclic permutation within a scalar selection
 , allows for the easy application of the chain rule
 
 \begin{dmath}\label{eqn:maxwellsEquations:760}
-\gpgradezero{ \spacegrad I \bcH \bcE }
+\gpgradezero{ \spacegrad I \BH \BE }
 =
-\gpgradezero{ \bcE \lrspacegrad I \bcH }
+\gpgradezero{ \BE \lrspacegrad I \BH }
 =
-\gpgradezero{ (\bcE \lspacegrad) I \bcH }
-+\gpgradezero{ \bcE (\rspacegrad I \bcH) }
+\gpgradezero{ (\BE \lspacegrad) I \BH }
++\gpgradezero{ \BE (\rspacegrad I \BH) }
 \end{dmath}
 
 Explicit left and right acting gradients are required because the gradient operator does not commute with the vector fields.
 
-The gradient action on \( I \bcH \) (from the left) is given by
-\cref{eqn:maxwellsEquations:380}.  The right acting gradient action on \( \bcE \) is given by reversing all the products in
-%\spacegrad \bcE = \inv{\epsilon} q_\txte - I \bcM - \mu \PD{t}{(I\bcH)}
+The gradient action on \( I \BH \) (from the left) is given by
+\cref{eqn:maxwellsEquations:380}.  The right acting gradient action on \( \BE \) is given by reversing all the products in
+%\spacegrad \BE = \inv{\epsilon} \rho - I \BM - \mu \PD{t}{(I\BH)}
 \cref{eqn:maxwellsEquations:360} (in particular noting that \( I^\dagger = -I \) )
 
 \begin{dmath}\label{eqn:maxwellsEquations:660}
-%I \bcH \lspacegrad = \frac{I q_\txtm}{\mu} + \bcJ + \epsilon \PD{t}{\bcE}.
-\bcE \lspacegrad = \inv{\epsilon} q_\txte + I \bcM + \mu \PD{t}{(I\bcH)}.
+%I \BH \lspacegrad = \frac{I \rho_\txtm}{\mu} + \BJ + \epsilon \PD{t}{\BE}.
+\BE \lspacegrad = \inv{\epsilon} \rho + I \BM + \mu \PD{t}{(I\BH)}.
 \end{dmath}
 
 This gives
 \begin{dmath}\label{eqn:maxwellsEquations:680}
-\spacegrad \cdot \bcS
+\spacegrad \cdot \BS
 =
 \gpgradezero
 {
-\lr{ \inv{\epsilon} q_\txte + I \bcM + \mu \PD{t}{(I\bcH)} } I \bcH
+\lr{ \inv{\epsilon} \rho + I \BM + \mu \PD{t}{(I\BH)} } I \BH
 +
-\bcE
+\BE
 \lr
 {
-\frac{I q_\txtm}{\mu} - \bcJ - \epsilon \PD{t}{\bcE}
+\frac{I \rho_\txtm}{\mu} - \BJ - \epsilon \PD{t}{\BE}
 }
 }
 ,
@@ -312,11 +106,11 @@ or
 %\begin{dmath}\label{eqn:maxwellsEquations:700}
 \boxedEquation{eqn:maxwellsEquations:720}{
 0 =
-\spacegrad \cdot \bcS
+\spacegrad \cdot \BS
 +
-\bcH \cdot \bcM + \bcJ \cdot \bcE
-+ \PD{t}{\bcB} \cdot \bcH
-+ \PD{t}{\bcD} \cdot \bcE.
+\BH \cdot \BM + \BJ \cdot \BE
++ \PD{t}{\BB} \cdot \BH
++ \PD{t}{\BD} \cdot \BE.
 }
 %\end{dmath}
 
@@ -325,22 +119,22 @@ The last two terms is the time rate of change of the energy density.  To illustr
 \begin{dmath}\label{eqn:maxwellsEquations:740}
 \PD{t}{} \int_V
 \inv{2} dV \lr{
-\bcB \cdot \bcH
-+ \bcD \cdot \bcE
+\BB \cdot \BH
++ \BD \cdot \BE
 }
 =
--\int_{\partial V} dA \ncap \cdot \bcS.
+-\int_{\partial V} dA \ncap \cdot \BS.
 \end{dmath}
 
-Here \( \ncap \) is the outward normal, so if the energy contained in the volume is decreasing, then \( \bcS \) must represent the energy per unit area that leaves the volume.  The direction of the Poynting vector is the direction that the energy is leaving the volume.  Only the components of the Poynting vector that are colinear with the surface normal will result in energy leaving or entering the volume.
+Here \( \ncap \) is the outward normal, so if the energy contained in the volume is decreasing, then \( \BS \) must represent the energy per unit area that leaves the volume.  The direction of the Poynting vector is the direction that the energy is leaving the volume.  Only the components of the Poynting vector that are colinear with the surface normal will result in energy leaving or entering the volume.
 
 \section{Complex power}
 
 The time harmonic expansion of the Poynting vector is
 
 \begin{dmath}\label{eqn:maxwellsEquations:820}
-\bcS
-= (I \bcH) \cdot \bcE
+\BS
+= (I \BH) \cdot \BE
 =
 (I \Real \lr{ \BH e^{j \omega t}} ) \cdot
 \Real \lr{ \BE e^{j \omega t} }
@@ -366,7 +160,7 @@ I \lr{
 This shows that the time harmonic representation of the Poynting vector is
 
 \begin{dmath}\label{eqn:maxwellsEquations:840}
-\bcS = \inv{2} \Real \lr{ (I \BH^\conj) \cdot \BE + (I \BH) \cdot \BE e^{ 2 j \omega t } }.
+\BS = \inv{2} \Real \lr{ (I \BH^\conj) \cdot \BE + (I \BH) \cdot \BE e^{ 2 j \omega t } }.
 \end{dmath}
 
 This motivates the definition of a complex Poynting vector
@@ -378,5 +172,5 @@ This motivates the definition of a complex Poynting vector
 Note that this is conventionally written as \( \BS = (\ifrac{1}{2}) \BE \cross \BH^\conj \).  Observe that on average (over a given period), the \( e^{2 j \omega t} \) component of the real Poynting vector has no contribution to the power flux
 
 \begin{dmath}\label{eqn:maxwellsEquations:880}
-\inv{T} \int_0^T dt \bcS = \Real \BS.
+\inv{T} \int_0^T dt \BS = \Real \BS.
 \end{dmath}
