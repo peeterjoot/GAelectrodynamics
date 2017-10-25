@@ -1,0 +1,60 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%\makeexample{Line charge.}{example:linecharge:linecharge}{
+In this example the electric field is calculated at a point on the z-axis, due to a line charge density of \( \lambda \) along a segment \( [a,b] \) of the x-axis.  This is illustrated in \cref{fig:linecharge:linechargeFig1}.
+\imageFigure{../figures/GAelectrodynamics/linechargeFig1}{Line charge density.}{fig:linecharge:linechargeFig1}{0.3}
+
+Introducing a unit imaginary \( i = \Be_{13} \) for the rotation from the x-axis to the z-axis, the field point observation point is
+
+\begin{dmath}\label{eqn:linecharge:120}
+\Bx = r \Be_1 e^{i \theta}.
+\end{dmath}
+
+The charge element point is \( \Bx' = x \Be_1 \), so the difference can now be written with \( \Be_1 \) factored to the left or to the right
+
+\begin{equation}\label{eqn:linecharge:20}
+\Bx - \Bx'
+= \Be_1\lr{ r e^{i\theta} - x }
+= \lr{ r e^{-i\theta} - x } \Be_1.
+\end{equation}
+
+This allows the squared vector length to be calculated as a product of complex conjugates
+
+\begin{dmath}\label{eqn:linecharge:40}
+\lr{ \Bx - \Bx' }^2
+= \lr{ r e^{-i\theta} - x } \Be_1 \Be_1\lr{ r e^{i\theta} - x }
+= \lr{ r e^{-i\theta} - x } \lr{ r e^{i\theta} - x }
+= r^2 + x^2 - r x \lr{ e^{i\theta} + e^{-i\theta} }
+= r^2 + x^2 - 2 r x \cos\theta.
+\end{dmath}
+
+The total electric field is therefore
+\begin{dmath}\label{eqn:linecharge:60}
+\BE
+= \frac{\lambda}{4 \pi \epsilon_0} \int_a^b dx \frac{ r \Be_1 e^{i\theta} - x \Be_1 }{ \lr{ r^2 + x^2 - 2 x r \cos\theta }^{3/2} }
+= \frac{\lambda \Be_1}{4 \pi \epsilon_0 r} \int_{a/r}^{b/r} du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }.
+\end{dmath}
+
+This integral can be evaluated by table lookup or using tools like Mathematica.  For \( \theta = \pi/2 \)
+
+\begin{dmath}\label{eqn:linecharge:80}
+\int
+du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }
+= \frac{1 + i u}{\sqrt{1 + u^2}},
+\end{dmath}
+
+and for other angles \( \theta \neq n \pi/2 \)
+
+\begin{dmath}\label{eqn:linecharge:100}
+\int
+du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }
+= \frac{(1 -u e^{-i\theta}) \sqrt{1 + u^2 - 2 u \cos\theta}}{(1 + u^2) \sin(2\theta)}.
+\end{dmath}
+
+The interesting takeaway is not the form of the solution, but the fact that GA allows an introduction of a complex plane for the problem at hand,
+and existing computer algebra systems can then be used to do the grunt work of the evaluation itself.
+Once evaluated, numerator factors like \( \Be_1 (1 + i u) = \Be_1 + u \Be_3 \) and \( \Be_1(1 - u e^{-i\theta}) = \Be_1(1 - u \cos\theta) + u \Be_3 \sin\theta \) compactly describe the direction of the vector field at the observation point.
+
+%} % example
