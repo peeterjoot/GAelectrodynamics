@@ -29,13 +29,13 @@ simplest to demonstrate the boundary relationships in the frequency domain, wher
 \begin{subequations}
 \label{eqn:boundary:60}
 \begin{dmath}\label{eqn:boundary:80}
-\spacegrad \BF = -j k \BF + J,
+\spacegrad F = -j k F + J,
 \end{dmath}
 
 or
 
 \begin{dmath}\label{eqn:boundary:100}
-\spacegrad I \BF = -j k I \BF + I J.
+\spacegrad I F = -j k I F + I J.
 \end{dmath}
 \end{subequations}
 
@@ -44,13 +44,13 @@ Application of contraction operations gives
 \begin{subequations}
 \label{eqn:boundary:120}
 \begin{dmath}\label{eqn:boundary:140}
-\spacegrad \cdot \BF
-= \gpgrade{-j k \BF + J}{0,1}
+\spacegrad \cdot F
+= \gpgrade{-j k F + J}{0,1}
 = -j k \BE + \eta( v \rho_s - \BJ_s ) \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:160}
-\spacegrad \cdot (I \BF)
-= \gpgrade{-j k I \BF + I J}{0,1}
+\spacegrad \cdot (I F)
+= \gpgrade{-j k I F + I J}{0,1}
 = j k \eta \BH - ( v \rho_{ms} - \BM_s ) \delta(y).
 \end{dmath}
 \end{subequations}
@@ -69,36 +69,36 @@ The delta function is only well defined when integrated across the \( y = 0 \) p
 \begin{subequations}
 \label{eqn:boundary:200}
 \begin{dmath}\label{eqn:boundary:220}
-\gpgradezero{\spacegrad \cdot \lr{ \epsilon \BF}} = \rho_s \delta(y)
+\gpgradezero{\spacegrad \cdot \lr{ \epsilon F}} = \rho_s \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:240}
-\gpgradeone{\spacegrad \cdot \lr{ \inv{\eta} \BF}} = -j \frac{k}{\eta} \BE - \BJ_s \delta(y)
+\gpgradeone{\spacegrad \cdot \lr{ \inv{\eta} F}} = -j \frac{k}{\eta} \BE - \BJ_s \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:260}
-\gpgradezero{\spacegrad \cdot \lr{ I \inv{v}\BF}} = - \rho_{ms} \delta(y)
+\gpgradezero{\spacegrad \cdot \lr{ I \inv{v}F}} = - \rho_{ms} \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:280}
-\gpgradeone{\spacegrad \cdot \lr{ I \BF}} = j k \eta \BH + \BM_s \delta(y).
+\gpgradeone{\spacegrad \cdot \lr{ I F}} = j k \eta \BH + \BM_s \delta(y).
 \end{dmath}
 \end{subequations}
 
-Each of the grade selections picks off one of \( \BD, \BB, \BH \) or \( \BE \), so this could have been obtained directly from the conventional set of individual Maxwell equations, however, it is instructional to see how to work with the complete electromagnetic field \( \BF \).  This also provides a method of evaluating the boundary conditions that is both coordinate free, and uses the same integral form for all the boundary conditions.
+Each of the grade selections picks off one of \( \BD, \BB, \BH \) or \( \BE \), so this could have been obtained directly from the conventional set of individual Maxwell equations, however, it is instructional to see how to work with the complete electromagnetic field \( F \).  This also provides a method of evaluating the boundary conditions that is both coordinate free, and uses the same integral form for all the boundary conditions.
 
 Application of the multivector \R{3} divergence theorem, as stated informally in \cref{eqn:stokesTheoremCore:1881d} gives
 
 \begin{subequations}
 \label{eqn:boundary:300}
 \begin{dmath}\label{eqn:boundary:320}
-\gpgradezero{\int dV \ncap \cdot \lr{ \epsilon \BF}} = \Delta A \rho_s
+\gpgradezero{\int dV \ncap \cdot \lr{ \epsilon F}} = \Delta A \rho_s
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:340}
-\gpgradeone{\int dV \ncap \cdot \lr{ \inv{\eta} \BF}} = -j \omega \int_y dy \int dA \BD - \Delta A \BJ_s
+\gpgradeone{\int dV \ncap \cdot \lr{ \inv{\eta} F}} = -j \omega \int_y dy \int dA \BD - \Delta A \BJ_s
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:360}
-\gpgradezero{\int dV \ncap \cdot \lr{ I \inv{v}\BF}} = - \Delta A \rho_{ms}
+\gpgradezero{\int dV \ncap \cdot \lr{ I \inv{v}F}} = - \Delta A \rho_{ms}
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:380}
-\gpgradeone{\int dV \ncap \cdot \lr{ I \BF}} = j \omega \int_y dy \int dA \BB + \Delta A \BM_s
+\gpgradeone{\int dV \ncap \cdot \lr{ I F}} = j \omega \int_y dy \int dA \BB + \Delta A \BM_s
 \end{dmath}
 \end{subequations}
 
@@ -107,10 +107,10 @@ The \( y \) (normal) integral components of the volume integrals are all assumed
 %\begin{dmath}\label{eqn:boundary:420}
 \boxedEquation{eqn:boundary:420}{
 \begin{aligned}
-\gpgradezero{\ncap (\BF_2 -\BF_1) } &= \rho_s \\
-\gpgradeone{\ncap \lr{\inv{\eta_2} \BF_2 -\inv{\eta_1} \BF_1 } } &= - \BJ_s \\
-\gpgradezero{\ncap I \lr{ \inv{v_2}\BF_2 - \inv{v_1} \BF_1 } } &= - \rho_{ms} \\
-\gpgradeone{\ncap I (\BF_2 - \BF_1)} &= \BM_s
+\gpgradezero{\ncap (F_2 -F_1) } &= \rho_s \\
+\gpgradeone{\ncap \lr{\inv{\eta_2} F_2 -\inv{\eta_1} F_1 } } &= - \BJ_s \\
+\gpgradezero{\ncap I \lr{ \inv{v_2}F_2 - \inv{v_1} F_1 } } &= - \rho_{ms} \\
+\gpgradeone{\ncap I (F_2 - F_1)} &= \BM_s
 \end{aligned}
 }
 %\end{dmath}
