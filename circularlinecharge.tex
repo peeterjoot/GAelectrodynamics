@@ -100,13 +100,16 @@ Non-dimensionalizing \cref{eqn:circularlinecharge:180} with \( u = r/R \), a cha
 
 or
 \begin{dmath}\label{eqn:circularlinecharge:220}
+\begin{aligned}
 \BE
-= \rcap \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
-+ \phicap
-\frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ u i e^{i \alpha } d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }.
+&= \rcap \lr{ \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} } } \\
+&+ \phicap \lr{
+\frac{\lambda r u i}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ e^{i \alpha } d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
+}.
+\end{aligned}
 \end{dmath}
 
 Without CAS support for GA, this pair of integrals has to be evaluated separately.  The first integral
-scales the radial component of the electric field.  The second integral scales and rotates \( \phicap \) within the azimuthal plane, producing an electric field component in a \( \phicap' \) direction.
+scales the radial component of the electric field.  The second integral scales and rotates \( \phicap \) within the azimuthal plane, producing an electric field component in a \( \phicap' = \phicap e^{i \Phi} \) direction.
 
 %} % example
