@@ -13,13 +13,14 @@
 \input{../latex/peeter_prologue_print2.tex}
 
 \usepackage{peeters_layout_exercise}
+%\usepackage{peeters_layout}
 \usepackage{peeters_braket}
 \usepackage{peeters_figures}
 \usepackage{siunitx}
 \usepackage{macros_qed}
 \usepackage{macros_cal}
 %\usepackage{mhchem} % \ce{}
-%\usepackage{macros_bm} % \bcM
+\usepackage{macros_bm} % \bcM
 %\usepackage{txfonts} % \ointclockwise
 
 \usepackage{tcolorbox}
@@ -40,18 +41,21 @@ coltitle=black,center title,freelance,frame code={
 colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,
 coltitle=black,center title}}
 
+\newcommand{\e}[0]{{(\mathrm{e})}}
+\newcommand{\m}[0]{{(\mathrm{m})}}
 
 \beginArtNoToc
 
 \generatetitle{Maxwell's equations}
 
-%\input{magnetostatics.tex}
-%\input{electrostatics.tex}
-%\input{gacomparison.tex}
-%\input{linecharge.tex}
-%\input{circularlinecharge.tex}
-%\input{isotropicMaxwells.tex}
-\input{planewaves.tex}
+% this is the E, H extraction example (digression)
+%\input{maxwellsEquations.tex}
+
+\input{../potentialMethods/potentialSection.tex}
+
+%\input{../frequencydomain/frequencydomainMaxwells.tex}
+%\input{../frequencydomain/frequencydomainPlaneWaves.tex}
+%\input{ellipticalWavesPhasor.tex}
 
 %}
 \EndArticle

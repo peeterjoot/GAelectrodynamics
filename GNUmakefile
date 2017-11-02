@@ -68,14 +68,19 @@ include ../latex/make.rules
 all :: ellipticalWaves.pdf
 all :: junk.pdf
 #all :: maxwells.pdf
-#maxwells.pdf : freespace.tex
-#maxwells.pdf : electrostatics.tex
-#maxwells.pdf : magnetostatics.tex
-#maxwells.pdf : linecharge.tex
-#maxwells.pdf : gacomparison.tex
-#maxwells.pdf : circularlinecharge.tex
-maxwells.pdf : planewaves.tex
-#maxwells.pdf : isotropicMaxwells.tex
+#maxwells.pdf :: freespace.tex
+#maxwells.pdf :: electrostatics.tex
+#maxwells.pdf :: magnetostatics.tex
+#maxwells.pdf :: linecharge.tex
+#maxwells.pdf :: gacomparison.tex
+#maxwells.pdf :: circularlinecharge.tex
+#maxwells.pdf : planewaves.tex
+#maxwells.pdf :: isotropicMaxwells.tex
+maxwells.pdf :: maxwellsEquations.tex
+maxwells.pdf :: ../potentialMethods/potentialSection.tex
+maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
+maxwells.pdf :: ../frequencydomain/frequencydomainPlaneWaves.tex
+maxwells.pdf :: ellipticalWavesPhasor.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 
