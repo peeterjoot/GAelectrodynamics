@@ -1,6 +1,7 @@
 November XX, 2017
 
    - rework appendix B (distribution theorems) not as problems.
+   - replace hand sketched figure for line charge arc.
 
 October 31, 2017
 

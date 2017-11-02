@@ -5,9 +5,10 @@
 %\makeexample{Circular line charge.}{example:circularlinecharge:circularlinecharge}{
 In this example we will examine the electric field due to a line charge density of \( \lambda \) along a circular arc segment \( \phi' \in [a,b] \), of radius \( r \) in the x-y plane.
 The field will be evaluated at the
-spherical coordinate point \( (R, \theta, \phi) \), as illustrated in \cref{fig:circularlinecharge:circularlinechargeFig1}.  (FIXME: better figure).
+spherical coordinate point \( (R, \theta, \phi) \), as illustrated in \cref{fig:circularlinecharge:circularlinechargeFig1}.
 
-\imageFigure{../figures/GAelectrodynamics/circularlinechargeFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.3}
+%\imageFigure{../figures/GAelectrodynamics/circularlinechargeFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/lineChargeArcFig1}{Circular line charge}{fig:circularlinecharge:circularlinechargeFig1}{0.5}
 
 Using the GA spherical parameterization of \cref{eqn:curvilinearspherical:40}, and \cref{eqn:curvilinearspherical:60}, the
 %To setup this problem, first consider a GA factorization of the spherical radial point.  Let
@@ -94,11 +95,18 @@ Non-dimensionalizing \cref{eqn:circularlinecharge:180} with \( u = r/R \), a cha
 \begin{dmath}\label{eqn:circularlinecharge:200}
 \BE
 = \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \Be_3 e^{j \theta } - u \Be_1 e^{i\phi} e^{i \alpha} }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
-= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \rcap + u \phicap i e^{i \alpha } }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }.
+= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \rcap + \phicap u i e^{i \alpha } }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} },
 \end{dmath}
 
-The radial integral \( \int dx \lr{ a^2 - 2 b \cos x }^{-3/2} \) scales the radial electric field component without rotating it.
-The azimuthal integral \( \int dx \lr{ a^2 - 2 b \cos x }^{-3/2} \) scales and rotates the azimuthal electric field component within the azimuthal plane.
-Evaluating \cref{eqn:circularlinecharge:200} using CAS software with no direct GA support requires care, since the bivectors \( i, j \) do not commute and cannot be assembled into a single complex integrand as was possible for the linear line charge.  These integrals can be computed separately without trouble.
+or
+\begin{dmath}\label{eqn:circularlinecharge:220}
+\BE
+= \rcap \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
++ \phicap
+\frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ u i e^{i \alpha } d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }.
+\end{dmath}
+
+Without CAS support for GA, this pair of integrals has to be evaluated separately.  The first integral
+scales the radial component of the electric field.  The second integral scales and rotates \( \phicap \) within the azimuthal plane, producing an electric field component in a \( \phicap' \) direction.
 
 %} % example
