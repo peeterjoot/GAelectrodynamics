@@ -1,0 +1,41 @@
+October 31, 2017
+
+   - A couple worked problems showing examples of "complex exponential" rotations to express spherical polar vectors.
+   - GA form of Maxwell's equations for non-statics cases (I included "fictional" magnetic sources that are used in antenna theory).
+   - GA derivation of the wave equation in source free space (which is so easy in GA it seems trivial).
+   - GA derivation of the source free plane wave solution.  This solves for F = E + I eta H directly, instead of for E and H separately.  I added a note on how to find the usual standalone relations for E and H from F.
+   - Boundary value derivation in GA form.  This uses two  "pillbox" integrals, one for the divergence of F and one for div IF to derive all the usual D,E,H,B dot and cross product boundary value conditions.  Each of those follow from a particular grade selection operation of the boundary conditions on F.
+   - Poynting theorem derivation, and complex power.  This is also a bit easier in GA form.
+
+October 22, 2017
+
+   - flushed out all the basics of geometric algebra, with definitions and theorems all stated upfront.  I've also added a summary table showing how various GA identities map to the traditional vector equivalents.
+   - a rough draft for geometric calculus prerequisites.  Includes Stokes, Green's and divergence theorems in their GA form, as well as the fundamental theorem of geometric calculus (which has no equivalent in vector algebra).  This content is over general, as it covers the N dimensional case, but we really only want N <=3, or N = 4 for the relativistic case.  
+   - start of materials for electrostatics and magnetostatics.  This starts with the traditional free space Maxwell's equations, assembles the GA equivalents for Maxwell's equations in each of the statics configurations, and derives all the basic relationships starting from the GA Maxwell's equations (Coulomb's law, enclosed charge, scalar potential, Poisson equation, vector potential, Biot-Savart law, enclosed current).  To make things less theoretical, I plan to also work through specific problems in both electrostatics and magnetostatics to highlight various unique ways that GA can be used to solve problems.
+
+September 26, 2017
+
+   I'm sharing a copy of my new GA introduction a little prematurely.  There are a number of topics I had previously covered that no longer fit into the flow, and I intend to rework those.  For now I've removed them entirely (along with all the content in earlier drafts that cover curvilinear and non-Euclidean coordinates, geometric calculus, and electrodynamics).
+
+   Since I'm in Zurich next week and need to take time to prepare for that trip, I thought I'd share what I have now, despite not having met all the targets I had for sharing.  I'd appreciate if you can give it a read.  I'm specifically looking for
+
+   1) your feedback on the sequencing of ideas.
+   2) your evaluation of the gradient of the learning curve required
+   3) your feedback on any of the mathematical content that you think is either incorrect, or that you can't make sense of
+
+   As I mentioned, with this draft I've tried to put the geometry back into geometric algebra (in contrast to our first two chalkboard discussions, which were too algebraic).  For example, there is now material on rotation (2 and N dimensions), projection and rejection, and reflection.  
+
+   Please don't read this with an eye on grammar, spelling or editing in general, or correcting oddities in the latex layout, since I've not done that myself yet (except in a very fragmented fashion).
+
+September 19, 2017
+
+   Since we talked in August (and especially this last couple weeks as my study time allowance from work is active again), I've been working on rewriting my introductory GA material, incorporating some of your initial comments
+
+   - I've added a review section of all the linear algebra terms that I used, and assumed were known (vector space, basis, normal, orthonormal, subspace, dimension, span, dot product, ...)
+   - The multivector space definition is now modeled on that of the vector space, which allows the reader to see at a glance how it generalizes the familiar notion of vector space.
+   - I've been really careful to formally state definitions of any new terms instead of describing them in a context where it is harder to spot these new ideas.
+   - I think that I've resolved all the chicken-and-egg issues with the sequencing of any new ideas, so no non-linear reading is required to figure things out (this was tougher than I expected).
+   - I've also managed to state all the definitions in a that is valid for both Euclidean spaces (i.e. the \R{3} space of primary interest), but also for special relativistic spaces, since I'd like the flexibility to introduce STA later (space time algebra, geometric algebra that uses a four-vector basis as the generating vector space).  I'm not sure that will be in scope, but even if that is left as followup material I think it's still desirable to present all the ideas in a way that won't require rethinking the basics.
+
+   Now that I've got the basic definitions and nomenclature all fleshed out, I'm going to work on merging in my previous two attempts at introductory material (as appropriate).  I'll aim to get that done by the next week, and send you a copy then.
+
