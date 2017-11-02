@@ -139,3 +139,16 @@ perl -p -i ../latex/bin/latexRegex.pl circularlinecharge.tex
 
 ../latex/bin/lgrep maxwellsEquations.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl maxwellsEquations.tex
+
+../latex/bin/lgrep dual.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl dual.tex
+
+../latex/bin/lgrep poynting.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poynting.tex
+
+../latex/bin/lgrep isotropicMaxwells.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl isotropicMaxwells.tex
+
+../latex/bin/lgrep reflection.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl reflection.tex
+

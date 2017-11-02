@@ -1,3 +1,7 @@
+November XX, 2017
+
+   - rework appendix B (distribution theorems) not as problems.
+
 October 31, 2017
 
    - A couple worked problems showing examples of "complex exponential" rotations to express spherical polar vectors.

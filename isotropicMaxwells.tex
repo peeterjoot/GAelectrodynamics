@@ -2,9 +2,9 @@
 % Copyright © 2016 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-Assuming 
-isotropic constituency relationships \cref{eqn:maxwellsEquations:300}, and 
-eliminating cross products in favor of wedge products, 
+Assuming
+isotropic constituency relationships \cref{eqn:maxwellsEquations:300}, and
+eliminating cross products in favor of wedge products,
 Maxwell's equations \cref{eqn:freespace:99} become
 
 \begin{subequations}
@@ -35,7 +35,7 @@ With a bit of rescaling, the dot and wedge products of \cref{eqn:maxwellsEquatio
 \end{dmath}
 \end{subequations}
 
-There is a symmetry in \cref{eqn:maxwellsEquations:361} that an be made more apparent by 
+There is a symmetry in \cref{eqn:maxwellsEquations:361} that an be made more apparent by
 making a transformation to fields with the same dimensions \( \sqrt{\epsilon} \BE, \sqrt{\mu} \BH \)
 
 \begin{subequations}
@@ -50,13 +50,13 @@ making a transformation to fields with the same dimensions \( \sqrt{\epsilon} \B
 Observations
 \begin{itemize}
 \item
-The electric charge density of \cref{eqn:maxwellsEquations:400} has a corresponding dual magnetic charge density in \cref{eqn:maxwellsEquations:420}.  
+The electric charge density of \cref{eqn:maxwellsEquations:400} has a corresponding dual magnetic charge density in \cref{eqn:maxwellsEquations:420}.
 \item
 There is a similar dual relationship between the electric and magnetic current densities and the fields themselves.
 \item
-The multivector equation \cref{eqn:maxwellsEquations:400} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:maxwellsEquations:420} has grades 1,3 (vector, pseudoscalar).  
+The multivector equation \cref{eqn:maxwellsEquations:400} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:maxwellsEquations:420} has grades 1,3 (vector, pseudoscalar).
 \item
-The 
+The
 dimensions of the space and time differential operators \( [\spacegrad] = [\sqrt{\epsilon\mu} \PDi{t}{}] = 1/L = [\sqrt{\epsilon\mu}\PDi{t}{}]\) are equal.
 now equal,
 \end{itemize}
@@ -86,7 +86,7 @@ With the engineering convension, using \( \BE \) and \( \BH \) as the primary fi
 \boxedEquation{eqn:maxwellsEquations:460}{
 \begin{aligned}
 F &= \BE + \eta I \BH \\
-J &= 
+J &=
 \eta
 \lr{ v \rho - \BJ }
 + I \lr{ v \rho_\txtm - \BM } \\
@@ -99,19 +99,19 @@ Here
 
 \begin{itemize}
 \item \( F = \BE + \eta I \BH \) [\si{V/m}] (Volts/meter), is the electromagnetic field intensity.  This is a multivector field with vector and bivector components.
-\item \( J = \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM } \) ([\si{A/m^2}] (Amperes/square meter)), 
+\item \( J = \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM } \) ([\si{A/m^2}] (Amperes/square meter)),
 is a multivector source containing all the electric and magnetic charge and current densities.  This source multivector has one grade for each possible source (scalar, vector, bivector, trivector).
 \item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media, and
 \item \( v = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.
 \end{itemize}
 
-Maxwell's equation \cref{eqn:maxwellsEquations:460} is a 
-single multivector equation that relates a combined electromagnetic field to all the sources, including fictional magnetic sources if desired.  
-%With electric and magnetic fields being observer frame dependent, we 
+Maxwell's equation \cref{eqn:maxwellsEquations:460} is a
+single multivector equation that relates a combined electromagnetic field to all the sources, including fictional magnetic sources if desired.
+%With electric and magnetic fields being observer frame dependent, we
 
-There will be a number of problems where it will be simpler to solve for the electromagnetic field than to solve separately for the electric and magnetic fields.  Given such a field solution, the electric and magnetic fields can be recovered by grade selection 
+There will be a number of problems where it will be simpler to solve for the electromagnetic field than to solve separately for the electric and magnetic fields.  Given such a field solution, the electric and magnetic fields can be recovered by grade selection
 
-\begin{dmath}\label{eqn:isotropicMaxwells:n}
+\begin{dmath}\label{eqn:isotropicMaxwells:480}
 \begin{aligned}
 \BE &= \gpgradeone{F} \\
 I \BH &= \inv{\eta} \gpgradetwo{F}.
