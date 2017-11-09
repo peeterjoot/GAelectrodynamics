@@ -53,8 +53,17 @@ du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }
 = \frac{(1 -u e^{-i\theta}) \sqrt{1 + u^2 - 2 u \cos\theta}}{(1 + u^2) \sin(2\theta)}.
 \end{dmath}
 
-The interesting takeaway is not the form of the solution, but the fact that GA allows an introduction of a complex plane for the problem at hand,
-and existing computer algebra systems can then be used to do the grunt work of the evaluation itself.
-Once evaluated, numerator factors like \( \Be_1 (1 + i u) = \Be_1 + u \Be_3 \) and \( \Be_1(1 - u e^{-i\theta}) = \Be_1(1 - u \cos\theta) + u \Be_3 \sin\theta \) compactly describe the direction of the vector field at the observation point.
+The interesting takeaway is not the form of the solution, but the fact that GA allows an introduction of a ``complex plane'' for many problems that have polar representations in a plane.  When such a complex plane is introduced,
+existing Computer Algebra Systems (CAS), like Mathematica, can be utilized for the grunt work of the evaluation.
+
+Observe that the numerator factors like \( \Be_1 (1 + i u) \) and \( \Be_1(1 - u e^{-i\theta}) \)
+compactly describe the direction of the vector field at the observation point.  Either of these can be expanded explicitly in sines and cosines if desired
+
+\begin{dmath}\label{eqn:linecharge:140}
+\begin{aligned}
+\Be_1 (1 + i u) &= \Be_1 + u \Be_3 \\
+\Be_1(1 - u e^{-i\theta}) &= \Be_1(1 - u \cos\theta) + u \Be_3 \sin\theta.
+\end{aligned}
+\end{dmath}
 
 %} % example
