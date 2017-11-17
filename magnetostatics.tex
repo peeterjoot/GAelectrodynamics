@@ -35,15 +35,19 @@ and for the magnetic field, we have
 \spacegrad \BB
 =
 \spacegrad \cdot \BB
-I (\spacegrad \cross \BB),
++
+I (\spacegrad \cross \BB).
 \end{dmath}
 
-so
-\begin{dmath}\label{eqn:magnetostatics:380}
-\spacegrad \BB
-=
-I \mu_0 \BJ.
-\end{dmath}
+As was the case in electrostatics, Maxwell's equations can be reduced to a pair of multivector gradient equations
+%\begin{dmath}\label{eqn:magnetostatics:380}
+\boxedEquation{eqn:magnetostatics:380}{
+\begin{aligned}
+\spacegrad \BB &= I \mu_0 \BJ \\
+\spacegrad \BE &= 0.
+\end{aligned}
+}
+%\end{dmath}
 
 Constraints must be imposed on the current density for \cref{eqn:magnetostatics:380} to be satisfied.  This can be seen by left multiplying with the gradient
 
@@ -55,7 +59,7 @@ Constraints must be imposed on the current density for \cref{eqn:magnetostatics:
 \end{dmath}
 
 The left hand side is a vector, whereas the right hand side has vector and pseudoscalar grades.
-This means that the divergence of the current density must be zero
+This means that magnetostatics conditions require the divergence of the current density to be zero
 
 \begin{dmath}\label{eqn:magnetostatics:460}
 \spacegrad \cdot \BJ = 0.

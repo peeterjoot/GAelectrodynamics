@@ -15,7 +15,6 @@ SOURCE_DIRS += $(FIGURES)
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
 PRIMARY_SOURCES += FrontBackmatter/preface.tex
 
-EXTERNAL_DEPENDENCIES += ../potentialMethods/potentialSection.tex
 EXTERNAL_DEPENDENCIES += ../gabookI/physics/torusCenterOfMassParameterization.tex
 EXTERNAL_DEPENDENCIES += ../curvilinear/curvilinearGradient.tex
 EXTERNAL_DEPENDENCIES += ../curvilinear/curvilinearspherical.tex
@@ -77,7 +76,7 @@ all :: maxwells.pdf
 #maxwells.pdf : planewaves.tex
 #maxwells.pdf :: isotropicMaxwells.tex
 maxwells.pdf :: maxwellsEquations.tex
-maxwells.pdf :: ../potentialMethods/potentialSection.tex
+maxwells.pdf :: potentialSection.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainPlaneWaves.tex
 
