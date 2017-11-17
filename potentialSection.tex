@@ -120,33 +120,25 @@ Observe that the grade selection encodes the precise reciepe required to produce
 
 The potential representation of the field \cref{eqn:potentialSection:80} is only a solution if Maxwell's equation is also satisfied, or
 
-\begin{subequations}
-\label{eqn:potentialSection:1940}
 \begin{dmath}\label{eqn:potentialSection:1960}
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \lr{ -\phi + v\BA } = \eta \lr{ v \rho - \BJ }
-\end{dmath}
-\begin{dmath}\label{eqn:potentialSection:1980}
-\lr{ \spacegrad + \inv{v} \PD{t}{} } \gpgrade{ \lr{ \spacegrad - \inv{v} \PD{t}{} } \lr{ -\phi + v\BA } }{0,3} = 0.
-\end{dmath}
-\end{subequations}
-
-The simplest way to satisfy the constraint equation \cref{eqn:potentialSection:1980} is to impose the Lorenz gauge condition
-
-\begin{dmath}\label{eqn:potentialSection:2000}
-0
-= \gpgrade{ \lr{ \spacegrad - \inv{v} \PD{t}{} } \lr{ -\phi + v\BA } }{0,3}
-= v \spacegrad \cdot \BA + \inv{v} \PD{t}{\phi},
+\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \lr{ -\phi + v\BA }
+= \eta \lr{ v \rho - \BJ } +
+\lr{ \spacegrad + \inv{v} \PD{t}{} } \gpgrade{ \lr{ \spacegrad - \inv{v} \PD{t}{} } \lr{ -\phi + v\BA } }{0,3}
+= \eta \lr{ v \rho - \BJ } +
+\lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ v \spacegrad \cdot \BA + \inv{v} \PD{t}{\phi} }.
 \end{dmath}
 
-or
+Imposing a constraint on the potential grades
+
 \begin{dmath}\label{eqn:potentialSection:2020}
-\spacegrad \cdot \BA + \inv{v^2} \PD{t}{\phi} = 0.
+\spacegrad \cdot \BA + \inv{v^2} \PD{t}{\phi} = 0,
 \end{dmath}
 
-In the frequency domain \( \PDi{t}{} \leftrightarrow j \omega = j k v \), this gauge choice allows the scalar and vector potentials to be completely decoupled
+the Lorenz gauge condition, is clearly an expediant way to simplify this relationship.  In particular,
+in the frequency domain \( \PDi{t}{} \leftrightarrow j \omega = j k v \), this gauge choice allows the scalar potential to be entirely eliminated, since
 
 \begin{dmath}\label{eqn:potentialSection:2040}
-\phi = \frac{j v^2}{\omega} \spacegrad \cdot \BA,
+\phi = \frac{j v^2}{\omega} \spacegrad \cdot \BA.
 \end{dmath}
 
 so the multivector potential is completely determined by a single vector potential
@@ -164,7 +156,7 @@ Maxwell's equation is reduced to a Helmholtz equation
 
 and the field is simply
 \begin{dmath}\label{eqn:potentialSection:2100}
-F = \lr{ \spacegrad - j\omega } A.
+F = \lr{ \spacegrad - j k } A.
 \end{dmath}
 
 \subsection{Magnetic sources.}
