@@ -1,0 +1,141 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+\makeproblem{\R{3} dual forms of Stokes' theorem.}{problem:stokesTheoremCoreProblems:1}{
+Prove
+\makesubproblem{}{problem:stokesTheoremCoreProblems:1:a}
+\cref{eqn:stokesTheoremCore:1681},
+\makesubproblem{}{problem:stokesTheoremCoreProblems:1:b}
+\cref{eqn:stokesTheoremCore:1801},
+\makesubproblem{}{problem:stokesTheoremCoreProblems:1:c}
+and \cref{eqn:stokesTheoremCore:1801c}.
+} % problem
+
+\makeanswer{problem:stokesTheoremCoreProblems:1}{
+
+The volume elements are
+\makeSubAnswer{}{problem:stokesTheoremCoreProblems:1:a}
+\begin{subequations}
+\label{eqn:stokesTheoremCoreProblems:20}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:40}
+d^2 \Bx \cdot \spacegrad
+=
+dA \gpgradeone{ I \ncap \spacegrad }
+=
+dA I \ncap \wedge \spacegrad
+\end{dmath}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:60}
+d^2 \Bx \cdot (\spacegrad \wedge \BA)
+=
+dA \gpgradezero{ I \ncap \spacegrad \BA }
+=
+dA I \ncap \wedge \spacegrad \wedge \BA
+\end{dmath}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:80}
+d^3 \Bx \cdot \spacegrad \phi
+=
+dV \gpgradetwo{ I \spacegrad \phi }
+=
+dV I \spacegrad \phi
+\end{dmath}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:100}
+d^3 \Bx \cdot (\spacegrad \wedge \BA)
+=
+dV \gpgradeone{ I (\spacegrad \wedge \BA) }
+=
+dV I \spacegrad \wedge \BA
+\end{dmath}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:120}
+d^3 \Bx \cdot (\spacegrad \wedge B)
+=
+dV \gpgradezero{ I (\spacegrad \wedge B) }
+=
+dV I \spacegrad \wedge B.
+\end{dmath}
+\end{subequations}
+
+The corresponding boundary forms are
+\begin{subequations}
+\label{eqn:stokesTheoremCoreProblems:140}
+\begin{equation}\label{eqn:stokesTheoremCoreProblems:160}
+d\Bx \psi
+\end{equation}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:180}
+d\Bx \cdot \BA
+\end{dmath}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:200}
+d^2 \Bx \psi
+=
+dA I \ncap \psi
+\end{dmath}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:220}
+d^2 \Bx \cdot \BA
+=
+dA \gpgradeone{ I \ncap \BA }
+=
+dA I \ncap \wedge \BA
+\end{dmath}
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:240}
+d^2 \Bx \cdot B
+=
+dA \gpgradezero{ I \ncap B }
+=
+dA I \ncap \wedge B.
+\end{dmath}
+\end{subequations}
+
+Assembling these pieces back into the integrals proves the relationships.
+
+\makeSubAnswer{}{problem:stokesTheoremCoreProblems:1:b}
+
+To show \cref{eqn:stokesTheoremCore:1841} note that
+
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:260}
+I (\Ba \wedge \Bb \wedge \Bc)
+=
+\gpgradezero{ I \Ba \wedge \Bb \wedge \Bc }
+=
+\gpgradezero{ I \Ba (\Bb \wedge \Bc) -
+I \Ba \cdot (\Bb \wedge \Bc)
+}
+=
+\gpgradezero{ I \Ba I(\Bb \cross \Bc) }
+=
+- \Ba \cdot (\Bb \cross \Bc).
+\end{dmath}
+
+To show \cref{eqn:stokesTheoremCore:1901} note that
+
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:280}
+\Ba \wedge (I \BA)
+=
+\Ba \wedge (I \BA)
+=
+\gpgradethree{ \Ba I \BA }
+=
+\gpgradethree{ I \Ba \cdot \BA }
+=
+I (\Ba \cdot \BA).
+\end{dmath}
+
+\makeSubAnswer{}{problem:stokesTheoremCoreProblems:1:c}
+
+For vector \( \Ba \), these transformations all follow from
+
+\begin{dmath}\label{eqn:stokesTheoremCoreProblems:300}
+\Ba \cross \Bf
+=
+\gpgradeone{ -I \Ba \wedge \Bf}
+=
+\gpgradeone{ -I \Ba \Bf}
+=
+-\gpgradeone{ \Ba I \Bf}
+=
+-\Ba \cdot (I \Bf)
+=
+\Ba \cdot B.
+\end{dmath}
+
+} % answer

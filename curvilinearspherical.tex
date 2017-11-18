@@ -1,0 +1,131 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+The spherical vector parameterization admits a compact GA representation.  From the coordinate representation, some factoring gives
+
+\begin{dmath}\label{eqn:curvilinearspherical:20}
+\Bx
+= r \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta }
+= r \lr{ \sin\theta \Be_1 (\cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta }
+= r \lr{ \sin\theta \Be_1 e^{\Be_{12} \phi } + \Be_3 \cos\theta }
+= r \Be_3 \lr{ \cos\theta + \sin\theta \Be_3 \Be_1 e^{\Be_{12} \phi } }.
+\end{dmath}
+
+With
+\begin{dmath}\label{eqn:curvilinearspherical:40}
+\begin{aligned}
+i &= \Be_{12} \\
+j &= \Be_{31} e^{i \phi},
+\end{aligned}
+\end{dmath}
+
+this is
+
+\begin{dmath}\label{eqn:curvilinearspherical:60}
+\Bx = r \Be_3 e^{j \theta}.
+\end{dmath}
+
+The curvilinear basis vectors can now be computed
+
+\begin{subequations}
+\label{eqn:curvilinearspherical:80}
+\begin{dmath}\label{eqn:curvilinearspherical:100}
+\Bx_r = \Be_3 e^{j \theta}
+\end{dmath}
+\begin{dmath}\label{eqn:curvilinearspherical:120}
+\Bx_\theta
+= \Be_3 j e^{j \theta}
+= \Be_3 \Be_{31} e^{i\phi} e^{j \theta}
+= \Be_1 e^{i\phi} e^{j \theta}
+\end{dmath}
+\begin{dmath}\label{eqn:curvilinearspherical:140}
+\Bx_\phi
+=
+\PD{\phi}{} \lr{
+r \Be_3 \sin\theta \Be_{31} e^{i \phi}
+}
+=
+r \sin\theta \Be_1 \Be_{12} e^{i \phi}
+=
+r \sin\theta \Be_2 e^{i \phi}.
+\end{dmath}
+\end{subequations}
+
+These are all mutually normal, which can be verified by computing dot products.
+With that asserted, orthornomalizing the curvilinear basis is now possible by inspection
+
+\begin{dmath}\label{eqn:curvilinearspherical:240}
+\begin{aligned}
+\rcap &= \Bx_r \\
+\thetacap &= \inv{r} \Bx_\theta \\
+\phicap &= \inv{r \sin\theta} \Bx_\phi,
+\end{aligned}
+\end{dmath}
+
+or
+
+\begin{dmath}\label{eqn:curvilinearspherical:260}
+\begin{aligned}
+\Bx^r &= \rcap \\
+\Bx^\theta &= \inv{r} \thetacap \\
+\Bx^\phi &= \inv{r \sin\theta} \phicap.
+\end{aligned}
+\end{dmath}
+
+In particular, this shows that the spherical representation of the gradient is
+\begin{dmath}\label{eqn:curvilinearspherical:280}
+\spacegrad
+=
+\Bx^r \PD{r}{}
++ \Bx^\theta \PD{\theta}{}
++ \Bx^\phi \PD{\phi}{}
+=
+\rcap \PD{r}{}
++\inv{r} \thetacap \PD{\theta}{}
++\inv{r \sin\theta} \PD{\phi}{}.
+\end{dmath}
+
+The spherical (oriented) volume element can also be computed in a compact fashion, without having to evaluate a very messy Jacobian determinant
+
+\begin{dmath}\label{eqn:curvilinearspherical:300}
+\Bx_r \wedge \Bx_\theta \wedge \Bx_\phi
+=
+\gpgradethree{
+\Bx_r \Bx_\theta \Bx_\phi
+}
+=
+\gpgradethree{
+\Be_3 e^{j \theta}
+r \Be_1 e^{i\phi} e^{j \theta}
+r \sin\theta \Be_2 e^{i \phi}
+}
+=
+r^2 \sin\theta
+\gpgradethree{
+\Be_3 e^{j \theta}
+\Be_1 e^{i\phi} e^{j \theta}
+\Be_2 e^{i \phi}
+}
+=
+r^2 \sin\theta \Be_{123}
+.
+\end{dmath}
+
+The final reduction is left as a problem for the student.  It is left to the student to evaluate whether this method is easier or more difficult than the conventional volume element Jacobean determinant expansion
+
+\begin{dmath}\label{eqn:curvilinearspherical:320}
+dV =
+dr d\theta d\phi\,
+\frac{\partial( x_1, x_2, x_3)}{\partial(r, \theta, \phi)}
+=
+dr d\theta d\phi\,
+\begin{vmatrix}
+\sin\theta \cos\phi & \sin\theta \sin\phi & \cos\theta \\
+r \cos\theta \cos\phi & r \cos\theta \sin\phi & -r \sin\theta \\
+-r \sin\theta \sin\phi & r \sin\theta \cos\phi & 0 \\
+\end{vmatrix}.
+\end{dmath}
+
+It is easily argued that both volume element calculation methods are best performed by a computer algebra system.

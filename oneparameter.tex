@@ -1,0 +1,52 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+An example parameterization with one parameter, and the corresponding differential with respect to that parameter, is plotted in
+\cref{fig:oneParameterDifferential:oneParameterDifferentialFig1}, for a parameterization over \( [a, b] \in [0,1]\otimes[0,1] \).
+
+\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.3}
+
+The differential with respect to the parameter \( a \) is
+
+\begin{equation}\label{eqn:stokesTheoremCore:20}
+d\Bx_a = \PD{a}{\Bx} da = \Bx_a da.
+\end{equation}
+
+On this curve the projection of the gradient has just one component
+
+\begin{dmath}\label{eqn:stokesTheoremCore:40}
+\boldpartial
+=
+\sum_\mu \Bx^\mu (\Bx_\mu \cdot \spacegrad)
+=
+\Bx^a \PD{a}{}
+\equiv
+\Bx^a \partial_a.
+\end{dmath}
+
+Please see \citep{aMacdonaldVAGC} for a full justification of the curvilinear coordinate representation of the vector derivative (or the gradient).  That text also discusses pertainant issues with the connectivity of the manifold ignored here.
+
+Stokes' theorem for a one parameter manifold can only be expressed for scalar fields.  That is
+
+\begin{dmath}\label{eqn:stokesTheoremCore:60}
+\int d\Bx \cdot (\boldpartial \wedge \psi)
+=
+\int d\Bx \cdot \boldpartial \psi
+=
+\int da \PD{a}{ \psi }
+= \evalbar{\psi}{\Delta a}.
+\end{dmath}
+
+Observe that the vector derivative can be replaced by the gradient since \( d\Bx \cdot \boldpartial = d\Bx \cdot \spacegrad \).
+This is the case since dotting the
+gradient with a differential element \( d\Bx \) on this curve, no component of the gradient that isn't colinear to the curve makes no contribution.
+
+That means that Stokes' theorem for a one parameter curve is exactly the fundamental theorem of calculus for line integrals
+
+%\begin{dmath}\label{eqn:stokesTheoremCore:80}
+\boxedEquation{eqn:stokesTheoremCore:80}{
+\int_{\Ba}^{\Bb} d\Bx \cdot \spacegrad \psi = \psi(\Bb) - \psi(\Ba).
+}
+%\end{dmath}

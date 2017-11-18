@@ -1,0 +1,71 @@
+%
+% Copyright © CCYY Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\makeproblem{Stokes' theorem relation to Green's theorem}{problem:stokesAndGreens:1}{
+Show that Stokes theorem, in its two parameter form, applied to a vector field recovers Green's theorem.
+} % problem
+
+\makeanswer{problem:stokesAndGreens:1}{
+
+To demonstrate this, expand the LHS of the Stokes identity
+
+\begin{dmath}\label{eqn:stokesAndGreens:20}
+\int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf) = \ointclockwise d\Bx \cdot \Bf.
+\end{dmath}
+
+Assuming \( u, v\) parameterization
+
+\begin{dmath}\label{eqn:stokesAndGreens:40}
+\int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf)
+=
+\int_A (d\Bx_u \wedge d\Bx_v) \cdot (\boldpartial \wedge \Bf)
+=
+\int_A ((d\Bx_u \wedge d\Bx_v) \cdot \Bx^u) \cdot \partial_u \Bf
++
+\int_A ((d\Bx_u \wedge d\Bx_v) \cdot \Bx^v) \cdot \partial_v \Bf
+=
+-\int_A du dv \Bx_v \cdot \partial_u \Bf
++
+\int_A du dv \Bx_u \cdot \partial_v \Bf
+=
+-\int_A du dv \Bx_v \cdot \partial_u \Bf
++
+\int_A du dv \lr{
+-\Bx_v \cdot \partial_u \Bf
++
+\Bx_u \cdot \partial_v \Bf
+}.
+\end{dmath}
+
+The coordinate expansion of \( \Bf \) with respect to the tangent space coordinates is
+
+\begin{dmath}\label{eqn:stokesAndGreens:60}
+\Bf = \Bx^u f_u + \Bx^v f_v + \Bf_\perp
+\end{dmath}
+
+where \( \Bf_\perp \) lies in normal to the tangent space at the point in question.  Because \( \Bx_v \) is computed with \( u \) held fixed and \( \Bx_u \) computed with \( v \) held fixed, the area integrand can be written
+
+\begin{dmath}\label{eqn:stokesAndGreens:80}
+-\Bx_v \cdot \partial_u \Bf
++
+\Bx_u \cdot \partial_v \Bf
+=
+-\PD{u}{}\lr{ \Bx_v \cdot \Bf }
++\PD{v}{}\lr{ \Bx_u \cdot \Bf }
+=
+-\PD{u}{f_v}
++\PD{v}{f_u},
+\end{dmath}
+
+which gives
+\begin{dmath}\label{eqn:stokesAndGreens:100}
+\int_A du dv \lr{ -\PD{u}{f_v}
++\PD{v}{f_u}
+}
+=
+\ointclockwise d\Bx \cdot \Bf,
+\end{dmath}
+
+which recovers \cref{thm:stokesTheoremGeometricAlgebra:1660} as desired.
+} % answer

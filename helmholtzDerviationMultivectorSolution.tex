@@ -1,0 +1,136 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+The gradient of the vector \( \BM \) can be written as a single even grade multivector
+
+\begin{equation}\label{eqn:helmholtzDerviationMultivector:60}
+\spacegrad \BM
+= \spacegrad \cdot \BM + I \spacegrad \cross \BM
+= s + I \BC.
+\end{equation}
+
+%Observe that the Laplacian of \( \BM \) is vector valued
+%
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:760}
+%\spacegrad^2 \BM = \spacegrad s + I \spacegrad \BC.
+%\end{dmath}
+%
+%This means that \( \spacegrad \BC \) must be a bivector \( \spacegrad \BC = \spacegrad \wedge \BC \), or that \( \BC \) has zero divergence
+%
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:780}
+%\spacegrad \cdot \BC = 0.
+%\end{dmath}
+
+This can be used to attempt to discover the relation between the vector \( \BM \) and its divergence and curl.  
+The vector \( \BM \) can be expressed at the point of interest as a convolution with the delta function at all other points in space
+
+\begin{dmath}\label{eqn:helmholtzDerviationMultivector:80}
+\BM(\Bx) = \int_V dV' \delta(\Bx - \Bx') \BM(\Bx').
+\end{dmath}
+
+The Laplacian representation of the delta function in \R{3} is
+
+\begin{dmath}\label{eqn:helmholtzDerviationMultivector:100}
+\delta(\Bx - \Bx') = -\inv{4\pi} \spacegrad^2 \inv{\Norm{\Bx - \Bx'}},
+\end{dmath}
+
+so \( \BM \) can be represented as the following convolution
+
+\begin{dmath}\label{eqn:helmholtzDerviationMultivector:120}
+\BM(\Bx) = -\inv{4\pi} \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx').
+\end{dmath}
+
+%As noted in \cref{eqn:helmholtzDerviationMultivector:460} the Laplacian of a vector can be factored as
+%
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:140}
+%\spacegrad^2 \Ba
+%=
+%\spacegrad (\spacegrad \cdot \Ba)
+%-
+%\spacegrad \cross (\spacegrad \cross \Ba).
+%\end{dmath}
+%
+%Note that the last term can be written in cross product notation using \( \Bc \cdot (\Ba \wedge \Bb) = -\Bc \cross (\Ba \cross \Bb) \) if desired.
+
+Using this relation and proceeding with a few applications of the chain rule, plus the fact that \( \spacegrad 1/\Norm{\Bx - \Bx'} = -\spacegrad' 1/\Norm{\Bx - \Bx'} \), we find
+%
+%I previously posted a Geometric Algebra attack on the Helmholtz theorem.  Here is
+%
+%Here's a third way of deriving the Helmholtz theorem inversion relation.  This is a refinement of the traditional vector algebra solution that led to \cref{eqn:helmholtzDerviationMultivector:200}, that uses a factorization of the Laplacian directly, deferring any expansion in terms of dot and cross (or wedge) products until the very end.
+%
+%Starting from the first line of \cref{eqn:helmholtzDerviationMultivector:160}, we have
+
+\begin{dmath}\label{eqn:helmholtzDerviationMultivector:720}
+-4 \pi \BM(\Bx)
+= \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')
+= \gpgradeone{\int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')}
+= -\gpgradeone{\int_V dV' \spacegrad \lr{ \spacegrad' \inv{\Norm{\Bx - \Bx'}}} \BM(\Bx')}
+= -\gpgradeone{\spacegrad \int_V dV' \lr{
+\spacegrad' \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+-\frac{\spacegrad' \BM(\Bx')}{\Norm{\Bx - \Bx'}}
+} }
+=
+-\gpgradeone{\spacegrad \int_{\partial V} dA'
+\ncap \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+ }
++\gpgradeone{\spacegrad \int_V dV'
+\frac{s(\Bx') + I\BC(\Bx')}{\Norm{\Bx - \Bx'}}
+ }
+=
+-\gpgradeone{\spacegrad \int_{\partial V} dA'
+\ncap \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+ }
++\spacegrad \int_V dV'
+\frac{s(\Bx')}{\Norm{\Bx - \Bx'}}
++\spacegrad \cdot \int_V dV'
+\frac{I\BC(\Bx')}{\Norm{\Bx - \Bx'}}.
+\end{dmath}
+
+By inserting a no-op grade selection operation in the second step, the trivector terms that would show up in subsequent steps are automatically filtered out.
+%the troublesome trivector term that shows up in my first purely Geometric Algebra
+%attempt is eliminated.
+This leaves us with a boundary term dependent on the surface and the normal and tangential components of \( \BM \).  Added to that is a pair of volume integrals that provide the unique dependence of \( \BM \) on its divergence and curl.
+When the surface is taken to infinity, which requires \( \Norm{\BM}/\Norm{\Bx - \Bx'} \rightarrow 0 \), then the dependence of \( \BM \) on its divergence and curl is unique.
+
+In order to express final result in traditional vector algebra form, a couple transformations are required.  The first is that
+
+\begin{equation}\label{eqn:helmholtzDerviationMultivector:800}
+\gpgradeone{ \Ba I \Bb } = I^2 \Ba \cross \Bb = -\Ba \cross \Bb.
+\end{equation}
+
+For the grade selection in the boundary integral, note that
+
+\begin{dmath}\label{eqn:helmholtzDerviationMultivector:740}
+\gpgradeone{ \spacegrad \ncap \BX }
+=
+\gpgradeone{ \spacegrad (\ncap \cdot \BX) }
++
+\gpgradeone{ \spacegrad (\ncap \wedge \BX) }
+=
+\spacegrad (\ncap \cdot \BX)
++
+\gpgradeone{ \spacegrad I (\ncap \cross \BX) }
+=
+\spacegrad (\ncap \cdot \BX)
+-
+\spacegrad \cross (\ncap \cross \BX).
+\end{dmath}
+
+These give
+
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:721}
+\boxedEquation{eqn:helmholtzDerviationMultivector:721}{
+\begin{aligned}
+\BM(\Bx)
+&=
+\spacegrad \inv{4\pi} \int_{\partial V} dA' \ncap \cdot \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+-
+\spacegrad \cross \inv{4\pi} \int_{\partial V} dA' \ncap \cross \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}} \\
+&-\spacegrad \inv{4\pi} \int_V dV'
+\frac{s(\Bx')}{\Norm{\Bx - \Bx'}}
++\spacegrad \cross \inv{4\pi} \int_V dV'
+\frac{\BC(\Bx')}{\Norm{\Bx - \Bx'}}.
+\end{aligned}
+}
+%\end{dmath}

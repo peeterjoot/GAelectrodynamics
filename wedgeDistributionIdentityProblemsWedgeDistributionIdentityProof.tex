@@ -1,0 +1,55 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+The proof is straightforward, but also mechanical.  
+Start by expanding the wedge and dot products within a grade selection operator
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1460}
+A_s \cdot \lr{ \Bb \wedge B_r }
+=
+\gpgrade{A_s (\Bb \wedge B_r)}{s - (r + 1)}
+=
+\inv{2} \gpgrade{A_s \lr{\Bb B_r + (-1)^{r} B_r \Bb} }{s - (r + 1)}
+\end{dmath}
+
+Solving for \(B_r \Bb\) in
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1480}
+2 \Bb \cdot B_r = \Bb B_r - (-1)^{r} B_r \Bb,
+\end{dmath}
+
+we have
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1500}
+A_s \cdot \lr{ \Bb \wedge B_r }
+=
+\inv{2} \gpgrade{ A_s \Bb B_r + A_s \lr{ \Bb B_r - 2 \Bb \cdot B_r } }{s - (r + 1)}
+=
+\gpgrade{ A_s \Bb B_r }{s - (r + 1)}
+-
+\cancel{\gpgrade{ A_s \lr{ \Bb \cdot B_r } }{s - (r + 1)}}.
+\end{dmath}
+
+The last term above is zero since we are selecting the \(s - r - 1\) grade element of a multivector with grades \(s - r + 1\) and \(s + r - 1\), which has no terms for \(r > 0\).  Now we can expand the \(A_s \Bb\) multivector product, for
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1520}
+A_s \cdot \lr{ \Bb \wedge B_r }
+=
+\gpgrade{ \lr{ A_s \cdot \Bb + A_s \wedge \Bb} B_r }{s - (r + 1)}.
+\end{dmath}
+
+The latter multivector (with the wedge product factor) above has grades \(s + 1 - r\) and \(s + 1 + r\), so this selection operator finds nothing.  This leaves
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1540}
+A_s \cdot \lr{ \Bb \wedge B_r }
+=
+\gpgrade{
+\lr{ A_s \cdot \Bb } \cdot B_r
++ \lr{ A_s \cdot \Bb } \wedge B_r
+}{s - (r + 1)}.
+\end{dmath}
+
+The first dot products term has grade \(s - 1 - r\) and is selected, whereas the wedge term has grade \(s - 1 + r \ne s - r - 1\) (for \(r > 0\)).  \(\qedmarker\)
+
+%Next consider an expansion that we cannot do above, but require

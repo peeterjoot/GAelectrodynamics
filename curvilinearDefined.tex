@@ -1,0 +1,101 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.  Given, for example, a vector into a subspace parameterized by parameters \(u,v\)
+
+\begin{dmath}\label{eqn:curvilinear:20}
+\Bx = \Bx(u, v),
+\end{dmath}
+
+the partials with respect to these parameters
+
+\begin{dmath}\label{eqn:curvilinear:40}
+\begin{aligned}
+d\Bx_u &= \PD{u}{\Bx} du \\
+d\Bx_v &= \PD{v}{\Bx} dv
+\end{aligned}
+\end{dmath}
+
+span the space at the point that these partials are evaluated.  In the language of differential forms, this localized subspace is called the tangent space.  It is generally desirable to consider parameterizations for which the tangent space volume element is non-zero.  In this case, that is
+
+\begin{dmath}\label{eqn:curvilinear:60}
+d\Bx_u \wedge d\Bx_v \ne 0.
+\end{dmath}
+
+The differentials form a basis for the tangent space, as do the partials themselves
+
+\begin{dmath}\label{eqn:curvilinear:80}
+\begin{aligned}
+\Bx_u &= \PD{u}{\Bx} \\
+\Bx_v &= \PD{v}{\Bx}.
+\end{aligned}
+\end{dmath}
+
+There is no reason to presume that there is any orthonormality constraint on the basis \( \setlr{ \Bx_u, \Bx_v } \) for this two parameter subspace, so a reciprocal basis \( \setlr{ \Bx^u, \Bx^v } \)
+must be used to compute coordinates.
+%, defined by \( \Bx^i \cdot \Bx_j = {\delta^i}_j \),  must be used to compute coordinates.   [SEE: GAelectrodynamics: 3.1].
+
+More generally, given a parameterization of \( \Bx(u_1, u_2, \cdots, u_k) \), a curvilinear basis defined on the tangent space is induced by the partials
+
+\begin{dmath}\label{eqn:curvilinear:240}
+\Bx_{u_i} = \PD{u_i}{\Bx}.
+\end{dmath}
+
+The volume element for the subspace is
+
+\begin{dmath}\label{eqn:curvilinear:260}
+d^k \Bx = du_1 du_2 \cdots du_k\,
+\Bx_{u_1} \wedge
+\Bx_{u_2} \wedge \cdots \wedge
+\Bx_{u_k}.
+\end{dmath}
+
+Unlike a scalar volume, this volume element is oriented.  Any multivector can be expressed in terms of the curvilinear basis \( \setlr{ \Bx_{u_1}, \Bx_{u_2}, \cdots, \Bx_k} \), but computation of the curvilinear coordinates requires the reciprocal basis.  For example, a vector \( \Bf \) constrained to the tangent space admits a representation
+
+\begin{dmath}\label{eqn:curvilinear:380}
+\Bf = \sum_i a_i \Bx_{u_i}.
+\end{dmath}
+
+Dotting with \( \Bx^{u_j} \) gives
+
+\begin{dmath}\label{eqn:curvilinear:280}
+\Bf \cdot \Bx^{u_j}
+= \sum_i a_i \Bx_{u_i} \cdot \Bx^{u_j}
+= \sum_i a_i {\delta^i}_j
+= a_j,
+\end{dmath}
+
+so
+\begin{dmath}\label{eqn:curvilinear:300}
+\Bf = \sum_i \lr{ \Bf \cdot \Bx^{u_i} } \Bx_{u_i}.
+\end{dmath}
+
+Higher grade multivector objects may also be represented in curvilinear coordinates.  For example, given a bivector constrained to the tangent space
+
+\begin{dmath}\label{eqn:curvilinear:320}
+B = \inv{2} \sum_{i, j} b_{ij} \Bx_{u_i} \wedge \Bx_{u_j},
+\end{dmath}
+
+the coordinates \( b_{ij} \) can be determined by dotting \( B \) with \( \Bx^{u_j} \wedge \Bx^{u_i} \), yielding
+
+\begin{dmath}\label{eqn:curvilinear:340}
+B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
+=
+\inv{2} \sum_{i' , j'} b_{i'j'} \lr{ \Bx_{u_i'} \wedge \Bx_{u_j'} } \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
+=
+\inv{2} \sum_{i' , j'} b_{i'j'} \lr{ \lr{ \Bx_{u_i'} \wedge \Bx_{u_j'} } \cdot \Bx^{u_j} } \cdot \Bx^{u_i}
+=
+\inv{2} \sum_{i' , j'} b_{i'j'} \lr{  \Bx_{u_i'} {\delta_j'}^j - \Bx_{u_j'} {\delta_i'}^j } \cdot \Bx^{u_i}
+=
+\inv{2} \sum_{i' , j'} b_{i'j'} \lr{  {\delta_i'}^i {\delta_j'}^j - {\delta_j'}^i {\delta_i'}^j }
+=
+\inv{2} \lr{ b_{i j} - b_{ji} }.
+\end{dmath}
+
+When \( i \ne j \) this is \( b_{ij} \) and is zero otherwise.  The curvilinear representation of the bivector is therefore
+
+\begin{dmath}\label{eqn:curvilinear:400}
+B = \sum_{i < j} \lr{ B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }} \Bx_{u_i} \wedge \Bx_{u_j}.
+\end{dmath}
+

@@ -83,16 +83,17 @@ F
       - \phi
       + v \BA
 }
-}{1,2}
-=
--\spacegrad \phi
--\PD{t}{\BA}
-+ v \spacegrad \wedge \BA
-=
+}{1,2},
+\end{dmath}
+
+which expands to
+
+\boxedEquation{eqn:potentialSection:2240}{
+F =
 -\spacegrad \phi
 -\PD{t}{\BA}
 + v \spacegrad \wedge \BA.
-\end{dmath}
+}
 
 The respective electric and magnetic fields can be extracted using a duality transformation for the bivector curl
 
@@ -156,6 +157,38 @@ and the field is simply
 F = \lr{ \spacegrad - j k } A.
 \end{dmath}
 
+To compare this to conventional results, let's substitute \cref{eqn:potentialSection:2060} into \cref{eqn:potentialSection:2100},
+
+\begin{dmath}\label{eqn:potentialSection:2300}
+F
+=
+\lr{ \spacegrad - j k }
+\lr{
+-\frac{j v^2}{\omega} \spacegrad \cdot \BA + v \BA
+}
+=
+-\frac{k v^2}{\omega} \spacegrad \cdot \BA -j k v \BA
+-\frac{j v^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + v \spacegrad \BA
+=
+- \cancel{ v \spacegrad \cdot \BA }
+-j \omega \BA
+-\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
++ \cancel{ v \spacegrad \cdot \BA }
++ v \spacegrad \wedge \BA
+=
+-j \omega \BA -\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
++ v \spacegrad \wedge \BA.
+\end{dmath}
+
+From this the electric and magnetic fields can be read off
+
+\begin{dmath}\label{eqn:potentialSection:2320}
+\begin{aligned}
+\BE &= -j \omega \BA -\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BA } \\
+\mu \BH &= \spacegrad \cross \BA.
+\end{aligned}
+\end{dmath}
+
 \subsection{Magnetic sources.}
 
 For a multivector current with only magnetic sources
@@ -181,11 +214,24 @@ F
       - I \eta \phi_m
       + I \eta v \BF
 }
-}{1,2}
+}{1,2},
+\end{dmath}
+
+which simplifies to
+
+\boxedEquation{eqn:potentialSection:2260}{
+F
 =
-I \eta v \spacegrad \wedge \BF
--\eta I \PD{t}{\BF}
-- I \eta \spacegrad \phi_m
+I \eta \lr{ v \spacegrad \wedge \BF
+-\PD{t}{\BF}
+- \spacegrad \phi_m
+}.
+}
+
+The separate electric and magnetic field contributions can be read off from
+
+\begin{dmath}\label{eqn:potentialSection:2280}
+F
 =
 - \eta v \spacegrad \cross \BF
 + \eta I \lr
@@ -195,7 +241,7 @@ I \eta v \spacegrad \wedge \BF
 },
 \end{dmath}
 
-which recovers the expected potential representations of the fields
+yielding
 
 \begin{dmath}\label{eqn:potentialSection:140}
 \begin{aligned}
@@ -252,6 +298,43 @@ A =
 and Maxwell's equation and the field are given by
 \cref{eqn:potentialSection:2080} and
 \cref{eqn:potentialSection:2100} respectively.
+
+Again, as a check, let's compute the electric and magnetic fields explicitly from \cref{eqn:potentialSection:2220}
+
+\begin{dmath}\label{eqn:potentialSection:2340}
+F
+=
+\lr{ \spacegrad - j k }
+\eta I \lr{
+-\frac{j v^2}{\omega} \spacegrad \cdot \BF + v \BF
+}
+=
+\eta I
+\lr{
+- v \spacegrad \cdot \BF -j \omega \BF
+-\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BF } + v \spacegrad \BF
+}
+=
+\eta I
+\lr{
+-j \omega \BF
+-\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BF } + v \spacegrad \wedge \BF
+}
+=
+-\inv{\epsilon} \spacegrad \cross \BF
+- j \eta I \lr{
+\omega \BF + \frac{v}{k} \spacegrad \lr{ \spacegrad \cdot \BF }
+},
+\end{dmath}
+
+so
+
+\begin{dmath}\label{eqn:potentialSection:2360}
+\begin{aligned}
+\BE &= -\inv{\epsilon} \spacegrad \cross \BF  \\
+\BH &= -j \omega \BF -j \frac{v}{k} \spacegrad \lr{ \spacegrad \cdot \BF }.
+\end{aligned}
+\end{dmath}
 
 \subsection{Gauge transformations}
 

@@ -1,0 +1,92 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+In \R{3} the area and volume elements of \cref{eqn:stokesTheoremCore:140}, and \cref{eqn:stokesTheoremCore:1481} can be reexpressed as scalars, recovering a number of the integral calculus identities that are more familiar than the wedge product variants above.
+
+The pseudoscalar volume element can be written
+
+\begin{dmath}\label{eqn:stokesTheoremCore:1621}
+d^3 \Bx = I dV,
+\end{dmath}
+
+and the (oriented) area elements can be written as
+
+\begin{dmath}\label{eqn:stokesTheoremCore:1641}
+d^2 \Bx \ncap = I dA,
+\end{dmath}
+
+or
+\begin{dmath}\label{eqn:stokesTheoremCore:1661}
+d^2 \Bx = I \ncap dA.
+\end{dmath}
+
+For \( \psi \in \bigwedge^0, \Bf \in \bigwedge^1, B \in \bigwedge^2 \), this gives
+
+\begin{subequations}
+\label{eqn:stokesTheoremCore:1681}
+\begin{equation}\label{eqn:stokesTheoremCore:1701}
+I \int_A dA \ncap \wedge \spacegrad \psi = \ointclockwise d\Bx \psi
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1721}
+I \int_A dA \ncap \wedge \spacegrad \wedge \Bf = \ointclockwise d\Bx \cdot \Bf
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1741}
+\int_V dV \spacegrad \psi = \int_{\partial V} dA \ncap \psi
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1761}
+\int_V dV \spacegrad \wedge \Bf = \int_{\partial V} dA \ncap \wedge \Bf
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1781}
+\int dV \spacegrad \wedge B = \int_{\partial V} dA \ncap \wedge B
+\end{equation}
+\end{subequations}
+
+It is straightforward to reexpress all the wedge products above in their dual forms.  With \( B = I \Bf \), that is
+
+\begin{subequations}
+\label{eqn:stokesTheoremCore:1801}
+\begin{equation}\label{eqn:stokesTheoremCore:1821}
+\int_A dA \ncap \cross \spacegrad \psi = \ointctrclockwise d\Bx \psi
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1841}
+\int_A dA \ncap \cdot (\spacegrad \cross \Bf) = \ointctrclockwise d\Bx \cdot \Bf
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1861}
+\int_V dV \spacegrad \psi = \int_{\partial V} dA \ncap \psi
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1881}
+\int_V dV \spacegrad \cross \Bf = \int_{\partial V} dA \ncap \cross \Bf
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1901}
+\int dV \spacegrad \cdot \Bf = \int_{\partial V} dA \ncap \cdot \Bf.
+\end{equation}
+\end{subequations}
+
+Each of the cross product terms above can also be put into dual forms, giving
+
+\begin{subequations}
+\label{eqn:stokesTheoremCore:1801c}
+\begin{equation}\label{eqn:stokesTheoremCore:1821c}
+\int_A dA \ncap \cdot \lr{ I \spacegrad \psi } = \ointclockwise d\Bx \psi
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1841c}
+\int_A dA \ncap \cdot (\spacegrad \cdot B) = \ointctrclockwise d\Bx \cdot (I B)
+\end{equation}
+\begin{equation}\label{eqn:stokesTheoremCore:1881c}
+\int_V dV \spacegrad \cdot B = \int_{\partial V} dA \ncap \cdot B.
+\end{equation}
+\end{subequations}
+
+Note that all of 
+\cref{eqn:stokesTheoremCore:1861}, \cref{eqn:stokesTheoremCore:1901}, and \cref{eqn:stokesTheoremCore:1881c} all have the same form
+
+%\begin{equation}\label{eqn:stokesTheoremCore:1881d}
+\boxedEquation{eqn:stokesTheoremCore:1881d}{
+\int_V dV \spacegrad \cdot A = \int_{\partial V} dA \ncap \cdot A.
+}
+%\end{equation}
+\index{divergence theorem}
+
+This is also true for pseudoscalar grades, which can be demonstrated by multiplying both sides of \cref{eqn:stokesTheoremCore:1741} with \( I \).  This implies that \cref{eqn:stokesTheoremCore:1881d} is valid for any \R{3} multivector, generalizing the conventional divergence theorem over a 3D volume to all spatial grades.

@@ -1,0 +1,111 @@
+%
+% Copyright © 2013 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+Given a two parameter (\(u,v\)) surface parameterization, the curvilinear coordinate representation of a vector \(\Bf\) has the form
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1640}
+\Bf = f_u \Bx^u + f_v \Bx^v + f_\perp \Bx^\perp.
+\end{dmath}
+
+We assume that the vector space is of dimension two or greater but otherwise unrestricted, and need not have an Euclidean basis.  Here \(f_\perp \Bx^\perp\) denotes the rejection of \(\Bf\) from the tangent space at the point of evaluation.  Green's theorem relates the integral around a closed curve to an ``area'' integral on that surface
+
+\maketheorem{Green's Theorem}{thm:stokesTheoremGeometricAlgebra:1660}{
+\index{Green's theorem}
+\begin{equation*}
+\ointctrclockwise \Bf \cdot d\Bl
+=
+\iint \lr{
+-\PD{v}{f_u}
++\PD{u}{f_v}
+}
+du dv
+\end{equation*}
+}
+
+Following the arguments used in \citep{schwartz1987pe} for Stokes theorem in three dimensions, we first evaluate the loop integral along the differential element of the surface at the point \(\Bx(u_0, v_0)\) evaluated over the range \((du, dv)\), as shown in the infinitesimal loop of \cref{fig:loopIntegralInfinitesimal:loopIntegralInfinitesimalFig1}.
+
+\imageFigure{../figures/gabook/loopIntegralInfinitesimalFig1}{Infinitesimal loop integral}{fig:loopIntegralInfinitesimal:loopIntegralInfinitesimalFig1}{0.35}
+
+Over the infinitesimal area, the loop integral decomposes into
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1700}
+\ointctrclockwise \Bf \cdot d\Bl
+=
+\int \Bf \cdot d\Bx_1
++\int \Bf \cdot d\Bx_2
++\int \Bf \cdot d\Bx_3
++\int \Bf \cdot d\Bx_4,
+\end{dmath}
+
+where the differentials along the curve are
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1600}
+\begin{aligned}
+d\Bx_1 &= \evalbar{ \PD{u}{\Bx} }{v = v_0} du \\
+d\Bx_2 &= \evalbar{ \PD{v}{\Bx} }{u = u_0 + du} dv \\
+d\Bx_3 &= -\evalbar{ \PD{u}{\Bx} }{v = v_0 + dv} du \\
+d\Bx_4 &= -\evalbar{ \PD{v}{\Bx} }{u = u_0} dv.
+\end{aligned}
+\end{dmath}
+
+It is assumed that the parameterization change \((du, dv)\) is small enough that this loop integral can be considered planar (regardless of the dimension of the vector space).  Making use of the fact that \(\Bx^\perp \cdot \Bx_\alpha = 0\) for \(\alpha \in \setlr{u,v}\), the loop integral is
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1620}
+\ointctrclockwise \Bf \cdot d\Bl
+=
+\int
+\lr{
+f_u \Bx^u + f_v \Bx^v + f_\perp \Bx^\perp
+}
+\cdot
+\Bigl(
+\Bx_u(u, v_0) du - \Bx_u(u, v_0 + dv) du
++\Bx_v(u_0 + du, v) dv - \Bx_v(u_0, v) dv
+\Bigr)
+=
+\int
+f_u(u, v_0) du - f_u(u, v_0 + dv) du
++
+f_v(u_0 + du, v) dv - f_v(u_0, v) dv
+\end{dmath}
+
+With the distances being infinitesimal, these differences can be rewritten as partial differentials
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1860}
+\ointctrclockwise \Bf \cdot d\Bl
+=
+\iint \lr{
+-\PD{v}{f_u}
++\PD{u}{f_v}
+}
+du dv.
+\end{dmath}
+
+We can now sum over a larger area as in \cref{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2}
+
+\imageFigure{../figures/gabook/loopIntegralInfinitesimalSumFig2}{Sum of infinitesimal loops}{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2}{0.35}
+
+All the opposing oriented loop elements cancel, so the integral around the complete boundary of the surface \(\Bx(u, v)\) is given by the \(u,v\) area integral of the partials difference.
+
+We will see that Green's theorem is a special case of the Stokes theorem.  This observation will also provide a geometric interpretation of the right hand side area integral of \cref{thm:stokesTheoremGeometricAlgebra:1660}, and allow for a coordinate free representation.
+
+\paragraph{Special case:}
+
+An important special case of Green's theorem is for a Euclidean two dimensional space where the vector function is
+
+\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1720}
+\Bf = P \Be_1 + Q \Be_2.
+\end{dmath}
+
+Here Green's theorem takes the form
+
+\boxedEquation{eqn:stokesTheoremGeometricAlgebra:1710}{
+\ointctrclockwise P dx + Q dy
+=
+\iint \lr{
+\PD{x}{Q}
+-\PD{y}{P}
+}
+dx dy.
+}

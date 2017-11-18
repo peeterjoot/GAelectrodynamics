@@ -1,0 +1,25 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+\maketheorem{Vector Blade dot and wedge product relations.}{thm:bladeDotWedgeSymmetryIdentities:180}{
+Given a k-blade \( B \) and a vector \( \Ba \), the dot and wedge products have the following commutation relationships
+
+\boxedEquation{eqn:bladeDotWedgeSymmetryIdentities:200}{
+\begin{aligned}
+\Ba \cdot B &= (-1)^{k-1} B \cdot \Ba \\
+\Ba \wedge B &= (-1)^k B \wedge \Ba,
+\end{aligned}
+}
+
+and can be expressed as symmetric and antisymmetric sums depending on the grade of the blade
+
+\boxedEquation{eqn:bladeDotWedgeSymmetryIdentities:220}{
+\begin{aligned}
+B \wedge \Ba &= \inv{2}\lr{ B \Ba + (-1)^k \Ba B } \\
+B \cdot \Ba &= \inv{2}\lr{ B \Ba - (-1)^k \Ba B }.
+\end{aligned}
+}
+} % theorem
+

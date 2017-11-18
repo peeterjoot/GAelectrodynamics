@@ -1,0 +1,51 @@
+%
+% Copyright © CCYY Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\makeproblem{Spherical volume element pseudoscalar.}{problem:volumeselection:1}{
+Confirm the grade three selection claim made in \cref{eqn:curvilinearspherical:300}.
+} % problem
+
+\makeanswer{problem:volumeselection:1}{
+
+Using the commutation relations from last problem, first note that
+
+\begin{dmath}\label{eqn:volumeselection:20}
+\Be_1 e^{i\phi} e^{j \theta}
+=
+\Be_1 \lr{ \cos\theta e^{i\phi} + \sin\theta \Be_{31} e^{-i\phi} e^{i\phi} }
+=
+\Be_1 \lr{ \cos\theta + \sin\theta \Be_{31} e^{-i\phi} } e^{i\phi}
+=
+\lr{ \cos\theta - \sin\theta \Be_{31} e^{i\phi} } \Be_1 e^{i\phi}
+=
+e^{-j\theta}
+\Be_1 e^{i\phi}.
+\end{dmath}
+
+This gives
+
+\begin{dmath}\label{eqn:volumeselection:40}
+\gpgradethree{
+\Be_3 e^{j \theta}
+\Be_1 e^{i\phi} e^{j \theta}
+\Be_2 e^{i \phi}
+}
+=
+\gpgradethree{
+\Be_3
+\Be_1 e^{i\phi}
+\Be_2 e^{i \phi}
+}
+=
+\gpgradethree{
+\Be_3
+\Be_1
+\Be_2
+}
+=
+\Be_{123}.
+\end{dmath}
+
+} % answer
+
