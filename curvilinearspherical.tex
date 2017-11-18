@@ -38,9 +38,9 @@ The curvilinear basis vectors can now be computed
 \end{dmath}
 \begin{dmath}\label{eqn:curvilinearspherical:120}
 \Bx_\theta
-= \Be_3 j e^{j \theta}
-= \Be_3 \Be_{31} e^{i\phi} e^{j \theta}
-= \Be_1 e^{i\phi} e^{j \theta}
+= r \Be_3 j e^{j \theta}
+= r \Be_3 \Be_{31} e^{i\phi} e^{j \theta}
+= r \Be_1 e^{i\phi} e^{j \theta}
 \end{dmath}
 \begin{dmath}\label{eqn:curvilinearspherical:140}
 \Bx_\phi
@@ -60,19 +60,19 @@ With that asserted, orthornomalizing the curvilinear basis is now possible by in
 
 \begin{dmath}\label{eqn:curvilinearspherical:240}
 \begin{aligned}
-\rcap &= \Bx_r \\
-\thetacap &= \inv{r} \Bx_\theta \\
-\phicap &= \inv{r \sin\theta} \Bx_\phi,
+\rcap &= \Bx_r = \Be_3 e^{j \theta} \\
+\thetacap &= \inv{r} \Bx_\theta = \Be_1 e^{i\phi} e^{j \theta} \\
+\phicap &= \inv{r \sin\theta} \Bx_\phi = \Be_2 e^{i \phi},
 \end{aligned}
 \end{dmath}
 
-or
+so
 
 \begin{dmath}\label{eqn:curvilinearspherical:260}
 \begin{aligned}
-\Bx^r &= \rcap \\
-\Bx^\theta &= \inv{r} \thetacap \\
-\Bx^\phi &= \inv{r \sin\theta} \phicap.
+\Bx^r &= \rcap = \Be_3 e^{j \theta} \\
+\Bx^\theta &= \inv{r} \thetacap = \inv{r} \Be_1 e^{i\phi} e^{j \theta} \\
+\Bx^\phi &= \inv{r \sin\theta} \phicap = \inv{r \sin\theta} \Be_2 e^{i \phi}.
 \end{aligned}
 \end{dmath}
 
