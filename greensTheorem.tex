@@ -8,7 +8,9 @@ Given a two parameter (\(u,v\)) surface parameterization, the curvilinear coordi
 \Bf = f_u \Bx^u + f_v \Bx^v + f_\perp \Bx^\perp.
 \end{dmath}
 
-We assume that the vector space is of dimension two or greater but otherwise unrestricted, and need not have an Euclidean basis.  Here \(f_\perp \Bx^\perp\) denotes the rejection of \(\Bf\) from the tangent space at the point of evaluation.  Green's theorem relates the integral around a closed curve to an ``area'' integral on that surface
+We assume that the vector space is of dimension two or greater but otherwise unrestricted, and need not have an Euclidean basis.
+Here \(f_\perp \Bx^\perp\) denotes the rejection of \(\Bf\) from the tangent space at the point of evaluation.
+Green's theorem relates the integral around a closed curve to an ``area'' integral on that surface
 
 \maketheorem{Green's Theorem}{thm:stokesTheoremGeometricAlgebra:1660}{
 \index{Green's theorem}
@@ -49,7 +51,8 @@ d\Bx_4 &= -\evalbar{ \PD{v}{\Bx} }{u = u_0} dv.
 \end{aligned}
 \end{dmath}
 
-It is assumed that the parameterization change \((du, dv)\) is small enough that this loop integral can be considered planar (regardless of the dimension of the vector space).  Making use of the fact that \(\Bx^\perp \cdot \Bx_\alpha = 0\) for \(\alpha \in \setlr{u,v}\), the loop integral is
+It is assumed that the parameterization change \((du, dv)\) is small enough that this loop integral can be considered planar (regardless of the dimension of the vector space).
+Making use of the fact that \(\Bx^\perp \cdot \Bx_\alpha = 0\) for \(\alpha \in \setlr{u,v}\), the loop integral is
 
 \begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1620}
 \ointctrclockwise \Bf \cdot d\Bl
@@ -88,7 +91,8 @@ We can now sum over a larger area as in \cref{fig:loopIntegralInfinitesimalSum:l
 
 All the opposing oriented loop elements cancel, so the integral around the complete boundary of the surface \(\Bx(u, v)\) is given by the \(u,v\) area integral of the partials difference.
 
-We will see that Green's theorem is a special case of the Stokes theorem.  This observation will also provide a geometric interpretation of the right hand side area integral of \cref{thm:stokesTheoremGeometricAlgebra:1660}, and allow for a coordinate free representation.
+We will see that Green's theorem is a special case of the Stokes theorem.
+This observation will also provide a geometric interpretation of the right hand side area integral of \cref{thm:stokesTheoremGeometricAlgebra:1660}, and allow for a coordinate free representation.
 
 \paragraph{Special case:}
 

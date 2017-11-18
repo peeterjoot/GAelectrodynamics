@@ -40,9 +40,11 @@ The vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript 
 
 The concept of a reciprocal frame generalizes the notion of normal to non-orthonormal bases.
 
-\paragraph{Motivation:} Reciprocal frames are required to express the GA form of Stokes theorem and for more general GA integration theory, including integration with respect to both curvilinear coordinates and higher dimensions.  While the focus in these notes are two and three dimensional problems, often in Cartesian coordinates, it is desirable to formulate integration theory in a way that is compatible with the four dimensional non-Euclidean vector space that describes the intrinsic relativistic nature of electrodynamics.
+\paragraph{Motivation:} Reciprocal frames are required to express the GA form of Stokes theorem and for more general GA integration theory, including integration with respect to both curvilinear coordinates and higher dimensions.
+While the focus in these notes are two and three dimensional problems, often in Cartesian coordinates, it is desirable to formulate integration theory in a way that is compatible with the four dimensional non-Euclidean vector space that describes the intrinsic relativistic nature of electrodynamics.
 
-One of the utilities of a reciprocal frame is that it allows for the computation of the coordinates of a vector with respect to a non-orthonormal frame.  Let a vector be given in terms of coordinates \( a^i \), where \( i \) is an index not a power
+One of the utilities of a reciprocal frame is that it allows for the computation of the coordinates of a vector with respect to a non-orthonormal frame.
+Let a vector be given in terms of coordinates \( a^i \), where \( i \) is an index not a power
 
 \begin{dmath}\label{eqn:reciprocal:20}
 \Ba = \sum_i a^i \Bx_i.
@@ -57,7 +59,8 @@ Dotting with the reciprocal frame vectors then trivially extracts these coordina
 = a^i.
 \end{dmath}
 
-Similarly, dotting with the frame basis vectors provides the coordinates with respect to the reciprocal frame.  Let those coordinates be \( a_i \), so that
+Similarly, dotting with the frame basis vectors provides the coordinates with respect to the reciprocal frame.
+Let those coordinates be \( a_i \), so that
 
 \begin{dmath}\label{eqn:reciprocal:60}
 \Ba = \sum_i a_i \Bx^i.
@@ -72,12 +75,15 @@ Dotting with the basis vectors gives
 = a_i.
 \end{dmath}
 
-An example of a 2D oblique Euclidean basis and a corresponding reciprocal basis is plotted in \cref{fig:obliqueReciprocal:obliqueReciprocalFig2}.  Also plotted are the superposition of the projections required to arrive at a given point \( (4,2) \)) along the \( \Be_1, \Be_2 \) directions or the \( \Be^1, \Be^2 \) directions.
-In this plot, neither of the reciprocal frame vectors \( \Be^i \) are normal to the corresponding basis vectors \( \Be_i \).  When one of \( \Be_i \) is increased(decreased) in magnitude, there will be a corresponding decrease(increase) in the magnitude of \( \Be^i \), but if the orientation is remained fixed, the corresponding direction of the reciprocal frame vector stays the same.
+An example of a 2D oblique Euclidean basis and a corresponding reciprocal basis is plotted in \cref{fig:obliqueReciprocal:obliqueReciprocalFig2}.
+Also plotted are the superposition of the projections required to arrive at a given point \( (4,2) \)) along the \( \Be_1, \Be_2 \) directions or the \( \Be^1, \Be^2 \) directions.
+In this plot, neither of the reciprocal frame vectors \( \Be^i \) are normal to the corresponding basis vectors \( \Be_i \).
+When one of \( \Be_i \) is increased(decreased) in magnitude, there will be a corresponding decrease(increase) in the magnitude of \( \Be^i \), but if the orientation is remained fixed, the corresponding direction of the reciprocal frame vector stays the same.
 
 \imageFigure{../figures/GAelectrodynamics/obliqueReciprocalFig2}{Oblique and reciprocal bases.}{fig:obliqueReciprocal:obliqueReciprocalFig2}{0.5}
 
-How are the reciprocal frame vectors computed?  While these vectors have a natural GA representation, this is not intrinsically a GA problem, and can be solved with standard linear algebra, using a matrix inversion.  For example, given a 2D basis \( \setlr{ \Bx_1, \Bx_2 } \), the reciprocal basis can be assumed to have a coordinate representation in the original basis
+How are the reciprocal frame vectors computed?  While these vectors have a natural GA representation, this is not intrinsically a GA problem, and can be solved with standard linear algebra, using a matrix inversion.
+For example, given a 2D basis \( \setlr{ \Bx_1, \Bx_2 } \), the reciprocal basis can be assumed to have a coordinate representation in the original basis
 
 \begin{dmath}\label{eqn:reciprocal:100}
 \begin{aligned}
@@ -94,7 +100,8 @@ Imposing the constraints of \cref{dfn:reciprocal:frame} leads to a pair of 2x2 l
 \end{aligned}
 \end{dmath}
 
-The reader may notice that for \R{3} the denominator is related to the norm of the cross product \( \Bx_1 \cross \Bx_2 \).  More generally, this can be expressed as the square of the bivector \( \Bx_1 \wedge \Bx_2 \)
+The reader may notice that for \R{3} the denominator is related to the norm of the cross product \( \Bx_1 \cross \Bx_2 \).
+More generally, this can be expressed as the square of the bivector \( \Bx_1 \wedge \Bx_2 \)
 
 \begin{dmath}\label{eqn:reciprocal:140}
 -\lr{\Bx_1 \wedge \Bx_2 }^2
@@ -126,7 +133,8 @@ or
 }
 %\end{dmath}
 
-Geometrically, dotting with the bivector of the plane is a hybrid rotation and scaling operation.  For example, for \R{2} with \( \Bx_1 = a_1 \Be_1 + a_2 \Be_2, \Bx_2 = b_1 \Be_1 + b_2 \Be_2 \), that pseudoscalar for this basis is
+Geometrically, dotting with the bivector of the plane is a hybrid rotation and scaling operation.
+For example, for \R{2} with \( \Bx_1 = a_1 \Be_1 + a_2 \Be_2, \Bx_2 = b_1 \Be_1 + b_2 \Be_2 \), that pseudoscalar for this basis is
 
 \begin{dmath}\label{eqn:reciprocal:260}
 \Bx_1 \wedge \Bx_2
@@ -155,7 +163,8 @@ So for the \R{2} the reciprocal frame is just
 The vector \( \Bx^1 \) is obtained by rotating \( \Bx_2 \) by \( -\pi/2 \), and rescaling it.
 The vector \( \Bx^2 \) is similarly obtained by a scaling and a rotation of \( \Bx_1 \) by \( \pi/2 \).
 
-Generalizing \cref{eqn:reciprocal:180} is almost possible by inspection.  Given
+Generalizing \cref{eqn:reciprocal:180} is almost possible by inspection.
+Given
 a subspace spanned by a three vector basis \( \setlr{ \Bx_1, \Bx_2, \Bx_3 } \) the reciprocal frame vectors can be written as dot products
 
 \begin{dmath}\label{eqn:reciprocal:320}

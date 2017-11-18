@@ -5,7 +5,8 @@
 \subsection{Poynting theorem}
 
 Poynting's theorem describes the relationship between the flux of energy through a surface bounding a volume.
-The theorem follows from computing the divergence of the Poynting vector \( \BS = \BE \cross \BH \).  In terms of \( \BE \) and \( \BH \) the Poynting vector can be written in dual form as a dot product
+The theorem follows from computing the divergence of the Poynting vector \( \BS = \BE \cross \BH \).
+In terms of \( \BE \) and \( \BH \) the Poynting vector can be written in dual form as a dot product
 
 \begin{equation}\label{eqn:maxwellsEquations:780}
 \BE \cross \BH
@@ -44,7 +45,8 @@ the flexibility to use cyclic permutation within a scalar selection
 Explicit left and right acting gradients are required because the gradient operator does not commute with the vector fields.
 
 The gradient action on \( I \BH \) (from the left) is given by
-\cref{eqn:maxwellsEquations:380}.  The right acting gradient action on \( \BE \) is given by reversing all the products in
+\cref{eqn:maxwellsEquations:380}.
+The right acting gradient action on \( \BE \) is given by reversing all the products in
 %\spacegrad \BE = \inv{\epsilon} \rho - I \BM - \mu \PD{t}{(I\BH)}
 \cref{eqn:maxwellsEquations:360} (in particular noting that \( I^\dagger = -I \) )
 
@@ -82,7 +84,8 @@ or
 }
 %\end{dmath}
 
-The last two terms is the time rate of change of the energy density.  To illustrate this consider the change of energy density through a volume with neither electric nor magnetic current sources in that region of space
+The last two terms is the time rate of change of the energy density.
+To illustrate this consider the change of energy density through a volume with neither electric nor magnetic current sources in that region of space
 
 \begin{dmath}\label{eqn:maxwellsEquations:740}
 \PD{t}{} \int_V
@@ -94,7 +97,9 @@ The last two terms is the time rate of change of the energy density.  To illustr
 -\int_{\partial V} dA \ncap \cdot \BS.
 \end{dmath}
 
-Here \( \ncap \) is the outward normal, so if the energy contained in the volume is decreasing, then \( \BS \) must represent the energy per unit area that leaves the volume.  The direction of the Poynting vector is the direction that the energy is leaving the volume.  Only the components of the Poynting vector that are colinear with the surface normal will result in energy leaving or entering the volume.
+Here \( \ncap \) is the outward normal, so if the energy contained in the volume is decreasing, then \( \BS \) must represent the energy per unit area that leaves the volume.
+The direction of the Poynting vector is the direction that the energy is leaving the volume.
+Only the components of the Poynting vector that are colinear with the surface normal will result in energy leaving or entering the volume.
 
 \subsection{Complex power}
 
@@ -146,7 +151,8 @@ This motivates the definition of a complex Poynting vector
 \bcS = \inv{2} (I \BH^\conj) \cdot \BE.
 \end{dmath}
 
-Note that this is conventionally written as \( \BS = (\ifrac{1}{2}) \BE \cross \BH^\conj \).  Observe that on average (over a given period), the \( e^{2 j \omega t} \) component of the real Poynting vector has no contribution to the power flux
+Note that this is conventionally written as \( \BS = (\ifrac{1}{2}) \BE \cross \BH^\conj \).
+Observe that on average (over a given period), the \( e^{2 j \omega t} \) component of the real Poynting vector has no contribution to the power flux
 
 \begin{dmath}\label{eqn:maxwellsEquations:880}
 \inv{T} \int_0^T dt \BS = \Real \bcS.

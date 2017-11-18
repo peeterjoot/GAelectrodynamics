@@ -11,7 +11,8 @@ spherical coordinate point \( (R, \theta, \phi) \), as illustrated in \cref{fig:
 \imageFigure{../figures/GAelectrodynamics/lineChargeArcFig1}{Circular line charge}{fig:circularlinecharge:circularlinechargeFig1}{0.5}
 
 Using the GA spherical parameterization of \cref{eqn:curvilinearspherical:40}, and \cref{eqn:curvilinearspherical:60}, the
-%To setup this problem, first consider a GA factorization of the spherical radial point.  Let
+%To setup this problem, first consider a GA factorization of the spherical radial point.
+%Let
 %\( i = \Be_{12} \), so that
 %
 %\begin{dmath}\label{eqn:circularlinecharge:20}
@@ -37,7 +38,8 @@ observation point now has the simple representation
 
 and is the product of a polar directed vector with a complex exponential whos argument is the polar rotation angle.
 The bivector \( j \) is a function of the azimuthal angle \( \phi \), and encodes all the geometry of the rotation.
-To sum the contributions of the charge elements we need the distance between the charge element and the observation point.  That vector difference is
+To sum the contributions of the charge elements we need the distance between the charge element and the observation point.
+That vector difference is
 
 \begin{dmath}\label{eqn:circularlinecharge:80}
 \Bx - \Bx'
@@ -52,7 +54,8 @@ Compare this to the tuple representation
 = ( R \sin\theta \cos\phi - r \cos\phi', R \sin\theta \sin\phi - r \cos\phi', \cos\theta ),
 \end{dmath}
 
-for which the prospect of working with is considerably less attractive.  The squared length of \cref{eqn:circularlinecharge:80} is
+for which the prospect of working with is considerably less attractive.
+The squared length of \cref{eqn:circularlinecharge:80} is
 \begin{dmath}\label{eqn:circularlinecharge:120}
 (\Bx - \Bx')^2
 =
@@ -109,7 +112,9 @@ or
 \end{aligned}
 \end{dmath}
 
-Without CAS support for GA, this pair of integrals has to be evaluated separately.  The first integral
-scales the radial component of the electric field.  The second integral scales and rotates \( \phicap \) within the azimuthal plane, producing an electric field component in a \( \phicap' = \phicap e^{i \Phi} \) direction.
+Without CAS support for GA, this pair of integrals has to be evaluated separately.
+The first integral
+scales the radial component of the electric field.
+The second integral scales and rotates \( \phicap \) within the azimuthal plane, producing an electric field component in a \( \phicap' = \phicap e^{i \Phi} \) direction.
 
 %} % example

@@ -2,7 +2,8 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-While the reciprocal frame can be computed explicitly, it can also be computed very simply by computing the gradient of the parameters themselves.  Two theorems relate the gradient and the reciprocal frame vectors.
+While the reciprocal frame can be computed explicitly, it can also be computed very simply by computing the gradient of the parameters themselves.
+Two theorems relate the gradient and the reciprocal frame vectors.
 
 \maketheorem{Gradient definition of reciprocal frame vectors}{thm:curvilinearGradient:1}{
 
@@ -37,7 +38,8 @@ or the same with sums over mixed indexes implied.
 
 } % theorem
 
-The proof of both are both just applications of the chain rule.  Assuming \cref{thm:curvilinearGradient:1} to be true, then the dot products of the reciprocal frame vectors with the curvilinear basis vectors are
+The proof of both are both just applications of the chain rule.
+Assuming \cref{thm:curvilinearGradient:1} to be true, then the dot products of the reciprocal frame vectors with the curvilinear basis vectors are
 
 \begin{dmath}\label{eqn:curvilinearGradient:20}
 \Bx^i \cdot \Bx_j
@@ -63,7 +65,8 @@ The proof of both are both just applications of the chain rule.  Assuming \cref{
 
 This shows that \( \Bx^i = \spacegrad u_i \) has the properties required of the reciprocal frame, proving the theorem.
 
-The curvilinear representation of the gradient follows from the gradient representation of the reciprocal frame, and the chain rule.  The sum in \cref{thm:curvilinearGradient:2} expands as
+The curvilinear representation of the gradient follows from the gradient representation of the reciprocal frame, and the chain rule.
+The sum in \cref{thm:curvilinearGradient:2} expands as
 
 \begin{dmath}\label{eqn:curvilinearGradient:40}
 \sum_{i=1}^n
@@ -85,6 +88,7 @@ The curvilinear representation of the gradient follows from the gradient represe
 
 which proves the result.
 
-Note that the gradient representation of the reciprocal frame is mainly useful for theoretical reasons (i.e. the proof of the curvilinear representation of the gradient).  In many cases it will likely be more difficult to compute the reciprocal frame vectors using the gradient of the parameters than
+Note that the gradient representation of the reciprocal frame is mainly useful for theoretical reasons (i.e. the proof of the curvilinear representation of the gradient).
+In many cases it will likely be more difficult to compute the reciprocal frame vectors using the gradient of the parameters than
 
 An excellent (and more detailed) discussion of the relationships of the reciprocal frame and the gradient can be found in \citep{aMacdonaldVAGC}.

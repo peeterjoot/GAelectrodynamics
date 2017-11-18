@@ -2,7 +2,8 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.  Given, for example, a vector into a subspace parameterized by parameters \(u,v\)
+Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
+Given, for example, a vector into a subspace parameterized by parameters \(u,v\)
 
 \begin{dmath}\label{eqn:curvilinear:20}
 \Bx = \Bx(u, v),
@@ -17,7 +18,10 @@ d\Bx_v &= \PD{v}{\Bx} dv
 \end{aligned}
 \end{dmath}
 
-span the space at the point that these partials are evaluated.  In the language of differential forms, this localized subspace is called the tangent space.  It is generally desirable to consider parametrizations for which the tangent space volume element is non-zero.  In this case, that is
+span the space at the point that these partials are evaluated.
+In the language of differential forms, this localized subspace is called the tangent space.
+It is generally desirable to consider parametrizations for which the tangent space volume element is non-zero.
+In this case, that is
 
 \begin{dmath}\label{eqn:curvilinear:60}
 d\Bx_u \wedge d\Bx_v \ne 0.
@@ -51,7 +55,9 @@ d^k \Bx = du_1 du_2 \cdots du_k\,
 \Bx_{u_k}.
 \end{dmath}
 
-Unlike a scalar volume, this volume element is oriented.  Any multivector can be expressed in terms of the curvilinear basis \( \setlr{ \Bx_{u_1}, \Bx_{u_2}, \cdots, \Bx_k} \), but computation of the curvilinear coordinates requires the reciprocal basis.  For example, a vector \( \Bf \) constrained to the tangent space admits a representation
+Unlike a scalar volume, this volume element is oriented.
+Any multivector can be expressed in terms of the curvilinear basis \( \setlr{ \Bx_{u_1}, \Bx_{u_2}, \cdots, \Bx_k} \), but computation of the curvilinear coordinates requires the reciprocal basis.
+For example, a vector \( \Bf \) constrained to the tangent space admits a representation
 
 \begin{dmath}\label{eqn:curvilinear:380}
 \Bf = \sum_i a_i \Bx_{u_i}.
@@ -71,7 +77,8 @@ so
 \Bf = \sum_i \lr{ \Bf \cdot \Bx^{u_i} } \Bx_{u_i}.
 \end{dmath}
 
-Higher grade multivector objects may also be represented in curvilinear coordinates.  For example, given a bivector constrained to the tangent space
+Higher grade multivector objects may also be represented in curvilinear coordinates.
+For example, given a bivector constrained to the tangent space
 
 \begin{dmath}\label{eqn:curvilinear:320}
 B = \inv{2} \sum_{i, j} b_{ij} \Bx_{u_i} \wedge \Bx_{u_j},
@@ -93,7 +100,8 @@ B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
 \inv{2} \lr{ b_{i j} - b_{ji} }.
 \end{dmath}
 
-When \( i \ne j \) this is \( b_{ij} \) and is zero otherwise.  The curvilinear representation of the bivector is therefore
+When \( i \ne j \) this is \( b_{ij} \) and is zero otherwise.
+The curvilinear representation of the bivector is therefore
 
 \begin{dmath}\label{eqn:curvilinear:400}
 B = \sum_{i < j} \lr{ B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }} \Bx_{u_i} \wedge \Bx_{u_j}.

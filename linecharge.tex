@@ -3,7 +3,8 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %\makeexample{Line charge.}{example:linecharge:linecharge}{
-In this example the electric field is calculated at a point on the z-axis, due to a line charge density of \( \lambda \) along a segment \( [a,b] \) of the x-axis.  This is illustrated in \cref{fig:linecharge:linechargeFig1}.
+In this example the electric field is calculated at a point on the z-axis, due to a line charge density of \( \lambda \) along a segment \( [a,b] \) of the x-axis.
+This is illustrated in \cref{fig:linecharge:linechargeFig1}.
 \imageFigure{../figures/GAelectrodynamics/linechargeFig1}{Line charge density.}{fig:linecharge:linechargeFig1}{0.3}
 
 Introducing a unit imaginary \( i = \Be_{13} \) for the rotation from the x-axis to the z-axis, the field point observation point is
@@ -37,7 +38,8 @@ The total electric field is therefore
 = \frac{\lambda \Be_1}{4 \pi \epsilon_0 r} \int_{a/r}^{b/r} du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }.
 \end{dmath}
 
-This integral can be evaluated by table lookup or using tools like Mathematica.  For \( \theta = \pi/2 \)
+This integral can be evaluated by table lookup or using tools like Mathematica.
+For \( \theta = \pi/2 \)
 
 \begin{dmath}\label{eqn:linecharge:80}
 \int
@@ -53,11 +55,13 @@ du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }
 = \frac{(1 -u e^{-i\theta}) \sqrt{1 + u^2 - 2 u \cos\theta}}{(1 + u^2) \sin(2\theta)}.
 \end{dmath}
 
-The interesting takeaway is not the form of the solution, but the fact that GA allows an introduction of a ``complex plane'' for many problems that have polar representations in a plane.  When such a complex plane is introduced,
+The interesting takeaway is not the form of the solution, but the fact that GA allows an introduction of a ``complex plane'' for many problems that have polar representations in a plane.
+When such a complex plane is introduced,
 existing Computer Algebra Systems (CAS), like Mathematica, can be utilized for the grunt work of the evaluation.
 
 Observe that the numerator factors like \( \Be_1 (1 + i u) \) and \( \Be_1(1 - u e^{-i\theta}) \)
-compactly describe the direction of the vector field at the observation point.  Either of these can be expanded explicitly in sines and cosines if desired
+compactly describe the direction of the vector field at the observation point.
+Either of these can be expanded explicitly in sines and cosines if desired
 
 \begin{dmath}\label{eqn:linecharge:140}
 \begin{aligned}

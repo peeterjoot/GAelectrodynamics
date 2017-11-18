@@ -2,17 +2,20 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-It was pointed out that the vector multiplication operation was not assumed to be commutative (order matters).  The only condition for which the product of two vectors is order independent, is when those vectors are colinear.
+It was pointed out that the vector multiplication operation was not assumed to be commutative (order matters).
+The only condition for which the product of two vectors is order independent, is when those vectors are colinear.
 
 \index{commutation}
 \maketheorem{Commutation}{thm:multiplication:commutation}{
-Let \(\Bu\), and \(\Bv\) be two non-zero colinear vectors.  The product of these vectors commute (is unchanged by interchange).
+Let \(\Bu\), and \(\Bv\) be two non-zero colinear vectors.
+The product of these vectors commute (is unchanged by interchange).
 \begin{equation*}
 \Bu \Bv = \Bv \Bu.
 \end{equation*}
 } % theorem
 
-The proof is simple.  Because these vectors are colinear there exists some \( \alpha \) for which \( \Bv = \alpha \Bu \), so
+The proof is simple.
+Because these vectors are colinear there exists some \( \alpha \) for which \( \Bv = \alpha \Bu \), so
 
 \begin{dmath}\label{eqn:multivector:380}
 \Bv \Bu
@@ -28,8 +31,8 @@ The proof is simple.  Because these vectors are colinear there exists some \( \a
 \Bu \Bv.
 \end{dmath}
 
-The contraction axiom ensures that the product of two colinear vectors is a scalar.  
-In particular, the square of a unit vector is unity. 
+The contraction axiom ensures that the product of two colinear vectors is a scalar.
+In particular, the square of a unit vector is unity.
 This should be highlighted explicitly, because this property will be used again and again
 %\begin{equation}\label{eqn:multiplication:300}
 \boxedEquation{eqn:multiplication:320}{

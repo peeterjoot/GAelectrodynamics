@@ -119,7 +119,8 @@ The point of this somewhat abstract seeming theorem is to prepare for the statem
 
 \index{rotation}
 \makedefinition{General rotation}{dfn:generalRotation:generalrotation}{
-Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap \) where \( i^2 = -1\).  The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
+Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap \) where \( i^2 = -1\).
+The rotation of a vector \( \Bx \) through an angle \( \theta \) with respect to this plane is
 \begin{equation*}
 R_\theta(\Bx) = e^{ - i \theta/2 } \Bx e^{ i\theta/2 }.
 \end{equation*}
@@ -132,7 +133,8 @@ Such a normal direction is not unique for dimensions higher than 3, nor defined 
 Instead the rotational sense is defined by the ordering of the factors in the bivector \( i \).
 
 To check that this operation has the desired semantics,
-let \( \Bx = \Bx_\parallel + \Bx_\perp \), where \( \Bx_\parallel \in S \) and \( \Bx_\perp \cdot \Bp = 0 \,\forall \Bp \in S \).  Then
+let \( \Bx = \Bx_\parallel + \Bx_\perp \), where \( \Bx_\parallel \in S \) and \( \Bx_\perp \cdot \Bp = 0 \,\forall \Bp \in S \).
+Then
 
 \begin{dmath}\label{eqn:generalRotation:1880}
 R_\theta(\Bx)
@@ -148,6 +150,7 @@ e^{ - i \theta/2 } \lr{ \Bx_\parallel + \Bx_\perp } e^{ i\theta/2 }
 \end{dmath}
 
 As desired, this rotation operation
-rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the normal components of the vector unchanged, as illustrated in \cref{fig:Rotation:RotationFig1}.  This is what we can call rotation around a normal in \R{3}.
+rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the normal components of the vector unchanged, as illustrated in \cref{fig:Rotation:RotationFig1}.
+This is what we can call rotation around a normal in \R{3}.
 
 \imageFigure{../figures/GAelectrodynamics/RotationFig1}{Rotation with respect to the plane of a pseudoscalar.}{fig:Rotation:RotationFig1}{0.5}

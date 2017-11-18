@@ -13,7 +13,8 @@ Given a vector \( \Bx \) and vector \( \Bu \) the projection of \( \Bx \) onto t
 \Proj_\Bu(\Bx) = (\Bx \cdot \ucap) \ucap,
 \end{equation*}
 
-where \( \ucap = \Bu/\Norm{\Bu} \).  The rejection of \( \Bu \) from \( \Bx \) is defined as the component of \( \Bx \) that is
+where \( \ucap = \Bu/\Norm{\Bu} \).
+The rejection of \( \Bu \) from \( \Bx \) is defined as the component of \( \Bx \) that is
 normal to \( \Bu \)
 \begin{equation*}
 \Rej{\Bu}{\Bx} = \Bx - \Proj_\Bu(\Bx).
@@ -100,7 +101,8 @@ as expected.
 
 This example provides some guidance about what is happening geometrically in
 \cref{eqn:projectionAndRejection:910}.
-The wedge operation produces a pseudoscalar for the plane spanned by \( \setlr{\Bx, \Bu} \) that is scaled as \( \sin\theta \) where \( \theta \) is the angle between \( \Bx \) and \( \Bu \).  When that pseudoscalar is multiplied by \( \ucap \), \( \ucap \) is rotated in the plane by \( \pi/2 \) radians towards \( \Bx \), yielding the normal component of the vector \( \Bx \).
+The wedge operation produces a pseudoscalar for the plane spanned by \( \setlr{\Bx, \Bu} \) that is scaled as \( \sin\theta \) where \( \theta \) is the angle between \( \Bx \) and \( \Bu \).
+When that pseudoscalar is multiplied by \( \ucap \), \( \ucap \) is rotated in the plane by \( \pi/2 \) radians towards \( \Bx \), yielding the normal component of the vector \( \Bx \).
 
 Here's a slightly less trivial \R{3} example
 
@@ -136,7 +138,8 @@ Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bu \) from \( \
 \lr{ b (\Be_{32} + \Be_{31} ) + a \Be_{21} } \cdot ( \Be_1 + \Be_2 )
 \end{dmath}
 
-Each of these bivector-vector dot products has the form \( \Be_{rs} \cdot \Be_t = \gpgradeone{ \Be_{rst} } \) which is zero whenever the indexes \( r,s, t\) are unique, and is a vector whenever one of indexes are repeated (\( r = t \), or \( s = t \)).  This leaves
+Each of these bivector-vector dot products has the form \( \Be_{rs} \cdot \Be_t = \gpgradeone{ \Be_{rst} } \) which is zero whenever the indexes \( r,s, t\) are unique, and is a vector whenever one of indexes are repeated (\( r = t \), or \( s = t \)).
+This leaves
 
 \begin{dmath}\label{eqn:projectionAndRejection:1100}
 (\Bx \wedge \ucap) \cdot \ucap
@@ -179,7 +182,8 @@ Using this notation, an example of projection and rejection with respect to a di
 
 \imageFigure{../figures/GAelectrodynamics/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.3}
 
-It was claimed in the definition of rejection that the rejection is normal to the projection.  This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).
+It was claimed in the definition of rejection that the rejection is normal to the projection.
+This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).
 This also follows naturally using the grade selection operator representation of the dot product
 
 \begin{dmath}\label{eqn:SimpleProducts2:720}
