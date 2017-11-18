@@ -1,3 +1,21 @@
+- superfluous use of:
+
+   also
+   observe
+   many
+
+   (probably lots of adjectives in general)
+
+- spelling: unsure about these
+
+   whos argument
+   distributivity
+   nondimensionalizing vs.  Non-dimensionalizing
+   duals
+   constitutivity
+   subspaces
+   reexpress
+
 - add my copyright prologue to all files.
 
 - number line vs. 1d vector space plots show with different sizes.
@@ -5,8 +23,6 @@
 - have boilerplate copyright.
 
 - dedication.tex got cleaned out on make clean.  Rule that was in makefile doesn't appear to be right.  Revisit.
-
-- strip document version info
 
 - exercise headers are bigger than the section headers (partially fixed)
 
@@ -47,6 +63,4 @@ grep -ni fixme *.tex
 - add lots of indexing to SimpleProducts2.tex SimpleProducts.tex
 
 - figure for projection and rejection.  move from later material into SimpleProducts2
-
-- use the words also and observe too much.  Is often superfluous.
 
