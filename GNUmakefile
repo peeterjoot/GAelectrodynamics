@@ -8,7 +8,7 @@ include ../latex/make.bookvars
 
 #ONCEFLAGS := -justonce
 
-SOURCE_DIRS += appendix
+SOURCE_DIRS += working
 FIGURES := ../$(THISBOOK)-figures
 SOURCE_DIRS += $(FIGURES)
 
@@ -27,6 +27,8 @@ THISBOOK_DEPS += $(PDFS_FROM_EPS)
 #THISBOOK_DEPS += macros_mathematica.sty
 
 CLEAN_TARGETS += *.sp FrontBackmatter/*.sp
+
+DO_SPELL_CHECK := $(shell cat spellcheckem.txt)
 
 include ../latex/make.rules
 
@@ -51,7 +53,7 @@ maxwells.pdf :: maxwellsEquations.tex
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
 .PHONY: spellcheck
-spellcheck: $(patsubst %.tex,%.sp,$(wildcard *.tex))
+spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
 
 %.sp : %.tex
 	spellcheck $^
