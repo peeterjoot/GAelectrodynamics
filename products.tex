@@ -2,6 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+\index{vector product}
 The product of two colinear vectors is a scalar, and the product of two normal vectors is a bivector.
 The product of two general vectors is a multivector with structure to be determined.
 A powerful way to examine this structure is to compute the product of two vectors in a polar representation with respect to the plane that they span.
@@ -57,6 +58,8 @@ This can be expressed symbolically as
 We recognize the scalar grade of the vector product as the \R{N} dot product, but the grade 2 component of the vector product is something new that requires a name.
 We respectively identify and define operators for these vector grade selection operations
 
+\index{wedge product}
+\index{dot product}
 \makedefinition{Dot and wedge products of two vectors.}{dfn:products:dotandwedge}{
 Given two vectors \( \Ba, \Bb \in \bbR^{N} \) the dot product is identified as the scalar grade of their product
 \begin{equation*}
@@ -77,6 +80,7 @@ Given this notation, the product of two vectors can be written
 \end{equation*}
 } % definition
 
+\index{grade selection}
 Scalar grade selection of a product of two vectors is an important new tool.
 There will be many circumstances where the easiest way to compute a dot product is using scalar grade selection.
 
@@ -94,6 +98,7 @@ To summarizing \cref{eqn:SimpleProducts2:1680} with our new operators, we write
 \end{aligned}
 }
 
+\index{polar representation}
 Two wedge product properties can be immediately deduced from this polar representation
 
 \begin{itemize}
@@ -149,6 +154,7 @@ The remaining grade 2 components are the wedge product, for which the coordinate
 \sum_{i < j} (a_i b_j - a_j b_i) \Be_i \Be_j.
 \end{dmath}
 
+\index{determinant!wedge product}
 The scalar factors can be written as \( 2 x 2 \) determinants
 
 \boxedEquation{eqn:SimpleProducts2:1320}{
@@ -177,6 +183,7 @@ b_1 & b_2
 \Be_1 \Be_2.
 \end{dmath}
 
+\index{cross product}
 We are used to writing the cross product as a \( 3 x 3 \) determinant, which can also be done with the coordinate expansion of the
 \R{3} wedge product
 
@@ -278,6 +285,7 @@ and can also express the
 This is a very important relationship, and will the key that allows
 all the separate scalar and vector Maxwell's equations to be assembled into a single multivector equation.
 
+\index{colinear vectors!wedge}
 \makeproblem{Wedge product of colinear vectors.}{problem:SimpleProducts2:wedgecolinear}{
 Given \( \Bb = \alpha \Ba \), use
 \cref{eqn:SimpleProducts2:1320} to show that the wedge product of any pair of colinear vectors is zero.

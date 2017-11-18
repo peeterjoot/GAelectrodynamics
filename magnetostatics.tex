@@ -2,6 +2,8 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+\index{magnetostatics}
+\index{time independence}
 Magnetostatics is the study of Maxwell's equations where
 a time independent restriction of the fields is imposed, and
 it assumed that there are no static charge distributions.
@@ -68,6 +70,7 @@ This means that magnetostatics conditions require the divergence of the current 
 \end{dmath}
 
 \subsection{Vector potential.}
+\index{vector potential}
 
 Similar to electrostatics where it was assumed that the electric field could be expressed as the gradient of a scalar potential,
 a vector potential \( \BA \) solution for the dual of the magnetic field can be assumed
@@ -111,7 +114,8 @@ which has the required bivector grade when \( \spacegrad \cdot \overbar{\BA} = -
 \chi(\Bx) = \inv{4\pi} \int dV' \frac{ \spacegrad' \cdot \overbar{\BA}(\Bx') }{\Norm{\Bx - \Bx'}}.
 \end{dmath}
 
-\subsection{Enclosed charge density.}
+\subsection{Enclosed current density.}
+\index{enclosed current density}
 
 A volume integral of \cref{eqn:magnetostatics:380} provides a relationship between the total enclosed current density and the magnetic field.
 The fundamental theorem gives
@@ -148,6 +152,7 @@ I \int_{\partial V} dA \ncap \cdot \BB = 0
 \Cref{eqn:magnetostatics:660} provides a relationship between the tangential components of the magnetic field and the total enclosed current density.
 
 \subsection{Enclosed current.}
+\index{enclosed current}
 
 Starting with
 \cref{eqn:magnetostatics:380}, the
@@ -189,7 +194,8 @@ This can be written as the dot product of an oriented area element with the the 
 %The bivector form of the dot product makes some geometrical sense, as we take a per unit area quantity (\(-I \BJ\)) with bivector grade and multiply it with a bivector area element, producing exactly the enclosed current flowing through the surface.
 
 \subsection{Biot-Savart law.}
-
+\index{Biot-Savart law}
+\index{Green's function!gradient}
 The magnetostatic Maxwell equation \cref{eqn:magnetostatics:380} can be inverted directly using the Green's function for the gradient
 
 \begin{dmath}\label{eqn:biotSavartGreens:40}

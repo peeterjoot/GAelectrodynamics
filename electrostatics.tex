@@ -2,6 +2,8 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+\index{electrostatics}
+\index{time independence}
 The study of
 field and charge distributions that are independent of time is called electrostatics.
 With such conditions, the free space representation of Maxwell's equations \cref{eqn:freespace:99} with no magnetic sources is simply
@@ -83,6 +85,7 @@ This is a multivector equation which must be simultaneously satisfied by its sca
 \end{dmath}
 \end{subequations}
 
+\index{enclosed charge}
 The first equation is the familiar relationship between the divergence and the enclosed charge, which could have been derived from \cref{eqn:electrostatics:140} directly.
 The second provides a constraint on the tangential components of the field with respect to the enclosed volume, and could have been derived from
 \cref{eqn:electrostatics:100} directly.
@@ -110,6 +113,8 @@ Poisson equation directly
 %This has solution \cref{eqn:electrostatics:601} but can also be solved using
 \subsection{Inverting the gradient equations.}
 
+\index{Green's function}
+\index{convolution}
 From \cref{thm:gradientGreensFunctionEuclidean:1}, the
 \R{3} Green's function for the gradient (on an infinite spherical bounding surface) is
 
@@ -151,6 +156,7 @@ so the magnetic field is zero everywhere
 
 \subsection{Poisson equation solution.}
 
+\index{Poisson equation}
 Provided \( \Bx \ne \Bx' \), it is simple to show that (\cref{problem:electrostatics:gradrelation})
 
 \begin{dmath}\label{eqn:electrostatics:541}
@@ -180,5 +186,6 @@ which implicitly provides the solution to the Poisson equation \cref{eqn:electro
 }
 %\end{dmath}
 
+\index{Laplacian}
 The solution \cref{eqn:electrostatics:601} could also have been obtained from the Green's function for the Laplacian
 \cref{eqn:helmholtzDerviationMultivector:100}.
