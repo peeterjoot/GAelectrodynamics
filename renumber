@@ -155,3 +155,6 @@
 ../latex/bin/lgrep potentialSection.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl potentialSection.tex
 
+../latex/bin/lgrep poyntingF.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
+

@@ -33,9 +33,9 @@ DO_SPELL_CHECK := $(shell cat spellcheckem.txt)
 include ../latex/make.rules
 
 #all :: $(THISBOOK).pdf
-all :: ellipticalWaves.pdf
+#all :: ellipticalWaves.pdf
 #all :: junk.pdf
-#all :: maxwells.pdf
+all :: maxwells.pdf
 #maxwells.pdf :: freespace.tex
 #maxwells.pdf :: electrostatics.tex
 #maxwells.pdf :: magnetostatics.tex
@@ -45,6 +45,7 @@ all :: ellipticalWaves.pdf
 #maxwells.pdf : planewaves.tex
 #maxwells.pdf :: isotropicMaxwells.tex
 maxwells.pdf :: maxwellsEquations.tex
+maxwells.pdf :: poyntingF.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 #maxwells.pdf :: frequencydomainPlaneWaves.tex
 

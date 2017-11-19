@@ -1,3 +1,4 @@
+poyntingComplexPower.tex
 2Dcylindrical.tex
 2dMultiplication.tex
 2dRotations.tex
@@ -42,6 +43,7 @@ oneparameter.tex
 planewaves.tex
 potentialSection.tex
 poynting.tex
+poyntingF.tex
 prereq_basisspandim.tex
 prereq_standardbasis.tex
 prereq_vectorspace.tex

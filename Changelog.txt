@@ -4,6 +4,8 @@ November XX, 2017
 
 November 19, 2017
 
+   commit: cae2135a1a05960d9124cd9c6d52c27561f7cfe1
+
    - far field F for vector potential (electric and magnetic sources)
    - vertical infinitesimal far field example with respect to propagation direction in the z-y plane.
    (this was an example from ece1229, where it was calculated conventionally)

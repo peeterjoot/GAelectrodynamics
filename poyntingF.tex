@@ -1,0 +1,133 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\subsection{Poynting theorem}
+In conventional electromagnetism the energy and momentum density of the fields are
+
+\index{energy density}
+\index{momentum density}
+\index{Poynting vector}
+\index{energy flux}
+\begin{dmath}\label{eqn:poyntingF:20}
+\begin{aligned}
+\calE &= \inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH } \\
+\bcP v &= \inv{v} \BS = \inv{v} \BE \cross \BH = \inv{v} \lr{ I \BH } \cdot \BE.
+\end{aligned}
+\end{dmath}
+
+where \( \calE \) is the energy density, \( \BS \) is the Poynting vector representing energy flux through a surface per unit time, and \( \bcP \) is the momentum density of the fields.
+
+In GA formalism, the energy and momentum densities are related by grade selection from a single multivector formed from the electrodynamic field \( F \)
+
+\boxedEquation{eqn:poyntingF:60}{
+\inv{2} \epsilon F F^\dagger = \calE + \bcP v,
+}
+
+or
+\begin{dmath}\label{eqn:poyntingF:40}
+\begin{aligned}
+\calE &= \inv{2} \epsilon \gpgradezero{ F F^\dagger } \\
+\bcP v &= \inv{2} \epsilon \gpgradeone{ F F^\dagger } \\
+\BS &= \inv{2 \eta} \gpgradeone{ F F^\dagger }.
+\end{aligned}
+\end{dmath}
+
+It might be reasonable to call \( \epsilon F F^\dagger/2 \) the energy-momentum multivector for the field.
+\Cref{eqn:poyntingF:40} can be demonstrated by direct expansion
+
+\begin{dmath}\label{eqn:poyntingF:80}
+\inv{2} \epsilon F F^\dagger
+=
+\inv{2} \epsilon \lr{ \BE + I \eta \BH } \lr{ \BE - I \eta \BH }
+=
+\inv{2} \epsilon \lr{ \BE^2 + \eta^2 \BH^2 }
++
+\inv{2} I \epsilon \eta \lr{ \BH \BE - \BE \BH }
+=
+\inv{2} \lr{ \BD \cdot \BE + \BH \cdot \BB }
++
+\frac{I}{v} \BH \wedge \BE
+=
+\inv{2} \lr{ \BD \cdot \BE + \BH \cdot \BB }
++
+\frac{1}{v} \BE \cross \BH
+=
+\calE + \frac{\BS}{v}.\qedmarker
+\end{dmath}
+
+Poynting's theorem can be derived directly from \cref{eqn:poyntingF:60}.  To do so, first consider the scalar grade selection of the gradient acting on \( F F^\dagger \)
+
+\begin{dmath}\label{eqn:poyntingF:100}
+\gpgradezero{ \spacegrad F F^\dagger }
+=
+\gpgradezero{ F^\dagger \lrspacegrad F }
+=
+\gpgradezero{ (F^\dagger \lspacegrad) F + F^\dagger (\rspacegrad F) }
+=
+\gpgradezero{ (\rspacegrad F)^\dagger F + F^\dagger (\rspacegrad F) }
+\end{dmath}
+
+The gradient operator does not commute with the field \( F \), however, we may utilize
+cyclic permutation within a scalar selection (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)), provided
+the gradient acts bidirectionally.  Rearranging Maxwell's equation for \( \spacegrad F \) gives
+
+\begin{dmath}\label{eqn:poyntingF:120}
+\spacegrad F = J - \inv{v} \PD{t}{F},
+\end{dmath}
+
+so
+\begin{dmath}\label{eqn:poyntingF:140}
+\frac{\epsilon}{2} \gpgradezero{ \spacegrad F F^\dagger }
+=
+\frac{\epsilon}{2} \gpgradezero{ \lr{ J - \inv{v} \PD{t}{F}}^\dagger F + F^\dagger \lr{ J - \inv{v} \PD{t}{F}} }
+=
+\frac{\epsilon}{2} \gpgradezero{ J^\dagger F + F^\dagger J - \inv{v} \PD{t}{} F^\dagger F }.
+\end{dmath}
+
+Scalars are reversion invariant \( \gpgradezero{ J^\dagger F } = \gpgradezero{ F^\dagger J } \), so
+
+\boxedEquation{eqn:poyntingF:n}{
+v \gpgradezero{ \spacegrad \frac{\epsilon}{2} F F^\dagger }
++ \PD{t}{} \gpgradezero{ \frac{\epsilon}{2} F F^\dagger }
+=
+\inv{\eta} \gpgradezero{ J^\dagger F }.
+}
+
+\index{Poynting theorem}
+This is the multivector form of Poynting's theorem.  
+The conventional statement of this theorem in terms of \( \BD, \BE, \BB, \BH, \BJ, \BM \) follows by direct substitution.  
+The particular multivector current \( J \) and its reverse are
+
+\begin{dmath}\label{eqn:poyntingF:160}
+\begin{aligned}
+J &= \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_m - \BM } \\
+J^\dagger &= \eta \lr{ v \rho - \BJ } - I \lr{ v \rho_m - \BM },
+\end{aligned}
+\end{dmath}
+
+so
+
+\begin{dmath}\label{eqn:poyntingF:180}
+0 = 
+\spacegrad \cdot \BS
+-
+\inv{\eta}
+\lr{
+- \eta \BJ \cdot \BE
+- \eta \BM \cdot \BH
+}
++ \PD{t}{\calE},
+\end{dmath}
+
+or
+\boxedEquation{eqn:poyntingF:200}{
+\spacegrad \cdot \BS + \BJ \cdot \BE + \BM \cdot \BH 
+%+ \PD{t}{\calE} = 0.
++ \PD{t}{\BB} \cdot \BH
++ \PD{t}{\BD} \cdot \BE = 0.
+}
+
+\subsection{Complex power.}
+TODO.
+%\index{complex power}

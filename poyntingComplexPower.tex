@@ -1,0 +1,61 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\subsection{Complex power}
+\index{complex power}
+
+Let \( \BE \) and \( \BH \) be complex phasor (time harmonic) representations of the fields so that
+
+\begin{dmath}\label{eqn:maxwellsEquations:900}
+\begin{aligned}
+\BE(\Bx, t) &= \Real\lr{ \BE e^{j \omega t} } \\
+\BH(\Bx, t) &= \Real\lr{ \BH e^{j \omega t} }
+\end{aligned}
+\end{dmath}
+
+The time harmonic expansion of the Poynting vector is
+
+\begin{dmath}\label{eqn:maxwellsEquations:820}
+\BS
+= \lr{ I \BH(\Bx, t)} \cdot \BE(\Bx, t)
+=
+\lr{ I \Real \lr{ \BH e^{j \omega t}} } \cdot
+\Real \lr{ \BE e^{j \omega t} }
+= \inv{4} \gpgradeone{
+I \lr{
+\BH e^{j \omega t}
++ \BH^\conj e^{-j \omega t}
+}
+\lr{ \BE e^{j \omega t} + \BE^\conj e^{-j \omega t} }
+}
+=
+\inv{4}
+\lr{
+(I \BH^\conj) \cdot \BE
++(I \BH) \cdot \BE^\conj
++
+(I \BH) \cdot \BE e^{ 2 j \omega t }
++
+(I \BH^\conj) \cdot \BE^\conj e^{ 2 j \omega t }
+}.
+\end{dmath}
+
+This shows that the time harmonic representation of the Poynting vector is
+
+\begin{dmath}\label{eqn:maxwellsEquations:840}
+\BS = \inv{2} \Real \lr{ (I \BH^\conj) \cdot \BE + (I \BH) \cdot \BE e^{ 2 j \omega t } }.
+\end{dmath}
+
+This motivates the definition of a complex Poynting vector
+
+\begin{dmath}\label{eqn:maxwellsEquations:860}
+\bcS = \inv{2} (I \BH^\conj) \cdot \BE.
+\end{dmath}
+
+Note that this is conventionally written as \( \BS = (\ifrac{1}{2}) \BE \cross \BH^\conj \).
+Observe that on average (over a given period), the \( e^{2 j \omega t} \) component of the real Poynting vector has no contribution to the power flux
+
+\begin{dmath}\label{eqn:maxwellsEquations:880}
+\inv{T} \int_0^T dt \BS = \Real \bcS.
+\end{dmath}
