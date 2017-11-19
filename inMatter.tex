@@ -1,0 +1,89 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+The GA formulation of Maxwell's equation has only been applied in media where it has been assumed throughout that linear constituative relationships
+
+\begin{dmath}\label{eqn:inMatter:20}
+\begin{aligned}
+\BD &= \epsilon \BE \\
+\BB &= \mu \BH,
+\end{aligned}
+\end{dmath}
+
+have been available.  Without such assumptions the GA formalism for Maxwell's equations cannot be written as a single equation with one multivector field, but requires two equations and two multivector fields.  The two multivector fields are
+
+\begin{dmath}\label{eqn:inMatter:40}
+\begin{aligned}
+F &= \BE + I v \BB \\
+G &= \BD + \frac{I}{v} \BH
+\end{aligned}
+\end{dmath}
+
+for which Maxwell's equations are
+
+\begin{dmath}\label{eqn:inMatter:60}
+\begin{aligned}
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }{0,1} &= \rho - \frac{\BJ}{v} \\
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{2,3} &= I \lr{ v \rho_m - \BM }.
+\end{aligned}
+\end{dmath}
+
+Here \( v \) is a non-dimensionalizing constant with dimensions [L/T], but is otherwise unspecified.
+Direct expansion can be used to show that \cref{eqn:inMatter:60} is equivalent to Maxwell's equations.
+Doing so for each of the grades in turn, we have
+
+\begin{subequations}
+\label{eqn:inMatter:80}
+\begin{dmath}\label{eqn:inMatter:100}
+\rho
+=
+\gpgradezero{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }
+=
+\gpgradezero{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BD + \frac{I}{v} \BH } }
+=
+\spacegrad \cdot \BD
+\end{dmath}
+\begin{dmath}\label{eqn:inMatter:120}
+- \frac{\BJ}{v}
+=
+\gpgradeone{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }
+=
+\gpgradeone{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BD + \frac{I}{v} \BH } }
+=
+\inv{v} \PD{t}{\BD} + \frac{I}{v} \spacegrad \wedge \BH
+=
+\inv{v} \PD{t}{\BD} - \frac{1}{v} \spacegrad \cross \BH
+\end{dmath}
+\begin{dmath}\label{eqn:inMatter:140}
+- I \BM
+=
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{2}
+=
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BE + I v \BB} }{2}
+=
+\spacegrad \wedge \BE + I \PD{t}{\BB}
+\end{dmath}
+\begin{dmath}\label{eqn:inMatter:160}
+I v \rho_m
+=
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{3}
+=
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BE + I v \BB} }{3}
+=
+v I \spacegrad \cdot \BB.
+\end{dmath}
+\end{subequations}
+
+After rearranging and cancelling common factors of \( v, I \) Maxwell's equations are recovered
+
+\begin{dmath}\label{eqn:inMatter:n}
+\begin{aligned}
+\spacegrad \cdot \BD &= \rho \\
+\spacegrad \cross \BH &= \BJ + \PD{t}{\BD}  \\
+\spacegrad \cross \BE &= -\BM - \PD{t}{\BB} \\
+\spacegrad \cdot \BB &= \rho_m.
+\end{aligned}
+\end{dmath}
+
+How to work directly and effectively with \cref{eqn:inMatter:60} is not obvious, and would require additional study.
