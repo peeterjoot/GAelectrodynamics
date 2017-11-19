@@ -5,21 +5,25 @@
 % ********************************************************************
 % Backmatter
 %*******************************************************
-\part{Appendices}
+\part{Backmatter}
+%\chapter{Appendix}
 \appendix
-\cleardoublepage
+%\cleardoublepage
 \input{appendixchapters}
 
 %********************************************************************
 % Other Stuff in the Back
 %*******************************************************
 
-\part{Index}
+%\part{Index}
 %\part{Back matter}
 %\chapter{Index}
+%\addtocontents{toc}{\protect\vspace{\beforebibskip}} % to have the bib a bit from the rest in the toc
+\addcontentsline{toc}{chapter}{\tocEntry{Index}}
 \printindex
 
-\part{Bibliography}
-\cleardoublepage\include{FrontBackmatter/Bibliography}
+%\chapter{Bibliography}
+%\cleardoublepage
+\input{FrontBackmatter/Bibliography}
 %\cleardoublepage\include{FrontBackmatter/Colophon}
 %\cleardoublepage\include{FrontBackmatter/Declaration}
