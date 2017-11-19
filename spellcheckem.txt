@@ -1,4 +1,3 @@
-poyntingComplexPower.tex
 2Dcylindrical.tex
 2dMultiplication.tex
 2dRotations.tex
@@ -30,6 +29,7 @@ gradientGreensFunctionEuclidean.tex
 greensTheorem.tex
 helmholtzDerviationMultivectorSolution.tex
 helmholtzDerviationMultivectorStatement.tex
+inMatter.tex
 isotropicMaxwells.tex
 landauEasy.tex
 linecharge.tex
@@ -42,8 +42,9 @@ normalVectors.tex
 oneparameter.tex
 planewaves.tex
 potentialSection.tex
-poynting.tex
+poyntingComplexPower.tex
 poyntingF.tex
+poyntingFComplexPower.tex
 prereq_basisspandim.tex
 prereq_standardbasis.tex
 prereq_vectorspace.tex
@@ -72,4 +73,3 @@ waveequation.tex
 wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
-poyntingFComplexPower.tex
