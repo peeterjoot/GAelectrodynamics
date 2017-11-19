@@ -1,7 +1,14 @@
 November XX, 2017
 
+   - far field F for vector potential (electric and magnetic sources)
+   - vertical infinitesimal far field example with respect to propagation direction in the z-y plane.
+   (this was an example from ece1229, where it was calculated conventionally)
+
+November 17, 2017
+
    - rework appendix B (distribution theorems) not as problems.
    - replace hand sketched figure for line charge arc.
+   - treatment of multivector potentials (covering both electric sources, and the sort of fictitious magnetic sources that Balanis uses in his antenna theory book).
 
 October 31, 2017
 
@@ -15,7 +22,7 @@ October 31, 2017
 October 22, 2017
 
    - flushed out all the basics of geometric algebra, with definitions and theorems all stated upfront.  I've also added a summary table showing how various GA identities map to the traditional vector equivalents.
-   - a rough draft for geometric calculus prerequisites.  Includes Stokes, Green's and divergence theorems in their GA form, as well as the fundamental theorem of geometric calculus (which has no equivalent in vector algebra).  This content is over general, as it covers the N dimensional case, but we really only want N <=3, or N = 4 for the relativistic case.  
+   - a rough draft for geometric calculus prerequisites.  Includes Stokes, Green's and divergence theorems in their GA form, as well as the fundamental theorem of geometric calculus (which has no equivalent in vector algebra).  This content is over general, as it covers the N dimensional case, but we really only want N <=3, or N = 4 for the relativistic case.
    - start of materials for electrostatics and magnetostatics.  This starts with the traditional free space Maxwell's equations, assembles the GA equivalents for Maxwell's equations in each of the statics configurations, and derives all the basic relationships starting from the GA Maxwell's equations (Coulomb's law, enclosed charge, scalar potential, Poisson equation, vector potential, Biot-Savart law, enclosed current).  To make things less theoretical, I plan to also work through specific problems in both electrostatics and magnetostatics to highlight various unique ways that GA can be used to solve problems.
 
 September 26, 2017
@@ -28,7 +35,7 @@ September 26, 2017
    2) your evaluation of the gradient of the learning curve required
    3) your feedback on any of the mathematical content that you think is either incorrect, or that you can't make sense of
 
-   As I mentioned, with this draft I've tried to put the geometry back into geometric algebra (in contrast to our first two chalkboard discussions, which were too algebraic).  For example, there is now material on rotation (2 and N dimensions), projection and rejection, and reflection.  
+   As I mentioned, with this draft I've tried to put the geometry back into geometric algebra (in contrast to our first two chalkboard discussions, which were too algebraic).  For example, there is now material on rotation (2 and N dimensions), projection and rejection, and reflection.
 
    Please don't read this with an eye on grammar, spelling or editing in general, or correcting oddities in the latex layout, since I've not done that myself yet (except in a very fragmented fashion).
 
