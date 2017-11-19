@@ -1,3 +1,30 @@
+- Mo wanted me to double space things for editing.
+
+   https://tex.stackexchange.com/questions/819/double-line-spacing
+
+   hook for that in thisbook.sty
+
+      -- will have to remember to set double space whenever I am building a version that I want to sent him.
+
+- merge in appropriate parts of:
+
+   working/ellipticalWavesPhasor.tex
+
+- hand drawn figures:
+
+   Toroidal parameterization.
+   Infinitesimal loop integral.
+   Sum of infinitesimal loops
+   Three parameter volume element
+   Pillbox integration volume
+
+- figure out how to express
+
+   - Lorentz force
+   - power and complex power
+
+   in terms of F, instead of E,H.
+
 - superfluous use of:
 
    also
@@ -16,7 +43,11 @@
    subspaces
    reexpress
 
-- add my copyright prologue to all files.
+- copyright prologue check:
+
+   for i in `cat spellcheckem.txt ` ; do grep -i copyright $i >/dev/null || echo $i ; done
+
+- makeexample breaks in strange places sometimes.
 
 - number line vs. 1d vector space plots show with different sizes.
 
@@ -30,8 +61,9 @@
 
 - problem on <abc>_3 relation to wedge.  generalize that to _k.
 
+- have some direct ref's that could use cref helper macros (forget how to do those though).
+
 - Green's:
-   Redo the hand drawn figures. 
    Reference this derivation in Stokes' and make note of the fact that Stokes's derivation should properly consider the
    surface triangularization.
 
@@ -44,23 +76,18 @@
    Fixme's to deal with.
    Strip the definitions section out, since it should be covered previously.
    Bold vectors for Green's function.  Perhaps rework to be less general (assuming Euclidean).
-   Redo the hand drawn figures. 
 
-- Get rid of summation convention for engineering
+- summation convention: any left?
 
 - add frequency domain representation of Poynting theorem
-
-- incorporate Mauro's potential_v2 which was nicely done.
 
 - Review the whole doc for the use of \Abs instead of \Norm (believe that all the .tex files in this directory are now converted)
 
 - fixmes:
 
-grep -ni fixme *.tex
+   grep -ni fixme `cat spellcheckem.txt`
 
 - table (2d multiplication) uses different color scheme, doesn't have a label or table number, and is too wide.
-
-- add lots of indexing to SimpleProducts2.tex SimpleProducts.tex
 
 - figure for projection and rejection.  move from later material into SimpleProducts2
 
