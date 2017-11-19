@@ -56,48 +56,43 @@ It might be reasonable to call \( \epsilon F F^\dagger/2 \) the energy-momentum 
 \calE + \frac{\BS}{v}.\qedmarker
 \end{dmath}
 
-Poynting's theorem can be derived directly from \cref{eqn:poyntingF:60}.  To do so, first consider the scalar grade selection of the gradient acting on \( F F^\dagger \)
+Poynting's theorem, the conservation relationship between energy and momentum density and the sources, can be stated in terms of the multivector field \( F \) and the multivector current \( J \).  To derive this relationship we can act on \( F F^\dagger \) with the space+time derivative operator \( \spacegrad + (1/v) \partial_t \), but do so within a scalar selection operation, which simplifies things, and allows for cyclic permutation of the multivector factors (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)).
 
 \begin{dmath}\label{eqn:poyntingF:100}
-\gpgradezero{ \spacegrad F F^\dagger }
+\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } F F^\dagger }
 =
-\gpgradezero{ F^\dagger \lrspacegrad F }
+\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } \dot{F} F^\dagger }
++
+\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } F \dot{F}^\dagger }
 =
-\gpgradezero{ (F^\dagger \lspacegrad) F + F^\dagger (\rspacegrad F) }
+\frac{\epsilon}{2} \gpgradezero{ v J F^\dagger }
++
+\frac{\epsilon}{2} \gpgradezero{ \dot{F}^\dagger \lr{ v \spacegrad + \PD{t}{} } F }
 =
-\gpgradezero{ (\rspacegrad F)^\dagger F + F^\dagger (\rspacegrad F) }
+\frac{\epsilon}{2} \gpgradezero{ v J F^\dagger }
++
+\frac{\epsilon}{2} \gpgradezero{ \lr{ \lr{ v \spacegrad + \PD{t}{} } F }^\dagger F }
+=
+v \frac{\epsilon}{2} \gpgradezero{ F^\dagger J + J^\dagger F }
+=
+\inv{\eta} \gpgradezero{ J^\dagger F },
 \end{dmath}
 
-The gradient operator does not commute with the field \( F \), however, we may utilize
-cyclic permutation within a scalar selection (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)), provided
-the gradient acts bidirectionally.  Rearranging Maxwell's equation for \( \spacegrad F \) gives
+In the chain rule expansion above, the gradients could not be reordered since it do not commute with \( F \), so an over-dot notation
+\citep{hestenes1999nfc} was used to indicate the desired action of the derivative operators.
+The final simplification was possible since scalars are reversion invariant (i.e. \( \gpgradezero{ J^\dagger F } = \gpgradezero{ F^\dagger J } \)).
+This is the multivector form of Poynting's theorem.
 
-\begin{dmath}\label{eqn:poyntingF:120}
-\spacegrad F = J - \inv{v} \PD{t}{F},
-\end{dmath}
-
-so
-\begin{dmath}\label{eqn:poyntingF:140}
-\frac{\epsilon}{2} \gpgradezero{ \spacegrad F F^\dagger }
-=
-\frac{\epsilon}{2} \gpgradezero{ \lr{ J - \inv{v} \PD{t}{F}}^\dagger F + F^\dagger \lr{ J - \inv{v} \PD{t}{F}} }
-=
-\frac{\epsilon}{2} \gpgradezero{ J^\dagger F + F^\dagger J - \inv{v} \PD{t}{} F^\dagger F }.
-\end{dmath}
-
-Scalars are reversion invariant \( \gpgradezero{ J^\dagger F } = \gpgradezero{ F^\dagger J } \), so
-
-\boxedEquation{eqn:poyntingF:n}{
+\index{Poynting theorem}
+\boxedEquation{eqn:poyntingF:220}{
 v \gpgradezero{ \spacegrad \frac{\epsilon}{2} F F^\dagger }
 + \PD{t}{} \gpgradezero{ \frac{\epsilon}{2} F F^\dagger }
 =
 \inv{\eta} \gpgradezero{ J^\dagger F }.
 }
 
-\index{Poynting theorem}
-This is the multivector form of Poynting's theorem.  
-The conventional statement of this theorem in terms of \( \BD, \BE, \BB, \BH, \BJ, \BM \) follows by direct substitution.  
-The particular multivector current \( J \) and its reverse are
+The conventional statement of this theorem in terms of \( \BD, \BE, \BB, \BH, \BJ, \BM \) follows by direct substitution.
+The multivector current \( J \) and its reverse are
 
 \begin{dmath}\label{eqn:poyntingF:160}
 \begin{aligned}
@@ -109,7 +104,7 @@ J^\dagger &= \eta \lr{ v \rho - \BJ } - I \lr{ v \rho_m - \BM },
 so
 
 \begin{dmath}\label{eqn:poyntingF:180}
-0 = 
+0 =
 \spacegrad \cdot \BS
 -
 \inv{\eta}
@@ -122,12 +117,28 @@ so
 
 or
 \boxedEquation{eqn:poyntingF:200}{
-\spacegrad \cdot \BS + \BJ \cdot \BE + \BM \cdot \BH 
+\spacegrad \cdot \BS + \BJ \cdot \BE + \BM \cdot \BH
 %+ \PD{t}{\calE} = 0.
 + \PD{t}{\BB} \cdot \BH
 + \PD{t}{\BD} \cdot \BE = 0.
 }
 
-\subsection{Complex power.}
-TODO.
-%\index{complex power}
+The sum of the last two terms is the time rate of change of the energy density.
+In particular,
+with neither electric nor magnetic current sources in a region of space,
+the change of energy density through a volume is matched by a corresponding flux through the bounding surface
+
+\begin{dmath}\label{eqn:maxwellsEquations:740}
+\PD{t}{} \int_V
+\inv{2} dV \lr{
+\BB \cdot \BH
++ \BD \cdot \BE
+}
+=
+-\int_{\partial V} dA \ncap \cdot \BS.
+\end{dmath}
+
+Here \( \ncap \) is the outward normal, so if the energy contained in the volume is decreasing, then \( \BS \) must represent the energy per unit area that leaves the volume.
+The direction of the Poynting vector is the direction that the energy is leaving the volume.
+Only the components of the Poynting vector that are colinear with the surface normal will result in energy leaving or entering the volume.
+

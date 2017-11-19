@@ -29,6 +29,10 @@
 \usepackage{colortbl}
 \tcbuselibrary{skins}
 
+%\newcommand{\lrspacetimegrad}[2]{\lr{\stackrel{ \leftrightarrow }{#2 \spacegrad + #1 \PD{t}{}}}}
+%\newcommand{\lspacetimegrad}[2]{\lr{\stackrel{ \leftarrow }{#2 \spacegrad + #1 \PD{t}{}}}}
+%\newcommand{\rspacetimegrad}[2]{\lr{\stackrel{ \rightarrow }{#2 \spacegrad + #1 \PD{t}{}}}}
+
 \newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
 
 \tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
@@ -51,7 +55,7 @@ coltitle=black,center title}}
 % this is the E, H extraction example (digression)
 %\input{maxwellsEquations.tex}
 
-\input{poyntingF.tex}
+\input{poyntingFComplexPower.tex}
 
 %}
 \EndArticle

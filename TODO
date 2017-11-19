@@ -1,3 +1,7 @@
+- poyntingFComplexPower.tex
+
+   placeholder (embedded in maxwells.tex).
+
 - Mo wanted me to double space things for editing.
 
    https://tex.stackexchange.com/questions/819/double-line-spacing
@@ -21,9 +25,8 @@
 - figure out how to express
 
    - Lorentz force
-   - power and complex power
 
-   in terms of F, instead of E,H.
+   in terms of F instead of E,H.
 
 - superfluous use of:
 

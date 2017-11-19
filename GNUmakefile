@@ -45,7 +45,9 @@ all :: maxwells.pdf
 #maxwells.pdf : planewaves.tex
 #maxwells.pdf :: isotropicMaxwells.tex
 maxwells.pdf :: maxwellsEquations.tex
-maxwells.pdf :: poyntingF.tex
+#maxwells.pdf :: poyntingF.tex
+maxwells.pdf :: poyntingFComplexPower.tex
+#maxwells.pdf :: inMatter.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 #maxwells.pdf :: frequencydomainPlaneWaves.tex
 

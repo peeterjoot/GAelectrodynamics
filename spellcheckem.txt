@@ -72,3 +72,4 @@ waveequation.tex
 wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
+poyntingFComplexPower.tex
