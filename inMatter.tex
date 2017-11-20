@@ -77,7 +77,7 @@ v I \spacegrad \cdot \BB.
 
 After rearranging and cancelling common factors of \( v, I \) Maxwell's equations are recovered
 
-\begin{dmath}\label{eqn:inMatter:n}
+\begin{dmath}\label{eqn:inMatter:180}
 \begin{aligned}
 \spacegrad \cdot \BD &= \rho \\
 \spacegrad \cross \BH &= \BJ + \PD{t}{\BD}  \\
@@ -86,4 +86,24 @@ After rearranging and cancelling common factors of \( v, I \) Maxwell's equation
 \end{aligned}
 \end{dmath}
 
-How to work directly and effectively with \cref{eqn:inMatter:60} is not obvious, and would require additional study.
+One possibile strategy for solving these equations is to impose an additional set of constraints on the grades in question
+
+\begin{dmath}\label{eqn:inMatter:200}
+\begin{aligned}
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }{2,3} &= 0 \\
+\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{0,1} &= 0,
+\end{aligned}
+\end{dmath}
+
+so that all the grade selection filters can be cleared
+
+\begin{dmath}\label{eqn:inMatter:220}
+\begin{aligned}
+\lr{ \spacegrad + \inv{v} \PD{t}{} } G &= \rho - \frac{\BJ}{v} \\
+\lr{ \spacegrad + \inv{v} \PD{t}{} } F &= I \lr{ v \rho_m - \BM }.
+\end{aligned}
+\end{dmath}
+
+Each of these now separately has the form of Maxwell's equation, and could be solved separately, subject to the constraint equations.
+Only if \( F, G \) can be related by a constant factor, say \( \epsilon F = G \), can these be summed directly (after non-dimensional scaling) to form Maxwell's equation.
+Other non-constraint strategies for solving \cref{eqn:inMatter:60} would require additional thought and study.

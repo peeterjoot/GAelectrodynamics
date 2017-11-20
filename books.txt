@@ -1,0 +1,27 @@
+1) 
+
+Multivectors and Clifford algebra in electrodynamics
+Bernard Jancewicz.
+Gerstein Science   
+QC631 .J36 1988
+
+2)
+
+Clifford (geometric) algebras with applications to physics, mathematics, and engineering /
+William E. Baylis
+Gerstein Science 
+QC20.7 .C55 C58 1996X 
+
+3)
+
+Classical electrodynamics
+Julian Schwinger
+Gerstein Science
+QC631 .C537 1998
+
+4)
+
+Electrodynamics : a modern geometric approach /
+William E. Baylis.
+Physics
+QC631 .B333 1999X
