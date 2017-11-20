@@ -25,3 +25,22 @@ Electrodynamics : a modern geometric approach /
 William E. Baylis.
 Physics
 QC631 .B333 1999X
+
+5) 
+   J.W.Arthur,Understanding Geometric Algebra for Electromagnetic Theory,
+   John Wiley&Sons,Hoboken-NewJersey,2011.
+
+   lookup.
+
+6) Constitutive relations in optics in terms of geometric algebra
+   A. Darygys
+
+   STA approach to encoding different types of \chi^{ijkl} tensors transforming between F,G bivector fields using GA.  No discussion of actually solving such problems.
+
+   cite this in the inMatter.tex
+
+7) T.G.Vold,Am.J.Phys.61(1993)491,505.
+
+   Darygys: "AnaccessibleintroductiontoGAandelectro- dynamics forreaderswhoareunfamiliarwiththissubjectcanbe found inT.G.Vold’s twoarticles"
+
+
