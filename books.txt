@@ -1,48 +1,101 @@
-1) 
+*) 
 
 Multivectors and Clifford algebra in electrodynamics
 Bernard Jancewicz.
 Gerstein Science   
 QC631 .J36 1988
 
-2)
+*)
 
 Clifford (geometric) algebras with applications to physics, mathematics, and engineering /
 William E. Baylis
 Gerstein Science 
 QC20.7 .C55 C58 1996X 
 
-3)
+*)
 
 Classical electrodynamics
 Julian Schwinger
 Gerstein Science
 QC631 .C537 1998
 
-4)
+*) 
+
+Geometric computing with Clifford algebra : theoretical foundations and applications in computer vision and robotics /  
+Gerald Sommer (ed.).
+Berlin ; New York : Springer, c2001.
+
+Mathematical Sciences Stacks QA199 .G46 2001X
+
+*)
+
+Geometric algebra and applications to physics /
+Venzo de Sabbata, Bidyut Kumar Datta.
+
+Gerstein Science Stacks QC20.7 .A37 D4 2007X
+
+*)
+
+Applications of geometric algebra in computer science and engineering /
+Leo Dorst, Chris Doran, Joan Lasenby (eds.) 
+
+Engineering & Comp. Sci. Stacks QA76.9 .M35 A658 2002X
+
+================
+
+checked out:
+
+*)
 
 Electrodynamics : a modern geometric approach /
 William E. Baylis.
 Physics
 QC631 .B333 1999X
 
-5) 
+================
+downloaded:
+
+*)
+Foundation Mathematics for Computer Science [electronic resource] : A Visual Approach /  
+by John Vince.
+Cham : Springer International Publishing : Imprint: Springer, 2015.
+
+*) 
    J.W.Arthur,Understanding Geometric Algebra for Electromagnetic Theory,
    John Wiley&Sons,Hoboken-NewJersey,2011.
 
-   lookup.
-
-6) Constitutive relations in optics in terms of geometric algebra
+*) Constitutive relations in optics in terms of geometric algebra
    A. Darygys
 
    STA approach to encoding different types of \chi^{ijkl} tensors transforming between F,G bivector fields using GA.  No discussion of actually solving such problems.
 
    cite this in the inMatter.tex
 
-7) T.G.Vold,Am.J.Phys.61(1993)491,505.
+*) T.G.Vold,Am.J.Phys.61(1993)491,505.
 
-   Darygys: "AnaccessibleintroductiontoGAandelectro- dynamics forreaderswhoareunfamiliarwiththissubjectcanbe found inT.G.Vold’s twoarticles"
+An introduction to geometric algebra with an application in rigid body mechanics
+ by Vold, Terje G .
+ American Journal of Physics , 1993 , Volume 61 , Issue 6 , pp. 491 - 504
+An introduction to geometric calculus and its application to electrodynamics
+ by Vold, Terje G .
+ American Journal of Physics , 1993 , Volume 61 , Issue 6 , pp. 505 - 513
 
-8) Snygg. Clifford Algebra, a computational tool for physicists
+   (recommended by Darygys)
 
+*) Snygg. Clifford Algebra, a computational tool for physicists
+
+(print copy missing from library.  Annoying e-web browser viewer version is available)
+
+*)
+galoop.de
+
+Foundations of geometric algebra computing [electronic resource] /  
+Dietmar Hildenbrand.
+Berlin ; New York : Springer-Verlag, c2013.
+
+http://books2.scholarsportal.info.myaccess.library.utoronto.ca/viewdoc.html?id=/ebooks/ebooks3/springer/2013-08-13/2/9783642317941
+
+https://www.youtube.com/watch?v=1cWGV2qaBHo
+
+================
 
