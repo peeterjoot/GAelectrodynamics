@@ -161,3 +161,6 @@ perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
 ../latex/bin/lgrep inMatter.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl inMatter.tex
 
+../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
+

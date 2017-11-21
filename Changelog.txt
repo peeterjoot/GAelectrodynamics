@@ -3,6 +3,7 @@ November XX, 2017
    - Rewrite Poynting theorem section (switch to use F F^\dagger instead of E,H,D,B directly).
    - Add new section: Dielectric and magnetic media.
    - Replace hand drawn figure for pillbox integration volume, and toroid parameterization.
+   - Add problem for the user to show that quaternions can be represented as multivector subspaces (like complex numbers).
 
 November 19, 2017
 

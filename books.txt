@@ -43,4 +43,6 @@ QC631 .B333 1999X
 
    Darygys: "AnaccessibleintroductiontoGAandelectro- dynamics forreaderswhoareunfamiliarwiththissubjectcanbe found inT.G.Vold’s twoarticles"
 
+8) Snygg. Clifford Algebra, a computational tool for physicists
+
 
