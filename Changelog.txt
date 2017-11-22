@@ -1,3 +1,7 @@
+November XX, 2017
+
+   - typo in lorentz force eqn prove.
+
 November 22, 2017
 
    commit 7ab048bfa59b4f36f0de6f5744237a71e6867630

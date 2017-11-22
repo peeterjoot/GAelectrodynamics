@@ -7,9 +7,11 @@ In free space, the Lorentz force equation \cref{eqn:freespace:200}
 can be restated
 in terms of \( F = \BE + I \eta_0 \BH = \BE + I c \BB \) as
 
-\begin{dmath}\label{eqn:lorentzForce:20}
+%\begin{dmath}\label{eqn:lorentzForce:20}
+\boxedEquation{eqn:lorentzForce:20}{
 \frac{d\Bp}{dt} = q \gpgradeone{ F \lr{ 1 + \frac{\Bv}{c} } },
-\end{dmath}
+}
+%\end{dmath}
 
 which puts the electric and magnetic fields on equal footing.
 This can be demonstrated by splitting the \( F \lr{ 1 + \ifrac{\Bv}{c} } \) multivector into its consistuent grades
@@ -21,13 +23,14 @@ q
 \lr{ \BE + I c \BH }
 \lr{ 1 + \frac{\Bv}{c} }
 =
-q \BE + q I \BB \Bv
-+ q \frac{q}{c} \BE \Bv
+q \BE
++ q I \BB \Bv
++ \frac{q}{c} \BE \Bv
 + q c I \BB
 =
   \frac{q}{c} \BE \cdot \Bv
 + q \lr{ \BE + \Bv \cross \BB }
-+ q c I \BB
++ q \lr{ c I \BB + \inv{c} \BE \wedge \Bv }
 + q (I \BB) \wedge \Bv.
 \end{dmath}
 
@@ -97,7 +100,7 @@ a ``complex exponential'', so the solution of \cref{eqn:lorentzForce:60} is
 \end{dmath}
 
 The velocity of the charged particle traces out a helical path.
-Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.  
+Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.
 If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
 
 \begin{dmath}\label{eqn:lorentzForce:220}
