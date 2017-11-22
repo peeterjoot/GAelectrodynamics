@@ -43,7 +43,7 @@ all :: maxwells.pdf
 #maxwells.pdf :: gacomparison.tex
 #maxwells.pdf :: circularlinecharge.tex
 #maxwells.pdf : planewaves.tex
-maxwells.pdf :: lorentzForce.tex
+#maxwells.pdf :: lorentzForce.tex
 #maxwells.pdf :: isotropicMaxwells.tex
 maxwells.pdf :: maxwellsEquations.tex
 #maxwells.pdf :: poyntingF.tex
@@ -58,6 +58,10 @@ $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
 .PHONY: spellcheck
 spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
+
+# enable doublespace before making:
+dropbox:
+	cp GAelectrodynamics.pdf Changelog.txt ~/Dropbox/ECE2500Y/
 
 %.sp : %.tex
 	spellcheck $^
