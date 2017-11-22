@@ -1,3 +1,55 @@
+*)
+
+Clifford algebra to geometric calculus : a unified language for mathematics and physics /
+by David Hestenes and Garret Sobczyk.
+Gerstein Science 
+QA199 .H47 1984
+
+*)
+
+Guide to geometric algebra in practice [electronic resource] /
+Leo Dorst, Joan Lasenby, editors.
+London ; New York : Springer, c2011.
+Book
+
+
+*)
+
+Geometric algebra with applications in science and engineering /
+Eduardo Bayro Corrochano, Garret Sobczyk, editors.
+Boston : Birkhäuser, c2001.
+Mathematical Sciences 
+QA564 .G463 2001X
+
+*)
+
+Lectures on Clifford geometric algebras and applications /
+Rafał Abłamowicz, Garret Sobczyk, editors.
+Mathematical Sciences 
+QA199 .L43 2004X
+
+*)
+
+Applications of geometric algebra in computer science and engineering /
+Leo Dorst, Chris Doran, Joan Lasenby (eds.)
+Boston : Birkhauser, c2002.
+Engineering & Comp. Sci. 
+QA76.9 .M35 A658 2002X
+
+*)
+
+Geometric computing with Clifford algebra : theoretical foundations and applications in computer vision and robotics /
+Gerald Sommer (ed.).
+Berlin ; New York : Springer, c2001.
+Mathematical Sciences Stacks QA199 .G46 2001X
+
+*)
+
+Clifford algebras : applications to mathematics, physics, and engineering /
+Rafał Abłamowicz, editor.
+
+Physics Stacks QA199 .C554 2003
+
 *) 
 
 Multivectors and Clifford algebra in electrodynamics
@@ -41,6 +93,8 @@ Leo Dorst, Chris Doran, Joan Lasenby (eds.)
 
 Engineering & Comp. Sci. Stacks QA76.9 .M35 A658 2002X
 
+clifford algebras and spinors
+
 ================
 
 checked out:
@@ -54,6 +108,28 @@ QC631 .B333 1999X
 
 ================
 downloaded:
+
+*)
+A new approach to differential geometry using Clifford's geometric algebra [electronic resource] /
+John Snygg.
+New York ; London : Birkhäuser/Springer, [2012]
+A new approach to differential geometry using Clifford's geometric algebra
+
+*)
+Geometric algebra with applications in engineering [electronic resource] /
+Christian Perwass.
+Book
+
+*)
+Understanding Geometric Algebra
+Hamilton, Grassmann, and Clifford for Computer Vision and Graphics
+
+Kenichi Kanatani
+
+*)
+Geometric algebra computing [electronic resource] : in engineering and computer science /
+Eduardo Bayro-Corrochano, Gerik Scheuermann, editors.
+London ; New York : Springer, c2010.
 
 *)
 Foundation Mathematics for Computer Science [electronic resource] : A Visual Approach /  
@@ -98,4 +174,60 @@ http://books2.scholarsportal.info.myaccess.library.utoronto.ca/viewdoc.html?id=/
 https://www.youtube.com/watch?v=1cWGV2qaBHo
 
 ================
+
+Applications of the Clifford algebra valued boundary element method to electromagnetic scattering problems
+ by Chen, Jeng-Tzong  and  Hong, Hong-Ki  and  Liu, Li-Wei  and  Lee, Jia-Wei .
+ Engineering Analysis with Boundary Elements , 2016 , Volume 71 , pp. 140 - 150
+
+Applications of Clifford’s Geometric Algebra
+ by Hitzer, Eckhard  and  Nitta, Tohru  and  Kuroe, Yasuaki .
+ Advances in Applied Clifford Algebras , 2013 , Volume 23 , Issue 2 , pp. 377 - 404
+
+Spacetime algebra and electron physics
+C Doran, A Lasenby, S Gull, S Somaroo… - Advances in imaging and …, 1996 - Elsevier
+
+[BOOK] Geometric algebra for computer graphics
+J Vince - 2008 - books.google.com
+
+[BOOK] Quaternions, Clifford algebras and relativistic physics
+PR Girard - 2007 - books.google.com
+
+Relativity in Clifford's geometric algebras of space and spacetime
+WE Baylis, G Sobczyk - International Journal of Theoretical Physics, 2004 - Springer
+
+The spacetime algebra approach to massive classical electrodynamics with magnetic monopoles
+C Cafaro, SA Ali - Advances in Applied Clifford Algebras, 2007 - Springer
+
+[BOOK] A Convariant Approach to Geometry Using Geometric Algebra
+A Lasenby, J Lasenby, R Wareham - 2004 - montgomerycollege.edu
+
+[HTML] Revisiting special relativity: A natural algebraic alternative to Minkowski spacetime
+JM Chappell, A Iqbal, N Iannella, D Abbott - PloS one, 2012 - journals.plos.org
+
+Geometric algebra for electrical and electronic engineers
+JM Chappell, SP Drake, CL Seidel… - Proceedings of the …, 2014 - ieeexplore.ieee.org
+
+A survey of geometric algebra and geometric calculus
+A Macdonald - Advances in Applied Clifford Algebras, 2017 - Springer
+
+Conformal geometry, Euclidean space and geometric algebra
+C Doran, A Lasenby, J Lasenby - KLUWER INTERNATIONAL SERIES IN …, 2002 - Springer
+
+Clifford algebra, geometric algebra, and applications
+D Lundholm, L Svensson - arXiv preprint arXiv:0907.5356, 2009 - arxiv.org
+
+Beamforming with distortionless co-polarisation for conformal arrays based on geometric algebra
+L Zou, J Lasenby, Z He - IET radar, sonar & navigation, 2011 - IET
+
+[BOOK] Geometric algebra: An algebraic system for computer games and animation
+JA Vince - 2009 - Springer
+
+The complex algebra of physical space: a framework for relativity
+WE Baylis, JD Keselica - Advances in Applied Clifford Algebras, 2012 - Springer
+
+Generalized relativistic velocity addition with spacetime algebra
+CR Paiva, MA Ribeiro - arXiv preprint physics/0511247, 2005 - arxiv.org
+
+[BOOK] Clifford algebras and spinors
+P Lounesto - 2001 - books.google.com
 
