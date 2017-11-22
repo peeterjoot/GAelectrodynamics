@@ -1,0 +1,114 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\section{Lorentz force.}
+\subsection{GA statement.}
+In free space, the Lorentz force equation \cref{eqn:freespace:200}
+can be restated
+in terms of \( F = \BE + I \eta_0 \BH = \BE + I c \BB \) as
+
+\begin{dmath}\label{eqn:lorentzForce:20}
+\frac{d\Bp}{dt} = q \gpgradeone{ F \lr{ 1 + \frac{\Bv}{c} } },
+\end{dmath}
+
+which puts the electric and magnetic fields on equal footing.
+This can be demonstrated by splitting the \( F \lr{ 1 + \ifrac{\Bv}{c} } \) multivector into its consistuent grades
+
+\begin{dmath}\label{eqn:lorentzForce:40}
+q F \lr{ 1 + \frac{\Bv}{c} }
+=
+q
+\lr{ \BE + I c \BH }
+\lr{ 1 + \frac{\Bv}{c} }
+=
+q \BE + q I \BB \Bv
++ q \frac{q}{c} \BE \Bv
++ q c I \BB
+=
+  \frac{q}{c} \BE \cdot \Bv
++ q \lr{ \BE + \Bv \cross \BB }
++ q c I \BB
++ q (I \BB) \wedge \Bv.
+\end{dmath}
+
+The grade 0 component of this product hints of \cref{eqn:freespace:220}, and substitution into the vector grade selection operation of \cref{eqn:lorentzForce:20} recovers \cref{eqn:freespace:200} as desired.
+
+\subsection{Constant magnetic field.}
+
+The Lorentz force equation that determines the dynamics of a charged particle in an external field \( F \) has been restated as a multivector differential equation, but how to solve such an equation is probably not obvious.
+Given a constant external magnetic field, the Lorentz force equation is reduced to
+
+\begin{dmath}\label{eqn:lorentzForce:60}
+m \frac{d\Bv}{dt} = q (I \BB) \cdot \Bv,
+\end{dmath}
+
+or
+\begin{dmath}\label{eqn:lorentzForce:80}
+\begin{aligned}
+\Omega &= -\frac{q I \BB}{m} \\
+\frac{d\Bv}{dt} &= \Bv \cdot \Omega,
+\end{aligned}
+\end{dmath}
+
+where \( \Omega \) is a bivector containing all the constant factors.
+
+This can be solved by introducing a multivector integration factor \( R \) and its reverse \( R^\dagger \) on the left and right respectively
+
+\begin{dmath}\label{eqn:lorentzForce:100}
+R \frac{d\Bv}{dt} R^\dagger
+= R \Bv \cdot \Omega R^\dagger
+= \inv{2} R \lr{ \Bv \Omega - \Omega \Bv} R^\dagger
+= \inv{2} R \Bv \Omega R^\dagger - \inv{2} R \Omega \Bv R^\dagger,
+\end{dmath}
+
+or
+\begin{dmath}\label{eqn:lorentzForce:120}
+0 =
+R \frac{d\Bv}{dt} R^\dagger
++ \inv{2} R \Omega \Bv R^\dagger
+- \inv{2} R \Bv \Omega R^\dagger
+\end{dmath}
+
+Let
+\begin{dmath}\label{eqn:lorentzForce:140}
+\dot{R} = R \Omega/2.
+\end{dmath}
+
+Since \( \Omega \) is a bivector \( \dot{R}^\dagger = -\Omega R^\dagger/2 \), so by chain rule
+
+\begin{dmath}\label{eqn:lorentzForce:160}
+0
+=
+\frac{d}{dt} \lr{
+R \Bv R^\dagger
+}.
+\end{dmath}
+
+The integrating factor has solution
+
+\begin{dmath}\label{eqn:lorentzForce:180}
+R = e^{\Omega t/2},
+\end{dmath}
+
+a ``complex exponential'', so the solution of \cref{eqn:lorentzForce:60} is
+
+\begin{dmath}\label{eqn:lorentzForce:200}
+\Bv(t) = e^{-\Omega t/2} \Bv(0) e^{\Omega t/2}.
+\end{dmath}
+
+The velocity of the charged particle traces out a helical path.
+Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.  
+If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
+
+\begin{dmath}\label{eqn:lorentzForce:220}
+\begin{aligned}
+\Bv(0)_\parallel &= \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \\
+\Bv(0)_\perp &= \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1} \\
+\Bv(t) &= \Bv(0)_\parallel e^{\Omega t} + \Bv(0)_\perp.
+\end{aligned}
+\end{dmath}
+
+A multivector integration factor method for solving the Lorentz force equation in constant external electric and magnetic fields can be found in \citep{hestenes1999nfc}.  Other examples, solved using a relativistic formulation of GA, can be found in \citep{doran2003gap},
+\citep{hestenes1974properdynamics}, and
+\citep{hestenes1974propermechanics}.

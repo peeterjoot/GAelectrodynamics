@@ -1,3 +1,5 @@
+TODO: Think that Mauro also had a cache of GA related ebooks in his dropbox folder.
+
 *)
 
 Clifford algebra to geometric calculus : a unified language for mathematics and physics /

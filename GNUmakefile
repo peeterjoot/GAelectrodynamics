@@ -43,6 +43,7 @@ all :: maxwells.pdf
 #maxwells.pdf :: gacomparison.tex
 #maxwells.pdf :: circularlinecharge.tex
 #maxwells.pdf : planewaves.tex
+maxwells.pdf :: lorentzForce.tex
 #maxwells.pdf :: isotropicMaxwells.tex
 maxwells.pdf :: maxwellsEquations.tex
 #maxwells.pdf :: poyntingF.tex
