@@ -33,6 +33,7 @@ inMatter.tex
 isotropicMaxwells.tex
 landauEasy.tex
 linecharge.tex
+lorentzForce.tex
 magnetostatics.tex
 multiplication.tex
 multivector.tex
@@ -41,6 +42,7 @@ normalFactorization.tex
 normalVectors.tex
 oneparameter.tex
 planewaves.tex
+polarization.tex
 potentialSection.tex
 poyntingComplexPower.tex
 poyntingF.tex
@@ -73,5 +75,3 @@ waveequation.tex
 wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
-lorentzForce.tex
-polarization.tex

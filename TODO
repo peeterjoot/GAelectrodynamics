@@ -1,3 +1,16 @@
+- merge in appropriate parts of:
+
+   working/ellipticalWavesPhasor.tex
+
+   - figures in polarization.tex
+
+      Text looks too small.
+      Want circular arcs to indicate the angles.
+
+   => what's left.  Pure pseudoscalar form.
+
+      (section: Electromagnetic plane wave... rework completely based on GAFP treatment.)
+
 - poyntingFComplexPower.tex
 
    placeholder (embedded in maxwells.tex).
@@ -11,10 +24,6 @@
    hook for that in thisbook.sty
 
       -- will have to remember to set double space whenever I am building a version that I want to sent him.
-
-- merge in appropriate parts of:
-
-   working/ellipticalWavesPhasor.tex
 
 - hand drawn figures:
 
