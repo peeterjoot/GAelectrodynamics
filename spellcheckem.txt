@@ -74,3 +74,4 @@ wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
 lorentzForce.tex
+polarization.tex

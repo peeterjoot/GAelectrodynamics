@@ -48,6 +48,20 @@ coltitle=black,center title}}
 \newcommand{\e}[0]{{(\mathrm{e})}}
 \newcommand{\m}[0]{{(\mathrm{m})}}
 
+% 
+% https://tex.stackexchange.com/a/28212/15
+%
+%For bold and upright, you could use the regular text-version of \imath and \jmath, which are \i and \j:
+%
+%\newcommand{\ihat}{\hat{\textbf{\i}}}
+%\newcommand{\jhat}{\hat{\textbf{\j}}}
+%bold & upright i & j in math
+%
+%Additionally, if you want the \hat to be bold as well, then use \boldsymbol.
+%
+%\newcommand{\ihat}{\boldsymbol{\hat{\textbf{\i}}}}
+%\newcommand{\jhat}{\boldsymbol{\hat{\textbf{\j}}}}
+
 \beginArtNoToc
 
 \generatetitle{Maxwell's equations}
@@ -55,7 +69,8 @@ coltitle=black,center title}}
 % this is the E, H extraction example (digression)
 %\input{maxwellsEquations.tex}
 
-\input{poyntingFComplexPower.tex}
+%\input{poyntingFComplexPower.tex}
+\input{polarization.tex}
 
 %}
 \EndArticle
