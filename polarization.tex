@@ -2,7 +2,8 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-\subsection{Polarization.}
+%{
+\subsection{Plane wave.}
 \index{plane wave}
 \index{polarization}
 In a discussion of polarization, it is convenient to align the propagation direction along a fixed direction, usually the z-axis.
@@ -118,7 +119,7 @@ out all the points along \( \pm \Be_2 e^{i\psi} \Abs{\BE}/\eta \) as illustrated
 
 \subsection{Elliptical parameterization.}
 
-An ellipical polarized electric field can be parameterized as
+An elliptical polarized electric field can be parameterized as
 \begin{dmath}\label{eqn:ellipticalWaves:340}
 \BE
 =
@@ -165,14 +166,56 @@ e &= \sqrt{1 - {(E_b/E_a)}^2 },
 \end{aligned}
 \end{dmath}
 
-where \( E_a(E_b) \) are the magnitudes of the electric field components lying along the semi-major(minor) axes, and the propagation direction \( \Be_3 \) is normal to both the major and minor axis directions.  
-An ellipitic electric field polarization is illustrated in \cref{fig:ellipticalPolarization:ellipticalPolarizationFig1}, where the vectors representing the major and minor axes are \( \BE_a = E_a \Be_1 e^{i\psi}, \BE_b = E_b \Be_1 e^{i\psi} \).
+where \( E_a(E_b) \) are the magnitudes of the electric field components lying along the semi-major(minor) axes, and the propagation direction \( \Be_3 \) is normal to both the major and minor axis directions.
+An elliptic electric field polarization is illustrated in \cref{fig:ellipticalPolarization:ellipticalPolarizationFig1}, where the vectors representing the major and minor axes are \( \BE_a = E_a \Be_1 e^{i\psi}, \BE_b = E_b \Be_1 e^{i\psi} \).
 Observe that setting \( E_b = 0 \) results in the linearly polarized field of \cref{eqn:polarization:300}.
 \imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
 
 \subsection{Pseudoscalar imaginary.}
 
-...
+The multivector \( 1 + \Be_3 \) acts as a projector, consuming any factors of \( \Be_3 \)
+
+\begin{dmath}\label{eqn:polarization:440}
+(1 + \Be_3) \Be_3
+=
+\Be_3 + \Be_3^2
+=
+1 + \Be_3.
+\end{dmath}
+
+This property allows all the bivector imaginaries \( i = \Be_{12} = \Be_3 I \) in \cref{eqn:polarization:200} to be reexpressed in terms of the \R{3} pseudoscalar \( I = \Be_{123} \).  To illustrate this consider just the left circular polarized wave
+
+\begin{dmath}\label{eqn:polarization:460}
+F_\txtL
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL e^{i\phi}
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL \lr{ \cos\phi + \Be_3 I \sin\phi }
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL \cos\phi
+-\lr{ 1 + \Be_3 } \Be_3 \Be_1 \alpha_\txtL I \sin\phi
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL e^{-I\phi}
+=
+\lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_{\txtL 1} + \Be_3 I\alpha_{\txtL 2}  } e^{-I\phi}
+=
+\lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_{\txtL 1} - I \alpha_{\txtL 2} } e^{-I\phi}.
+\end{dmath}
+
+This shows that the coefficients for the circular polarized states can be redefined using the pseudoscalar as an imaginary (in contrast to the bivector imaginary used in \cref{eqn:polarization:220})
+\begin{dmath}\label{eqn:polarization:480}
+\begin{aligned}
+\alpha_\txtL' &= \alpha_{\txtL 1} - I \alpha_{\txtL 2} \\
+\alpha_\txtR' &= \alpha_{\txtR 1} - I \alpha_{\txtR 2},
+\end{aligned}
+\end{dmath}
+
+so that the plane wave is
+\begin{dmath}\label{eqn:polarization:500}
+F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtL' e^{-I\phi} + \alpha_\txtR' e^{I\phi} }.
+\end{dmath}
+
+Like \cref{eqn:polarization:200} this plane wave representation does not require taking any real parts.  The transverse plane in which the electric and magnetic fields lie is defined by the duality relation \( i = I \Be_3 \).
 
 \subsection{Problems.}
 
@@ -188,3 +231,14 @@ show that the circular state coefficients have the following relationship to the
 and use this to prove \cref{eqn:polarization:260}.
 } % problem
 
+\makeproblem{Pseudoscalar Jones vector.}{problem:polarization:2}{
+With the Jones vector defined in terms of the \R{3} pseudoscalar
+\begin{equation*}
+\begin{aligned}
+c_1 &= \alpha_1 + I \beta_1 \\
+c_2 &= \alpha_2 + I \beta_2,
+\end{aligned}
+\end{equation*}
+calculate the values \( \alpha_\txtL', \alpha_\txtR' \) of \cref{eqn:polarization:480} in terms of this Jones vector.
+} % problem
+%}

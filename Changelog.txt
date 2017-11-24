@@ -1,6 +1,9 @@
-November XX, 2017
+November 23, 2017
 
    - typo in lorentz force eqn prove.
+   - New: polarization.  Show how a plane wave can be represented geometrically without any requirement to take real parts.
+     This includes two representations, one using the bivector for the transverse plane as the "imaginary" and another using the
+     R^3 pseudoscalar.  Expressions for linear, circular, and elliptical polarization are derived.
 
 November 22, 2017
 
