@@ -1,16 +1,3 @@
-- merge in appropriate parts of:
-
-   working/ellipticalWavesPhasor.tex
-
-   - figures in polarization.tex
-
-      Text looks too small.
-      Want circular arcs to indicate the angles.
-
-   => what's left.  Pure pseudoscalar form.
-
-      (section: Electromagnetic plane wave... rework completely based on GAFP treatment.)
-
 - poyntingFComplexPower.tex
 
    placeholder (embedded in maxwells.tex).
@@ -30,12 +17,6 @@
    Infinitesimal loop integral.
    Sum of infinitesimal loops
    Three parameter volume element
-
-- figure out how to express
-
-   - Lorentz force
-
-   in terms of F instead of E,H.
 
 - superfluous use of:
 
@@ -90,8 +71,6 @@
    Bold vectors for Green's function.  Perhaps rework to be less general (assuming Euclidean).
 
 - summation convention: any left?
-
-- add frequency domain representation of Poynting theorem
 
 - Review the whole doc for the use of \Abs instead of \Norm (believe that all the .tex files in this directory are now converted)
 
