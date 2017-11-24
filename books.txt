@@ -95,7 +95,7 @@ Leo Dorst, Chris Doran, Joan Lasenby (eds.)
 
 Engineering & Comp. Sci. Stacks QA76.9 .M35 A658 2002X
 
-clifford algebras and spinors
+
 
 ================
 
