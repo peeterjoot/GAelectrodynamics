@@ -38,6 +38,12 @@ F = (1 + \kcap) \BE_0 e^{-j \Bk \cdot \Bx},
 
 where \( \BE_0 \) is a vector valued complex constant, and \( \kcap \cdot \BE_0 = 0 \).
 The dot product constraint follows from the requirement that the \( I \BH \propto \kcap \BE_0 \) portion of the electromagnetic field is a bivector.
+The time domain representation of the field is
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:460}
+F = (1 + \kcap) \Real{ \BE_0 e^{-j \Bk \cdot \Bx} },
+\end{dmath}
+but we will see later
+instead of using a scalar imaginary \( j \), it is possible to use either the unit bivector for the transverse plane or the \R{3} unit pseudoscalar as the imaginary, and that a plane wave of any polarization can be encoded without any requirement to take real parts.
 
 From \cref{eqn:frequencydomainCore:200} the interdependence of the electric and magnetic field portions of the field can be read off immediately.
 Those are
@@ -45,7 +51,7 @@ Those are
 \begin{subequations}
 \label{eqn:frequencydomainCore:220}
 \begin{dmath}\label{eqn:frequencydomainCore:221}
-\BE = \BE_0 e^{-j \Bk \cdot \Bx} 
+\BE = \BE_0 e^{-j \Bk \cdot \Bx}
 \end{dmath}
 \begin{dmath}\label{eqn:frequencydomainCore:222}
 I \BH = \inv{\eta} \kcap \BE_0 e^{-j \Bk \cdot \Bx},
