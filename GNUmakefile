@@ -58,13 +58,16 @@ maxwells.pdf :: multivector.tex
 
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
+VER := $(shell grep Version .revinfo/lastCommitBook.tex | sed 's/Version //')
+
 .PHONY: spellcheck
 spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
 
 # enable doublespace before making:
 dropbox:
-	cp GAelectrodynamics.pdf Changelog.txt ~/Dropbox/ECE2500Y/
-	cp maxwells.pdf ~/Dropbox/ECE2500Y/multivector.pdf
+	cp GAelectrodynamics.pdf ~/Dropbox/ECE2500Y/GAelectrodynamics.V$(VER).pdf
+	cp Changelog.txt ~/Dropbox/ECE2500Y/
+	#cp maxwells.pdf ~/Dropbox/ECE2500Y/multivector.pdf
 
 %.sp : %.tex
 	spellcheck $^
