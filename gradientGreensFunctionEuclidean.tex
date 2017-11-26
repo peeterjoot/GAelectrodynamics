@@ -179,22 +179,22 @@ The RHS is zero everywhere that \( \Bx \ne \Bx' \) so it can be restricted to a 
 \int_{\Norm{\Bx - \Bx'} < \epsilon} \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'} F(\Bx')
 =
 \lr{ \lim_{\epsilon \rightarrow 0}
-\lr{ 
+\lr{
 \int_{\Norm{\Bx - \Bx'} < \epsilon} \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'}
 F(\overbar{\Bx})
 }
-} 
-\rightarrow 
+}
+\rightarrow
 \lr{ \lim_{\epsilon \rightarrow 0}
-\lr{ 
+\lr{
 \int_{\Norm{\Bx - \Bx'} < \epsilon} \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'}
 }
-} 
+}
 F(\Bx)
 \end{dmath}
 
 where it was assumed that \( G \) has sufficient continuity for the mean value theorem to allow for a point \( \overbar{\Bx} \) in this infinitesimal hyperspherical region to be selected.
-With an additional assumption that \( F \) is sufficiently well behaved in this region to be pulled out of the limit, 
+With an additional assumption that \( F \) is sufficiently well behaved in this region to be pulled out of the limit,
 the Fundamental theorem can be applied over the infinitesimal hypersphere centred on \( \Bx \)
 
 \begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:400}
@@ -237,13 +237,13 @@ Rearranging for \( F \) provides the desired result
 %This is essentially a divergence integral without assuming that the gradient commutes with the Green's function in this infinitesimal region.
 
 \begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:280}
-F(\Bx) 
-= 
+F(\Bx)
+=
 (-1)^{n-1} \inv{I}
 \int_V G(\Bx,\Bx') \lr{ \spacegrad' d^n \Bx' F(\Bx') }
-= 
+=
 \int_V dV' G(\Bx,\Bx') \lr{ \spacegrad' F(\Bx') }
-= 
+=
 \int_V dV' G(\Bx,\Bx') M(\Bx').
 \end{dmath}
 

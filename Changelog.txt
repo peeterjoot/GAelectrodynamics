@@ -1,6 +1,13 @@
+November XX, 2017
+
+   - have moved the definition of blade to the point where reverse is defined as we want the equation for the reverse of a blade,
+     and that isn't generally true for a k-vector.
+   - also went through all the introductory (pre-calculus) portions of the text and replace many instances of blade with wedge product or bivector,
+     or something more specific to the topic at hand.
+
 November 23, 2017
 
-   - typo in lorentz force eqn prove.
+   - typo in Lorentz force eqn prove.
    - New: polarization.  Show how a plane wave can be represented geometrically without any requirement to take real parts.
      This includes two representations, one using the bivector for the transverse plane as the "imaginary" and another using the
      R^3 pseudoscalar.  Expressions for linear, circular, and elliptical polarization are derived.
