@@ -14,7 +14,7 @@ vector-like objects, allowing them to be treated in a unified fashion, regardles
 
 \index{vector space}
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
-A (real) vector space is a set \( V \), the elements of which are called vectors, has an addition operation designated \( + \) and a scalar multiplication operation designated by juxtaposition, where the following axioms are satisfied
+A (real) vector space is a set \( V = \setlr{\Bx, \By, \Bz, \cdots} \), the elements of which are called vectors, which has an addition operation designated \( + \) and a scalar multiplication operation designated by juxtaposition, where the following axioms are satisfied
 for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \)
 
 \begin{tcolorbox}[tab2,tabularx={X|Y},title=Vector space axioms.,boxrule=0.5pt]
@@ -22,14 +22,21 @@ for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \)
     (Scalar) multiplication is closed. & \( a \Bx \in V \) \\ \hline
     Addition is associative. & \( (\Bx + \By) + \Bz = \Bx + (\By + \Bz) \) \\ \hline
     Addition is commutative. & \( \By + \Bx = \Bx + \By \) \\ \hline
-    There exists a zero element \( 0 \in V \).  & \( \Bx + 0 = \Bx \) \\ \hline
-    For any \( \Bx \in V \) there exists a negative additive inverse \( -\Bx \in V \). & \( \Bx + (-\Bx) = 0 \) \\ \hline
+    There exists a zero element \( \Bzero \in V \).  & \( \Bx + \Bzero = \Bx \) \\ \hline
+    For any \( \Bx \in V \) there exists a negative additive inverse \( -\Bx \in V \). & \( \Bx + (-\Bx) = \Bzero \) \\ \hline
     (Scalar) multiplication is distributive.  & \( a( \Bx + \By ) = a \Bx + a \By \), \( (a + b)\Bx = a \Bx + b\Bx \) \\ \hline
     (Scalar) multiplication is associative. & \( (a b) \Bx = a ( b \Bx ) \) \\ \hline
     There exists a multiplicative identity \( 1 \). & \( 1 \Bx = \Bx \) \\ \hline
 \end{tcolorbox}
 }
 
+% Fixme:
+% Mo found this section confusing, because he can imagine places (like Fourier, spherical harmonics, ...)
+% where we'd want to mix GA with infinite dimensional vector spaces.  Another example is my use of 
+% complex valued "phasors" in the plane wave and polarization section.
+%
+% Perhaps rework along the following lines:
+%Some problems have been set below with some examples of vector spaces....
 Despite the generality of this definition, the vector spaces used in GA are fairly restricted.
 In particular, electrodynamic applications of GA require only two, three or four dimensional real vector spaces.
 No vector spaces with matrix, polynomial, or complex tuple elements will be required, nor will any 
@@ -51,3 +58,7 @@ is defined as
 \( \By = (y_1, y_2, \cdots) \in \bbR^N \), and
 \( a \in \bbR \).
 } % problem
+
+\makeproblem{}{problem:prereq_vectorspace:n}{
+} % problem
+

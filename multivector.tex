@@ -2,26 +2,95 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-%The first lesson that must be learned in the study in GA, is to unlearn claims
-%%\footnote{I heard such claims from high school math and physics teachers.}
-%that vectors cannot be multiplied.
-%Instead we start by assuming that a multiplication operation between any number of vectors can be defined,
-%and that sums, called multivectors, of scalars, vectors, and any products of vectors are also well defined.
-%These rules are formalized in the definition of a multivector space.
-Geometric algebra is founded on the assumption that vectors can be multiplied, and that sums of scalars, vectors, and vector products, called multivectors, are well defined.
-Multivector addition and multiplication conforms to most of the rules that anybody would be expect of number like quantities, with a couple exceptions:
-order that multivectors are multiplied matters, and there is also no general multiplicative inverse.
-Multivector multiplication is also constrained by a rule that provides meaning for the square of a vector.
-The formal statement of the algebra is that of the multivector space.
+%{
+Geometric algebra takes a vector space and adds two additional operations, a vector multiplication operation, and a generalized addition operation that extends vector addition to include addition of scalars and products of vectors.
+Multiplication of vectors is indicated by juxtaposition, for example, if \( \Bx, \By, \Be_1, \Be_2, \Be_3, \cdots \) are vectors, then some vector products are
 
+\begin{dmath}\label{eqn:multivector:20}
+\begin{aligned}
+&\Bx \By, \Bx \By \Bx, \Bx \By \Bx \By, \\
+&\Be_1 \Be_2, \Be_2 \Be_1, \Be_2 \Be_3, \Be_3 \Be_2, \Be_3 \Be_1, \Be_1 \Be_3, \\
+&\Be_1 \Be_2 \Be_3, \Be_3 \Be_1 \Be_2, \Be_2 \Be_3 \Be_1, \Be_3 \Be_2 \Be_1, \Be_2 \Be_1 \Be_3, \Be_1 \Be_3 \Be_2, \\
+&\Be_1 \Be_2 \Be_3 \Be_1, \Be_1 \Be_2 \Be_3 \Be_1 \Be_3 \Be_2, \cdots
+\end{aligned}
+\end{dmath}
+
+Vector multiplication is constrained by a rule, the contraction axiom, which specifies that the square of vector is the squared length of that vector (i.e. a scalar).
+
+In a sum of scalars, vectors, and vector products, such as
+\begin{dmath}\label{eqn:multivector:40}
+1 + 2 \Be_1 + 3 \Be_1 \Be_2 + 4 \Be_1 \Be_2 \Be_3,
+\end{dmath}
+\( \Be_1 \Be_2 \) is called a bivector, \( \Be_1 \Be_2 \Be_3 \) is called a trivector, and the sum itself is a multivector.
+
+Put more formally
+
+\index{bivector}
+\index{2-vector}
+\makedefinition{Bivector.}{dfn:multivector:60}{
+A bivector, or 2-vector, is a sum of products of pairs of normal vectors.
+Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
+a general bivector can be expressed as
+\begin{equation*}
+\sum_{1 \le i \ne j \le N} B_{ij} \Be_i \Be_j,
+\end{equation*}
+where \( B_{ij} \) is a scalar.
+} % definition
+
+Just as vectors can represent line segments with direction and magnitude, a bivector can represent an plane segment with an orientation (both the orientation of the plane in space, and a sidedness) and magnitude.
+Fixme: pictures.
+We will see that the products of normal vectors, like \( \Be_1 \Be_2 \) anticommute\footnote{Quantities that anticommute are unchanged if both the order and the sign are toggled.},
+for example \( \Be_2 \Be_1 = -\Be_1 \Be_2 \).
+This means that many of the products in \cref{eqn:multivector:20} are not independent, and that the definition of a bivector could be a more restrictive sum, such as \( \sum_{1 \le i < j \le N} b_{ij} \Be_i \Be_j \), where \( b_{ij} \) is an antisymmetric
+\footnote{An indexed quantity such as \( b_{ij} \) is antisymmetric if toggling the order of indexes changes the sign, that is \( b_{ji} = -b_{ij} \).}
+scalar.
+
+\index{trivector}
+\index{3-vector}
+\makedefinition{Trivector.}{dfn:multivector:80}{
+A trivector, or 3-vector, is a sum of products of triplets of mutually normal vectors.
+Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
+a general trivector can be expressed as
+\begin{equation*}
+\sum_{1 \le i \ne j \ne k \le N} T_{ijk} \Be_i \Be_j \Be_k,
+\end{equation*}
+where \( \T_{ijk} \) is a scalar.
+} % definition
+
+A trivector can represent an oriented volume segment.
+In a three dimensional space, this orientation describes a ``sidedness'' of the volume, perhaps represented with an outwards or inwards facing normal, or with an oriented cyclic direction on the surface.
+In greater than three dimensions, a trivector can have a ``direction'' in the higher dimensional space, as well as a sidedness.
+As was the case with the bivector, because not all the products \( \Be_i \Be_j \Be_k \) for any set of indexes \( i, j, k \) are independent, it is possible to form a trivector as a sum over a more restricted set, such as \( \sum_{1 \le i < j < k \le N} T_{ijk} \Be_i \Be_j \Be_k \).
+In particular, in three dimensions, all trivectors can be expressed as scalar multiples of \( \Be_1 \Be_2 \Be_3 \).
+
+\index{k-vector}
+\index{grade}
+\makedefinition{K-vector and grade.}{dfn:multivector:100}{
+A k-vector is a sum of products of \( k \) mutually normal vectors.
+Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
+a general k-vector can be expressed as
+\begin{equation*}
+\sum_{1 \le i_1 \ne i_2 \cdots \ne i_k \le N} K_{i_1 i_2 \cdots i_k} \Be_{i_1} \Be_{i_2} \cdots \Be_{i_k},
+\end{equation*}
+where \( K_{i_1 i_2 \cdots i_k} \) is a scalar.
+
+The number \( k \) of normal vectors that generate a k-vector is called the grade.
+
+A 1-vector is defined as a vector, and a 0-vector is defined as a scalar.
+} % definition
+
+We will see that the highest grade for a k-vector in an N dimensional vector space is \( N \).
+
+\index{multivector}
 \index{multivector space}
 \makedefinition{Multivector space.}{def:multiplication:multivectorspace}{
-   Given a (generating) vector space \( V \) with a basis \( \setlr{ \Bx_1, \Bx_2, \cdots } \), a multivector is any sum
+   Given an N dimensional (generating) vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
+%a basis \( \setlr{ \Bx_1, \Bx_2, \cdots } \), 
+and a vector multiplication operation represented by juxtaposition,
+a multivector is a sum of k-vectors, \( k \in [ 1, N ] \), such as
+   \( a_0 + \sum_i a_i \Be_i + \sum_{i \ne j} a_{ij} \Be_i \Be_j + \sum_{i \ne j \ne k} a_{ijk} \Be_i \Be_j \Be_k + \cdots \), where \( a_0, a_i, a_{ij}, \cdots \) are scalars.
 
-   \( a_0 + \sum_i a_i \Bx_i + \sum_{ij} a_{ij} \Bx_i \Bx_j + \sum_{ijk} a_{ijk} \Bx_i \Bx_j \Bx_k + \cdots \), where \( a_0, a_i, a_{ij}, \cdots \) are scalars,
-and vector multiplication is represented by juxtaposition.
-
-   A multivector space is a set \( M = \setlr{ x, y, z, \cdots } \) of multivectors, where the following axioms are satisfied
+A multivector space is a set \( M = \setlr{ x, y, z, \cdots } \) of multivectors, where the following axioms are satisfied
 
 \begin{tcolorbox}[tab2,tabularx={X|Y},title=Multivector space axioms.,boxrule=0.5pt]
     Contraction. & \( \Bx^2 = \Bx \cdot \Bx, \,\forall \Bx \in V \) \\ \hline
@@ -59,3 +128,4 @@ However, a field also requires a multiplicative inverse element for all elements
 %The subject of Geometric Algebra can be viewed as the study of the impliciations of the axioms
 %of the multivector space.
 
+%}

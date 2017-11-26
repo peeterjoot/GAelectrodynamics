@@ -3,7 +3,7 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 
-In general the product of two blades is a multivector, with a selection of different grades.
+In general the product of two k-vectors is a multivector, with a selection of different grades.
 For example, the product of two bivectors may have grades 0, 2, or 4
 
 \begin{dmath}\label{eqn:generalizedDot:601}
@@ -69,10 +69,10 @@ A bivector formed from the product of two normal vectors \( B = \Ba \Bb, \, \Ba 
 \end{dmath}
 
 There is a direct relationship between the
-dot product of a vector and a 2-blade (i.e. wedge of two vectors) that has a familiar equivalent in \R{3} vector algebra result.
+dot product of a vector and wedge of two vectors with a familiar equivalent in \R{3} vector algebra.
 That expansion is
 
-\maketheorem{Dot product of vector and 2-blade.}{thm:generalizedDot:wedgeDotDistribution}{
+\maketheorem{Dot product of vector and wedge product.}{thm:generalizedDot:wedgeDotDistribution}{
 The dot product of a vector and a wedge product of two vectors distributes as
 \begin{equation*}
 \Ba \cdot \lr{ \Bb \wedge \Bc }
@@ -188,10 +188,10 @@ This multivector has a pseudoscalar (grade 3) component, and a vector component,
 \subsubsection{Bivector dot product.}
 
 Being able to compute the generalized dot product of two bivectors will also have a number of applications.
-When those bivectors are 2-blades, there is a useful distribution identity for this dot product.
+When those bivectors are wedge products, there is a useful distribution identity for this dot product.
 
-\maketheorem{2-blade dot product distribution.}{thm:generalizedDot:bivectorDot}{
-Given two 2-blades \( \Ba \wedge \Bb \), and \( \Bc \wedge \Bd \), the dot products of these blades is
+\maketheorem{Dot product distribution over wedge products.}{thm:generalizedDot:bivectorDot}{
+Given two sets of wedge products \( \Ba \wedge \Bb \), and \( \Bc \wedge \Bd \), their dot product is
 \begin{equation*}
 (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
 =
@@ -248,8 +248,8 @@ To complete the proof, we apply \cref{thm:generalizedDot:wedgeDotDistribution}
 
 In \R{3} this identity also has a cross product equivalent
 
-\maketheorem{2-blade dot product as cross products.}{thm:generalizedDot:bivectorDotAsCrossProducts}{
-The dot product of two \R{3} 2-blades can be expressed as cross products
+\maketheorem{Dot products of wedges as cross products.}{thm:generalizedDot:bivectorDotAsCrossProducts}{
+The dot product of two \R{3} wedge products can be expressed as cross products
 \begin{equation*}
 (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
 =

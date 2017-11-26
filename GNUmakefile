@@ -50,6 +50,7 @@ maxwells.pdf :: maxwellsEquations.tex
 #maxwells.pdf :: poyntingF.tex
 maxwells.pdf :: poyntingFComplexPower.tex
 #maxwells.pdf :: inMatter.tex
+maxwells.pdf :: multivector.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 #maxwells.pdf :: frequencydomainPlaneWaves.tex
 
@@ -63,6 +64,7 @@ spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CH
 # enable doublespace before making:
 dropbox:
 	cp GAelectrodynamics.pdf Changelog.txt ~/Dropbox/ECE2500Y/
+	cp maxwells.pdf ~/Dropbox/ECE2500Y/multivector.pdf
 
 %.sp : %.tex
 	spellcheck $^

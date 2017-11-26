@@ -92,8 +92,8 @@
 #../latex/bin/lgrep multiplication.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl multiplication.tex
 
-#../latex/bin/lgrep multivector.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl multivector.tex
+../latex/bin/lgrep multivector.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl multivector.tex
 
 #../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex

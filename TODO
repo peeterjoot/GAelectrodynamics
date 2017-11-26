@@ -1,3 +1,9 @@
+- have removed the definition of blade to: old_kvector_and_blade.tex
+
+  will have to reintroduce at an appropriate place.
+
+  Also need to go through all the text, looking for blade and see where it can be replaced by k-vector.
+
 - poyntingFComplexPower.tex
 
    placeholder (embedded in maxwells.tex).
