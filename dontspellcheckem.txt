@@ -1,0 +1,12 @@
+GAelectrodynamics.tex
+appendixchapters.tex
+backmatter.tex
+boundary.tex
+chapters.tex
+classicthesis-config.tex
+currentBookCopyright.tex
+ellipticalWaves.tex
+greens.tex
+junk.tex
+maxwells.tex
+maxwellsEquations.tex
