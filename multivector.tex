@@ -21,12 +21,40 @@ In a sum of scalars, vectors, and vector products, such as
 \begin{dmath}\label{eqn:multivector:40}
 1 + 2 \Be_1 + 3 \Be_1 \Be_2 + 4 \Be_1 \Be_2 \Be_3,
 \end{dmath}
-\( \Be_1 \Be_2 \) is called a bivector, \( \Be_1 \Be_2 \Be_3 \) is called a trivector, and the sum itself is a multivector.
+the value \( 1 \) is a scalar (or 0-vector), \( 2 \Be_1 \) is a vector (or 1-vector),
+\( 3 \Be_1 \Be_2 \) is called a bivector (or 2-vector), \( 4 \Be_1 \Be_2 \Be_3 \) is called a trivector (or 3-vector), and the sum itself is called a multivector.
+Geometric algebra uses vector multiplication to build up a hierarchy of geometrical objects, representing oriented points, lines, planes, volumes and in higher dimensional spaces oriented hypervolumes.
 
-Put more formally
+\index{scalar}
+\index{0-vector}
+\paragraph{Scalar.}
+A scalar (or 0-vector) can be represented graphically as an arrow with a head and a tail pointing into the paper (or chalkboard.)
+The sign of a scalar, represented by a ``head'' or ``tail'' can be thought of as an orientation, as illustrated in
+\cref{fig:scalarOrientation:scalarOrientationFig1} with a crossed circle for the tail, and a solid dot as the head.
+The magnitude of this scalar could be represented by the size of the head or tail symbol, or perhaps just by putting a number beside the symbol.
+\imageFigure{../figures/GAelectrodynamics/scalarOrientationFig1}{Scalar orientation.}{fig:scalarOrientation:scalarOrientationFig1}{0.05}
+
+\index{vector}
+\index{1-vector}
+\paragraph{Vector.}
+A vector can be prepresented graphically as an arrow with a head and a tail, as illustrated in
+\cref{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}.  Here the orientation has two aspects, one is the direction in space of the vector, and the other is the relative placement of the head vs. tail of the vector, which is toggled by changing the sign of the vector.
+\imageFigure{../figures/GAelectrodynamics/VectorsWithOppositeOrientationFig1}{Vector orientation.}{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}{0.3}
+Graphically we can add vectors by connecting them head to tail, and connecting the end points, as illustrated in
+\cref{fig:vectorAddition:vectorAdditionFig1}.
+\imageFigure{../figures/GAelectrodynamics/vectorAdditionFig1}{Graphical vector addition.}{fig:vectorAddition:vectorAdditionFig1}{0.3}
 
 \index{bivector}
 \index{2-vector}
+\paragraph{bivector}
+
+\index{trivector}
+\index{3-vector}
+\paragraph{trivector}
+
+
+\paragraph{More formally.}
+
 \makedefinition{Bivector.}{dfn:multivector:60}{
 A bivector, or 2-vector, is a sum of products of pairs of normal vectors.
 Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),

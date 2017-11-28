@@ -1,5 +1,9 @@
 November XX, 2017
 
+   - multivector.tex: Add figures to illustrate oriented points, and vectors (TODO: bivectors and trivectors ; and adjust text that follows the definitions of bivector/trivector).
+
+November 26, 2017
+
    - have moved the definition of blade to the point where reverse is defined as we want the equation for the reverse of a blade,
      and that isn't generally true for a k-vector.
    - also went through all the introductory (pre-calculus) portions of the text and replace many instances of blade with wedge product or bivector,
