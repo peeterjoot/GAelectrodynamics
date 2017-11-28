@@ -1,6 +1,8 @@
 November XX, 2017
 
-   - multivector.tex: Add figures to illustrate oriented points, and vectors (TODO: bivectors and trivectors ; and adjust text that follows the definitions of bivector/trivector).
+   - multivector.tex:
+      - Add figures to illustrate oriented points, vectors, bivectors and trivectors.
+      - TODO: 3d bivector orientation with cycles.  bivector addition figure.
 
 November 26, 2017
 
