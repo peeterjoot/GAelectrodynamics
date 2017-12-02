@@ -33,7 +33,7 @@ With
 \end{aligned}
 \end{dmath}
 
-so the desired equation to solve is
+the desired equation to solve is
 
 \begin{dmath}\label{eqn:SimpleProducts2:1060}
 \Bd + s \Bu_1 = t \Bu_2.
@@ -59,5 +59,99 @@ t &= \frac{\Bu_1 \wedge \Bd}{\Bu_1 \wedge \Bu_2}.
 \end{aligned}
 \end{dmath}
 
-For \R{2},
-where the wedge product can be expressed as a (unit bivector scaled) determinant, this is precisely the Cramer's rule solution of the equivalent matrix equation.
+In
+\R{2}
+with
+\begin{dmath}\label{eqn:solutionOfLinearSystem:1120}
+\begin{aligned}
+\Bu_1 &= u_{11} \Be_1 + u_{12} \Be_2 \\
+\Bu_2 &= u_{21} \Be_1 + u_{22} \Be_2 \\
+\Bd &= d_{1} \Be_1 + d_{2} \Be_2,
+\end{aligned}
+\end{dmath}
+
+the wedge products in \cref{eqn:SimpleProducts2:1100}
+can be expressed explicitly as a (unit bivector scaled) determinants
+
+\begin{equation}\label{eqn:solutionOfLinearSystem:1140}
+%\begin{aligned}
+s =
+\frac{
+\begin{vmatrix}
+u_{21} & u_{22} \\
+d_1 & d_2
+\end{vmatrix}
+\Be_{12}
+}
+{
+\begin{vmatrix}
+u_{11} & u_{12} \\
+u_{21} & u_{22} \\
+\end{vmatrix}
+\Be_{12}
+}
+%=
+%\frac{
+%\begin{vmatrix}
+%u_{21} & u_{22} \\
+%d_1 & d_2
+%\end{vmatrix}
+%}
+%{
+%\begin{vmatrix}
+%u_{11} & u_{12} \\
+%u_{21} & u_{22} \\
+%\end{vmatrix}
+%}
+\qquad
+t =
+\frac{
+\begin{vmatrix}
+u_{11} & u_{12} \\
+d_1 & d_2
+\end{vmatrix}
+\Be_{12}
+}
+{
+\begin{vmatrix}
+u_{11} & u_{12} \\
+u_{21} & u_{22} \\
+\end{vmatrix}
+\Be_{12}
+}
+%=
+%\frac{
+%\begin{vmatrix}
+%u_{11} & u_{12} \\
+%d_1 & d_2
+%\end{vmatrix}
+%}
+%{
+%\begin{vmatrix}
+%u_{11} & u_{12} \\
+%u_{21} & u_{22} \\
+%\end{vmatrix}
+%}
+.
+%\end{aligned}
+\end{equation}
+
+Once the unit bivectors \( \Be_{12} \) are cancelled \cref{eqn:solutionOfLinearSystem:1140} is the Cramer's rule solution of the problem.  Cramer's rule is seen to follow directly from the use of the wedge product to eliminate factors that are not of interest.
+In a similar way, the use of the wedge product for a 3D intersection problem with three variables, will lead directly to the Cramer's rule solution.
+
+\makeproblem{Intersection of a line and plane.}{problem:solutionOfLinearSystem:1}{
+Let a line be parameterized by
+\begin{equation*}
+\Br(a) = \Bp + a \Ba,
+\end{equation*}
+and a plane be parameterized by
+\begin{equation*}
+\Br(b,c) = \Bq + b \Bb + c \Bc.
+\end{equation*}
+\makesubproblem{}{problem:solutionOfLinearSystem:1:a}
+State the vector equation to be solved, and its solution for \( a \) in terms of a ratio of wedge products.
+\makesubproblem{}{problem:solutionOfLinearSystem:1:b}
+State the conditions for which the solution exist in \R{3} and \R{N}.
+\makesubproblem{}{problem:solutionOfLinearSystem:1:c}
+In terms of coordinates in \R{3} write out the ratio of wedge products as determinants and compare to the Cramer's rule solution.
+} % problem

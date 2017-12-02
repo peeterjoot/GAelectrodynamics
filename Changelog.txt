@@ -1,3 +1,9 @@
+December 2, 2017
+
+   - spell out exactly how the wedge product ratio found when solving a linear system is exactly equivalent to Cramer's rule for a 2D system.
+   - add a problem that demonstrates the same Cramer's rule solution form for the intersection of a line and a plane in 3D.
+   - rewrite the complex energy+power content based on F F^\dagger instead of E,B,D,H (but show how the expressions in terms of the latter expressions can be found from the latter).
+
 November 28, 2017       GAelectrodynamics.V0.241.pdf
 
    - Add figures to illustrate oriented points, areas, volumes, and graphical bivector addition (with comparison to vector addition)
