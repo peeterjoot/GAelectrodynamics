@@ -1,4 +1,4 @@
-December 2, 2017
+December 2, 2017        GAelectrodynamics.V0.243.pdf
 
    - spell out exactly how the wedge product ratio found when solving a linear system is exactly equivalent to Cramer's rule for a 2D system.
    - add a problem that demonstrates the same Cramer's rule solution form for the intersection of a line and a plane in 3D.
