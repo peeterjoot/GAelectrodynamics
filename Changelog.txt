@@ -1,3 +1,9 @@
+December X, 2017        GAelectrodynamics.V0.XXX.pdf
+
+   - Energy momentum multivector for linear polarization (and similar functional phase
+     dependence), and for the elliptical polarized field.
+   - 
+
 December 2, 2017        GAelectrodynamics.V0.243.pdf
 
    - spell out exactly how the wedge product ratio found when solving a linear system is exactly equivalent to Cramer's rule for a 2D system.

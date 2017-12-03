@@ -52,7 +52,13 @@ F(\Bx, t) = (1 + \Be_3) \lr{
 Linear, circular, and elliptical polarization patterns can be obtained by selecting specific values of the Jones vector, or equivalently by selecting specific values for the \( \alpha_1, \alpha_2, \beta_1, \beta_2 \) constants in the time domain representation of \cref{eqn:polarization:160}.
 In particular,
 a field for which the
-change in phase \( \phi = \omega t - \beta z \) results in the electric field tracing out a (clockwise,counterclockwise) circle
+change in phase
+
+\begin{dmath}\label{eqn:polarization:520}
+\phi = \omega t - \beta z
+\end{dmath}
+
+results in the electric field tracing out a (clockwise,counterclockwise) circle
 
 \begin{dmath}\label{eqn:polarization:180}
 \begin{aligned}
@@ -114,8 +120,53 @@ F = \lr{ 1 + \Be_3 } \Abs{\BE} \Be_1 e^{i\psi} \cos( \omega t - \beta z + \theta
 where \( \theta \) is an arbitrary initial phase.  The electric field \( \BE \) traces out all the points along the line spanning the points between \( \pm \Be_1 e^{i\psi} \Abs{\BE} \), whereas the magnetic field \( \BH \) traces
 out all the points along \( \pm \Be_2 e^{i\psi} \Abs{\BE}/\eta \) as illustrated (with \( \eta = 1 \)) in
 \cref{fig:linearPolarization:linearPolarizationFig1}.
-
 \imageFigure{../figures/GAelectrodynamics/linearPolarizationFig1}{Linear polarization.}{fig:linearPolarization:linearPolarizationFig1}{0.3}
+
+\subsection{Other phase dependence and energy momentum.}
+
+The linear polarization of \cref{eqn:polarization:300} can be generalized from sinosoidal functions of the phase angle \cref{eqn:polarization:520}, to arbitrary functions, as in
+
+\begin{dmath}\label{eqn:polarization:540}
+F = \lr{ 1 + \Be_3 } \Abs{\BE} \Be_1 e^{i\psi} f(\phi).
+\end{dmath}
+
+For example, \( f(\phi) = e^{i\phi} \) would result in a circularly polarized state, and
+a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).
+
+If the phase dependence of \cref{eqn:polarization:540} is a scalar function, then
+the energy momentum multivector for the field can be calculated simply
+
+\begin{dmath}\label{eqn:polarization:560}
+\calE + \frac{\BS}{v}
+=
+\inv{2} \epsilon
+F F^\dagger
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 } \Abs{\BE}^2 \Be_1 \cancel{e^{i\psi}} f^2(\phi)
+\cancel{e^{-i\psi} }
+\Be_1
+\lr{ 1 + \Be_3 }
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 } \Abs{\BE}^2 \cancel{\Be_1} f^2(\phi)
+\cancel{\Be_1 }
+\lr{ 1 + \Be_3 }
+=
+\epsilon \lr{ 1 + \Be_3 } \Abs{\BE}^2 f^2(\phi),
+\end{dmath}
+
+where the projective property \( \lr{ 1 + \Be_3 }^2 = 2 \lr{ 1 + \Be_3 } \) was used in the final simplification.
+The energy, and Poynting vectors are
+\begin{dmath}\label{eqn:polarization:580}
+\begin{aligned}
+\calE &= \epsilon \Abs{\BE}^2 f^2(\phi) \\
+\BS &= \inv{\eta} \Be_3 \Abs{\BE}^2 f^2(\phi).
+\end{aligned}
+\end{dmath}
+% v epsilon = sqrt( epsilon^2/ (epsilon mu) ) = 1/eta
+
+More care for this calculation is required if the phase function \( f(\phi) \) is multivector valued, since it may not commute with the \( \Be_1 \) and \( e^{i\psi} \) factors of \( F \).
 
 \subsection{Elliptical parameterization.}
 
@@ -170,6 +221,35 @@ where \( E_a(E_b) \) are the magnitudes of the electric field components lying a
 An elliptic electric field polarization is illustrated in \cref{fig:ellipticalPolarization:ellipticalPolarizationFig1}, where the vectors representing the major and minor axes are \( \BE_a = E_a \Be_1 e^{i\psi}, \BE_b = E_b \Be_1 e^{i\psi} \).
 Observe that setting \( E_b = 0 \) results in the linearly polarized field of \cref{eqn:polarization:300}.
 \imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
+
+Following the procedure of \cref{eqn:polarization:560}, the energy-momentum of an elliptically polarized field is
+\begin{dmath}\label{eqn:polarization:600}
+\calE + \frac{\BS}{v}
+=
+\inv{2} \epsilon
+F F^\dagger
+=
+\inv{2} \epsilon
+e^2 E_a^2 \lr{ 1 + \Be_3 } \Be_1 \cancel{e^{ i \psi }} \cosh\lr{ m + i \phi}
+\cosh\lr{ m - i \phi}
+\cancel{e^{ -i \psi } }
+\Be_1
+\lr{ 1 + \Be_3 }
+=
+\inv{2} \epsilon
+e^2 E_a^2 \lr{ 1 + \Be_3 }
+\lr{ \cosh(2m) + \cos(2 \phi) }
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 }
+\lr{ E_b^2 + 2 \lr{
+E_a^2 - E_b^2
+ } \cos^2 \phi }
+.
+\end{dmath}
+%
+% $Assumptions = b > 0 && b < 1 && a > 0 && a > b;
+% (1 - (b/a)^2) Cosh[2 ArcTanh[b/a]] // FullSimplify
 
 \subsection{Pseudoscalar imaginary.}
 

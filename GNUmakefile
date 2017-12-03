@@ -45,7 +45,7 @@ include ../latex/make.rules
 #maxwells.pdf : planewaves.tex
 #maxwells.pdf :: lorentzForce.tex
 #maxwells.pdf :: isotropicMaxwells.tex
-#maxwells.pdf :: polarization.tex
+maxwells.pdf :: polarization.tex
 #maxwells.pdf :: maxwellsEquations.tex
 #maxwells.pdf :: poyntingF.tex
 #maxwells.pdf :: poyntingFComplexPower.tex
