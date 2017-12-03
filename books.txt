@@ -1,34 +1,16 @@
 TODO: Think that Mauro also had a cache of GA related ebooks in his dropbox folder.
 
-*)
-
-Clifford algebra to geometric calculus : a unified language for mathematics and physics /
-by David Hestenes and Garret Sobczyk.
-Gerstein Science 
-QA199 .H47 1984
+================
+UofT library books that I didn't borrow.
 
 *)
 
-Guide to geometric algebra in practice [electronic resource] /
-Leo Dorst, Joan Lasenby, editors.
-London ; New York : Springer, c2011.
-Book
+Geometric computing with Clifford algebra : theoretical foundations and applications in computer vision and robotics /
+Gerald Sommer (ed.).
+Berlin ; New York : Springer, c2001.
+Mathematical Sciences Stacks QA199 .G46 2001X
 
-
-*)
-
-Geometric algebra with applications in science and engineering /
-Eduardo Bayro Corrochano, Garret Sobczyk, editors.
-Boston : Birkhäuser, c2001.
-Mathematical Sciences 
-QA564 .G463 2001X
-
-*)
-
-Lectures on Clifford geometric algebras and applications /
-Rafał Abłamowicz, Garret Sobczyk, editors.
-Mathematical Sciences 
-QA199 .L43 2004X
+   -- N/A.
 
 *)
 
@@ -38,12 +20,7 @@ Boston : Birkhauser, c2002.
 Engineering & Comp. Sci. 
 QA76.9 .M35 A658 2002X
 
-*)
-
-Geometric computing with Clifford algebra : theoretical foundations and applications in computer vision and robotics /
-Gerald Sommer (ed.).
-Berlin ; New York : Springer, c2001.
-Mathematical Sciences Stacks QA199 .G46 2001X
+   -- one article "A Hestenes STA approach to Light Polarization" by Sugon and McNamera was relavent (Stokes, Poincare sphere, e&m tensor content), but all in GAFP.
 
 *)
 
@@ -51,6 +28,72 @@ Clifford algebras : applications to mathematics, physics, and engineering /
 Rafał Abłamowicz, editor.
 
 Physics Stacks QA199 .C554 2003
+
+   -- The Doran and Lasenby chapter is relavent, but it's a rehash of GAFP.  Didn't borrow from the library.
+
+*)
+
+Geometric algebra and applications to physics /
+Venzo de Sabbata, Bidyut Kumar Datta.
+
+Gerstein Science Stacks QC20.7 .A37 D4 2007X
+
+   -- very little E&M.  nothing new ; mainly plane waves in STA.
+
+================
+UofT Library books.
+
+*)
+
+Lectures on Clifford geometric algebras and applications /
+Rafał Abłamowicz, Garret Sobczyk, editors.
+Mathematical Sciences 
+QA199 .L43 2004X
+
+   *) Chapter 1: nice intro by Pertti Lounesto, a compact version of what's in his "Clifford Algebras and Spinors".
+   *) Chapter 3: very opaque treatment of geometric calculus.
+   *) Chapter 4: Applications of Clifford Algebras in Physics.  Baylis.
+      -- paravector treatment of Lorentz transformations and relativity (including doppler shift)
+      -- paravector Lorentz force, and solution of proper time charged particle trajectory.
+      -- plane waves treated much like I did.  I used the Gaussian pulse example (Example 39).
+      -- Stokes parameters for describing Polarization.
+      -- Lienard-Wiechert field (relativistic)
+   *) Appendix: Software survey (circa 2004).
+
+*)
+[BOOK] Clifford algebras and spinors
+P Lounesto - 2001 - books.google.com
+
+Math
+QA 199 L68 2001
+
+   *) paravector treatmebnt of Lorentz transformations
+   *) Lorentz transformations and transformations of e&m field
+   *) F & G GA formulation of maxwells's equations (one dot and one wedge).  nothing much done with them.
+   *) energy-momentum tensor in paravector and STA vector forms.
+   *) chapter: hypercomplex analysis: GC, Cauchy-Riemann, Stokes, tangent planes, monogenic theory, 
+
+*)
+
+Electrodynamics : a modern geometric approach /
+William E. Baylis.
+Physics
+QC631 .B333 1999X
+
+*)
+
+Clifford algebra to geometric calculus : a unified language for mathematics and physics /
+by David Hestenes and Garret Sobczyk.
+Gerstein Science 
+QA199 .H47 1984
+
+*)
+
+Geometric algebra with applications in science and engineering /
+Eduardo Bayro Corrochano, Garret Sobczyk, editors.
+Boston : Birkhäuser, c2001.
+Mathematical Sciences 
+QA564 .G463 2001X
 
 *) 
 
@@ -75,38 +118,14 @@ QC631 .C537 1998
 
 *) 
 
-Geometric computing with Clifford algebra : theoretical foundations and applications in computer vision and robotics /  
-Gerald Sommer (ed.).
-Berlin ; New York : Springer, c2001.
-
-Mathematical Sciences Stacks QA199 .G46 2001X
-
-*)
-
-Geometric algebra and applications to physics /
-Venzo de Sabbata, Bidyut Kumar Datta.
-
-Gerstein Science Stacks QC20.7 .A37 D4 2007X
-
-*)
-
-Applications of geometric algebra in computer science and engineering /
-Leo Dorst, Chris Doran, Joan Lasenby (eds.) 
-
-Engineering & Comp. Sci. Stacks QA76.9 .M35 A658 2002X
-
-
-
 ================
 
-checked out:
-
 *)
 
-Electrodynamics : a modern geometric approach /
-William E. Baylis.
-Physics
-QC631 .B333 1999X
+Guide to geometric algebra in practice [electronic resource] /
+Leo Dorst, Joan Lasenby, editors.
+London ; New York : Springer, c2011.
+Book
 
 ================
 downloaded:
@@ -230,6 +249,4 @@ WE Baylis, JD Keselica - Advances in Applied Clifford Algebras, 2012 - Springer
 Generalized relativistic velocity addition with spacetime algebra
 CR Paiva, MA Ribeiro - arXiv preprint physics/0511247, 2005 - arxiv.org
 
-[BOOK] Clifford algebras and spinors
-P Lounesto - 2001 - books.google.com
 
