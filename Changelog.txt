@@ -1,7 +1,8 @@
 December X, 2017        GAelectrodynamics.V0.XXX.pdf
 
    - Energy momentum multivector for linear polarization (and similar functional phase
-     dependence), and for the elliptical polarized field.
+     dependence), for the elliptical polarized field, and for the pseudoscalar form of the wave
+     state using a circular polarization basis.
    - 
 
 December 2, 2017        GAelectrodynamics.V0.243.pdf

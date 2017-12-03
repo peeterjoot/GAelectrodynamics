@@ -247,6 +247,8 @@ E_a^2 - E_b^2
  } \cos^2 \phi }
 .
 \end{dmath}
+
+The simplification above made use of the identity \( (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2 \).
 %
 % $Assumptions = b > 0 && b < 1 && a > 0 && a > b;
 % (1 - (b/a)^2) Cosh[2 ArcTanh[b/a]] // FullSimplify
@@ -296,6 +298,15 @@ F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtL' e^{-I\phi} + \alpha_\txtR' e^{I\ph
 \end{dmath}
 
 Like \cref{eqn:polarization:200} this plane wave representation does not require taking any real parts.  The transverse plane in which the electric and magnetic fields lie is defined by the duality relation \( i = I \Be_3 \).
+
+The energy momentum multivector for a wave described in terms of the pseudoscalar circular polarization states of \cref{eqn:polarization:500} is just
+
+\begin{dmath}\label{eqn:polarization:n}
+\calE + \frac{\BS}{v} =
+\epsilon \lr{ 1 + \Be_3 } \lr{ \Abs{\alpha_\txtL'}^2 + \Abs{\alpha_\txtR'}^2 },
+\end{dmath}
+
+where the absolute value is computed using the reverse as the conjugation operation \( \Abs{z}^2 = z z^\dagger \).
 
 \subsection{Problems.}
 
