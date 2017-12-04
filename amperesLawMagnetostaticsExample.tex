@@ -1,0 +1,54 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\subsection{Example.  Ampere's law for magnetic field between two current sources.}
+
+Ampere's law relating the line integral of the magnetic field around a loop can be used to compute the azimuthal magnetic field around a current source.  Let's compute the magnetic field using superposition in a region of space that lies between two z-axis currents of magnitude \( I_1, I_2 \) situated respectively at \( \Bp_1, \Bp_2 \), as illustrated in
+\cref{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/amperesLawBetweenTwoCurrentsFig1}{Magnetic field between two current sources.}{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}{0.3}
+
+We will need to add azimuthal field components along the \( \phicap_1, \phicap_2 \) directions, a task that is more tractable with GA than in vector algebra using coordinates.
+
+First consider the field surrounding a single current source, say \( I_1 \) at point \( \Bp_1 \).  Combining the one parameter Stokes' theorem integral from \cref{eqn:stokesTheoremCore:280}, and Maxwell's magnetostatics equations for \( \BB \) in \cref{eqn:magnetostatics:380} we have
+
+\begin{dmath}\label{eqn:maxwells:20}
+\int_A d^2 \Bx \cdot (\spacegrad \wedge \BB) = \ointclockwise d\Bx \cdot \BB = \mu_0 \int d^2 \Bx \cdot (I \BJ).
+\end{dmath}
+
+Flipping the orientation of the Stokes' integral so that we are integrating along the \( \phicap \) direction, we have
+
+\begin{dmath}\label{eqn:maxwells:40}
+\ointctrclockwise d\Bx \cdot \BB
+= -\mu_0 I \int d^2 \Bx \wedge \BJ
+= \mu_0 I_\txte,
+\end{dmath}
+
+where \( I_\txte \) is the enclosed charge (in this case \( I_1 \)).  Because of symmetry, the magnetic field due to this one line charge is
+
+\begin{dmath}\label{eqn:maxwells:60}
+\BB
+= \frac{\mu_0 I_\txte \phicap}{2 \pi R},
+\end{dmath}
+
+where \( R \) is the radius of the circle centred one the current, out to the point \( \Br \) where the field is observed.  
+Each of the current sources at points \( \Bp_k \) contributes a magnetic field
+
+\begin{dmath}\label{eqn:maxwells:80}
+\BB_k(\Br)
+= \frac{\mu_0 I_k \rcap_k \Be_{12} }{2 \pi \Norm{ \Br - \Bp_k} }
+= \frac{\mu_0 I_k \lr{ \Br - \Bp_k} \Be_{12} }{2 \pi \lr{ \Br - \Bp_k}^2 }
+= \frac{\mu_0 I_k}{2\pi} \inv{ \Br - \Bp_k} \Be_{12},
+\end{dmath}
+
+where the azimuthal angle has been determined by rotating the radial unit vector counterclockwise by 90 degrees using \( \phicap_k = \rcap_k\, \Be_{12} \).  The total magnetic field bivector between the charges is
+
+\begin{equation}\label{eqn:maxwells:100}
+I \BB(\Br)
+= \frac{\mu_0}{2\pi} \sum_{k = 1}^2 I_k \inv{\Bp_k - \Br } \Be_3.
+\end{equation}
+
+%The radius of the k-th circles are \( \Norm{ \Bp_k - \Br } \).  
+A product including the (inverse) vector difference \( \Bp_k - \Br \) encodes both the magnitude of that field contribution at the point \( \Br \) as well as the orientation of the magnetic field bivector components in the x-z and y-z planes.  
+There was no need to fall back to coordinates, which could easily become cumbersome and error prone.
