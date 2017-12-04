@@ -30,13 +30,13 @@ gradient into transverse and \(z\)-axis components
 Maxwell's equation becomes
 
 \begin{equation}\label{eqn:transverseField:summaryMax2}
-\lr{\spacegrad_t + j k \lr{ 1 \mp \zcap } } F(x,y) = 0,
+\lr{\spacegrad_t + j \lr{ \frac{\omega}{v} \mp k \zcap } } F(x,y) = 0,
 \end{equation}
 
 or with \( F = F(x, y) \)
 
 \begin{dmath}\label{eqn:transverseField:148}
-\spacegrad_t F = - j k \lr{ 1 \mp \zcap } F
+\spacegrad_t F = - j \lr{ \frac{\omega}{v} \mp k \zcap } F
 \end{dmath}
 
 We require a way to expressing the components of the field that lie in the propagation direction and transverse planes.
@@ -99,41 +99,22 @@ so Maxwell's equation \cref{eqn:transverseField:148} becomes
 
 \begin{dmath}\label{eqn:transverseField:228}
 \begin{aligned}
-\spacegrad_t F_t &= - j k \lr{ 1 \mp \zcap } F_z \\
-\spacegrad_t F_z &= - j k \lr{ 1 \mp \zcap } F_t.
+\spacegrad_t F_t &= - j \lr{ \frac{\omega}{v} \mp k \zcap } F_z \\
+\spacegrad_t F_z &= - j \lr{ \frac{\omega}{v} \mp k \zcap } F_t.
 \end{aligned}
 \end{dmath}
 
-This has the appearance of being invertable, like so
+Provided \( \Abs{\omega} \ne \Abs{kv} \), these can be inverted.  Such an inversion allows an application of the transverse gradient to whichever one
+of \( F_z, F_t \) is known, to compute the other.
 
 \boxedEquation{eqn:transverseField:248}{
 \begin{aligned}
-F_z &= j \inv{ k \lr{ 1 \mp \zcap }} \spacegrad_t F_t \\
-F_t &= j \inv{ k \lr{ 1 \mp \zcap }} \spacegrad_t F_z \\
+F_z &= j \frac{ \frac{\omega}{v} \pm k \zcap }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_t \\
+F_t &= j \frac{ \frac{\omega}{v} \pm k \zcap }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_z.
 \end{aligned}
 }
 
-so that if one of \( F_z \) or \( F_t \) is known, then the other can be computed by applying the transverse gradient.  However, this is WRONG, since a multivector like \( 1 + \zcap \) is not invertible!
-
 \section{original content to rewrite.}
-
-With an application of the transverse gradient to the \(z\)-axis field we easily found the relation between the two field components
-
-\begin{equation}\label{eqn:transverseField:6}
-\begin{aligned}
-\spacegrad_t F_z &= i \left( \pm k \zcap - \sqrt{\mu\epsilon}\frac{\omega}{c}\right) F_t
-\end{aligned}
-\end{equation}
-
-A left division by the multivector factor gives the total transverse field
-
-\begin{equation}\label{eqn:transverseField:7}
-\begin{aligned}
-F_t &= \inv{i \left( \pm k \zcap - \sqrt{\mu\epsilon}\frac{\omega}{c}\right) } \spacegrad_t F_z
-\end{aligned}
-\end{equation}
-
-Multiplication of both the numerator and denominator by the conjugate normalizes this
 
 \begin{equation}\label{eqn:transverseField:48}
 \begin{aligned}
@@ -149,7 +130,6 @@ The electric and magnetic fields can be picked off by selecting the grade one (v
 \BB &= \sqrt{\mu\epsilon} \gpgradeone{-I F}
 \end{aligned}
 \end{equation}
-
 
 From this the transverse electric and magnetic fields may be picked off using the projective grade selection operations of \eqnref{eqn:transverseField:8}, and are
 
