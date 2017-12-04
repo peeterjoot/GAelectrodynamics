@@ -176,6 +176,9 @@ perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
 ../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
 
+../latex/bin/lgrep transverseField.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl transverseField.tex
+
 ../latex/bin/lgrep amperesLawMagnetostaticsExample.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl amperesLawMagnetostaticsExample.tex
 

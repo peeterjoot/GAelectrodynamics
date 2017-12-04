@@ -1,6 +1,7 @@
 December XX, 2017        GAelectrodynamics.V0.XX.pdf
 
-   -
+   - Transverse fields in a waveguide.  Derive equivalent result to Jackson 2nd edition, but in SI units and using 
+     GA.
 
 December 4, 2017        GAelectrodynamics.V0.248.pdf
 
