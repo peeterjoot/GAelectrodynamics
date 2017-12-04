@@ -1,0 +1,94 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%electrodynamics/transverseField.tex: 
+%Switch from CGS to SI units and fill in required details.
+
+There is potentially a lot of new ideas above (some for me even with previous exposure to the Geometric Algebra formalism).  There was no real attempt to teach GA here, but for completeness the GA form of Maxwell's equation was developed from the traditional divergence and curl formulation of Maxwell's equations.  That was mainly due to use of CGS units which differ since this makes Maxwell's equation take a different form from the usual (see \citep{doran2003gap}).
+
+Here a less exploratory summary of the previous results above is assembled.
+
+In these CGS units our field \(F\), and Maxwell's equation (in absence of charge and current), take the form
+
+\begin{equation}\label{eqn:transverseField:foo2}
+\begin{aligned}
+F &= \BE + \frac{I\BB}{\sqrt{\mu\epsilon}} \\
+0 &= \left(\spacegrad + \frac{\sqrt{\mu\epsilon}}{c}\partial_t\right) F
+\end{aligned}
+\end{equation}
+
+The electric and magnetic fields can be picked off by selecting the grade one (vector) components
+
+\begin{equation}\label{eqn:transverseField:foo8}
+\begin{aligned}
+\BE &= \gpgradeone{F} \\
+\BB &= \sqrt{\mu\epsilon} \gpgradeone{-I F}
+\end{aligned}
+\end{equation}
+
+With an explicit sinusoidal and \(z\)-axis time dependence for the field
+
+\begin{equation}\label{eqn:transverseField:foo3}
+\begin{aligned}
+F(x,y,z,t) &= F(x,y) e^{\pm i k z - i \omega t}
+\end{aligned}
+\end{equation}
+
+and a split of the gradient into transverse and \(z\)-axis components \(\spacegrad = \spacegrad_t + \zcap \partial_z\), Maxwell's equation takes the form
+
+\begin{equation}\label{eqn:transverseField:summaryMax2}
+\begin{aligned}
+\left(\spacegrad_t \pm i k \zcap - \sqrt{\mu\epsilon}\frac{i\omega}{c}\right) F(x,y) = 0
+\end{aligned}
+\end{equation}
+
+Writing for short \(F = F(x,y)\), we can split the field into transverse and \(z\)-axis components with the commutator and anticommutator products respectively.  For the \(z\)-axis components we have
+
+\begin{equation}\label{eqn:transverseField:foo4}
+\begin{aligned}
+F_z \zcap \equiv E_z + I B_z = \inv{2} (F \zcap + \zcap F)
+\end{aligned}
+\end{equation}
+
+The projections onto the \(z\)-axis and and transverse directions are respectively
+
+\begin{equation}\label{eqn:transverseField:foo5}
+\begin{aligned}
+F_z &= \BE_z + I \BB_z = \inv{2} (F + \zcap F \zcap) \\
+F_t &= \BE_t + I \BB_t = \inv{2} (F - \zcap F \zcap)
+\end{aligned}
+\end{equation}
+
+With an application of the transverse gradient to the \(z\)-axis field we easily found the relation between the two field components
+
+\begin{equation}\label{eqn:transverseField:foo6}
+\begin{aligned}
+\spacegrad_t F_z &= i \left( \pm k \zcap - \sqrt{\mu\epsilon}\frac{\omega}{c}\right) F_t
+\end{aligned}
+\end{equation}
+
+A left division by the multivector factor gives the total transverse field
+
+\begin{equation}\label{eqn:transverseField:foo7}
+\begin{aligned}
+F_t &= \inv{i \left( \pm k \zcap - \sqrt{\mu\epsilon}\frac{\omega}{c}\right) } \spacegrad_t F_z
+\end{aligned}
+\end{equation}
+
+Multiplication of both the numerator and denominator by the conjugate normalizes this
+
+\begin{equation}\label{eqn:transverseField:summaryTransverseBoth}
+\begin{aligned}
+F_t &= \frac{i}{k^2 - \mu\epsilon\frac{\omega^2}{c^2}} \left( \pm k \zcap + \sqrt{\mu\epsilon}\frac{\omega}{c}\right) \spacegrad_t F_z
+\end{aligned}
+\end{equation}
+
+From this the transverse electric and magnetic fields may be picked off using the projective grade selection operations of \eqnref{eqn:transverseField:foo8}, and are
+
+\begin{equation}\label{eqn:transverseField:SummaryTransversePair}
+\begin{aligned}
+\BE_t &= \frac{i}{\mu\epsilon\frac{\omega^2}{c^2} -k^2} \left( \pm k \spacegrad_t E_z - \frac{\omega}{c} \zcap \cross \spacegrad_t B_z \right) \\
+\BB_t &= \frac{i}{\mu\epsilon\frac{\omega^2}{c^2} -k^2} \left( {\mu\epsilon}\frac{\omega}{c} \zcap \cross \spacegrad_t E_z \pm k \spacegrad_t B_z \right)
+\end{aligned}
+\end{equation}
