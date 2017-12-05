@@ -36,7 +36,7 @@ include ../latex/make.rules
 #all :: ellipticalWaves.pdf
 #all :: junk.pdf
 #all :: maxwells.pdf
-maxwells.pdf :: transverseField.tex
+#maxwells.pdf :: transverseField.tex
 #maxwells.pdf :: freespace.tex
 #maxwells.pdf :: electrostatics.tex
 #maxwells.pdf :: magnetostatics.tex
@@ -54,6 +54,7 @@ maxwells.pdf :: transverseField.tex
 #maxwells.pdf :: multivector.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 #maxwells.pdf :: frequencydomainPlaneWaves.tex
+maxwells.pdf :: poyntingF.tex poyntingFComplexPower.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

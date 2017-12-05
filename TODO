@@ -1,3 +1,5 @@
+- expand out the stress tensor (Poynting theorem) equivalents for T(\Be_k), and show how those are related to Lorentz force, electomagnetic pressure and torsion, and so forth.
+
 - two new fixmes:  Add (or move) figures describing oriented bivectors and trivectors to where those are defined (before multivector space).
 
    - Also add cooresponding figures for vectors when those for bivectors are defined.

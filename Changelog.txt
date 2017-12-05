@@ -1,4 +1,9 @@
-December XX, 2017        GAelectrodynamics.V0.XX.pdf
+December X, 2017        GAelectrodynamics.V0.XX.pdf
+
+   - Relate the multivector "stress tensor" to the conventional indexed form, and derive the conservation relationships that apply to all the stress tensor components
+    (usual generalization of the Poynting theorem, as found in: Jackson, Griffiths, ...)
+
+December 4, 2017        GAelectrodynamics.V0.255.pdf
 
    - Transverse fields in a waveguide.  GA equivalent to what Eli's article:
      http://s87572736.onlinehome.us/btg/btg05-waveguide.pdf

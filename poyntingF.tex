@@ -2,13 +2,15 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-\subsection{Poynting theorem}
+\subsection{Field energy and momentum density and the stress energy tensor.}
+
 In conventional electromagnetism the energy and momentum density of the fields are
 
 \index{energy density}
 \index{momentum density}
 \index{Poynting vector}
 \index{energy flux}
+\index{stress tensor}
 \begin{dmath}\label{eqn:poyntingF:20}
 \begin{aligned}
 \calE &= \inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH } \\
@@ -21,7 +23,7 @@ where \( \calE \) is the energy density, \( \BS \) is the Poynting vector repres
 In GA formalism, the energy and momentum densities are related by grade selection from a single multivector formed from the electrodynamic field \( F \)
 
 \boxedEquation{eqn:poyntingF:60}{
-\inv{2} \epsilon F F^\dagger = \calE + \bcP v = \calE + \frac{\BS}{v},
+T(1) \equiv \inv{2} \epsilon F F^\dagger = \calE + \bcP v = \calE + \frac{\BS}{v},
 }
 
 or
@@ -33,10 +35,11 @@ or
 \end{aligned}
 \end{dmath}
 
-It might be reasonable to call \( \epsilon F F^\dagger/2 \) the energy-momentum multivector for the field.
-\Cref{eqn:poyntingF:40} can be demonstrated by direct expansion
+Expanding \( T(1) \) in terms of \( \BE, \BH \) gives
 
 \begin{dmath}\label{eqn:poyntingF:80}
+T(1)
+=
 \inv{2} \epsilon F F^\dagger
 =
 \inv{2} \epsilon \lr{ \BE + I \eta \BH } \lr{ \BE - I \eta \BH }
@@ -53,35 +56,115 @@ It might be reasonable to call \( \epsilon F F^\dagger/2 \) the energy-momentum 
 +
 \frac{1}{v} \BE \cross \BH
 =
-\calE + \frac{\BS}{v}.\qedmarker
+\calE + \frac{\BS}{v},
 \end{dmath}
 
-Poynting's theorem, the conservation relationship between energy and momentum density and the sources, can be stated in terms of the multivector field \( F \) and the multivector current \( J \).  To derive this relationship we can act on \( F F^\dagger \) with the space+time derivative operator \( \spacegrad + (1/v) \partial_t \), but do so within a scalar selection operation, which simplifies things, and allows for cyclic permutation of the multivector factors (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)).
+as claimed in \cref{eqn:poyntingF:20} and \cref{eqn:poyntingF:60}.  \( T(1) \) has one scalar component, and three vector components, and represents four
+four of the sixteen components of the complete stress energy tensor.  The geometric algebra form of the complete stress energy tensor is
+
+\begin{dmath}\label{eqn:poyntingF:760}
+T(a) = \inv{2} \epsilon F a F^\dagger,
+\end{dmath}
+
+where \( a \) is one of \( 1, \Be_1, \Be_2 \) or \( \Be_3 \).
+Each \( T(a) \) is a 0,1 multivector containing one scalar component and three vector components.
+An expansion of \( T(\Be_k) \) is harder to do in closed form than \cref{eqn:poyntingF:80}, but a
+brute force expansion using Mathematica of all the \( T(a) \) multivectors gives:
+
+\begin{dmath}\label{eqn:poyntingF:800}
+\begin{aligned}
+T(1) &=
+\frac{\epsilon}{2} \lr{E_1^2 + E_2^2 + E_3^2} + \frac{\epsilon \eta^2}{2} \lr{H_1^2 + H_2^2 + H_3^2} \\
+&+ \Be_1 \eta \epsilon \lr{E_2 H_3 - E_3 H_2}
+ + \Be_2 \eta \epsilon \lr{E_3 H_1 - E_1 H_3}
+ + \Be_3 \eta\epsilon \lr{E_1 H_2 - E_2 H_1}
+\\
+T(\Be_1) &=
+\eta \epsilon \lr{E_3 H_2 - E_2 H_3} \\
+& + \frac{1}{2} \Be_1 \epsilon \lr{E_1^2 - E_2^2 - E_3^2} + \frac{\epsilon \eta^2}{2} \lr{ H_1^2 -  H_2^2 -  H_3^2}
+  + \Be_2 \epsilon \lr{E_1 E_2 + \eta^2 H_1 H_2}
+  + \Be_3 \epsilon \lr{E_1 E_3 + \eta^2 H_1 H_3}
+\\
+T(\Be_2) &=
+\eta \epsilon \lr{E_1 H_3 - E_3 H_1} \\
+& + \Be_1 \epsilon \lr{E_1 E_2 + \eta^2 H_1 H_2}
+  + \frac{1}{2} \Be_2 \epsilon \lr{-E_1^2 + E_2^2 - E_3^2 } + \frac{\epsilon \eta^2}{2} \lr{-H_1^2 +  H_2^2 -  H_3^2}
+  + \Be_3 \epsilon \lr{E_2 E_3 + \eta^2 H_2 H_3}
+\\
+T(\Be_3) &=
+\eta \epsilon \lr{E_2 H_1 - E_1 H_2} \\
+& + \Be_1 \epsilon \lr{E_1 E_3 + \eta^2 H_1 H_3}
+  + \Be_2 \epsilon \lr{E_2 E_3 + \eta^2 H_2 H_3}
+  + \frac{1}{2} \Be_3 \epsilon \lr{-E_1^2 - E_2^2 + E_3^2 } + \frac{\epsilon \eta^2}{2} \lr{ -H_1^2 -  H_2^2 + H_3^2}
+\end{aligned}
+\end{dmath}
+
+The components of the multivectors \( T(a) \) that we are calling the stress energy tensor, are more conventionally written out
+as a symmetric tensor \( \Theta^{ij} \) as follows
+\footnote{Following conventions from \citep{jackson1975cew}, but translating to SI units.}
+\begin{dmath}\label{eqn:poyntingF:840}
+\begin{aligned}
+\Theta^{00} &= \frac{\epsilon}{2} \lr{ \BE^2 + \eta^2 \BH^2 } \\
+\Theta^{0i} &= \inv{v} \lr{ \BE \cross \BH } \cdot \Be_i \\
+\Theta^{ij} &= -\epsilon \lr{ E_i E_j + \eta^2 H_i H_j - \inv{2} \delta_{ij} \lr{ \BE^2 + \eta^2 \BH^2 } }.
+\end{aligned}
+\end{dmath}
+
+The symmetric stress tensor components of \cref{eqn:poyntingF:840}
+are related to the multivector representation expanded in \cref{eqn:poyntingF:800} by
+
+\begin{dmath}\label{eqn:poyntingF:820}
+\begin{aligned}
+&\gpgradezero{ T(1) }
+%= \calE
+=
+{\Theta_0}^0 = \Theta^{00} \\
+&\gpgradeone{ T(1) } \cdot \Be_i
+%= \frac{\BS}{v} \cdot \Be_i
+= {\Theta_0}^i = \Theta^{0i} \\
+&\gpgradezero{ T(\Be_i) }
+%= -\frac{\BS}{v} \cdot \Be_i
+= {\Theta_i}^0 = -\Theta^{i0} \\
+&\gpgradeone{ T(\Be_i) } \cdot \Be_j = {\Theta_i}^j = -\Theta^{ij}.
+\end{aligned}
+\end{dmath}
+
+\subsection{Poynting's theorem.}
+
+Poynting's theorem, the conservation relationship between energy and momentum density (or more generally, the stress tensor) and the sources, can be stated in terms of the multivector field \( F \) and the multivector current \( J \).
+To derive this relationship we can act on (all terms of) \( F a F^\dagger \) with the space+time derivative operator \( \spacegrad + (1/v) \partial_t \).
+We do so within a scalar selection operation, which simplifies things, and allows for cyclic permutation of the multivector factors (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)).
 
 \begin{dmath}\label{eqn:poyntingF:100}
-\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } F F^\dagger }
+\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } F a F^\dagger }
 =
-\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } \dot{F} F^\dagger }
+\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } \dot{F} a F^\dagger }
 +
-\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } F \dot{F}^\dagger }
+\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } F a \dot{F}^\dagger }
 =
-\frac{\epsilon}{2} \gpgradezero{ v J F^\dagger }
+\frac{\epsilon}{2} \gpgradezero{ v J F^\dagger a }
 +
-\frac{\epsilon}{2} \gpgradezero{ \dot{F}^\dagger \lr{ v \spacegrad + \PD{t}{} } F }
+\frac{\epsilon}{2} \gpgradezero{ \dot{F}^\dagger \lr{ v \spacegrad + \PD{t}{} } F a }
 =
-\frac{\epsilon}{2} \gpgradezero{ v J F^\dagger }
+\frac{\epsilon}{2} \gpgradezero{ v J F^\dagger a }
 +
-\frac{\epsilon}{2} \gpgradezero{ \lr{ \lr{ v \spacegrad + \PD{t}{} } F }^\dagger F }
+\frac{\epsilon}{2} \gpgradezero{ \lr{ \lr{ v \spacegrad + \PD{t}{} } F }^\dagger a F }
 =
-v \frac{\epsilon}{2} \gpgradezero{ F^\dagger J + J^\dagger F }
+v \frac{\epsilon}{2} \gpgradezero{ F^\dagger J a + J^\dagger a F }
 =
-\inv{\eta} \gpgradezero{ J^\dagger F },
+\frac{1}{2 \eta} \gpgradezero{ J a F^\dagger + J^\dagger a F }
+%=
+%\inv{\eta} \gpgradezero{ J^\dagger F a },
 \end{dmath}
 
-In the chain rule expansion above, the gradients could not be reordered since it do not commute with \( F \), so an over-dot notation
-\citep{hestenes1999nfc} was used to indicate the desired action of the derivative operators.
-The final simplification was possible since scalars are reversion invariant (i.e. \( \gpgradezero{ J^\dagger F } = \gpgradezero{ F^\dagger J } \)).
-This is the multivector form of Poynting's theorem.
+The over-dot notation of
+\citep{hestenes1999nfc} was used to indicate the desired action of the derivative operators in the
+chain rule expansion of
+\cref{eqn:poyntingF:100}
+, as the gradient may not commute with \( F \).
+
+For \( a = 1 \), noting that scalars are reversion invariant (i.e. \( \gpgradezero{ J^\dagger F } = \gpgradezero{ F^\dagger J } = \gpgradezero{ J F^\dagger } \)), we obtain the
+multivector form of Poynting's theorem
 
 \index{Poynting theorem}
 \boxedEquation{eqn:poyntingF:220}{
