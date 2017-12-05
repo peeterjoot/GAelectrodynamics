@@ -3,8 +3,6 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %original ideas from gabookII/electrodynamics/transverseField.tex:
-\section{Transverse fields in a waveguide.}
-
 Under source free conditions, Maxwell's equation in GA form is
 
 \begin{equation}\label{eqn:transverseField:2}
@@ -14,29 +12,29 @@ F &= \BE + I \eta \BH \\
 \end{aligned}
 \end{equation}
 
-Maxwell's equation allows for components of the electric and magnetic field along the propagation direction and the transverse plane, however, it is possible to relate the transverse and propagating field components.  Assume that the propagation direction is along the z-axis (either forward or backwards), with angular frequency \( \omega \), with the field represented by the real part of
+Maxwell's equation allows for components of the electric and magnetic field along the propagation direction and the transverse plane, however, it is possible to relate the transverse and propagating field components.
+Assume that the propagation direction is along the z-axis (either forward or backwards), with angular frequency \( \omega \), with the field represented by the real part of
 
 \begin{dmath}\label{eqn:transverseField:28}
 F(x, y, z, t) = F(x, y) e^{j \omega t \mp j k z}.
 \end{dmath}
 
-Breaking with convention, we will use \( \zcap \) instead of \( \Be_3 \) for the unit vector along the z-axis, since that matches the explicit z-suffixes that we will use, such as the following split of the
-gradient into transverse and \(z\)-axis components
+We split the gradient into transverse and \(z\)-axis components
 
 \begin{dmath}\label{eqn:transverseField:88}
-\spacegrad = \spacegrad_t + \zcap \partial_z.
+\spacegrad = \spacegrad_t + \Be_3 \partial_z,
 \end{dmath}
 
-Maxwell's equation becomes
+so that Maxwell's equation becomes
 
 \begin{equation}\label{eqn:transverseField:summaryMax2}
-\lr{\spacegrad_t + j \lr{ \frac{\omega}{v} \mp k \zcap } } F(x,y) = 0,
+\lr{\spacegrad_t + j \lr{ \frac{\omega}{v} \mp k \Be_3 } } F(x,y) = 0.
 \end{equation}
 
-or with \( F = F(x, y) \)
+With \( F = F(x, y) \)
 
 \begin{dmath}\label{eqn:transverseField:148}
-\spacegrad_t F = - j \lr{ \frac{\omega}{v} \mp k \zcap } F
+\spacegrad_t F = - j \lr{ \frac{\omega}{v} \mp k \Be_3 } F.
 \end{dmath}
 
 We require a way to expressing the components of the field that lie in the propagation direction and transverse planes.
@@ -45,53 +43,53 @@ Let the propagation component be designated \( F_z \) so that
 \begin{dmath}\label{eqn:transverseField:108}
 F_z
 =
-\lr{ \BE \cdot \zcap }
- \zcap
-+ I \eta \lr{ \BH \cdot \zcap } \zcap
+\lr{ \BE \cdot \Be_3 }
+ \Be_3
++ I \eta \lr{ \BH \cdot \Be_3 } \Be_3
 =
 \inv{2}
-\lr{ \BE \zcap + \zcap \BE }
- \zcap
-+ \inv{2} I \eta \lr{ \BH \zcap + \zcap \BH } \zcap
+\lr{ \BE \Be_3 + \Be_3 \BE }
+ \Be_3
++ \inv{2} I \eta \lr{ \BH \Be_3 + \Be_3 \BH } \Be_3
 =
 \inv{2}
-\lr{ \BE + \zcap \BE \zcap }
-+ \inv{2} I \eta \lr{ \BH + \zcap \BH \zcap },
+\lr{ \BE + \Be_3 \BE \Be_3 }
++ \inv{2} I \eta \lr{ \BH + \Be_3 \BH \Be_3 },
 \end{dmath}
 
 showing that the propagation component \( F_z \) and transverse components \( F_t = F - F_z \) of the total field are
 
 \begin{dmath}\label{eqn:transverseField:128}
 \begin{aligned}
-F_z &= \inv{2} \lr{ F + \zcap F \zcap } \\
-F_t &= \inv{2} \lr{ F - \zcap F \zcap } \\
+F_z &= \inv{2} \lr{ F + \Be_3 F \Be_3 } \\
+F_t &= \inv{2} \lr{ F - \Be_3 F \Be_3 } \\
 \end{aligned}
 \end{dmath}
 
-Since \( \spacegrad_t \) has no \( \xcap, \ycap \) components, \( \zcap \) anticommutes with the transverse gradient
+Since \( \spacegrad_t \) has no \( \xcap, \ycap \) components, \( \Be_3 \) anticommutes with the transverse gradient
 
 \begin{dmath}\label{eqn:transverseField:168}
-\zcap \spacegrad_t = - \spacegrad_t \zcap,
+\Be_3 \spacegrad_t = - \spacegrad_t \Be_3,
 \end{dmath}
 
-but commutes with \( 1 \mp \zcap \).
+but commutes with \( 1 \mp \Be_3 \).
 %In \cref{eqn:transverseField:168} it is implied that the action of \( \spacegrad_t \) is on everything to its right.
 This means that
 
 \begin{dmath}\label{eqn:transverseField:188}
-\inv{2} \lr{ \spacegrad_t F \pm \zcap \lr{ \spacegrad_t F } \zcap }
+\inv{2} \lr{ \spacegrad_t F \pm \Be_3 \lr{ \spacegrad_t F } \Be_3 }
 =
-\inv{2} \lr{ \spacegrad_t F \mp \spacegrad_t \zcap F \zcap }
+\inv{2} \lr{ \spacegrad_t F \mp \spacegrad_t \Be_3 F \Be_3 }
 =
 \spacegrad_t
-\inv{2} \lr{ F \mp \zcap F \zcap },
+\inv{2} \lr{ F \mp \Be_3 F \Be_3 },
 \end{dmath}
 
 or
 \begin{dmath}\label{eqn:transverseField:208}
 \begin{aligned}
-\inv{2} \lr{ \spacegrad_t F + \zcap \lr{ \spacegrad_t F } \zcap } &= \spacegrad_t F_t \\
-\inv{2} \lr{ \spacegrad_t F - \zcap \lr{ \spacegrad_t F } \zcap } &= \spacegrad_t F_z,
+\inv{2} \lr{ \spacegrad_t F + \Be_3 \lr{ \spacegrad_t F } \Be_3 } &= \spacegrad_t F_t \\
+\inv{2} \lr{ \spacegrad_t F - \Be_3 \lr{ \spacegrad_t F } \Be_3 } &= \spacegrad_t F_z,
 \end{aligned}
 \end{dmath}
 
@@ -99,43 +97,70 @@ so Maxwell's equation \cref{eqn:transverseField:148} becomes
 
 \begin{dmath}\label{eqn:transverseField:228}
 \begin{aligned}
-\spacegrad_t F_t &= - j \lr{ \frac{\omega}{v} \mp k \zcap } F_z \\
-\spacegrad_t F_z &= - j \lr{ \frac{\omega}{v} \mp k \zcap } F_t.
+\spacegrad_t F_t &= - j \lr{ \frac{\omega}{v} \mp k \Be_3 } F_z \\
+\spacegrad_t F_z &= - j \lr{ \frac{\omega}{v} \mp k \Be_3 } F_t.
 \end{aligned}
 \end{dmath}
 
-Provided \( \Abs{\omega} \ne \Abs{kv} \), these can be inverted.  Such an inversion allows an application of the transverse gradient to whichever one
+Provided \( \omega^2 \ne (k v)^2 \), these can be inverted.
+Such an inversion allows an application of the transverse gradient to whichever one
 of \( F_z, F_t \) is known, to compute the other.
 
 \boxedEquation{eqn:transverseField:248}{
 \begin{aligned}
-F_z &= j \frac{ \frac{\omega}{v} \pm k \zcap }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_t \\
-F_t &= j \frac{ \frac{\omega}{v} \pm k \zcap }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_z.
+F_z &= j \frac{ \frac{\omega}{v} \pm k \Be_3 }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_t \\
+F_t &= j \frac{ \frac{\omega}{v} \pm k \Be_3 }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_z.
 \end{aligned}
 }
 
-\section{original content to rewrite.}
+The relation for \( F_t \) in \cref{eqn:transverseField:248} is usually stated in terms of the electric and magnetic fields.
+To compute that split we need to expand most of the terms in the numerator
 
-\begin{equation}\label{eqn:transverseField:48}
+\begin{dmath}\label{eqn:transverseField:268}
+\lr{ \frac{\omega}{v} \pm k \Be_3 } \spacegrad_t F_z
+=
+-\lr{ \Be_3 \frac{\omega}{v} \pm k } \spacegrad_t \Be_3 F_z
+=
+-\lr{ \Be_3 \frac{\omega}{v} \pm k } \spacegrad_t \Be_3 F_z
+=
+\lr{ \pm k - \Be_3 \frac{\omega}{v} } \spacegrad_t \lr{ E_z + I \eta H_z }
+=
+\lr{
+   \pm k \spacegrad_t E_z
+   + \frac{\omega \eta}{v} \Be_3 \cross \spacegrad_t H_z
+}
++ I \lr{
+   \pm k \eta \spacegrad_t H_z
+   -
+   \frac{\omega}{v}
+   \Be_3 \cross \spacegrad_t E_z
+},
+\end{dmath}
+
+which means the transverse electric and magnetic fields are
+\begin{dmath}\label{eqn:transverseField:288}
 \begin{aligned}
-F_t &= \frac{i}{k^2 - \mu\epsilon\frac{\omega^2}{c^2}} \left( \pm k \zcap + \sqrt{\mu\epsilon}\frac{\omega}{c}\right) \spacegrad_t F_z
+\BE_t &=
+\frac{j}{{\frac{\omega}{v}}^2 - k^2}
+\lr{
+   \pm k \spacegrad_t E_z
+   + \frac{\omega \eta}{v} \Be_3 \cross \spacegrad_t H_z
+}
+\\
+\eta \BH_t &=
+\frac{j}{{\frac{\omega}{v}}^2 - k^2}
+\lr{
+   \pm k \eta \spacegrad_t H_z
+   -
+   \frac{\omega}{v}
+   \Be_3 \cross \spacegrad_t E_z
+}.
 \end{aligned}
-\end{equation}
+\end{dmath}
 
-The electric and magnetic fields can be picked off by selecting the grade one (vector) components
+There is considerably more complexity required to express the transverse field in terms of separate electric and magnetic components compared to the equivalent total transverse field expression of 
+\cref{eqn:transverseField:248}.
 
-\begin{equation}\label{eqn:transverseField:8}
-\begin{aligned}
-\BE &= \gpgradeone{F} \\
-\BB &= \sqrt{\mu\epsilon} \gpgradeone{-I F}
-\end{aligned}
-\end{equation}
-
-From this the transverse electric and magnetic fields may be picked off using the projective grade selection operations of \eqnref{eqn:transverseField:8}, and are
-
-\begin{equation}\label{eqn:transverseField:68}
-\begin{aligned}
-\BE_t &= \frac{i}{\mu\epsilon\frac{\omega^2}{c^2} -k^2} \left( \pm k \spacegrad_t E_z - \frac{\omega}{c} \zcap \cross \spacegrad_t B_z \right) \\
-\BB_t &= \frac{i}{\mu\epsilon\frac{\omega^2}{c^2} -k^2} \left( {\mu\epsilon}\frac{\omega}{c} \zcap \cross \spacegrad_t E_z \pm k \spacegrad_t B_z \right)
-\end{aligned}
-\end{equation}
+\makeproblem{Transverse electric and magnetic field components.}{problem:transverseField:1}{
+Fill in the missing details in the steps of \cref{eqn:transverseField:268}.
+} % problem
