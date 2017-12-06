@@ -1,7 +1,7 @@
 December X, 2017        GAelectrodynamics.V0.XX.pdf
 
-   - Relate the multivector "stress tensor" to the conventional indexed form, and derive the conservation relationships that apply to all the stress tensor components
-    (usual generalization of the Poynting theorem, as found in: Jackson, Griffiths, ...)
+   - Relate the multivector "stress tensor" to the conventional indexed form, and derive the conservation relationships that apply to all the stress tensor components.
+     This is the usual generalization of Poynting's theorem (which relates the space and time derivatives of T^{k0}), as found in: Jackson, Griffiths, ...
 
 December 4, 2017        GAelectrodynamics.V0.255.pdf
 
