@@ -45,15 +45,8 @@ j &= \inv{\epsilon_0 c} \lr{ \rho c + \Bj }.
 
 \( \BF \) is called the Faraday, \( \partial \) the gradient, \( j \) the current density, and
 0,1 multivectors are called paravectors.
-An operation called Clifford conjugation (or spatial reversal) designated \( \overbar{A} \) is introduced that toggles the sign of any multivector components with grade \( g \mod 4 = 1,2 \).
-For example given a multivector \( A = 1 + \Be_1 + \Be_{12} + \Be_{123} \), the Clifford conjugate is
-
-\begin{dmath}\label{eqn:galiterature:60}
-\overbar{A} = 1 - \Be_1 - \Be_{12} + \Be_{123},
-\end{dmath}
-
-leaving the sign of the scalar and pseudoscalar components untouched.
-This Clifford conjugation operation is also used to express relativistic proper length and Lorentz transformations.
+APS uses a Clifford conjugation operation \( \overbar{z} \) that changes the sign of any vector and bivector grades of a multivector \( z \).
+This conjugation operation is also used to express relativistic proper length and Lorentz transformations.
 The d'Alambertian is written as \( \Box = \partial \overbar{\partial} = (1/c^2) \partial_t^2 - \spacegrad^2 \).
 There are a large (arguably confusing) variety of conjugation and complex-like selection operations in APS.
 While APS is only cosmetically different than \cref{eqn:maxwellsEquations:460} the treatment in \citep{baylis2004electrodynamics} is inherently relativisitic, and carries the additional learning curve of both special relativity and relativistic geometric algebra.
