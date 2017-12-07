@@ -1,0 +1,80 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+The notation and nomenclature used to express Maxwell's equation in the GA literature has not been standardized.
+Here are some variations that could be helpful when examining the literature.
+
+\paragraph{Space Time Algebra (STA).  \citep{doran2003gap}}
+
+Maxwell's equation is written
+\begin{dmath}\label{eqn:galiterature:80}
+\begin{aligned}
+\grad F &= J \\
+F &= \BE + I \BB \\
+I &= \gamma_0 \gamma_1 \gamma_2 \gamma_3 \\
+J &= \gamma_\mu J^\mu = \gamma_0 \lr{ \rho - \BJ } \\
+\grad &= \gamma^\mu \partial_\mu = \gamma_0 \lr{ \partial_t + \spacegrad }.
+\end{aligned}
+\end{dmath}
+
+STA uses a relativistic basis \( \setlr{ \gamma_\mu } \) and its dual \( \setlr{ \gamma^\mu} \) for which \( \gamma_0^2 = -\gamma_k^2 = 1, k \in 1,2,3 \), and \( \gamma^\mu \cdot \gamma_\nu = {\delta^\mu}_\nu \).
+Spatial vectors are expressed in terms of the Pauli basis \( \sigma_i = \gamma_i \gamma_0 \), which are bivectors that behave as Euclidean basis vectors (squaring to unity, and all mutually anticommutative).
+\( F \) is called the electromagnetic field strength (and is not a 1,2 multivector, but a bivector), \( \grad \) is called the vector derivative operator, \( \spacegrad \) called the three-dimensional vector derivative operator, and \( J \) is called the spacetime current (and is a vector, not a multivector).
+The physicist's ``natural units'' \( c = \epsilon_0 = \mu_0 \) are typically used in STA.
+The d'Alambertian in STA is \( \Box = \grad^2 = \partial_t^2 - \spacegrad^2 \), although the earliest
+formulation of STA \citep{hestenes1966space} used \( \Box \) for the vector derivative.
+Only spatial vectors are in bold, and all other multivectors are non-bold.
+
+\paragraph{Algebra of Physical Space (APS).  \citep{baylis2004electrodynamics}}
+Maxwell's equation is written as
+
+\begin{dmath}\label{eqn:galiterature:40}
+\begin{aligned}
+\overbar{\partial} \BF &= \inv{\epsilon_0 c} \overline{\jmath} \\
+\BF &= \BE + i c \BB \\
+i &= \Be_{123} \\
+\partial &= \inv{c} \partial_t - \spacegrad \\
+j &= \inv{\epsilon_0 c} \lr{ \rho c + \Bj }.
+\end{aligned}
+\end{dmath}
+
+\( \BF \) is called the Faraday, \( \partial \) the gradient, \( j \) the current density, and
+0,1 multivectors are called paravectors.
+An operation called Clifford conjugation (or spatial reversal) designated \( \overbar{A} \) is introduced that toggles the sign of any multivector components with grade \( g \mod 4 = 1,2 \).
+For example given a multivector \( A = 1 + \Be_1 + \Be_{12} + \Be_{123} \), the Clifford conjugate is
+
+\begin{dmath}\label{eqn:galiterature:60}
+\overbar{A} = 1 - \Be_1 - \Be_{12} + \Be_{123},
+\end{dmath}
+
+leaving the sign of the scalar and pseudoscalar components untouched.
+This Clifford conjugation operation is also used to express relativistic proper length and Lorentz transformations.
+The d'Alambertian is written as \( \Box = \partial \overbar{\partial} = (1/c^2) \partial_t^2 - \spacegrad^2 \).
+There are a large (arguably confusing) variety of conjugation and complex-like selection operations in APS.
+
+\paragraph{Jancewicz.  \citep{jancewicz1988multivectors}}
+
+% pg. 78
+Maxwell's equation in linear isotropic media is written as
+
+\begin{dmath}\label{eqn:galiterature:20}
+\begin{aligned}
+\calD f &= \tilde{\jmath} \\
+\calD &= \spacegrad + \sqrt{\epsilon\mu} \PD{t}{} \\
+f &= \Be + \Bcap \\
+\Be &= \sqrt{\epsilon} \BE \\
+\Bcap &= \inv{\sqrt{\mu}} I \BB \\
+I &= \Be_{123} \\
+\tilde{\jmath} &= \inv{\sqrt{\epsilon}}\rho - \sqrt{\mu} \Bj \\
+\end{aligned}
+\end{dmath}
+
+Jancewicz works with fields that have been re-dimensionalized to the same units, uses an overhat bold notation for bivectors (which are sometimes called volutors).
+\( \calD \) is called the cliffor differential operator, \( f \) the electromagnetic cliffor, and \( \tilde{\jmath} \) the density of electric sources.
+The d'Alambertian is written
+as \( \Box = \calD^\conj \calD = \spacegrad^2 - \epsilon\mu \partial_t^2 \), where
+\( \calD^\conj = \spacegrad - \sqrt{\epsilon\mu} \partial_t \).
+
+%}

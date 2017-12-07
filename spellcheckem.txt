@@ -76,3 +76,4 @@ wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
 amperesLawMagnetostaticsExample.tex
+galiterature.tex

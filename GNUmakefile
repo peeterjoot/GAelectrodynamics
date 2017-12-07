@@ -52,9 +52,10 @@ include ../latex/make.rules
 #maxwells.pdf :: poyntingFComplexPower.tex
 #maxwells.pdf :: inMatter.tex
 #maxwells.pdf :: multivector.tex
+maxwells.pdf :: galiterature.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 #maxwells.pdf :: frequencydomainPlaneWaves.tex
-maxwells.pdf :: poyntingF.tex poyntingFComplexPower.tex
+#maxwells.pdf :: poyntingF.tex poyntingFComplexPower.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 
