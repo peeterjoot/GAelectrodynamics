@@ -1,7 +1,12 @@
-December X, 2017        GAelectrodynamics.V0.XX.pdf
+December X, 2017        GAelectrodynamics.V0.X.pdf
+
+   -
+
+December 7, 2017        GAelectrodynamics.V0.258.pdf
 
    - Relate the multivector "stress tensor" to the conventional indexed form, and derive the conservation relationships that apply to all the stress tensor components.
      This is the usual generalization of Poynting's theorem (which relates the space and time derivatives of T^{k0}), as found in: Jackson, Griffiths, ...
+   - comparison of different GA notation/nomenclature in use for Maxwell's equation.
 
 December 4, 2017        GAelectrodynamics.V0.255.pdf
 
