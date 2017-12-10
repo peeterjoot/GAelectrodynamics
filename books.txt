@@ -40,8 +40,8 @@ Gerstein Science Stacks QC20.7 .A37 D4 2007X
 
    -- very little E&M.  nothing new ; mainly plane waves in STA.
 
-================
-UofT Library books.
+====================================
+Notes on UofT Library books borrowed.
 
 *)
 
@@ -67,7 +67,7 @@ P Lounesto - 2001 - books.google.com
 Math
 QA 199 L68 2001
 
-   *) paravector treatmebnt of Lorentz transformations
+   *) paravector treatment of Lorentz transformations
    *) Lorentz transformations and transformations of e&m field
    *) F & G GA formulation of maxwells's equations (one dot and one wedge).  nothing much done with them.
    *) energy-momentum tensor in paravector and STA vector forms.
@@ -75,17 +75,15 @@ QA 199 L68 2001
 
 *)
 
-Electrodynamics : a modern geometric approach /
-William E. Baylis.
-Physics
-QC631 .B333 1999X
-
-*)
-
 Clifford algebra to geometric calculus : a unified language for mathematics and physics /
 by David Hestenes and Garret Sobczyk.
 Gerstein Science 
 QA199 .H47 1984
+
+   - There's a _lot_ in this book, but it is general, not specifically related to e&m.
+     Some interesting stuff includes the generalizations of Cauchy's theorem to multivectors.
+   - The intro material is done very nicely (axiomatic and not confusing), in stark
+     contrast to the followup to this book (New Foundations of Classical Mechanics).
 
 *)
 
@@ -95,12 +93,36 @@ Boston : Birkhäuser, c2001.
 Mathematical Sciences 
 QA564 .G463 2001X
 
+   - There are two chapters of this that are relavant to e&m, but one is a subset of Baylis'
+     book, and the other a subset of GAFP.
+
+================
+UofT library books borrowed to summarize.
+
+*)
+
+Electrodynamics : a modern geometric approach /
+William E. Baylis.
+Physics
+QC631 .B333 1999X
+
+
 *) 
 
 Multivectors and Clifford algebra in electrodynamics
 Bernard Jancewicz.
 Gerstein Science   
 QC631 .J36 1988
+
+   -- uses non-standard names for bivectors (volutors)
+   -- uses hats on bivectors and trivectors (haven't seen anybody else doing that)
+   -- re-dimensionalizes maxwells equation, which requires adding in additional spacetime derivative terms for sqrt(mu), sqrt(epsilon)
+      to compenstate.  those fall out when those are constant in time and space, but make things more complicated otherwise.
+      despite doing this, he then proceeds to work with E,H,D,B instead of his re-dimensionalized e,h,d,b.  This initially gives the impression
+      that he is treating cases other than D=epsilon E, B = mu H, but that isn't the case.
+   -- ends with an STA treatment with respect to relativity, despite using "paravectors" (like Baylis) in the preceding portion of the book.
+
+   ... more to read, in particular, worked problems.
 
 *)
 

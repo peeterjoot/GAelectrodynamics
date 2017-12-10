@@ -2,6 +2,7 @@ December X, 2017        GAelectrodynamics.V0.X.pdf
 
    - New subsection in intro material: complex.tex
      This separately highlights some of the complex like representations that are possible using multivector subspaces.
+   - move galiterature.tex to the appendix.
 
 December 7, 2017        GAelectrodynamics.V0.258.pdf
 
