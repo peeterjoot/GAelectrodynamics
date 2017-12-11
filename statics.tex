@@ -1,0 +1,68 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\subsection{Conditions.}
+Similar to electrostatics and magnetostatics, we can restrict attention to time invariant fields (\( \partial_t F = 0\)) and time invariant sources (\(\partial_t J = 0\)), but consider both electric and magnetic sources.  In that case Maxwell's equation is reduced to a first order gradient equation
+
+\begin{dmath}\label{eqn:statics:20}
+\spacegrad F(\Bx) = J(\Bx)
+\end{dmath}
+
+Using the Green's function for the (first order) gradient \cref{eqn:electrostatics:260}, this can be inverted as
+
+\begin{dmath}\label{eqn:statics:40}
+\BF(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' \BF(\Bx')
+= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' \BF(\Bx')}{1,2}
+= \inv{4\pi} \gpgrade{\int_V dV' \frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
+\end{dmath}
+
+Like we did in magnetostatics, a no-op grade selection has been inserted to simplify subsequent manipulation.  Moving the grade selection into the integral to tidy things up, the solution to the statics Maxwell equation is
+
+\boxedEquation{eqn:statics:80}{
+\BF(\Bx)
+= \inv{4\pi} \int_V dV' \frac{\gpgrade{(\Bx - \Bx') J(\Bx')}{1,2}}{\Norm{\Bx - \Bx'}^3}.
+}
+
+To relate this to the conventional solution, an expansion of the grade selection is required.  With \( \Bs = \Bx -\Bx' \) that grade selection has the following structure
+
+\begin{dmath}\label{eqn:statics:60}
+\gpgrade{\Bs J}{1,2}
+=
+\eta \gpgrade{\Bs (v \rho - \BJ)}{1,2}
++
+\gpgrade{\Bs I(v \rho_m - \BM)}{1,2}
+=
+\inv{\epsilon} \Bs \rho + \eta \BJ \wedge \Bs + \Bs v \rho_m I + \Bs \cross \BM,
+\end{dmath}
+
+so the solution \( F = \BE + \eta I \BH \) to the Maxwell statics equation in terms of the charge and current densities, and electric and magnetic fields is
+
+\begin{dmath}\label{eqn:statics:100}
+\begin{aligned}
+\BE(\Bx)
+&=
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+   \frac{(\Bx - \Bx') \rho(\Bx'))}{\epsilon}
+   + 
+   (\Bx - \Bx') \cross \BM(\Bx') 
+} \\
+\BH(\Bx)
+&=
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+  \BJ(\Bx') \cross (\Bx - \Bx')
++ \inv{\mu} (\Bx - \Bx') \rho_m(\Bx')
+}.
+\end{aligned}
+\end{dmath}
+
+It will be preferable to work with combined fields and densities, so that the solution can be left in its simpler form \cref{eqn:statics:80}.
+
+\makeproblem{}{problem:statics:80}{
+Fill in any steps left out of the derivations of \cref{eqn:statics:60} and \cref{eqn:statics:100}.
+} % problem
+%}

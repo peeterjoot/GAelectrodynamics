@@ -78,3 +78,4 @@ wedgeProductArea.tex
 amperesLawMagnetostaticsExample.tex
 galiterature.tex
 complex.tex
+statics.tex
