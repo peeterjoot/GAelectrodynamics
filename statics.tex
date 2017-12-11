@@ -3,7 +3,8 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-\subsection{Conditions.}
+\subsection{Inverting the Maxwell statics equation.}
+
 Similar to electrostatics and magnetostatics, we can restrict attention to time invariant fields (\( \partial_t F = 0\)) and time invariant sources (\(\partial_t J = 0\)), but consider both electric and magnetic sources.  In that case Maxwell's equation is reduced to a first order gradient equation
 
 \begin{dmath}\label{eqn:statics:20}
@@ -13,20 +14,25 @@ Similar to electrostatics and magnetostatics, we can restrict attention to time 
 Using the Green's function for the (first order) gradient \cref{eqn:electrostatics:260}, this can be inverted as
 
 \begin{dmath}\label{eqn:statics:40}
-\BF(\Bx)
-= \int_V dV' G(\Bx, \Bx') \spacegrad' \BF(\Bx')
-= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' \BF(\Bx')}{1,2}
-= \inv{4\pi} \gpgrade{\int_V dV' \frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
+F(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')
+= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
+= \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
 \end{dmath}
 
-Like we did in magnetostatics, a no-op grade selection has been inserted to simplify subsequent manipulation.  Moving the grade selection into the integral to tidy things up, the solution to the statics Maxwell equation is
+Like we did in magnetostatics, a no-op grade selection has been inserted to simplify subsequent manipulation
+\footnote{If this grade selection filter is omitted, it is possible to show that the scalar and pseudoscalar contributions to the \( (\Bx -\Bx') J \) product are zero on the boundary of the Green's integration volume. \citep{jancewicz1988multivectors:appendixI}},
+yielding a compact solution to the
+Maxwell statics equation
 
 \boxedEquation{eqn:statics:80}{
-\BF(\Bx)
+F(\Bx)
 = \inv{4\pi} \int_V dV' \frac{\gpgrade{(\Bx - \Bx') J(\Bx')}{1,2}}{\Norm{\Bx - \Bx'}^3}.
 }
 
-To relate this to the conventional solution, an expansion of the grade selection is required.  With \( \Bs = \Bx -\Bx' \) that grade selection has the following structure
+It will be preferable and simpler to work with combined fields and densities, however, some insight can be gained by
+explicit expansion of \cref{eqn:statics:80} in terms of charge and current densities.
+The grade selection, in terms of terms of \( \Bs = \Bx -\Bx' \) expands as
 
 \begin{dmath}\label{eqn:statics:60}
 \gpgrade{\Bs J}{1,2}
@@ -46,9 +52,9 @@ so the solution \( F = \BE + \eta I \BH \) to the Maxwell statics equation in te
 &=
 \inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
 \lr{
-   \frac{(\Bx - \Bx') \rho(\Bx'))}{\epsilon}
-   + 
-   (\Bx - \Bx') \cross \BM(\Bx') 
+   \inv{\epsilon}(\Bx - \Bx') \rho(\Bx')
+   +
+   (\Bx - \Bx') \cross \BM(\Bx')
 } \\
 \BH(\Bx)
 &=
@@ -60,9 +66,75 @@ so the solution \( F = \BE + \eta I \BH \) to the Maxwell statics equation in te
 \end{aligned}
 \end{dmath}
 
-It will be preferable to work with combined fields and densities, so that the solution can be left in its simpler form \cref{eqn:statics:80}.
+We see that the combined solution \cref{eqn:statics:80} incorporates both a Coulomb's law contribution and a Biot-Savart law contribution.
+When desired, any fictitious magnetic sources, also contribute to the electric and magnetic fields.
 
-\makeproblem{}{problem:statics:80}{
+\makeproblem{}{problem:statics:81}{
 Fill in any steps left out of the derivations of \cref{eqn:statics:60} and \cref{eqn:statics:100}.
 } % problem
+
+\subsection{Example.  Infinite line charge and current.}
+
+Given a static line charge density and current density along the z-axis in free space
+
+\begin{dmath}\label{eqn:statics:120}
+\begin{aligned}
+\rho(\Bx) &= \lambda \delta(x) \delta(y) \\
+\BJ(\Bx) &= \Bv \rho(\Bx) = v \lambda \Be_3 \delta(x) \delta(y),
+\end{aligned}
+\end{dmath}
+
+the total multivector current is
+\begin{dmath}\label{eqn:statics:140}
+J
+= \eta_0 ( c \rho - \BJ )
+= \eta_0 ( c - v \Be_3 ) \lambda \delta(x) \delta(y)
+= \inv{\epsilon_0} \lr{ 1 - \frac{v}{c} \Be_3 } \lambda \delta(x) \delta(y)
+\end{dmath}
+
+We can find the field for this current by substitution into \cref{eqn:statics:80}.
+To do so, let the field observation point be \( \Bx = \Bx_\perp + z \Be_3 \), so the total field is
+\begin{dmath}\label{eqn:statics:160}
+F(\Bx)
+= \frac{\lambda}{4\pi \epsilon_0} \int_V dx'dy'dz' \frac{\gpgrade{(\Bx - \Bx') (1 - (v/c) \Be_3 )}{1,2}}{\Norm{\Bx - \Bx'}^3} \delta(x') \delta(y')
+= \frac{\lambda}{4\pi \epsilon_0} \int_{-\infty}^\infty dz' \frac{\gpgrade{(\Bx_\perp + (z - z') \Be_3) (1 - (v/c) \Be_3 )}{1,2}}{\lr{\Bx_\perp^2 + (z-z')^2}^{3/2}}
+=
+\frac{\lambda \lr{ \Bx_\perp - (v/c) \Bx_\perp \Be_3}}{4\pi \epsilon_0} \int_{-\infty}^\infty \frac{dz'}{\lr{\Bx_\perp^2 + (z-z')^2}^{3/2}}
++
+\frac{\lambda \Be_3}{4\pi \epsilon_0} \int_{-\infty}^\infty \frac{(z - z') dz'}{\lr{\Bx_\perp^2 + (z-z')^2}^{3/2}}.
+\end{dmath}
+
+The first integral is \( 2/\Bx_\perp^2 \), whereas the second is zero (odd function, over even interval).
+Using cylindrical coordinates \( \Bx = R \rhocap + z \Be_3 \), and since
+\( \Bx_\perp \cdot \Be_3 = 0 \), the wedge can be replaced with the vector product \( \Bx_\perp \Be_3 = R \rhocap \Be_3 \), leaving
+
+\begin{dmath}\label{eqn:statics:180}
+F(\Bx)
+=
+\frac{\lambda}{2\pi \epsilon_0 R} \rhocap \lr{ 1 - \Bv/c},
+\end{dmath}
+
+where \( \Bv = v \Be_3 \).
+The vector component of this is the electric field, which is therefore directed radially, whereas the (dual) magnetic field \( \eta_0 I \BH \)
+is a set of oriented planes spanning the radial and z-axis directions.
+We can also see that there is a constant proportionality factor that relates the electric and magnetic field components, namely
+
+\begin{dmath}\label{eqn:statics:200}
+I \eta_0 \BH = -\BE \Bv/c.
+\end{dmath}
+
+A little bit of manipulation shows that the fields are related by
+
+\begin{dmath}\label{eqn:statics:220}
+\BH = \Bv \cross \BD.
+\end{dmath}
+
+%%where \( \Bv = v \Be_3 \) (i.e. \( \BJ(\Bx) = \lambda \Bv \delta(x)\delta(y) \).)
+%%
+%%\makeproblem{Electric and magnetic field relationship.}{problem:statics:240}{
+%%Prove \cref{eqn:statics:220}, by noting that \( \BE \Be_3 = -\Be_3 \BE \), and substituting \( \Bv = v \Be_3 \) into
+%%%the cylindrical representation of the \R{3} pseudoscalar \( I = \rhocap \phicap \Be_3 \) into
+%%\cref{eqn:statics:200} to solve for \( \BH \).
+%%} % problem
+
 %}
