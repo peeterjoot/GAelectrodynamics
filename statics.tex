@@ -89,7 +89,7 @@ the total multivector current is
 J
 = \eta_0 ( c \rho - \BJ )
 = \eta_0 ( c - v \Be_3 ) \lambda \delta(x) \delta(y)
-= \inv{\epsilon_0} \lr{ 1 - \frac{v}{c} \Be_3 } \lambda \delta(x) \delta(y)
+= \frac{\lambda}{\epsilon_0} \lr{ 1 - \frac{v}{c} \Be_3 } \delta(x) \delta(y)
 \end{dmath}
 
 We can find the field for this current by substitution into \cref{eqn:statics:80}.
@@ -108,11 +108,12 @@ The first integral is \( 2/\Bx_\perp^2 \), whereas the second is zero (odd funct
 Using cylindrical coordinates \( \Bx = R \rhocap + z \Be_3 \), and since
 \( \Bx_\perp \cdot \Be_3 = 0 \), the wedge can be replaced with the vector product \( \Bx_\perp \Be_3 = R \rhocap \Be_3 \), leaving
 
-\begin{dmath}\label{eqn:statics:180}
+\begin{equation}\label{eqn:statics:180}
 F(\Bx)
 =
-\frac{\lambda}{2\pi \epsilon_0 R} \rhocap \lr{ 1 - \Bv/c},
-\end{dmath}
+\frac{\lambda}{2\pi \epsilon_0 R} \rhocap \lr{ 1 - \Bv/c} = \BE \lr{ 1 - \Bv/c }
+= \BE + I \lr{ \frac{\Bv}{c} \cross \BE },
+\end{equation}
 
 where \( \Bv = v \Be_3 \).
 The vector component of this is the electric field, which is therefore directed radially, whereas the (dual) magnetic field \( \eta_0 I \BH \)
@@ -120,21 +121,24 @@ is a set of oriented planes spanning the radial and z-axis directions.
 We can also see that there is a constant proportionality factor that relates the electric and magnetic field components, namely
 
 \begin{dmath}\label{eqn:statics:200}
-I \eta_0 \BH = -\BE \Bv/c.
+I \eta_0 \BH = -\BE \Bv/c,
 \end{dmath}
 
-A little bit of manipulation shows that the fields are related by
+or
 
 \begin{dmath}\label{eqn:statics:220}
 \BH = \Bv \cross \BD.
 \end{dmath}
 
-%%where \( \Bv = v \Be_3 \) (i.e. \( \BJ(\Bx) = \lambda \Bv \delta(x)\delta(y) \).)
-%%
-%%\makeproblem{Electric and magnetic field relationship.}{problem:statics:240}{
-%%Prove \cref{eqn:statics:220}, by noting that \( \BE \Be_3 = -\Be_3 \BE \), and substituting \( \Bv = v \Be_3 \) into
-%%%the cylindrical representation of the \R{3} pseudoscalar \( I = \rhocap \phicap \Be_3 \) into
-%%\cref{eqn:statics:200} to solve for \( \BH \).
-%%} % problem
+\makeproblem{Statics solution for magnetic density and currents.}{problem:statics:240}{
+Given magnetic charge density \( \rho_m = \lambda_m \delta(x) \delta(y) \), and current density \( \BM = v \Be_3 \rho_m = \Bv \rho_m \), show that the field is given by
+\begin{equation*}
+F(\Bx) = \frac{\lambda_m c}{4 \pi R} I \rhocap \lr{ 1 - \frac{\Bv}{c} },
+\end{equation*}
+or with \( \BB = \lambda_m \rhocap/(4 \pi R) \),
+\begin{equation*}
+F = \BB \cross \Bv + c I \BB.
+\end{equation*}
+} % problem
 
 %}
