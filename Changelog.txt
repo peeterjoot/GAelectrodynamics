@@ -3,7 +3,7 @@
 
 December XX, 2017        GAelectrodynamics.V0.VVV.pdf
 
-   - Add infinite plane with charge and current density in the plane.
+   - statics: Add infinite plane with charge and current density in the plane.
 
 December 12, 2017        GAelectrodynamics.V0.265.pdf
 
