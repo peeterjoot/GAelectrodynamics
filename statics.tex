@@ -162,19 +162,19 @@ If \( \Bx_\parallel = (\Bx \wedge \Be_3) \Be_3 \), and \( \Bx'_\parallel = (\Bx'
 \begin{dmath}\label{eqn:statics:280}
 F(\Bx)
 =
-\frac{\sigma}{4 \pi \epsilon_0 } \iint \frac{r' dr' d\theta'}{ \lr{ z^2 + {r'}^2 }^{3/2} }
-\gpgrade{ \lr{ z \Be_3 + r' \Be_1 e^{i\theta'} } (1 - \Bv/c) }{1,2}.
+\frac{\sigma}{4 \pi \epsilon_0 } \iint \frac{r' dr' d\theta'}{ ( z^2 + {r'}^2 )^{3/2} }
+\gpgrade{ \lr{ z \Be_3 - r' \Be_1 e^{i\theta'} } (1 - \Bv/c) }{1,2}.
 \end{dmath}
 
-The \( e^{i\theta'} d\theta' \) integrands are killed, leaving
+The \( e^{i\theta'} \) integrands are killed, so for \( z \ne 0 \), the field is
 
 \begin{dmath}\label{eqn:statics:300}
 F(\Bx)
 =
-\frac{\sigma z}{4 \pi \epsilon_0 \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2},
+\frac{\sigma z}{4 \pi \epsilon_0 \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2}.
 \end{dmath}
 
-but since \( \Bv \in \Span \setlr{ \Be_1, \Be_2 } \), the product \( \Be_3 \Bv \) is a bivector and the grade selection can be dropped, and the field is
+Since \( \Bv \in \Span \setlr{ \Be_1, \Be_2 } \) the product \( \Be_3 \Bv \) is a bivector and the grade selection can be dropped, leaving
 
 \begin{dmath}\label{eqn:statics:320}
 F(\Bx)
@@ -182,6 +182,6 @@ F(\Bx)
 \frac{\sigma \sgn(z)}{4 \pi \epsilon_0 } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
 \end{dmath}
 
-This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic fields are once again related by \cref{eqn:statics:220}.
+This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic field components are once again related by \cref{eqn:statics:220}.
 
 %}
