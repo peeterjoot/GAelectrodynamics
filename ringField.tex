@@ -90,10 +90,14 @@ Let
 \begin{subequations}
 \label{eqn:ringField:260}
 \begin{equation}\label{eqn:ringField:200}
-A = A(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}
+A
+%= A(\alpha, \beta)
+= \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}
 \end{equation}
 \begin{equation}\label{eqn:ringField:280}
-B = B(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}.
+B
+%= B(\alpha, \beta)
+= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}.
 \end{equation}
 \end{subequations}
 
@@ -130,5 +134,16 @@ which shows that the static charge distribution \( \rho \propto \lambda \) only 
 
 Finally, to restore generality,
 should we wish to compute the field or its electric or magnetic components at an arbitrary observation azimuthal angle \( \phi \), we need only transform \( \Be_1 \rightarrow \Be_1 e^{i \phi} = \rhocap, \Be_2 \rightarrow \Be_2 e^{i\phi} = \phicap \).
+
+\makeproblem{Magnetic sources on a ring.}{problem:ringField:300}{
+Given a constant (magnitude) multivector current on a ring \( J = I \lambda_m \delta(z) \delta(r - R) ( c - v \Be_2 e^{i\phi}), i = \Be_{12} \), show that the field is
+\begin{equation*}
+F = \frac{\lambda_m c}{4 \pi R} \lr{
+\lr{ \alpha \Be_{12} + \beta \Be_{23} + \frac{v}{c} \Be_3 } A
++
+\lr{ \Be_{32} + \frac{v}{c} \lr{ \alpha \Be_1 - \beta \Be_3 } } B
+}.
+\end{equation*}
+} % problem
 
 %}
