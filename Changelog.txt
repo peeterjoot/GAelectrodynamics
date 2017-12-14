@@ -5,6 +5,7 @@ December XX, 2017        GAelectrodynamics.V0.VVV.pdf
    - statics: Add infinite plane with charge and current density in the plane.
    - statics: A similtaneous solution of the electric and magnetic fields for a ring with constant charge density and/or
      constant (magnitude) current density.
+   - problem: do the same for magnetic sources.
 
 December 12, 2017        GAelectrodynamics.V0.265.pdf
 
