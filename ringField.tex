@@ -85,28 +85,32 @@ are of the form
 since
 the \( i \sin\phi' f(\cos(\phi') \) contributions are odd functions around \( \phi' = \pi \).
 
-In general, for all \( z, r \) we can't symbolically evaluate the integrals, but we can put them into a numerically tractible form.
+In general, for all \( z, r \) we can't symbolically evaluate the integrals.
 Let
-\begin{dmath}\label{eqn:ringField:200}
-\begin{aligned}
-a = a(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}} \\
-b = b(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}},
-\end{aligned}
-\end{dmath}
+\begin{subequations}
+\label{eqn:ringField:260}
+\begin{equation}\label{eqn:ringField:200}
+A = A(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}
+\end{equation}
+\begin{equation}\label{eqn:ringField:280}
+B = B(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}.
+\end{equation}
+\end{subequations}
 
-so the field is
+The solutions of \cref{eqn:ringField:260} both require elliptic integrals, but are also amenable to direct numeric evaluation.  Taking these as given, the field is
+
 \begin{dmath}\label{eqn:ringField:220}
 F
 =
 \frac{\lambda}{4 \pi \epsilon_0 R}
 \lr{
-\lr{ \alpha \Be_3 + \beta \Be_1 -\frac{v }{c}\Be_{12} } a
+\lr{ \alpha \Be_3 + \beta \Be_1 -\frac{v }{c}\Be_{12} } A
 - \lr{
-\Be_1 + \frac{v}{c} \lr{ \alpha \Be_{31} + \beta \Be_{12} } } b
+\Be_1 + \frac{v}{c} \lr{ \alpha \Be_{31} + \beta \Be_{12} } } B
 }.
 \end{dmath}
 
-The field directions are nicely parameterized as multivector expresssions, with the relative weightings in different directions scaled by the position dependent integral coefficients of \cref{eqn:ringField:200}.
+The field directions are nicely parameterized as multivector expresssions, with the relative weightings in different directions scaled by the position dependent integral coefficients of \cref{eqn:ringField:260}.
 The multivector field can be separated into its respective electric and magnetic components by inspection
 
 \begin{dmath}\label{eqn:ringField:240}
@@ -114,15 +118,17 @@ The multivector field can be separated into its respective electric and magnetic
 \BE &=
 \gpgradeone{F}
 =
-\frac{\lambda}{4 \pi R \epsilon_0} \lr{ \alpha a \Be_3 + \Be_1( \beta a - b) } \\
+\frac{\lambda}{4 \pi R \epsilon_0} \lr{ \alpha A \Be_3 + \Be_1( \beta A - B) } \\
 \BH &=
 \inv{\eta_0} \gpgradeone{-I F}
 =
-\frac{\lambda c}{4 \pi R } \lr{ -\Be_3 \lr{ a + \frac{\beta v}{c} } b - \Be_2 \frac{\alpha v}{c} }.
+\frac{\lambda v}{4 \pi R } \lr{ -\Be_3 \lr{ A + \beta B } - \Be_2 \alpha },
 \end{aligned}
 \end{dmath}
 
-Restoring generality, 
-should we wish to compute the field or its electric or magnetic components at an arbitrary azimuthal angle \( \phi \), we need only transform \( \Be_1 \rightarrow \Be_1 e^{i \phi}, \Be_2 \rightarrow \Be_2 e^{i\phi} \).
+which shows that the static charge distribution \( \rho \propto \lambda \) only contributes to the electric field, and the static current distribution \( \BJ \propto v \lambda \) only contributes to the magnetic field.
+
+Finally, to restore generality,
+should we wish to compute the field or its electric or magnetic components at an arbitrary observation azimuthal angle \( \phi \), we need only transform \( \Be_1 \rightarrow \Be_1 e^{i \phi} = \rhocap, \Be_2 \rightarrow \Be_2 e^{i\phi} = \phicap \).
 
 %}
