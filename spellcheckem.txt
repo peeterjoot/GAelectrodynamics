@@ -79,3 +79,4 @@ amperesLawMagnetostaticsExample.tex
 galiterature.tex
 complex.tex
 statics.tex
+ringField.tex

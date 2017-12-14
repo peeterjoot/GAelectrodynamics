@@ -1,0 +1,128 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+
+\subsection{Example.  Field of a ring of charge or current density.}
+
+Let's now compute the field due to a static charge or current density on a ring of radius \( R \) as illustrated in
+\cref{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/chargeAndCurrentOnRingFig1}{Field due to a circular distribution.}{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}{0.3}
+
+A static charge distribution on a ring at \( z = 0 \) has the form
+
+\begin{dmath}\label{eqn:ringField:20}
+\rho(\Bx) = \lambda \delta(z) \delta(r - R).
+\end{dmath}
+
+As always the current distribution is of the form \( \BJ = \Bv \rho \), and in this case the velocity is azimuthal \( \Bv = \Be_2 e^{i\phi}, i = \Be_{12} \).
+The total multivector current is
+
+\begin{dmath}\label{eqn:ringField:40}
+J = \inv{\epsilon_0} \lambda \delta(z) \delta(r - R) \lr{ 1 - \frac{\Bv}{c} }.
+\end{dmath}
+
+Let the point that we observe the field, and the integration variables be
+
+\begin{dmath}\label{eqn:ringField:60}
+\begin{aligned}
+\Bx &= z \Be_3 + r \rhocap \\
+\Bx' &= z' \Be_3 + r' \rhocap'.
+\end{aligned}
+\end{dmath}
+
+The field is
+
+\begin{dmath}\label{eqn:ringField:80}
+F(\Bx)
+= \frac{\lambda}{4 \pi \epsilon_0} \iiint dz' r' dr' d\phi' \delta(z') \delta(r' - R) \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} }
+= \frac{\lambda}{4 \pi \epsilon_0} \int R d\phi' \frac{\gpgrade{ \lr{ z \Be_3 + r \rhocap - R \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ z^2 + (r \rhocap - R \rhocap')^2}^{3/2} }
+\end{dmath}
+
+Without loss of generality, we can align the axes so that \( \rhocap = \Be_1 \), and
+introduce dimensionless variables
+
+\begin{dmath}\label{eqn:ringField:100}
+\begin{aligned}
+\alpha &= z/R \\
+\beta &= r/R,
+\end{aligned}
+\end{dmath}
+
+which gives
+\begin{dmath}\label{eqn:ringField:120}
+F
+= \frac{\lambda}{4 \pi \epsilon_0 R} \int_0^{2\pi} d\phi' \frac{\gpgrade{ \lr{ \alpha \Be_3 + \beta \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ \alpha^2 + (\beta \Be_1 - \Be_1 e^{i\phi'})^2}^{3/2} }.
+\end{dmath}
+
+In the denominator, the vector square expands as
+\begin{dmath}\label{eqn:ringField:140}
+(\beta \Be_1 - \Be_1 e^{i\phi'})^2
+=
+(\beta - e^{-i\phi'}) \Be_1^2 (\beta - e^{i\phi'})
+=
+\beta^2 + 1 - 2 \beta \cos(\phi'),
+\end{dmath}
+
+and the grade selection in the numerator is
+
+\begin{dmath}\label{eqn:ringField:160}
+\gpgrade{ \lr{ \alpha \Be_3 + \beta \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'}}}{1,2}
+=
+\alpha \Be_3 + \beta \Be_1 - \Be_1 e^{i\phi'}
+-\frac{v}{c}\lr{ \alpha \Be_{31} e^{i\phi'} + \beta i \cos(\phi') + i }.
+\end{dmath}
+
+Any of the exponential integrals terms
+are of the form
+
+\begin{dmath}\label{eqn:ringField:180}
+\int_0^{2\pi} d\phi' e^{i\phi'} f(\cos(\phi')) = \int_0^{2\pi} d\phi' \cos(\phi') f(\cos(\phi')),
+\end{dmath}
+
+since
+the \( i \sin\phi' f(\cos(\phi') \) contributions are odd functions around \( \phi' = \pi \).
+
+In general, for all \( z, r \) we can't symbolically evaluate the integrals, but we can put them into a numerically tractible form.
+Let
+\begin{dmath}\label{eqn:ringField:200}
+\begin{aligned}
+a = a(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}} \\
+b = b(\alpha, \beta) = \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}},
+\end{aligned}
+\end{dmath}
+
+so the field is
+\begin{dmath}\label{eqn:ringField:220}
+F
+=
+\frac{\lambda}{4 \pi \epsilon_0 R}
+\lr{
+\lr{ \alpha \Be_3 + \beta \Be_1 -\frac{v }{c}\Be_{12} } a
+- \lr{
+\Be_1 + \frac{v}{c} \lr{ \alpha \Be_{31} + \beta \Be_{12} } } b
+}.
+\end{dmath}
+
+The field directions are nicely parameterized as multivector expresssions, with the relative weightings in different directions scaled by the position dependent integral coefficients of \cref{eqn:ringField:200}.
+The multivector field can be separated into its respective electric and magnetic components by inspection
+
+\begin{dmath}\label{eqn:ringField:240}
+\begin{aligned}
+\BE &=
+\gpgradeone{F}
+=
+\frac{\lambda}{4 \pi R \epsilon_0} \lr{ \alpha a \Be_3 + \Be_1( \beta a - b) } \\
+\BH &=
+\inv{\eta_0} \gpgradeone{-I F}
+=
+\frac{\lambda c}{4 \pi R } \lr{ -\Be_3 \lr{ a + \frac{\beta v}{c} } b - \Be_2 \frac{\alpha v}{c} }.
+\end{aligned}
+\end{dmath}
+
+Restoring generality, 
+should we wish to compute the field or its electric or magnetic components at an arbitrary azimuthal angle \( \phi \), we need only transform \( \Be_1 \rightarrow \Be_1 e^{i \phi}, \Be_2 \rightarrow \Be_2 e^{i\phi} \).
+
+%}
