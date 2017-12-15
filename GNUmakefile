@@ -50,7 +50,7 @@ maxwells.pdf :: ringField.tex
 #maxwells.pdf :: isotropicMaxwells.tex
 #maxwells.pdf :: polarization.tex
 #maxwells.pdf :: maxwellsEquations.tex
-#maxwells.pdf :: poyntingF.tex
+maxwells.pdf :: poyntingF.tex
 #maxwells.pdf :: poyntingFComplexPower.tex
 #maxwells.pdf :: inMatter.tex
 #maxwells.pdf :: multivector.tex
