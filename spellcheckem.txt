@@ -44,7 +44,6 @@ oneparameter.tex
 planewaves.tex
 polarization.tex
 potentialSection.tex
-poyntingComplexPower.tex
 poyntingF.tex
 poyntingFComplexPower.tex
 prereq_basisspandim.tex

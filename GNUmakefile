@@ -36,28 +36,8 @@ include ../latex/make.rules
 #all :: ellipticalWaves.pdf
 #all :: junk.pdf
 #all :: maxwells.pdf
-#maxwells.pdf :: statics.tex
-maxwells.pdf :: ringField.tex
-#maxwells.pdf :: transverseField.tex
-#maxwells.pdf :: freespace.tex
-#maxwells.pdf :: electrostatics.tex
-#maxwells.pdf :: magnetostatics.tex
-#maxwells.pdf :: linecharge.tex
-#maxwells.pdf :: gacomparison.tex
-#maxwells.pdf :: circularlinecharge.tex
-#maxwells.pdf : planewaves.tex
-#maxwells.pdf :: lorentzForce.tex
-#maxwells.pdf :: isotropicMaxwells.tex
-#maxwells.pdf :: polarization.tex
-#maxwells.pdf :: maxwellsEquations.tex
-maxwells.pdf :: poyntingF.tex
-#maxwells.pdf :: poyntingFComplexPower.tex
-#maxwells.pdf :: inMatter.tex
-#maxwells.pdf :: multivector.tex
-maxwells.pdf :: galiterature.tex
+maxwells.pdf :: $(shell cat spellcheckem.txt)
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
-#maxwells.pdf :: frequencydomainPlaneWaves.tex
-#maxwells.pdf :: poyntingF.tex poyntingFComplexPower.tex
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

@@ -46,33 +46,33 @@ introduce dimensionless variables
 
 \begin{dmath}\label{eqn:ringField:100}
 \begin{aligned}
-\alpha &= z/R \\
-\beta &= r/R,
+\tilde{z} &= z/R \\
+\tilde{r} &= r/R,
 \end{aligned}
 \end{dmath}
 
 which gives
 \begin{dmath}\label{eqn:ringField:120}
 F
-= \frac{\lambda}{4 \pi \epsilon_0 R} \int_0^{2\pi} d\phi' \frac{\gpgrade{ \lr{ \alpha \Be_3 + \beta \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ \alpha^2 + (\beta \Be_1 - \Be_1 e^{i\phi'})^2}^{3/2} }.
+= \frac{\lambda}{4 \pi \epsilon_0 R} \int_0^{2\pi} d\phi' \frac{\gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ \tilde{z}^2 + (\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2}^{3/2} }.
 \end{dmath}
 
 In the denominator, the vector square expands as
 \begin{dmath}\label{eqn:ringField:140}
-(\beta \Be_1 - \Be_1 e^{i\phi'})^2
+(\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2
 =
-(\beta - e^{-i\phi'}) \Be_1^2 (\beta - e^{i\phi'})
+(\tilde{r} - e^{-i\phi'}) \Be_1^2 (\tilde{r} - e^{i\phi'})
 =
-\beta^2 + 1 - 2 \beta \cos(\phi'),
+\tilde{r}^2 + 1 - 2 \tilde{r} \cos(\phi'),
 \end{dmath}
 
 and the grade selection in the numerator is
 
 \begin{dmath}\label{eqn:ringField:160}
-\gpgrade{ \lr{ \alpha \Be_3 + \beta \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'}}}{1,2}
+\gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'}}}{1,2}
 =
-\alpha \Be_3 + \beta \Be_1 - \Be_1 e^{i\phi'}
--\frac{v}{c}\lr{ \alpha \Be_{31} e^{i\phi'} + \beta i \cos(\phi') + i }.
+\tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'}
+-\frac{v}{c}\lr{ \tilde{z} \Be_{31} e^{i\phi'} + \tilde{r} i \cos(\phi') + i }.
 \end{dmath}
 
 Any of the exponential integrals terms
@@ -91,33 +91,42 @@ Let
 \label{eqn:ringField:260}
 \begin{dmath}\label{eqn:ringField:200}
 A
-%= A(\alpha, \beta)
-= \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}
+%= A(\tilde{z}, \tilde{r})
+= \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}}
 =
-\frac{4 E\left(-\frac{4 \beta}{(\beta-1)^2+\alpha^2}\right)}{\sqrt{\alpha^2+(\beta-1)^2} \left(\alpha^2+(\beta+1)^2\right)}
+\frac{4 E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)}{\sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)}
 \end{dmath}
 \begin{dmath}\label{eqn:ringField:280}
 B
-%= B(\alpha, \beta)
-= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}
+%= B(\tilde{z}, \tilde{r})
+= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}}
 =
-\frac{2 \left(\left(\alpha^2+\beta^2+1\right) E\left(-\frac{4 \beta}{(\beta-1)^2+\alpha^2}\right)-\left(\alpha^2+(\beta+1)^2\right) K\left(-\frac{4 \beta}{(\beta-1)^2+\alpha^2}\right)\right)}{\beta \sqrt{\alpha^2+(\beta-1)^2} \left(\alpha^2+(\beta+1)^2\right)},
+\frac{2 \left(\left(\tilde{z}^2+\tilde{r}^2+1\right) E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)-\left(\tilde{z}^2+(\tilde{r}+1)^2\right) K\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)\right)}{\tilde{r} \sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)},
 \end{dmath}
 \end{subequations}
 
 where
 \( K(m), E(m) \)
 are complete elliptic integrals of the first and second kind respectively.
-The field is now fully determined
+As seen in \cref{fig:ringFieldAB}, these functions are similar, 
+both tailing off quickly with \( z, \rho \), with largest values the ring.  
+\imageTwoFigures
+{../figures/GAelectrodynamics/ringFieldAFig1}
+{../figures/GAelectrodynamics/ringFieldBFig1}
+{(a) \(A(\tilde{z}, \tilde{\rho})\).  (b) \(B(\tilde{z}, \tilde{\rho})\).}{fig:ringFieldAB}{scale=0.3}
+
+Finally, restoring generality by making the
+transformation \( \Be_1 \rightarrow \Be_1 e^{i \phi} = \rhocap, \Be_2 \rightarrow \Be_2 e^{i\phi} = \phicap \), the field is
+now fully determined
 
 \begin{dmath}\label{eqn:ringField:220}
 F
 =
 \frac{\lambda}{4 \pi \epsilon_0 R}
 \lr{
-\lr{ \alpha \Be_3 + \beta \Be_1 -\frac{v }{c}\Be_{12} } A
+\lr{ \tilde{z} \Be_3 + \tilde{r} \rhocap -\frac{v i}{c} } A
 - \lr{
-\Be_1 + \frac{v}{c} \lr{ \alpha \Be_{31} + \beta \Be_{12} } } B
+\rhocap + \frac{v}{c} \lr{ \tilde{z} \Be_{3} \rhocap + \tilde{r} i } } B
 }.
 \end{dmath}
 
@@ -129,26 +138,29 @@ The multivector field can be separated into its respective electric and magnetic
 \BE &=
 \gpgradeone{F}
 =
-\frac{\lambda}{4 \pi R \epsilon_0} \lr{ \alpha A \Be_3 + \Be_1( \beta A - B) } \\
+\frac{\lambda}{4 \pi R \epsilon_0} \lr{ \tilde{z} A \Be_3 + \rhocap( \tilde{r} A - B) } \\
 \BH &=
 \inv{\eta_0} \gpgradeone{-I F}
 =
-\frac{\lambda v}{4 \pi R } \lr{ -\Be_3 \lr{ A + \beta B } - \Be_2 \alpha },
+\frac{\lambda v}{4 \pi R } \lr{ -\Be_3 \lr{ A + \tilde{r} B } - \phicap \tilde{z} A },
 \end{aligned}
 \end{dmath}
 
 which, as expected, shows that the static charge distribution \( \rho \propto \lambda \) only contributes to the electric field, and the static current distribution \( \BJ \propto v \lambda \) only contributes to the magnetic field.
-
-Finally, to restore generality,
-should we wish to compute the field or its electric or magnetic components at an arbitrary observation azimuthal angle \( \phi \), we need only transform \( \Be_1 \rightarrow \Be_1 e^{i \phi} = \rhocap, \Be_2 \rightarrow \Be_2 e^{i\phi} = \phicap \).
+See 
+\cref{fig:ringFieldE:ringFieldEFig1}, \cref{fig:ringFieldH:ringFieldHFig1}
+for plots of the electric and magnetic field directional variation near \( \tilde{z} = 0 \), and \cref{fig:ringFieldH:ringFieldHFig2} for larger \( z \) where the azimuthal component of the field dominates.
+\imageFigure{../figures/GAelectrodynamics/ringFieldEFig1}{Electric field direction for circular charge density distribution near \( z = 0 \).}{fig:ringFieldE:ringFieldEFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/ringFieldHFig1}{Magnetic field direction for circular current density distribution near \( z = 0 \).}{fig:ringFieldH:ringFieldHFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/ringFieldHFig2}{Magnetic field for larger \( z \).}{fig:ringFieldH:ringFieldHFig2}{0.3}
 
 \makeproblem{Magnetic sources on a ring.}{problem:ringField:300}{
 Given a constant (magnitude) multivector current on a ring \( J = I \lambda_m \delta(z) \delta(r - R) ( c - v \Be_2 e^{i\phi}), i = \Be_{12} \), show that the field is
 \begin{equation*}
 F = \frac{\lambda_m c}{4 \pi R} \lr{
-\lr{ \alpha \Be_{12} + \beta \Be_{23} + \frac{v}{c} \Be_3 } A
+\lr{ \tilde{z} i + \tilde{r} \phicap \Be_{3} + \frac{v}{c} \Be_3 } A
 +
-\lr{ \Be_{32} + \frac{v}{c} \lr{ \alpha \Be_1 - \beta \Be_3 } } B
+\lr{ \Be_{3}\phicap + \frac{v}{c} \lr{ \tilde{z} \rhocap - \tilde{r} \Be_3 } } B
 }.
 \end{equation*}
 } % problem
