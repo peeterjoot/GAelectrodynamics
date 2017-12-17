@@ -85,24 +85,30 @@ are of the form
 since
 the \( i \sin\phi' f(\cos(\phi') \) contributions are odd functions around \( \phi' = \pi \).
 
-In general, for all \( z, r \) we can't symbolically evaluate the integrals.
+For general \( z, r \) the integrals above require numeric evaluation or special functions.
 Let
 \begin{subequations}
 \label{eqn:ringField:260}
-\begin{equation}\label{eqn:ringField:200}
+\begin{dmath}\label{eqn:ringField:200}
 A
 %= A(\alpha, \beta)
 = \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}
-\end{equation}
-\begin{equation}\label{eqn:ringField:280}
+=
+\frac{4 E\left(-\frac{4 \beta}{(\beta-1)^2+\alpha^2}\right)}{\sqrt{\alpha^2+(\beta-1)^2} \left(\alpha^2+(\beta+1)^2\right)}
+\end{dmath}
+\begin{dmath}\label{eqn:ringField:280}
 B
 %= B(\alpha, \beta)
-= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}.
-\end{equation}
+= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \alpha^2 + \beta^2 - 2 \beta \cos(\phi') }^{3/2}}
+=
+\frac{2 \left(\left(\alpha^2+\beta^2+1\right) E\left(-\frac{4 \beta}{(\beta-1)^2+\alpha^2}\right)-\left(\alpha^2+(\beta+1)^2\right) K\left(-\frac{4 \beta}{(\beta-1)^2+\alpha^2}\right)\right)}{\beta \sqrt{\alpha^2+(\beta-1)^2} \left(\alpha^2+(\beta+1)^2\right)},
+\end{dmath}
 \end{subequations}
 
-The solutions of \cref{eqn:ringField:260} both require elliptic integrals, but are also amenable to direct numeric evaluation.
-Taking these as given, the field is
+where
+\( K(m), E(m) \)
+are complete elliptic integrals of the first and second kind respectively.
+The field is now fully determined
 
 \begin{dmath}\label{eqn:ringField:220}
 F

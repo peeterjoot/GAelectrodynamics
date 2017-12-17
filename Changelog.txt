@@ -1,6 +1,11 @@
 %December XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+December XX, 2017        GAelectrodynamics.V0.VVV.pdf
+   - make note of the exact ring field solutions:
+
+      https://mathematica.stackexchange.com/questions/161971/transform-integral-to-elliptic-or-hypergeometric-forms/162095#162095
+
 December 15, 2017        GAelectrodynamics.V0.276.pdf
    - statics: Add infinite plane with charge and current density in the plane.
    - statics: A similtaneous solution of the electric and magnetic fields for a ring with constant charge density and/or

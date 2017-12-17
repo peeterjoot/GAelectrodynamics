@@ -1,3 +1,5 @@
+- Got to try plotting the ring fields.
+
 - Lorentz force, boosts: gabookII chapter 35.  Is there a reasonable paravector implementation of this?
 
 - implement TexForm for GA30.m, ...
