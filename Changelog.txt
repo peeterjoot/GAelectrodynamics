@@ -1,12 +1,13 @@
-%December XX, 2017        GAelectrodynamics.V0.VVV.pdf
+%Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
-December XX, 2017        GAelectrodynamics.V0.VVV.pdf
+Jan 07, 2017        GAelectrodynamics.V0.VVV.pdf
    - make note of the exact ring field solutions from:
       https://mathematica.stackexchange.com/questions/161971/transform-integral-to-elliptic-or-hypergeometric-forms/162095#162095
    - Plot magnetic field and electric fields for circular static distributions.
    - Fix error in magnetic field expression (spotted plotting the function).  Make the (e1,e2) -> rhocap, phicap
      transformation before stating final results for clarity.  Switch variables alpha -> tilde-z, beta -> tilde-r.
+   - prove theorem B.1: Vector Blade dot and wedge product relations.
 
 December 15, 2017        GAelectrodynamics.V0.276.pdf
    - statics: Add infinite plane with charge and current density in the plane.
