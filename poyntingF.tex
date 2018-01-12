@@ -144,31 +144,40 @@ We do so within a scalar selection operation, which simplifies things, and allow
 =
 \frac{\epsilon}{2} \gpgradezero{ v J F^\dagger a }
 +
-\frac{\epsilon}{2} \gpgradezero{ \dot{F}^\dagger \lr{ v \spacegrad + \PD{t}{} } F a }
+\frac{\epsilon}{2} \gpgradezero{ \dot{F}^\dagger \lr{ v \spacegrad + \PD{t}{} } F a },
+\end{dmath}
+
+where
+the over-dot notation of
+\citep{hestenes1999nfc} was used to indicate the desired action of the derivative operators in the
+chain rule expansion of
+\cref{eqn:poyntingF:100}
+, as the gradient may not commute with \( F \).  Another application of Maxwell's equation reduces this further
+
+\begin{dmath}\label{eqn:poyntingF:960}
+\frac{\epsilon}{2} \gpgradezero{ \lr{ v \spacegrad + \PD{t}{} } F a F^\dagger }
 =
 \frac{\epsilon}{2} \gpgradezero{ v J F^\dagger a }
 +
 \frac{\epsilon}{2} \gpgradezero{ \lr{ \lr{ v \spacegrad + \PD{t}{} } F }^\dagger a F }
 =
-v \frac{\epsilon}{2} \gpgradezero{ F^\dagger J a + J^\dagger a F }
-=
-\frac{1}{2 \eta} \gpgradezero{ J a F^\dagger + J^\dagger a F }
-%=
-%\inv{\eta} \gpgradezero{ J^\dagger F a },
+v \frac{\epsilon}{2} \gpgradezero{ F^\dagger J a + J^\dagger a F },
 \end{dmath}
 
-The over-dot notation of
-\citep{hestenes1999nfc} was used to indicate the desired action of the derivative operators in the
-chain rule expansion of
-\cref{eqn:poyntingF:100}
-, as the gradient may not commute with \( F \).
+or
+\boxedEquation{eqn:poyntingF:980}{
+v \spacegrad \cdot \gpgradeone{ \frac{\epsilon}{2} F a F^\dagger }
++ \PD{t}{} \gpgradezero{ \frac{\epsilon}{2} F a F^\dagger }
+=
+\frac{1}{2 \eta} \gpgradezero{ J a F^\dagger + J^\dagger a F }.
+}
 
-For \( a = 1 \), noting that scalars are reversion invariant (i.e. \( \gpgradezero{ J^\dagger F } = \gpgradezero{ F^\dagger J } = \gpgradezero{ J F^\dagger } \)), we obtain the
-multivector form of Poynting's theorem
+For \( a = 1 \), since scalars are reversion invariant (i.e. \( \gpgradezero{ J^\dagger F } = \gpgradezero{ F^\dagger J } = \gpgradezero{ J F^\dagger } \)), we obtain the
+multivector form of Poynting's theorem with respect to the time variation of the energy of the field
 
 \index{Poynting theorem}
 \boxedEquation{eqn:poyntingF:220}{
-v \gpgradezero{ \spacegrad \frac{\epsilon}{2} F F^\dagger }
+v \spacegrad \cdot \gpgradeone{ \frac{\epsilon}{2} F F^\dagger }
 + \PD{t}{} \gpgradezero{ \frac{\epsilon}{2} F F^\dagger }
 =
 \inv{\eta} \gpgradezero{ J^\dagger F }.
