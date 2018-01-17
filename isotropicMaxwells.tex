@@ -83,16 +83,17 @@ I \sqrt{\mu} \BH
 .
 \end{dmath}
 
-With the engineering convention, using \( \BE \) and \( \BH \) as the primary fields, we have constructed the GA Maxwell equation
+After rescaling so that we are using
+the engineering convention where \( \BE \) and \( \BH \) are the primary fields, we obtain the geometric algebra multivector form of Maxwell's equation
 
 \boxedEquation{eqn:maxwellsEquations:460}{
 \begin{aligned}
 F &= \BE + \eta I \BH \\
 J &=
 \eta
-\lr{ v \rho - \BJ }
-+ I \lr{ v \rho_\txtm - \BM } \\
-\lr{ \spacegrad + \inv{v} \PD{t}{} } F
+\lr{ c \rho - \BJ }
++ I \lr{ c \rho_\txtm - \BM } \\
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F
 &= J.
 \end{aligned}
 }
@@ -101,12 +102,13 @@ Here
 
 \begin{itemize}
 \item \( F = \BE + \eta I \BH \) [\si{V/m}] (Volts/meter), is the electromagnetic field strength.
-This is a multivector field with vector and bivector components.
-\item \( J = \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM } \) ([\si{A/m^2}] (Amperes/square meter)),
-is a multivector source containing all the electric and magnetic charge and current densities.
-This source multivector has one grade for each possible source (scalar, vector, bivector, trivector).
-\item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media, and
-\item \( v = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.
+This is a multivector field with vector and bivector components.  Some authors call this the Faraday.
+\item \( J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM } \) ([\si{A/m^2}] (Amperes/square meter)),
+is a multivector source containing all the electric and magnetic charge and current densities.  This is called the current.
+When the fictious magnetic source terms are included this source multivector has one grade for each possible source (scalar, vector, bivector, trivector).  When the current has no fictious magnetic sources, this is still a multivector, but contains only scalar and vector grades.
+\item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media.
+\item \( c = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media, and when \( \epsilon = \epsilon_0, \mu = \mu_0 \) is the speed of light.  
+A justification for calling this the group velocity will follow shortly.
 \end{itemize}
 
 Maxwell's equation \cref{eqn:maxwellsEquations:460} is a
@@ -122,5 +124,3 @@ Given such a field solution, the electric and magnetic fields can be recovered b
 I \BH &= \inv{\eta} \gpgradetwo{F}.
 \end{aligned}
 \end{dmath}
-
-

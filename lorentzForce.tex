@@ -3,15 +3,15 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \subsection{GA statement.}
-In free space, the Lorentz force equation \cref{eqn:freespace:200}
+The Lorentz force equation \cref{eqn:freespace:200}
 can be restated
-in terms of \( F = \BE + I \eta_0 \BH = \BE + I c \BB \) as
+in terms of \( F = \BE + I \eta \BH = \BE + I c \BB \) as
 
-%\begin{dmath}\label{eqn:lorentzForce:20}
-\boxedEquation{eqn:lorentzForce:20}{
+\begin{dmath}\label{eqn:lorentzForce:20}
+%\boxedEquation{eqn:lorentzForce:20}{
 \frac{d\Bp}{dt} = q \gpgradeone{ F \lr{ 1 + \frac{\Bv}{c} } },
-}
-%\end{dmath}
+%}
+\end{dmath}
 
 which puts the electric and magnetic fields on equal footing.
 This can be demonstrated by splitting the \( F \lr{ 1 + \ifrac{\Bv}{c} } \) multivector into its constituent grades
@@ -20,7 +20,7 @@ This can be demonstrated by splitting the \( F \lr{ 1 + \ifrac{\Bv}{c} } \) mult
 q F \lr{ 1 + \frac{\Bv}{c} }
 =
 q
-\lr{ \BE + I c \BH }
+\lr{ \BE + I c \BB }
 \lr{ 1 + \frac{\Bv}{c} }
 =
 q \BE
@@ -35,6 +35,22 @@ q \BE
 \end{dmath}
 
 The grade 0 component of this product hints of \cref{eqn:freespace:220}, and substitution into the vector grade selection operation of \cref{eqn:lorentzForce:20} recovers \cref{eqn:freespace:200} as desired.
+
+Looking to the stress tensor for the continuum equivalent of the dual Lorentz force equation \cref{eqn:poyntingLorentzForce:140}, we can introduce a generalized multivector charge
+
+\begin{dmath}\label{eqn:lorentzForce:240}
+Q =
+q_\txte \lr{ 1 + \Bv_\txte/c }
+-I \epsilon q_\txtm \lr{ 1 + \Bv_\txtm/c },
+\end{dmath}
+
+where \( q_\txte, q_\txtm \) are the electric and magnetic charges, and \( \Bv_\txte, \Bv_\txtm \) are their respective velocities.
+The Lorentz force equation, including both electric and fictious magnetic charges, can now be written as
+%\begin{dmath}\label{eqn:lorentzForce:260}
+\boxedEquation{eqn:lorentzForce:260}{
+\frac{d\Bp}{dt} = \gpgradeone{ F Q }.
+}
+%\end{dmath}
 
 \subsection{Constant magnetic field.}
 

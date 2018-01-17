@@ -11,20 +11,20 @@ For both electrostatics and magnetostatics, where Maxwell's equations are both a
 For electrodynamics where Maxwell's equation is
 
 \begin{dmath}\label{eqn:potentialSection:1800}
-\lr{ \spacegrad + \inv{v} \PD{t}{} } F = J,
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J,
 \end{dmath}
 
 it seems more reasonable to demand a different structure of the potential, say
 
 \begin{dmath}\label{eqn:potentialSection:1820}
-F = \lr{ \spacegrad - \inv{v} \PD{t}{} } A,
+F = \lr{ \spacegrad - \inv{c} \PD{t}{} } A,
 \end{dmath}
 
 where \( A \) is a multivector potential that may contain all grades, with structure to be determined.
 If such a multivector potential can be found, then Maxwell's equation is reduced to a single wave equation
 
 \begin{dmath}\label{eqn:potentialSection:1840}
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } A = J,
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } A = J,
 \end{dmath}
 
 which can be thought of as one wave equation for each multivector grade of the multivector source \( J \).
@@ -38,7 +38,7 @@ a grade selection filter must be imposed
 \boxedEquation{eqn:potentialSection:1860}{
 F
 =
-\gpgrade{ \lr{ \spacegrad - \inv{v} \PD{t}{} } A }{1,2}.
+\gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } A }{1,2}.
 }
 
 We will find that the desired representation of the multivector potential is
@@ -46,8 +46,8 @@ We will find that the desired representation of the multivector potential is
 \begin{dmath}\label{eqn:potentialSection:40}
 A =
       - \phi
-      + v \BA
-      + \eta I \lr{ -\phi_m + v \BF }.
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF }.
 \end{dmath}
 
 Here
@@ -66,12 +66,12 @@ This specific breakdown of \( A \) into scalar and vector potentials, and dual (
 For a multivector current with only electric sources
 
 \begin{dmath}\label{eqn:potentialSection:1880}
-J = \eta \lr{ v \rho - \BJ },
+J = \eta \lr{ c \rho - \BJ },
 \end{dmath}
 
 we can construct a multivector potential with only scalar and vector grades
 \begin{dmath}\label{eqn:potentialSection:1900}
-A = - \phi + v \BA.
+A = - \phi + c \BA.
 \end{dmath}
 
 The resulting field is
@@ -81,10 +81,10 @@ F
 =
 \BE + I \eta \BH
 =
-\gpgrade{ \lr{ \spacegrad - \inv{v} \PD{t}{} }
+\gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} }
 \lr{
       - \phi
-      + v \BA
+      + c \BA
 }
 }{1,2},
 \end{dmath}
@@ -95,7 +95,7 @@ which expands to
 F =
 -\spacegrad \phi
 -\PD{t}{\BA}
-+ v \spacegrad \wedge \BA.
++ c \spacegrad \wedge \BA.
 }
 
 The respective electric and magnetic fields can be extracted using a duality transformation for the bivector curl
@@ -105,7 +105,7 @@ F
 =
 -\spacegrad \phi
 -\PD{t}{\BA}
-+ I v \spacegrad \cross \BA,
++ I c \spacegrad \cross \BA,
 \end{dmath}
 
 from which we can read off the field components
@@ -122,32 +122,32 @@ Observe that the grade selection encodes the precise recipe required to produce 
 The potential representation of the field \cref{eqn:potentialSection:80} is only a solution if Maxwell's equation is also satisfied, or
 
 \begin{dmath}\label{eqn:potentialSection:1960}
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \lr{ -\phi + v\BA }
-= \eta \lr{ v \rho - \BJ } +
-\lr{ \spacegrad + \inv{v} \PD{t}{} } \gpgrade{ \lr{ \spacegrad - \inv{v} \PD{t}{} } \lr{ -\phi + v\BA } }{0,3}
-= \eta \lr{ v \rho - \BJ } +
-\lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ v \spacegrad \cdot \BA + \inv{v} \PD{t}{\phi} }.
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \lr{ -\phi + c\BA }
+= \eta \lr{ c \rho - \BJ } +
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } \lr{ -\phi + c\BA } }{0,3}
+= \eta \lr{ c \rho - \BJ } +
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} }.
 \end{dmath}
 
 Imposing a constraint on the potential grades
 
 \begin{dmath}\label{eqn:potentialSection:2020}
-\spacegrad \cdot \BA + \inv{v^2} \PD{t}{\phi} = 0,
+\spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} = 0,
 \end{dmath}
 
 the Lorenz gauge condition, is clearly an expedient way to simplify this relationship.
 In particular,
-in the frequency domain \( \PDi{t}{} \leftrightarrow j \omega = j k v \), this gauge choice allows the scalar potential to be entirely eliminated, since
+in the frequency domain \( \PDi{t}{} \leftrightarrow j \omega = j k c \), this gauge choice allows the scalar potential to be entirely eliminated, since
 
 \begin{dmath}\label{eqn:potentialSection:2040}
-\phi = \frac{j v^2}{\omega} \spacegrad \cdot \BA.
+\phi = \frac{j c^2}{\omega} \spacegrad \cdot \BA.
 \end{dmath}
 
 so the multivector potential is completely determined by a single vector potential
 
 \begin{dmath}\label{eqn:potentialSection:2060}
 A =
--\frac{j v^2}{\omega} \spacegrad \cdot \BA + v \BA,
+-\frac{j c^2}{\omega} \spacegrad \cdot \BA + c \BA,
 \end{dmath}
 
 Maxwell's equation is reduced to a Helmholtz equation
@@ -167,9 +167,9 @@ The conventional electric and magnetic field expressions can be found by substit
 \begin{dmath}\label{eqn:potentialSection:2380}
 F
 =
--j \frac{v^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA }
+-j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA }
 -j \omega \BA
-+ I v \spacegrad \cross \BA,
++ I c \spacegrad \cross \BA,
 \end{dmath}
 
 %To compare this to conventional results, let's substitute \cref{eqn:potentialSection:2060} into \cref{eqn:potentialSection:2100},
@@ -179,20 +179,20 @@ F
 %=
 %\lr{ \spacegrad - j k }
 %\lr{
-%-\frac{j v^2}{\omega} \spacegrad \cdot \BA + v \BA
+%-\frac{j c^2}{\omega} \spacegrad \cdot \BA + c \BA
 %}
 %=
-%-\frac{k v^2}{\omega} \spacegrad \cdot \BA -j k v \BA
-%-\frac{j v^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + v \spacegrad \BA
+%-\frac{k c^2}{\omega} \spacegrad \cdot \BA -j k c \BA
+%-\frac{j c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \BA
 %=
-%- \cancel{ v \spacegrad \cdot \BA }
+%- \cancel{ c \spacegrad \cdot \BA }
 %-j \omega \BA
-%-\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
-%+ \cancel{ v \spacegrad \cdot \BA }
-%+ v \spacegrad \wedge \BA
+%-\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
+%+ \cancel{ c \spacegrad \cdot \BA }
+%+ c \spacegrad \wedge \BA
 %=
-%-j \omega \BA -\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
-%+ v \spacegrad \wedge \BA.
+%-j \omega \BA -\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
+%+ c \spacegrad \wedge \BA.
 %\end{dmath}
 %
 %From this the electric and magnetic fields can be read off
@@ -201,7 +201,7 @@ so
 
 \begin{dmath}\label{eqn:potentialSection:2320}
 \begin{aligned}
-\BE &= -j \omega \BA -\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BA } \\
+\BE &= -j \omega \BA -\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BA } \\
 \mu \BH &= \spacegrad \cross \BA.
 \end{aligned}
 \end{dmath}
@@ -211,12 +211,12 @@ so
 For a multivector current with only magnetic sources
 
 \begin{dmath}\label{eqn:potentialSection:2140}
-J = I \lr{ v \rho_m - \BM },
+J = I \lr{ c \rho_m - \BM },
 \end{dmath}
 
 we can construct a multivector potential with only pseudoscalar and bivector grades
 \begin{dmath}\label{eqn:potentialSection:2160}
-A = \eta I\lr{ - \phi_m + v \BF}.
+A = \eta I\lr{ - \phi_m + c \BF}.
 \end{dmath}
 
 The resulting field is
@@ -226,10 +226,10 @@ F
 =
 \BE + I \eta \BH
 =
-\gpgrade{ \lr{ \spacegrad - \inv{v}\PD{t}{} }
+\gpgrade{ \lr{ \spacegrad - \inv{c}\PD{t}{} }
 \lr{
       - I \eta \phi_m
-      + I \eta v \BF
+      + I \eta c \BF
 }
 }{1,2},
 \end{dmath}
@@ -239,7 +239,7 @@ which simplifies to
 \boxedEquation{eqn:potentialSection:2260}{
 F
 =
-I \eta \lr{ v \spacegrad \wedge \BF
+I \eta \lr{ c \spacegrad \wedge \BF
 -\PD{t}{\BF}
 - \spacegrad \phi_m
 }.
@@ -250,7 +250,7 @@ The separate electric and magnetic field contributions can be read off from
 \begin{dmath}\label{eqn:potentialSection:2280}
 F
 =
-- \eta v \spacegrad \cross \BF
+- \eta c \spacegrad \cross \BF
 + \eta I \lr
 {
 -\spacegrad \phi_m
@@ -270,18 +270,18 @@ yielding
 The potential representation of the field \cref{eqn:potentialSection:140} is only a solution if Maxwell's equation is also satisfied, or
 
 \begin{dmath}\label{eqn:potentialSection:2120}
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} }
-\eta I \lr{ - \phi_m + v \BF}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\eta I \lr{ - \phi_m + c \BF}
 =
-I \lr{ v \rho_m - \BM }
+I \lr{ c \rho_m - \BM }
 +
-\lr{ \spacegrad + \inv{v} \PD{t}{} } \gpgrade{ \lr{ \spacegrad - \inv{v} \PD{t}{} } \eta I \lr{ -\phi_m + v\BF } }{0,3}
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } \eta I \lr{ -\phi_m + c\BF } }{0,3}
 =
-I \lr{ v \rho_m - \BM }
+I \lr{ c \rho_m - \BM }
 +
-\lr{ \spacegrad + \inv{v} \PD{t}{} }
+\lr{ \spacegrad + \inv{c} \PD{t}{} }
 \lr{
-\frac{\eta I}{v} \PD{t}{\phi_m} + \eta v I \spacegrad \cdot \BF
+\frac{\eta I}{c} \PD{t}{\phi_m} + \eta c I \spacegrad \cdot \BF
 }
 \end{dmath}
 
@@ -289,7 +289,7 @@ Again, imposing a constraint on the potential grades
 
 \begin{dmath}\label{eqn:potentialSection:2180}
 \spacegrad \cdot \BF
-+ \inv{v^2}
++ \inv{c^2}
 \PD{t}{\phi_m}
 = 0,
 \end{dmath}
@@ -298,7 +298,7 @@ the Lorenz gauge condition for the magnetic potentials, is clearly an expedient 
 As before, in the frequency domain the scalar potential can be entirely eliminated
 
 \begin{dmath}\label{eqn:potentialSection:2200}
-\phi_m = \frac{j v^2}{\omega} \spacegrad \cdot \BF.
+\phi_m = \frac{j c^2}{\omega} \spacegrad \cdot \BF.
 \end{dmath}
 
 In this case the
@@ -307,7 +307,7 @@ multivector potential is
 \begin{dmath}\label{eqn:potentialSection:2220}
 A =
 \eta I \lr{
--\frac{j v^2}{\omega} \spacegrad \cdot \BF + v \BF
+-\frac{j c^2}{\omega} \spacegrad \cdot \BF + c \BF
 },
 \end{dmath}
 
@@ -323,7 +323,7 @@ In the frequency domain, the electric and magnetic fields can be found from
 \BE &= -\inv{\epsilon} \spacegrad \cross \BF \\
 \BH &=
 - j \omega \BF
--\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BF }
+-\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BF }
 .
 \end{aligned}
 \end{dmath}
@@ -333,24 +333,24 @@ In the frequency domain, the electric and magnetic fields can be found from
 %=
 %\lr{ \spacegrad - j k }
 %\eta I \lr{
-%-\frac{j v^2}{\omega} \spacegrad \cdot \BF + v \BF
+%-\frac{j c^2}{\omega} \spacegrad \cdot \BF + c \BF
 %}
 %=
 %\eta I
 %\lr{
-%- v \spacegrad \cdot \BF -j \omega \BF
-%-\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BF } + v \spacegrad \BF
+%- c \spacegrad \cdot \BF -j \omega \BF
+%-\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BF } + c \spacegrad \BF
 %}
 %=
 %\eta I
 %\lr{
 %-j \omega \BF
-%-\frac{j v}{k} \spacegrad \lr{ \spacegrad \cdot \BF } + v \spacegrad \wedge \BF
+%-\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BF } + c \spacegrad \wedge \BF
 %}
 %=
 %-\inv{\epsilon} \spacegrad \cross \BF
 %- j \eta I \lr{
-%\omega \BF + \frac{v}{k} \spacegrad \lr{ \spacegrad \cdot \BF }
+%\omega \BF + \frac{c}{k} \spacegrad \lr{ \spacegrad \cdot \BF }
 %},
 %\end{dmath}
 %
@@ -359,7 +359,7 @@ In the frequency domain, the electric and magnetic fields can be found from
 %\begin{dmath}\label{eqn:potentialSection:2360}
 %\begin{aligned}
 %\BE &= -\inv{\epsilon} \spacegrad \cross \BF  \\
-%\BH &= -j \omega \BF -j \frac{v}{k} \spacegrad \lr{ \spacegrad \cdot \BF }.
+%\BH &= -j \omega \BF -j \frac{c}{k} \spacegrad \lr{ \spacegrad \cdot \BF }.
 %\end{aligned}
 %\end{dmath}
 
@@ -429,9 +429,9 @@ again neglecting any \( O(1/r^2) \) terms.  The field is
 \begin{dmath}\label{eqn:potentialSection:2500}
 F
 =
-- j \omega \BA  -j \frac{v^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + v \spacegrad \wedge \BA
+- j \omega \BA  -j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \wedge \BA
 =
-- j \omega \BA  +j \omega \rcap \lr{ \rcap \cdot \BA } - j k v \rcap \wedge \BA
+- j \omega \BA  +j \omega \rcap \lr{ \rcap \cdot \BA } - j k c \rcap \wedge \BA
 =
 - j \omega \lr{ \BA - \rcap \lr{ \rcap \cdot \BA }} - j \omega \rcap \wedge \BA
 =
@@ -486,7 +486,7 @@ i &= \Be_{32},
 
 for the infinitesimal dipole potential
 \begin{dmath}\label{eqn:potentialSection:2640}
-\BA = \frac{\Be_3 \mu_0 I_0 l}{4 \pi r} e^{-j k r},
+\BA = \frac{\Be_3 \mu I_0 l}{4 \pi r} e^{-j k r},
 \end{dmath}
 
 as illustrated in \cref{fig:vectorPotential:vectorPotentialFig1}.
@@ -517,7 +517,7 @@ The wedge of \( \kcap \) with \( \BA \) is proportional to
 so from \cref{eqn:potentialSection:2520} the field is
 
 \begin{dmath}\label{eqn:potentialSection:2680}
-F = j \omega \lr{ 1 + \Be_3 e^{i\theta} } i \sin\theta \frac{\mu_0 I_0 l}{4 \pi r} e^{-j k r}
+F = j \omega \lr{ 1 + \Be_3 e^{i\theta} } i \sin\theta \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
 \end{dmath}
 
 The electric and magnetic fields can be found from the respective vector and bivector grades of \cref{eqn:potentialSection:2680}
@@ -525,22 +525,22 @@ The electric and magnetic fields can be found from the respective vector and biv
 \begin{dmath}\label{eqn:potentialSection:2700}
 \BE
 =
-\frac{j \omega \mu_0 I_0 l}{4 \pi r} e^{-j k r} \Be_3 e^{i\theta} i \sin\theta
+\frac{j \omega \mu I_0 l}{4 \pi r} e^{-j k r} \Be_3 e^{i\theta} i \sin\theta
 =
-\frac{j \omega \mu_0 I_0 l}{4 \pi r} e^{-j k r} \Be_2 e^{i\theta} \sin\theta
+\frac{j \omega \mu I_0 l}{4 \pi r} e^{-j k r} \Be_2 e^{i\theta} \sin\theta
 =
-\frac{j k \eta_0 I_0 l \sin\theta}{4 \pi r} e^{-j k r} \lr{ \Be_2 \cos\theta - \Be_3 \sin\theta },
+\frac{j k \eta I_0 l \sin\theta}{4 \pi r} e^{-j k r} \lr{ \Be_2 \cos\theta - \Be_3 \sin\theta },
 \end{dmath}
 
 and
 \begin{dmath}\label{eqn:potentialSection:2720}
 \BH
 =
-\inv{I \eta_0}
-j \omega i \sin\theta_0 \frac{\mu_0 I_0 l}{4 \pi r} e^{-j k r}
+\inv{I \eta}
+j \omega i \sin\theta_0 \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
 =
-\inv{\eta_0} \Be_{321} \Be_{32}
-j \omega \sin\theta_0 \frac{\mu_0 I_0 l}{4 \pi r} e^{-j k r}
+\inv{\eta} \Be_{321} \Be_{32}
+j \omega \sin\theta_0 \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
 =
 -\Be_1 \frac{ j k \sin\theta_0 I_0 l}{4 \pi r} e^{-j k r}.
 \end{dmath}
@@ -560,7 +560,7 @@ Because the potential representation of the field is expressed as a grade 1,2 se
 In particular, it is possible to alter the multivector potential
 
 \begin{dmath}\label{eqn:potentialSection:160}
-A \rightarrow A + \lr{ \spacegrad + \inv{v} \PD{t}{}} \psi,
+A \rightarrow A + \lr{ \spacegrad + \inv{c} \PD{t}{}} \psi,
 \end{dmath}
 
 where \( \psi \) is any multivector field with scalar and pseudoscalar grades, without changing the field
@@ -569,13 +569,13 @@ where \( \psi \) is any multivector field with scalar and pseudoscalar grades, w
 F
 \rightarrow
 \gpgrade{
-   \lr{ \spacegrad - \inv{v} \PD{t}{} }
-   \lr{ A + \lr{ \spacegrad + \inv{v} \PD{t}{}} \psi }
+   \lr{ \spacegrad - \inv{c} \PD{t}{} }
+   \lr{ A + \lr{ \spacegrad + \inv{c} \PD{t}{}} \psi }
 }{1,2}
 =
 F +
 \gpgrade{
-   \lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{}} \psi
+   \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{}} \psi
 }{1,2}
 .
 \end{dmath}
@@ -583,7 +583,7 @@ F +
 That last grade selection is zero, since \( \psi \) has no vector or bivector grades, demonstrating that the electromagnetic field is invariant with respect to this multivector potential transformation.
 
 It is worth looking how such a transformation impacts each grade of the potential.
-Let \( \psi = v \psi^\e + \eta v I \psi^\m \), where \( \psi^\e \) and \( \psi^\m \) are both scalar fields.
+Let \( \psi = c \psi^\e + \eta c I \psi^\m \), where \( \psi^\e \) and \( \psi^\m \) are both scalar fields.
 The gauge transformation provides the mapping
 
 \begin{subequations}
@@ -592,10 +592,10 @@ The gauge transformation provides the mapping
 - \phi \rightarrow - \phi + \PD{t}{} \psi^\e
 \end{dmath}
 \begin{dmath}\label{eqn:potentialSection:240}
-v \BA \rightarrow v \BA + v \spacegrad \psi^\e
+c \BA \rightarrow c \BA + c \spacegrad \psi^\e
 \end{dmath}
 \begin{dmath}\label{eqn:potentialSection:260}
-I v \BF \rightarrow I v \BF + I v \spacegrad \psi^\m
+I c \BF \rightarrow I c \BF + I c \spacegrad \psi^\m
 \end{dmath}
 \begin{dmath}\label{eqn:potentialSection:280}
 - I \eta \phi_m \rightarrow -I \eta \phi_m + I \eta \PD{t}{} \psi^\m,
@@ -650,11 +650,11 @@ That is
 \begin{dmath}\label{eqn:potentialSection:1720}
 F
 =
-\lr{ \spacegrad - \inv{v} \PD{t}{} }
+\lr{ \spacegrad - \inv{c} \PD{t}{} }
 \lr{
       - \phi
-      + v \BA
-      + \eta I \lr{ -\phi_m + v \BF }
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF }
 }.
 \end{dmath}
 
@@ -664,20 +664,20 @@ There should be no a priori assumption that such a field representation has no s
 \begin{aligned}
 F
 &=
-\lr{ \spacegrad - \inv{v} \PD{t}{} } A \\
+\lr{ \spacegrad - \inv{c} \PD{t}{} } A \\
 &=
-\lr{ \spacegrad - \inv{v} \PD{t}{} } \lr{ -\phi + v \BA + \eta I \lr{ -\phi_m + v \BF } } \\
+\lr{ \spacegrad - \inv{c} \PD{t}{} } \lr{ -\phi + c \BA + \eta I \lr{ -\phi_m + c \BF } } \\
 &=
-\inv{v} \partial_t \phi
-+ v \spacegrad \cdot \BA  \\
+\inv{c} \partial_t \phi
++ c \spacegrad \cdot \BA  \\
 &-\spacegrad \phi
-+ I \eta v \spacegrad \wedge \BF
++ I \eta c \spacegrad \wedge \BF
 - \partial_t \BA  \\
-&+ v \spacegrad \wedge \BA
+&+ c \spacegrad \wedge \BA
 - \eta I \spacegrad \phi_m
 - I \eta \partial_t \BF \\
-&+ \eta I \inv{v} \partial_t \phi_m
-+ I \eta v \spacegrad \cdot \BF,
+&+ \eta I \inv{c} \partial_t \phi_m
++ I \eta c \spacegrad \cdot \BF,
 \end{aligned}
 \end{dmath}
 
@@ -685,8 +685,8 @@ so if this potential representation has only vector and bivector grades, it must
 
 \begin{dmath}\label{eqn:potentialSection:1660}
 \begin{aligned}
-\inv{v} \partial_t \phi + v \spacegrad \cdot \BA &= 0 \\
-\inv{v} \partial_t \phi_m + v \spacegrad \cdot \BF &= 0.
+\inv{c} \partial_t \phi + c \spacegrad \cdot \BA &= 0 \\
+\inv{c} \partial_t \phi_m + c \spacegrad \cdot \BF &= 0.
 \end{aligned}
 \end{dmath}
 
@@ -696,25 +696,25 @@ Should one of these conditions, say the Lorenz condition for the electric source
 
 \begin{dmath}\label{eqn:potentialSection:1680}
 0 \ne
-\inv{v} \partial_t \phi + v \spacegrad \cdot \BA
+\inv{c} \partial_t \phi + c \spacegrad \cdot \BA
 =
-\inv{v} \partial_t (\phi' - \partial_t \psi) + v \spacegrad \cdot (\BA' + \spacegrad \psi)
+\inv{c} \partial_t (\phi' - \partial_t \psi) + c \spacegrad \cdot (\BA' + \spacegrad \psi)
 =
-\inv{v} \partial_t \phi' + v \spacegrad \BA'
-+ v \lr{ \spacegrad^2 - \inv{v^2} \partial_{tt} } \psi,
+\inv{c} \partial_t \phi' + c \spacegrad \BA'
++ c \lr{ \spacegrad^2 - \inv{c^2} \partial_{tt} } \psi,
 \end{dmath}
 
-so if \( \inv{v} \partial_t \phi' + v \spacegrad \BA' \) is zero, \( \psi \) must be found such that
+so if \( \inv{c} \partial_t \phi' + c \spacegrad \BA' \) is zero, \( \psi \) must be found such that
 \begin{dmath}\label{eqn:potentialSection:1700}
-\inv{v} \partial_t \phi + v \spacegrad \cdot \BA
-= v \lr{ \spacegrad^2 - \inv{v^2} \partial_{tt} } \psi.
+\inv{c} \partial_t \phi + c \spacegrad \cdot \BA
+= c \lr{ \spacegrad^2 - \inv{c^2} \partial_{tt} } \psi.
 \end{dmath}
 
 Such a gauge transformation requires a non-homogeneous wave equation solution, or equivalently in the frequency domain requires the solution of a Helmholtz equation
 
 \begin{dmath}\label{eqn:potentialSection:1740}
-\inv{v} j \omega \phi + v \spacegrad \cdot \BA
-= v \lr{ \spacegrad^2 + k^2 } \psi.
+\inv{c} j \omega \phi + c \spacegrad \cdot \BA
+= c \lr{ \spacegrad^2 + k^2 } \psi.
 \end{dmath}
 
 A similar transformation is also clearly possible to eliminate any pseudoscalar grades in \cref{eqn:potentialSection:1720}.
@@ -722,17 +722,17 @@ Such a potential representation is desirable since
 Maxwell's equations for such a potential are completely decoupled
 
 \begin{dmath}\label{eqn:potentialSection:1760}
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } A = J,
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } A = J,
 \end{dmath}
 
 which is equivalent to precisely one non-homogeneous wave equation for each grade source and potential
 
 \begin{dmath}\label{eqn:potentialSection:1600}
 \begin{aligned}
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \phi &= - \inv{\epsilon} \rho \\
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \BA &= - \mu \BJ \\
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \phi_m &= - \frac{I}{\mu} \rho_m \\
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } \BF &= - I \epsilon \BM,
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi &= - \inv{\epsilon} \rho \\
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BA &= - \mu \BJ \\
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi_m &= - \frac{I}{\mu} \rho_m \\
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BF &= - I \epsilon \BM,
 \end{aligned}
 \end{dmath}
 

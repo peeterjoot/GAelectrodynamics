@@ -5,8 +5,6 @@
 %{
 In this section we show that the
 conservation laws \cref{eqn:poyntingF:980} associated with the tensor components \( T(\Be_k) \) relate the time rate of change of the Poynting vector to the continuum Lorentz force equation.
-
-To avoid confusion we will write \( c = 1/\sqrt{\mu\epsilon} \) for the velocity of the field in the medium.
 The Poynting and Lorentz force relations can be shown by summing \cref{eqn:poyntingF:980} over all the unit vector directions
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:20}
@@ -25,7 +23,8 @@ From \cref{eqn:poyntingF:800} we see that
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:40}
 \gpgradezero{ T(\Be_k) }
-= \inv{c} \BS \cdot \Be_k.
+=
+-\inv{c} \BS \cdot \Be_k.
 \end{dmath}
 
 First consider an electric current density
@@ -38,15 +37,17 @@ J = \frac{\rho}{\epsilon}\lr{ 1 - \Bv_\txte/c } = J^\dagger.
 The grade selection of the current term is
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:80}
-\inv{2} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
+\inv{2 \eta} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
 =
-\frac{\rho}{2 \epsilon} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH)(1 - \Bv_\txte/c)  + (1 - \Bv_\txte/c)( \BE + I \eta \BH )} }
+\frac{\rho}{2 \epsilon \eta} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH)(1 - \Bv_\txte/c)  + (1 - \Bv_\txte/c)( \BE + I \eta \BH )} }
 =
-\frac{\rho}{2 \epsilon} \Be_k \cdot \gpgradeone{ (\BE - I \eta \BH)(1 - \Bv_\txte/c)  + (1 - \Bv_\txte/c)( \BE + I \eta \BH )}
+\frac{\rho}{2 \epsilon \eta} \Be_k \cdot \gpgradeone{ (\BE - I \eta \BH)(1 - \Bv_\txte/c)  + (1 - \Bv_\txte/c)( \BE + I \eta \BH )}
 =
-\frac{\rho}{\epsilon} \Be_k \cdot \lr{ \BE + I \eta \BH \wedge \Bv_\txte/c }
+\frac{\rho}{\epsilon \eta} \Be_k \cdot \lr{ \BE + I \eta \BH \wedge \Bv_\txte/c }
 =
-\frac{\rho}{\epsilon} \Be_k \cdot \lr{ \BE + \Bv_\txte \cross \BB }
+\frac{\rho}{\epsilon \eta} \Be_k \cdot \lr{ \BE + \Bv_\txte \cross \BB }
+=
+c\rho \Be_k \cdot \lr{ \BE + \Bv_\txte \cross \BB }
 \end{dmath}
 
 Given a magnetic current density \( \BM = \Bv_\txtm \rho_\txtm \) the multivector current is
@@ -58,51 +59,87 @@ J = I \rho_\txtm \lr{ 1 - \Bv_\txtm/c } = -J^\dagger
 This time we have
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:180}
-\inv{2} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
+\inv{2 \eta} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
 =
-\frac{\rho_\txtm}{2 \epsilon} \gpgradezero{ \Be_k \lr{ (\BE - I c \BB) I (1 - \Bv_\txtm)  - I (1 - \Bv_\txtm)( \BE + I c \BB )} }
+\frac{\rho_\txtm}{2  \eta} \gpgradezero{ \Be_k \lr{ (\BE - I c \BB) I (1 - \Bv_\txtm/c)  - I (1 - \Bv_\txtm/c)( \BE + I c \BB )} }
 =
-\frac{\rho_\txtm}{2 \epsilon} \Be_k \cdot \gpgradeone{ (I \BE + c \BB)(1 - \Bv_\txtm)  + (1 - \Bv_\txtm)( -I \BE + c \BB )}
+\frac{\rho_\txtm}{2  \eta} \Be_k \cdot \gpgradeone{ (I \BE + c \BB)(1 - \Bv_\txtm/c)  + (1 - \Bv_\txtm/c)( -I \BE + c \BB )}
 =
-\frac{\rho_\txtm}{\epsilon} \Be_k \cdot \lr{ c^2 \BB - I \BE \wedge \Bv_\txtm }
+\frac{\rho_\txtm}{ \eta} \Be_k \cdot \lr{ c \BB - I \BE \wedge \Bv_\txtm/c }
 =
-\frac{\rho_\txtm}{\epsilon} \Be_k \cdot \lr{ \BE - \Bv_\txtm \cross \BE }.
+c \epsilon \rho_\txtm \Be_k \cdot \lr{ c \BB - \frac{\Bv_\txtm}{c} \cross \BE }.
 \end{dmath}
 
 Putting the pieces together we have
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:100}
+\rho \lr{ \BE + \Bv_\txte \cross \BB }
++ \epsilon \rho_\txtm \lr{ c \BB - \frac{\Bv_\txtm}{c} \cross \BE }
+=
 \sum_{k = 1}^3
 \lr{ \spacegrad \cdot \gpgradeone{ T(\Be_k) } } \Be_k
-+
+-
 \inv{c^2}
-\PD{t}{ \BS }
-=
-\rho \lr{ \BE + \Bv_\txte \cross \BB }
-+ \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE }.
+\PD{t}{ \BS }.
 \end{dmath}
 
-When there are only electric sources, we have the continuum equivalent of the Lorentz force on the RHS, and can make the identification of \( \rho \lr{ \BE + \Bv_\txte \cross \BB } \) with the force density associated with a charge and current distribution.
+When there are only electric sources, we have the continuum equivalent of the Lorentz force on the RHS, and can make the identification of \( \rho \lr{ \BE + \Bv_\txte \cross \BB } \) with the force density acting on the charge and current distribution.
 Incidentally, as a side effect, this shows the desired form of the dual Lorentz force equation for magnetic sources must be
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:140}
-\frac{d\Bp}{dt} = q_\txtm \lr{ \BB - \Bv_\txtm \cross \BE },
+\frac{d\Bp}{dt} = \epsilon q_\txtm \lr{ c \BB - \frac{\Bv_\txtm}{c} \cross \BE },
 \end{dmath}
 
-so for magnetic sources the electric field does no work.  More generally we make the identification
+so for (fictious) magnetic sources the electric field does no work, whereas for electric sources the magnetic field does no work.
+If we identify
 
-\begin{dmath}\label{eqn:poyntingLorentzForce:160}
-\BF =
-\int dV \rho \lr{ \BE + \Bv_\txte \cross \BB }
-+ \int dV \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE }
+\begin{dmath}\label{eqn:poyntingLorentzForce:200}
+\bcP_{\textrm{em}} = \inv{c^2} \BS/c^2,
+\end{dmath}
+
+as the momentum density of the field, and identify
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:220}
+\bcP_{\textrm{mech}}
 =
-\inv{c^2}
-\int dV
-\PD{t}{ \BS }
-+
-\sum_{k = 1}^3 \Be_k \int_{\partial V} dA \ncap \cdot \gpgradeone{ T(\Be_k) }.
+\rho \lr{ \BE + \Bv_\txte \cross \BB }
++ \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE },
 \end{dmath}
 
-The time rate of change of the field momentum \( \bcP = \BS/c^2 \) contributes to the force, as does the normal component of the vector component of the stress tensor.
+as the mechanical momentum density associated with the particles in the volume, then the total momentum density is
+%\begin{dmath}\label{eqn:poyntingLorentzForce:240}
+\boxedEquation{eqn:poyntingLorentzForce:240}{
+\PD{t}{} \lr{
+\bcP_{\textrm{mech}}
++
+\bcP_{\textrm{em}}
+}
+=
+\sum_{k = 1}^3 \Be_k
+\spacegrad \cdot \gpgradeone{ T(\Be_k) }.
+}
+%\end{dmath}
+
+Can we put the RHS sum into the form \( \spacegrad \cdot X \) for some multivector \( X \), and provide a geometric interpretation to the \( T_{jk}, j,k \in [1,3] \) subset of the stress tensor?
+
+%FIXME: following wrong.
+%More generally we make the identification
+%
+%\begin{dmath}\label{eqn:poyntingLorentzForce:160}
+%\BF =
+%\int dV \rho \lr{ \BE + \Bv_\txte \cross \BB }
+%+ \int dV \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE }
+%=
+%\int_{\partial V} dA \ncap \cdot
+%\lr{ \sum_{k = 1}^3 \Be_k
+%\gpgradeone{ T(\Be_k) }
+%}
+%-
+%\inv{c^2}
+%\int dV
+%\PD{t}{ \BS }.
+%\end{dmath}
+%
+%The time rate of change of the field momentum \( \bcP = \BS/c^2 \) contributes to the force, as does the normal component of the vector component of the stress tensor.
 
 %}

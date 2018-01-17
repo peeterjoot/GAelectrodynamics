@@ -8,7 +8,7 @@ Under source free conditions, Maxwell's equation in GA form is
 \begin{equation}\label{eqn:transverseField:2}
 \begin{aligned}
 F &= \BE + I \eta \BH \\
-0 &= \lr{ \spacegrad + \inv{t} \partial_t } F
+0 &= \lr{ \spacegrad + \inv{c} \partial_t } F
 \end{aligned}
 \end{equation}
 
@@ -28,13 +28,13 @@ We split the gradient into transverse and \(z\)-axis components
 so that Maxwell's equation becomes
 
 \begin{equation}\label{eqn:transverseField:summaryMax2}
-\lr{\spacegrad_t + j \lr{ \frac{\omega}{v} \mp k \Be_3 } } F(x,y) = 0.
+\lr{\spacegrad_t + j \lr{ \frac{\omega}{c} \mp k \Be_3 } } F(x,y) = 0.
 \end{equation}
 
 With \( F = F(x, y) \)
 
 \begin{dmath}\label{eqn:transverseField:148}
-\spacegrad_t F = - j \lr{ \frac{\omega}{v} \mp k \Be_3 } F.
+\spacegrad_t F = - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F.
 \end{dmath}
 
 We require a way to expressing the components of the field that lie in the propagation direction and transverse planes.
@@ -97,19 +97,19 @@ so Maxwell's equation \cref{eqn:transverseField:148} becomes
 
 \begin{dmath}\label{eqn:transverseField:228}
 \begin{aligned}
-\spacegrad_t F_t &= - j \lr{ \frac{\omega}{v} \mp k \Be_3 } F_z \\
-\spacegrad_t F_z &= - j \lr{ \frac{\omega}{v} \mp k \Be_3 } F_t.
+\spacegrad_t F_t &= - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F_z \\
+\spacegrad_t F_z &= - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F_t.
 \end{aligned}
 \end{dmath}
 
-Provided \( \omega^2 \ne (k v)^2 \), these can be inverted.
+Provided \( \omega^2 \ne (k c)^2 \), these can be inverted.
 Such an inversion allows an application of the transverse gradient to whichever one
 of \( F_z, F_t \) is known, to compute the other.
 
 \boxedEquation{eqn:transverseField:248}{
 \begin{aligned}
-F_z &= j \frac{ \frac{\omega}{v} \pm k \Be_3 }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_t \\
-F_t &= j \frac{ \frac{\omega}{v} \pm k \Be_3 }{ \lr{\frac{\omega}{v}}^2 - k^2 } \spacegrad_t F_z.
+F_z &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } \spacegrad_t F_t \\
+F_t &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } \spacegrad_t F_z.
 \end{aligned}
 }
 
@@ -117,20 +117,20 @@ The relation for \( F_t \) in \cref{eqn:transverseField:248} is usually stated i
 To compute that split we need to expand most of the terms in the numerator
 
 \begin{dmath}\label{eqn:transverseField:268}
-\lr{ \frac{\omega}{v} \pm k \Be_3 } \spacegrad_t F_z
+\lr{ \frac{\omega}{c} \pm k \Be_3 } \spacegrad_t F_z
 =
--\lr{ \Be_3 \frac{\omega}{v} \pm k } \spacegrad_t \Be_3 F_z
+-\lr{ \Be_3 \frac{\omega}{c} \pm k } \spacegrad_t \Be_3 F_z
 =
-\lr{ \pm k - \Be_3 \frac{\omega}{v} } \spacegrad_t \lr{ E_z + I \eta H_z }
+\lr{ \pm k - \Be_3 \frac{\omega}{c} } \spacegrad_t \lr{ E_z + I \eta H_z }
 =
 \lr{
    \pm k \spacegrad_t E_z
-   + \frac{\omega \eta}{v} \Be_3 \cross \spacegrad_t H_z
+   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
 }
 + I \lr{
    \pm k \eta \spacegrad_t H_z
    -
-   \frac{\omega}{v}
+   \frac{\omega}{c}
    \Be_3 \cross \spacegrad_t E_z
 },
 \end{dmath}
@@ -139,18 +139,18 @@ which means the transverse electric and magnetic fields are
 \begin{dmath}\label{eqn:transverseField:288}
 \begin{aligned}
 \BE_t &=
-\frac{j}{{\frac{\omega}{v}}^2 - k^2}
+\frac{j}{{\frac{\omega}{c}}^2 - k^2}
 \lr{
    \pm k \spacegrad_t E_z
-   + \frac{\omega \eta}{v} \Be_3 \cross \spacegrad_t H_z
+   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
 }
 \\
 \eta \BH_t &=
-\frac{j}{{\frac{\omega}{v}}^2 - k^2}
+\frac{j}{{\frac{\omega}{c}}^2 - k^2}
 \lr{
    \pm k \eta \spacegrad_t H_z
    -
-   \frac{\omega}{v}
+   \frac{\omega}{c}
    \Be_3 \cross \spacegrad_t E_z
 }.
 \end{aligned}

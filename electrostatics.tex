@@ -17,7 +17,7 @@ With such conditions, the free space representation of Maxwell's equations \cref
 \spacegrad \cross \BB = 0
 \end{dmath}
 \begin{dmath}\label{eqn:electrostatics:140}
-\spacegrad \cdot \BE = \frac{\rho}{\epsilon_0}
+\spacegrad \cdot \BE = \frac{\rho}{\epsilon}
 \end{dmath}
 \begin{dmath}\label{eqn:electrostatics:160}
 \spacegrad \cdot \BB = 0.
@@ -40,7 +40,7 @@ Utilizing \cref{eqn:SimpleProducts2:1640}, the geometric product of the gradient
 %\begin{equation}\label{eqn:electrostatics:400}
 \boxedEquation{eqn:electrostatics:380}{
 \begin{aligned}
-\spacegrad \BE &= \frac{\rho}{\epsilon_0} \\
+\spacegrad \BE &= \frac{\rho}{\epsilon} \\
 \spacegrad \BB &= 0.
 \end{aligned}
 }
@@ -51,7 +51,7 @@ Utilizing \cref{eqn:SimpleProducts2:1640}, the geometric product of the gradient
 The charge in a volume can be related to the electric field by integrating \cref{eqn:electrostatics:380}
 
 \begin{dmath}\label{eqn:electrostatics:420}
-\int_V d^3 \Bx \spacegrad \BE = \inv{\epsilon_0} \int_V d^3 \Bx \rho(\Bx).
+\int_V d^3 \Bx \spacegrad \BE = \inv{\epsilon} \int_V d^3 \Bx \rho(\Bx).
 \end{dmath}
 
 This is an oriented integral, where \( d^3 \Bx \) is a pseudoscalar volume element, such as
@@ -60,7 +60,7 @@ This is an oriented integral, where \( d^3 \Bx \) is a pseudoscalar volume eleme
 The LHS integral can be evaluated using the fundamental theorem \cref{thm:fundamentalTheoremOfCalculus:1}
 
 \begin{dmath}\label{eqn:electrostatics:461}
-\int_{\partial V} d^2 \Bx \BE = \frac{I}{\epsilon_0} \int_V dV \rho(\Bx).
+\int_{\partial V} d^2 \Bx \BE = \frac{I}{\epsilon} \int_V dV \rho(\Bx).
 \end{dmath}
 
 An outward normal \( \ncap \) can be used to
@@ -69,7 +69,7 @@ sides to be cancelled
 
 %\begin{dmath}\label{eqn:electrostatics:460}
 \boxedEquation{eqn:electrostatics:460}{
-\int_{\partial V} dA \ncap \BE = \frac{1}{\epsilon_0} \int_V dV \rho(\Bx).
+\int_{\partial V} dA \ncap \BE = \frac{1}{\epsilon} \int_V dV \rho(\Bx).
 }
 %\end{dmath}
 
@@ -78,7 +78,7 @@ This is a multivector equation which must be simultaneously satisfied by its sca
 \begin{subequations}
 \label{eqn:electrostatics:481}
 \begin{dmath}\label{eqn:electrostatics:501}
-\int_{\partial V} dA \ncap \cdot \BE = \frac{1}{\epsilon_0} \int_V dV \rho(\Bx)
+\int_{\partial V} dA \ncap \cdot \BE = \frac{1}{\epsilon} \int_V dV \rho(\Bx)
 \end{dmath}
 \begin{dmath}\label{eqn:electrostatics:521}
 \int_{\partial V} dA \ncap \wedge \BE = 0.
@@ -106,7 +106,7 @@ Poisson equation directly
 
 %\begin{dmath}\label{eqn:electrostatics:581}
 \boxedEquation{eqn:electrostatics:581}{
-\spacegrad^2 \phi = -\frac{\rho}{\epsilon_0}.
+\spacegrad^2 \phi = -\frac{\rho}{\epsilon}.
 }
 %\end{dmath}
 
@@ -126,15 +126,15 @@ The Green's function convolution that inverts the electric field gradient equati
 \begin{dmath}\label{eqn:electrostatics:621}
 \BE(\Bx)
 = \int_V dV' G(\Bx, \Bx') \spacegrad' \BE(\Bx')
-= \int_V dV' G(\Bx, \Bx') \lr{ \inv{\epsilon_0}\rho(\Bx') }
-= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \lr{ \inv{\epsilon_0}\rho(\Bx') },
+= \int_V dV' G(\Bx, \Bx') \lr{ \inv{\epsilon}\rho(\Bx') }
+= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \lr{ \inv{\epsilon}\rho(\Bx') },
 \end{dmath}
 
 or
 %\begin{dmath}\label{eqn:electrostatics:340}
 \boxedEquation{eqn:electrostatics:340}{
 \BE(\Bx) =
-\inv{4 \pi \epsilon_0} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3},
+\inv{4 \pi \epsilon} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3},
 }
 %\end{dmath}
 
@@ -173,16 +173,16 @@ Inserting \cref{eqn:electrostatics:542} into Coulomb's law \cref{eqn:electrostat
 \begin{dmath}\label{eqn:electrostatics:661}
 \BE(\Bx)
 =
--\inv{4 \pi \epsilon_0} \int dV' \rho(\Bx') \spacegrad \inv{\Norm{\Bx - \Bx'}}
+-\inv{4 \pi \epsilon} \int dV' \rho(\Bx') \spacegrad \inv{\Norm{\Bx - \Bx'}}
 =
-- \spacegrad \inv{4 \pi \epsilon_0} \int dV' \frac{\rho(\Bx')}{\Norm{\Bx - \Bx'}},
+- \spacegrad \inv{4 \pi \epsilon} \int dV' \frac{\rho(\Bx')}{\Norm{\Bx - \Bx'}},
 \end{dmath}
 
 which implicitly provides the solution to the Poisson equation \cref{eqn:electrostatics:581}
 
 %\begin{dmath}\label{eqn:electrostatics:601}
 \boxedEquation{eqn:electrostatics:601}{
-\phi(\Bx) = \inv{4 \pi \epsilon_0} \int dV' \frac{ \rho(\Bx') }{\Norm{\Bx - \Bx'}}.
+\phi(\Bx) = \inv{4 \pi \epsilon} \int dV' \frac{ \rho(\Bx') }{\Norm{\Bx - \Bx'}}.
 }
 %\end{dmath}
 

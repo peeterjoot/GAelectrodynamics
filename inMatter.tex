@@ -15,8 +15,8 @@ have been available.  Without such assumptions the GA formalism for Maxwell's eq
 
 \begin{dmath}\label{eqn:inMatter:40}
 \begin{aligned}
-F &= \BE + I v \BB \\
-G &= \BD + \frac{I}{v} \BH
+F &= \BE + I c \BB \\
+G &= \BD + \frac{I}{c} \BH
 \end{aligned}
 \end{dmath}
 
@@ -24,12 +24,12 @@ for which Maxwell's equations are
 
 \begin{dmath}\label{eqn:inMatter:60}
 \begin{aligned}
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }{0,1} &= \rho - \frac{\BJ}{v} \\
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{2,3} &= I \lr{ v \rho_m - \BM }.
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{0,1} &= \rho - \frac{\BJ}{c} \\
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{2,3} &= I \lr{ c \rho_m - \BM }.
 \end{aligned}
 \end{dmath}
 
-Here \( v \) is a non-dimensionalizing constant with dimensions [L/T], but is otherwise unspecified.
+Here \( c \) is a non-dimensionalizing constant with dimensions [L/T], but is otherwise unspecified.
 Direct expansion can be used to show that \cref{eqn:inMatter:60} is equivalent to Maxwell's equations.
 Doing so for each of the grades in turn, we have
 
@@ -38,44 +38,44 @@ Doing so for each of the grades in turn, we have
 \begin{dmath}\label{eqn:inMatter:100}
 \rho
 =
-\gpgradezero{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }
+\gpgradezero{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }
 =
-\gpgradezero{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BD + \frac{I}{v} \BH } }
+\gpgradezero{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BD + \frac{I}{c} \BH } }
 =
 \spacegrad \cdot \BD
 \end{dmath}
 \begin{dmath}\label{eqn:inMatter:120}
-- \frac{\BJ}{v}
+- \frac{\BJ}{c}
 =
-\gpgradeone{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }
+\gpgradeone{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }
 =
-\gpgradeone{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BD + \frac{I}{v} \BH } }
+\gpgradeone{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BD + \frac{I}{c} \BH } }
 =
-\inv{v} \PD{t}{\BD} + \frac{I}{v} \spacegrad \wedge \BH
+\inv{c} \PD{t}{\BD} + \frac{I}{c} \spacegrad \wedge \BH
 =
-\inv{v} \PD{t}{\BD} - \frac{1}{v} \spacegrad \cross \BH
+\inv{c} \PD{t}{\BD} - \frac{1}{c} \spacegrad \cross \BH
 \end{dmath}
 \begin{dmath}\label{eqn:inMatter:140}
 - I \BM
 =
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{2}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{2}
 =
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BE + I v \BB} }{2}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB} }{2}
 =
 \spacegrad \wedge \BE + I \PD{t}{\BB}
 \end{dmath}
 \begin{dmath}\label{eqn:inMatter:160}
-I v \rho_m
+I c \rho_m
 =
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{3}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{3}
 =
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } \lr{ \BE + I v \BB} }{3}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB} }{3}
 =
-v I \spacegrad \cdot \BB.
+c I \spacegrad \cdot \BB.
 \end{dmath}
 \end{subequations}
 
-After rearranging and cancelling common factors of \( v, I \) Maxwell's equations are recovered
+After rearranging and cancelling common factors of \( c, I \) Maxwell's equations are recovered
 
 \begin{dmath}\label{eqn:inMatter:180}
 \begin{aligned}
@@ -90,8 +90,8 @@ One possible strategy for solving these equations is to impose an additional set
 
 \begin{dmath}\label{eqn:inMatter:200}
 \begin{aligned}
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } G }{2,3} &= 0 \\
-\gpgrade{ \lr{ \spacegrad + \inv{v} \PD{t}{} } F }{0,1} &= 0,
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{2,3} &= 0 \\
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{0,1} &= 0,
 \end{aligned}
 \end{dmath}
 
@@ -99,8 +99,8 @@ so that all the grade selection filters can be cleared
 
 \begin{dmath}\label{eqn:inMatter:220}
 \begin{aligned}
-\lr{ \spacegrad + \inv{v} \PD{t}{} } G &= \rho - \frac{\BJ}{v} \\
-\lr{ \spacegrad + \inv{v} \PD{t}{} } F &= I \lr{ v \rho_m - \BM }.
+\lr{ \spacegrad + \inv{c} \PD{t}{} } G &= \rho - \frac{\BJ}{c} \\
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F &= I \lr{ c \rho_m - \BM }.
 \end{aligned}
 \end{dmath}
 

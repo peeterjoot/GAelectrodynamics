@@ -21,7 +21,7 @@ As always the current distribution is of the form \( \BJ = \Bv \rho \), and in t
 The total multivector current is
 
 \begin{dmath}\label{eqn:ringField:40}
-J = \inv{\epsilon_0} \lambda \delta(z) \delta(r - R) \lr{ 1 - \frac{\Bv}{c} }.
+J = \inv{\epsilon} \lambda \delta(z) \delta(r - R) \lr{ 1 - \frac{\Bv}{c} }.
 \end{dmath}
 
 Let the point that we observe the field, and the integration variables be
@@ -37,8 +37,8 @@ The field is
 
 \begin{dmath}\label{eqn:ringField:80}
 F(\Bx)
-= \frac{\lambda}{4 \pi \epsilon_0} \iiint dz' r' dr' d\phi' \delta(z') \delta(r' - R) \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} }
-= \frac{\lambda}{4 \pi \epsilon_0} \int R d\phi' \frac{\gpgrade{ \lr{ z \Be_3 + r \rhocap - R \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ z^2 + (r \rhocap - R \rhocap')^2}^{3/2} }
+= \frac{\lambda}{4 \pi \epsilon} \iiint dz' r' dr' d\phi' \delta(z') \delta(r' - R) \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} }
+= \frac{\lambda}{4 \pi \epsilon} \int R d\phi' \frac{\gpgrade{ \lr{ z \Be_3 + r \rhocap - R \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ z^2 + (r \rhocap - R \rhocap')^2}^{3/2} }
 \end{dmath}
 
 Without loss of generality, we can align the axes so that \( \rhocap = \Be_1 \), and
@@ -54,7 +54,7 @@ introduce dimensionless variables
 which gives
 \begin{dmath}\label{eqn:ringField:120}
 F
-= \frac{\lambda}{4 \pi \epsilon_0 R} \int_0^{2\pi} d\phi' \frac{\gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ \tilde{z}^2 + (\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2}^{3/2} }.
+= \frac{\lambda}{4 \pi \epsilon R} \int_0^{2\pi} d\phi' \frac{\gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ \tilde{z}^2 + (\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2}^{3/2} }.
 \end{dmath}
 
 In the denominator, the vector square expands as
@@ -124,7 +124,7 @@ now fully determined
 \begin{dmath}\label{eqn:ringField:220}
 F
 =
-\frac{\lambda}{4 \pi \epsilon_0 R}
+\frac{\lambda}{4 \pi \epsilon R}
 \lr{
 \lr{ \tilde{z} \Be_3 + \tilde{r} \rhocap -\frac{v i}{c} } A
 - \lr{
@@ -140,7 +140,7 @@ The multivector field can be separated into its respective electric and magnetic
 \BE &=
 \gpgradeone{F}
 =
-\frac{\lambda}{4 \pi R \epsilon_0} \lr{ \tilde{z} A \Be_3 + \rhocap( \tilde{r} A - B) } \\
+\frac{\lambda}{4 \pi R \epsilon} \lr{ \tilde{z} A \Be_3 + \rhocap( \tilde{r} A - B) } \\
 \BH &=
 \inv{\eta_0} \gpgradeone{-I F}
 =

@@ -15,7 +15,7 @@ For such constraints (and no magnetic sources) the free space Maxwell's equation
 \spacegrad \cross \BE = 0
 \end{dmath}
 \begin{dmath}\label{eqn:magnetostatics:120}
-\spacegrad \cross \BB = \mu_0 \BJ
+\spacegrad \cross \BB = \mu \BJ
 \end{dmath}
 \begin{dmath}\label{eqn:magnetostatics:140}
 \spacegrad \cdot \BE = 0
@@ -46,7 +46,7 @@ As was the case in electrostatics, Maxwell's equations can be reduced to a pair 
 %\begin{dmath}\label{eqn:magnetostatics:380}
 \boxedEquation{eqn:magnetostatics:380}{
 \begin{aligned}
-\spacegrad \BB &= I \mu_0 \BJ \\
+\spacegrad \BB &= I \mu \BJ \\
 \spacegrad \BE &= 0.
 \end{aligned}
 }
@@ -57,9 +57,9 @@ This can be seen by left multiplying with the gradient
 
 \begin{dmath}\label{eqn:magnetostatics:440}
 \spacegrad^2 \BB
-= \mu_0 I \spacegrad \BJ
-= \mu_0 I \lr{ \spacegrad \cdot \BJ + \spacegrad \wedge \BJ }
-= \mu_0 \lr{ I (\spacegrad \cdot \BJ) - \spacegrad \cross \BJ }
+= \mu I \spacegrad \BJ
+= \mu I \lr{ \spacegrad \cdot \BJ + \spacegrad \wedge \BJ }
+= \mu \lr{ I (\spacegrad \cdot \BJ) - \spacegrad \cross \BJ }
 \end{dmath}
 
 The left hand side is a vector, whereas the right hand side has vector and pseudoscalar grades.
@@ -84,7 +84,7 @@ Assuming (for now) a zero divergence constraint for the vector potential, then \
 
 %\begin{dmath}\label{eqn:magnetostatics:540}
 \boxedEquation{eqn:magnetostatics:540}{
-\spacegrad^2 \BA = -\mu_0 \BJ,
+\spacegrad^2 \BA = -\mu \BJ,
 }
 %\end{dmath}
 
@@ -92,7 +92,7 @@ which can be solved immediately
 
 %\begin{dmath}\label{eqn:magnetostatics:560}
 \boxedEquation{eqn:magnetostatics:560}{
-\BA(\Bx) = \frac{\mu_0}{4\pi} \int dV' \frac{ \BJ(\Bx') }{\Norm{\Bx - \Bx'}}.
+\BA(\Bx) = \frac{\mu}{4\pi} \int dV' \frac{ \BJ(\Bx') }{\Norm{\Bx - \Bx'}}.
 }
 %\end{dmath}
 
@@ -121,7 +121,7 @@ A volume integral of \cref{eqn:magnetostatics:380} provides a relationship betwe
 The fundamental theorem gives
 
 \begin{dmath}\label{eqn:magnetostatics:580}
--\mu_0 I
+-\mu I
 \int_V d^3 \Bx \BJ =
 \int_V d^3 \Bx \spacegrad \BB =
 \int_{\partial V} d^2 \Bx \BB.
@@ -132,7 +132,7 @@ With a normal parameterization of the oriented surface area element \( d^2 \Bx =
 
 %\begin{dmath}\label{eqn:magnetostatics:600}
 \boxedEquation{eqn:magnetostatics:600}{
-\int_{\partial V} dA I \ncap \BB = \mu_0  \int_V dV \BJ.
+\int_{\partial V} dA I \ncap \BB = \mu  \int_V dV \BJ.
 }
 %\end{dmath}
 
@@ -144,7 +144,7 @@ This can be split into two grades
 I \int_{\partial V} dA \ncap \cdot \BB = 0
 \end{dmath}
 \begin{dmath}\label{eqn:magnetostatics:660}
-\int_{\partial V} dA \ncap \cross \BB = -\mu_0  \int_V dV \BJ.
+\int_{\partial V} dA \ncap \cross \BB = -\mu  \int_V dV \BJ.
 \end{dmath}
 \end{subequations}
 
@@ -160,7 +160,7 @@ integral of the
 charge density through an open surface can be calculated
 
 \begin{dmath}\label{eqn:magnetostatics:720}
-\mu_0 \int_S d^2 \Bx \cdot (I \BJ)
+\mu \int_S d^2 \Bx \cdot (I \BJ)
 =
 \int_S d^2 \Bx \cdot (\spacegrad \BB)
 =
@@ -175,8 +175,8 @@ Let
 
 \begin{dmath}\label{eqn:magnetostatics:740}
 \ointclockwise_{\partial S} d\Bl \cdot \BB
-= \mu_0 \int_S dA (\ncap I) \cdot (I \BJ)
-= -\mu_0 \int_S dA \ncap \cdot \BJ.
+= \mu \int_S dA (\ncap I) \cdot (I \BJ)
+= -\mu \int_S dA \ncap \cdot \BJ.
 \end{dmath}
 
 The circulation of the magnetic field around the boundary of a surface that the current density is flowing through is the enclosed surface.
@@ -185,8 +185,8 @@ This can be written as the dot product of an oriented area element with the the 
 %\begin{equation}\label{eqn:magnetostatics:780}
 \boxedEquation{eqn:magnetostatics:800}{
 \begin{aligned}
-\ointclockwise_{\partial S} d\Bl \cdot \BB &= \mu_0 \int_S d^2 \Bx \cdot (I \BJ) \\
-\ointctrclockwise_{\partial S} d\Bl \cdot \BB &= \mu_0 \int_S dA \ncap \cdot \BJ.
+\ointclockwise_{\partial S} d\Bl \cdot \BB &= \mu \int_S d^2 \Bx \cdot (I \BJ) \\
+\ointctrclockwise_{\partial S} d\Bl \cdot \BB &= \mu \int_S dA \ncap \cdot \BJ.
 \end{aligned}
 }
 %\end{equation}
@@ -208,14 +208,14 @@ This expansion can be simplified by inserting a no-op grade selection operation
 \begin{dmath}\label{eqn:magnetostatics:680}
 I \BB(\Bx)
 = \gpgradetwo{ \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx') }
-= \int_V dV' \gpgradetwo{ G(\Bx, \Bx') (-\mu_0 \BJ(\Bx')) }
-= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \wedge (-\mu_0 \BJ(\Bx')),
+= \int_V dV' \gpgradetwo{ G(\Bx, \Bx') (-\mu \BJ(\Bx')) }
+= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \wedge (-\mu \BJ(\Bx')),
 \end{dmath}
 or
 
 \boxedEquation{eqn:magnetostatics:760}{
 I \BB(\Bx)
-= \frac{\mu_0}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+= \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
 }
 
 This is the Biot-Savart law in its GA form.
@@ -223,7 +223,7 @@ The traditional expression requires only a duality transformation \( \BJ \wedge 
 
 \begin{dmath}\label{eqn:magnetostatics:700}
 \BB(\Bx)
-= \frac{\mu_0}{4\pi} \int_V dV' \BJ(\Bx') \cross \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+= \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \cross \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
 \end{dmath}
 
 The freedom to insert a no-op bivector grade selection may seem like a sneaky move.
@@ -233,7 +233,7 @@ provided the current density vanishes faster than \( r \) on the infinite sphere
 
 \begin{dmath}\label{eqn:biotSavartGreens:60}
  \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
-= \frac{\mu_0}{4\pi} \int_V dV' \lr{ \spacegrad \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
+= \frac{\mu}{4\pi} \int_V dV' \lr{ \spacegrad \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
 =  \int_V dV' \lr{ \spacegrad' \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
 =  \int_V dV' \lr{
 \spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }

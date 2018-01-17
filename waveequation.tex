@@ -9,31 +9,31 @@ One such result is the wave equation in space free of sources.
 In such a region, Maxwell's equation is just
 
 \begin{dmath}\label{eqn:maxwellsEquations:480}
-\lr{ \spacegrad + \inv{v} \PD{t}{} } F = 0.
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F = 0.
 \end{dmath}
 
-This can be multiplied with \( \spacegrad - \inv{v} \PD{t}{} \), to give
+This can be multiplied from the left with the multivector operator \( \spacegrad - \inv{c} \PD{t}{} \), to give
 
 \begin{dmath}\label{eqn:maxwellsEquations:500}
 0 =
-\lr{ \spacegrad - \inv{v} \PD{t}{} }
-\lr{ \spacegrad + \inv{v} \PD{t}{} } F
+\lr{ \spacegrad - \inv{c} \PD{t}{} }
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F
 =
-\lr{ \spacegrad^2 - \inv{v^2} \PDSq{t}{} } F,
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F,
 \end{dmath}
 
 or
 
 \begin{dmath}\label{eqn:maxwellsEquations:520}
-\spacegrad^2 F = \inv{v^2} \PDSq{t}{F}.
+\spacegrad^2 F = \inv{c^2} \PDSq{t}{F}.
 \end{dmath}
 
 Since \( \spacegrad^2 \) is a scalar operator, selection of the vector and bivector components of \cref{eqn:maxwellsEquations:520} gives
 
 \begin{dmath}\label{eqn:maxwellsEquations:540}
 \begin{aligned}
-\spacegrad^2 \BE &= \inv{v^2} \PDSq{t}{\BE} \\
-\spacegrad^2 (I \BH) &= \inv{v^2} \PDSq{t}{(I \BH)} \\
+\spacegrad^2 \BE &= \inv{c^2} \PDSq{t}{\BE} \\
+\spacegrad^2 (I \BH) &= \inv{c^2} \PDSq{t}{(I \BH)} \\
 \end{aligned}
 \end{dmath}
 

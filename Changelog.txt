@@ -1,6 +1,14 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+Jan 17, 2017        GAelectrodynamics.V0.291.pdf
+   - Lorentz force relation to Poynting conservation relations for T(e_k).  This fills in the connections between 
+     the stress tensor and momentum density.
+   - Big cosmetic change: Switch to using c = 1/\sqrt(\mu\epsilon) from v, even for cases where mu_r,epsilon_r != 1.
+     (i.e. using c as the group velocity of the field in the medium, instead of as the speed of light, but the two
+      are equal in free space).
+     This is less confusing when I want to use v as the magnitude of the velocity of a particle.
+
 Jan 16, 2017        GAelectrodynamics.V0.288.pdf
    - boundary surfaces.  Note the compact form for the normal relations (given surface currents/densities) when the media
      is the same on both sides of the interface (Chappelle paper).

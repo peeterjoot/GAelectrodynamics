@@ -6,13 +6,13 @@
 As the multivector solutions \( F \) to Maxwell's equation \cref{eqn:maxwellsEquations:460}
 has only grades 1 and 2, this imposes constraints on the components of the multivctor current \( J \).
 
-This can be seen by pre-multiplying Maxwell's equation by \( \spacegrad - (1/v) \partial_t \), forming the wave equation that including sources
+This can be seen by pre-multiplying Maxwell's equation by \( \spacegrad - (1/c) \partial_t \), forming the wave equation that including sources
 
 \begin{dmath}\label{eqn:continuity:20}
-\biglr{ \spacegrad^2 - \inv{v^2} \partial_{tt} } F =
-\biglr{ \spacegrad - \inv{v} \partial_{t} }
+\Biglr{ \spacegrad^2 - \inv{c^2} \partial_{tt} } F =
+\Biglr{ \spacegrad - \inv{c} \partial_{t} }
 \biglr{
-   \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM }
+   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
 }.
 \end{dmath}
 
@@ -22,9 +22,9 @@ The LHS has only grades one and two, which means that all grades zero and three 
 0
 =
 \gpgradezero{
-\biglr{ \spacegrad - \inv{v} \partial_{t} }
+\Biglr{ \spacegrad - \inv{c} \partial_{t} }
 \biglr{
-   \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM }
+   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
 }
 }
 =
@@ -44,9 +44,9 @@ Similarly, the grade three zero equality means
 0
 =
 \gpgradethree{
-\biglr{ \spacegrad - \inv{v} \partial_{t} }
+\Biglr{ \spacegrad - \inv{c} \partial_{t} }
 \biglr{
-   \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM }
+   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
 }
 }
 =

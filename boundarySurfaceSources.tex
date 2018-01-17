@@ -22,7 +22,7 @@ where the \( y \) coordinate is locally normal to the surface at any given point
 In terms of the scalar and vector potentials, such a surface source model is
 
 \begin{dmath}\label{eqn:boundary:40}
-J = \lr{ \eta\lr{ v \rho_s - \BJ_s } + I \lr{ v \rho_{ms} - \BM_s } }
+J = \lr{ \eta\lr{ c \rho_s - \BJ_s } + I \lr{ c \rho_{ms} - \BM_s } }
 \delta(y).
 \end{dmath}
 
@@ -49,17 +49,17 @@ Application of contraction operations gives
 \begin{dmath}\label{eqn:boundary:140}
 \spacegrad \cdot F
 = \gpgrade{-j k F + J}{0,1}
-= -j k \BE + \eta( v \rho_s - \BJ_s ) \delta(y)
+= -j k \BE + \eta( c \rho_s - \BJ_s ) \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:160}
 \spacegrad \cdot (I F)
 = \gpgrade{-j k I F + I J}{0,1}
-= j k \eta \BH - ( v \rho_{ms} - \BM_s ) \delta(y).
+= j k \eta \BH - ( c \rho_{ms} - \BM_s ) \delta(y).
 \end{dmath}
 \end{subequations}
 
 Each of these contraction operations can be evaluated over the pillbox volume above using the divergence theorem, however, the delta function integrals are problematic.
-Those integrals dependent on \( \eta \) and \( v \) which vary across the surface, but are also dependent on the delta function surface contribution, which is valid at only the surface.
+Those integrals dependent on \( \eta \) and \( c \) which vary across the surface, but are also dependent on the delta function surface contribution, which is valid at only the surface.
 Consider the vector potential term for electric sources as an example, where the volume integral of that term is
 
 \begin{dmath}\label{eqn:boundary:180}
@@ -81,7 +81,7 @@ This problem can be overcome by applying grade selection operations to each of t
 \gpgradeone{\spacegrad \cdot \lr{ \inv{\eta} F}} = -j \frac{k}{\eta} \BE - \BJ_s \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:260}
-\gpgradezero{\spacegrad \cdot \lr{ I \inv{v}F}} = - \rho_{ms} \delta(y)
+\gpgradezero{\spacegrad \cdot \lr{ I \inv{c}F}} = - \rho_{ms} \delta(y)
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:280}
 \gpgradeone{\spacegrad \cdot \lr{ I F}} = j k \eta \BH + \BM_s \delta(y).
@@ -102,7 +102,7 @@ Application of the multivector \R{3} divergence theorem, as stated informally in
 \gpgradeone{\int dV \ncap \cdot \lr{ \inv{\eta} F}} = -j \omega \int_y dy \int dA \BD - \Delta A \BJ_s
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:360}
-\gpgradezero{\int dV \ncap \cdot \lr{ I \inv{v}F}} = - \Delta A \rho_{ms}
+\gpgradezero{\int dV \ncap \cdot \lr{ I \inv{c}F}} = - \Delta A \rho_{ms}
 \end{dmath}
 \begin{dmath}\label{eqn:boundary:380}
 \gpgradeone{\int dV \ncap \cdot \lr{ I F}} = j \omega \int_y dy \int dA \BB + \Delta A \BM_s
