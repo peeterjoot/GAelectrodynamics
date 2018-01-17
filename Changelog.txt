@@ -4,6 +4,7 @@
 Jan 11, 2017        GAelectrodynamics.V0.VVV.pdf
    - boundary surfaces.  Note the compact form for the normal relations (given surface currents/densities) when the media
      is the same on both sides of the interface (Chappelle paper).
+   - Add continuity equations.
 
 Jan 07, 2017        GAelectrodynamics.V0.285.pdf
    - make note of the exact ring field solutions from:
