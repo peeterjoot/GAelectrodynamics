@@ -1,7 +1,7 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
-Jan 11, 2017        GAelectrodynamics.V0.VVV.pdf
+Jan 16, 2017        GAelectrodynamics.V0.288.pdf
    - boundary surfaces.  Note the compact form for the normal relations (given surface currents/densities) when the media
      is the same on both sides of the interface (Chappelle paper).
    - Add continuity equations.

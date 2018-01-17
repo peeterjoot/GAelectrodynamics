@@ -54,6 +54,10 @@ dropbox:
 	cp Changelog.txt ~/Dropbox/ECE2500Y/
 	#cp maxwells.pdf ~/Dropbox/ECE2500Y/multivector.pdf
 
+alex:
+	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.V$(VER).pdf
+	cp Changelog.txt ~/Dropbox/4Alex/
+
 %.sp : %.tex
 	spellcheck $^
 	touch $@
