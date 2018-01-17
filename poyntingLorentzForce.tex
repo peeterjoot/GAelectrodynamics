@@ -120,26 +120,22 @@ as the mechanical momentum density associated with the particles in the volume, 
 }
 %\end{dmath}
 
-Can we put the RHS sum into the form \( \spacegrad \cdot X \) for some multivector \( X \), and provide a geometric interpretation to the \( T_{jk}, j,k \in [1,3] \) subset of the stress tensor?
+Fixme: Can we put the RHS sum into the form \( \spacegrad \cdot X \) for some multivector \( X \), and provide a geometric interpretation to the \( T_{jk}, j,k \in [1,3] \) subset of the stress tensor?
 
-%FIXME: following wrong.
-%More generally we make the identification
-%
-%\begin{dmath}\label{eqn:poyntingLorentzForce:160}
-%\BF =
-%\int dV \rho \lr{ \BE + \Bv_\txte \cross \BB }
-%+ \int dV \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE }
-%=
-%\int_{\partial V} dA \ncap \cdot
-%\lr{ \sum_{k = 1}^3 \Be_k
-%\gpgradeone{ T(\Be_k) }
-%}
-%-
-%\inv{c^2}
-%\int dV
-%\PD{t}{ \BS }.
-%\end{dmath}
-%
-%The time rate of change of the field momentum \( \bcP = \BS/c^2 \) contributes to the force, as does the normal component of the vector component of the stress tensor.
+Integration over the volume allows the force on the charged particles to be calculated
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:160}
+\BF =
+\int dV \rho \lr{ \BE + \Bv_\txte \cross \BB }
++ \int dV \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE }
+=
+\sum_{k = 1}^3 \int_{\partial V} dA \Be_k \lr{ \ncap \cdot \gpgradeone{ T(\Be_k) } }
+-
+\inv{c^2}
+\int dV
+\PD{t}{ \BS }.
+\end{dmath}
+
+Fixme: is there a simpler form for this?
 
 %}
