@@ -1,0 +1,108 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+In this section we show that the
+conservation laws \cref{eqn:poyntingF:980} associated with the tensor components \( T(\Be_k) \) relate the time rate of change of the Poynting vector to the continuum Lorentz force equation.
+
+To avoid confusion we will write \( c = 1/\sqrt{\mu\epsilon} \) for the velocity of the field in the medium.
+The Poynting and Lorentz force relations can be shown by summing \cref{eqn:poyntingF:980} over all the unit vector directions
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:20}
+\sum_{k = 1}^3
+c \lr{ \spacegrad \cdot \gpgradeone{ T(\Be_k) } } \Be_k
++
+\sum_{k = 1}^3
+\PD{t}{} \gpgradezero{ T(\Be_k) } \Be_k
+=
+\frac{1}{2 \eta}
+\sum_{k = 1}^3
+\gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} } \Be_k.
+\end{dmath}
+
+From \cref{eqn:poyntingF:800} we see that
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:40}
+\gpgradezero{ T(\Be_k) }
+= \inv{c} \BS \cdot \Be_k.
+\end{dmath}
+
+First consider an electric current density
+\( \BJ = \rho \Bv \), for which the multivector current is
+
+\begin{equation}\label{eqn:poyntingLorentzForce:60}
+J = \frac{\rho}{\epsilon}\lr{ 1 - \Bv_\txte/c } = J^\dagger.
+\end{equation}
+
+The grade selection of the current term is
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:80}
+\inv{2} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
+=
+\frac{\rho}{2 \epsilon} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH)(1 - \Bv_\txte/c)  + (1 - \Bv_\txte/c)( \BE + I \eta \BH )} }
+=
+\frac{\rho}{2 \epsilon} \Be_k \cdot \gpgradeone{ (\BE - I \eta \BH)(1 - \Bv_\txte/c)  + (1 - \Bv_\txte/c)( \BE + I \eta \BH )}
+=
+\frac{\rho}{\epsilon} \Be_k \cdot \lr{ \BE + I \eta \BH \wedge \Bv_\txte/c }
+=
+\frac{\rho}{\epsilon} \Be_k \cdot \lr{ \BE + \Bv_\txte \cross \BB }
+\end{dmath}
+
+Given a magnetic current density \( \BM = \Bv_\txtm \rho_\txtm \) the multivector current is
+
+\begin{equation}\label{eqn:poyntingLorentzForce:120}
+J = I \rho_\txtm \lr{ 1 - \Bv_\txtm/c } = -J^\dagger
+\end{equation}
+
+This time we have
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:180}
+\inv{2} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
+=
+\frac{\rho_\txtm}{2 \epsilon} \gpgradezero{ \Be_k \lr{ (\BE - I c \BB) I (1 - \Bv_\txtm)  - I (1 - \Bv_\txtm)( \BE + I c \BB )} }
+=
+\frac{\rho_\txtm}{2 \epsilon} \Be_k \cdot \gpgradeone{ (I \BE + c \BB)(1 - \Bv_\txtm)  + (1 - \Bv_\txtm)( -I \BE + c \BB )}
+=
+\frac{\rho_\txtm}{\epsilon} \Be_k \cdot \lr{ c^2 \BB - I \BE \wedge \Bv_\txtm }
+=
+\frac{\rho_\txtm}{\epsilon} \Be_k \cdot \lr{ \BE - \Bv_\txtm \cross \BE }.
+\end{dmath}
+
+Putting the pieces together we have
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:100}
+\sum_{k = 1}^3
+\lr{ \spacegrad \cdot \gpgradeone{ T(\Be_k) } } \Be_k
++
+\inv{c^2}
+\PD{t}{ \BS }
+=
+\rho \lr{ \BE + \Bv_\txte \cross \BB }
++ \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE }.
+\end{dmath}
+
+When there are only electric sources, we have the continuum equivalent of the Lorentz force on the RHS, and can make the identification of \( \rho \lr{ \BE + \Bv_\txte \cross \BB } \) with the force density associated with a charge and current distribution.
+Incidentally, as a side effect, this shows the desired form of the dual Lorentz force equation for magnetic sources must be
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:140}
+\frac{d\Bp}{dt} = q_\txtm \lr{ \BB - \Bv_\txtm \cross \BE },
+\end{dmath}
+
+so for magnetic sources the electric field does no work.  More generally we make the identification
+
+\begin{dmath}\label{eqn:poyntingLorentzForce:160}
+\BF =
+\int dV \rho \lr{ \BE + \Bv_\txte \cross \BB }
++ \int dV \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE }
+=
+\inv{c^2}
+\int dV
+\PD{t}{ \BS }
++
+\sum_{k = 1}^3 \Be_k \int_{\partial V} dA \ncap \cdot \gpgradeone{ T(\Be_k) }.
+\end{dmath}
+
+The time rate of change of the field momentum \( \bcP = \BS/c^2 \) contributes to the force, as does the normal component of the vector component of the stress tensor.
+
+%}

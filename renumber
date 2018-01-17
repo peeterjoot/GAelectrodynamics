@@ -204,3 +204,5 @@ perl -p -i ../latex/bin/latexRegex.pl amperesLawMagnetostaticsExample.tex
 perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
 ../latex/bin/lgrep continuity.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl continuity.tex
+../latex/bin/lgrep poyntingLorentzForce.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poyntingLorentzForce.tex
