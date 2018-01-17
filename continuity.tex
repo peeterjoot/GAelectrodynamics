@@ -1,0 +1,64 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+As the multivector solutions \( F \) to Maxwell's equation \cref{eqn:maxwellsEquations:460}
+has only grades 1 and 2, this imposes constraints on the components of the multivctor current \( J \).
+
+This can be seen by pre-multiplying Maxwell's equation by \( \spacegrad - (1/v) \partial_t \), forming the wave equation that including sources
+
+\begin{dmath}\label{eqn:continuity:20}
+\lr{ \spacegrad^2 - \inv{v^2} \partial_{tt} } F =
+\lr{ \spacegrad - \inv{v} \partial_{t} }
+\lr{
+   \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM }
+}.
+\end{dmath}
+
+The LHS has only grades one and two, which means that all grades zero and three components must be zero.  That zero equality for the grade 0 component is
+
+\begin{dmath}\label{eqn:continuity:40}
+0
+=
+\gpgradezero{
+\lr{ \spacegrad - \inv{v} \partial_{t} }
+\biglr{
+   \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM }
+}
+}
+=
+-\eta 
+\lr{ \spacegrad \cdot \BJ + \PD{t}{\rho} }
+,
+\end{dmath}
+
+so
+\boxedEquation{eqn:continuity:70}{
+\spacegrad \cdot \BJ + \PD{t}{\rho} = 0.
+}
+
+Similarly, the grade three zero equality means
+
+\begin{dmath}\label{eqn:continuity:60}
+0
+=
+\gpgradethree{
+\biglr{ \spacegrad - \inv{v} \partial_{t} }
+\lr{
+   \eta \lr{ v \rho - \BJ } + I \lr{ v \rho_\txtm - \BM }
+}
+}
+=
+-I \lr{
+   \spacegrad \cdot \BM + \PD{t}{\rho_\txtm} 
+},
+\end{dmath}
+
+so
+
+\boxedEquation{eqn:continuity:90}{
+\spacegrad \cdot \BM + \PD{t}{\rho_\txtm} = 0.
+}
+
+%}
