@@ -1,6 +1,9 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+Jan XX, 2017        GAelectrodynamics.V0.XX.pdf
+   - change the title and subtitle.
+
 Jan 17, 2017        GAelectrodynamics.V0.293.pdf
    - express the total force on a charged distribution in terms of the stress tensor.
 	- fix issue raised by Prof Alex Petrolanu: use of Pseudoscalar I in
