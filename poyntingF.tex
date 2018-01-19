@@ -14,19 +14,25 @@ In conventional electromagnetism the energy and momentum density of the fields a
 \begin{dmath}\label{eqn:poyntingF:20}
 \begin{aligned}
 \calE &= \inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH } \\
-\bcP c &= \inv{c} \BS = \inv{c} \BE \cross \BH = \inv{c} \lr{ I \BH } \cdot \BE.
+\bcP c &= \inv{c} \BS = \inv{c} \BE \cross \BH.
 \end{aligned}
 \end{dmath}
 
 where \( \calE \) is the energy density, \( \BS \) is the Poynting vector representing energy flux through a surface per unit time, and \( \bcP \) is the momentum density of the fields.
+In geometric algebra, it is arguably more natural to write the Poynting vector as a bivector-vector dot product
 
-In GA formalism, the energy and momentum densities are related by grade selection from a single multivector formed from the electrodynamic field \( F \)
+\begin{dmath}\label{eqn:poyntingF:1100}
+\BS = \lr{ I \BH } \cdot \BE,
+\end{dmath}
+
+however, we can do better, relating both the
+energy and momentum densities to a single multivector formed from the products of the electrodynamic field \( F \) with its reverse \( F^\dagger \)
 
 \boxedEquation{eqn:poyntingF:60}{
 T(1) \equiv \inv{2} \epsilon F F^\dagger = \calE + \bcP c = \calE + \frac{\BS}{c},
 }
 
-or
+so
 \begin{dmath}\label{eqn:poyntingF:40}
 \begin{aligned}
 \calE &= \inv{2} \epsilon \gpgradezero{ F F^\dagger } \\
@@ -34,6 +40,8 @@ or
 \BS &= \inv{2 \eta} \gpgradeone{ F F^\dagger }.
 \end{aligned}
 \end{dmath}
+
+This dispenses with any requirement to refer to electric or magnetic field components in isolation.
 
 Expanding \( T(1) \) in terms of \( \BE, \BH \) gives
 

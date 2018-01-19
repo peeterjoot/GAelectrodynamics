@@ -1,8 +1,11 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
-Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
+Jan 17, 2017        GAelectrodynamics.V0.293.pdf
    - express the total force on a charged distribution in terms of the stress tensor.
+	- fix issue raised by Prof Alex Petrolanu: use of Pseudoscalar I in
+	an equation referred to as 'conventional electromagnetism' (Poynting
+	vector).
 
 Jan 17, 2017        GAelectrodynamics.V0.291.pdf
    - Lorentz force relation to Poynting conservation relations for T(e_k).  This fills in the connections between 

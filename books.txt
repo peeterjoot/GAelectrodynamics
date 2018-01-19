@@ -131,6 +131,8 @@ William E. Baylis
 Gerstein Science 
 QC20.7 .C55 C58 1996X 
 
+   GAFP refers to this for additional info on electrodynamics. (i.e. Banff lectures chapter 7 endnotes.)
+
 *)
 
 Classical electrodynamics
