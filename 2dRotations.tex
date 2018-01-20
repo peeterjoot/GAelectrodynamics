@@ -25,7 +25,8 @@ it can be
 demonstrated directly that
 unit pseudoscalar multiplication of an arbitrary vector will induce a \( \pi/2 \) rotation.
 \index{pseudoscalar}
-Right multiplication by the pseudoscalar gives
+
+Multiplying the vector from the right by the pseudoscalar gives
 
 \begin{dmath}\label{eqn:SimpleProducts2:300}
 \Bx i
@@ -34,22 +35,23 @@ Right multiplication by the pseudoscalar gives
 = \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta },
 \end{dmath}
 
-whereas multiplication from the right gives
+a counterclockwise rotation of \( \pi/2 \) radians, and
+multiplying the vector by the pseudoscalar from the left gives
 
 \begin{dmath}\label{eqn:2dRotations:3}
 i \Bx
 = \Be_1 \Be_2 \Bx
 = \rho \Be_1 \Be_2 \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
-= \rho \lr{ -\Be_2 \cos\theta + \Be_1 \sin\theta }.
+= \rho \lr{ -\Be_2 \cos\theta + \Be_1 \sin\theta },
 \end{dmath}
 
-These rotations,
-illustrated in \cref{fig:rotationOfV:rotationOfVFig1},
- are
-the counterclockwise and clockwise rotations through \( \pi/2 \) radians of \cref{eqn:SimpleProducts2:280}
+a clockwise rotation by \( \pi/2 \) radians
 (\cref{problem:2dRotations:1}).
 
-\imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{\( \pi/2\) rotation using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}
+The transformed vector \( \Bx' = \Bx \Be_1 \Be_2 = \Be_2 \Be_1 \Bx (=\Bx i = -i \Bx) \) has been rotated in the direction that takes \( \Be_1 \) to \( \Be_2 \), as illustrated
+in \cref{fig:rotationOfV:rotationOfVFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{\( \pi/2\) rotation in the plane using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}
 
 In complex number theory the complex exponential \( e^{i\theta} \) can be used as a rotation operator.
 Geometric algebra puts this rotation operator into the vector algebra toolbox, by utilizing
@@ -104,8 +106,6 @@ Left and right exponential expressions have now been found for the polar represe
 \end{equation}
 
 This is essentially a recipe for rotation of a vector in the x-y plane.
-The rotational sense that matches the direction of rotation that takes
-\( \Be_1 \) to \( \Be_2 \).
 Such rotations are
 illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 \imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
@@ -125,28 +125,42 @@ Using familiar methods, such as rotation matrices, show that the counterclockwis
 \cref{eqn:2dRotations:3} respectively.
 } % problem
 
-\makeproblem{Euler's formula.}{problem:2dRotations:Euler}{
-For a multivector \( x \) assume an infinite series representation of the exponential, sine and cosine functions
+\makeproblem{Multivector Euler's formula and trig relations.}{problem:2dRotations:Euler}{
+For a multivector \( x \) assume an infinite series representation of the exponential, sine and cosine functions and their hyperbolic analogues
 \begin{equation*}
 \begin{aligned}
 \exp x &= \sum_{k = 0}^\infty \frac{x^k}{k!} \\
-\cos x &= \sum_{k = 0}^\infty (-1)^k \frac{x^{2k}}{(2k)!} \\
-\sin x &= \sum_{k = 0}^\infty (-1)^k \frac{x^{2k+1}}{(2k+1)!}.
+\cos x &= \sum_{k = 0}^\infty (-1)^k \frac{x^{2k}}{(2k)!} \qquad \sin x = \sum_{k = 0}^\infty (-1)^k \frac{x^{2k+1}}{(2k+1)!} \\
+\cosh x &= \sum_{k = 0}^\infty \frac{x^{2k}}{(2k)!} \qquad \sinh x = \sum_{k = 0}^\infty \frac{x^{2k+1}}{(2k+1)!} \\
 \end{aligned}
 \end{equation*}
 
 \makesubproblem{}{problem:2dRotations:Euler:a}
-Show that for scalar \( \theta \) Euler's formula
+Show that for scalar \( \theta \), and any multivector \( J \) that satisfies \( J^2 = -1 \)
+
 \begin{equation*}
-e^{ J \theta }
-=
-\cos \theta + J \sin \theta
+\begin{aligned}
+\cosh (J \theta ) &= \cos \theta \\
+\sinh (J \theta ) &= J \sin \theta.
+\end{aligned}
 \end{equation*}
 
-holds for for any multivector \( J \) that satisfies \( J^2 = -1 \).
+\makesubproblem{}{problem:2dRotations:Euler:c}
+
+Show that the trigonometric and hyperbolic Euler formulas
+
+\begin{equation*}
+\begin{aligned}
+e^{ J \theta } &= \cos \theta + J \sin \theta \\
+e^{ K \theta } &= \cosh \theta + K \sinh \theta,
+\end{aligned}
+\end{equation*}
+
+hold for multivectors \( J, K \) satisfying \( J^2 = -1 \) and \( K^2 = 1 \) respectively.
+
 \makesubproblem{}{problem:2dRotations:Euler:b}
-Given multivectors \( x, y \), show that splitting a multivector exponential into factors of the form
-\( e^{ x + y } = e^{ x } e^{ y } \) requires \( x \) and \( y \) to commute.
+Given multivectors \( X, Y \), show that splitting a multivector exponential into factors of the form
+\( e^{ X + Y } = e^{ X } E^{ Y } \) requires \( x \) and \( y \) to commute.
 } % problem
 
 

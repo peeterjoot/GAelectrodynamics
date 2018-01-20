@@ -86,7 +86,7 @@ There will be many circumstances where the easiest way to compute a dot product 
 
 The split of a vector product into dot and wedge product components is also important.
 However, to utilize it, the properties of the wedge product have to be determined.
-We also want to determine how exactly how the wedge product is related to the cross product, as they clearly have a similar structure.
+We also want to determine exactly how the wedge product is related to the cross product, as they clearly have a similar structure.
 
 To summarizing \cref{eqn:SimpleProducts2:1680} with our new operators, we write
 
@@ -282,8 +282,15 @@ and can also express the
 \Ba \Bb = \Ba \cdot \Bb + I(\Ba \cross \Bb).
 }
 
-This is a very important relationship, and will the key that allows
-all the separate scalar and vector Maxwell's equations to be assembled into a single multivector equation.
+This is a very important relationship.
+
+In particular, for electromagnetism, \cref{eqn:SimpleProducts2:1640} can
+be used to combine (the scalar) Guass's law with (the vector) Maxwell-Faraday equation, and to
+combine (the scalar) Gauss's law for magnetism with (the vector) Ampere-Maxwell equation.
+Such dot plus cross product sums will yield
+a pair of multivector equations that can be further merged.  The resulting multivector equation will be
+called
+Maxwell equation (singular), and will be the starting point of all our electromagnetic analysis.
 
 \index{colinear vectors!wedge}
 \makeproblem{Wedge product of colinear vectors.}{problem:SimpleProducts2:wedgecolinear}{

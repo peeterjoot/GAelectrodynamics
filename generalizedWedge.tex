@@ -2,7 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-We've identified the vector wedge product with scalar grade selection of their vector product, the selection of the highest grade of their product.
+We've identified the vector wedge product of two vectors with the selection of the highest grade of their product.
 Looking back to the multivector products of \cref{eqn:generalizedDot:601}, and \cref{eqn:generalizedDot:621} as motivation,
 a generalized wedge product can be defined that selects the highest grade terms of a given multivector product
 
@@ -41,9 +41,14 @@ The proof follows directly from the definition
 =
 \gpgradethree{ (\Ba \Bb -\Ba \cdot \Bb) \Bc }
 =
-\gpgradethree{ \Ba \Bb \Bc }.
+\gpgradethree{ \Ba \Bb \Bc }
+-
+(\Ba \cdot \Bb) \gpgradethree{ \Bc }
+=
+\gpgradethree{ \Ba \Bb \Bc },
 \end{dmath}
 
+where the grade-3 selection of a vector is zero by definition.
 Similarly
 
 \begin{dmath}\label{eqn:generalizedWedge:600}
@@ -52,6 +57,9 @@ Similarly
 \gpgradethree{ \Ba (\Bb \wedge \Bc) }
 =
 \gpgradethree{ \Ba (\Bb \Bc - \Bb \cdot \Bc) }
+=
+\gpgradethree{ \Ba \Bb \Bc }
+- (\Bb \cdot \Bc) \gpgradethree{ \Ba }
 =
 \gpgradethree{ \Ba \Bb \Bc },
 \end{dmath}

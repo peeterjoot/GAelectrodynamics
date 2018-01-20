@@ -2,9 +2,22 @@
 
 - Lorentz force, boosts: gabookII chapter 35.  Is there a reasonable paravector implementation of this?
 
-- implement TexForm for GA30.m, ...
+- gapauli
 
-- expand out the stress tensor (Poynting theorem) equivalents for T(\Be_k), and show how those are related to Lorentz force, electomagnetic pressure and torsion, and so forth.
+   - refresh .pdf's associated with the .nb's
+   - have introduced Private symbols for GA13 (but not GA20, GA30)
+   - StandardForm for GA13 now looks funny:
+
+       {1},
+       {GA13`Private`\[Gamma][1]},
+       {GA13`Private`\[Gamma][2]},
+       {GA13`Private`\[Gamma][3]},
+       {GA13`Private`\[Gamma][2] GA13`Private`\[Gamma][3]}
+       ...
+
+    A bigger issue is that cut and paste of the \gamma_... symbols from the various forms can be used as grade[...] operations.
+
+- figure out how to factor out a grad dot operator from the Poynting stress equation.
 
 - two new fixmes:  Add (or move) figures describing oriented bivectors and trivectors to where those are defined (before multivector space).
 
