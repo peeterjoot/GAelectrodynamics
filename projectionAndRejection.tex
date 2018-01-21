@@ -14,7 +14,7 @@ Given a vector \( \Bx \) and vector \( \Bu \) the projection of \( \Bx \) onto t
 \end{equation*}
 
 where \( \ucap = \Bu/\Norm{\Bu} \).
-The rejection of \( \Bu \) from \( \Bx \) is defined as the component of \( \Bx \) that is
+The rejection of \( \Bx \) by \( \Bu \) is defined as the component of \( \Bx \) that is
 normal to \( \Bu \)
 \begin{equation*}
 \Rej{\Bu}{\Bx} = \Bx - \Proj_\Bu(\Bx).
@@ -83,7 +83,7 @@ pair of illustrative examples using
 
 \makeexample{\R{2} rejection from the x direction.}{example:projectionAndRejection:1}{
 Let \( \Bx = a \Be_1 + b \Be_2 \) and \( \Bu = \Be_1 \) for which the wedge is \( \Bx \wedge \ucap = b \Be_2 \Be_1 \).
-Using \cref{eqn:projectionAndRejection:910} the rejection of \( \Bu \) from \( \Bx \) is
+Using \cref{eqn:projectionAndRejection:910} the rejection of \( \Bx \) by \( \Bu \) is
 \begin{dmath}\label{eqn:projectionAndRejection:1000}
 \Rej{\Bu}{\Bx}
 =
@@ -129,7 +129,7 @@ b (\Be_{32} + \Be_{31} ) + a \Be_{21}
 }.
 \end{dmath}
 
-Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bu \) from \( \Bx \) is
+Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bx \) by \( \Bu \) is
 
 \begin{dmath}\label{eqn:projectionAndRejection:1060}
 (\Bx \wedge \ucap) \cdot \ucap

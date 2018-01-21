@@ -17,7 +17,7 @@ Mathematical Sciences Stacks QA199 .G46 2001X
 Applications of geometric algebra in computer science and engineering /
 Leo Dorst, Chris Doran, Joan Lasenby (eds.)
 Boston : Birkhauser, c2002.
-Engineering & Comp. Sci. 
+Engineering & Comp. Sci.
 QA76.9 .M35 A658 2002X
 
    -- one article "A Hestenes STA approach to Light Polarization" by Sugon and McNamera was relavent (Stokes, Poincare sphere, e&m tensor content), but all in GAFP.
@@ -47,7 +47,7 @@ Notes on UofT Library books borrowed.
 
 Lectures on Clifford geometric algebras and applications /
 Rafał Abłamowicz, Garret Sobczyk, editors.
-Mathematical Sciences 
+Mathematical Sciences
 QA199 .L43 2004X
 
    *) Chapter 1: nice intro by Pertti Lounesto, a compact version of what's in his "Clifford Algebras and Spinors".
@@ -71,13 +71,13 @@ QA 199 L68 2001
    *) Lorentz transformations and transformations of e&m field
    *) F & G GA formulation of maxwells's equations (one dot and one wedge).  nothing much done with them.
    *) energy-momentum tensor in paravector and STA vector forms.
-   *) chapter: hypercomplex analysis: GC, Cauchy-Riemann, Stokes, tangent planes, monogenic theory, 
+   *) chapter: hypercomplex analysis: GC, Cauchy-Riemann, Stokes, tangent planes, monogenic theory,
 
 *)
 
 Clifford algebra to geometric calculus : a unified language for mathematics and physics /
 by David Hestenes and Garret Sobczyk.
-Gerstein Science 
+Gerstein Science
 QA199 .H47 1984
 
    - There's a _lot_ in this book, but it is general, not specifically related to e&m.
@@ -90,7 +90,7 @@ QA199 .H47 1984
 Geometric algebra with applications in science and engineering /
 Eduardo Bayro Corrochano, Garret Sobczyk, editors.
 Boston : Birkhäuser, c2001.
-Mathematical Sciences 
+Mathematical Sciences
 QA564 .G463 2001X
 
    - There are two chapters of this that are relavant to e&m, but one is a subset of Baylis'
@@ -107,11 +107,11 @@ Physics
 QC631 .B333 1999X
 
 
-*) 
+*)
 
 Multivectors and Clifford algebra in electrodynamics
 Bernard Jancewicz.
-Gerstein Science   
+Gerstein Science  
 QC631 .J36 1988
 
    -- uses non-standard names for bivectors (volutors)
@@ -128,10 +128,15 @@ QC631 .J36 1988
 
 Clifford (geometric) algebras with applications to physics, mathematics, and engineering /
 William E. Baylis
-Gerstein Science 
-QC20.7 .C55 C58 1996X 
+Gerstein Science
+QC20.7 .C55 C58 1996X
 
    GAFP refers to this for additional info on electrodynamics. (i.e. Banff lectures chapter 7 endnotes.)
+   In particular:
+   - 8.1.2 Reflection by a conducting plane.
+   - 8.1.3 Waves in layered media.
+   - 8.3+ some of the applications to point charges differ from the book (look like they are a
+     little more verbose).
 
 *)
 
@@ -140,7 +145,7 @@ Julian Schwinger
 Gerstein Science
 QC631 .C537 1998
 
-*) 
+*)
 
 ================
 
@@ -177,11 +182,11 @@ Eduardo Bayro-Corrochano, Gerik Scheuermann, editors.
 London ; New York : Springer, c2010.
 
 *)
-Foundation Mathematics for Computer Science [electronic resource] : A Visual Approach /  
+Foundation Mathematics for Computer Science [electronic resource] : A Visual Approach /
 by John Vince.
 Cham : Springer International Publishing : Imprint: Springer, 2015.
 
-*) 
+*)
    J.W.Arthur,Understanding Geometric Algebra for Electromagnetic Theory,
    John Wiley&Sons,Hoboken-NewJersey,2011.
 
@@ -210,7 +215,7 @@ An introduction to geometric calculus and its application to electrodynamics
 *)
 galoop.de
 
-Foundations of geometric algebra computing [electronic resource] /  
+Foundations of geometric algebra computing [electronic resource] /
 Dietmar Hildenbrand.
 Berlin ; New York : Springer-Verlag, c2013.
 
