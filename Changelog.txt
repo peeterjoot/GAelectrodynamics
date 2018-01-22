@@ -1,6 +1,10 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+Jan 22, 2017        GAelectrodynamics.V0.298.pdf
+   - gapauli: use Private scoping for the GA20 and GA30 mathematica modules.
+   - more review responses to Steven's comments (duality, reciprocal frame).
+
 Jan 21, 2017        GAelectrodynamics.V0.297.pdf
    - Steven De Keninck: wasn't using the standard rejection convention.  Should be:
      Rej_a(x) : rejection of x by a (not rejection of a from x).
