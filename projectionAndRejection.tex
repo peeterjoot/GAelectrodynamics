@@ -7,7 +7,7 @@ decomposition of the vector product can be applied to compute vector projection 
 
 \index{projection}
 \index{rejection}
-\makedefinition{Projection and rejection}{dfn:projectionAndRejection:projectionandrejection}{
+\makedefinition{Vector projection and rejection.}{dfn:projectionAndRejection:projectionandrejection}{
 Given a vector \( \Bx \) and vector \( \Bu \) the projection of \( \Bx \) onto the direction of \( \Bu \) is defined as
 \begin{equation*}
 \Proj_\Bu(\Bx) = (\Bx \cdot \ucap) \ucap,
@@ -20,6 +20,12 @@ normal to \( \Bu \)
 \Rej{\Bu}{\Bx} = \Bx - \Proj_\Bu(\Bx).
 \end{equation*}
 } % definition
+
+%Calling \( \Rej{\Bu}{\Bx} \) the rejection of \( \Bx \) by \( \Bu \) is arguably not the clearest, but as this is the language that is used in the literature (\citep
+An example of projection and rejection with respect to a direction vector \( \Bu \) is illustrated in
+\cref{fig:projectionAndRejection:projectionAndRejectionFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.3}
 
 Computation of the projective and rejective components of a vector \( \Bx \) relative to a direction \( \ucap \) requires little more than a multiplication by \( 1 = \ucap \ucap \), and some rearrangement
 
@@ -176,11 +182,6 @@ In terms of the vector inverse, the projection and rejection operations with res
 \lr{ \Bx \wedge \Bu } \cdot \inv{\Bu}.
 \end{aligned}
 }
-
-Using this notation, an example of projection and rejection with respect to a direction vector \( \Bu \) is illustrated in
-\cref{fig:projectionAndRejection:projectionAndRejectionFig1}.
-
-\imageFigure{../figures/GAelectrodynamics/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.3}
 
 It was claimed in the definition of rejection that the rejection is normal to the projection.
 This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).
