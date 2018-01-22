@@ -32,15 +32,33 @@
 Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where the vectors \( \Bx_i \) are not necessarily orthonormal, the reciprocal frame is defined as the set of vectors \( \setlr{ \Bx^1, \Bx^2, \cdots \Bx^n } \) satisfying
 
 \begin{dmath*}
-\Bx_i \cdot \Bx^j = {\delta_i}^j.
+\Bx_i \cdot \Bx^j = {\delta_i}^j,
 \end{dmath*}
 
-The vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector.
+where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector, and \( {\delta_i}^j \) is the Kronecker delta.
 } % definition
 
-The concept of a reciprocal frame generalizes the notion of normal to non-orthonormal bases.
+%\makeaside{Upper and lower indexes}{aside:reciprocal:1}
+\makedigression{
 
-\paragraph{Motivation:} Reciprocal frames are required to express the GA form of Stokes' theorem and for more general GA integration theory, including integration with respect to both curvilinear coordinates and higher dimensions.
+This definition introduces mixed index variables for the first time in this text, which may be unfamiliar.  These are most often used in tensor algebra, where any expression that has pairs of upper and lower indexes implies a sum, and is called the summation (or Einstein) convention.  For example:
+
+\begin{dmath}\label{eqn:reciprocal:n}
+\begin{aligned}
+a_i b^i &\equiv \sum_i a_i b^i \\
+{A^{i}}_j B_i C^j &\equiv \sum_{i,j} {A^{i}}_j B_i C^j.
+\end{aligned}
+\end{dmath}
+
+Generally, when summation convention is used, explicit summation is only used explicitly when upper and lower indexes are not perfectly matched, but summation is still implied.  Readers of texts that use summation convention can check for proper matching of upper and lower indexes to ensure that the expressions make sense.  For this reason a mixed index Kronecker delta has been used in the definition above.
+
+Summation convention will not be used explicitly in this text, as it deviates from normal practises in electrical engineering.
+}
+
+The concept of a reciprocal frame generalizes the notion of normal to non-orthonormal bases.
+%
+%\paragraph{Motivation:}
+Reciprocal frames are required to express the GA form of Stokes' theorem and for more general GA integration theory, including integration with respect to both curvilinear coordinates and higher dimensions.
 While the focus in these notes are two and three dimensional problems, often in Cartesian coordinates, it is desirable to formulate integration theory in a way that is compatible with the four dimensional non-Euclidean vector space that describes the intrinsic relativistic nature of electrodynamics.
 
 One of the utilities of a reciprocal frame is that it allows for the computation of the coordinates of a vector with respect to a non-orthonormal frame.
@@ -50,26 +68,27 @@ Let a vector be given in terms of coordinates \( a^i \), where \( i \) is an ind
 \Ba = \sum_i a^i \Bx_i.
 \end{dmath}
 
-Dotting with the reciprocal frame vectors then trivially extracts these coordinates
+Dotting with the reciprocal frame vectors \( \Bx^i \) then provides the coordinates \( a^i \) of the vector with respect to the original basis
 
 \begin{dmath}\label{eqn:reciprocal:40}
 \Ba \cdot \Bx^i
 = \lr{\sum_j a^j \Bx_j} \cdot \Bx^i
 = \sum_j a^j {\delta_j}^i
-= a^i.
+= a^i,
 \end{dmath}
 
-Similarly, dotting with the frame basis vectors provides the coordinates with respect to the reciprocal frame.
-Let those coordinates be \( a_i \), so that
+where a switch of dummy summation indexes \( i \rightarrow j \) was made to avoid conflict.
+
+The vector can also be expressed with coordinates taken with respect to the reciprocal frame.  Let those coordinates be \( a_i \), so that
 
 \begin{dmath}\label{eqn:reciprocal:60}
 \Ba = \sum_i a_i \Bx^i.
 \end{dmath}
 
-Dotting with the basis vectors gives
+Dotting with the basis vectors \( \Bx_i \) provides the reciprocal frame relative coordinates \( a_i \)
 
 \begin{dmath}\label{eqn:reciprocal:80}
-\Ba \cdot \Bx^i
+\Ba \cdot \Bx_i
 = \lr{\sum_j a_j \Bx^j} \cdot \Bx_i
 = \sum_j a_j {\delta^j}_i
 = a_i.

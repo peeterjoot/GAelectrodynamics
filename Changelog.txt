@@ -1,6 +1,11 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+Jan 22, 2017        GAelectrodynamics.V0.300.pdf
+   - Fix eqn:reciprocal:80 (upper instead of lower index).
+   - Before that, add remark about switch of dummy indexes.
+   - comment on summation convention and upper and lower index use in reciprocal frames section.
+
 Jan 22, 2017        GAelectrodynamics.V0.299.pdf
    - gapauli: use Private scoping for the GA20 and GA30 mathematica modules.
    - more review responses to Steven's comments (duality, reciprocal frame).
