@@ -27,6 +27,21 @@
 %%\chapter{reciprocal frame vectors}
 %%\label{chap:reciprocal}
 %
+The end goal of this chapter is to be able to integrate multivector functions along curves and surfaces, known collectively as manifolds.
+For our purposes, a manifold is defined by a parameterization, such as \( \Bx(a,b) \) where \( a, b\) are scalar parameters.  With one parameter the vector traces out a curve, with two a surface, three a volume, and so forth.
+The respective partial derivatives of such a parameterized vector define a local basis for the surface at the point at which the partials are evaluated.
+The span of such a basis is called the tangent space, and the partials that constitute it are not necessarily orthonormal, or even normal.
+
+Unfortunately, in order to work with the curvilinear non-orthonormal bases that will be encountered in general integration theory, some
+additional tools are required.
+
+\begin{itemize}
+\item
+We introduce a reciprocal frame which partially generalizes the notion of normal to non-orthonormal bases.
+\item
+We will borrow the upper and lower index (tensor) notation from relativistic physics that is useful for the intrinsically non-orthonormal spaces encountered in that study, as this notation works well to define the reciprocal frame.
+\end{itemize}
+
 \index{reciprocal frame}
 \makedefinition{Reciprocal frame}{dfn:reciprocal:frame}{
 Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where the vectors \( \Bx_i \) are not necessarily orthonormal, the reciprocal frame is defined as the set of vectors \( \setlr{ \Bx^1, \Bx^2, \cdots \Bx^n } \) satisfying
@@ -38,46 +53,36 @@ Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where t
 where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector, and \( {\delta_i}^j \) is the Kronecker delta.
 } % definition
 
-%\makeaside{Upper and lower indexes}{aside:reciprocal:1}
-\makedigression{
-
 This definition introduces mixed index variables for the first time in this text, which may be unfamiliar.  These are most often used in tensor algebra, where any expression that has pairs of upper and lower indexes implies a sum, and is called the summation (or Einstein) convention.  For example:
 
-\begin{dmath}\label{eqn:reciprocal:n}
+\begin{dmath}\label{eqn:reciprocal:400}
 \begin{aligned}
 a_i b^i &\equiv \sum_i a_i b^i \\
 {A^{i}}_j B_i C^j &\equiv \sum_{i,j} {A^{i}}_j B_i C^j.
 \end{aligned}
 \end{dmath}
 
-Generally, when summation convention is used, explicit summation is only used explicitly when upper and lower indexes are not perfectly matched, but summation is still implied.  Readers of texts that use summation convention can check for proper matching of upper and lower indexes to ensure that the expressions make sense.  For this reason a mixed index Kronecker delta has been used in the definition above.
+Summation convention will not be used explicitly in this text, as it deviates from normal practises in electrical engineering\footnote{Generally, when summation convention is used, explicit summation is only used explicitly when upper and lower indexes are not perfectly matched, but summation is still implied.  Readers of texts that use summation convention can check for proper matching of upper and lower indexes to ensure that the expressions make sense.  Such matching is the reason a mixed index Kronecker delta has been used in the definition of the reciprocal frame.}.
 
-Summation convention will not be used explicitly in this text, as it deviates from normal practises in electrical engineering.
-}
-
-The concept of a reciprocal frame generalizes the notion of normal to non-orthonormal bases.
-%
-%\paragraph{Motivation:}
-Reciprocal frames are required to express the GA form of Stokes' theorem and for more general GA integration theory, including integration with respect to both curvilinear coordinates and higher dimensions.
-While the focus in these notes are two and three dimensional problems, often in Cartesian coordinates, it is desirable to formulate integration theory in a way that is compatible with the four dimensional non-Euclidean vector space that describes the intrinsic relativistic nature of electrodynamics.
-
-One of the utilities of a reciprocal frame is that it allows for the computation of the coordinates of a vector with respect to a non-orthonormal frame.
-Let a vector be given in terms of coordinates \( a^i \), where \( i \) is an index not a power
+The most important application of a reciprocal frame is for the computation of the coordinates of a vector with respect to a non-orthonormal frame.
+Let a vector \( \Ba \) have coordinates \( a^i \) with respect to a basis \( \setlr{ \Bx_i } \)
 
 \begin{dmath}\label{eqn:reciprocal:20}
-\Ba = \sum_i a^i \Bx_i.
+\Ba = \sum_j a^j \Bx_j,
 \end{dmath}
 
-Dotting with the reciprocal frame vectors \( \Bx^i \) then provides the coordinates \( a^i \) of the vector with respect to the original basis
+where \( j \) is an index not a power\footnote{In tensor algebra, the index \( j \), which occurs in matched upper and lower index pairs, is known as a dummy summation index.
+Such matched pairs imply a freedom to 
+utilize any unused index when convenient, such as \( \sum_k a^k \Bx_k \), but this is obvious when summation symbols are included explicitly.}.
+
+Dotting with the reciprocal frame vectors \( \Bx^i \) provides these coordinates \( a^i \)
 
 \begin{dmath}\label{eqn:reciprocal:40}
 \Ba \cdot \Bx^i
 = \lr{\sum_j a^j \Bx_j} \cdot \Bx^i
 = \sum_j a^j {\delta_j}^i
-= a^i,
+= a^i.
 \end{dmath}
-
-where a switch of dummy summation indexes \( i \rightarrow j \) was made to avoid conflict.
 
 The vector can also be expressed with coordinates taken with respect to the reciprocal frame.  Let those coordinates be \( a_i \), so that
 
@@ -93,6 +98,21 @@ Dotting with the basis vectors \( \Bx_i \) provides the reciprocal frame relativ
 = \sum_j a_j {\delta^j}_i
 = a_i.
 \end{dmath}
+
+We can summarize \cref{eqn:reciprocal:40} and \cref{eqn:reciprocal:80} by stating that a vector can be expressed in terms of coordinates relative to either the original or reciprocal basis as follows
+
+\begin{equation}\label{eqn:reciprocal:420}
+\Ba
+= \sum_j \lr{ \Ba \cdot \Bx^j } \Bx_j
+= \sum_j \lr{ \Ba \cdot \Bx_j } \Bx^j.
+\end{equation}
+
+In tensor algebra the basis is generally implied\footnote{
+In tensor algebra, a vector, identified by the coordinates \( a^i \) is called a covariant vector.  
+When that vector is identified by the coordinates \( a_i \) it is called a contravarient vector.  These labels relate to how the coordinates transform with respect to norm preserving transformations.
+We have no need of this nomenclature, since we never transform coordinates in isolation, but will always transform the coordinates along with their associated basis vectors.}.
+
+%When doing tensor algebra manipulations, you'll generally have the freedom to swap any pairs of upper and lower indexes as done above.
 
 An example of a 2D oblique Euclidean basis and a corresponding reciprocal basis is plotted in \cref{fig:obliqueReciprocal:obliqueReciprocalFig2}.
 Also plotted are the superposition of the projections required to arrive at a given point \( (4,2) \)) along the \( \Be_1, \Be_2 \) directions or the \( \Be^1, \Be^2 \) directions.
@@ -114,8 +134,8 @@ For example, given a 2D basis \( \setlr{ \Bx_1, \Bx_2 } \), the reciprocal basis
 Imposing the constraints of \cref{dfn:reciprocal:frame} leads to a pair of 2x2 linear systems that are easily solved to find
 \begin{dmath}\label{eqn:reciprocal:120}
 \begin{aligned}
-\Bx^1 &= \inv{ \Bx_1^2 \Bx_2^2 - \lr{ \Bx_1 \cdot \Bx_2}^2 } \lr{ \Bx_2^2 \Bx_1 - \lr{ \Bx_1 \cdot \Bx_2 } \Bx_2 } \\
-\Bx^2 &= \inv{ \Bx_1^2 \Bx_2^2 - \lr{ \Bx_1 \cdot \Bx_2}^2 } \lr{ \Bx_1^2 \Bx_2 - \lr{ \Bx_1 \cdot \Bx_2 } \Bx_1 } \\
+\Bx^1 &= \inv{ (\Bx_1)^2 (\Bx_2)^2 - \lr{ \Bx_1 \cdot \Bx_2}^2 } \lr{ (\Bx_2)^2 \Bx_1 - \lr{ \Bx_1 \cdot \Bx_2 } \Bx_2 } \\
+\Bx^2 &= \inv{ (\Bx_1)^2 (\Bx_2)^2 - \lr{ \Bx_1 \cdot \Bx_2}^2 } \lr{ (\Bx_1)^2 \Bx_2 - \lr{ \Bx_1 \cdot \Bx_2 } \Bx_1 } \\
 \end{aligned}
 \end{dmath}
 
@@ -129,7 +149,7 @@ More generally, this can be expressed as the square of the bivector \( \Bx_1 \we
 =
 -\lr{ \lr{\Bx_1 \wedge \Bx_2 } \cdot \Bx_1 } \cdot \Bx_2
 =
-\Bx_1^2 \Bx_2^2 - \lr{\Bx_1 \cdot \Bx_2}^2.
+(\Bx_1)^2 (\Bx_2)^2 - \lr{\Bx_1 \cdot \Bx_2}^2.
 \end{dmath}
 
 Additionally, the numerators are each dot products of \( \Bx_1, \Bx_2 \) with that same bivector

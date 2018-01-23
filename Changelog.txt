@@ -1,6 +1,12 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+Jan 23, 2017        GAelectrodynamics.V0.301.pdf
+   - Tweak the reciprocal basis figure.
+   - Reorder the reciprocal text so that a rationale is provided before the definition.
+   - Add more details and footnotes with respect to tensor notation.
+   - Add braces around powers of upper and lower indexed variables for clarity.
+
 Jan 22, 2017        GAelectrodynamics.V0.300.pdf
    - Fix eqn:reciprocal:80 (upper instead of lower index).
    - Before that, add remark about switch of dummy indexes.

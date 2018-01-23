@@ -46,8 +46,6 @@
 #perl -p -i ../latex/bin/latexRegex.pl vectorTrivectorDot.tex
 #../latex/bin/lgrep bivectorDot.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl bivectorDot.tex
-#../latex/bin/lgrep reciprocal.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl reciprocal.tex
 #../latex/bin/lgrep 2subspaceR3reciprocalExample.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2subspaceR3reciprocalExample.tex
 #../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
@@ -202,7 +200,12 @@ perl -p -i ../latex/bin/latexRegex.pl amperesLawMagnetostaticsExample.tex
 
 ../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
+
 ../latex/bin/lgrep continuity.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl continuity.tex
+
 ../latex/bin/lgrep poyntingLorentzForce.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl poyntingLorentzForce.tex
+
+../latex/bin/lgrep reciprocal.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl reciprocal.tex
