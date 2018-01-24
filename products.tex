@@ -10,7 +10,7 @@ Let \( \ucap \) and \( \vcap \) be an orthonormal pair of vectors in the plane o
 \cref{fig:Parallelogram:ParallelogramFig1}.
 \imageFigure{../figures/GAelectrodynamics/ParallelogramFig1}{Two vectors in a plane.}{fig:Parallelogram:ParallelogramFig1}{0.3}
 
-With respect to the plane basis \( \ucap \) and \( \vcap \), a
+With respect to the orthonormal vectors \( \ucap \) and \( \vcap \), a
 a polar representation of \( \Ba, \Bb \) is
 
 \begin{dmath}\label{eqn:SimpleProducts2:1660}
@@ -69,7 +69,7 @@ Given two vectors \( \Ba, \Bb \in \bbR^{N} \) the dot product is identified as t
 .
 \end{equation*}
 
-A wedge product of the vectors is defined as
+A wedge product of the vectors is defined as a grade-2 selection operation
 \begin{equation*}
 \Ba \wedge \Bb \equiv \gpgradetwo{ \Ba \Bb }.
 \end{equation*}
@@ -88,7 +88,7 @@ The split of a vector product into dot and wedge product components is also impo
 However, to utilize it, the properties of the wedge product have to be determined.
 We also want to determine exactly how the wedge product is related to the cross product, as they clearly have a similar structure.
 
-To summarizing \cref{eqn:SimpleProducts2:1680} with our new operators, we write
+Summarizing \cref{eqn:SimpleProducts2:1680} with our new operators, we write
 
 \boxedEquation{eqn:SimpleProducts2:1700}{
 \begin{aligned}
@@ -187,7 +187,7 @@ b_1 & b_2
 We are used to writing the cross product as a \( 3 x 3 \) determinant, which can also be done with the coordinate expansion of the
 \R{3} wedge product
 
-\begin{dmath}\label{eqn:SimpleProducts2:1740}
+\begin{equation}\label{eqn:SimpleProducts2:1740}
 \Ba \wedge \Bb
 =
 \sum_{ ij \in \setlr{ 12, 13, 23 } }
@@ -202,7 +202,7 @@ b_i & b_j
 a_1 & a_2 & a_3 \\
 b_1 & b_2 & b_3 \\
 \end{vmatrix}.
-\end{dmath}
+\end{equation}
 
 Let's summarize the wedge product properties and relations we have found so far, comparing the \R{3} wedge product to the cross product
 

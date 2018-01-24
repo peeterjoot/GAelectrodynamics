@@ -28,7 +28,7 @@
 %%\label{chap:reciprocal}
 %
 The end goal of this chapter is to be able to integrate multivector functions along curves and surfaces, known collectively as manifolds.
-For our purposes, a manifold is defined by a parameterization, such as \( \Bx(a,b) \) where \( a, b\) are scalar parameters.  With one parameter the vector traces out a curve, with two a surface, three a volume, and so forth.
+For our purposes, a manifold is defined by a parameterization, such as the vector valued function \( \Bx(a,b) \) where \( a, b\) are scalar parameters.  With one parameter the vector traces out a curve, with two a surface, three a volume, and so forth.
 The respective partial derivatives of such a parameterized vector define a local basis for the surface at the point at which the partials are evaluated.
 The span of such a basis is called the tangent space, and the partials that constitute it are not necessarily orthonormal, or even normal.
 
@@ -71,9 +71,8 @@ Let a vector \( \Ba \) have coordinates \( a^i \) with respect to a basis \( \se
 \Ba = \sum_j a^j \Bx_j,
 \end{dmath}
 
-where \( j \) is an index not a power\footnote{In tensor algebra, the index \( j \), which occurs in matched upper and lower index pairs, is known as a dummy summation index.
-Such matched pairs imply a freedom to 
-utilize any unused index when convenient, such as \( \sum_k a^k \Bx_k \), but this is obvious when summation symbols are included explicitly.}.
+where \( j \) is an index not a power\footnote{In tensor algebra, any index that is found in matched upper and lower index pairs, is known as a dummy summation index, whereas an index that is unmatched is known as a free index.  For example, in \( a^j b_{ij} \) (summation implied) \( j \) is a summation index, and \( i \) is a free index.  We are free to make a change of variables of any summation index, so for the same example we can write
+\( a^k b_{ik} \).  These index tracking conventions are obvious when summation symbols are included explicitly, as we will do.}.
 
 Dotting with the reciprocal frame vectors \( \Bx^i \) provides these coordinates \( a^i \)
 
@@ -108,8 +107,8 @@ We can summarize \cref{eqn:reciprocal:40} and \cref{eqn:reciprocal:80} by statin
 \end{equation}
 
 In tensor algebra the basis is generally implied\footnote{
-In tensor algebra, a vector, identified by the coordinates \( a^i \) is called a covariant vector.  
-When that vector is identified by the coordinates \( a_i \) it is called a contravarient vector.  These labels relate to how the coordinates transform with respect to norm preserving transformations.
+In tensor algebra, a vector, identified by the coordinates \( a^i \) is called a contravariant vector.
+When that vector is identified by the coordinates \( a_i \) it is called a covariant vector.  These labels relate to how the coordinates transform with respect to norm preserving transformations.
 We have no need of this nomenclature, since we never transform coordinates in isolation, but will always transform the coordinates along with their associated basis vectors.}.
 
 %When doing tensor algebra manipulations, you'll generally have the freedom to swap any pairs of upper and lower indexes as done above.
@@ -242,12 +241,13 @@ and
 \begin{aligned}
 \Bx^1 &= \lr{ \Bx_2 \wedge \Bx_3 } \cdot \inv{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \\
 \Bx^2 &= \lr{ \Bx_3 \wedge \Bx_1 } \cdot \inv{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \\
-\Bx^3 &= \lr{ \Bx_1 \wedge \Bx_2 } \cdot \inv{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \\
+\Bx^3 &= \lr{ \Bx_1 \wedge \Bx_2 } \cdot \inv{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 }
 \end{aligned}
 }
 
-It should be clear how to generalize this to higher dimensions if desired.
+Geometrically, this trivector division is a duality transformation within the subspace spanned by the three vectors \( \Bx_1, \Bx_2, \Bx_3 \), also scaling the result so that the \( \Bx_i \cdot \Bx^j = {\delta_i}^j \) condition is satisfied.
 
-
+It should be clear how to generalize the reciprocal basis calculation formulas of
+\cref{eqn:reciprocal:180} and \cref{eqn:reciprocal:380} to higher dimensions if desired.
 %}
 %\EndNoBibArticle

@@ -1,6 +1,14 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+Jan 23, 2017        GAelectrodynamics.V0.302.pdf
+   - don't capitalize Geometric in 'Geometric Algebra', 'Geometric Calculus'
+   - had covariant and contravarient mixed up.
+   - some clarification and additions to the introduction of scalar,vector,bivector.  Just sign
+     instead of ``sided-ness'' or the vague orientation which I had used.
+   - add a little bit of geometric interpretation for the three vector reciprocal frame basis 
+     calculations.
+
 Jan 23, 2017        GAelectrodynamics.V0.301.pdf
    - Tweak the reciprocal basis figure.
    - Reorder the reciprocal text so that a rationale is provided before the definition.
@@ -36,7 +44,7 @@ Jan 17, 2017        GAelectrodynamics.V0.293.pdf
 	vector).
 
 Jan 17, 2017        GAelectrodynamics.V0.291.pdf
-   - Lorentz force relation to Poynting conservation relations for T(e_k).  This fills in the connections between 
+   - Lorentz force relation to Poynting conservation relations for T(e_k).  This fills in the connections between
      the stress tensor and momentum density.
    - Big cosmetic change: Switch to using c = 1/\sqrt(\mu\epsilon) from v, even for cases where mu_r,epsilon_r != 1.
      (i.e. using c as the group velocity of the field in the medium, instead of as the speed of light, but the two

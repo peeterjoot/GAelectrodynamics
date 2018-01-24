@@ -28,21 +28,24 @@ Geometric algebra uses vector multiplication to build up a hierarchy of geometri
 \index{scalar}
 \index{0-vector}
 \paragraph{Scalar.}
-A scalar (or 0-vector) can be represented graphically as an arrow with a head and a tail pointing into the paper (or chalkboard.)
-The sign of a scalar, represented by a ``head'' or ``tail'' can be thought of as an orientation, as illustrated in
-\cref{fig:scalarOrientation:scalarOrientationFig1} with a crossed circle for the tail, and a solid dot as the head.
-We don't usually try to represent of a quantity that has the apparent dimensions of a point graphically.
-%The magnitude of this scalar could be represented by the size of the head or tail symbol, or perhaps just by putting a number beside the symbol.
-\imageFigure{../figures/GAelectrodynamics/scalarOrientationFig1}{Scalar orientation.}{fig:scalarOrientation:scalarOrientationFig1}{0.05}
+A scalar, which we will also call a 0-vector, is a zero-dimensional object with sign, and a magnitude.
+The sign of a scalar can be represented graphically as an arrow with a head and a tail pointing into the paper (or chalkboard),
+as illustrated in
+\cref{fig:scalarOrientation:scalarOrientationFig1} where a crossed circle represents the tail, and a solid dot represents the head.
+%\footnote{We don't usually try to represent the magnitude of a scalar graphically, but could do so by scaling the size of the cross or dot.}
+\imageFigure{../figures/GAelectrodynamics/scalarOrientationFig1}{Scalar illustration.}{fig:scalarOrientation:scalarOrientationFig1}{0.05}
 
 \index{vector}
 \index{1-vector}
 \paragraph{Vector.}
-A vector can be represented graphically as an arrow with a head and a tail, as illustrated in
-\cref{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}.
-Here the orientation has two aspects, one is the direction in space of the vector, and the other is the relative placement of the head vs. tail of the vector, which is toggled by changing the sign of the vector.
-\imageFigure{../figures/GAelectrodynamics/VectorsWithOppositeOrientationFig1}{Vector orientation.}{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}{0.3}
-Graphically we can add vectors by connecting them head to tail, and connecting the end points, as illustrated in
+A vector, which we will also call a 1-vector, is a one-dimensional object with a sign, a magnitude, and possible orientation, as illustrated in
+\cref{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}, where the length of the line segment represents the magnitude, and
+the sign of the vector can be represented graphically using the relative placement of the head vs. tail of the vector.
+\imageFigure{../figures/GAelectrodynamics/VectorsWithOppositeOrientationFig1}{Vector illustration.}{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}{0.3}
+One vector in isolation is a one dimensional object, however, when embedded in a higher order space, such as a plane or a volume, it also has an orientation in that space.
+
+Vectors can be added graphically by connecting them head to tail in sequence, and joining the first tail point to the final head, as
+illustrated in
 \cref{fig:vectorAddition:vectorAdditionFig1}.
 \imageFigure{../figures/GAelectrodynamics/vectorAdditionFig1}{Graphical vector addition.}{fig:vectorAddition:vectorAdditionFig1}{0.3}
 
@@ -50,31 +53,37 @@ Graphically we can add vectors by connecting them head to tail, and connecting t
 \index{2-vector}
 \paragraph{Bivector.}
 
-Assuming a vector product, a bivector can be defined as
+We now wish to define a bivector, or 2-vector, as a 2 dimensional object representing a signed plane segment with magnitude and orientation.
+%\footnote{This physical (plane segment) representation can break down when the underlying vector space has greater than three dimensions.}.
+Values such as torque and angular momentum, which are usually represented as cross products, can be represented as bivectors lying in the plane of the torque or angular momentum instead of normal to that plane.  A bivector representation can eliminate the requirement utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts to be generalized to dimensions higher than three when desirable.
+
+Assuming a vector product, with properties to be defined, we can algebraically define a bivector as
 
 \makedefinition{Bivector.}{dfn:multivector:60}{
 A bivector, or 2-vector, is a sum of products of pairs of normal vectors.
-Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
+Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
 a general bivector can be expressed as
 \begin{equation*}
 \sum_{1 \le i \ne j \le N} B_{ij} \Be_i \Be_j,
 \end{equation*}
 where \( B_{ij} \) is a scalar.
+The vector basis \( V \) is said to be a generator of a bivector space.
 } % definition
 
-The set \( \setlr{ \Be_i \Be_j \mid i \ne j } \) could be considered a basis for the space of bivectors, generated from the underlying vector space and the vector product.
-We will see later that this is a linear dependent set, and that the bivector space can be defined as \( \Span \setlr{ \Be_i \Be_j \mid i < j } \).
-The bivectors that we will encounter in physics, such as torque and angular momentum, can all be represented as oriented plane
-segments.
-Like vectors, this orientation includes a ``sidedness'' as well as directions in space.
-In three dimensions this sidedness can be represented using a vector normal to the plane.  In two and \( N \) dimensions this orientation can be
-represented using a cyclic direction on the surface of the plane segment as illustrated in
+In the sum above, the rationale for excluding products for which \( i = j \) must be deferred until the properties of the vector product are detailed (coming soon).
+An oriented plane segment can always be represented by such an algebraic object in any number of dimensions\footnote{When the generating vector space has dimension \( N \ge 4 \) not all bivectors defined by \cref{dfn:multivector:60} necessarily represent oriented plane segments.
+The restrictions required for a bivector to have an associated oriented plane segment interpretation in higher dimensional spaces will be defined later.}.
+%We will see later that the set \( \Span \setlr{ \Be_i \Be_j \mid i < j } \), can be considered a linearly independent basis for a bivector space, and that
+In three dimensions, the sign, or ``sided-ness'' of a bivector can be represented using a vector normal to the plane.
+In 2 or \( N > 3 \) dimensions, where a normal
+direction may not be meaningful, we can represent the bivector sign graphically using a cyclic direction on the surface of the plane segment as illustrated in
 \cref{fig:orientedAreas:orientedAreasFig1}.
 Other than having a boundary that defines the total area, a graphical bivector representation as a plane segment need not have any specific geometry.
 Two bivectors represented graphically as oriented circles in three dimensional space can be found in
 \cref{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}.
 \imageFigure{../figures/GAelectrodynamics/orientedAreasFig1}{Oriented unit areas in the x-y plane.}{fig:orientedAreas:orientedAreasFig1}{0.2}
 \imageFigure{../figures/GAelectrodynamics/circularBivectorsIn3DFig1}{Circular representation of two bivectors.}{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}{0.3}
+
 With vectors, addition is performed by connecting vectors head to tail, which maintains the orientation.
 The same can be done with bivectors, where the bivectors are also connected with compatible orientation to construct a sum.
 This is illustrated graphically in \cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig1}, where a blue bivector with a right handed orientation is added to a red bivector with right handed orientation, to form a green bivector also with right handed orientation, where all orientations are with respect to the exterior of the bounding surface formed by the three bivectors.
@@ -95,12 +104,13 @@ Again, assuming a vector product
 
 \makedefinition{Trivector.}{dfn:multivector:80}{
 A trivector, or 3-vector, is a sum of products of triplets of mutually normal vectors.
-Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
+Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
 a general trivector can be expressed as
 \begin{equation*}
 \sum_{1 \le i \ne j \ne k \le N} T_{ijk} \Be_i \Be_j \Be_k,
 \end{equation*}
 where \( \T_{ijk} \) is a scalar.
+The vector space \( V \) is said to generate a trivector space.
 } % definition
 
 In three dimensional space, we will see that all trivectors are scalar multiples of \( \Be_1 \Be_2 \Be_3 \), and
@@ -126,6 +136,8 @@ where \( K_{i_1 i_2 \cdots i_k} \) is a scalar.
 The number \( k \) of normal vectors that generate a k-vector is called the grade.
 
 A 1-vector is defined as a vector, and a 0-vector is defined as a scalar.
+
+The vector space \( V \) is said to generate the k-vector space.
 } % definition
 
 We will see that the highest grade for a k-vector in an N dimensional vector space is \( N \).
@@ -140,7 +152,7 @@ and a vector multiplication operation represented by juxtaposition,
 a multivector is a sum of k-vectors, \( k \in [ 1, N ] \), such as
    \( a_0 + \sum_i a_i \Be_i + \sum_{i \ne j} a_{ij} \Be_i \Be_j + \sum_{i \ne j \ne k} a_{ijk} \Be_i \Be_j \Be_k + \cdots \), where \( a_0, a_i, a_{ij}, \cdots \) are scalars.
 
-A multivector space is a set \( M = \setlr{ x, y, z, \cdots } \) of multivectors, where the following axioms are satisfied
+The multivector space generated by \( V \) is a set \( M = \setlr{ x, y, z, \cdots } \) of multivectors, where the following axioms are satisfied
 
 \begin{tcolorbox}[tab2,tabularx={X|Y},title=Multivector space axioms.,boxrule=0.5pt]
     Contraction. & \( \Bx^2 = \Bx \cdot \Bx, \,\forall \Bx \in V \) \\ \hline
