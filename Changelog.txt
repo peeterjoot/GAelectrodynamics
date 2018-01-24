@@ -1,6 +1,10 @@
 %Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
 %   -
 
+Jan 24, 2017        GAelectrodynamics.V0.303.pdf
+   - review fixes for reciprocal frame and curvilinear coordinates.
+   - add two parameter surface figure with introduction of curvilinear coordinates.
+
 Jan 23, 2017        GAelectrodynamics.V0.302.pdf
    - don't capitalize Geometric in 'Geometric Algebra', 'Geometric Calculus'
    - had covariant and contravarient mixed up.

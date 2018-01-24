@@ -27,6 +27,8 @@
 %%\chapter{reciprocal frame vectors}
 %%\label{chap:reciprocal}
 %
+\subsection{Motivation and definition.}
+
 The end goal of this chapter is to be able to integrate multivector functions along curves and surfaces, known collectively as manifolds.
 For our purposes, a manifold is defined by a parameterization, such as the vector valued function \( \Bx(a,b) \) where \( a, b\) are scalar parameters.  With one parameter the vector traces out a curve, with two a surface, three a volume, and so forth.
 The respective partial derivatives of such a parameterized vector define a local basis for the surface at the point at which the partials are evaluated.
@@ -53,7 +55,9 @@ Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where t
 where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector, and \( {\delta_i}^j \) is the Kronecker delta.
 } % definition
 
-This definition introduces mixed index variables for the first time in this text, which may be unfamiliar.  These are most often used in tensor algebra, where any expression that has pairs of upper and lower indexes implies a sum, and is called the summation (or Einstein) convention.  For example:
+Note that any orthonormal basis is also its reciprocal basis.
+
+The definition above introduces mixed index variables for the first time in this text, which may be unfamiliar.  These are most often used in tensor algebra, where any expression that has pairs of upper and lower indexes implies a sum, and is called the summation (or Einstein) convention.  For example:
 
 \begin{dmath}\label{eqn:reciprocal:400}
 \begin{aligned}
@@ -120,6 +124,8 @@ When one of \( \Be_i \) is increased(decreased) in magnitude, there will be a co
 
 \imageFigure{../figures/GAelectrodynamics/obliqueReciprocalFig2}{Oblique and reciprocal bases.}{fig:obliqueReciprocal:obliqueReciprocalFig2}{0.5}
 
+\subsection{\R{2} reciprocal frame.}
+
 How are the reciprocal frame vectors computed?  While these vectors have a natural GA representation, this is not intrinsically a GA problem, and can be solved with standard linear algebra, using a matrix inversion.
 For example, given a 2D basis \( \setlr{ \Bx_1, \Bx_2 } \), the reciprocal basis can be assumed to have a coordinate representation in the original basis
 
@@ -171,8 +177,14 @@ or
 }
 %\end{dmath}
 
-Geometrically, dotting with the bivector of the plane is a hybrid rotation and scaling operation.
-For example, for \R{2} with \( \Bx_1 = a_1 \Be_1 + a_2 \Be_2, \Bx_2 = b_1 \Be_1 + b_2 \Be_2 \), that pseudoscalar for this basis is
+Recall that dotting with the the unit bivector of a plane (or its inverse) rotates a vector in that plane by \( \pi/2 \).
+In a plane subspace, such a rotation is exactly the transformation to ensure that \( \Bx_1 \cdot \Bx^2 = \Bx_2 \cdot \Bx^1 = 0 \).
+This shows that the reciprocal frame for the basis of a two dimensional subspace is found by a duality transformation of each of the curvilinear coordinates, plus a subsequent scaling operation.
+As \( \Bx_1 \wedge \Bx_2 \), the pseudoscalar for the subspace spanned by \( \setlr{ \Bx_1, \Bx_2 } \), is not generally a unit bivector, the dot product with its inverse also has a scaling effect.
+
+\paragraph{Example: \R{2}:}
+
+Given a pair of arbitrary oriented vectors in \R{2}, \( \Bx_1 = a_1 \Be_1 + a_2 \Be_2, \Bx_2 = b_1 \Be_1 + b_2 \Be_2 \), the pseudoscalar associated with the basis \( \setlr{ \Bx_1, \Bx_2} \) is
 
 \begin{dmath}\label{eqn:reciprocal:260}
 \Bx_1 \wedge \Bx_2
@@ -182,14 +194,15 @@ For example, for \R{2} with \( \Bx_1 = a_1 \Be_1 + a_2 \Be_2, \Bx_2 = b_1 \Be_1 
 \lr{ a_1 b_2 - a_2 b_1 } \Be_{12}.
 \end{dmath}
 
-This has inverse
+The inverse of this pseudoscalar is
+
 \begin{dmath}\label{eqn:reciprocal:280}
 \inv{\Bx_1 \wedge \Bx_2 }
 =
 \inv{ a_1 b_2 - a_2 b_1 } \Be_{21}.
 \end{dmath}
 
-So for the \R{2} the reciprocal frame is just
+So for this fixed oblique \R{2} basis, the reciprocal frame is just
 
 \begin{dmath}\label{eqn:reciprocal:300}
 \begin{aligned}
@@ -198,10 +211,13 @@ So for the \R{2} the reciprocal frame is just
 \end{aligned}
 \end{dmath}
 
-The vector \( \Bx^1 \) is obtained by rotating \( \Bx_2 \) by \( -\pi/2 \), and rescaling it.
-The vector \( \Bx^2 \) is similarly obtained by a scaling and a rotation of \( \Bx_1 \) by \( \pi/2 \).
+The vector \( \Bx^1 \) is obtained by rotating \( \Bx_2 \) by \( -\pi/2 \), and rescaling it by the area of the parallelogram spanned by \( \Bx_1, \Bx_2 \).
+The vector \( \Bx^2 \) is obtained with the same scaling plus a rotation of \( \Bx_1 \) by \( \pi/2 \).
 
-Generalizing \cref{eqn:reciprocal:180} is almost possible by inspection.
+\subsection{\R{3} reciprocal frame.}
+
+In this section we generalize \cref{eqn:reciprocal:180} to \R{3} vectors, which will illustrate the general case by example.
+
 Given
 a subspace spanned by a three vector basis \( \setlr{ \Bx_1, \Bx_2, \Bx_3 } \) the reciprocal frame vectors can be written as dot products
 
@@ -245,9 +261,14 @@ and
 \end{aligned}
 }
 
-Geometrically, this trivector division is a duality transformation within the subspace spanned by the three vectors \( \Bx_1, \Bx_2, \Bx_3 \), also scaling the result so that the \( \Bx_i \cdot \Bx^j = {\delta_i}^j \) condition is satisfied.
+Geometrically, dotting with this trivector is a duality transformation within the subspace spanned by the three vectors \( \Bx_1, \Bx_2, \Bx_3 \), also scaling the result so that the \( \Bx_i \cdot \Bx^j = {\delta_i}^j \) condition is satisfied.  The scaling factor is the volume of the parallelopiped spanned by \( \Bx_1, \Bx_2, \Bx_3 \).
+
+\subsection{General reciprocal basis calculation.}
 
 It should be clear how to generalize the reciprocal basis calculation formulas of
 \cref{eqn:reciprocal:180} and \cref{eqn:reciprocal:380} to higher dimensions if desired.
+
+FIXME: the sign required for each term may not be obvious.  State this explicitly.
+
 %}
 %\EndNoBibArticle

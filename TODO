@@ -1,3 +1,7 @@
+- It should be clear how to generalize the reciprocal basis calculation formulas:
+
+   -- statement is a cop-out.  fix.
+
 - Got to try plotting the ring fields.
 
 - Lorentz force, boosts: gabookII chapter 35.  Is there a reasonable paravector implementation of this?
