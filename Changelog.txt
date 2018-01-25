@@ -1,5 +1,6 @@
 Jan 24, 2017        GAelectrodynamics.V0.304.pdf
-   - For all the fields that I calculated T(1) for, calculate <T(\Ba)>_1.
+   - For all the fields that I calculated T(1) for, calculate <T(\Ba)>_1, and <T(\Ba)>_0, to show explicitly
+     and algebraically the relations to the stress tensor in its usual \Theta^{ij} form.
 
 Jan 24, 2017        GAelectrodynamics.V0.303.pdf
    - review fixes for reciprocal frame and curvilinear coordinates.
