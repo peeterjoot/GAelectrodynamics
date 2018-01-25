@@ -51,12 +51,11 @@ spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CH
 # enable doublespace before making:
 dropbox:
 	cp GAelectrodynamics.pdf ~/Dropbox/ECE2500Y/GAelectrodynamics.V$(VER).pdf
-	cp Changelog.txt ~/Dropbox/ECE2500Y/
-	#cp maxwells.pdf ~/Dropbox/ECE2500Y/multivector.pdf
+	git log --decorate > ~/Dropbox/ECE2500Y/Changelog.txt
 
 alex:
 	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.V$(VER).pdf
-	cp Changelog.txt ~/Dropbox/4Alex/
+	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
 
 %.sp : %.tex
 	spellcheck $^

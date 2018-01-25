@@ -1,0 +1,102 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\label{chap:stressTensorAlgebraically}
+If you cried cheater because of the reliance on brute force computer assisted symbolic algebra to find the \( T(\Ba) \) relations of \cref{eqn:poyntingF:820}, or tried this as a problem, and need assistance, here is an expansion of the stress tensor for vector parameters.
+
+We start with
+
+\begin{dmath}\label{eqn:stressTensorAlgebraically:1120}
+F \Be_i
+=
+\lr{ \BE + I \eta \BH } \Be_i
+=
+E_i + \BE \wedge \Be_i
++
+I \eta \lr{ H_i + \BH \wedge \Be_i },
+\end{dmath}
+
+To show that the scalar grades are related to the Poynting vector as \( \gpgradezero{T(\Be_i)} = - \BS \cdot \Be_i/ c \), we need the scalar grades of the tensor for vector parameters
+
+\begin{dmath}\label{eqn:stressTensorAlgebraically:1180}
+\frac{\epsilon}{2} \gpgradezero{ F \Be_i F^\dagger }
+=
+\frac{\epsilon}{2} \gpgradezero{
+   \cancel{E_i \BE}
+   + I \eta \lr{ \BH \wedge \Be_i } \BE
+   + \cancel{\lr{\BE \wedge \Be_i } \cdot \BE}
+   + \cancel{I \eta H_i \BE}
+}
++ \frac{\epsilon}{2} \eta
+\gpgradezero{
+   - \cancel{E_i I \BH}
+   + \cancel{\eta \lr{ \BH \wedge \Be_i } \cdot \BH}
+   - \lr{ \BE \wedge \Be_i } I \BH
+   + \cancel{\eta H_i \BH}
+}
+=
+\frac{\epsilon}{2} \gpgradezero{
+   I^2 \eta \lr{ \BH \cross \Be_i } \BE
+   - \eta \lr{ \BE \cross \Be_i } I^2 \BH
+}
+=
+- \lr{ \BE \cross \BH } \cdot \Be_i/c,
+\end{dmath}
+
+which is the Poynting relationship that was asserted.
+For the vector grades we have
+
+\begin{dmath}\label{eqn:stressTensorAlgebraically:1140}
+\gpgradeone{ F \Be_i F^\dagger }
+=
+\gpgradeone{
+\lr{
+   E_i
+   + I \eta \lr{ \BH \wedge \Be_i }
+   + \BE \wedge \Be_i
+   + I \eta H_i
+}
+\lr{
+   \BE - I \eta \BH
+}
+}
+=
+\gpgradeone{
+   E_i \BE
+   + \cancel{I \eta \lr{ \BH \wedge \Be_i } \BE}
+   + \lr{\BE \wedge \Be_i } \cdot \BE
+   + \cancel{I \eta H_i \BE}
+}
++ \eta
+\gpgradeone{
+   - \cancel{E_i I \BH}
+   + \eta \lr{ \BH \wedge \Be_i } \cdot \BH
+   - \cancel{\lr{ \BE \wedge \Be_i } I \BH}
+   + \eta H_i \BH
+}
+=
+   E_i \BE
+   + \BE E_i - \BE^2 \Be_i
+   + \eta^2 \BH H_i - \eta^2 \BH^2 \Be_i
+   + \eta^2 H_i \BH
+=
+   2 E_i \BE - \BE^2 \Be_i
+   + \eta^2 \lr{ 2 H_i \BH - \BH^2 \Be_i }.
+\end{dmath}
+
+Assembling all the results, we have
+
+\begin{dmath}\label{eqn:stressTensorAlgebraically:1160}
+\gpgradeone{T(\Be_i)} \cdot \Be_j
+=
+\frac{\epsilon}{2}
+\lr{
+   2 E_i E_j - \BE^2 \delta_{ij}
+   + \eta^2 \lr{ 2 H_i H_j - \BH^2 \delta_{ij} }
+},
+\end{dmath}
+
+which proves that \( \gpgradeone{T(\Be_i)} \cdot \Be_j = -\Theta^{ij} \) as defined in \cref{eqn:poyntingF:840}.
+%}

@@ -81,3 +81,4 @@ statics.tex
 ringField.tex
 cylinderField.tex
 poyntingStaticExamples.tex
+stressTensorAlgebraically.tex

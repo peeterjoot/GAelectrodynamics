@@ -76,11 +76,13 @@ T(a) = \inv{2} \epsilon F a F^\dagger,
 }
 %\end{dmath}
 
-where \( a \) is one of \( 1, \Be_1, \Be_2 \) or \( \Be_3 \), or any linear combination of these 0,1 grade multivector elements.  Observe that \( T(a) \) is a linear operator with respect to any parameter \( a = \alpha + \Ba, \alpha \in \bbR, \Ba \in \bbR^3 \), and has only 0 and 1 grade elements, which will be demonstrated by direct expansion.
-An expansion of \( T(\Be_k) \) is harder to do algebaicly than \cref{eqn:poyntingF:80}
-\footnote{Such an expansion is a worthwhile problem to develop GA manipulation skills.  The reader is encouraged to try this independently first, and to refer to appendix FIXME for hints if required.}.
+where \( a \) is one of \( 1, \Be_1, \Be_2 \) or \( \Be_3 \), or any linear combination of these 0,1 grade multivector elements.  Observe that \( T(a) \) is a linear operator with respect to any parameter \( a = \alpha + \Ba, \alpha \in \bbR, \Ba \in \bbR^3 \).  \( T(a) \) only 0 and 1 grade elements, which we have seen for scalar parameters \( a \).  We will see by direct expansion that this is also the case for vector parameters.
+Such an expansion of \( T(\Be_k) \) is harder to do algebaicly than \cref{eqn:poyntingF:80}
+\footnote{Such an expansion is a worthwhile problem to develop GA manipulation skills.  The reader is encouraged to try this independently first, and to refer to
+\cref{chap:stressTensorAlgebraically}
+for hints if required.}.
 On the other hand, it is easy to expand the stress tensor \( T(a) \) symbolically by brute force using a GA computer algebra package.
-A Mathematica expansion of \( T(a) \) gives:
+A Mathematica expansion of the elements of \( T(a) \) gives:
 
 \begin{subequations}
 \label{eqn:poyntingF:800}
@@ -152,97 +154,17 @@ are related to the multivector representation expanded in \cref{eqn:poyntingF:80
 \end{aligned}
 \end{dmath}
 
-For anybody that cries cheater because of the reliance on brute force computer assisted symbolic algebra to find some the relations of \cref{eqn:poyntingF:820}, here's an explicit (but slightly painful) demonstration that shows this algebraically
+The complete specification of the stress tensor for a parameter \( a = \alpha + \Ba = \alpha + \sum_k a_k \Be_k \) is
 
 \begin{dmath}\label{eqn:poyntingF:1120}
-F \Be_i
+T(\alpha + \Ba)
 =
-\lr{ \BE + I \eta \BH } \Be_i
-=
-E_i + \BE \wedge \Be_i
-+
-I \eta \lr{ H_i + \BH \wedge \Be_i },
-\end{dmath}
-
-so
-
-\begin{dmath}\label{eqn:poyntingF:1140}
-\gpgradeone{ F \Be_i F^\dagger }
-=
-\gpgradeone{
-\lr{
-   E_i
-   + I \eta \lr{ \BH \wedge \Be_i }
-   + \BE \wedge \Be_i
-   + I \eta H_i
+\alpha \lr{
+   \calE + \frac{\BS}{c}
 }
-\lr{
-   \BE - I \eta \BH
-}
-}
-=
-\gpgradeone{
-   E_i \BE
-   + \cancel{I \eta \lr{ \BH \wedge \Be_i } \BE}
-   + \lr{\BE \wedge \Be_i } \cdot \BE
-   + \cancel{I \eta H_i \BE}
-}
-+ \eta
-\gpgradeone{
-   - \cancel{E_i I \BH}
-   + \eta \lr{ \BH \wedge \Be_i } \cdot \BH
-   - \cancel{\lr{ \BE \wedge \Be_i } I \BH}
-   + \eta H_i \BH
-}
-=
-   E_i \BE
-   + \BE E_i - \BE^2 \Be_i
-   + \eta^2 \BH H_i - \eta^2 \BH^2 \Be_i
-   + \eta^2 H_i \BH
-=
-   2 E_i \BE - \BE^2 \Be_i
-   + \eta^2 \lr{ 2 H_i \BH - \BH^2 \Be_i }.
-\end{dmath}
-
-Assembling all the results, we have
-
-\begin{dmath}\label{eqn:poyntingF:1160}
-\gpgradeone{T(\Be_i)} \cdot \Be_j
-=
-\frac{\epsilon}{2}
-\lr{
-   2 E_i E_j - \BE^2 \delta_{ij}
-   + \eta^2 \lr{ 2 H_i H_j - \BH^2 \delta_{ij} }
-},
-\end{dmath}
-
-which proves that \( \gpgradeone{T(\Be_i)} \cdot \Be_j = -\Theta^{ij} \) as claimed.
-
-To show that \( \gpgradezero{T(\Be_i)} = - \BS \cdot \Be_i/ c \), we need the scalar grades of the tensor
-
-\begin{dmath}\label{eqn:poyntingF:1180}
-\frac{\epsilon}{2} \gpgradezero{ F \Be_i F^\dagger }
-=
-\frac{\epsilon}{2} \gpgradezero{
-   \cancel{E_i \BE}
-   + I \eta \lr{ \BH \wedge \Be_i } \BE
-   + \cancel{\lr{\BE \wedge \Be_i } \cdot \BE}
-   + \cancel{I \eta H_i \BE}
-}
-+ \frac{\epsilon}{2} \eta
-\gpgradezero{
-   - \cancel{E_i I \BH}
-   + \cancel{\eta \lr{ \BH \wedge \Be_i } \cdot \BH}
-   - \lr{ \BE \wedge \Be_i } I \BH
-   + \cancel{\eta H_i \BH}
-}
-=
-\frac{\epsilon}{2} \gpgradezero{
-   I^2 \eta \lr{ \BH \cross \Be_i } \BE
-   - \eta \lr{ \BE \cross \Be_i } I^2 \BH
-}
-=
-- \lr{ \BE \cross \BH } \cdot \Be_i/c.
+-
+\Ba \cdot \frac{\BS}{c}
+- \sum_{i,j} a_i \Theta^{ij} \Be_j.
 \end{dmath}
 
 \subsection{Poynting's theorem.}
