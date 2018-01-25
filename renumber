@@ -209,3 +209,6 @@ perl -p -i ../latex/bin/latexRegex.pl poyntingLorentzForce.tex
 
 ../latex/bin/lgrep reciprocal.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl reciprocal.tex
+
+../latex/bin/lgrep poyntingStaticExamples.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poyntingStaticExamples.tex

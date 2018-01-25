@@ -1,5 +1,5 @@
-%Jan XX, 2017        GAelectrodynamics.V0.VVV.pdf
-%   -
+Jan 24, 2017        GAelectrodynamics.V0.304.pdf
+   - For all the fields that I calculated T(1) for, calculate <T(\Ba)>_1.
 
 Jan 24, 2017        GAelectrodynamics.V0.303.pdf
    - review fixes for reciprocal frame and curvilinear coordinates.
