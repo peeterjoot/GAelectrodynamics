@@ -2,7 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-\subsection{Field energy and momentum density and the stress energy tensor.}
+\subsection{Field energy and momentum density and the energy-momentum tensor.}
 
 In conventional electromagnetism the energy and momentum density of the fields are
 
@@ -10,7 +10,6 @@ In conventional electromagnetism the energy and momentum density of the fields a
 \index{momentum density}
 \index{Poynting vector}
 \index{energy flux}
-\index{stress tensor}
 \begin{dmath}\label{eqn:poyntingF:20}
 \begin{aligned}
 \calE &= \inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH } \\
@@ -68,7 +67,9 @@ T(1)
 \end{dmath}
 
 as claimed in \cref{eqn:poyntingF:20} and \cref{eqn:poyntingF:60}.  \( T(1) \) has one scalar component, and three vector components, and represents four
-four of the sixteen components of the complete stress energy tensor.  The geometric algebra form of the complete stress energy tensor is
+four of the sixteen components of a larger energy-momentum tensor.  The geometric algebra form of the complete energy-momentum tensor is
+\index{energy-momentum tensor}
+\index{Maxwell stress tensor}
 
 %\begin{dmath}\label{eqn:poyntingF:760}
 \boxedEquation{eqn:poyntingF:760}{
@@ -81,7 +82,7 @@ Such an expansion of \( T(\Be_k) \) is harder to do algebaicly than \cref{eqn:po
 \footnote{Such an expansion is a worthwhile problem to develop GA manipulation skills.  The reader is encouraged to try this independently first, and to refer to
 \cref{chap:stressTensorAlgebraically}
 for hints if required.}.
-On the other hand, it is easy to expand the stress tensor \( T(a) \) symbolically by brute force using a GA computer algebra package.
+On the other hand, it is easy to expand the energy-momentum tensor \( T(a) \) symbolically by brute force using a GA computer algebra package.
 A Mathematica expansion of the elements of \( T(a) \) gives:
 
 \begin{subequations}
@@ -124,9 +125,9 @@ T(\Be_3)
 \end{equation}
 \end{subequations}
 
-The components of the multivectors \( T(a) \) that we are calling the stress energy tensor, are more conventionally written out
+The components of the multivectors \( T(a) \) that we are calling the energy-momentum tensor, are more conventionally written out
 as a symmetric tensor \( \Theta^{ij} \) as follows
-\footnote{Following conventions from \citep{jackson1975cew}, but translating to SI units.}
+
 \begin{dmath}\label{eqn:poyntingF:840}
 \begin{aligned}
 \Theta^{00} &= \frac{\epsilon}{2} \lr{ \BE^2 + \eta^2 \BH^2 } \\
@@ -134,6 +135,16 @@ as a symmetric tensor \( \Theta^{ij} \) as follows
 \Theta^{ij} &= -\epsilon \lr{ E_i E_j + \eta^2 H_i H_j - \inv{2} \delta_{ij} \lr{ \BE^2 + \eta^2 \BH^2 } }.
 \end{aligned}
 \end{dmath}
+
+The names and notation for this tensor components varies.
+\( \Theta^{\alpha\beta}, \alpha, \beta \in \setlr{0,1,2,3} \) as defined in \cref{eqn:poyntingF:840} is called the symmetric
+stress tensor \citep{jackson1975cew},
+whereas other authors call this the energy-momentum tensor and express it as \( T^{\alpha\beta} \) \citep{landau1980classical}, \citep{doran2003gap}.
+The sign conventions and notation for the spatial components \( \Theta^{ij}, i, j \in \setlr{1,2,3} \) vary as well, but all authors appear to call this subset the Maxwell stress tensor.
+The Maxwell stress tensor is written as \( \sigma_{ij} (=-\Theta^{ij}) \) \citep{landau1980classical}, or as
+\( T_{ij} (=-\Theta^{ij}) \)
+\citep{griffiths1999introduction},
+\citep{jackson1975cew}.
 
 The symmetric stress tensor components of \cref{eqn:poyntingF:840}
 are related to the multivector representation expanded in \cref{eqn:poyntingF:800} by
@@ -154,9 +165,34 @@ are related to the multivector representation expanded in \cref{eqn:poyntingF:80
 \end{aligned}
 \end{dmath}
 
-The complete specification of the stress tensor for a parameter \( a = \alpha + \Ba = \alpha + \sum_k a_k \Be_k \) is
+The Maxwell stress tensor components \( \gpgradeone{T(\Be_k)} \) can be found expressed in a dyadic notation (\citep{griffiths1999introduction}, \citep{jackson1975cew}) as follows
 
-\begin{dmath}\label{eqn:poyntingF:1120}
+\begin{dmath}\label{eqn:poyntingF:1140}
+\gpgradeone{ T(\Ba) }
+=
+\sum_i a_i \gpgradeone{ T(\Be_i) }
+=
+\sum_{i,j} a_i \lr{ \gpgradeone{ T(\Be_i) } \cdot \Be_j } \Be_j
+=
+\sum_{i,j} a_i T_{ij} \Be_j
+\equiv
+\Ba \cdot \lrT,
+\end{dmath}
+
+so that
+\begin{dmath}\label{eqn:poyntingF:1160}
+\lr{ \Ba \cdot \lrT } \cdot \Bb
+=
+\sum_{i,j} a_i T_{ij} b_j.
+\end{dmath}
+
+With the Maxwell stress tensor parameterized by a vector, we don't really have any need for this dyadic notation, but it is worth mentioning to
+understand how the two formalisms are related.
+
+The complete specification of the energy-momentum tensor for a parameter \( a = \alpha + \Ba = \alpha + \sum_k a_k \Be_k \) is
+
+%\begin{dmath}\label{eqn:poyntingF:1120}
+\boxedEquation{eqn:poyntingF:1120}{
 T(\alpha + \Ba)
 =
 \alpha \lr{
@@ -164,12 +200,16 @@ T(\alpha + \Ba)
 }
 -
 \Ba \cdot \frac{\BS}{c}
-- \sum_{i,j} a_i \Theta^{ij} \Be_j.
-\end{dmath}
++ \BT(\Ba),
+%+ \gpgradeone{ T(\Ba) }.
+}
+%\end{dmath}
+
+where the shorthand \( \BT(\Ba) = \gpgradeone{T(\Ba)} \) has been introduced for the Maxwell stress tensor.
 
 \subsection{Poynting's theorem.}
 
-Poynting's theorem, the conservation relationship between energy and momentum density (or more generally, the stress tensor) and the sources, can be stated in terms of the multivector field \( F \) and the multivector current \( J \).
+Poynting's theorem, the conservation relationship between energy and momentum density (or more generally, the energy-momentum tensor) and the sources, can be stated in terms of the multivector field \( F \) and the multivector current \( J \).
 To derive this relationship we can act on (all terms of) \( F a F^\dagger \) with the space+time derivative operator \( \spacegrad + (1/c) \partial_t \).
 We do so within a scalar selection operation, which simplifies things, and allows for cyclic permutation of the multivector factors (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)).
 

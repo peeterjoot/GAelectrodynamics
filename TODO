@@ -1,3 +1,6 @@
+- check nomenclature (Griffiths and Jackson) for the stress tensor.  I'm calling it the stress energy tensor in some places, but the stress
+tensor in others.
+
 - It should be clear how to generalize the reciprocal basis calculation formulas:
 
    -- statement is a cop-out.  fix.
