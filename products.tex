@@ -86,7 +86,6 @@ There will be many circumstances where the easiest way to compute a dot product 
 
 The split of a vector product into dot and wedge product components is also important.
 However, to utilize it, the properties of the wedge product have to be determined.
-We also want to determine exactly how the wedge product is related to the cross product, as they clearly have a similar structure.
 
 Summarizing \cref{eqn:SimpleProducts2:1680} with our new operators, we write
 
@@ -106,9 +105,8 @@ Two wedge product properties can be immediately deduced from this polar represen
 \item \( \Ba \wedge (\alpha \Ba) = 0, \quad \forall \alpha \in \bbR \).
 \end{itemize}
 
-The cross product is also bilinear, so one can reasonably expect this of the wedge product.
-This is much easier to demonstrate using a coordinate expansion.
-To do so let
+We have now had a few hints that the wedge product might be related to the cross product.  Given two vectors \( \Ba, \Bb \) both the wedge and the cross product contain a \( \Norm{\Ba} \Norm{\Bb} \sin \Delta \theta \) factor, and both the wedge and cross product are antisymmetric operators.
+The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = \Ba \cross \Bc + \Ba \cross \Bc + \cdots \).  To see whether this is the case for the wedge product, let's examine the coordinate expansion of the wedge product.  Let
 
 \begin{dmath}\label{eqn:SimpleProducts2:1160}
 \begin{aligned}

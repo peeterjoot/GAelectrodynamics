@@ -1,5 +1,27 @@
-- check nomenclature (Griffiths and Jackson) for the stress tensor.  I'm calling it the stress energy tensor in some places, but the stress
-tensor in others.
+- Dr Wolfgang Lindner:
+
+   > The first chapter on linear GA is very "heavy/dry" mathematical stuff.
+   Im my opinion it would be wise to spread some concerte calculations/examples
+   through the text,
+   perhaps every 2-3 pages
+
+
+   I agree.  I started out with something very informal, and I think I've gone too far in the opposite direction now.  I'll see if I can work on finding a better balance.
+
+
+   > -- also using some free CAS like REDUCE, MAXIMA or EIGENMATH.
+   Give screenshots to let control/reproduce the results.
+   This could activate the novice learner for keeping on the track ;)
+
+
+   There are a number of GA CAS packages available in different languages.  Let me start with putting together an appendix listing some of the packages available, and giving examples of their use.
+    
+   MATHEMATICA is very good, but not free avaílable: my private version 4.0
+   (1999)
+   is very outdated. Maybe I can run your code, because you give txt-access to
+   the *.m file.
+    
+   There are a few Mathematica GA packages available (mine, plus some others).  It's possible that one of the others will also work with Mathematica 4.  I like the integrated symbolic capability of Mathematica, and found that it justified the 'personal use licence' Mathematica purchase.  A full version for professional use is horrendously expensive.
 
 - It should be clear how to generalize the reciprocal basis calculation formulas:
 
