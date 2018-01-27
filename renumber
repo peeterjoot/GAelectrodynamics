@@ -1,214 +1,354 @@
-#perl -p -i ../latex/bin/latexRegex.pl 2dvectorsquare.tex
-#perl -p -i ../latex/bin/latexRegex.pl ComplexInnerProductVsDotAndCrossProduct.tex
-#perl -p -i ../latex/bin/latexRegex.pl GAmotivation.tex
-#perl -p -i ../latex/bin/latexRegex.pl R3PseudoscalarCommutation.tex
-#perl -p -i ../latex/bin/latexRegex.pl R3PseudoscalarSquare.tex
-#perl -p -i ../latex/bin/latexRegex.pl RnDotProduct.tex
-#perl -p -i ../latex/bin/latexRegex.pl WedgeRelationshipToCrossProduct.tex
-#perl -p -i ../latex/bin/latexRegex.pl complexNumbers.tex
-#perl -p -i ../latex/bin/latexRegex.pl cyclicpermutationtwo.tex
-#perl -p -i ../latex/bin/latexRegex.pl definitions.tex
-#perl -p -i ../latex/bin/latexRegex.pl dotprodSymmetricSum.tex
-#perl -p -i ../latex/bin/latexRegex.pl gradeselVectorWedge.tex
-#perl -p -i ../latex/bin/latexRegex.pl gradeselection.tex
-#perl -p -i ../latex/bin/latexRegex.pl gradethreeselectionWedge.tex
-#perl -p -i ../latex/bin/latexRegex.pl normalAnticommutation.tex
-#perl -p -i ../latex/bin/latexRegex.pl planeRotationsExponentials.tex
-#perl -p -i ../latex/bin/latexRegex.pl vectorBivectorDot.tex
-#perl -p -i ../latex/bin/latexRegex.pl vectorproduct.tex
-#perl -p -i ../latex/bin/latexRegex.pl vectorproductCyclicPermutation.tex
-#perl -p -i ../latex/bin/latexRegex.pl wedgeantisym.tex
-#perl -p -i ../latex/bin/latexRegex.pl GAmotivation.tex
-#perl -p -i ../latex/bin/latexRegex.pl definitions.tex
-#perl -p -i ../latex/bin/latexRegex.pl gradeselection.tex
-#perl -p -i ../latex/bin/latexRegex.pl vectorproduct.tex
-#../latex/bin/lgrep 2dvectorsquare.tex | tee o ; . ./o
-#../latex/bin/lgrep ComplexInnerProductVsDotAndCrossProduct.tex | tee o ; . ./o
-#../latex/bin/lgrep GAmotivation.tex | tee o ; . ./o
-#../latex/bin/lgrep R3PseudoscalarCommutation.tex | tee o ; . ./o
-#../latex/bin/lgrep R3PseudoscalarSquare.tex | tee o ; . ./o
-#../latex/bin/lgrep RnDotProduct.tex | tee o ; . ./o
-#../latex/bin/lgrep WedgeRelationshipToCrossProduct.tex | tee o ; . ./o
-#../latex/bin/lgrep complexNumbers.tex | tee o ; . ./o
-#../latex/bin/lgrep cyclicpermutationtwo.tex | tee o ; . ./o
-#../latex/bin/lgrep definitions.tex | tee o ; . ./o
-#../latex/bin/lgrep dotprodSymmetricSum.tex | tee o ; . ./o
-#../latex/bin/lgrep gradeselVectorWedge.tex | tee o ; . ./o
-#../latex/bin/lgrep gradeselection.tex | tee o ; . ./o
-#../latex/bin/lgrep gradethreeselectionWedge.tex | tee o ; . ./o
-#../latex/bin/lgrep normalAnticommutation.tex | tee o ; . ./o
-#../latex/bin/lgrep planeRotationsExponentials.tex | tee o ; . ./o
-#../latex/bin/lgrep vectorBivectorDot.tex | tee o ; . ./o
-#../latex/bin/lgrep vectorproduct.tex | tee o ; . ./o
-#../latex/bin/lgrep vectorproductCyclicPermutation.tex | tee o ; . ./o
-#../latex/bin/lgrep wedgeantisym.tex | tee o ; . ./o
-#../latex/bin/lgrep vectorTrivectorDot.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl vectorTrivectorDot.tex
-#../latex/bin/lgrep bivectorDot.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl bivectorDot.tex
-#../latex/bin/lgrep 2subspaceR3reciprocalExample.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl 2subspaceR3reciprocalExample.tex
-#../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl r4nonzerobivectorwedgewithself.tex
-#../latex/bin/lgrep scalarPermutation.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl scalarPermutation.tex
-#../latex/bin/lgrep boundary.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl boundary.tex
+#../latex/bin/lgrep 2Dcylindrical.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl 2Dcylindrical.tex
 
-#../latex/bin/lgrep projectnotes.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl projectnotes.tex
-#../latex/bin/lgrep ellipticalWaves.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl ellipticalWaves.tex
-
-#../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
-
-#../latex/bin/lgrep SimpleProducts.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl SimpleProducts.tex
-
-#../latex/bin/lgrep left2dimaginarymultiplication.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl left2dimaginarymultiplication.tex
-
-#../latex/bin/lgrep SimpleProducts2.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl SimpleProducts2.tex
-
-#../latex/bin/lgrep products.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl products.tex
-
-#../latex/bin/lgrep rightComplexMult.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl rightComplexMult.tex
-
-#../latex/bin/lgrep sandwichMult.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl sandwichMult.tex
-
-#../latex/bin/lgrep normalMult.tex   | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl normalMult.tex  
-
-#../latex/bin/lgrep coordinateNinetyDegreeRotation.tex   | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl coordinateNinetyDegreeRotation.tex  
-
-#../latex/bin/lgrep multiplication.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl multiplication.tex
-
-../latex/bin/lgrep multivector.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl multivector.tex
-
-#../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
-
-#../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl projectionAndRejection.tex
-
-#../latex/bin/lgrep generalRotation.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl generalRotation.tex
-
-#../latex/bin/lgrep wedgeProductArea.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl wedgeProductArea.tex
+#../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
 
 #../latex/bin/lgrep 2dRotations.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2dRotations.tex
 
-#../latex/bin/lgrep symmetricAndAntiSymmetricVectorSums.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl symmetricAndAntiSymmetricVectorSums.tex
+#../latex/bin/lgrep 2dreciprocalMatrixCalculation.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl 2dreciprocalMatrixCalculation.tex
 
-#../latex/bin/lgrep generalizedDot.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
+#../latex/bin/lgrep 2subspaceR3reciprocalExample.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl 2subspaceR3reciprocalExample.tex
 
-#../latex/bin/lgrep generalizedWedge.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
+#../latex/bin/lgrep FrontBackmatter/preface.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl FrontBackmatter/preface.tex
 
-#../latex/bin/lgrep scalarSelectionPermutation.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl scalarSelectionPermutation.tex
+#../latex/bin/lgrep R3PseudoscalarSquare.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl R3PseudoscalarSquare.tex
 
-#../latex/bin/lgrep freespace.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl freespace.tex
+#../latex/bin/lgrep amperesLawMagnetostaticsExample.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl amperesLawMagnetostaticsExample.tex
 
-#../latex/bin/lgrep electrostatics.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl electrostatics.tex
+#../latex/bin/lgrep analysis_cavaet.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl analysis_cavaet.tex
 
-#../latex/bin/lgrep magnetostatics.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl magnetostatics.tex
+#../latex/bin/lgrep bladeDotWedgeSymmetryIdentitiesTheorem.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl bladeDotWedgeSymmetryIdentitiesTheorem.tex
 
-#../latex/bin/lgrep linecharge.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl linecharge.tex
+#../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
 
 #../latex/bin/lgrep circularlinecharge.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl circularlinecharge.tex
 
-#../latex/bin/lgrep maxwellsEquations.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl maxwellsEquations.tex
+#../latex/bin/lgrep colinearVectors.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl colinearVectors.tex
+
+#../latex/bin/lgrep complex.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl complex.tex
+
+#../latex/bin/lgrep curvilinearDefined.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl curvilinearDefined.tex
+
+#../latex/bin/lgrep curvilinearGradient.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl curvilinearGradient.tex
+
+#../latex/bin/lgrep curvilinearspherical.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl curvilinearspherical.tex
+
+#../latex/bin/lgrep cylinderField.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl cylinderField.tex
+
+#../latex/bin/lgrep distributionDotVectorBivector.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl distributionDotVectorBivector.tex
 
 #../latex/bin/lgrep dual.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl dual.tex
 
-#../latex/bin/lgrep poynting.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl poynting.tex
+#../latex/bin/lgrep electrostatics.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl electrostatics.tex
+
+#../latex/bin/lgrep electrostaticsProblems.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl electrostaticsProblems.tex
+
+#../latex/bin/lgrep electrostatics_electricPotential.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl electrostatics_electricPotential.tex
+
+#../latex/bin/lgrep electrostatics_enclosedCharge.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl electrostatics_enclosedCharge.tex
+
+#../latex/bin/lgrep electrostatics_invertingGradient.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl electrostatics_invertingGradient.tex
+
+#../latex/bin/lgrep electrostatics_poissonEquationSolution.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl electrostatics_poissonEquationSolution.tex
+
+#../latex/bin/lgrep freespace.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl freespace.tex
+
+#../latex/bin/lgrep frequencydomainPlaneWaves.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl frequencydomainPlaneWaves.tex
+
+#../latex/bin/lgrep fundamentalTheoremOfCalculus.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl fundamentalTheoremOfCalculus.tex
+
+#../latex/bin/lgrep gacomparison.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl gacomparison.tex
+
+#../latex/bin/lgrep galiterature.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl galiterature.tex
+
+#../latex/bin/lgrep generalRotation.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl generalRotation.tex
+
+#../latex/bin/lgrep generalizedDot.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
+
+#../latex/bin/lgrep generalizedDot_bivectorDot.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl generalizedDot_bivectorDot.tex
+
+#../latex/bin/lgrep generalizedDot_vectorBivector.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl generalizedDot_vectorBivector.tex
+
+#../latex/bin/lgrep generalizedWedge.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
+
+#../latex/bin/lgrep generalizedWedgeProblems.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl generalizedWedgeProblems.tex
+
+#../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
+
+#../latex/bin/lgrep greensTheorem.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl greensTheorem.tex
+
+#../latex/bin/lgrep helmholtzDerviationMultivectorSolution.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl helmholtzDerviationMultivectorSolution.tex
+
+#../latex/bin/lgrep helmholtzDerviationMultivectorStatement.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl helmholtzDerviationMultivectorStatement.tex
+
+#../latex/bin/lgrep inMatter.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl inMatter.tex
 
 #../latex/bin/lgrep isotropicMaxwells.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl isotropicMaxwells.tex
 
+#../latex/bin/lgrep landauEasy.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl landauEasy.tex
+
+#../latex/bin/lgrep linecharge.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl linecharge.tex
+
+#../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
+
+#../latex/bin/lgrep lorentzForce_constantMagnetic.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl lorentzForce_constantMagnetic.tex
+
+#../latex/bin/lgrep magnetostatics.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl magnetostatics.tex
+
+#../latex/bin/lgrep magnetostatics_biotSavart.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl magnetostatics_biotSavart.tex
+
+#../latex/bin/lgrep magnetostatics_enclosedCurrent.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl magnetostatics_enclosedCurrent.tex
+
+#../latex/bin/lgrep magnetostatics_enclosedCurrentDensity.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl magnetostatics_enclosedCurrentDensity.tex
+
+#../latex/bin/lgrep magnetostatics_vectorPotential.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl magnetostatics_vectorPotential.tex
+
+#../latex/bin/lgrep multiplication.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl multiplication.tex
+
+#../latex/bin/lgrep multivector.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl multivector.tex
+
+#../latex/bin/lgrep multivector_nomenclature.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl multivector_nomenclature.tex
+
+#../latex/bin/lgrep normalFactorization.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl normalFactorization.tex
+
+#../latex/bin/lgrep normalVectors.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl normalVectors.tex
+
+#../latex/bin/lgrep oneparameter.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl oneparameter.tex
+
+#../latex/bin/lgrep planewaves.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl planewaves.tex
+
+#../latex/bin/lgrep polarization.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization.tex
+
+#../latex/bin/lgrep polarization_circular.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_circular.tex
+
+#../latex/bin/lgrep polarization_elliptical.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_elliptical.tex
+
+#../latex/bin/lgrep polarization_elliptical.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_elliptical.tex
+
+#../latex/bin/lgrep polarization_linearPolarization.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_linearPolarization.tex
+
+#../latex/bin/lgrep polarization_phaseAndEnergyMomentum.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_phaseAndEnergyMomentum.tex
+
+#../latex/bin/lgrep polarization_phaseAndEnergyMomentum.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_phaseAndEnergyMomentum.tex
+
+#../latex/bin/lgrep polarization_problems.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_problems.tex
+
+#../latex/bin/lgrep polarization_problems.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_problems.tex
+
+#../latex/bin/lgrep polarization_pseudoscalarImaginary.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarization_pseudoscalarImaginary.tex
+
+#../latex/bin/lgrep potentialSection.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection.tex
+
+#../latex/bin/lgrep potentialSection_LorenzGauge.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_LorenzGauge.tex
+
+#../latex/bin/lgrep potentialSection_electric.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_electric.tex
+
+#../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
+
+#../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
+
+#../latex/bin/lgrep potentialSection_gauge.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_gauge.tex
+
+#../latex/bin/lgrep potentialSection_magnetic.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_magnetic.tex
+
+#../latex/bin/lgrep potentialSection_magnetic.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_magnetic.tex
+
+#../latex/bin/lgrep poyntingF.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
+
+#../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
+
+#../latex/bin/lgrep poyntingStaticExamples.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl poyntingStaticExamples.tex
+
+#../latex/bin/lgrep poyntingTheorem.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl poyntingTheorem.tex
+
+#../latex/bin/lgrep prereq_basisspandim.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl prereq_basisspandim.tex
+
+#../latex/bin/lgrep prereq_standardbasis.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl prereq_standardbasis.tex
+
+#../latex/bin/lgrep prereq_vectorspace.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl prereq_vectorspace.tex
+
+#../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
+
+#../latex/bin/lgrep products.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl products.tex
+
+#../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl projectionAndRejection.tex
+
+#../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl r4nonzerobivectorwedgewithself.tex
+
+#../latex/bin/lgrep reciprocal.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl reciprocal.tex
+
+#../latex/bin/lgrep reciprocal_R2.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl reciprocal_R2.tex
+
+#../latex/bin/lgrep reciprocal_R3.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl reciprocal_R3.tex
+
+#../latex/bin/lgrep reciprocal_R3.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl reciprocal_R3.tex
+
+#../latex/bin/lgrep reciprocal_general.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl reciprocal_general.tex
+
 #../latex/bin/lgrep reflection.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl reflection.tex
 
-../latex/bin/lgrep potentialSection.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl potentialSection.tex
+#../latex/bin/lgrep reverse.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl reverse.tex
 
-../latex/bin/lgrep poyntingF.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
+#../latex/bin/lgrep reverseDefined.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl reverseDefined.tex
 
-../latex/bin/lgrep inMatter.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl inMatter.tex
+#../latex/bin/lgrep ringField.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl ringField.tex
 
-../latex/bin/lgrep frequencydomainPlaneWaves.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl frequencydomainPlaneWaves.tex
+#../latex/bin/lgrep scalarSelectionPermutation.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl scalarSelectionPermutation.tex
 
-../latex/bin/lgrep polarization.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl polarization.tex
+#../latex/bin/lgrep scalarVolumeElement.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl scalarVolumeElement.tex
 
-../latex/bin/lgrep galiterature.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl galiterature.tex
+#../latex/bin/lgrep solutionOfLinearSystem.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl solutionOfLinearSystem.tex
 
-../latex/bin/lgrep complex.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl complex.tex
+#../latex/bin/lgrep sphericaldot.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl sphericaldot.tex
 
-../latex/bin/lgrep statics.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl statics.tex
+#../latex/bin/lgrep statement.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl statement.tex
 
-../latex/bin/lgrep bladeDotWedgeSymmetryIdentitiesTheorem.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl bladeDotWedgeSymmetryIdentitiesTheorem.tex
+#../latex/bin/lgrep statics.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl statics.tex
 
-../latex/bin/lgrep ringField.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl ringField.tex
+#../latex/bin/lgrep statics_infiniteLineCharge.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl statics_infiniteLineCharge.tex
 
-../latex/bin/lgrep cylinderField.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl cylinderField.tex
+#../latex/bin/lgrep statics_infinitePlane.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl statics_infinitePlane.tex
 
-../latex/bin/lgrep solutionOfLinearSystem.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl solutionOfLinearSystem.tex
+#../latex/bin/lgrep stokesAndGreens.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl stokesAndGreens.tex
 
-../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
+#../latex/bin/lgrep stokesTheoremCoreProblems.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl stokesTheoremCoreProblems.tex
 
-../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
+#../latex/bin/lgrep stressTensorAlgebraically.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl stressTensorAlgebraically.tex
 
-../latex/bin/lgrep transverseField.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl transverseField.tex
+#../latex/bin/lgrep symmetricAndAntiSymmetricVectorSums.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl symmetricAndAntiSymmetricVectorSums.tex
 
-../latex/bin/lgrep amperesLawMagnetostaticsExample.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl amperesLawMagnetostaticsExample.tex
+#../latex/bin/lgrep threeparameter.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl threeparameter.tex
 
-../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
+#../latex/bin/lgrep torusCenterOfMassParameterization.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl torusCenterOfMassParameterization.tex
 
-../latex/bin/lgrep continuity.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl continuity.tex
+#../latex/bin/lgrep twoparameter.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl twoparameter.tex
 
-../latex/bin/lgrep poyntingLorentzForce.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl poyntingLorentzForce.tex
+#../latex/bin/lgrep vectorTrivectorDot.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl vectorTrivectorDot.tex
 
-../latex/bin/lgrep reciprocal.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl reciprocal.tex
+#../latex/bin/lgrep volumeselection.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl volumeselection.tex
 
-../latex/bin/lgrep poyntingStaticExamples.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl poyntingStaticExamples.tex
+#../latex/bin/lgrep waveequation.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl waveequation.tex
+
+#../latex/bin/lgrep wedgeDistributionIdentity.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl wedgeDistributionIdentity.tex
+
+#../latex/bin/lgrep wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
+
+#../latex/bin/lgrep wedgeProductArea.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl wedgeProductArea.tex
+
