@@ -1,0 +1,45 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\index{Green's function}
+\index{convolution}
+From \cref{thm:gradientGreensFunctionEuclidean:1}, the
+\R{3} Green's function for the gradient (on an infinite spherical bounding surface) is
+
+\begin{dmath}\label{eqn:electrostatics:260}
+G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3}.
+\end{dmath}
+
+The Green's function convolution that inverts the electric field gradient equation is
+\begin{dmath}\label{eqn:electrostatics:621}
+\BE(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' \BE(\Bx')
+= \int_V dV' G(\Bx, \Bx') \lr{ \inv{\epsilon}\rho(\Bx') }
+= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \lr{ \inv{\epsilon}\rho(\Bx') },
+\end{dmath}
+
+or
+%\begin{dmath}\label{eqn:electrostatics:340}
+\boxedEquation{eqn:electrostatics:340}{
+\BE(\Bx) =
+\inv{4 \pi \epsilon} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3},
+}
+%\end{dmath}
+
+which is Coulomb's law.
+
+The convolution for the magnetic field is trivial
+\begin{dmath}\label{eqn:electrostatics:641}
+\BB(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' \BB(\Bx')
+= \int_V dV' G(\Bx, \Bx') (0),
+\end{dmath}
+
+so the magnetic field is zero everywhere
+\begin{dmath}\label{eqn:electrostatics:320}
+\BB(\Bx) = 0.
+\end{dmath}
+
+%Question: would a non-zero magnetic field solution be possible if a Green's function for a finite bounded surface were to be used instead?
+

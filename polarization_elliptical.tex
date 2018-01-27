@@ -1,0 +1,84 @@
+
+An elliptical polarized electric field can be parameterized as
+\begin{dmath}\label{eqn:ellipticalWaves:340}
+\BE
+=
+E_a \Be_1 \cos\theta + E_b \Be_2 \sin\theta,
+\end{dmath}
+
+which corresponds to a Jones vector \( (E_a, -i E_b) \), or circular polarization coefficients with values
+
+\begin{dmath}\label{eqn:polarization:400}
+\begin{aligned}
+\alpha_\txtL &= \inv{2}\lr{ E_a - E_b } \\
+\alpha_\txtR &= \inv{2}\lr{ E_a + E_b }.
+\end{aligned}
+\end{dmath}
+
+Therefore an elliptically polarized field can be represented as
+
+\begin{dmath}\label{eqn:polarization:420}
+F = \inv{2} (1 + \Be_3) \Be_1 \lr{ (E_a + E_b) e^{i\phi} + (E_a - E_b) e^{-i\phi} }.
+\end{dmath}
+
+An interesting variation of the elliptical polarization uses a hyperbolic parameterization.
+If \( a, b \) are the semi-major/minor axes of the ellipse (i.e. \( a > b \)),
+and \( \Ba = a \Be_1 e^{i\psi} \) is the vectoral representation of the semi-major axis (not necessarily placed along \( \Be_1 \)),
+and \( e = \sqrt{1 - (b/a)^2} \) is the eccentricity of the ellipse,
+then it can be shown (\citep{hestenes1999nfc})
+that an elliptic parameterization can be written
+in the compact form
+
+\begin{dmath}\label{eqn:ellipticalWaves:360}
+\Br(\phi)
+=
+e \Ba \cosh( \tanh^{-1}(b/a) + i \phi).
+\end{dmath}
+
+When the bivector imaginary \( i = \Be_{12} \) is used then
+this parameterization is real and has only vector grades, so the electromagnetic field for a general elliptic wave has the form
+
+\begin{dmath}\label{eqn:ellipticalWaves:380}
+\begin{aligned}
+F &= e E_a \lr{ 1 + \Be_3 } \Be_1 e^{ i \psi } \cosh\lr{ m + i \phi} \\
+m &= \tanh^{-1}\lr{ E_b/E_a } \\
+e &= \sqrt{1 - {(E_b/E_a)}^2 },
+\end{aligned}
+\end{dmath}
+
+where \( E_a(E_b) \) are the magnitudes of the electric field components lying along the semi-major(minor) axes, and the propagation direction \( \Be_3 \) is normal to both the major and minor axis directions.
+An elliptic electric field polarization is illustrated in \cref{fig:ellipticalPolarization:ellipticalPolarizationFig1}, where the vectors representing the major and minor axes are \( \BE_a = E_a \Be_1 e^{i\psi}, \BE_b = E_b \Be_1 e^{i\psi} \).
+Observe that setting \( E_b = 0 \) results in the linearly polarized field of \cref{eqn:polarization:300}.
+\imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
+
+Following the procedure of \cref{eqn:polarization:560}, the energy-momentum of an elliptically polarized field is
+\begin{dmath}\label{eqn:polarization:600}
+\calE + \frac{\BS}{v}
+=
+\inv{2} \epsilon
+F F^\dagger
+=
+\inv{2} \epsilon
+e^2 E_a^2 \lr{ 1 + \Be_3 } \Be_1 \cancel{e^{ i \psi }} \cosh\lr{ m + i \phi}
+\cosh\lr{ m - i \phi}
+\cancel{e^{ -i \psi } }
+\Be_1
+\lr{ 1 + \Be_3 }
+=
+\inv{2} \epsilon
+e^2 E_a^2 \lr{ 1 + \Be_3 }
+\lr{ \cosh(2m) + \cos(2 \phi) }
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 }
+\lr{ E_b^2 + 2 \lr{
+E_a^2 - E_b^2
+ } \cos^2 \phi }
+.
+\end{dmath}
+
+The simplification above made use of the identity \( (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2 \).
+%
+% $Assumptions = b > 0 && b < 1 && a > 0 && a > b;
+% (1 - (b/a)^2) Cosh[2 ArcTanh[b/a]] // FullSimplify
+

@@ -1,0 +1,144 @@
+
+For a multivector current with only electric sources
+
+\begin{dmath}\label{eqn:potentialSection:1880}
+J = \eta \lr{ c \rho - \BJ },
+\end{dmath}
+
+we can construct a multivector potential with only scalar and vector grades
+\begin{dmath}\label{eqn:potentialSection:1900}
+A = - \phi + c \BA.
+\end{dmath}
+
+The resulting field is
+
+\begin{dmath}\label{eqn:potentialSection:80}
+F
+=
+\BE + I \eta \BH
+=
+\gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} }
+\lr{
+      - \phi
+      + c \BA
+}
+}{1,2},
+\end{dmath}
+
+which expands to
+
+\boxedEquation{eqn:potentialSection:2240}{
+F =
+-\spacegrad \phi
+-\PD{t}{\BA}
++ c \spacegrad \wedge \BA.
+}
+
+The respective electric and magnetic fields can be extracted using a duality transformation for the bivector curl
+
+\begin{dmath}\label{eqn:potentialSection:1920}
+F
+=
+-\spacegrad \phi
+-\PD{t}{\BA}
++ I c \spacegrad \cross \BA,
+\end{dmath}
+
+from which we can read off the field components
+
+\begin{dmath}\label{eqn:potentialSection:100}
+\begin{aligned}
+\BE &= -\spacegrad \phi -\PD{t}{\BA} \\
+\mu \BH &= \spacegrad \cross \BA.
+\end{aligned}
+\end{dmath}
+
+Observe that the grade selection encodes the precise recipe required to produce the desired combination of gradients, curls and time partials.
+
+The potential representation of the field \cref{eqn:potentialSection:80} is only a solution if Maxwell's equation is also satisfied, or
+
+\begin{dmath}\label{eqn:potentialSection:1960}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \lr{ -\phi + c\BA }
+= \eta \lr{ c \rho - \BJ } +
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } \lr{ -\phi + c\BA } }{0,3}
+= \eta \lr{ c \rho - \BJ } +
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} }.
+\end{dmath}
+
+Imposing a constraint on the potential grades
+
+\begin{dmath}\label{eqn:potentialSection:2020}
+\spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} = 0,
+\end{dmath}
+
+the Lorenz gauge condition, is clearly an expedient way to simplify this relationship.
+In particular,
+in the frequency domain \( \PDi{t}{} \leftrightarrow j \omega = j k c \), this gauge choice allows the scalar potential to be entirely eliminated, since
+
+\begin{dmath}\label{eqn:potentialSection:2040}
+\phi = \frac{j c^2}{\omega} \spacegrad \cdot \BA.
+\end{dmath}
+
+so the multivector potential is completely determined by a single vector potential
+
+\begin{dmath}\label{eqn:potentialSection:2060}
+A =
+-\frac{j c^2}{\omega} \spacegrad \cdot \BA + c \BA,
+\end{dmath}
+
+Maxwell's equation is reduced to a Helmholtz equation
+
+\begin{dmath}\label{eqn:potentialSection:2080}
+\lr{ \spacegrad^2 + k^2} A = J,
+\end{dmath}
+
+and the field is simply
+\begin{dmath}\label{eqn:potentialSection:2100}
+F = \lr{ \spacegrad - j k } A.
+\end{dmath}
+
+The conventional electric and magnetic field expressions can be found by substituting \cref{eqn:potentialSection:2040} into
+\cref{eqn:potentialSection:1920} and switching to the frequency domain
+
+\begin{dmath}\label{eqn:potentialSection:2380}
+F
+=
+-j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA }
+-j \omega \BA
++ I c \spacegrad \cross \BA,
+\end{dmath}
+
+%To compare this to conventional results, let's substitute \cref{eqn:potentialSection:2060} into \cref{eqn:potentialSection:2100},
+%
+%\begin{dmath}\label{eqn:potentialSection:2300}
+%F
+%=
+%\lr{ \spacegrad - j k }
+%\lr{
+%-\frac{j c^2}{\omega} \spacegrad \cdot \BA + c \BA
+%}
+%=
+%-\frac{k c^2}{\omega} \spacegrad \cdot \BA -j k c \BA
+%-\frac{j c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \BA
+%=
+%- \cancel{ c \spacegrad \cdot \BA }
+%-j \omega \BA
+%-\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
+%+ \cancel{ c \spacegrad \cdot \BA }
+%+ c \spacegrad \wedge \BA
+%=
+%-j \omega \BA -\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BA }
+%+ c \spacegrad \wedge \BA.
+%\end{dmath}
+%
+%From this the electric and magnetic fields can be read off
+
+so
+
+\begin{dmath}\label{eqn:potentialSection:2320}
+\begin{aligned}
+\BE &= -j \omega \BA -\frac{j c}{k} \spacegrad \lr{ \spacegrad \cdot \BA } \\
+\mu \BH &= \spacegrad \cross \BA.
+\end{aligned}
+\end{dmath}
+

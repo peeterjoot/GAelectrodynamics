@@ -1,0 +1,47 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+The charge in a volume can be related to the electric field by integrating \cref{eqn:electrostatics:380}
+
+\begin{dmath}\label{eqn:electrostatics:420}
+\int_V d^3 \Bx \spacegrad \BE = \inv{\epsilon} \int_V d^3 \Bx \rho(\Bx).
+\end{dmath}
+
+This is an oriented integral, where \( d^3 \Bx \) is a pseudoscalar volume element, such as
+\( d^3 \Bx = (\Be_1 dx) \wedge (\Be_2 dy) \wedge (\Be_3 dz) = I dx dy dz \).
+
+The LHS integral can be evaluated using the fundamental theorem \cref{thm:fundamentalTheoremOfCalculus:1}
+
+\begin{dmath}\label{eqn:electrostatics:461}
+\int_{\partial V} d^2 \Bx \BE = \frac{I}{\epsilon} \int_V dV \rho(\Bx).
+\end{dmath}
+
+An outward normal \( \ncap \) can be used to
+parameterize the bivector surface area element \( d^2 \Bx = I \ncap dA \), which allows the pseudoscalar factors on both
+sides to be cancelled
+
+%\begin{dmath}\label{eqn:electrostatics:460}
+\boxedEquation{eqn:electrostatics:460}{
+\int_{\partial V} dA \ncap \BE = \frac{1}{\epsilon} \int_V dV \rho(\Bx).
+}
+%\end{dmath}
+
+This is a multivector equation which must be simultaneously satisfied by its scalar and bivector components
+
+\begin{subequations}
+\label{eqn:electrostatics:481}
+\begin{dmath}\label{eqn:electrostatics:501}
+\int_{\partial V} dA \ncap \cdot \BE = \frac{1}{\epsilon} \int_V dV \rho(\Bx)
+\end{dmath}
+\begin{dmath}\label{eqn:electrostatics:521}
+\int_{\partial V} dA \ncap \wedge \BE = 0.
+\end{dmath}
+\end{subequations}
+
+\index{enclosed charge}
+The first equation is the familiar relationship between the divergence and the enclosed charge, which could have been derived from \cref{eqn:electrostatics:140} directly.
+The second provides a constraint on the tangential components of the field with respect to the enclosed volume, and could have been derived from
+\cref{eqn:electrostatics:100} directly.
+The multivector equation \cref{eqn:electrostatics:460} encodes both of these relationships, simultaneously incorporating the contributions of the Maxwell divergence and curl equations for the electric field, relating both to the enclosed charge.
+

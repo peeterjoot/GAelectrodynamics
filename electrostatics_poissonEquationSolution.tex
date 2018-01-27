@@ -1,0 +1,37 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\index{Poisson equation}
+Provided \( \Bx \ne \Bx' \), it is simple to show that (\cref{problem:electrostatics:gradrelation})
+
+\begin{dmath}\label{eqn:electrostatics:541}
+\spacegrad \Norm{\Bx - \Bx'}^k = k (\Bx - \Bx') \Norm{ \Bx - \Bx' }^{k-2}.
+\end{dmath}
+
+In particular
+
+\begin{dmath}\label{eqn:electrostatics:542}
+\spacegrad \inv{\Norm{\Bx - \Bx'}} = - \frac{(\Bx - \Bx')}{\Norm{ \Bx - \Bx' }^{3}}.
+\end{dmath}
+
+Inserting \cref{eqn:electrostatics:542} into Coulomb's law \cref{eqn:electrostatics:340} gives
+\begin{dmath}\label{eqn:electrostatics:661}
+\BE(\Bx)
+=
+-\inv{4 \pi \epsilon} \int dV' \rho(\Bx') \spacegrad \inv{\Norm{\Bx - \Bx'}}
+=
+- \spacegrad \inv{4 \pi \epsilon} \int dV' \frac{\rho(\Bx')}{\Norm{\Bx - \Bx'}},
+\end{dmath}
+
+which implicitly provides the solution to the Poisson equation \cref{eqn:electrostatics:581}
+
+%\begin{dmath}\label{eqn:electrostatics:601}
+\boxedEquation{eqn:electrostatics:601}{
+\phi(\Bx) = \inv{4 \pi \epsilon} \int dV' \frac{ \rho(\Bx') }{\Norm{\Bx - \Bx'}}.
+}
+%\end{dmath}
+
+\index{Laplacian}
+The solution \cref{eqn:electrostatics:601} could also have been obtained from the Green's function for the Laplacian
+\cref{eqn:helmholtzDerviationMultivector:100}.

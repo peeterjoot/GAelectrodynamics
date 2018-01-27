@@ -1,0 +1,190 @@
+
+\index{far field}
+
+Given a
+vector potential with a
+radial spherical wave representation
+
+\begin{dmath}\label{eqn:potentialSection:2400}
+\BA = \frac{e^{-j k r}}{r} \bcA( \theta, \phi ),
+\end{dmath}
+
+we can compute the far field ( \( r \gg 1 \) ) electrodynamic field \( F \).
+The spherical representation of the gradient is
+
+\begin{dmath}\label{eqn:potentialSection:2420}
+\begin{aligned}
+\spacegrad &= \rcap \partial_r + \spacegrad_\perp \\
+\spacegrad_\perp &= \frac{\thetacap}{r} \partial_\theta + \frac{\phicap}{r\sin\theta} \partial_\phi.
+\end{aligned}
+\end{dmath}
+
+The gradient of the vector potential is
+
+\begin{dmath}\label{eqn:potentialSection:2440}
+\spacegrad \BA
+=
+\biglr{ \rcap \partial_r + \spacegrad_\perp } \frac{e^{-j k r}}{r} \bcA
+=
+\rcap \lr{ -j k - \inv{r} } \frac{e^{-j k r}}{r} \bcA
++
+\frac{e^{-j k r}}{r}
+\spacegrad_\perp
+\bcA
+= - \lr{ j k + \inv{r} } \rcap \BA + O(1/r^2)
+\approx
+- j k \rcap \BA.
+\end{dmath}
+
+Here, all the \( O(1/r^2) \) terms, including the action of the non-radial component of the gradient on the \( 1/r \) potential, have been neglected.
+From \cref{eqn:potentialSection:2440} the far field divergence and the (bivector) curl of \( \BA \) are
+
+\begin{dmath}\label{eqn:potentialSection:2460}
+\begin{aligned}
+\spacegrad \cdot \BA &= - j k \rcap \cdot \BA \\
+\spacegrad \wedge \BA &= - j k \rcap \wedge \BA.
+\end{aligned}
+\end{dmath}
+
+Finally, the far field gradient of the divergence of \( \BA \) is
+
+\begin{dmath}\label{eqn:potentialSection:2480}
+\spacegrad \lr{ \spacegrad \cdot \BA }
+=
+\biglr{ \rcap \partial_r + \spacegrad_\perp } \lr{ - j k \rcap \cdot \BA }
+\approx
+-j k \rcap \partial_r \lr{ \rcap \cdot \BA }
+=
+-j k \rcap \lr{ -j k - \inv{r} } \lr{ \rcap \cdot \BA }
+\approx
+-k^2 \rcap \lr{ \rcap \cdot \BA },
+\end{dmath}
+
+again neglecting any \( O(1/r^2) \) terms.  The field is
+\begin{dmath}\label{eqn:potentialSection:2500}
+F
+=
+- j \omega \BA  -j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \wedge \BA
+=
+- j \omega \BA  +j \omega \rcap \lr{ \rcap \cdot \BA } - j k c \rcap \wedge \BA
+=
+- j \omega \lr{ \BA - \rcap \lr{ \rcap \cdot \BA }} - j \omega \rcap \wedge \BA
+=
+-j \omega \rcap \lr{ \rcap \wedge \BA} - j \omega \rcap \wedge \BA,
+\end{dmath}
+
+or
+%\begin{dmath}\label{eqn:potentialSection:2520}
+\boxedEquation{eqn:potentialSection:2520}{
+F = -j \omega \lr{ \rcap + 1 } \lr{ \rcap \wedge \BA}.
+}
+%\end{dmath}
+
+One interpretation of this is that the (bivector) magnetic field is represented by the plane perpendicular to the direction of propagation, and the electric field by a vector in that plane.
+These electric and magnetic fields can be extracted by inspection.
+Let \( \BA_\perp = \rcap \lr{ \rcap \wedge \BA} \) represent the
+non-radial component of the potential, so these respective fields are
+
+\begin{dmath}\label{eqn:potentialSection:2560}
+\begin{aligned}
+\BE &= -j \omega \BA_\perp \\
+\BH &= \inv{\eta} \rcap \cross \BE.
+\end{aligned}
+\end{dmath}
+
+Having calculated the far field approximation for the electrodynamic field for a vector potential \( \BA \) the field for the magnetic source vector potential \( \BF \) is
+
+%\begin{dmath}\label{eqn:potentialSection:2580}
+\boxedEquation{eqn:potentialSection:2580}{
+F = -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF },
+}
+%\end{dmath}
+
+for which the electric and magnetic field components are
+
+\begin{dmath}\label{eqn:potentialSection:2600}
+\begin{aligned}
+\BE &= j \omega \eta \rcap \cross \BF \\
+\BH &= -j \omega \BF_\perp.
+\end{aligned}
+\end{dmath}
+
+\makeexample{Vertical dipole potential.}{example:potentialSection:1}{
+We will calculate the far field along the propagation direction vector \( \kcap \) in the z-y plane
+
+\begin{dmath}\label{eqn:potentialSection:2620}
+\begin{aligned}
+\kcap &= \Be_3 e^{i \theta} \\
+i &= \Be_{32},
+\end{aligned}
+\end{dmath}
+
+for the infinitesimal dipole potential
+\begin{dmath}\label{eqn:potentialSection:2640}
+\BA = \frac{\Be_3 \mu I_0 l}{4 \pi r} e^{-j k r},
+\end{dmath}
+
+as illustrated in \cref{fig:vectorPotential:vectorPotentialFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/vectorPotentialFig1}{Vertical infinitesimal dipole and selected propagation direction.}{fig:vectorPotential:vectorPotentialFig1}{0.3}
+
+The wedge of \( \kcap \) with \( \BA \) is proportional to
+
+\begin{dmath}\label{eqn:potentialSection:2660}
+\kcap \wedge \Be_3
+=
+\gpgradetwo{
+\kcap \Be_3
+}
+=
+\gpgradetwo{
+\Be_3 e^{i \theta}
+\Be_3
+}
+=
+\gpgradetwo{
+\Be_3^2 e^{-i \theta}
+}
+=
+-i \sin\theta,
+\end{dmath}
+
+so from \cref{eqn:potentialSection:2520} the field is
+
+\begin{dmath}\label{eqn:potentialSection:2680}
+F = j \omega \lr{ 1 + \Be_3 e^{i\theta} } i \sin\theta \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
+\end{dmath}
+
+The electric and magnetic fields can be found from the respective vector and bivector grades of \cref{eqn:potentialSection:2680}
+
+\begin{dmath}\label{eqn:potentialSection:2700}
+\BE
+=
+\frac{j \omega \mu I_0 l}{4 \pi r} e^{-j k r} \Be_3 e^{i\theta} i \sin\theta
+=
+\frac{j \omega \mu I_0 l}{4 \pi r} e^{-j k r} \Be_2 e^{i\theta} \sin\theta
+=
+\frac{j k \eta I_0 l \sin\theta}{4 \pi r} e^{-j k r} \lr{ \Be_2 \cos\theta - \Be_3 \sin\theta },
+\end{dmath}
+
+and
+\begin{dmath}\label{eqn:potentialSection:2720}
+\BH
+=
+\inv{I \eta}
+j \omega i \sin\theta_0 \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
+=
+\inv{\eta} \Be_{321} \Be_{32}
+j \omega \sin\theta_0 \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
+=
+-\Be_1 \frac{ j k \sin\theta_0 I_0 l}{4 \pi r} e^{-j k r}.
+\end{dmath}
+
+The multivector electrodynamic field expression
+\cref{eqn:potentialSection:2680} for
+\( F \) is more algebraically compact than the separate electric and magnetic field expressions, but this comes with the complexity of dealing with different types of imaginaries.
+There are two explicit unit imaginaries in \cref{eqn:potentialSection:2680}, the scalar imaginary \( j \) used to encode the time harmonic nature of the field, and \( i = \Be_{32} \) used to represent the plane that the far field propagation direction vector lay in.
+Additionally, when the magnetic field component was extracted, the pseudoscalar \( I = \Be_{123} \) entered into the mix.
+Care is required to keep these all separate, especially since \( I, j \) commute with all grades, but \( i \) does not.
+} % example
+

@@ -1,0 +1,45 @@
+
+\index{vector potential}
+
+Similar to electrostatics where it was assumed that the electric field could be expressed as the gradient of a scalar potential,
+a vector potential \( \BA \) solution for the dual of the magnetic field can be assumed
+
+\begin{dmath}\label{eqn:magnetostatics:480}
+\spacegrad \BA = I \BB.
+\end{dmath}
+
+As the right hand side is a bivector, we must have \( \spacegrad \cdot \BA = 0 \) for this presumed solution to be valid.
+Assuming (for now) a zero divergence constraint for the vector potential, then \cref{eqn:magnetostatics:380} is reduced to
+
+%\begin{dmath}\label{eqn:magnetostatics:540}
+\boxedEquation{eqn:magnetostatics:540}{
+\spacegrad^2 \BA = -\mu \BJ,
+}
+%\end{dmath}
+
+which can be solved immediately
+
+%\begin{dmath}\label{eqn:magnetostatics:560}
+\boxedEquation{eqn:magnetostatics:560}{
+\BA(\Bx) = \frac{\mu}{4\pi} \int dV' \frac{ \BJ(\Bx') }{\Norm{\Bx - \Bx'}}.
+}
+%\end{dmath}
+
+The zero divergence constraint for the vector potential is easily dealt with by adding a gradient to the vector potential with the
+transformation \( \BA \rightarrow \overbar{\BA} + \spacegrad \chi \).
+This gives
+
+\begin{dmath}\label{eqn:magnetostatics:500}
+\spacegrad \BA
+=
+\spacegrad \overbar{\BA} + \spacegrad^2 \chi
+=
+\spacegrad \cdot \overbar{\BA} + \spacegrad \wedge \overbar{\BA} + \spacegrad^2 \chi,
+\end{dmath}
+
+which has the required bivector grade when \( \spacegrad \cdot \overbar{\BA} = -\spacegrad^2 \chi \), or
+
+\begin{dmath}\label{eqn:magnetostatics:520}
+\chi(\Bx) = \inv{4\pi} \int dV' \frac{ \spacegrad' \cdot \overbar{\BA}(\Bx') }{\Norm{\Bx - \Bx'}}.
+\end{dmath}
+

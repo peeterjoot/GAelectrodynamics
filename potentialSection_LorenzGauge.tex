@@ -1,0 +1,105 @@
+
+With the flexibility to alter make a gauge transformation of the potential, it is useful to examine the conditions for which it is possible to express the electromagnetic field without any grade selection operation.
+That is
+
+\begin{dmath}\label{eqn:potentialSection:1720}
+F
+=
+\lr{ \spacegrad - \inv{c} \PD{t}{} }
+\lr{
+      - \phi
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF }
+}.
+\end{dmath}
+
+There should be no a priori assumption that such a field representation has no scalar, nor no pseudoscalar components, which can be seen by the explicit expansion in grades
+
+\begin{dmath}\label{eqn:potentialSection:1640}
+\begin{aligned}
+F
+&=
+\lr{ \spacegrad - \inv{c} \PD{t}{} } A \\
+&=
+\lr{ \spacegrad - \inv{c} \PD{t}{} } \lr{ -\phi + c \BA + \eta I \lr{ -\phi_m + c \BF } } \\
+&=
+\inv{c} \partial_t \phi
++ c \spacegrad \cdot \BA  \\
+&-\spacegrad \phi
++ I \eta c \spacegrad \wedge \BF
+- \partial_t \BA  \\
+&+ c \spacegrad \wedge \BA
+- \eta I \spacegrad \phi_m
+- I \eta \partial_t \BF \\
+&+ \eta I \inv{c} \partial_t \phi_m
++ I \eta c \spacegrad \cdot \BF,
+\end{aligned}
+\end{dmath}
+
+so if this potential representation has only vector and bivector grades, it must be true that
+
+\begin{dmath}\label{eqn:potentialSection:1660}
+\begin{aligned}
+\inv{c} \partial_t \phi + c \spacegrad \cdot \BA &= 0 \\
+\inv{c} \partial_t \phi_m + c \spacegrad \cdot \BF &= 0.
+\end{aligned}
+\end{dmath}
+
+The first is the well known Lorenz gauge condition, whereas the second is the dual of that condition for magnetic sources.
+
+Should one of these conditions, say the Lorenz condition for the electric source potentials, be non-zero, then it is possible to make a potential transformation for which this condition is zero
+
+\begin{dmath}\label{eqn:potentialSection:1680}
+0 \ne
+\inv{c} \partial_t \phi + c \spacegrad \cdot \BA
+=
+\inv{c} \partial_t (\phi' - \partial_t \psi) + c \spacegrad \cdot (\BA' + \spacegrad \psi)
+=
+\inv{c} \partial_t \phi' + c \spacegrad \BA'
++ c \lr{ \spacegrad^2 - \inv{c^2} \partial_{tt} } \psi,
+\end{dmath}
+
+so if \( \inv{c} \partial_t \phi' + c \spacegrad \BA' \) is zero, \( \psi \) must be found such that
+\begin{dmath}\label{eqn:potentialSection:1700}
+\inv{c} \partial_t \phi + c \spacegrad \cdot \BA
+= c \lr{ \spacegrad^2 - \inv{c^2} \partial_{tt} } \psi.
+\end{dmath}
+
+Such a gauge transformation requires a non-homogeneous wave equation solution, or equivalently in the frequency domain requires the solution of a Helmholtz equation
+
+\begin{dmath}\label{eqn:potentialSection:1740}
+\inv{c} j \omega \phi + c \spacegrad \cdot \BA
+= c \lr{ \spacegrad^2 + k^2 } \psi.
+\end{dmath}
+
+A similar transformation is also clearly possible to eliminate any pseudoscalar grades in \cref{eqn:potentialSection:1720}.
+Such a potential representation is desirable since
+Maxwell's equations for such a potential are completely decoupled
+
+\begin{dmath}\label{eqn:potentialSection:1760}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } A = J,
+\end{dmath}
+
+which is equivalent to precisely one non-homogeneous wave equation for each grade source and potential
+
+\begin{dmath}\label{eqn:potentialSection:1600}
+\begin{aligned}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi &= - \inv{\epsilon} \rho \\
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BA &= - \mu \BJ \\
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi_m &= - \frac{I}{\mu} \rho_m \\
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BF &= - I \epsilon \BM,
+\end{aligned}
+\end{dmath}
+
+or equivalently, in the frequency domain, a forced Helmholtz equation for each grade
+
+\begin{dmath}\label{eqn:potentialSection:1780}
+\begin{aligned}
+\lr{ \spacegrad^2 + k^2 } \phi &= - \inv{\epsilon} \rho \\
+\lr{ \spacegrad^2 + k^2 } \BA &= - \mu \BJ \\
+\lr{ \spacegrad^2 + k^2 } \phi_m &= - \frac{1}{\mu} \rho_m \\
+\lr{ \spacegrad^2 + k^2 } \BF &= - \epsilon \BM.
+\end{aligned}
+\end{dmath}
+
+%}

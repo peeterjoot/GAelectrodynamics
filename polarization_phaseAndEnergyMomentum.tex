@@ -1,0 +1,46 @@
+
+
+The linear polarization of \cref{eqn:polarization:300} can be generalized from sinosoidal functions of the phase angle \cref{eqn:polarization:520}, to arbitrary functions, as in
+
+\begin{dmath}\label{eqn:polarization:540}
+F = \lr{ 1 + \Be_3 } \Abs{\BE} \Be_1 e^{i\psi} f(\phi).
+\end{dmath}
+
+For example, \( f(\phi) = e^{i\phi} \) would result in a circularly polarized state, and
+a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).
+
+If the phase dependence of \cref{eqn:polarization:540} is a scalar function, then
+the energy momentum multivector for the field can be calculated simply
+
+\begin{dmath}\label{eqn:polarization:560}
+\calE + \frac{\BS}{v}
+=
+\inv{2} \epsilon
+F F^\dagger
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 } \Abs{\BE}^2 \Be_1 \cancel{e^{i\psi}} f^2(\phi)
+\cancel{e^{-i\psi} }
+\Be_1
+\lr{ 1 + \Be_3 }
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 } \Abs{\BE}^2 \cancel{\Be_1} f^2(\phi)
+\cancel{\Be_1 }
+\lr{ 1 + \Be_3 }
+=
+\epsilon \lr{ 1 + \Be_3 } \Abs{\BE}^2 f^2(\phi),
+\end{dmath}
+
+where the projective property \( \lr{ 1 + \Be_3 }^2 = 2 \lr{ 1 + \Be_3 } \) was used in the final simplification.
+The energy, and Poynting vectors are
+\begin{dmath}\label{eqn:polarization:580}
+\begin{aligned}
+\calE &= \epsilon \Abs{\BE}^2 f^2(\phi) \\
+\BS &= \inv{\eta} \Be_3 \Abs{\BE}^2 f^2(\phi).
+\end{aligned}
+\end{dmath}
+% v epsilon = sqrt( epsilon^2/ (epsilon mu) ) = 1/eta
+
+More care for this calculation is required if the phase function \( f(\phi) \) is multivector valued, since it may not commute with the \( \Be_1 \) and \( e^{i\psi} \) factors of \( F \).
+

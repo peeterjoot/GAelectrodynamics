@@ -1,0 +1,60 @@
+\index{Biot-Savart law}
+\index{Green's function!gradient}
+The magnetostatic Maxwell equation \cref{eqn:magnetostatics:380} can be inverted directly using the Green's function for the gradient
+
+\begin{dmath}\label{eqn:biotSavartGreens:40}
+I \BB(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx')
+\end{dmath}
+
+This expansion can be simplified by inserting a no-op grade selection operation
+
+\begin{dmath}\label{eqn:magnetostatics:680}
+I \BB(\Bx)
+= \gpgradetwo{ \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx') }
+= \int_V dV' \gpgradetwo{ G(\Bx, \Bx') (-\mu \BJ(\Bx')) }
+= \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \wedge (-\mu \BJ(\Bx')),
+\end{dmath}
+or
+
+\boxedEquation{eqn:magnetostatics:760}{
+I \BB(\Bx)
+= \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+}
+
+This is the Biot-Savart law in its GA form.
+The traditional expression requires only a duality transformation \( \BJ \wedge \Bf = I ( \BJ \cross \Bf) \), or
+
+\begin{dmath}\label{eqn:magnetostatics:700}
+\BB(\Bx)
+= \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \cross \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
+\end{dmath}
+
+The freedom to insert a no-op bivector grade selection may seem like a sneaky move.
+To remove doubt about the validity of this move, here is a demonstration that
+the scalar grade discarded by the grade selection operation on the integrand of \cref{eqn:magnetostatics:680} is explicitly zero,
+provided the current density vanishes faster than \( r \) on the infinite sphere.
+
+\begin{dmath}\label{eqn:biotSavartGreens:60}
+ \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
+= \frac{\mu}{4\pi} \int_V dV' \lr{ \spacegrad \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
+=  \int_V dV' \lr{ \spacegrad' \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
+=  \int_V dV' \lr{
+\spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
+-
+\frac{\spacegrad' \cdot \BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
+}.
+\end{dmath}
+
+By \cref{eqn:magnetostatics:460}, the divergence of the current density is zero, which kills the second term.
+The divergence theorem can be used to express the remaining integral as a surface integral, so
+
+\begin{dmath}\label{eqn:biotSavartGreens:100}
+ \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
+=  \int_V dV' \spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }
+=  \int_{\partial V} dA' \ncap \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }.
+\end{dmath}
+
+Provided the normal component of \( \BJ(\Bx')/\Abs{\Bx - \Bx'} \) vanishes on the boundary of an infinite sphere, we see that the
+the scalar selection of the convolution integral is zero, justifying the (sneaky) bivector selection operation.
+
