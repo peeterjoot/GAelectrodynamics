@@ -114,3 +114,5 @@ polarization_phaseAndEnergyMomentum.tex
 potentialSection_farfield.tex
 potentialSection_magnetic.tex
 reciprocal_R3.tex
+generalizedDot_bivectorDot.tex
+generalizedDot_vectorBivector.tex
