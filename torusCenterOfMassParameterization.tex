@@ -12,7 +12,7 @@ The geometry for a toroidal configuration with two angles, and a radial distance
 The position vector to a point within the torus can be stated directly
 
 \begin{subequations}
-\begin{align}\label{eqn:torusCenterOfMass:1}
+\begin{align}\label{eqn:torusCenterOfMassParameterization:1}
 \Bx(\rho, \theta, \phi) &= e^{-j\theta/2} \left( \rho \Be_1 e^{ i \phi } + R \Be_3 \right) e^{j \theta/2} \\
 i &= \Be_1 \Be_3 \\
 j &= \Be_3 \Be_2
@@ -26,7 +26,7 @@ quaternion-ic properties \(i j = -j i\), and \(i^2 = j^2 = -1\) which can be ver
 After some regrouping the curvilinear basis is found to be
 
 \begin{subequations}
-\begin{align}\label{eqn:torusCenterOfMass:3}
+\begin{align}\label{eqn:torusCenterOfMassParameterization:3}
 \Bx_\rho &= \PD{\rho}{\Bx} = e^{-j\theta/2} \Be_1 e^{ i \phi } e^{j \theta/2} \\
 \Bx_\theta &= \PD{\theta}{\Bx}
 %&= e^{-j\theta/2} \left( \rho \inv{2} \left( -\Be_3 \Be_2 \Be_1 e^{ i \phi } + \Be_1 e^{ i \phi } \Be_3 \Be_2 \right) + R \Be_2 \right) e^{j \theta/2} \\
@@ -38,7 +38,7 @@ After some regrouping the curvilinear basis is found to be
 The oriented
 volume element can be computed using a trivector selection operation, which conveniently wipes out a number of the interior exponentials
 
-\begin{align}\label{eqn:torusCenterOfMass:4}
+\begin{align}\label{eqn:torusCenterOfMassParameterization:4}
 \PD{\rho}{\Bx} \wedge \PD{\theta}{\Bx} \wedge \PD{\phi}{\Bx}
 &=
 \rho \left( R + \rho \sin\phi \right) \gpgradethree{ e^{-j\theta/2} \Be_1 e^{ i \phi } \Be_2 \Be_3 e^{ i \phi } e^{j \theta/2} }
@@ -49,7 +49,7 @@ Also \(\Be_2 \Be_3 = -j\) anticommutes with \(i\), so
 there is a conjugate commutation effect \(e^{i\phi} j = j e^{-i\phi}\).
 Together the trivector grade selection reduces almost magically to just
 
-\begin{align}\label{eqn:torusCenterOfMass:5}
+\begin{align}\label{eqn:torusCenterOfMassParameterization:5}
 \PD{\rho}{\Bx} \wedge \PD{\theta}{\Bx} \wedge \PD{\phi}{\Bx}
 &=
 \rho \left( R + \rho \sin\phi \right) \Be_1 \Be_2 \Be_3
@@ -57,7 +57,7 @@ Together the trivector grade selection reduces almost magically to just
 
 Thus the (scalar) volume element is
 
-\begin{align}\label{eqn:torusCenterOfMass:6}
+\begin{align}\label{eqn:torusCenterOfMassParameterization:6}
 dV = \rho \left( R + \rho \sin\phi \right) d\rho d\theta d\phi.
 \end{align}
 
@@ -67,12 +67,12 @@ expected \(V = (2 \pi R) (\pi r^2)\) value.
 
 That volume is
 
-\begin{align}\label{eqn:torusCenterOfMass:7}
+\begin{align}\label{eqn:torusCenterOfMassParameterization:7}
 V = \int_{\rho=0}^r \int_{\theta=0}^{2\pi} \int_{\phi=0}^{2\pi} \rho \left( R + \rho \sin\phi \right) d\rho d\theta d\phi.
 \end{align}
 
 The sine term conveniently vanishes over the \(2\pi\) interval, leaving just
-\begin{align}\label{eqn:torusCenterOfMass:8}
+\begin{align}\label{eqn:torusCenterOfMassParameterization:8}
 V = \inv{2} r^2 R (2 \pi)(2 \pi),
 \end{align}
 

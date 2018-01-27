@@ -4,7 +4,7 @@
 %
 
 \index{rotation}
-Plotting \cref{eqn:SimpleProducts2:180}, as in
+Plotting \cref{eqn:2dMultiplication:180}, as in
 \cref{fig:rotationOfe1:rotationOfe1Fig1},
  shows that multiplication by \( i \) rotates the \R{2} basis vectors by \( \pi/2 \) radians,
 with the
@@ -17,7 +17,7 @@ rotation direction dependant on the order of multiplication.
 
 Using a polar vector representation
 
-\begin{dmath}\label{eqn:SimpleProducts2:280}
+\begin{dmath}\label{eqn:2dRotations:280}
    \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
 \end{dmath}
 
@@ -28,7 +28,7 @@ unit pseudoscalar multiplication of an arbitrary vector will induce a \( \pi/2 \
 
 Multiplying the vector from the right by the pseudoscalar gives
 
-\begin{dmath}\label{eqn:SimpleProducts2:300}
+\begin{dmath}\label{eqn:2dRotations:300}
 \Bx i
 = \Bx \Be_1 \Be_2
 = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
@@ -65,9 +65,9 @@ e^{i\theta} = \cos\theta + i \sin\theta,
 which holds for this pseudoscalar imaginary representation too (\cref{problem:2dRotations:Euler}).
 \index{complex exponential}
 By writing \( \Be_2 = \Be_1 \Be_1 \Be_2 \),
-a complex exponential can be factored directly out of the polar vector representation \cref{eqn:SimpleProducts2:280}
+a complex exponential can be factored directly out of the polar vector representation \cref{eqn:2dRotations:280}
 
-\begin{dmath}\label{eqn:SimpleProducts2:940}
+\begin{dmath}\label{eqn:2dRotations:940}
 \Bx
 =
 \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
@@ -84,7 +84,7 @@ a complex exponential can be factored directly out of the polar vector represent
 We end up with a complex exponential multivector factor on the right.
 Alternatively, since \( \Be_2 = \Be_2 \Be_1 \Be_1 \), a complex exponential can be factored out on the left
 
-\begin{dmath}\label{eqn:SimpleProducts2:960}
+\begin{dmath}\label{eqn:2dRotations:960}
 \Bx
 =
 \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
@@ -100,7 +100,7 @@ Alternatively, since \( \Be_2 = \Be_2 \Be_1 \Be_1 \), a complex exponential can 
 
 Left and right exponential expressions have now been found for the polar representation
 
-\begin{equation}\label{eqn:SimpleProducts2:1120}
+\begin{equation}\label{eqn:2dRotations:1120}
 \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
 = \rho e^{-i\theta} \Be_1 = \rho \Be_1 e^{i\theta}.
 \end{equation}
@@ -120,8 +120,8 @@ Given orthonormal vectors \( \ucap, \vcap \) and any vector in the plane of thes
 The sense of rotation for the rotation \( e^{ \ucap \vcap \theta} \) is opposite that of \( e^{\vcap \ucap \theta} \), which provides a first hint that bivectors can be characterized as having an orientation, somewhat akin to thinking of a vector as having a head and a tail.
 \makeproblem{\R{2} rotations.}{problem:2dRotations:1}{
 Using familiar methods, such as rotation matrices, show that the counterclockwise and clockwise rotations of
-\cref{eqn:SimpleProducts2:280} are given by
-\cref{eqn:SimpleProducts2:300} and
+\cref{eqn:2dRotations:280} are given by
+\cref{eqn:2dRotations:300} and
 \cref{eqn:2dRotations:3} respectively.
 } % problem
 

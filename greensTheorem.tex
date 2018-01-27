@@ -4,7 +4,7 @@
 %
 Given a two parameter (\(u,v\)) surface parameterization, the curvilinear coordinate representation of a vector \(\Bf\) has the form
 
-\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1640}
+\begin{dmath}\label{eqn:greensTheorem:1640}
 \Bf = f_u \Bx^u + f_v \Bx^v + f_\perp \Bx^\perp.
 \end{dmath}
 
@@ -31,7 +31,7 @@ Following the arguments used in \citep{schwartz1987pe} for Stokes' theorem in th
 
 Over the infinitesimal area, the loop integral decomposes into
 
-\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1700}
+\begin{dmath}\label{eqn:greensTheorem:1700}
 \ointctrclockwise \Bf \cdot d\Bl
 =
 \int \Bf \cdot d\Bx_1
@@ -42,7 +42,7 @@ Over the infinitesimal area, the loop integral decomposes into
 
 where the differentials along the curve are
 
-\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1600}
+\begin{dmath}\label{eqn:greensTheorem:1600}
 \begin{aligned}
 d\Bx_1 &= \evalbar{ \PD{u}{\Bx} }{v = v_0} du \\
 d\Bx_2 &= \evalbar{ \PD{v}{\Bx} }{u = u_0 + du} dv \\
@@ -54,7 +54,7 @@ d\Bx_4 &= -\evalbar{ \PD{v}{\Bx} }{u = u_0} dv.
 It is assumed that the parameterization change \((du, dv)\) is small enough that this loop integral can be considered planar (regardless of the dimension of the vector space).
 Making use of the fact that \(\Bx^\perp \cdot \Bx_\alpha = 0\) for \(\alpha \in \setlr{u,v}\), the loop integral is
 
-\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1620}
+\begin{dmath}\label{eqn:greensTheorem:1620}
 \ointctrclockwise \Bf \cdot d\Bl
 =
 \int
@@ -75,7 +75,7 @@ f_v(u_0 + du, v) dv - f_v(u_0, v) dv
 
 With the distances being infinitesimal, these differences can be rewritten as partial differentials
 
-\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1860}
+\begin{dmath}\label{eqn:greensTheorem:1860}
 \ointctrclockwise \Bf \cdot d\Bl
 =
 \iint \lr{
@@ -98,7 +98,7 @@ This observation will also provide a geometric interpretation of the right hand 
 
 An important special case of Green's theorem is for a Euclidean two dimensional space where the vector function is
 
-\begin{dmath}\label{eqn:stokesTheoremGeometricAlgebra:1720}
+\begin{dmath}\label{eqn:greensTheorem:1720}
 \Bf = P \Be_1 + Q \Be_2.
 \end{dmath}
 

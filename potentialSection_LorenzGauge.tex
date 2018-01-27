@@ -2,7 +2,7 @@
 With the flexibility to alter make a gauge transformation of the potential, it is useful to examine the conditions for which it is possible to express the electromagnetic field without any grade selection operation.
 That is
 
-\begin{dmath}\label{eqn:potentialSection:1720}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1720}
 F
 =
 \lr{ \spacegrad - \inv{c} \PD{t}{} }
@@ -15,7 +15,7 @@ F
 
 There should be no a priori assumption that such a field representation has no scalar, nor no pseudoscalar components, which can be seen by the explicit expansion in grades
 
-\begin{dmath}\label{eqn:potentialSection:1640}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1640}
 \begin{aligned}
 F
 &=
@@ -38,7 +38,7 @@ F
 
 so if this potential representation has only vector and bivector grades, it must be true that
 
-\begin{dmath}\label{eqn:potentialSection:1660}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1660}
 \begin{aligned}
 \inv{c} \partial_t \phi + c \spacegrad \cdot \BA &= 0 \\
 \inv{c} \partial_t \phi_m + c \spacegrad \cdot \BF &= 0.
@@ -49,7 +49,7 @@ The first is the well known Lorenz gauge condition, whereas the second is the du
 
 Should one of these conditions, say the Lorenz condition for the electric source potentials, be non-zero, then it is possible to make a potential transformation for which this condition is zero
 
-\begin{dmath}\label{eqn:potentialSection:1680}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1680}
 0 \ne
 \inv{c} \partial_t \phi + c \spacegrad \cdot \BA
 =
@@ -60,29 +60,29 @@ Should one of these conditions, say the Lorenz condition for the electric source
 \end{dmath}
 
 so if \( \inv{c} \partial_t \phi' + c \spacegrad \BA' \) is zero, \( \psi \) must be found such that
-\begin{dmath}\label{eqn:potentialSection:1700}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1700}
 \inv{c} \partial_t \phi + c \spacegrad \cdot \BA
 = c \lr{ \spacegrad^2 - \inv{c^2} \partial_{tt} } \psi.
 \end{dmath}
 
 Such a gauge transformation requires a non-homogeneous wave equation solution, or equivalently in the frequency domain requires the solution of a Helmholtz equation
 
-\begin{dmath}\label{eqn:potentialSection:1740}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1740}
 \inv{c} j \omega \phi + c \spacegrad \cdot \BA
 = c \lr{ \spacegrad^2 + k^2 } \psi.
 \end{dmath}
 
-A similar transformation is also clearly possible to eliminate any pseudoscalar grades in \cref{eqn:potentialSection:1720}.
+A similar transformation is also clearly possible to eliminate any pseudoscalar grades in \cref{eqn:potentialSection_LorenzGauge:1720}.
 Such a potential representation is desirable since
 Maxwell's equations for such a potential are completely decoupled
 
-\begin{dmath}\label{eqn:potentialSection:1760}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1760}
 \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } A = J,
 \end{dmath}
 
 which is equivalent to precisely one non-homogeneous wave equation for each grade source and potential
 
-\begin{dmath}\label{eqn:potentialSection:1600}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1600}
 \begin{aligned}
 \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi &= - \inv{\epsilon} \rho \\
 \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BA &= - \mu \BJ \\
@@ -93,7 +93,7 @@ which is equivalent to precisely one non-homogeneous wave equation for each grad
 
 or equivalently, in the frequency domain, a forced Helmholtz equation for each grade
 
-\begin{dmath}\label{eqn:potentialSection:1780}
+\begin{dmath}\label{eqn:potentialSection_LorenzGauge:1780}
 \begin{aligned}
 \lr{ \spacegrad^2 + k^2 } \phi &= - \inv{\epsilon} \rho \\
 \lr{ \spacegrad^2 + k^2 } \BA &= - \mu \BJ \\

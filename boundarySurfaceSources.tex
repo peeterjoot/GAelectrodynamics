@@ -14,14 +14,14 @@ pillbox configuration illustrated in \cref{fig:ps3Problem1Pillbox:ps3Problem1Pil
 
 An assumption that the sources are primarily constrained to the surface can be written as
 
-\begin{dmath}\label{eqn:boundary:20}
+\begin{dmath}\label{eqn:boundarySurfaceSources:20}
 J = J_s \delta(y),
 \end{dmath}
 
 where the \( y \) coordinate is locally normal to the surface at any given point.
 In terms of the scalar and vector potentials, such a surface source model is
 
-\begin{dmath}\label{eqn:boundary:40}
+\begin{dmath}\label{eqn:boundarySurfaceSources:40}
 J = \lr{ \eta\lr{ c \rho_s - \BJ_s } + I \lr{ c \rho_{ms} - \BM_s } }
 \delta(y).
 \end{dmath}
@@ -30,14 +30,14 @@ It will be
 simplest to demonstrate the boundary relationships in the frequency domain, where Maxwell's equation can be written as either
 
 \begin{subequations}
-\label{eqn:boundary:60}
-\begin{dmath}\label{eqn:boundary:80}
+\label{eqn:boundarySurfaceSources:60}
+\begin{dmath}\label{eqn:boundarySurfaceSources:80}
 \spacegrad F = -j k F + J,
 \end{dmath}
 
 or
 
-\begin{dmath}\label{eqn:boundary:100}
+\begin{dmath}\label{eqn:boundarySurfaceSources:100}
 \spacegrad I F = -j k I F + I J.
 \end{dmath}
 \end{subequations}
@@ -45,13 +45,13 @@ or
 Application of contraction operations gives
 
 \begin{subequations}
-\label{eqn:boundary:120}
-\begin{dmath}\label{eqn:boundary:140}
+\label{eqn:boundarySurfaceSources:120}
+\begin{dmath}\label{eqn:boundarySurfaceSources:140}
 \spacegrad \cdot F
 = \gpgrade{-j k F + J}{0,1}
 = -j k \BE + \eta( c \rho_s - \BJ_s ) \delta(y)
 \end{dmath}
-\begin{dmath}\label{eqn:boundary:160}
+\begin{dmath}\label{eqn:boundarySurfaceSources:160}
 \spacegrad \cdot (I F)
 = \gpgrade{-j k I F + I J}{0,1}
 = j k \eta \BH - ( c \rho_{ms} - \BM_s ) \delta(y).
@@ -62,7 +62,7 @@ Each of these contraction operations can be evaluated over the pillbox volume ab
 Those integrals dependent on \( \eta \) and \( c \) which vary across the surface, but are also dependent on the delta function surface contribution, which is valid at only the surface.
 Consider the vector potential term for electric sources as an example, where the volume integral of that term is
 
-\begin{dmath}\label{eqn:boundary:180}
+\begin{dmath}\label{eqn:boundarySurfaceSources:180}
 -\int dV \eta \BJ_s \delta(y)
 =
 -\int_{y=0}^{h/2} \int dA \eta_2 \BJ_s \delta(y)
@@ -70,20 +70,20 @@ Consider the vector potential term for electric sources as an example, where the
 \end{dmath}
 
 The delta function is only well defined when integrated across the \( y = 0 \) point.
-This problem can be overcome by applying grade selection operations to each of the components of \cref{eqn:boundary:120}, and then rearranging so that all the medium specific contributions to the integrals are factored away from the delta functions
+This problem can be overcome by applying grade selection operations to each of the components of \cref{eqn:boundarySurfaceSources:120}, and then rearranging so that all the medium specific contributions to the integrals are factored away from the delta functions
 
 \begin{subequations}
-\label{eqn:boundary:200}
-\begin{dmath}\label{eqn:boundary:220}
+\label{eqn:boundarySurfaceSources:200}
+\begin{dmath}\label{eqn:boundarySurfaceSources:220}
 \gpgradezero{\spacegrad \cdot \lr{ \epsilon F}} = \rho_s \delta(y)
 \end{dmath}
-\begin{dmath}\label{eqn:boundary:240}
+\begin{dmath}\label{eqn:boundarySurfaceSources:240}
 \gpgradeone{\spacegrad \cdot \lr{ \inv{\eta} F}} = -j \frac{k}{\eta} \BE - \BJ_s \delta(y)
 \end{dmath}
-\begin{dmath}\label{eqn:boundary:260}
+\begin{dmath}\label{eqn:boundarySurfaceSources:260}
 \gpgradezero{\spacegrad \cdot \lr{ I \inv{c}F}} = - \rho_{ms} \delta(y)
 \end{dmath}
-\begin{dmath}\label{eqn:boundary:280}
+\begin{dmath}\label{eqn:boundarySurfaceSources:280}
 \gpgradeone{\spacegrad \cdot \lr{ I F}} = j k \eta \BH + \BM_s \delta(y).
 \end{dmath}
 \end{subequations}
@@ -91,28 +91,28 @@ This problem can be overcome by applying grade selection operations to each of t
 Each of the grade selections picks off one of \( \BD, \BB, \BH \) or \( \BE \), so this could have been obtained directly from the conventional set of individual Maxwell equations, however, it is instructional to see how to work with the complete electromagnetic field \( F \).
 This also provides a method of evaluating the boundary conditions that is both coordinate free, and uses the same integral form for all the boundary conditions.
 
-Application of the multivector \R{3} divergence theorem, as stated informally in \cref{eqn:stokesTheoremCore:1881d} gives
+Application of the multivector \R{3} divergence theorem, as stated informally in \cref{eqn:scalarVolumeElement:1881d} gives
 
 \begin{subequations}
-\label{eqn:boundary:300}
-\begin{dmath}\label{eqn:boundary:320}
+\label{eqn:boundarySurfaceSources:300}
+\begin{dmath}\label{eqn:boundarySurfaceSources:320}
 \gpgradezero{\int dV \ncap \cdot \lr{ \epsilon F}} = \Delta A \rho_s
 \end{dmath}
-\begin{dmath}\label{eqn:boundary:340}
+\begin{dmath}\label{eqn:boundarySurfaceSources:340}
 \gpgradeone{\int dV \ncap \cdot \lr{ \inv{\eta} F}} = -j \omega \int_y dy \int dA \BD - \Delta A \BJ_s
 \end{dmath}
-\begin{dmath}\label{eqn:boundary:360}
+\begin{dmath}\label{eqn:boundarySurfaceSources:360}
 \gpgradezero{\int dV \ncap \cdot \lr{ I \inv{c}F}} = - \Delta A \rho_{ms}
 \end{dmath}
-\begin{dmath}\label{eqn:boundary:380}
+\begin{dmath}\label{eqn:boundarySurfaceSources:380}
 \gpgradeone{\int dV \ncap \cdot \lr{ I F}} = j \omega \int_y dy \int dA \BB + \Delta A \BM_s
 \end{dmath}
 \end{subequations}
 
 The \( y \) (normal) integral components of the volume integrals are all assumed to vanish as \( \Delta y \rightarrow 0 \), leaving
 
-%\begin{dmath}\label{eqn:boundary:420}
-\boxedEquation{eqn:boundary:420}{
+%\begin{dmath}\label{eqn:boundarySurfaceSources:420}
+\boxedEquation{eqn:boundarySurfaceSources:420}{
 \begin{aligned}
 \gpgradezero{\ncap (\epsilon_2 F_2 - \epsilon_1 F_1) } &= \rho_s \\
 \gpgradeone{\ncap \lr{\inv{\eta_2} F_2 - \inv{\eta_1} F_1 } } &= - \BJ_s \\
@@ -122,10 +122,10 @@ The \( y \) (normal) integral components of the volume integrals are all assumed
 }
 %\end{dmath}
 
-\Cref{eqn:boundary:420} can, of course, 
+\Cref{eqn:boundarySurfaceSources:420} can, of course, 
 each be written in terms of the conventional constituent fields if desired
 
-%\begin{dmath}\label{eqn:boundary:440}
+%\begin{dmath}\label{eqn:boundarySurfaceSources:440}
 %\begin{aligned}
 %\ncap \cdot (\BD_2 - \BD_1) &= \rho_s \\
 %I \ncap \wedge \lr{ \BH_2 - \BH_1 } &= - \BJ_s \\
@@ -136,7 +136,7 @@ each be written in terms of the conventional constituent fields if desired
 %
 %or
 %
-\begin{dmath}\label{eqn:boundary:460}
+\begin{dmath}\label{eqn:boundarySurfaceSources:460}
 \begin{aligned}
 \ncap \cdot \lr{ \BD_2 - \BD_1 } &= \rho_s \\
 \ncap \cross \lr{ \BH_2 - \BH_1 } &= \BJ_s \\
@@ -145,14 +145,14 @@ each be written in terms of the conventional constituent fields if desired
 \end{aligned}
 \end{dmath}
 
-The crazy jumble of dot products, cross products and field components in this conventional statement of the boundary conditions is seen to follow systematically from Maxwell's equation \cref{eqn:boundary:80}, and reflects the fact that the components of Maxwell's equation have to be treated individually by grade when evaluating the boundary integrals.
+The crazy jumble of dot products, cross products and field components in this conventional statement of the boundary conditions is seen to follow systematically from Maxwell's equation \cref{eqn:boundarySurfaceSources:80}, and reflects the fact that the components of Maxwell's equation have to be treated individually by grade when evaluating the boundary integrals.
 
-In the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then \cref{eqn:boundary:420} or \cref{eqn:boundary:460} has a particularily simple form \citep{chappell2014geometric}
+In the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then \cref{eqn:boundarySurfaceSources:420} or \cref{eqn:boundarySurfaceSources:460} has a particularily simple form \citep{chappell2014geometric}
 
-\begin{dmath}\label{eqn:boundary:421}
+\begin{dmath}\label{eqn:boundarySurfaceSources:421}
 \ncap (F_2 - F_1) = J_s.
 \end{dmath}
 
 \makeproblem{Uniform media with currents and densities.}{problem:boundarySurfaceSources:1}{
-Prove that \cref{eqn:boundary:421} is equivalent to {eqn:boundary:420} if \( \epsilon_1 = \epsilon_2, \mu_1 = \mu_2 \).
+Prove that \cref{eqn:boundarySurfaceSources:421} is equivalent to {eqn:boundarySurfaceSources:420} if \( \epsilon_1 = \epsilon_2, \mu_1 = \mu_2 \).
 } % problem

@@ -2,18 +2,18 @@
 
 For a multivector current with only magnetic sources
 
-\begin{dmath}\label{eqn:potentialSection:2140}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2140}
 J = I \lr{ c \rho_m - \BM },
 \end{dmath}
 
 we can construct a multivector potential with only pseudoscalar and bivector grades
-\begin{dmath}\label{eqn:potentialSection:2160}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2160}
 A = \eta I\lr{ - \phi_m + c \BF}.
 \end{dmath}
 
 The resulting field is
 
-\begin{dmath}\label{eqn:potentialSection:120}
+\begin{dmath}\label{eqn:potentialSection_magnetic:120}
 F
 =
 \BE + I \eta \BH
@@ -39,7 +39,7 @@ I \eta \lr{ c \spacegrad \wedge \BF
 
 The separate electric and magnetic field contributions can be read off from
 
-\begin{dmath}\label{eqn:potentialSection:2280}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2280}
 F
 =
 - \eta c \spacegrad \cross \BF
@@ -52,16 +52,16 @@ F
 
 yielding
 
-\begin{dmath}\label{eqn:potentialSection:140}
+\begin{dmath}\label{eqn:potentialSection_magnetic:140}
 \begin{aligned}
 \BE &= -\inv{\epsilon} \spacegrad \cross \BF \\
 \BH &= -\spacegrad \phi_m - \PD{t}{\BF}.
 \end{aligned}
 \end{dmath}
 
-The potential representation of the field \cref{eqn:potentialSection:140} is only a solution if Maxwell's equation is also satisfied, or
+The potential representation of the field \cref{eqn:potentialSection_magnetic:140} is only a solution if Maxwell's equation is also satisfied, or
 
-\begin{dmath}\label{eqn:potentialSection:2120}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2120}
 \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \eta I \lr{ - \phi_m + c \BF}
 =
@@ -79,7 +79,7 @@ I \lr{ c \rho_m - \BM }
 
 Again, imposing a constraint on the potential grades
 
-\begin{dmath}\label{eqn:potentialSection:2180}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2180}
 \spacegrad \cdot \BF
 + \inv{c^2}
 \PD{t}{\phi_m}
@@ -89,14 +89,14 @@ Again, imposing a constraint on the potential grades
 the Lorenz gauge condition for the magnetic potentials, is clearly an expedient way to simplify this relationship.
 As before, in the frequency domain the scalar potential can be entirely eliminated
 
-\begin{dmath}\label{eqn:potentialSection:2200}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2200}
 \phi_m = \frac{j c^2}{\omega} \spacegrad \cdot \BF.
 \end{dmath}
 
 In this case the
 multivector potential is
 
-\begin{dmath}\label{eqn:potentialSection:2220}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2220}
 A =
 \eta I \lr{
 -\frac{j c^2}{\omega} \spacegrad \cdot \BF + c \BF
@@ -104,13 +104,13 @@ A =
 \end{dmath}
 
 and Maxwell's equation and the field are given by
-\cref{eqn:potentialSection:2080} and
-\cref{eqn:potentialSection:2100} respectively.
+\cref{eqn:potentialSection_electric:2080} and
+\cref{eqn:potentialSection_electric:2100} respectively.
 
 In the frequency domain, the electric and magnetic fields can be found from
-\cref{eqn:potentialSection:2200} and \cref{eqn:potentialSection:140}
+\cref{eqn:potentialSection_magnetic:2200} and \cref{eqn:potentialSection_magnetic:140}
 
-\begin{dmath}\label{eqn:potentialSection:2540}
+\begin{dmath}\label{eqn:potentialSection_magnetic:2540}
 \begin{aligned}
 \BE &= -\inv{\epsilon} \spacegrad \cross \BF \\
 \BH &=
@@ -120,7 +120,7 @@ In the frequency domain, the electric and magnetic fields can be found from
 \end{aligned}
 \end{dmath}
 
-%\begin{dmath}\label{eqn:potentialSection:2340}
+%\begin{dmath}\label{eqn:potentialSection_magnetic:2340}
 %F
 %=
 %\lr{ \spacegrad - j k }
@@ -148,7 +148,7 @@ In the frequency domain, the electric and magnetic fields can be found from
 %
 %so
 %
-%\begin{dmath}\label{eqn:potentialSection:2360}
+%\begin{dmath}\label{eqn:potentialSection_magnetic:2360}
 %\begin{aligned}
 %\BE &= -\inv{\epsilon} \spacegrad \cross \BF  \\
 %\BH &= -j \omega \BF -j \frac{c}{k} \spacegrad \lr{ \spacegrad \cdot \BF }.

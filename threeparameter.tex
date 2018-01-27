@@ -13,7 +13,7 @@ An example parameterization with three parameters, and the corresponding differe
 
 Given parameters \( a, b, c \), the differentials along each of the parameterization directions are
 
-\begin{dmath}\label{eqn:stokesTheoremCore:1421}
+\begin{dmath}\label{eqn:threeparameter:1421}
 \begin{aligned}
 d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
 d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db \\
@@ -23,7 +23,7 @@ d\Bx_c &= \PD{c}{\Bx} dc = \Bx_c dc.
 
 The ``volume'' element for this parameterization (a surface area element) is
 
-\begin{equation}\label{eqn:stokesTheoremCore:1441}
+\begin{equation}\label{eqn:threeparameter:1441}
 d^3 \Bx
 =
 d\Bx_a
@@ -37,7 +37,7 @@ da db dc (\Bx_a \wedge \Bx_b \wedge \Bx_c).
 
 The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has three components
 
-\begin{dmath}\label{eqn:stokesTheoremCore:1461}
+\begin{dmath}\label{eqn:threeparameter:1461}
 \boldpartial
 =
 \sum_\mu \Bx^\mu (\Bx_\mu \cdot \spacegrad)
@@ -58,20 +58,20 @@ The vector derivative, the projection of the gradient onto the surface at the po
 The Stokes integral can be evaluated over this volume element for either scalar fields \( \psi \), vector fields \( \Bf \), or bivector fields \( B \) and takes the form
 
 \begin{subequations}
-\label{eqn:stokesTheoremCore:1481}
-\begin{equation}\label{eqn:stokesTheoremCore:1501}
+\label{eqn:threeparameter:1481}
+\begin{equation}\label{eqn:threeparameter:1501}
 \int_V d^3 \Bx \cdot (\boldpartial \wedge \psi) =
 \int_V (d^3 \Bx \cdot \boldpartial) \psi
 =
 \int_{\partial V} d^2 \Bx \psi
 \end{equation}
-\begin{equation}\label{eqn:stokesTheoremCore:1521}
+\begin{equation}\label{eqn:threeparameter:1521}
 \int_V d^3 \Bx \cdot (\boldpartial \wedge \Bf) =
 \int_V (d^3 \Bx \cdot \boldpartial) \cdot \Bf
 =
 \int_{\partial V} d^2 \Bx \cdot \Bf
 \end{equation}
-\begin{equation}\label{eqn:stokesTheoremCore:1541}
+\begin{equation}\label{eqn:threeparameter:1541}
 \int_V d^3 \Bx \cdot (\boldpartial \wedge B) =
 \int_V (d^3 \Bx \cdot \boldpartial) \cdot B
 =
@@ -81,9 +81,9 @@ The Stokes integral can be evaluated over this volume element for either scalar 
 
 When working with \R{3} vector spaces, \( \boldpartial = \spacegrad \), but in higher dimensional spaces, the gradient can also be substituted above due using the same arguments about projection onto the tangent space.
 
-An explicit value for the differential form of the boundary integral is desired and can be obtained from the mnemonic \cref{eqn:stokesTheoremCore:1561}
+An explicit value for the differential form of the boundary integral is desired and can be obtained from the mnemonic \cref{eqn:statement:1561}
 
-\begin{dmath}\label{eqn:stokesTheoremCore:1581}
+\begin{dmath}\label{eqn:threeparameter:1581}
 \sum_i d^3 \Bx \cdot \Bx^i
 =
 \sum_i da db dc \lr{ \Bx_a \wedge \Bx_b \wedge \Bx_c } \cdot \Bx^i
@@ -96,7 +96,7 @@ An explicit value for the differential form of the boundary integral is desired 
 
 The bounding form for the three parameter volume is therefore
 
-\begin{dmath}\label{eqn:stokesTheoremCore:1601}
+\begin{dmath}\label{eqn:threeparameter:1601}
 d^2 \Bx
 =
 d\Bx_a \wedge d\Bx_b +

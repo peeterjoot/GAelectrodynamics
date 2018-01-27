@@ -3,7 +3,7 @@
 A volume integral of \cref{eqn:magnetostatics:380} provides a relationship between the total enclosed current density and the magnetic field.
 The fundamental theorem gives
 
-\begin{dmath}\label{eqn:magnetostatics:580}
+\begin{dmath}\label{eqn:magnetostatics_enclosedCurrentDensity:580}
 -\mu I
 \int_V d^3 \Bx \BJ =
 \int_V d^3 \Bx \spacegrad \BB =
@@ -11,10 +11,10 @@ The fundamental theorem gives
 \end{dmath}
 
 With a normal parameterization of the oriented surface area element \( d^2 \Bx = I \ncap dA \), and \( d^3 \Bx = I dV \),
-\cref{eqn:magnetostatics:580} is reduced to
+\cref{eqn:magnetostatics_enclosedCurrentDensity:580} is reduced to
 
-%\begin{dmath}\label{eqn:magnetostatics:600}
-\boxedEquation{eqn:magnetostatics:600}{
+%\begin{dmath}\label{eqn:magnetostatics_enclosedCurrentDensity:600}
+\boxedEquation{eqn:magnetostatics_enclosedCurrentDensity:600}{
 \int_{\partial V} dA I \ncap \BB = \mu  \int_V dV \BJ.
 }
 %\end{dmath}
@@ -22,15 +22,15 @@ With a normal parameterization of the oriented surface area element \( d^2 \Bx =
 This can be split into two grades
 
 \begin{subequations}
-\label{eqn:magnetostatics:620}
-\begin{dmath}\label{eqn:magnetostatics:640}
+\label{eqn:magnetostatics_enclosedCurrentDensity:620}
+\begin{dmath}\label{eqn:magnetostatics_enclosedCurrentDensity:640}
 I \int_{\partial V} dA \ncap \cdot \BB = 0
 \end{dmath}
-\begin{dmath}\label{eqn:magnetostatics:660}
+\begin{dmath}\label{eqn:magnetostatics_enclosedCurrentDensity:660}
 \int_{\partial V} dA \ncap \cross \BB = -\mu  \int_V dV \BJ.
 \end{dmath}
 \end{subequations}
 
-\Cref{eqn:magnetostatics:640} states that the magnetic flux through a closed surface is zero, which is not be a surprise since it is a direct consequence of Gauss's law \( \spacegrad \cdot \BB = 0 \).
-\Cref{eqn:magnetostatics:660} provides a relationship between the tangential components of the magnetic field and the total enclosed current density.
+\Cref{eqn:magnetostatics_enclosedCurrentDensity:640} states that the magnetic flux through a closed surface is zero, which is not be a surprise since it is a direct consequence of Gauss's law \( \spacegrad \cdot \BB = 0 \).
+\Cref{eqn:magnetostatics_enclosedCurrentDensity:660} provides a relationship between the tangential components of the magnetic field and the total enclosed current density.
 

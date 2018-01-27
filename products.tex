@@ -13,7 +13,7 @@ Let \( \ucap \) and \( \vcap \) be an orthonormal pair of vectors in the plane o
 With respect to the orthonormal vectors \( \ucap \) and \( \vcap \), a
 a polar representation of \( \Ba, \Bb \) is
 
-\begin{dmath}\label{eqn:SimpleProducts2:1660}
+\begin{dmath}\label{eqn:products:1660}
 \begin{aligned}
 \Ba &= \Norm{\Ba} \ucap e^{ i_{ab} \theta_a } = \Norm{\Ba} e^{ -i_{ab} \theta_a } \ucap \\
 \Bb &= \Norm{\Bb} \ucap e^{ i_{ab} \theta_b } = \Norm{\Bb} e^{ -i_{ab} \theta_b } \ucap,
@@ -23,7 +23,7 @@ a polar representation of \( \Ba, \Bb \) is
 where \( i_{ab} = \ucap \vcap \) is a unit pseudoscalar for the planar subspace spanned by \( \Ba \) and \( \Bb \).
 The vector product of these two vectors is
 
-\begin{dmath}\label{eqn:SimpleProducts2:1680}
+\begin{dmath}\label{eqn:products:1680}
 \Ba \Bb
 =
 \lr{ \Norm{\Ba} e^{ -i_{ab} \theta_a } \ucap } \lr{ \Norm{\Bb} \ucap e^{ i_{ab} \theta_b } }
@@ -87,7 +87,7 @@ There will be many circumstances where the easiest way to compute a dot product 
 The split of a vector product into dot and wedge product components is also important.
 However, to utilize it, the properties of the wedge product have to be determined.
 
-Summarizing \cref{eqn:SimpleProducts2:1680} with our new operators, we write
+Summarizing \cref{eqn:products:1680} with our new operators, we write
 
 \boxedEquation{eqn:SimpleProducts2:1700}{
 \begin{aligned}
@@ -108,7 +108,7 @@ Two wedge product properties can be immediately deduced from this polar represen
 We have now had a few hints that the wedge product might be related to the cross product.  Given two vectors \( \Ba, \Bb \) both the wedge and the cross product contain a \( \Norm{\Ba} \Norm{\Bb} \sin \Delta \theta \) factor, and both the wedge and cross product are antisymmetric operators.
 The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = \Ba \cross \Bc + \Ba \cross \Bc + \cdots \).  To see whether this is the case for the wedge product, let's examine the coordinate expansion of the wedge product.  Let
 
-\begin{dmath}\label{eqn:SimpleProducts2:1160}
+\begin{dmath}\label{eqn:products:1160}
 \begin{aligned}
 \Ba &= \sum_i a_i \Be_i \\
 \Bb &= \sum_i b_i \Be_i.
@@ -117,7 +117,7 @@ The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = \Ba
 
 The product of these vectors is
 
-\begin{dmath}\label{eqn:SimpleProducts2:1360}
+\begin{dmath}\label{eqn:products:1360}
 \Ba \Bb
 =
 \lr{ \sum_i a_i \Be_i } \lr{ \sum_j b_j \Be_j }
@@ -132,7 +132,7 @@ The product of these vectors is
 Since \( \Be_i \Be_i = 1 \), we see again that the scalar component of the product is the dot product \( \sum_i a_i b_i \).
 The remaining grade 2 components are the wedge product, for which the coordinate expansion can be simplified further
 
-\begin{dmath}\label{eqn:SimpleProducts2:1460}
+\begin{dmath}\label{eqn:products:1460}
 \Ba \wedge \Bb
 =
 \sum_{i \ne j} a_i b_j \Be_i \Be_j
@@ -171,7 +171,7 @@ It is also simple to use \cref{eqn:SimpleProducts2:1320} to show that \( \Bb \we
 
 For \R{2} there is only one term in \cref{eqn:SimpleProducts2:1320}
 
-\begin{dmath}\label{eqn:SimpleProducts2:1720}
+\begin{dmath}\label{eqn:products:1720}
 \Ba \wedge \Bb
 =
 \begin{vmatrix}
@@ -185,7 +185,7 @@ b_1 & b_2
 We are used to writing the cross product as a \( 3 x 3 \) determinant, which can also be done with the coordinate expansion of the
 \R{3} wedge product
 
-\begin{equation}\label{eqn:SimpleProducts2:1740}
+\begin{equation}\label{eqn:products:1740}
 \Ba \wedge \Bb
 =
 \sum_{ ij \in \setlr{ 12, 13, 23 } }
@@ -250,7 +250,7 @@ All the wedge properties except the determinant expansion above are valid in any
 It is reasonable to guess that the \R{3} wedge product is related to the cross product by some constant multivector factor \( i_{ab} = A \ncap_{ab} \).
 In coordinate form, this requires a simultaneous solution to
 
-\begin{dmath}\label{eqn:SimpleProducts2:1580}
+\begin{dmath}\label{eqn:products:1580}
 \begin{aligned}
 \Be_2 \Be_3 &= A \Be_1 \\
 \Be_3 \Be_1 &= A \Be_2 \\
@@ -260,7 +260,7 @@ In coordinate form, this requires a simultaneous solution to
 
 Multiplying on the right by \( \Be_1, \Be_2, \Be_3 \) respectively, this factor seems to be
 
-\begin{equation}\label{eqn:SimpleProducts2:1600}
+\begin{equation}\label{eqn:products:1600}
 A = \Be_2 \Be_3 \Be_1 = \Be_3 \Be_1 \Be_2 = \Be_1 \Be_2 \Be_3,
 \end{equation}
 
@@ -302,7 +302,7 @@ Prove that the wedge product is antisymmetric using using \cref{eqn:SimpleProduc
 
 \makeproblem{Permutations of the \R{3} pseudoscalar}{problem:SimpleProducts2:permutationspseudoscalar}{
 Show that each of the permutations of
-\cref{eqn:SimpleProducts2:1600} are all equal.
+\cref{eqn:products:1600} are all equal.
 } % problem
 
 \makeproblem{Wedge product distributivity and linearity.}{problem:products:bilinear}{

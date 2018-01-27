@@ -2,7 +2,7 @@
 
 Given a static line charge density and current density along the z-axis
 
-\begin{dmath}\label{eqn:statics:120}
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:120}
 \begin{aligned}
 \rho(\Bx) &= \lambda \delta(x) \delta(y) \\
 \BJ(\Bx) &= \Bv \rho(\Bx) = v \lambda \Be_3 \delta(x) \delta(y),
@@ -10,7 +10,7 @@ Given a static line charge density and current density along the z-axis
 \end{dmath}
 
 the total multivector current is
-\begin{dmath}\label{eqn:statics:140}
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:140}
 J
 = \eta ( c \rho - \BJ )
 = \eta ( c - v \Be_3 ) \lambda \delta(x) \delta(y)
@@ -19,7 +19,7 @@ J
 
 We can find the field for this current by substitution into \cref{eqn:statics:80}.
 To do so, let the field observation point be \( \Bx = \Bx_\perp + z \Be_3 \), so the total field is
-\begin{dmath}\label{eqn:statics:160}
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:160}
 F(\Bx)
 = \frac{\lambda}{4\pi \epsilon} \int_V dx'dy'dz' \frac{\gpgrade{(\Bx - \Bx') (1 - (v/c) \Be_3 )}{1,2}}{\Norm{\Bx - \Bx'}^3} \delta(x') \delta(y')
 = \frac{\lambda}{4\pi \epsilon} \int_{-\infty}^\infty dz' \frac{\gpgrade{(\Bx_\perp + (z - z') \Be_3) (1 - (v/c) \Be_3 )}{1,2}}{\lr{\Bx_\perp^2 + (z-z')^2}^{3/2}}
@@ -33,7 +33,7 @@ The first integral is \( 2/\Bx_\perp^2 \), whereas the second is zero (odd funct
 Using cylindrical coordinates \( \Bx = R \rhocap + z \Be_3 \), and since
 \( \Bx_\perp \cdot \Be_3 = 0 \), the wedge can be replaced with the vector product \( \Bx_\perp \Be_3 = R \rhocap \Be_3 \), leaving
 
-\begin{equation}\label{eqn:statics:180}
+\begin{equation}\label{eqn:statics_infiniteLineCharge:180}
 F(\Bx)
 =
 \frac{\lambda}{2\pi \epsilon R} \rhocap \lr{ 1 - \Bv/c} = \BE \lr{ 1 - \Bv/c }
@@ -45,13 +45,13 @@ The vector component of this is the electric field, which is therefore directed 
 is a set of oriented planes spanning the radial and z-axis directions.
 We can also see that there is a constant proportionality factor that relates the electric and magnetic field components, namely
 
-\begin{dmath}\label{eqn:statics:200}
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:200}
 I \eta \BH = -\BE \Bv/c,
 \end{dmath}
 
 or
 
-\begin{dmath}\label{eqn:statics:220}
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:220}
 \BH = \Bv \cross \BD.
 \end{dmath}
 

@@ -11,7 +11,7 @@ An example parameterization with two parameters, and the corresponding different
 
 Given parameters \( a, b \), the differentials along each of the parameterization directions are
 
-\begin{dmath}\label{eqn:stokesTheoremCore:100}
+\begin{dmath}\label{eqn:twoparameter:100}
 \begin{aligned}
 d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
 d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
@@ -20,7 +20,7 @@ d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
 
 The ``volume'' element for this parameterization (a surface area element) is
 
-\begin{equation}\label{eqn:stokesTheoremCore:120}
+\begin{equation}\label{eqn:twoparameter:120}
 d^2 \Bx
 =
 d\Bx_a \wedge
@@ -31,7 +31,7 @@ da db (\Bx_a \wedge \Bx_b).
 
 The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
 
-\begin{dmath}\label{eqn:stokesTheoremCore:200}
+\begin{dmath}\label{eqn:twoparameter:200}
 \boldpartial
 =
 \sum_\mu \Bx^\mu (\Bx_\mu \cdot \spacegrad)
@@ -48,14 +48,14 @@ The vector derivative, the projection of the gradient onto the surface at the po
 The Stokes integral can be evaluated over this volume element for either scalar fields \( \psi \) or vector fields \( \Bf \), and takes the form
 
 \begin{subequations}
-\label{eqn:stokesTheoremCore:140}
-\begin{equation}\label{eqn:stokesTheoremCore:160}
+\label{eqn:twoparameter:140}
+\begin{equation}\label{eqn:twoparameter:160}
 \int_A d^2 \Bx \cdot (\boldpartial \wedge \psi) =
 \int_A (d^2 \Bx \cdot \boldpartial) \psi
 =
 \int_{\partial A} d^1 \Bx \psi
 \end{equation}
-\begin{equation}\label{eqn:stokesTheoremCore:180}
+\begin{equation}\label{eqn:twoparameter:180}
 \int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf) =
 \int_A (d^2 \Bx \cdot \boldpartial) \cdot \Bf
 =
@@ -66,7 +66,7 @@ The Stokes integral can be evaluated over this volume element for either scalar 
 To extract the full meaning of this the boundary differential \( d^1 \Bx \) must be computed.
 This has the same structure for a vector or scalar field
 
-\begin{dmath}\label{eqn:stokesTheoremCore:220}
+\begin{dmath}\label{eqn:twoparameter:220}
 \begin{aligned}
 \int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf)
 &=
@@ -85,7 +85,7 @@ This has the same structure for a vector or scalar field
 While \( \Bx_a, \Bx_b \) both depend on both parameters \( a, b \), the differential form immediately above is still a perfect integral in the variables of the partials since \( \Bx_a \) is computed with \( b \) held fixed, and \( \Bx_b \) is computed with \( a \) held fixed.
 Proceeding with the integrals that match the respective partials, this gives
 
-\begin{dmath}\label{eqn:stokesTheoremCore:240}
+\begin{dmath}\label{eqn:twoparameter:240}
 \int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf)
 =
 \int
@@ -99,9 +99,9 @@ d\Bx_a \cdot \evalbar{\Bf}{\Delta b}
 d\Bx_b \cdot \evalbar{\Bf}{\Delta a}.
 \end{dmath}
 
-This shows that the boundary differential \( d^1 \Bx \) in \cref{eqn:stokesTheoremCore:140} is given by
+This shows that the boundary differential \( d^1 \Bx \) in \cref{eqn:twoparameter:140} is given by
 
-\begin{dmath}\label{eqn:stokesTheoremCore:260}
+\begin{dmath}\label{eqn:twoparameter:260}
 d^1 \Bx = d\Bx_a - d\Bx_b,
 \end{dmath}
 
@@ -114,8 +114,8 @@ This boundary integral can be interpreted as the integral around a contour, as i
 Additionally, as with the single parameter case, a substitution of the gradient does not change the result, since any component of the gradient that lies outside of the tangent space on the surface has a zero dot product with the surface volume element \( d^2 \Bx \).
 This allows the two parameter Stokes integrals to be written as
 
-%\begin{dmath}\label{eqn:stokesTheoremCore:280}
-\boxedEquation{eqn:stokesTheoremCore:280}{
+%\begin{dmath}\label{eqn:twoparameter:280}
+\boxedEquation{eqn:twoparameter:280}{
 \begin{aligned}
 \int_A d^2 \Bx \cdot \spacegrad \psi &= \ointclockwise d\Bx \psi \\
 \int_A d^2 \Bx \cdot (\spacegrad \wedge \Bf) &= \ointclockwise d\Bx \cdot \Bf.

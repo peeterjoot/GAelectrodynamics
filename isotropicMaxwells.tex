@@ -4,47 +4,47 @@
 %
 \index{Maxwell's equation}
 Assuming
-isotropic constituency relationships \cref{eqn:maxwellsEquations:300}, and
+isotropic constituency relationships \cref{eqn:freespace:300}, and
 eliminating cross products in favor of wedge products,
-Maxwell's equations \cref{eqn:freespace:99} become
+Maxwell's equations \cref{eqn:freespace:3399} become
 
 \begin{subequations}
-\label{eqn:maxwellsEquations:61}
-\begin{dmath}\label{eqn:maxwellsEquations:60}
+\label{eqn:isotropicMaxwells:61}
+\begin{dmath}\label{eqn:isotropicMaxwells:60}
 \spacegrad \wedge \BE = - I \BM - \mu \PD{t}{(I\BH)}
 \end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:80}
+\begin{dmath}\label{eqn:isotropicMaxwells:80}
 \spacegrad \wedge \BH = I \BJ + I \epsilon \PD{t}{\BE}
 \end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:100}
+\begin{dmath}\label{eqn:isotropicMaxwells:100}
 \spacegrad \cdot \BE = \rho/\epsilon
 \end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:120}
+\begin{dmath}\label{eqn:isotropicMaxwells:120}
 \spacegrad \cdot \BH = \rho_\txtm/\mu.
 \end{dmath}
 \end{subequations}
 
-With a bit of rescaling, the dot and wedge products of \cref{eqn:maxwellsEquations:60}, \cref{eqn:maxwellsEquations:100} can be added, as can those of \cref{eqn:maxwellsEquations:80}, \cref{eqn:maxwellsEquations:120}.
+With a bit of rescaling, the dot and wedge products of \cref{eqn:isotropicMaxwells:60}, \cref{eqn:isotropicMaxwells:100} can be added, as can those of \cref{eqn:isotropicMaxwells:80}, \cref{eqn:isotropicMaxwells:120}.
 This reduces Maxwell's equations to a pair of first order coupled gradient equations
 
 \begin{subequations}
-\label{eqn:maxwellsEquations:361}
-\begin{dmath}\label{eqn:maxwellsEquations:360}
+\label{eqn:isotropicMaxwells:361}
+\begin{dmath}\label{eqn:isotropicMaxwells:360}
 \spacegrad \BE = \inv{\epsilon} \rho - I \BM - \mu \PD{t}{(I\BH)}
 \end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:380}
+\begin{dmath}\label{eqn:isotropicMaxwells:380}
 \spacegrad (I \BH) = \frac{I \rho_\txtm}{\mu} - \BJ - \epsilon \PD{t}{\BE}.
 \end{dmath}
 \end{subequations}
 
-There is a symmetry in \cref{eqn:maxwellsEquations:361} that an be made more apparent by
+There is a symmetry in \cref{eqn:isotropicMaxwells:361} that an be made more apparent by
 making a transformation to fields with the same dimensions \( \sqrt{\epsilon} \BE, \sqrt{\mu} \BH \)
 
 \begin{subequations}
-\begin{dmath}\label{eqn:maxwellsEquations:400}
+\begin{dmath}\label{eqn:isotropicMaxwells:400}
 \spacegrad (\sqrt{\epsilon} \BE) = \inv{\sqrt{\epsilon}} \rho - I \sqrt{\epsilon} \BM - \sqrt{\epsilon \mu} \PD{t}{(I\sqrt{\mu} \BH)}
 \end{dmath}
-\begin{dmath}\label{eqn:maxwellsEquations:420}
+\begin{dmath}\label{eqn:isotropicMaxwells:420}
 \spacegrad (I \sqrt{\mu} \BH) = \frac{I \rho_\txtm}{\sqrt{\mu}} - \sqrt{\mu} \BJ - \sqrt{\epsilon\mu} \PD{t}{\sqrt{\epsilon} \BE}.
 \end{dmath}
 \end{subequations}
@@ -52,11 +52,11 @@ making a transformation to fields with the same dimensions \( \sqrt{\epsilon} \B
 Observations
 \begin{itemize}
 \item
-The electric charge density of \cref{eqn:maxwellsEquations:400} has a corresponding dual magnetic charge density in \cref{eqn:maxwellsEquations:420}.
+The electric charge density of \cref{eqn:isotropicMaxwells:400} has a corresponding dual magnetic charge density in \cref{eqn:isotropicMaxwells:420}.
 \item
 There is a similar dual relationship between the electric and magnetic current densities and the fields themselves.
 \item
-The multivector equation \cref{eqn:maxwellsEquations:400} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:maxwellsEquations:420} has grades 1,3 (vector, pseudoscalar).
+The multivector equation \cref{eqn:isotropicMaxwells:400} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:isotropicMaxwells:420} has grades 1,3 (vector, pseudoscalar).
 \item
 The
 dimensions of the space and time differential operators \( [\spacegrad] = [\sqrt{\epsilon\mu} \PDi{t}{}] = 1/L = [\sqrt{\epsilon\mu}\PDi{t}{}]\) are equal.
@@ -65,9 +65,9 @@ now equal,
 
 Without any overlap of grades, it is possible to add (or subtract) these equations without any loss of information, as
 the original equations could always be recovered by grade selection.
-Adding \cref{eqn:maxwellsEquations:400} gives
+Adding \cref{eqn:isotropicMaxwells:400} gives
 
-\begin{dmath}\label{eqn:maxwellsEquations:440}
+\begin{dmath}\label{eqn:isotropicMaxwells:440}
 \lr{ \spacegrad + \sqrt{\epsilon\mu} \PD{t}{} }
 \lr{ \sqrt{\epsilon} \BE
 +

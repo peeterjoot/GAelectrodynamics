@@ -6,7 +6,7 @@
 \index{convolution}
 The gradient of the vector \( \BM \) can be written as a single even grade multivector
 
-\begin{equation}\label{eqn:helmholtzDerviationMultivector:60}
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:60}
 \spacegrad \BM
 = \spacegrad \cdot \BM + I \spacegrad \cross \BM
 = s + I \BC.
@@ -14,13 +14,13 @@ The gradient of the vector \( \BM \) can be written as a single even grade multi
 
 %Observe that the Laplacian of \( \BM \) is vector valued
 %
-%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:760}
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:760}
 %\spacegrad^2 \BM = \spacegrad s + I \spacegrad \BC.
 %\end{dmath}
 %
 %This means that \( \spacegrad \BC \) must be a bivector \( \spacegrad \BC = \spacegrad \wedge \BC \), or that \( \BC \) has zero divergence
 %
-%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:780}
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:780}
 %\spacegrad \cdot \BC = 0.
 %\end{dmath}
 
@@ -28,26 +28,26 @@ This can be used to attempt to discover the relation between the vector \( \BM \
 \index{delta function}
 The vector \( \BM \) can be expressed at the point of interest as a convolution with the delta function at all other points in space
 
-\begin{dmath}\label{eqn:helmholtzDerviationMultivector:80}
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:80}
 \BM(\Bx) = \int_V dV' \delta(\Bx - \Bx') \BM(\Bx').
 \end{dmath}
 
 \index{Laplacian}
 The Laplacian representation of the delta function in \R{3} is
 
-\begin{dmath}\label{eqn:helmholtzDerviationMultivector:100}
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:100}
 \delta(\Bx - \Bx') = -\inv{4\pi} \spacegrad^2 \inv{\Norm{\Bx - \Bx'}},
 \end{dmath}
 
 so \( \BM \) can be represented as the following convolution
 
-\begin{dmath}\label{eqn:helmholtzDerviationMultivector:120}
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:120}
 \BM(\Bx) = -\inv{4\pi} \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx').
 \end{dmath}
 
 %As noted in \cref{eqn:helmholtzDerviationMultivector:460} the Laplacian of a vector can be factored as
 %
-%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:140}
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:140}
 %\spacegrad^2 \Ba
 %=
 %\spacegrad (\spacegrad \cdot \Ba)
@@ -65,7 +65,7 @@ Using this relation and proceeding with a few applications of the chain rule, pl
 %
 %Starting from the first line of \cref{eqn:helmholtzDerviationMultivector:160}, we have
 
-\begin{dmath}\label{eqn:helmholtzDerviationMultivector:720}
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:720}
 -4 \pi \BM(\Bx)
 = \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')
 = \gpgradeone{\int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')}
@@ -101,13 +101,13 @@ When the surface is taken to infinity, which requires \( \Norm{\BM}/\Norm{\Bx - 
 In order to express final result in traditional vector algebra form, a couple transformations are required.
 The first is that
 
-\begin{equation}\label{eqn:helmholtzDerviationMultivector:800}
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:800}
 \gpgradeone{ \Ba I \Bb } = I^2 \Ba \cross \Bb = -\Ba \cross \Bb.
 \end{equation}
 
 For the grade selection in the boundary integral, note that
 
-\begin{dmath}\label{eqn:helmholtzDerviationMultivector:740}
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:740}
 \gpgradeone{ \spacegrad \ncap \BX }
 =
 \gpgradeone{ \spacegrad (\ncap \cdot \BX) }
@@ -125,8 +125,8 @@ For the grade selection in the boundary integral, note that
 
 These give
 
-%\begin{dmath}\label{eqn:helmholtzDerviationMultivector:721}
-\boxedEquation{eqn:helmholtzDerviationMultivector:721}{
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:721}
+\boxedEquation{eqn:helmholtzDerviationMultivectorSolution:721}{
 \begin{aligned}
 \BM(\Bx)
 &=

@@ -7,7 +7,7 @@ Poynting's theorem, the conservation relationship between energy and momentum de
 To derive this relationship we can act on (all terms of) \( F a F^\dagger \) with the space+time derivative operator \( \spacegrad + (1/c) \partial_t \).
 We do so within a scalar selection operation, which simplifies things, and allows for cyclic permutation of the multivector factors (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)).
 
-\begin{dmath}\label{eqn:poyntingF:100}
+\begin{dmath}\label{eqn:poyntingTheorem:100}
 \frac{\epsilon}{2} \gpgradezero{ \lr{ c \spacegrad + \PD{t}{} } F a F^\dagger }
 =
 \frac{\epsilon}{2} \gpgradezero{ \lr{ c \spacegrad + \PD{t}{} } \dot{F} a F^\dagger }
@@ -23,10 +23,10 @@ where
 the over-dot notation of
 \citep{hestenes1999nfc} was used to indicate the desired action of the derivative operators in the
 chain rule expansion of
-\cref{eqn:poyntingF:100}
+\cref{eqn:poyntingTheorem:100}
 , as the gradient may not commute with \( F \).  Another application of Maxwell's equation reduces this further
 
-\begin{dmath}\label{eqn:poyntingF:960}
+\begin{dmath}\label{eqn:poyntingTheorem:960}
 \frac{\epsilon}{2} \gpgradezero{ \lr{ c \spacegrad + \PD{t}{} } F a F^\dagger }
 =
 \frac{\epsilon}{2} \gpgradezero{ c J F^\dagger a }
@@ -46,7 +46,7 @@ c \spacegrad \cdot \gpgradeone{ \frac{\epsilon}{2} F a F^\dagger }
 
 For \( a = 1 \), since scalars are reversion invariant (\(\alpha^\dagger = \alpha\) for any scalars \( \alpha \))
 
-\begin{equation}\label{eqn:poyntingF:1000}
+\begin{equation}\label{eqn:poyntingTheorem:1000}
 \gpgradezero{ F^\dagger J }
 =
 \gpgradezero{ F^\dagger J }^\dagger
@@ -68,7 +68,7 @@ c \spacegrad \cdot \gpgradeone{ \frac{\epsilon}{2} F F^\dagger }
 The conventional statement of this theorem in terms of \( \BD, \BE, \BB, \BH, \BJ, \BM \) follows by direct substitution.
 The multivector current \( J \) and its reverse are
 
-\begin{dmath}\label{eqn:poyntingF:160}
+\begin{dmath}\label{eqn:poyntingTheorem:160}
 \begin{aligned}
 J &= \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_m - \BM } \\
 J^\dagger &= \eta \lr{ c \rho - \BJ } - I \lr{ c \rho_m - \BM },
@@ -77,7 +77,7 @@ J^\dagger &= \eta \lr{ c \rho - \BJ } - I \lr{ c \rho_m - \BM },
 
 so
 
-\begin{dmath}\label{eqn:poyntingF:180}
+\begin{dmath}\label{eqn:poyntingTheorem:180}
 0 =
 \spacegrad \cdot \BS
 -
@@ -102,7 +102,7 @@ In particular,
 with neither electric nor magnetic current sources in a region of space,
 the change of energy density through a volume is matched by a corresponding flux through the bounding surface
 
-\begin{dmath}\label{eqn:maxwellsEquations:740}
+\begin{dmath}\label{eqn:poyntingTheorem:740}
 \PD{t}{} \int_V
 \inv{2} dV \lr{
 \BB \cdot \BH

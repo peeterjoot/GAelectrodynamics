@@ -7,7 +7,7 @@
 Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
 Consider a continuous subspace parameterized by a two parameter vector function \( \Bx = \Bx(u_1, u_2) \) that is differentiable with respect to either parameter
 
-\begin{dmath}\label{eqn:curvilinear:40}
+\begin{dmath}\label{eqn:curvilinearDefined:40}
 \begin{aligned}
 d\Bx_{u_1} &= \PD{u}{\Bx} du_1 \\
 d\Bx_{u_2} &= \PD{v}{\Bx} du_2,
@@ -19,7 +19,7 @@ the span of these differentials or the partials themselves,
  is called the tangent space.
 We will utilize the partials as a basis for the tangent space
 
-\begin{dmath}\label{eqn:curvilinear:80}
+\begin{dmath}\label{eqn:curvilinearDefined:80}
 \begin{aligned}
 \Bx_{u_1} &= \PD{u_1}{\Bx} \\
 \Bx_{u_2} &= \PD{u_2}{\Bx}.
@@ -30,7 +30,7 @@ There is no reason to presume that there is any orthonormality constraint on the
 must be used to compute coordinates, however,
 we must restrict attention to only those parametrizations for which the tangent space volume element is non-zero
 
-\begin{dmath}\label{eqn:curvilinear:60}
+\begin{dmath}\label{eqn:curvilinearDefined:60}
 d\Bx_{u_1} \wedge d\Bx_{u_2} \ne 0.
 \end{dmath}
 
@@ -43,13 +43,13 @@ and its associated tangent space is plotted in
 
 More generally, given a parameterization of \( \Bx(u_1, u_2, \cdots, u_k) \), a curvilinear basis defined on the tangent space is induced by the partials
 
-\begin{dmath}\label{eqn:curvilinear:240}
+\begin{dmath}\label{eqn:curvilinearDefined:240}
 \Bx_{u_i} = \PD{u_i}{\Bx}.
 \end{dmath}
 
 The volume element for the subspace is
 
-\begin{dmath}\label{eqn:curvilinear:260}
+\begin{dmath}\label{eqn:curvilinearDefined:260}
 d^k \Bx = du_1 du_2 \cdots du_k\,
 \Bx_{u_1} \wedge
 \Bx_{u_2} \wedge \cdots \wedge
@@ -61,13 +61,13 @@ Any multivector can be expressed in terms of the curvilinear basis \( \setlr{ \B
 
 For example, a vector \( \Bf \) constrained to the tangent space admits a representation
 
-\begin{dmath}\label{eqn:curvilinear:380}
+\begin{dmath}\label{eqn:curvilinearDefined:380}
 \Bf = \sum_i a_i \Bx_{u_i}.
 \end{dmath}
 
 Dotting with \( \Bx^{u_j} \) gives
 
-\begin{dmath}\label{eqn:curvilinear:280}
+\begin{dmath}\label{eqn:curvilinearDefined:280}
 \Bf \cdot \Bx^{u_j}
 = \sum_i a_i \Bx_{u_i} \cdot \Bx^{u_j}
 = \sum_i a_i {\delta^i}_j
@@ -75,20 +75,20 @@ Dotting with \( \Bx^{u_j} \) gives
 \end{dmath}
 
 so
-\begin{dmath}\label{eqn:curvilinear:300}
+\begin{dmath}\label{eqn:curvilinearDefined:300}
 \Bf = \sum_i \lr{ \Bf \cdot \Bx^{u_i} } \Bx_{u_i}.
 \end{dmath}
 
 Higher grade multivector objects may also be represented in curvilinear coordinates.
 For example, given a bivector constrained to the tangent space
 
-\begin{dmath}\label{eqn:curvilinear:320}
+\begin{dmath}\label{eqn:curvilinearDefined:320}
 B = \inv{2} \sum_{i, j} b_{ij} \Bx_{u_i} \wedge \Bx_{u_j},
 \end{dmath}
 
 the coordinates \( b_{ij} \) can be determined by dotting \( B \) with \( \Bx^{u_j} \wedge \Bx^{u_i} \), yielding
 
-\begin{dmath}\label{eqn:curvilinear:340}
+\begin{dmath}\label{eqn:curvilinearDefined:340}
 B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
 =
 \inv{2} \sum_{i' , j'} b_{i'j'} \lr{ \Bx_{u_i'} \wedge \Bx_{u_j'} } \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
@@ -105,7 +105,7 @@ B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
 When \( i \ne j \) this is \( b_{ij} \) and is zero otherwise.
 The curvilinear representation of the bivector is therefore
 
-\begin{dmath}\label{eqn:curvilinear:400}
+\begin{dmath}\label{eqn:curvilinearDefined:400}
 B = \sum_{i < j} \lr{ B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }} \Bx_{u_i} \wedge \Bx_{u_j}.
 \end{dmath}
 

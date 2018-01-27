@@ -5,14 +5,14 @@ Given a
 vector potential with a
 radial spherical wave representation
 
-\begin{dmath}\label{eqn:potentialSection:2400}
+\begin{dmath}\label{eqn:potentialSection_farfield:2400}
 \BA = \frac{e^{-j k r}}{r} \bcA( \theta, \phi ),
 \end{dmath}
 
 we can compute the far field ( \( r \gg 1 \) ) electrodynamic field \( F \).
 The spherical representation of the gradient is
 
-\begin{dmath}\label{eqn:potentialSection:2420}
+\begin{dmath}\label{eqn:potentialSection_farfield:2420}
 \begin{aligned}
 \spacegrad &= \rcap \partial_r + \spacegrad_\perp \\
 \spacegrad_\perp &= \frac{\thetacap}{r} \partial_\theta + \frac{\phicap}{r\sin\theta} \partial_\phi.
@@ -21,7 +21,7 @@ The spherical representation of the gradient is
 
 The gradient of the vector potential is
 
-\begin{dmath}\label{eqn:potentialSection:2440}
+\begin{dmath}\label{eqn:potentialSection_farfield:2440}
 \spacegrad \BA
 =
 \biglr{ \rcap \partial_r + \spacegrad_\perp } \frac{e^{-j k r}}{r} \bcA
@@ -37,9 +37,9 @@ The gradient of the vector potential is
 \end{dmath}
 
 Here, all the \( O(1/r^2) \) terms, including the action of the non-radial component of the gradient on the \( 1/r \) potential, have been neglected.
-From \cref{eqn:potentialSection:2440} the far field divergence and the (bivector) curl of \( \BA \) are
+From \cref{eqn:potentialSection_farfield:2440} the far field divergence and the (bivector) curl of \( \BA \) are
 
-\begin{dmath}\label{eqn:potentialSection:2460}
+\begin{dmath}\label{eqn:potentialSection_farfield:2460}
 \begin{aligned}
 \spacegrad \cdot \BA &= - j k \rcap \cdot \BA \\
 \spacegrad \wedge \BA &= - j k \rcap \wedge \BA.
@@ -48,7 +48,7 @@ From \cref{eqn:potentialSection:2440} the far field divergence and the (bivector
 
 Finally, the far field gradient of the divergence of \( \BA \) is
 
-\begin{dmath}\label{eqn:potentialSection:2480}
+\begin{dmath}\label{eqn:potentialSection_farfield:2480}
 \spacegrad \lr{ \spacegrad \cdot \BA }
 =
 \biglr{ \rcap \partial_r + \spacegrad_\perp } \lr{ - j k \rcap \cdot \BA }
@@ -61,7 +61,7 @@ Finally, the far field gradient of the divergence of \( \BA \) is
 \end{dmath}
 
 again neglecting any \( O(1/r^2) \) terms.  The field is
-\begin{dmath}\label{eqn:potentialSection:2500}
+\begin{dmath}\label{eqn:potentialSection_farfield:2500}
 F
 =
 - j \omega \BA  -j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \wedge \BA
@@ -74,8 +74,8 @@ F
 \end{dmath}
 
 or
-%\begin{dmath}\label{eqn:potentialSection:2520}
-\boxedEquation{eqn:potentialSection:2520}{
+%\begin{dmath}\label{eqn:potentialSection_farfield:2520}
+\boxedEquation{eqn:potentialSection_farfield:2520}{
 F = -j \omega \lr{ \rcap + 1 } \lr{ \rcap \wedge \BA}.
 }
 %\end{dmath}
@@ -85,7 +85,7 @@ These electric and magnetic fields can be extracted by inspection.
 Let \( \BA_\perp = \rcap \lr{ \rcap \wedge \BA} \) represent the
 non-radial component of the potential, so these respective fields are
 
-\begin{dmath}\label{eqn:potentialSection:2560}
+\begin{dmath}\label{eqn:potentialSection_farfield:2560}
 \begin{aligned}
 \BE &= -j \omega \BA_\perp \\
 \BH &= \inv{\eta} \rcap \cross \BE.
@@ -94,15 +94,15 @@ non-radial component of the potential, so these respective fields are
 
 Having calculated the far field approximation for the electrodynamic field for a vector potential \( \BA \) the field for the magnetic source vector potential \( \BF \) is
 
-%\begin{dmath}\label{eqn:potentialSection:2580}
-\boxedEquation{eqn:potentialSection:2580}{
+%\begin{dmath}\label{eqn:potentialSection_farfield:2580}
+\boxedEquation{eqn:potentialSection_farfield:2580}{
 F = -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF },
 }
 %\end{dmath}
 
 for which the electric and magnetic field components are
 
-\begin{dmath}\label{eqn:potentialSection:2600}
+\begin{dmath}\label{eqn:potentialSection_farfield:2600}
 \begin{aligned}
 \BE &= j \omega \eta \rcap \cross \BF \\
 \BH &= -j \omega \BF_\perp.
@@ -112,7 +112,7 @@ for which the electric and magnetic field components are
 \makeexample{Vertical dipole potential.}{example:potentialSection:1}{
 We will calculate the far field along the propagation direction vector \( \kcap \) in the z-y plane
 
-\begin{dmath}\label{eqn:potentialSection:2620}
+\begin{dmath}\label{eqn:potentialSection_farfield:2620}
 \begin{aligned}
 \kcap &= \Be_3 e^{i \theta} \\
 i &= \Be_{32},
@@ -120,7 +120,7 @@ i &= \Be_{32},
 \end{dmath}
 
 for the infinitesimal dipole potential
-\begin{dmath}\label{eqn:potentialSection:2640}
+\begin{dmath}\label{eqn:potentialSection_farfield:2640}
 \BA = \frac{\Be_3 \mu I_0 l}{4 \pi r} e^{-j k r},
 \end{dmath}
 
@@ -130,7 +130,7 @@ as illustrated in \cref{fig:vectorPotential:vectorPotentialFig1}.
 
 The wedge of \( \kcap \) with \( \BA \) is proportional to
 
-\begin{dmath}\label{eqn:potentialSection:2660}
+\begin{dmath}\label{eqn:potentialSection_farfield:2660}
 \kcap \wedge \Be_3
 =
 \gpgradetwo{
@@ -149,15 +149,15 @@ The wedge of \( \kcap \) with \( \BA \) is proportional to
 -i \sin\theta,
 \end{dmath}
 
-so from \cref{eqn:potentialSection:2520} the field is
+so from \cref{eqn:potentialSection_farfield:2520} the field is
 
-\begin{dmath}\label{eqn:potentialSection:2680}
+\begin{dmath}\label{eqn:potentialSection_farfield:2680}
 F = j \omega \lr{ 1 + \Be_3 e^{i\theta} } i \sin\theta \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
 \end{dmath}
 
-The electric and magnetic fields can be found from the respective vector and bivector grades of \cref{eqn:potentialSection:2680}
+The electric and magnetic fields can be found from the respective vector and bivector grades of \cref{eqn:potentialSection_farfield:2680}
 
-\begin{dmath}\label{eqn:potentialSection:2700}
+\begin{dmath}\label{eqn:potentialSection_farfield:2700}
 \BE
 =
 \frac{j \omega \mu I_0 l}{4 \pi r} e^{-j k r} \Be_3 e^{i\theta} i \sin\theta
@@ -168,7 +168,7 @@ The electric and magnetic fields can be found from the respective vector and biv
 \end{dmath}
 
 and
-\begin{dmath}\label{eqn:potentialSection:2720}
+\begin{dmath}\label{eqn:potentialSection_farfield:2720}
 \BH
 =
 \inv{I \eta}
@@ -181,9 +181,9 @@ j \omega \sin\theta_0 \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
 \end{dmath}
 
 The multivector electrodynamic field expression
-\cref{eqn:potentialSection:2680} for
+\cref{eqn:potentialSection_farfield:2680} for
 \( F \) is more algebraically compact than the separate electric and magnetic field expressions, but this comes with the complexity of dealing with different types of imaginaries.
-There are two explicit unit imaginaries in \cref{eqn:potentialSection:2680}, the scalar imaginary \( j \) used to encode the time harmonic nature of the field, and \( i = \Be_{32} \) used to represent the plane that the far field propagation direction vector lay in.
+There are two explicit unit imaginaries in \cref{eqn:potentialSection_farfield:2680}, the scalar imaginary \( j \) used to encode the time harmonic nature of the field, and \( i = \Be_{32} \) used to represent the plane that the far field propagation direction vector lay in.
 Additionally, when the magnetic field component was extracted, the pseudoscalar \( I = \Be_{123} \) entered into the mix.
 Care is required to keep these all separate, especially since \( I, j \) commute with all grades, but \( i \) does not.
 } % example

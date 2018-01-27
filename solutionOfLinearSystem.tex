@@ -11,7 +11,7 @@ An illustrative example is that of the intersection of two lines as illustrated 
 
 In parametric form, the lines in this problem are
 
-\begin{dmath}\label{eqn:SimpleProducts2:1000}
+\begin{dmath}\label{eqn:solutionOfLinearSystem:1000}
 \begin{aligned}
 \Br_1(s) &= \Ba_0 + s( \Ba_1 - \Ba_2 ) \\
 \Br_2(t) &= \Bb_0 + t( \Bb_1 - \Bb_2 ),
@@ -20,12 +20,12 @@ In parametric form, the lines in this problem are
 
 so the solution, if it exists, is found at the point satisfying the equality
 
-\begin{dmath}\label{eqn:SimpleProducts2:1020}
+\begin{dmath}\label{eqn:solutionOfLinearSystem:1020}
 \Ba_0 + s( \Ba_1 - \Ba_2 ) = \Bb_0 + t( \Bb_1 - \Bb_2 ).
 \end{dmath}
 
 With
-\begin{dmath}\label{eqn:SimpleProducts2:1040}
+\begin{dmath}\label{eqn:solutionOfLinearSystem:1040}
 \begin{aligned}
 \Bu_1 &= \Ba_1 - \Ba_2 \\
 \Bu_2 &= \Bb_1 - \Bb_2 \\
@@ -35,14 +35,14 @@ With
 
 the desired equation to solve is
 
-\begin{dmath}\label{eqn:SimpleProducts2:1060}
+\begin{dmath}\label{eqn:solutionOfLinearSystem:1060}
 \Bd + s \Bu_1 = t \Bu_2.
 \end{dmath}
 
 Solving for \( s \) or \( t \) is possible by
 wedging both sides with one of \( \Bu_1 \) or \( \Bu_2 \)
 
-\begin{dmath}\label{eqn:SimpleProducts2:1080}
+\begin{dmath}\label{eqn:solutionOfLinearSystem:1080}
 \begin{aligned}
 \Bd \wedge \Bu_1 &= t \Bu_2 \wedge \Bu_1 \\
 \Bd \wedge \Bu_2 + s \Bu_1 \wedge \Bu_2 &= 0,
@@ -52,7 +52,7 @@ wedging both sides with one of \( \Bu_1 \) or \( \Bu_2 \)
 In \R{2} these equations have a solution if \( \Bu_1 \wedge \Bu_2 \ne 0 \), and in \R{N} these have solutions if the bivectors on each sides of the equations describe the same plane.
 Put another way, these have solutions when \( s \) and \( t \) are scalars and
 
-\begin{dmath}\label{eqn:SimpleProducts2:1100}
+\begin{dmath}\label{eqn:solutionOfLinearSystem:1100}
 \begin{aligned}
 s &= \frac{\Bu_2 \wedge \Bd}{\Bu_1 \wedge \Bu_2} \\
 t &= \frac{\Bu_1 \wedge \Bd}{\Bu_1 \wedge \Bu_2}.
@@ -70,7 +70,7 @@ with
 \end{aligned}
 \end{dmath}
 
-the wedge products in \cref{eqn:SimpleProducts2:1100}
+the wedge products in \cref{eqn:solutionOfLinearSystem:1100}
 can be expressed explicitly as a (unit bivector scaled) determinants
 
 \begin{equation}\label{eqn:solutionOfLinearSystem:1140}

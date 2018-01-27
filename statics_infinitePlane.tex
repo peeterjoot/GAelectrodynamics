@@ -1,12 +1,12 @@
 
 A variation on the above example puts a uniform charge density \( \rho(\Bx) = \sigma \delta(z) \) in a plane, along with an associated current density \( \BJ(\Bx) = v \Be_1 e^{i\theta} \rho(\Bx), \quad i = \Be_{12} \).  Letting \( \Bv = v \Be_1 e^{i\theta} \), the multivector current is
 
-\begin{dmath}\label{eqn:statics:240}
+\begin{dmath}\label{eqn:statics_infinitePlane:240}
 J(\Bx) = \sigma \eta \lr{ c - \Bv } \delta(z),
 \end{dmath}
 
 so the field off the plane is
-\begin{dmath}\label{eqn:statics:260}
+\begin{dmath}\label{eqn:statics_infinitePlane:260}
 F(\Bx)
 =
 \frac{\sigma}{4 \pi \epsilon } \iiint \frac{dz' dA'}{ \Norm{ \Bx - \Bx' }^3 }
@@ -15,7 +15,7 @@ F(\Bx)
 
 If \( \Bx_\parallel = (\Bx \wedge \Be_3) \Be_3 \), and \( \Bx'_\parallel = (\Bx' \wedge \Be_3) \Be_3 \), are the components of the vectors \( \Bx, \Bx' \) in the x-y plane, then integration over \( z' \) and a change of variables \( \Bx'_\parallel - \Bx_\parallel = r' \Be_1 e^{i \theta'} \) yields
 
-\begin{dmath}\label{eqn:statics:280}
+\begin{dmath}\label{eqn:statics_infinitePlane:280}
 F(\Bx)
 =
 \frac{\sigma}{4 \pi \epsilon } \iint \frac{r' dr' d\theta'}{ ( z^2 + {r'}^2 )^{3/2} }
@@ -24,7 +24,7 @@ F(\Bx)
 
 The \( e^{i\theta'} \) integrands are killed, so for \( z \ne 0 \), the field is
 
-\begin{dmath}\label{eqn:statics:300}
+\begin{dmath}\label{eqn:statics_infinitePlane:300}
 F(\Bx)
 =
 \frac{\sigma z}{4 \pi \epsilon \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2}.
@@ -32,13 +32,13 @@ F(\Bx)
 
 Since \( \Bv \in \Span \setlr{ \Be_1, \Be_2 } \) the product \( \Be_3 \Bv \) is a bivector and the grade selection can be dropped, leaving
 
-\begin{dmath}\label{eqn:statics:320}
+\begin{dmath}\label{eqn:statics_infinitePlane:320}
 F(\Bx)
 =
 \frac{\sigma \sgn(z)}{4 \pi \epsilon } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
 \end{dmath}
 
-This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic field components are once again related by \cref{eqn:statics:220}.
+This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic field components are once again related by \cref{eqn:statics_infiniteLineCharge:220}.
 
 \makeproblem{Statics solution for planar magnetic density and currents.}{problem:statics:241}{
 Given magnetic charge density \( \rho_m = \sigma_m \delta(z) \), and current density \( \BM = \Bv \rho_m, \Bv = v \Be_1 e^{i\theta}, i = \Be_{12}\), show that the field is given by

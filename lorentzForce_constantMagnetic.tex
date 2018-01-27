@@ -6,12 +6,12 @@
 The Lorentz force equation that determines the dynamics of a charged particle in an external field \( F \) has been restated as a multivector differential equation, but how to solve such an equation is probably not obvious.
 Given a constant external magnetic field, the Lorentz force equation is reduced to
 
-\begin{dmath}\label{eqn:lorentzForce:60}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:60}
 m \frac{d\Bv}{dt} = q (I \BB) \cdot \Bv,
 \end{dmath}
 
 or
-\begin{dmath}\label{eqn:lorentzForce:80}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:80}
 \begin{aligned}
 \Omega &= -\frac{q I \BB}{m} \\
 \frac{d\Bv}{dt} &= \Bv \cdot \Omega,
@@ -22,7 +22,7 @@ where \( \Omega \) is a bivector containing all the constant factors.
 
 This can be solved by introducing a multivector integration factor \( R \) and its reverse \( R^\dagger \) on the left and right respectively
 
-\begin{dmath}\label{eqn:lorentzForce:100}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:100}
 R \frac{d\Bv}{dt} R^\dagger
 = R \Bv \cdot \Omega R^\dagger
 = \inv{2} R \lr{ \Bv \Omega - \Omega \Bv} R^\dagger
@@ -30,7 +30,7 @@ R \frac{d\Bv}{dt} R^\dagger
 \end{dmath}
 
 or
-\begin{dmath}\label{eqn:lorentzForce:120}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:120}
 0 =
 R \frac{d\Bv}{dt} R^\dagger
 + \inv{2} R \Omega \Bv R^\dagger
@@ -38,13 +38,13 @@ R \frac{d\Bv}{dt} R^\dagger
 \end{dmath}
 
 Let
-\begin{dmath}\label{eqn:lorentzForce:140}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:140}
 \dot{R} = R \Omega/2.
 \end{dmath}
 
 Since \( \Omega \) is a bivector \( \dot{R}^\dagger = -\Omega R^\dagger/2 \), so by chain rule
 
-\begin{dmath}\label{eqn:lorentzForce:160}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:160}
 0
 =
 \frac{d}{dt} \lr{
@@ -54,13 +54,13 @@ R \Bv R^\dagger
 
 The integrating factor has solution
 
-\begin{dmath}\label{eqn:lorentzForce:180}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:180}
 R = e^{\Omega t/2},
 \end{dmath}
 
-a ``complex exponential'', so the solution of \cref{eqn:lorentzForce:60} is
+a ``complex exponential'', so the solution of \cref{eqn:lorentzForce_constantMagnetic:60} is
 
-\begin{dmath}\label{eqn:lorentzForce:200}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:200}
 \Bv(t) = e^{-\Omega t/2} \Bv(0) e^{\Omega t/2}.
 \end{dmath}
 
@@ -68,7 +68,7 @@ The velocity of the charged particle traces out a helical path.
 Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.
 If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
 
-\begin{dmath}\label{eqn:lorentzForce:220}
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:220}
 \begin{aligned}
 \Bv(0)_\parallel &= \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \\
 \Bv(0)_\perp &= \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1} \\

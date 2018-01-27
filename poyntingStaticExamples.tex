@@ -7,13 +7,13 @@ We've found solutions for a number of static charge and current distributions.
 
 \begin{enumerate}[(a)]
 \item For constant electric sources along the z-axis
-(\cref{eqn:statics:180})
+(\cref{eqn:statics_infiniteLineCharge:180})
 , with current \( \BJ \) moving with velocity \( \Bv = v \Be_3 \), the field had the form \( F = E \rhocap \lr{ 1 - \Bv/c } \).
 \item For constant magnetic sources along the z-axis
 (\cref{problem:statics:240})
 , with current \( \BM \) moving with velocity \( \Bv = v \Be_3 \), the field had the form \( F = \eta H I \rhocap \lr{ 1 - \Bv/c } \).
 \item For constant electric sources in the x-y plane
-(\cref{eqn:statics:320})
+(\cref{eqn:statics_infinitePlane:320})
 , with current \( \BJ \) moving with velocity \( \Bv = v \Be_1 e^{i\theta}, i = \Be_{12} \), the field had the form \( F = E \Be_3 \lr{ 1 - \Bv/c } \).
 \item For constant magnetic sources in the x-y plane
 (\cref{problem:statics:241})
@@ -22,7 +22,7 @@ We've found solutions for a number of static charge and current distributions.
 
 In all cases the field has the form \( F = A ( 1 - \Bv/c ) \), where \( A \) is either a vector or a bivector that anticommutes with the current velocity \( \Bv \), so the energy-momentum tensor \( T(1) \) has the form
 
-\begin{dmath}\label{eqn:poyntingF:860}
+\begin{dmath}\label{eqn:poyntingStaticExamples:860}
 T(1)
 = \frac{\epsilon}{2} A ( 1 - \Bv/c )^2 A^\dagger
 = \frac{\epsilon}{2} A A^\dagger ( 1 + \Bv/c )^2
@@ -30,12 +30,12 @@ T(1)
 \end{dmath}
 
 For the electric sources this is
-\begin{dmath}\label{eqn:poyntingF:880}
+\begin{dmath}\label{eqn:poyntingStaticExamples:880}
 \calE + \frac{\BS}{c} = \frac{\epsilon}{2} E^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} },
 \end{dmath}
 
 or
-\begin{dmath}\label{eqn:poyntingF:900}
+\begin{dmath}\label{eqn:poyntingStaticExamples:900}
 \begin{aligned}
 \calE &= \frac{\epsilon}{2} E^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 } \\
 \BS &= \epsilon E^2 \Bv.
@@ -43,12 +43,12 @@ or
 \end{dmath}
 
 For the magnetic sources this is
-\begin{dmath}\label{eqn:poyntingF:920}
+\begin{dmath}\label{eqn:poyntingStaticExamples:920}
 \calH + \frac{\BS}{c} = \frac{\mu}{2} H^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} },
 \end{dmath}
 
 or
-\begin{dmath}\label{eqn:poyntingF:940}
+\begin{dmath}\label{eqn:poyntingStaticExamples:940}
 \begin{aligned}
 \calH &= \frac{\mu}{2} H^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 } \\
 \BS &= \mu H^2 \Bv.
@@ -122,7 +122,7 @@ and along the azimuthal direction
 
 Since \( T(\Ba) \) is a linear operator for any vector parameters \( \Ba \), it cannot have any grade zero component along any directions \( \Be \cdot \Be_3 = 0 \).
 No grade zero component of \( T(\Be_1), T(\Be_2) \) implies that the Poynting vector is zero along the \( \Be_1 \) and \( \Be_2 \) directions respectively, as we saw above in
-\cref{eqn:poyntingF:900}.
+\cref{eqn:poyntingStaticExamples:900}.
 
 %\begin{dmath}\label{eqn:poyntingStaticExamples:1120}
 %\rhocap \rhocap \rhocap = \rhocap

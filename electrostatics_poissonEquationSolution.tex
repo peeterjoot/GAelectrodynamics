@@ -5,18 +5,18 @@
 \index{Poisson equation}
 Provided \( \Bx \ne \Bx' \), it is simple to show that (\cref{problem:electrostatics:gradrelation})
 
-\begin{dmath}\label{eqn:electrostatics:541}
+\begin{dmath}\label{eqn:electrostatics_poissonEquationSolution:541}
 \spacegrad \Norm{\Bx - \Bx'}^k = k (\Bx - \Bx') \Norm{ \Bx - \Bx' }^{k-2}.
 \end{dmath}
 
 In particular
 
-\begin{dmath}\label{eqn:electrostatics:542}
+\begin{dmath}\label{eqn:electrostatics_poissonEquationSolution:542}
 \spacegrad \inv{\Norm{\Bx - \Bx'}} = - \frac{(\Bx - \Bx')}{\Norm{ \Bx - \Bx' }^{3}}.
 \end{dmath}
 
-Inserting \cref{eqn:electrostatics:542} into Coulomb's law \cref{eqn:electrostatics:340} gives
-\begin{dmath}\label{eqn:electrostatics:661}
+Inserting \cref{eqn:electrostatics_poissonEquationSolution:542} into Coulomb's law \cref{eqn:electrostatics_invertingGradient:340} gives
+\begin{dmath}\label{eqn:electrostatics_poissonEquationSolution:661}
 \BE(\Bx)
 =
 -\inv{4 \pi \epsilon} \int dV' \rho(\Bx') \spacegrad \inv{\Norm{\Bx - \Bx'}}
@@ -24,14 +24,14 @@ Inserting \cref{eqn:electrostatics:542} into Coulomb's law \cref{eqn:electrostat
 - \spacegrad \inv{4 \pi \epsilon} \int dV' \frac{\rho(\Bx')}{\Norm{\Bx - \Bx'}},
 \end{dmath}
 
-which implicitly provides the solution to the Poisson equation \cref{eqn:electrostatics:581}
+which implicitly provides the solution to the Poisson equation \cref{eqn:electrostatics_electricPotential:581}
 
-%\begin{dmath}\label{eqn:electrostatics:601}
-\boxedEquation{eqn:electrostatics:601}{
+%\begin{dmath}\label{eqn:electrostatics_poissonEquationSolution:601}
+\boxedEquation{eqn:electrostatics_poissonEquationSolution:601}{
 \phi(\Bx) = \inv{4 \pi \epsilon} \int dV' \frac{ \rho(\Bx') }{\Norm{\Bx - \Bx'}}.
 }
 %\end{dmath}
 
 \index{Laplacian}
-The solution \cref{eqn:electrostatics:601} could also have been obtained from the Green's function for the Laplacian
-\cref{eqn:helmholtzDerviationMultivector:100}.
+The solution \cref{eqn:electrostatics_poissonEquationSolution:601} could also have been obtained from the Green's function for the Laplacian
+\cref{eqn:helmholtzDerviationMultivectorSolution:100}.
