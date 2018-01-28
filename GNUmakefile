@@ -66,3 +66,9 @@ copy : $(HOME)/Dropbox/$(THISDIR)/$(THISBOOK).pdf
 
 $(HOME)/Dropbox/$(THISDIR)/$(THISBOOK).pdf : $(THISBOOK).pdf
 	cp $^ $@
+
+mmacells/mmacells.sty:
+	git clone https://github.com/jkuczm/mmacells
+
+mmacells.sty: mmacells/mmacells.sty
+	cp $^ $@

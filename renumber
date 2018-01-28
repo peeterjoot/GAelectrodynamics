@@ -295,8 +295,8 @@
 #../latex/bin/lgrep scalarVolumeElement.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl scalarVolumeElement.tex
 
-#../latex/bin/lgrep solutionOfLinearSystem.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl solutionOfLinearSystem.tex
+../latex/bin/lgrep solutionOfLinearSystem.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl solutionOfLinearSystem.tex
 
 #../latex/bin/lgrep sphericaldot.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl sphericaldot.tex
