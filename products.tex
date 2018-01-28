@@ -97,13 +97,79 @@ Summarizing \cref{eqn:products:1680} with our new operators, we write
 \end{aligned}
 }
 
-\index{polar representation}
-Two wedge product properties can be immediately deduced from this polar representation
+\makeexample{Products of two unit vectors.}{example:products:1860}{
+To develop some intuition about the vector product, let's consider product of two unit vectors \( \Ba, \Bb \) in the equilateral triangle of
+\cref{fig:exponentialVectorProduct:exponentialVectorProductFig1}, where
 
-\begin{itemize}
+\begin{dmath}\label{eqn:products:1880}
+\begin{aligned}
+\Ba &= \inv{\sqrt{2}} \lr{ \Be_3 + \Be_1 } = \Be_3 \exp\lr{ \Be_{31} \pi/4 } \\
+\Bb &= \inv{\sqrt{2}} \lr{ \Be_3 + \Be_2 } = \Be_3 \exp\lr{ \Be_{32} \pi/4 } \\
+\end{aligned}
+\end{dmath}
+
+\imageFigure{../figures/GAelectrodynamics/exponentialVectorProductFig1}{Equilateral triangle in \R{3}.}{fig:exponentialVectorProduct:exponentialVectorProductFig1}{0.3}
+
+The product of these vectors is
+
+\begin{dmath}\label{eqn:products:1900}
+\Ba \Bb
+=
+\inv{2} \lr{ \Be_3 + \Be_1 } \lr{ \Be_3 + \Be_2 }
+=
+\inv{2} \lr{ 1 + \Be_{32} + \Be_{13} + \Be_{12 } }
+=
+\inv{2} + \frac{\sqrt{3}}{2} \frac{\Be_{32} + \Be_{13} + \Be_{12 } }{\sqrt{3}}.
+\end{dmath}
+
+Let the bivector factor be designated
+
+\begin{dmath}\label{eqn:products:1920}
+j = \frac{\Be_{32} + \Be_{13} + \Be_{12 } }{\sqrt{3}}.
+\end{dmath}
+
+The reader can check (\cref{problem:products:2000})
+that \( j \) is a unit bivector (i.e. it squares to \( -1 \)), allowing us to write
+
+\begin{dmath}\label{eqn:products:1940}
+\Ba \Bb =
+\inv{2} + \frac{\sqrt{3}}{2} j
+= \cos(\pi/3) + j \sin(\pi/3)
+= \exp\lr{ j \pi/3 }.
+\end{dmath}
+
+Since both vector factors were unit length, this ``complex'' exponential has no leading scalar factor contribution from \( \Norm{\Ba} \Norm{\Bb} \).
+
+From the above analysis, we can also see that in this case, the product of two 0,2 multivectors was itself a 0,2 multivector.  We can see that by forming the product
+
+\begin{dmath}\label{eqn:products:1960}
+\Ba \Bb =
+\biglr{
+   \exp\lr{ -\Be_{31} \pi/4 } \Be_3 }
+\biglr{
+   \Be_3 \exp\lr{ \Be_{32} \pi/4 }
+}
+=
+\exp\lr{ -\Be_{31} \pi/4 }
+\exp\lr{ \Be_{32} \pi/4 },
+\end{dmath}
+
+so
+\begin{dmath}\label{eqn:products:1980}
+\exp\lr{ \Be_{13} \pi/4 }
+\exp\lr{ \Be_{32} \pi/4 } = \exp\lr{ j \pi/3 }.
+\end{dmath}
+
+Composition of two rotation operators has resulted in another rotation operator, but that result is in a different rotational plane, and through a different rotation angle.
+} % example
+
+\index{polar representation}
+Two wedge product properties can be immediately deduced from the polar representation of \cref{eqn:SimpleProducts2:1700}
+
+\begin{enumerate}
 \item \( \Bb \wedge \Ba = - \Ba \wedge \Bb \).
 \item \( \Ba \wedge (\alpha \Ba) = 0, \quad \forall \alpha \in \bbR \).
-\end{itemize}
+\end{enumerate}
 
 We have now had a few hints that the wedge product might be related to the cross product.  Given two vectors \( \Ba, \Bb \) both the wedge and the cross product contain a \( \Norm{\Ba} \Norm{\Bb} \sin \Delta \theta \) factor, and both the wedge and cross product are antisymmetric operators.
 The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = \Ba \cross \Bc + \Ba \cross \Bc + \cdots \).  To see whether this is the case for the wedge product, let's examine the coordinate expansion of the wedge product.  Let
@@ -155,7 +221,7 @@ The remaining grade 2 components are the wedge product, for which the coordinate
 \index{determinant!wedge product}
 The scalar factors can be written as \( 2 x 2 \) determinants
 
-\boxedEquation{eqn:SimpleProducts2:1320}{
+\boxedEquation{eqn:products:1320}{
 \Ba \wedge \Bb
 =
 \sum_{i < j}
@@ -167,9 +233,9 @@ b_i & b_j
 }
 
 It is now straightforward to show that the wedge product is distributive and bilinear (\cref{problem:products:bilinear}).
-It is also simple to use \cref{eqn:SimpleProducts2:1320} to show that \( \Bb \wedge \Ba = -\Ba \wedge \Bb \) and \( \Ba \wedge \Ba = 0 \).
+It is also simple to use \cref{eqn:products:1320} to show that \( \Bb \wedge \Ba = -\Ba \wedge \Bb \) and \( \Ba \wedge \Ba = 0 \).
 
-For \R{2} there is only one term in \cref{eqn:SimpleProducts2:1320}
+For \R{2} there is only one term in \cref{eqn:products:1320}
 
 \begin{dmath}\label{eqn:products:1720}
 \Ba \wedge \Bb
@@ -293,11 +359,11 @@ Maxwell equation (singular), and will be the starting point of all our electroma
 \index{colinear vectors!wedge}
 \makeproblem{Wedge product of colinear vectors.}{problem:SimpleProducts2:wedgecolinear}{
 Given \( \Bb = \alpha \Ba \), use
-\cref{eqn:SimpleProducts2:1320} to show that the wedge product of any pair of colinear vectors is zero.
+\cref{eqn:products:1320} to show that the wedge product of any pair of colinear vectors is zero.
 } % problem
 
 \makeproblem{Wedge product antisymmetry.}{problem:SimpleProducts2:1560}{
-Prove that the wedge product is antisymmetric using using \cref{eqn:SimpleProducts2:1320}.
+Prove that the wedge product is antisymmetric using using \cref{eqn:products:1320}.
 } % problem
 
 \makeproblem{Permutations of the \R{3} pseudoscalar}{problem:SimpleProducts2:permutationspseudoscalar}{
@@ -307,7 +373,7 @@ Show that each of the permutations of
 
 \makeproblem{Wedge product distributivity and linearity.}{problem:products:bilinear}{
 For vectors \( \Ba, \Bb, \Bc \) and \( \Bd \), and scalars \( \alpha, \beta \) use
-\cref{eqn:SimpleProducts2:1320} to show that
+\cref{eqn:products:1320} to show that
 
 \makesubproblem{}{problem:products:bilinear:a}
 
@@ -366,3 +432,8 @@ Note that these imply the wedge product also has the cross product filtering pro
 %\Ba \wedge \Ba = 0.
 %\end{dmath}
 %
+
+\makeproblem{Unit bivector.}{problem:products:2000}{
+Verify by explicit multiplication that the bivector of \cref{eqn:products:1920} squares to \( -1 \).
+} % problem
+
