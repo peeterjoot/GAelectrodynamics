@@ -79,7 +79,7 @@ In \R{3}, using \cref{thm:generalizedDot:tripleCross}, the rejection operation c
 
 \begin{dmath}\label{eqn:projectionAndRejection:1140}
 \Rej{\Bu}{\Bx}
-= \ucap \cross \lr{ \Bx \cross \ucap } \cdot \ucap.
+= \ucap \cross \lr{ \Bx \cross \ucap }.
 \end{dmath}
 
 To help establish some confidence with these new additions to our toolbox, here are a
@@ -155,6 +155,37 @@ This leaves
 =
 b \Be_3 + \frac{a}{2}( \Be_2 - \Be_1 ).
 \end{dmath}
+} % example
+
+\makeexample{Cylindrical velocity and acceleration.}{example:projectionAndRejection:1160}{
+In \cref{eqn:2dRotations:1280}, and \cref{eqn:2dRotations:1300} we found the cylindrical representation of the velocity and acceleration vectors associated with a radial parameterization \( \Br(r, \theta) = r \rcap(\theta) \).
+
+We can alternatively compute the radial and azimuthal components of these vectors in terms of their projective and rejective components
+
+\begin{dmath}\label{eqn:projectionAndRejection:1180}
+\begin{aligned}
+\Bv &= {\Bv \rcap } \rcap = {\Bv \cdot \rcap  + \Bv \wedge \rcap } \rcap \\
+\Ba &= {\Ba \rcap } \rcap = {\Ba \cdot \rcap  + \Ba \wedge \rcap } \rcap,
+\end{aligned}
+\end{dmath}
+
+so
+\begin{dmath}\label{eqn:projectionAndRejection:1200}
+\begin{aligned}
+\Bv \cdot \rcap &= r' \\
+\Bv \wedge \rcap &= r \omega \thetacap \wedge \rcap = \omega \thetacap \wedge \Br \\
+\Ba \cdot \rcap &= r'' - r \omega^2 \\
+\Ba \wedge \rcap &=
+\inv{r} \lr{ r^2 \omega }' \thetacap \wedge \rcap
+%=
+%\lr{ r^2 \omega }' \thetacap \wedge \inv{\Br}
+.
+\end{aligned}
+\end{dmath}
+
+We see that it is natural to introduce angular velocity and acceleration bivectors.
+These both lie in the \( \thetacap \wedge \rcap \) plane.
+Of course, it is also possible to substitute the cross product for the wedge product, but doing so requires the introduction of a normal direction that may not intrinsically be part of the problem (i.e. two dimensional problems).
 } % example
 
 In the GA literature the projection and rejection operations are usually written using the vector inverse

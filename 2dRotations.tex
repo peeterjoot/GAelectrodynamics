@@ -118,6 +118,93 @@ Given orthonormal vectors \( \ucap, \vcap \) and any vector in the plane of thes
 \end{equation}
 
 The sense of rotation for the rotation \( e^{ \ucap \vcap \theta} \) is opposite that of \( e^{\vcap \ucap \theta} \), which provides a first hint that bivectors can be characterized as having an orientation, somewhat akin to thinking of a vector as having a head and a tail.
+
+\makeexample{Velocity and acceleration in cylindrical coordinates.}{example:2dRotations:1180}{
+Complex exponential representations of rotations work very nicely for describing vectors in cylindrical coordinates.
+A radial vector can be written as
+
+\begin{dmath}\label{eqn:2dRotations:1200}
+\Br = r \rcap,
+\end{dmath}
+
+as illustrated in \cref{fig:radialVectorCylindrical:radialVectorCylindricalFig1}.
+The cylindrical representation of the radial and azimuthal unit vector are simply
+
+\imageFigure{../figures/GAelectrodynamics/radialVectorCylindricalFig1}{Radial vector in cylindrical coordinates.}{fig:radialVectorCylindrical:radialVectorCylindricalFig1}{0.3}
+
+\begin{dmath}\label{eqn:2dRotations:1220}
+\begin{aligned}
+\rcap &= \Be_1 e^{i\theta} =
+\Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } = \Be_1 \cos\theta + \Be_2 \sin\theta \\
+\thetacap &= \Be_2 e^{i\theta} =
+\Be_2 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } = \Be_2 \cos\theta - \Be_1 \sin\theta,
+\end{aligned}
+\end{dmath}
+
+where \( i = \Be_{12} \) is the unit bivector for the x-y plane.  We can show that these unit vectors are orthogonal easily
+
+\begin{dmath}\label{eqn:2dRotations:1340}
+\rcap \cdot \thetacap
+= \gpgradezero{ \rcap \thetacap }
+= \gpgradezero{ \lr{ \Be_1 e^{i \theta}} \lr{ e^{-i\theta} \Be_2} }
+= \gpgradezero{ \Be_1 \Be_2 }
+= 0,
+\end{dmath}
+
+since the scalar grade selection of a bivector is zero.
+
+We can find the
+velocity and acceleration by taking time derivatives
+\begin{dmath}\label{eqn:2dRotations:1240}
+\begin{aligned}
+\Bv &= r' \rcap + r \rcap' \\
+\Ba &= r'' \rcap + 2 r' \rcap' + r \rcap'',
+\end{aligned}
+\end{dmath}
+
+but to make these more meaningful want to evaluate the \( \rcap, \thetacap \) derivatives explicitly.  Those are
+\begin{equation}\label{eqn:2dRotations:1260}
+\begin{aligned}
+\rcap' &= \lr{ \Be_1 e^{i \theta} }' = \Be_1 \Be_1 \Be_2 e^{i\theta} \theta' = \Be_2 e^{i\theta} \theta' = \thetacap \omega \\
+\thetacap' &= \lr{ \Be_2 e^{i \theta} }' = \Be_2 \Be_1 \Be_2 e^{i\theta} \theta' = -\Be_1 e^{i\theta} \theta' = -\rcap \omega,
+\end{aligned}
+\end{equation}
+
+where \( \omega = d\theta/dt \).  The velocity and acceleration vectors can now be written explicitly in terms of radial and azimuthal components.  The velocity is
+
+\begin{dmath}\label{eqn:2dRotations:1280}
+\Bv = r' \rcap + r \omega \thetacap,
+\end{dmath}
+
+and the acceleration is
+
+\begin{dmath}\label{eqn:2dRotations:1300}
+\Ba
+= r'' \rcap + 2 r' \omega \thetacap + r (\omega \thetacap)'
+= r'' \rcap + 2 r' \omega \thetacap + r \omega' \thetacap - r \omega^2 \rcap,
+\end{dmath}
+
+or
+\begin{dmath}\label{eqn:2dRotations:1320}
+\Ba
+= \rcap \lr{ r'' - r \omega^2 }
++ \inv{r} \thetacap \lr{ r^2 \omega }'.
+\end{dmath}
+
+Using \cref{eqn:2dRotations:1220}, we also have the option of factoring out the rotation operation from the position vector or any of its derivatives
+
+\begin{dmath}\label{eqn:2dRotations:1360}
+\begin{aligned}
+\Br &= \lr{ r \Be_1 } e^{i \theta } \\
+\Bv &= \lr{ r' \Be_1 + r \omega \Be_2 } e^{i \theta } \\
+\Ba &= \lr{ \lr{ r'' - r \omega^2 } \Be_1 + \inv{r} \lr{ r^2 \omega }' \Be_2 } e^{i\theta}.
+\end{aligned}
+\end{dmath}
+
+In particular,
+for uniform circular motion, each of the position, velocity and acceleration vectors can be represented by a vector that is fixed in space, subsequently rotated by an angle \( \theta \).
+} % example
+
 \makeproblem{\R{2} rotations.}{problem:2dRotations:1}{
 Using familiar methods, such as rotation matrices, show that the counterclockwise and clockwise rotations of
 \cref{eqn:2dRotations:280} are given by
