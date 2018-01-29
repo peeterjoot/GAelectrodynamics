@@ -94,14 +94,14 @@
 #../latex/bin/lgrep generalRotation.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalRotation.tex
 
-#../latex/bin/lgrep generalizedDot.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
+../latex/bin/lgrep generalizedDot.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
 
 #../latex/bin/lgrep generalizedDot_bivectorDot.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedDot_bivectorDot.tex
 
-#../latex/bin/lgrep generalizedDot_vectorBivector.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl generalizedDot_vectorBivector.tex
+../latex/bin/lgrep generalizedDot_vectorBivector.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl generalizedDot_vectorBivector.tex
 
 #../latex/bin/lgrep generalizedWedge.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
@@ -283,8 +283,8 @@ perl -p -i ../latex/bin/latexRegex.pl products.tex
 #../latex/bin/lgrep reverse.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl reverse.tex
 
-#../latex/bin/lgrep reverseDefined.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl reverseDefined.tex
+../latex/bin/lgrep reverseDefined.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl reverseDefined.tex
 
 #../latex/bin/lgrep ringField.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl ringField.tex

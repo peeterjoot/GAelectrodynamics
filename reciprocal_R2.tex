@@ -1,4 +1,8 @@
-
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
 How are the reciprocal frame vectors computed?  While these vectors have a natural GA representation, this is not intrinsically a GA problem, and can be solved with standard linear algebra, using a matrix inversion.
 For example, given a 2D basis \( \setlr{ \Bx_1, \Bx_2 } \), the reciprocal basis can be assumed to have a coordinate representation in the original basis
 
@@ -87,3 +91,4 @@ So for this fixed oblique \R{2} basis, the reciprocal frame is just
 The vector \( \Bx^1 \) is obtained by rotating \( \Bx_2 \) by \( -\pi/2 \), and rescaling it by the area of the parallelogram spanned by \( \Bx_1, \Bx_2 \).
 The vector \( \Bx^2 \) is obtained with the same scaling plus a rotation of \( \Bx_1 \) by \( \pi/2 \).
 
+%}

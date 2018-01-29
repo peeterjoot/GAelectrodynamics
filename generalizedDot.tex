@@ -2,6 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+%{
 
 In general the product of two k-vectors is a multivector, with a selection of different grades.
 For example, the product of two bivectors may have grades 0, 2, or 4
@@ -47,3 +48,89 @@ and if \( A, B \) are a k-vectors with grades \( r \ne s \) respectively, then t
 A \cdot B = \gpgrade{ A B }{\Abs{r - s}}.
 \end{dmath}
 
+\makeexample{Multivector dot products.}{example:generalizedDot:661}{
+
+The most common and useful multivector dot products are for pairs of multivectors that are each entirely a specific grade, such as a vector-bivector dot product
+
+\begin{dmath}\label{eqn:generalizedDot:681}
+\lr{ \Be_1 + 2 \Be_2 } \cdot \lr{ \Be_{12} + \Be_{23} }
+=
+\gpgradeone{
+   \lr{ \Be_1 + 2 \Be_2 } \lr{ \Be_{12} + \Be_{23} }
+}
+=
+\Be_2 - 2 \Be_1 + 2 \Be_3,
+\end{dmath}
+
+or a bivector-trivector dot product
+\begin{dmath}\label{eqn:generalizedDot:701}
+\lr{ \Be_1 + 2 \Be_2 } \cdot \Be_{123}
+=
+\gpgradetwo{
+\lr{ \Be_1 + 2 \Be_2 } \Be_{123}
+}
+=
+\Be_{23} + 2 \Be_{31}.
+\end{dmath}
+
+Should the products be of mixed grade, then we sum all the individual dot products
+\begin{dmath}\label{eqn:generalizedDot:721}
+\lr{ 1 + \Be_1 + 2 \Be_{23 } } \cdot \lr{ \Be_2 - \Be_{31} }
+=
+\gpgradeone{
+1 \Be_2
+}
++
+\gpgradezero{
+\Be_{1} \Be_2
+}
++
+2
+\gpgradeone{
+\Be_{23} \Be_2
+}
+-\gpgradetwo{
+1 \Be_{31}
+}
+-
+\gpgradeone{
+\Be_{1} \Be_{31}
+}
+-
+2
+\gpgradezero{
+\Be_{23} \Be_{31}
+}
+=
+\Be_2
+-
+2 \Be_3
++
+\Be_{13}
++ \Be_3.
+\end{dmath}
+} % example
+
+Unfortunately, the notation for the multivector dot product is not standardized.
+In particular, some authors \citep{dorst2007gac} prefer left and right contraction operations that omit the absolute value in the grade selections.  A
+dot product like operator for scalar selection is also common.
+
+\makedefinition{Alternate dot products.}{dfn:generalizedDot:641}{
+
+The left and right contraction operations are respectively defined as
+\begin{equation*}
+\begin{aligned}
+A \rfloor B &= \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{j - i} \\
+A \lfloor B &= \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i - j},
+\end{aligned}
+\end{equation*}
+
+where any selection of a negative grade is taken to be zero.  The scalar product is defined as
+
+\begin{equation*}
+A \conj B = \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{0}.
+\end{equation*}
+} % definition
+
+In an attempt to avoid inundating the reader with too many new operators, this book will stick to the dot, wedge and grade selection operators.  However, these are common enough that they deserve mentioning.
+%}

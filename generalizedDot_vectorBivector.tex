@@ -1,4 +1,8 @@
-
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
 
 An important example of the generalized dot product is the dot product of a vector and bivector.
 Unlike the dot product of two vectors, a vector-bivector dot product is order dependent.
@@ -19,9 +23,7 @@ A bivector formed from the product of two normal vectors \( B = \Ba \Bb, \, \Ba 
 \alpha \Norm{\Ba}^2 \Bb - \beta \Norm{\Bb}^2 \Ba.
 \end{dmath}
 
-There is a direct relationship between the
-dot product of a vector and wedge of two vectors with a familiar equivalent in \R{3} vector algebra.
-That expansion is
+It is often useful to be able to expand a vector-bivector dot product.  A useful identity for such an expansion is
 
 \maketheorem{Dot product of vector and wedge product.}{thm:generalizedDot:wedgeDotDistribution}{
 The dot product of a vector and a wedge product of two vectors distributes as
@@ -35,7 +37,22 @@ The dot product of a vector and a wedge product of two vectors distributes as
 \end{equation*}
 } % theorem
 
-There are (somewhat tricky) coordinate free ways to prove this theorem, but a dumber simple expansion in coordinates also does the job.
+Before proving this theorem, let's take a look at what it implies.  This shows that only vectors that lie in the span of the plane represented by the bivector will result in a non-zero vector-bivector dot product.  We also know that when a vector that lies entirely in the span of a bivector is multiplied by that bivector, the result is rotated by \( \pm \pi/2 \).  This means that a vector-bivector dot product is normal to the vector that is dotted with the bivector.  This can also be seen algebraically since
+
+\begin{dmath}\label{eqn:generalizedDot_vectorBivector:1120}
+\Ba \cdot \lr{ \Ba \cdot \lr{ \Bb \wedge \Bc }}
+=
+\Ba \cdot \lr{ ( \Ba \cdot \Bb ) \Bc -( \Ba \cdot \Bc ) \Bb }
+=
+\lr{ \Ba \cdot \Bc } \lr{ \Ba \cdot \Bb } - \lr{ \Ba \cdot \Bc } \lr{ \Ba \cdot \Bb }
+= 0.
+\end{dmath}
+
+The net effect of a vector-bivector dot product is to select only components of the vector that lie in the plane of the bivector, and then to rotate those by \( \pm \pi/2 \) in that plane, plus scale that rotated vector by the magnitude of bivector.
+
+There are (somewhat tricky) coordinate free ways to prove
+\cref{thm:generalizedDot:wedgeDotDistribution}
+, but a dumber simple expansion in coordinates also does the job.
 
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:681}
 \begin{aligned}
@@ -88,7 +105,9 @@ Plugging \cref{eqn:generalizedDot_vectorBivector:980} back into \cref{eqn:genera
 - \lr{ \Ba \cdot \Bc } \Bb.
 \end{dmath}
 
-The LHS of \cref{eqn:generalizedDot_vectorBivector:1060} might look familiar as it is related to the \R{3} triple cross product.
+The RHS of \cref{eqn:generalizedDot_vectorBivector:1060} shows that the vector-bivector dot product has the following relation to the
+\R{3} triple cross product
+
 \maketheorem{}{thm:generalizedDot:tripleCross}{
 For vectors in \R{3}, the dot product of a vector and vector wedge product can be expressed as a triple cross product
 \begin{equation*}
@@ -136,3 +155,4 @@ This multivector has a pseudoscalar (grade 3) component, and a vector component,
 \lr{ \Bb \cross \Bc } \cross \Ba.
 \end{equation}
 
+%}
