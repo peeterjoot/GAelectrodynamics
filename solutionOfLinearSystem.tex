@@ -77,7 +77,7 @@ u_3 & v_3 & w_3 \\
 
 which is exactly the ratio of determinants found in the Cramer's rule solution of this problem.  We get Cramer's rule for free due to the antisymmetric structure of the wedge product.
 
-Cramer's rule doesn't apply to cases where the dimension of the space exceeds the number of variables, but the wedge product solution does not have that restriction.  As an example, consider the two variable system \cref{eqn:solutionOfLinearSystem:1160} for vectors in \R{4} as follows
+Cramer's rule doesn't apply to cases where the dimension of the space exceeds the number of variables, but a wedge product solution does not have that restriction.  As an example, consider the two variable system \cref{eqn:solutionOfLinearSystem:1160} for vectors in \R{4} as follows
 
 \begin{equation}\label{eqn:solutionOfLinearSystem:1280}
 \Ba =
@@ -112,8 +112,7 @@ geometric algebra module from
 https://github.com/jlaragonvera/Geometric-Algebra.
 }
 
-\begin{mmaCell}[moredefined={a, b, c, iab, aWedgeB, cWedgeB, aWedgeC, \
-x, y, e, OuterProduct, GeometricProduct}]{Input}
+\begin{mmaCell}[moredefined={a, b, c, iab, aWedgeB, cWedgeB, aWedgeC, x, y, e, OuterProduct, GeometricProduct}]{Input}
 a = e[1] + e[2];
 b = e[1] + e[4];
 c = e[1] + 2 e[2] - e[4];
@@ -130,11 +129,11 @@ Which gives
 \begin{aligned}
 \Ba \wedge \Bb &= \Be_{21} + \Be_{14} + \Be_{24} \\
 \Bc \wedge \Bb &= 2 \Be_{21} + 2 \Be_{14} + 2 \Be_{24} \\
-\Ba \wedge \Bc &= -\Be_{21} - \Be_{14} - \Be_{24},
+\Ba \wedge \Bc &= -\Be_{21} - \Be_{14} - \Be_{24} \\
+x &= 2 \\
+y &= -1.
 \end{aligned}
 \end{dmath}
-
-so \( x = 2 \) and \( y = -1 \).
 
 \subsubsection{Example: intersection of two lines.}
 

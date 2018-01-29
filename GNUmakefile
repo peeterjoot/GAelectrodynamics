@@ -57,6 +57,9 @@ alex:
 	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.V$(VER).pdf
 	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
 
+tag:
+	git tag GAelectrodynamics.V$(VER).pdf
+
 %.sp : %.tex
 	spellcheck $^
 	touch $@
