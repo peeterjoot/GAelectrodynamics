@@ -2,66 +2,117 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+In \cref{eqn:2dRotations:300} and \cref{eqn:2dRotations:3} we saw that multiplication by a unit pseudoscalar for a given plane generates normal vectors.  For the x-y plane with \( i = \Be_{12} \), these normal relations can be summarized in polar form as
+
+\begin{equation}\label{eqn:dual:1620}
+\begin{aligned}
+\Br &= r \Be_1 e^{i\theta} \\
+\Br i &= r \Be_2 e^{i\theta} \\
+i \Br &= -r \Be_2 e^{i\theta}.
+\end{aligned}
+\end{equation}
+
+Both \( i \Br \) and \( \Br i \) are perpendicular to \( \Br \) with the same magnitude.
+The direction they point depends on the orientation of the pseudoscalar chosen.  For example,
+had we used an oppositely oriented pseudoscalar \( i = \Be_2 \Be_1 \), these normal vectors would each have the opposite direction.
+
+In three dimensions, pseudoscalar multiplication maps bivectors to their normals, or vectors to the bivectors representing the planes that they are normal to.  For example, the unit vectors and bivectors are related in the following fashion
+
+\begin{equation}\label{eqn:products:1580}
+\begin{aligned}
+\Be_2 \Be_3 &= I \Be_1 \qquad I \Be_2 \Be_3 = -\Be_1 \\
+\Be_3 \Be_1 &= I \Be_2 \qquad I \Be_3 \Be_1 = -\Be_2 \\
+\Be_1 \Be_2 &= I \Be_3 \qquad I \Be_1 \Be_2 = -\Be_3.
+\end{aligned}
+\end{equation}
+
+For example, with \( \Br = a \Be_1 + b \Be_2 \), we have
+
+\begin{dmath}\label{eqn:dual:1640}
+\Br I
+=
+\lr{ a \Be_1 + b \Be_2 } \Be_{123}
+=
+a \Be_{23} + b \Be_{31}
+=
+\Be_3 \lr{ -a \Be_{2} + b \Be_{1} }.
+\end{dmath}
+
+Here \( \Be_3 \) was factored out of the resulting bivector, leaving two factors both perpendicular to the original vector.  Every vector that lies in the span of the plane represented by this bivector is perpendicular to the original vector.
+This is illustrated in figure FIXME.
+
+Using pseudoscalar multiplication to produce normal subspaces
+is referred to as a duality transformation.
 
 \index{dual}
 \makedefinition{Dual}{dfn:definitions:dual}{
-The dual of a k-vector \( x \) is an (n-k)vector of the same magnitude containing all the basis vectors not in \( x \).
-For the spaces used in this book the dual of any multivector can be found by multiplication with a pseudoscalar for a subspace containing that multivector.
+Given a multivector \( M \), the dual of a multivector \( M \) is designated \( M^\conj \) and has the value \( M^\conj = M I \), where
+\( I \) is a unit pseudoscalar for the space.
 } % definition
 
-Such a pseudoscalar multiplication is referred to as a duality transformation, and can often be interpreted as an operation that produces a normal.
-\footnote{Our definition of dual is somewhat loose mathematically.  There are tricky aspects to consider for non-Euclidean spaces that will be ignored here.}
+Some notes on duality
 
-The dual vectors to the \R{2} basis vectors are those same vectors rotated by \( \pi/2 \)
+\begin{itemize}
+\item If \( A \) is a non-scalar k-vector, none of the vector factors of \( A \) and \( A^\conj \) are common.
+\item In a sense that can be defined more precisely once the general dot product operator is defined, the dual to a given k-vector \( A \) represents a \((N-k)\)-vector object that is normal to \( A \).
+\item The dual of any scalar is a pseudoscalar, whereas the dual of a pseudoscalar is a scalar.
+\item Some authors use different sign conventions for duality, in particular, designating the dual as \( M^\conj = M I^{-1} \).
+\item For non-Euclidean spaces, in particular ``null spaces'' where the square of vectors can be null, a different definition of duality may be required.
+\end{itemize}
 
-\begin{dmath}\label{eqn:dual:360}
-\begin{aligned}
-\Be_1 \Be_{12} &= \Be_2 \\
-\Be_2 \Be_{12} &= -\Be_1,
-\end{aligned}
-\end{dmath}
+%%%As a multivector may not have an obvious geometric interpretation, a geometric
+%%%interpretation of a general duality transformation may not be any more obvious.
+%%%For example in \R{3}, given \( M = 1 + \Be_{23} - \Be_{123} \), its dual is
+%%%
+%%%\begin{dmath}\label{eqn:dual:460}
+%%%M I
+%%%=
+%%%\lr{ 1 + \Be_{23} - \Be_{123} } I
+%%%=
+%%%I - \Be_1 + 1.
+%%%\end{dmath}
 
-with an inverse duality transformation given by the multiplication with \( \Be_{12}^{-1} = \Be_{21} \)
-
-\begin{dmath}\label{eqn:dual:440}
-\begin{aligned}
-\Be_2 \Be_{21} &= \Be_1 \\
--\Be_1 \Be_{21} &= \Be_2.
-\end{aligned}
-\end{dmath}
-
-The \R{3} duals to the basis vectors are bivectors
-
-\begin{dmath}\label{eqn:dual:380}
-\begin{aligned}
-\Be_1 \Be_{123} &= \Be_{23} \\
-\Be_2 \Be_{123} &= \Be_{31} \\
-\Be_3 \Be_{123} &= \Be_{12},
-\end{aligned}
-\end{dmath}
-
-whereas the duals to those bivectors with respect to the pseudoscalar \( I^{-1} = \Be_{321} \) are the original basis vectors
-
-\begin{dmath}\label{eqn:dual:400}
-\begin{aligned}
-\Be_{23} \Be_{321} &= \Be_1 \\
-\Be_{31} \Be_{321} &= \Be_2 \\
-\Be_{12} \Be_{321} &= \Be_3.
-\end{aligned}
-\end{dmath}
-
-In a sense that can be defined more precisely once the general dot product operator is defined, the dual to a given k-vector \( A \) represents a \((N-k)\)-vector object that is normal to \( A \).
-
-The dual of any scalar is a pseudoscalar, whereas the dual of a pseudoscalar is a scalar.
-
-A duality transformation can also be applied to multivectors.
-For example in \R{2}, given \( M = 1 + i\), its dual is
-
-\begin{dmath}\label{eqn:dual:460}
-M i = i - 1.
-\end{dmath}
-
-Because this particular multivector had a complex structure the duality operation can be interpreted as a rotation of a vector.
-How to geometrically interpret the duality transformation of a general multivector is not obvious.
+%R^2 : M = 1 + i. M^* = i - 1.
+%Because this particular multivector had a complex structure the duality operation can be interpreted as a rotation of a vector.
 
 %When working with multivector integrals it will be useful to consider the differential volume element a volume weighted pseudoscalar.
+%The dual of a k-vector \( X \) is an (n-k)vector, and can be thought of as an object of the same magnitude containing all the
+%vectors that are not factors of \( X \).
+
+%%%The dual vectors to the \R{2} basis vectors are those same vectors rotated by \( \pi/2 \)
+%%%
+%%%\begin{dmath}\label{eqn:dual:360}
+%%%\begin{aligned}
+%%%\Be_1 \Be_{12} &= \Be_2 \\
+%%%\Be_2 \Be_{12} &= -\Be_1,
+%%%\end{aligned}
+%%%\end{dmath}
+%%%
+%%%with an inverse duality transformation given by the multiplication with \( \Be_{12}^{-1} = \Be_{21} \)
+%%%
+%%%\begin{dmath}\label{eqn:dual:440}
+%%%\begin{aligned}
+%%%\Be_2 \Be_{21} &= \Be_1 \\
+%%%-\Be_1 \Be_{21} &= \Be_2.
+%%%\end{aligned}
+%%%\end{dmath}
+%%%
+%%%The \R{3} duals to the basis vectors are bivectors
+%%%
+%%%\begin{dmath}\label{eqn:dual:380}
+%%%\begin{aligned}
+%%%\Be_1 \Be_{123} &= \Be_{23} \\
+%%%\Be_2 \Be_{123} &= \Be_{31} \\
+%%%\Be_3 \Be_{123} &= \Be_{12},
+%%%\end{aligned}
+%%%\end{dmath}
+%%%
+%%%whereas the duals to those bivectors with respect to the pseudoscalar \( I^{-1} = \Be_{321} \) are the original basis vectors
+%%%
+%%%\begin{dmath}\label{eqn:dual:400}
+%%%\begin{aligned}
+%%%\Be_{23} \Be_{321} &= \Be_1 \\
+%%%\Be_{31} \Be_{321} &= \Be_2 \\
+%%%\Be_{12} \Be_{321} &= \Be_3.
+%%%\end{aligned}
+%%%\end{dmath}
