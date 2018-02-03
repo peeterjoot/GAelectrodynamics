@@ -53,11 +53,25 @@ The significance of \cref{thm:SimpleProducts2:wnormalfactorize} is that the squa
 which in turn means that exponentials with wedge product arguments can be used as rotation operators.
 
 \makeproblem{\R{3} bivector factorization.}{problem:normalFactorization:1}{
-Find a normal factorization for the \R{3} bivector \( \Be_{12} + \Be_{23} + \Be_{31} \).
+Find some normal factorizations for the \R{3} bivector \( \Be_{12} + \Be_{23} + \Be_{31} \).
 } % problem
 
 \makeanswer{problem:normalFactorization:1}{
-\begin{equation*}
-\lr{ \Be_1 + \Be_2 - 2 \Be_3 } \frac{ \Be_2 - \Be_1 }{2}.
-\end{equation*}
+\begin{dmath*}
+\Be_{12} +
+\Be_{23} +
+\Be_{31}
+= \lr{ \Be_1 + \Be_2 - 2 \Be_3 } \frac{ \Be_2 - \Be_1 }{2}
+= \frac{ \Be_3 - \Be_2 }{2} \lr{ 2 \Be_1 - \Be_2 - \Be_3 }.
+\end{dmath*}
+
+The respective parallelogram representations of these bivector factorizations are illustrated in
+\cref{fig:bivectorFactorization:bivectorFactorizationFig1}, showing the bivectors face on, and from a side view that shows they are coplanar.
+
+% \imageTwoFigures{path1}{path2}{fancy plots}{fig:blah}{scale=0.3}
+\imageTwoFigures
+{../figures/GAelectrodynamics/bivectorFactorizationFig2}
+{../figures/GAelectrodynamics/bivectorFactorizationFig1}
+{Two equivalent bivector factorizations.}
+{fig:bivectorFactorization:bivectorFactorizationFig1}{scale=0.3}
 } % answer
