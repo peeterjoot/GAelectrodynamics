@@ -1,3 +1,5 @@
+- mmacells.sty dependency isn't properly in the make sequence.
+
 - example for reflection.  Do this one in 3d.
 
 - Dr Wolfgang Lindner:

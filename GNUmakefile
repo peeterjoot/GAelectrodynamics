@@ -41,6 +41,9 @@ maxwells.pdf :: $(shell cat spellcheckem.txt)
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 
+# FIXME: this should be an automatic dependency, but currently isn't.
+#$(THISBOOK).pdf :: mmacells.sty
+
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
 VER := $(shell grep Version .revinfo/lastCommitBook.tex | sed 's/Version //')
