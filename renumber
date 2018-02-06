@@ -109,8 +109,8 @@ perl -p -i ../latex/bin/latexRegex.pl generalizedDot_vectorBivector.tex
 #../latex/bin/lgrep generalizedWedgeProblems.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedWedgeProblems.tex
 
-#../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
+../latex/bin/lgrep gradientGreensFunctionEuclidean.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl gradientGreensFunctionEuclidean.tex
 
 #../latex/bin/lgrep greensTheorem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl greensTheorem.tex
@@ -352,3 +352,5 @@ perl -p -i ../latex/bin/latexRegex.pl solutionOfLinearSystem.tex
 #../latex/bin/lgrep wedgeProductArea.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl wedgeProductArea.tex
 
+../latex/bin/lgrep helmholtzGreens.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl helmholtzGreens.tex

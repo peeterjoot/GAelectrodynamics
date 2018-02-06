@@ -36,9 +36,12 @@ generalizedDot_vectorBivector.tex
 generalizedWedge.tex
 generalizedWedgeProblems.tex
 gradientGreensFunctionEuclidean.tex
+gradientGreensFunctionProof.tex
+greensFunctionLaplacian.tex
 greensTheorem.tex
 helmholtzDerviationMultivectorSolution.tex
 helmholtzDerviationMultivectorStatement.tex
+helmholtzGreens.tex
 inMatter.tex
 isotropicMaxwells.tex
 landauEasy.tex
