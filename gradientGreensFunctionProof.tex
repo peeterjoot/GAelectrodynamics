@@ -10,7 +10,7 @@ First, let's check explicitly that the
 (bivector) curl of the Green's function must be zero for all
 points \( \Bx \ne \Bx' \)
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:140}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:140}
 S_n (\spacegrad \wedge G)
 =
 \frac{\spacegrad \wedge (\Bx-\Bx')}{\Norm{\Bx - \Bx'}^{n}}
@@ -24,7 +24,7 @@ S_n (\spacegrad \wedge G)
 
 However,
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:160}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:160}
 \spacegrad \wedge (\Bx-\Bx')
 =
 \spacegrad \wedge \Bx
@@ -40,7 +40,7 @@ However,
 
 Next consider the divergence of the Green's function for points \( \Bx \ne \Bx' \).
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:120}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:120}
 S_n \spacegrad \cdot G
 =
 \spacegrad \cdot \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^n}
@@ -50,19 +50,19 @@ S_n \spacegrad \cdot G
 
 However, the gradient of \( 1/\Norm{\Bx - \Bx'}^m \), for points \( \Bx \ne \Bx' \) is
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:100}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:100}
 \spacegrad \inv{\Norm{\Bx - \Bx'}^m}
 =
 -\frac{m}{2} \sum_{k,j} \frac{e_k \partial_k (\Bx_j - \Bx_j')(\Bx_j - {\Bx_j}')}{\Norm{\Bx - \Bx'}^{m+2}}
 =
--\frac{m}{2} 2 \frac{e_k (\Bx_j - \Bx_j') \delta_{k j} }{\Norm{\Bx - \Bx'}^{m+2}}
+-\sum_{j,k} \frac{m}{2} 2 \frac{e_k (\Bx_j - \Bx_j') \delta_{k j} }{\Norm{\Bx - \Bx'}^{m+2}}
 =
 -m \frac{ \Bx - \Bx'}{\Norm{\Bx - \Bx'}^{m+2}}.
 \end{dmath}
 
 so everywhere that \( \Bx \ne \Bx' \)
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:340}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:340}
 S_n \spacegrad \cdot G
 =
 \frac{n}{\Norm{\Bx - \Bx'}^{n}} + \lr{ -n \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^{n+2} } \cdot \lr{ \Bx - \Bx'} }
@@ -74,7 +74,7 @@ Finally, the fundamental theorem of (geometric) calculus, is applied to the
 weighted convolution of the Green's function with the
 (bidirectionally acting) gradient
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:60}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:60}
    \int_V G(\Bx,\Bx') d^n \Bx' \lrgrad' F(\Bx')
 =
 \int_V dV' \lr{G(\Bx,\Bx') I \lgrad'} F(\Bx')
@@ -94,7 +94,7 @@ The
 pseudoscalar \( I \) either commutes or anticommutes with vectors according to the dimension of the space.
 In particular
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:360}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:360}
 \begin{aligned}
 \Bn I &= (-1)^{n-1} I \Bn \\
 G I &= (-1)^{n-1} I G,
@@ -103,7 +103,7 @@ G I &= (-1)^{n-1} I G,
 
 so
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:80}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:80}
 {
 \color{Maroon}
 \int_{\partial V} G(\Bx,\Bx') d^{n-1} \Bx' F(\Bx')
@@ -116,7 +116,7 @@ so
 
 The absolute limit of this boundary integral is bounded by
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:380}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:380}
 S_n \Norm{ \int_{\partial V} G(\Bx,\Bx') d^{n-1} \Bx' F(\Bx') }
 = S_n \Norm{ \int_{\partial V} dA' G(\Bx,\Bx') \Bn F(\Bx') }
 \le S_n \int_{\partial V} dA' \Norm{ G(\Bx,\Bx') \Bn F(\Bx') }
@@ -127,14 +127,14 @@ S_n \Norm{ \int_{\partial V} G(\Bx,\Bx') d^{n-1} \Bx' F(\Bx') }
 
 so a sufficient limit on \( F \) to kill off this surface integral is given by
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:200}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:200}
 \lim_{\Bx' \rightarrow \infty}
 \frac{ \Norm{F(\Bx')}}{\Norm{\Bx - \Bx'}^{n-1} } \rightarrow 0.
 \end{dmath}
 
 This leaves
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:220}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:220}
 %{
 %\color{DarkBlue}
 \int_V G(\Bx,\Bx') d^n \Bx' \lr{ \rgrad' F(\Bx') }
@@ -149,7 +149,7 @@ This leaves
 
 The RHS is zero everywhere that \( \Bx \ne \Bx' \) so it can be restricted to a spherical ball around \( \Bx \).
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:240}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:240}
 {
 \color{DarkOliveGreen}
 \int_V \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'} F(\Bx')
@@ -177,7 +177,7 @@ where it was assumed that \( G \) has sufficient continuity for the mean value t
 With an additional assumption that \( F \) is sufficiently well behaved in this region to be pulled out of the limit,
 the Fundamental theorem can be applied over the infinitesimal hypersphere centred on \( \Bx \)
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:400}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:400}
 {
 \color{DarkOliveGreen}
 \int_V \lr{G(\Bx,\Bx') d^n \Bx' \lgrad'} F(\Bx')
@@ -219,7 +219,7 @@ F(\Bx).
 Rearranging for \( F \) provides the desired result
 %This is essentially a divergence integral without assuming that the gradient commutes with the Green's function in this infinitesimal region.
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:280}
+\begin{dmath}\label{eqn:gradientGreensFunctionProof:280}
 F(\Bx)
 =
 (-1)^{n-1} \inv{I}

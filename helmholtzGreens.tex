@@ -34,13 +34,14 @@
 %% \citep{griffiths1999introduction}
 %
 \paragraph{The goal.}
+\label{chap:helmholtzGreens}
 
 The Helmholtz equation to solve is
 \begin{dmath}\label{eqn:helmholtzGreens:20}
 \lr{ \spacegrad^2 + k^2 } f(\Bx) = u(\Bx).
 \end{dmath}
 
-To solve using the 
+To solve using the
 Green's function of \cref{thm:gradientGreensFunctionEuclidean:3}, we require
 
 \begin{dmath}\label{eqn:helmholtzGreens:80}
@@ -62,7 +63,7 @@ for points \( \Bx \ne \Bx' \), (i.e. \( r = \Norm{\Bx - \Bx'} \ne 0 \)), working
 \inv{r^2} \frac{d}{dr} \lr{ r^2 \lr{ \frac{i k r}{r} - \inv{r^2} } e^{ i k r } }
 + \frac{k^2}{r} e^{i k r}
 =
-\inv{r^2} \frac{d}{dr} \lr{ \lr{ r i k - 1 } e^{ i k r }} 
+\inv{r^2} \frac{d}{dr} \lr{ \lr{ r i k - 1 } e^{ i k r }}
 + \frac{k^2}{r} e^{i k r}
 =
 \inv{r^2} \lr{ \cancel{ i k}  + \lr{ r i k - \cancel{ 1 } } i k } e^{ i k r}
@@ -199,7 +200,7 @@ Putting everything back together we have
 \left(
 (-i k \epsilon + 1)e^{i k \epsilon} - 1
 +\left( i k \epsilon - 1 \right) e^{i k \epsilon}
-\right) 
+\right)
 =
 \lim_{\epsilon \rightarrow 0}
 -f(\Bx^\conj)
