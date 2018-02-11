@@ -2,67 +2,204 @@
 % Copyright © 2016 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+%{
 \index{Green's function}
 
-\subsection{Introduction.}
+\subsection{Motivation.}
 
-A fundamental problem in electromagnetism is finding the fields or potentials associated with a given charge or current distribution.  We will see that the GA formulation of the potential problem in the frequency domain has the form of a Helmholtz equation
+We will now introduce Green's functions, which provide a general method of solving many of the linear differential equations that will be encountered in electromagnetism.
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:20}
-\lr{ \spacegrad^2 + k^2 } A(\Bx) = J(\Bx),
+One such linear differential equation is the inhomogeneous wave equation
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:162}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } A(\Bx, t) = B(\Bx, t)
 \end{dmath}
 
-where \( A, J \) are (complex) multivector potentials, and the field problem in the frequency domain is
+The time harmonic (frequency domain) representation of the wave equation can be found by assuming a that fixed frequency solution exists.
+In complex notation, that means that we can assume that all sources and fields have a complex exponential time dependence of the form
+\footnote{This is the engineering convention for the time dependence.
+The reader must take care when reading the literature, since some authors (notably in physics) use the opposite sign convention
+\( F(\Bx, t) = \Real\lr{ F(\Bx) e^{-i \omega t }} \).}
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:40}
+\index{time harmonic}
+\index{frequency domain}
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:60}
+F(\Bx, t) = \Real\lr{ F(\Bx) e^{j \omega t} },
+\end{dmath}
+
+where \( j \) is a scalar imaginary that need not be represented by any geometrical imaginary such as \( \Be_{123}, \Be_{12}, \cdots \).
+After substitution of the time harmonic representation into \cref{eqn:gradientGreensFunctionEuclidean:162}, the problem is reduced to finding a solution that is a function of space and time to one that is purely spatial
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:159}
+\lr{ \spacegrad^2 + \frac{\omega^2}{c^2} } A(\Bx) = B(\Bx).
+\end{dmath}
+
+Superposition of discrete or continuous combinations of fixed frequency solutions, once found, can be used to determine more general solutions to the original wave equation \cref{eqn:gradientGreensFunctionEuclidean:162}.
+
+We will writing \( \omega^2/c^2 = k^2 \), to obtain the standard form of the Helmholtz equation we wish to solve
+
+\index{Helmholtz equation}
+\index{second order Helmholtz equation}
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:160}
+\lr{ \spacegrad^2 + k^2 } A(\Bx) = B(\Bx).
+\end{dmath}
+
+This is a linear differential equation that is second order with respect to the gradient.
+Despite employing a complex representations of the fields and sources, our vector basis is still a real valued Euclidean basis, and we will have no reason to introduce complex inner products spaces into the mix.
+We will also encounter statics problems that have no time dependence in electromagnetism.
+Some of these problems have the structure of \cref{eqn:gradientGreensFunctionEuclidean:160} with \( k = 0 \), and for those problems the fields and sources are real.
+
+\index{Helmholtz operator}
+Observe that the Helmholtz operator can be factored into operators that are first order in the gradient
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:161}
+\lr{ \spacegrad - j k }\lr{ \spacegrad + j k } A(\Bx) = B(\Bx).
+\end{dmath}
+
+We will see that the time harmonic Maxwell's equation, in its GA form, is a first order equation in the gradient of the form
+
+\index{first order Helmholtz equation}
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:180}
 \lr{ \spacegrad + j k } F(\Bx) = J(\Bx),
 \end{dmath}
 
-where \( F \) is a 1,2 (complex) multivectors.  For \( k = 0 \), the corresponding statics problems with no time dependence, all the multivectors are real.
-Note that in this book, we use the engineering convention for frequency dependence
+where \( F \) is a (complex) 1,2 multivector, and \( J \) is a (complex) multivector containing all the charge and current density contributions.
+Our initial goal is to develop the Green's function toolbox that can be used to solve first and second order Helmholtz equations of the form
+\cref{eqn:gradientGreensFunctionEuclidean:180} and
+\cref{eqn:gradientGreensFunctionEuclidean:160} respectively.
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:60}
-F(\Bx, t) = \Real\lr{ F(\Bx) e^{j \omega t} }.
-\end{dmath}
+\subsection{Unbounded superpositions.}
 
-Green's functions provide a general method of solving linear differential equations like the ones above.
-We can utilize \cref{eqn:gradientGreensFunctionEuclidean:20} to illustrate the technique by example.
-
-Given a linear differential equation, it is reasonable to assume that the solutions have a general linear structure, such as
+We can utilize \cref{eqn:gradientGreensFunctionEuclidean:160} to illustrate the Green's function technique.
+As this equation is a linear differential operator relating the wave and the driving sources,
+it is reasonable to assume that the solution also has a general linear structure, such as
 
 \begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:100}
-A(\Bx) = \int dV' J(\Bx') G(\Bx, \Bx').
+A(\Bx) = \int dV' B(\Bx') G(\Bx, \Bx') + A_0(\Bx),
 \end{dmath}
 
-The function \( G(\Bx, \Bx') \) is the Green's function for the Helmholtz operator.
-Operating on \cref{eqn:gradientGreensFunctionEuclidean:100} with \( \spacegrad + k^2 \) we find that the Green's function must
+where the function \( G(\Bx, \Bx') \) is called the Green's function for the Helmholtz operator, and \( A_0 \) is any particular solution to the inhomogeneous Helmholtz equation \( \lr{ \spacegrad^2 + k^2 } A_0 = 0 \).
+Operating on \cref{eqn:gradientGreensFunctionEuclidean:100} with the Helmholtz operator \( \spacegrad + k^2 \) we find that the Green's function must
 satisfy
 
 \begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:140}
 \lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx') = \delta(\Bx - \Bx').
 \end{dmath}
 
+While it is possible \citep{schwinger1998classical} to derive the Green's function using Fourier transform techniques, we will state the result instead, which is well known
 
+\index{Helmholtz!Green's function}
+\index{Green's function!Helmholtz}
+\maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
+The advancing (causal), and the receding (acausal) Green's functions satisfying
+\cref{eqn:gradientGreensFunctionEuclidean:140} are respectively
 
-
-
-
-\subsection{Green's functions for electrodynamics.}
-
-%There are a few Green's functions of interest for electrodynamics, the Green's function for the Laplacian\( \spacegrad^2 \) , the gradient \( \spacegrad \) , the Helmholtz operator \(\spacegrad^2 + k^2 \), and a for the (linear) factors of the Helmholtz operator \( \spacegrad \pm j k \).  The Green's functions for the operators that are linear in the gradient are multivector functions and will be applied to multivector functions.
-
-
-\maketheorem{Laplacian Green's function.}{thm:gradientGreensFunctionEuclidean:60}{
-
-The Green's function for the \R{3} Laplacian is
 \begin{equation*}
-G(\Bx, \Bx') =
--\inv{4 \pi} \inv{\Norm{\Bx - \Bx'}}.
+\begin{aligned}
+G_{\textrm{adv}}(\Bx, \Bx') &= -\frac{e^{-j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}} \\
+G_{\textrm{rec}}(\Bx, \Bx') &= -\frac{e^{j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}}.
+\end{aligned}
 \end{equation*}
 } % theorem
 
-We will not prove this directly
-%This representation is proven in \cref{chap:greensFunctionLaplacian}.
+We will use the causal Green's function, and refer to this function as \( G(\Bx, \Bx') \) without any subscript.
+A demonstration that these Green's function representations are valid can be found in \cref{chap:helmholtzGreens}.
+
+\index{Laplacian!Green's function}
+\index{Green's function!Laplacian}
+Observe that as a special case, the Helmholtz Green's function reduces to the Green's function for the Laplacian when \( k = 0 \)
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:80}
+G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
+\end{dmath}
+
+\subsection{Bounded superpositions.}
+
+When the presumed solution is a superposition of only states in a bounded region, such as
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:200}
+A(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + A_0(\Bx),
+\end{dmath}
+
+then life gets a bit more interesting.
+For such problems, we require Green's theorem, which must be generalized slightly for use with multivector fields.
+The basic idea is that we can relate the Laplacian's of the Green's function and the field
+\( A(\Bx') (\spacegrad')^2 G(\Bx, \Bx') = G(\Bx, \Bx') (\spacegrad')^2 A(\Bx') + \cdots \).
+That relation is usually expressed in terms of the difference of the two in the integral domain
+
+\maketheorem{Green's theorem}{thm:gradientGreensFunctionEuclidean:220}{
+Given a multivector function \( F \) and a scalar function \( G \)
+\begin{equation*}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV = \int_{\partial V} \lr{ F \ncap \cdot \spacegrad G - G \ncap \cdot \spacegrad F },
+\end{equation*}
+where \( \partial V \) is the boundary of the volume \( V \).
+} % theorem
+
+We are actually interested in a antisymmetric sandwich of the Helmholtz operator by the function \( F \) and the scalar (Green's) function \( G \), but
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:240}
+F \lr{ \spacegrad^2 + k^2 } G - G \lr{ \spacegrad^2 + k^2 } F
+=
+F \spacegrad^2 G + \cancel{F k^2 G} - G \spacegrad^2 F - \cancel{G k^2 F}
+=
+F \spacegrad^2 G - G \spacegrad^2 F,
+\end{dmath}
+
+so we will be able to utilize \cref{thm:gradientGreensFunctionEuclidean:220} for the bounded Helmholtz problem.  A straightforward, but perhaps inelligant way of proving this theorem is to expand the sandwich difference in coordinates
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:260}
+F \spacegrad^2 G - G \spacegrad^2 F
+=
+\sum_k F \partial_k \partial_k G - G \partial_k \partial_k F
+=
+\sum_k \partial_k \lr{
+F \partial_k G - G \partial_k F
+}
+-
+(\partial_k F)(\partial_k G) + (\partial_k G)(\partial_k F).
+\end{dmath}
+
+Since \( G \) is a scalar, the last two terms cancel, and we can integrate
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:280}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_V \partial_k \lr{ F \partial_k G - G \partial_k F }.
+\end{dmath}
+
+Each integral above involves one component of the gradient.
+From the fundamental theorem
+(FIXME reference)
+we know that
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:300}
+\int_V \spacegrad Q dV = \int_{\partial V} \ncap Q dA,
+\end{dmath}
+
+for any multivector \( Q \).
+%
+%\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:320}
+%\sum_k \Be_k \int_V \partial_k Q dV = \sum_k \Be_k \int_{\partial V} \ncap \cdot \Be_k Q dA.
+%\end{dmath}
+%
+Equating components gives
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:340}
+\int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
+\end{dmath}
+
+which can be substituted into \cref{eqn:gradientGreensFunctionEuclidean:280} to find
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:360}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F }
+=
+\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F },
+\end{dmath}
+
+which proves the theorem.
+
+\subsection{Green's functions for electrodynamics.}
 
 \index{gradient!Green's function}
 \index{Green's function!gradient representation}
@@ -109,31 +246,5 @@ Note that the statement that
 \( \spacegrad G = \spacegrad \cdot G \), or \( \rspacegrad G = G \lspacegrad \), implies that the curl of the Green's function must be zero.
 
 The proof of this theorem will be left to \cref{chap:gradientGreensFunctionProof}.
-
-\index{Helmholtz!Green's function}
-\index{Green's function!Helmholtz}
-\maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
-The advancing (causal) Green's function for the Helmholze operator \( \spacegrad^2 + k^2 \) applied to a time harmonic multivector function \( F(\Bx) e^{j \omega t} \) is
-
-\begin{equation*}
-G(\Bx, \Bx') = -\frac{e^{-j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}}.
-\end{equation*}
-
-%With a time harmonic dependence \( e^{j \omega t} \) we want the negative sign variation for causal (advancing) solutions, or
-%%\( r = \Bx - \Bx' \), that is
-%\begin{equation*}
-%G(\Bx, \Bx') = -\frac{e^{-j k \Norm{\Bx - \Bx'}}}{ 4 \pi \Norm{\Bx - \Bx'}}.
-%\end{equation*}
-} % theorem
-
-This Green's function representation will be proven in \cref{chap:helmholtzGreens}.
-
-\index{Laplacian!Green's function}
-\index{Green's function!Laplacian}
-Observe that as a special case, the Helmholtz Green's function reduces to the Green's function for the Laplacian when \( k = 0 \)
-
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:80}
-G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
-\end{dmath}
 
 %}
