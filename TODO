@@ -1,3 +1,11 @@
+- Add a note about the Helmholtz theorem ... showing that this is for exposition, and not because it is useful in
+  GA since we can use the gradient instead of the individual dot and cross products.
+
+- first order gradient Green's... make more specific, removing references to R^n, and use R^3.  Fix up gradient Green's function theorem,
+removing limiting references. (i.e. treat unbounded case first as with the Laplacian and 2nd order Helmholtz.)
+
+- differentiate: have two different theorem's labelled Green's theorem (one for area, and other for bounded Green's fucntions)
+
 - mmacells.sty dependency isn't properly in the make sequence.
 
 - example for reflection.  Do this one in 3d.
