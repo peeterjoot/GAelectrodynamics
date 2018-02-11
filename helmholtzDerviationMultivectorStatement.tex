@@ -2,8 +2,8 @@
 % Copyright © 2016 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+In conventional electromagnetism Maxwell's equations are posed in terms of separate divergence and curl equations, so it is desirable to show that knowning the divergence and curl of a function and it's normal characteristics on the boundary of an integraion volume determine that function uniquely, known as the Helmholtz theorem
 \maketheorem{Helmholtz first theorem.}{thm:helmholtzDerviationMultivectorStatement:1}{
-
 If vector \(\BM\) is defined by its divergence
 
 \begin{dmath}\label{eqn:helmholtzDerviationMultivectorStatement:20}
@@ -18,3 +18,8 @@ and its curl
 within a region and its normal component \( \BM_{\txtn} \) over the boundary, then \( \BM \) is
 uniquely specified.
 } % theorem
+
+It could be argued that Helmholtz's theorem is irrelavent when using the GA formalism, since we consolidate the separate divergence and curl equations into one gradient operator.
+We include a proof here regardless, since it can be performed in a compact and interesting fashion using
+the fundamental theorem of geometric calculus \cref{thm:fundamentalTheoremOfCalculus:1}.
+
