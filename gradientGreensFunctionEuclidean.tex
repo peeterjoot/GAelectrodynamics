@@ -205,19 +205,23 @@ so
 \int_{\partial V} \lr{ F(\Bx') (\ncap' \cdot \spacegrad') G(\Bx, \Bx') - G(\Bx, \Bx') (\ncap' \cdot \spacegrad') F(\Bx') } dA'
 \end{dmath}
 
-This shows that if we assume the Green's function satisfies the delta function condition
+This shows that if we assume the Green's function satisfies
+the delta function condition
 \cref{eqn:gradientGreensFunctionEuclidean:140}
-that was also true for the unbounded case, then the general solution to \cref{eqn:gradientGreensFunctionEuclidean:160}, is
+%that was also true for the unbounded case
+, then the general solution to \cref{eqn:gradientGreensFunctionEuclidean:160} is
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:400}
-F(\Bx) =
-\int_V G(\Bx, \Bx') B( \Bx' ) dV'
-+
+\boxedEquation{eqn:gradientGreensFunctionEuclidean:400}{
+\begin{aligned}
+F(\Bx) &=
+\int_V G(\Bx, \Bx') B( \Bx' ) dV' \\
+&+
 \int_{\partial V} \lr{
  G(\Bx, \Bx') (\ncap' \cdot \spacegrad') F(\Bx')
 -F(\Bx') (\ncap' \cdot \spacegrad') G(\Bx, \Bx')
 } dA'.
-\end{dmath}
+\end{aligned}
+}
 
 We are also free to add in any specific solution \( F_0(\Bx) \) that satisfies the
 homogeneous Helmholtz equation.
