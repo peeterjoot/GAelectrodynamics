@@ -1,6 +1,8 @@
+- write up derivation of 1st order Helmholtz Green's function.  probably want to prune the verification of the
+plain gradient Green's function from the appendix (nice, but unneccessary ... also means that the R^n dependencies
+don't have to be fixed up).
 
-- first order gradient Green's... make more specific, removing references to R^n, and use R^3.  Fix up gradient Green's function theorem,
-removing limiting references. (i.e. treat unbounded case first as with the Laplacian and 2nd order Helmholtz.)
+- With a standalone and complete discussion of Green's functions in chapter 2, may want to see if there is stuff to prune later.
 
 - differentiate: have two different theorem's labelled Green's theorem (one for area, and other for bounded Green's fucntions)
 

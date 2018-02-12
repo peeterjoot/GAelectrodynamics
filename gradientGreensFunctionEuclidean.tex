@@ -258,7 +258,7 @@ so the Green's function \( G \) for this system must satisfy
 \spacegrad G(\Bx, \Bx') = \delta( \Bx - \Bx' ).
 \end{dmath}
 
-It can be shown that this Green's function is vector valued with the following structure
+We will now show that this Green's function is vector valued as follows
 
 \maketheorem{Green's function for the gradient}{thm:gradientGreensFunctionEuclidean:1}{
 A Green's function that satisfies \cref{eqn:gradientGreensFunctionEuclidean:480} is
@@ -269,9 +269,54 @@ At points \( \Bx \ne \Bx' \), \( \spacegrad \wedge G = 0 \), or
 \( \rspacegrad G = G \lspacegrad \).
 } % theorem
 
-The proof of this theorem will be left to \cref{chap:gradientGreensFunctionProof}.
+To prove this, observe that we know the Laplacian representation of the delta function, so
+the Green's function for the gradient can be written as
 
-The structure of an unbounded superposition state can be determined by application of the fundamental theorem
+\begin{equation}\label{eqn:gradientGreensFunctionEuclidean:481}
+\spacegrad G(\Bx, \Bx') = \delta( \Bx - \Bx' ) = \spacegrad^2 \lr{ -\inv{4\pi} \inv{ \Norm{\Bx - \Bx'} } }.
+\end{equation}
+
+GA provides us the rather beautiful and remarkable ability to factor the Laplacian in to a product of gradients \( \spacegrad^2 = \spacegrad \spacegrad \), so the gradient's Green's function is
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:580}
+G(\Bx, \Bx')
+= \spacegrad \lr{ -\inv{4\pi} \inv{ \Norm{\Bx - \Bx'} } }
+= -\inv{4\pi} \rcap \PD{r}{} \inv{r},
+\end{dmath}
+
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \), and \( \rcap = \Br/r \).  Proceeding with the derivatives, we find
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:600}
+G(\Bx, \Bx')
+= -\inv{4\pi} \rcap \lr{ -\inv{r^2} }
+= \frac{\rcap}{4 \pi r^2},
+\end{dmath}
+
+as claimed.  To show that the Green's function commutes with the gradient at points \( \Bx \ne \Bx' \) we can compute the (bivector) curl
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:620}
+\spacegrad \wedge \frac{\Br}{r^3}
+=
+\lr{ \spacegrad \inv{r^3}} \wedge \Br
++
+\inv{r^3} \spacegrad \wedge \Br.
+\end{dmath}
+
+Since \( \spacegrad \inv{r^m} \propto \rcap \) the first wedge is zero.  The second wedge is also zero, which is easily demonstrated by coordinate expansion
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:640}
+\spacegrad \wedge \Br
+=
+\sum_{m,n} (\Be_m \partial_m) \wedge (\Be_n r_n)
+=
+\sum_{m,n} (\Be_m \wedge \Be_n) \partial_m r_n
+=
+\sum_{m,n} (\Be_m \wedge \Be_n) \delta_{m n}
+= 0.
+\end{dmath}
+
+This completes the proof.
+
+We can determine the structure of an unbounded superposition solution through application of
+the fundamental theorem of geometric calculus \cref{thm:fundamentalTheoremOfCalculus:1}
 
 \begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:500}
 \int_V G(\Bx, \Bx') \lrspacegrad' F(\Bx') dV'
