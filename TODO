@@ -1,3 +1,16 @@
+- 
+Now that I've got all the basic Green's function ideas down, there are two followup
+steps:
+
+1) Clean it up to remove redundancies.
+2) Probably also want to cover the Green's function for the time domain
+   spacetime gradient: \grad + (1/c) \partial_t and/or the wave equation
+   in the time domain.
+
+- placement of the primes in \lspacegrad' \rspacegrad' or their squares looks bad.
+
+- now have a lot of redundancy in the Green's function stuff.  Can do this up front for all differential operators.
+
 - write up derivation of 1st order Helmholtz Green's function.  probably want to prune the verification of the
 plain gradient Green's function from the appendix (nice, but unneccessary ... also means that the R^n dependencies
 don't have to be fixed up).

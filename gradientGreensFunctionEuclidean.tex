@@ -309,11 +309,10 @@ Since \( \spacegrad \inv{r^m} \propto \rcap \) the first wedge is zero.  The sec
 =
 \sum_{m,n} (\Be_m \wedge \Be_n) \partial_m r_n
 =
-\sum_{m,n} (\Be_m \wedge \Be_n) \delta_{m n}
-= 0.
+\sum_{m,n} (\Be_m \wedge \Be_n) \delta_{m n}.
 \end{dmath}
 
-This completes the proof.
+This last sum is zero since it is the symmetric sum of an antisymmetric quantity, which completes the proof.
 
 We can determine the structure of an unbounded superposition solution through application of
 the fundamental theorem of geometric calculus \cref{thm:fundamentalTheoremOfCalculus:1}
@@ -363,5 +362,135 @@ F(\Bx)
 We are also free to add any specific solution \( F_0 \) to the gradient equation \( \spacegrad F_0 = 0 \).
 Because the Green's function is not unique (we can add any solution \( G_0 \) of the gradient equation \( \spacegrad G_0 = 0 \)),
 it may be desirable for bounded problems to construct Green's functions that are zero on the boundary of the integration volume.
+
+\subsection{Green's function for the first order Helmholtz equation.}
+
+The non-zero frequency generalization of the gradient equations above are multivector equations of the form
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:660}
+\lr{ \spacegrad + j k } F(\Bx) = J(\Bx).
+\end{dmath}
+
+As above, this can be solved by assuming a superposition solution
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:680}
+F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV',
+\end{dmath}
+
+where
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:700}
+\lr{ \spacegrad + j k } G(\Bx, \Bx')  = \delta(\Bx - \Bx').
+\end{dmath}
+
+FIXME: this basic idea has been repeated over and over again.  Probably worth stating it once up front.
+
+This Green's function is multivector valued
+
+\maketheorem{Green's function for the first order Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:720}{
+The Green's function satisfying
+\begin{equation*}
+\lr{ \rspacegrad + j k } G(\Bx, \Bx') = G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } = \delta(\Bx - \Bx'),
+\end{equation*}
+is
+\begin{equation*}
+G(\Bx, \Bx') = \frac{e^{-j k r}}{4 \pi r} \lr{ j k \lr{ 1 + \rcap } + \frac{\rcap}{r} },
+\end{equation*}
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
+} % theorem
+
+If we denote the (advanced) Green's function for the 2nd order Helmholtz operator
+\cref{thm:gradientGreensFunctionEuclidean:3}
+as \( \phi(\Bx, \Bx') \), we must have
+
+\begin{equation}\label{eqn:gradientGreensFunctionEuclidean:740}
+\lr{ \rspacegrad + j k } G(\Bx, \Bx') = \delta(\Bx - \Bx') =
+\lr{ \rspacegrad + j k } \lr{ \rspacegrad - j k } \phi(\Bx, \Bx'),
+\end{equation}
+
+we see that the Green's function is given by
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:760}
+G(\Bx, \Bx')
+=
+\lr{ \rspacegrad - j k } \phi(\Bx, \Bx').
+\end{dmath}
+
+This can be computed directly
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:780}
+G(\Bx, \Bx')
+=
+\lr{ \rspacegrad - j k } \rcap \PD{r}{} \lr{ -\frac{e^{-j k r}}{4 \pi r} }
+=
+\frac{-e^{-j k r}}{4 \pi}
+\lr{
+\rcap \lr{ -\frac{j k}{r} - \inv{ r^2 } } - \frac{j k}{r}
+}
+=
+\frac{e^{-j k r}}{4 \pi}
+\lr{
+j k \lr{ 1 + \rcap } + \frac{\rcap}{r}
+},
+\end{dmath}
+
+as claimed.
+Observe that since \( \phi \) is scalar valued, we can also rewrite
+\cref{eqn:gradientGreensFunctionEuclidean:760} in terms of a right acting operator
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:800}
+G(\Bx, \Bx')
+=
+\phi(\Bx, \Bx')
+\lr{ \lspacegrad - j k }
+=
+\phi(\Bx, \Bx')
+\lr{ -\lspacegrad' - j k },
+\end{dmath}
+
+so
+\begin{equation}\label{eqn:gradientGreensFunctionEuclidean:820}
+G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } =
+\phi(\Bx, \Bx') \lr{ (\lspacegrad')^2 + k^2 }
+=
+\delta(\Bx - \Bx').
+\end{equation}
+
+This is relavant for bounded superposition states, which we will discuss next now that the proof of
+\cref{thm:gradientGreensFunctionEuclidean:720} is complete.  In particular, we may rearrange
+\cref{eqn:gradientGreensFunctionEuclidean:500}
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:840}
+\begin{aligned}
+-\int_V \lr{ G(\Bx, \Bx') \lspacegrad'} F(\Bx') dV'
+&=
+\int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx')} dV' \\
+&-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA',
+\end{aligned}
+\end{dmath}
+
+and add \( \int_V G(\Bx, \Bx') j k F(\Bx') dV' \) to both sides to find
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:860}
+\begin{aligned}
+\int_V \lr{ G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } } F(\Bx') dV'
+&=
+\int_V G(\Bx, \Bx') \lr{ \lr{ \rspacegrad' + j k } F(\Bx') } dV' \\
+&-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{aligned}
+\end{dmath}
+
+Utilizing \cref{thm:gradientGreensFunctionEuclidean:720}, and substituting \( J(\Bx') \) from \cref{eqn:gradientGreensFunctionEuclidean:660}, we find that one solution is
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:880}
+F(\Bx)
+=
+\int_V G(\Bx, \Bx') J(\Bx') dV'
+-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{dmath}
+
+We are free to
+add any specific solution \( F_0 \) that satisfies the homogeneous equation \( \lr{ \spacegrad + j k } F_0 = 0 \).
 
 %}
