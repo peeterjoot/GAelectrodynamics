@@ -373,3 +373,5 @@ perl -p -i ../latex/bin/latexRegex.pl greensFunctionSolutions.tex
 perl -p -i ../latex/bin/latexRegex.pl derivativeOfDeltaFunction.tex
 ../latex/bin/lgrep greensFunctionSpacetimeGradient.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl greensFunctionSpacetimeGradient.tex
+../latex/bin/lgrep jefimenkosEquations.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl jefimenkosEquations.tex
