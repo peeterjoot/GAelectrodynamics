@@ -1,4 +1,15 @@
-- 
+- Green's: split and move subsection references to chapters.tex :
+
+   cylinderField.tex
+
+   ?
+
+- far field application of Green's function for grad+jk.  GAFP does this nicely, but
+it's a bit hard to follow, and their notation for the Green's function is not spelled
+out for the uninitiated.  Perhaps try to do something like that, but in a more accessible
+fashion (also not assuming mu = epsilon = c = 1 and using j \omega instead of -i \omega)
+
+-
 Now that I've got all the basic Green's function ideas down, there are two followup
 steps:
 

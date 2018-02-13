@@ -36,8 +36,6 @@ generalizedDot_vectorBivector.tex
 generalizedWedge.tex
 generalizedWedgeProblems.tex
 gradientGreensFunctionEuclidean.tex
-gradientGreensFunctionProof.tex
-greensFunctionLaplacian.tex
 greensTheorem.tex
 helmholtzDerviationMultivectorSolution.tex
 helmholtzDerviationMultivectorStatement.tex
@@ -63,20 +61,15 @@ planewaves.tex
 polarization.tex
 polarization_circular.tex
 polarization_elliptical.tex
-polarization_elliptical.tex
 polarization_linearPolarization.tex
 polarization_phaseAndEnergyMomentum.tex
-polarization_phaseAndEnergyMomentum.tex
-polarization_problems.tex
 polarization_problems.tex
 polarization_pseudoscalarImaginary.tex
 potentialSection.tex
 potentialSection_LorenzGauge.tex
 potentialSection_electric.tex
 potentialSection_farfield.tex
-potentialSection_farfield.tex
 potentialSection_gauge.tex
-potentialSection_magnetic.tex
 potentialSection_magnetic.tex
 poyntingF.tex
 poyntingFComplexPower.tex
@@ -91,7 +84,6 @@ projectionAndRejection.tex
 r4nonzerobivectorwedgewithself.tex
 reciprocal.tex
 reciprocal_R2.tex
-reciprocal_R3.tex
 reciprocal_R3.tex
 reciprocal_general.tex
 reflection.tex
@@ -119,3 +111,7 @@ waveequation.tex
 wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
+greensFunctionFirstOrderHelmholtz.tex
+greensFunctionGradient.tex
+greensFunctionOverview.tex
+greensFunctionHelmholtz.tex

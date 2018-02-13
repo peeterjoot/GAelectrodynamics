@@ -1,0 +1,141 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+
+\index{gradient!Green's function}
+\index{Green's function!gradient representation}
+
+We will see that the GA formulation of the statics equations (no time dependence), all have the form
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:420}
+\spacegrad F(\Bx) = J(\Bx),
+\end{dmath}
+
+where \( F, J \) are multivector fields and sources respectively.  We can assume an unbounded superposition solution
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:440}
+F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV' + F_0(\Bx),
+\end{dmath}
+
+where \( F_0 \) is any solution to the homogeneous gradient equation \( \spacegrad F_0 = 0 \), and operate on this presumed solution with the gradient to find
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:460}
+J(\Bx)
+= \int \spacegrad G(\Bx, \Bx') J(\Bx') dV',
+\end{dmath}
+
+so the Green's function \( G \) for this system must satisfy
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:480}
+\spacegrad G(\Bx, \Bx') = \delta( \Bx - \Bx' ).
+\end{dmath}
+
+We will now show that this Green's function is vector valued as follows
+
+\maketheorem{Green's function for the gradient}{thm:gradientGreensFunctionEuclidean:1}{
+A Green's function that satisfies \cref{eqn:gradientGreensFunctionEuclidean:480} is
+\begin{equation*}
+   G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx-\Bx'}^3}.
+\end{equation*}
+At points \( \Bx \ne \Bx' \), \( \spacegrad \wedge G = 0 \), or
+\( \rspacegrad G = G \lspacegrad \).
+} % theorem
+
+To prove this, observe that we know the Laplacian representation of the delta function, so
+the Green's function for the gradient can be written as
+
+\begin{equation}\label{eqn:gradientGreensFunctionEuclidean:481}
+\spacegrad G(\Bx, \Bx') = \delta( \Bx - \Bx' ) = \spacegrad^2 \lr{ -\inv{4\pi} \inv{ \Norm{\Bx - \Bx'} } }.
+\end{equation}
+
+GA provides us the rather beautiful and remarkable ability to factor the Laplacian in to a product of gradients \( \spacegrad^2 = \spacegrad \spacegrad \), so the gradient's Green's function is
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:580}
+G(\Bx, \Bx')
+= \spacegrad \lr{ -\inv{4\pi} \inv{ \Norm{\Bx - \Bx'} } }
+= -\inv{4\pi} \rcap \PD{r}{} \inv{r},
+\end{dmath}
+
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \), and \( \rcap = \Br/r \).  Proceeding with the derivatives, we find
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:600}
+G(\Bx, \Bx')
+= -\inv{4\pi} \rcap \lr{ -\inv{r^2} }
+= \frac{\rcap}{4 \pi r^2},
+\end{dmath}
+
+as claimed.  To show that the Green's function commutes with the gradient at points \( \Bx \ne \Bx' \) we can compute the (bivector) curl
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:620}
+\spacegrad \wedge \frac{\Br}{r^3}
+=
+\lr{ \spacegrad \inv{r^3}} \wedge \Br
++
+\inv{r^3} \spacegrad \wedge \Br.
+\end{dmath}
+
+Since \( \spacegrad \inv{r^m} \propto \rcap \) the first wedge is zero.  The second wedge is also zero, which is easily demonstrated by coordinate expansion
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:640}
+\spacegrad \wedge \Br
+=
+\sum_{m,n} (\Be_m \partial_m) \wedge (\Be_n r_n)
+=
+\sum_{m,n} (\Be_m \wedge \Be_n) \partial_m r_n
+=
+\sum_{m,n} (\Be_m \wedge \Be_n) \delta_{m n}.
+\end{dmath}
+
+This last sum is zero since it is the symmetric sum of an antisymmetric quantity, which completes the proof.
+
+We can determine the structure of an unbounded superposition solution through application of
+%the fundamental theorem of geometric calculus
+\cref{thm:fundamentalTheoremOfCalculus:1}
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:500}
+\int_V G(\Bx, \Bx') \lrspacegrad' F(\Bx') dV'
+=
+\int_V (G(\Bx, \Bx') \lspacegrad') F(\Bx') dV'
++
+\int_V G(\Bx, \Bx') (\rspacegrad' F(\Bx')) dV'
+=
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{dmath}
+
+As with the Helmholtz equation, we can presuming that the Green's function of
+\cref{thm:gradientGreensFunctionEuclidean:1}
+for the unbounded superposition solution also applies here.  Since
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:520}
+G(\Bx, \Bx') \lspacegrad'
+=
+-G(\Bx', \Bx) \lspacegrad'
+=
+-
+\spacegrad' G(\Bx', \Bx)
+= -\delta(\Bx - \Bx'),
+\end{dmath}
+
+we have
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:540}
+-F(\Bx)
++
+\int_V G(\Bx, \Bx') J(\Bx') dV'
+=
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA',
+\end{dmath}
+
+or
+\boxedEquation{eqn:gradientGreensFunctionEuclidean:560}{
+F(\Bx)
+=
+\int_V G(\Bx, \Bx') J(\Bx') dV'
+-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+}
+
+We are also free to add any specific solution \( F_0 \) to the gradient equation \( \spacegrad F_0 = 0 \).
+Because the Green's function is not unique (we can add any solution \( G_0 \) of the gradient equation \( \spacegrad G_0 = 0 \)),
+it may be desirable for bounded problems to construct Green's functions that are zero on the boundary of the integration volume.
+
+%}

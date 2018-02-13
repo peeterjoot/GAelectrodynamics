@@ -1,0 +1,71 @@
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\index{Green's function}
+
+\subsection{Motivation.}
+
+We will now introduce Green's functions, which provide a general method of solving many of the linear differential equations that will be encountered in electromagnetism.
+
+One such linear differential equation is the inhomogeneous wave equation
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:162}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F(\Bx, t) = B(\Bx, t)
+\end{dmath}
+
+The time harmonic (frequency domain) representation of the wave equation can be found by assuming a that fixed frequency solution exists.
+In complex notation, that means that we can assume that all sources and fields have a complex exponential time dependence of the form
+\footnote{This is the engineering convention for the time dependence.
+The reader must take care when reading the literature, since some authors (notably in physics) use the opposite sign convention
+\( F(\Bx, t) = \Real\lr{ F(\Bx) e^{-i \omega t }} \).}
+
+\index{time harmonic}
+\index{frequency domain}
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:60}
+F(\Bx, t) = \Real\lr{ F(\Bx) e^{j \omega t} },
+\end{dmath}
+
+where \( j \) is a scalar imaginary that need not be represented by any geometrical imaginary such as \( \Be_{123}, \Be_{12}, \cdots \).
+After substitution of the time harmonic representation into \cref{eqn:gradientGreensFunctionEuclidean:162}, the problem is reduced to finding a solution that is a function of space and time to one that is purely spatial
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:159}
+\lr{ \spacegrad^2 + \frac{\omega^2}{c^2} } F(\Bx) = B(\Bx).
+\end{dmath}
+
+Superposition of discrete or continuous combinations of fixed frequency solutions, once found, can be used to determine more general solutions to the original wave equation \cref{eqn:gradientGreensFunctionEuclidean:162}.
+
+We will writing \( \omega^2/c^2 = k^2 \), to obtain the standard form of the Helmholtz equation we wish to solve
+
+\index{Helmholtz equation}
+\index{second order Helmholtz equation}
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:160}
+\lr{ \spacegrad^2 + k^2 } F(\Bx) = B(\Bx).
+\end{dmath}
+
+This is a linear differential equation that is second order with respect to the gradient.
+Despite employing a complex representations of the fields and sources, our vector basis is still a real valued Euclidean basis, and we will have no reason to introduce complex inner products spaces into the mix.
+We will also encounter statics problems that have no time dependence in electromagnetism.
+Some of these problems have the structure of \cref{eqn:gradientGreensFunctionEuclidean:160} with \( k = 0 \), and for those problems the fields and sources are real.
+
+\index{Helmholtz operator}
+Observe that the Helmholtz operator can be factored into operators that are first order in the gradient
+
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:161}
+\lr{ \spacegrad - j k }\lr{ \spacegrad + j k } F(\Bx) = B(\Bx).
+\end{dmath}
+
+We will see that the time harmonic Maxwell's equation, in its GA form, is a first order equation in the gradient of the form
+
+\index{first order Helmholtz equation}
+\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:180}
+\lr{ \spacegrad + j k } F(\Bx) = J(\Bx),
+\end{dmath}
+
+where \( F \) is a (complex) 1,2 multivector, and \( J \) is a (complex) multivector containing all the charge and current density contributions.
+Our initial goal is to develop the Green's function toolbox that can be used to solve first and second order Helmholtz equations of the form
+\cref{eqn:gradientGreensFunctionEuclidean:180} and
+\cref{eqn:gradientGreensFunctionEuclidean:160} respectively.
+
+%}
