@@ -1,0 +1,145 @@
+
+\subsection{Green's function solutions.}
+
+\subsubsection{Unbounded.}
+
+The operators in \cref{eqn:greensFunctionOverview:200}, and \cref{eqn:greensFunctionOverview:320} all have a similar linear structure.
+Abstracting that structure, all these problems have the form
+
+\begin{dmath}\label{eqn:greensFunctionOverview:340}
+\LL F(\Bx) = J(\Bx),
+\end{dmath}
+
+where \( \LL \) is an operator formed from a linear combination of linear operators \( 1, \spacegrad, \spacegrad^2, \partial_t, \partial_{tt}) \).
+
+Given the linear structure of the PDE that we wish to solve, it makes sense to assume that the solutions also have a linear structure.
+The most general such solution we can assume has the form
+
+\index{Green's function}
+\begin{dmath}\label{eqn:greensFunctionOverview:360}
+F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV' + F_0(\Bx),
+\end{dmath}
+
+where \( F_0(\Bx) \) is any solution to the equivalent homogeneous equation \( \LL F_0 = 0 \), and \( G(\Bx, \Bx') \) is the Green's function associated with \cref{eqn:greensFunctionOverview:340}.
+Operating on the presumed solution
+\cref{eqn:greensFunctionOverview:360} with \( \LL \) yields
+
+\begin{dmath}\label{eqn:greensFunctionOverview:380}
+J(\Bx) = \LL F(\Bx) = \LL\lr{
+\int G(\Bx, \Bx') J(\Bx') dV' + F_0(\Bx) }
+=
+\int \lr{ \LL G(\Bx, \Bx') } J(\Bx') dV',
+\end{dmath}
+
+which shows that we require the Green's function to have delta function semantics satisfying
+
+\begin{dmath}\label{eqn:greensFunctionOverview:400}
+\LL G(\Bx, \Bx') = \delta(\Bx - \Bx').
+\end{dmath}
+
+The scalar valued Green's functions for the Laplacian and the (2nd order) Helmholtz equations are well known.
+The Green's functions for the spacetime gradient and the 1st order Helmholtz equation (which is just the gradient when \( k = 0 \)) are multivector valued and will be derived here.
+
+\subsubsection{Green's theorem.}
+
+When the presumed solution is a superposition of only states in a bounded region, such as
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:200}
+F(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
+\end{dmath}
+
+then life gets a bit more interesting, and requires different treatment for first and second order (in the gradient) problems.
+
+For the second order problems, we require Green's theorem, which must be generalized slightly for use with multivector fields.
+
+The basic idea is that we can relate the Laplacian's of the Green's function and the field
+\( F(\Bx') (\spacegrad')^2 G(\Bx, \Bx') = G(\Bx, \Bx') (\spacegrad')^2 F(\Bx') + \cdots \).
+That relation is usually expressed in terms of the difference of the two in the integral domain
+
+\maketheorem{Green's theorem}{thm:gradientGreensFunctionEuclidean:220}{
+Given a multivector function \( F \) and a scalar function \( G \)
+\begin{equation*}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV = \int_{\partial V} \lr{ F \ncap \cdot \spacegrad G - G \ncap \cdot \spacegrad F },
+\end{equation*}
+where \( \partial V \) is the boundary of the volume \( V \).
+} % theorem
+
+A straightforward, but perhaps inelligant way of proving this theorem is to expand the sandwich difference in coordinates
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:260}
+F \spacegrad^2 G - G \spacegrad^2 F
+=
+\sum_k F \partial_k \partial_k G - G \partial_k \partial_k F
+=
+\sum_k \partial_k \lr{
+F \partial_k G - G \partial_k F
+}
+-
+(\partial_k F)(\partial_k G) + (\partial_k G)(\partial_k F).
+\end{dmath}
+
+Since \( G \) is a scalar, the last two terms cancel, and we can integrate
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:280}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_V \partial_k \lr{ F \partial_k G - G \partial_k F }.
+\end{dmath}
+
+Each integral above involves one component of the gradient.
+From
+%the fundamental theorem of geometric calculus
+\cref{thm:fundamentalTheoremOfCalculus:1}
+we know that
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:300}
+\int_V \spacegrad Q dV = \int_{\partial V} \ncap Q dA,
+\end{dmath}
+
+for any multivector \( Q \).
+Equating components gives
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:340}
+\int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
+\end{dmath}
+
+which can be substituted into \cref{eqn:greensFunctionHelmholtz:280} to find
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:360}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F } dA
+=
+\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA,
+\end{dmath}
+
+which proves the theorem.
+
+\subsubsection{Bounded solutions to first order problems.}
+
+For first order problems we will need an intermediate result similar to Green's theorem.
+
+\makelemma{Normal relations for a gradient sandwich.}{lemma:greensFunctionOverview:420}{
+Given a multivector functions \( F(\Bx'), G(\Bx, \Bx') \), and a gradient \( \spacegrad' \) acting bidirectionally on functions \( \Bx' \), we have
+\begin{equation*}
+- \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } F(\Bx') dV'
+=
+\int_V G(\Bx, \Bx') \lr{ \lspacegrad' F(\Bx') } dV'
+-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{equation*}
+} % lemma
+
+This follows directly from \cref{thm:fundamentalTheoremOfCalculus:1}
+
+\begin{dmath}\label{eqn:greensFunctionOverview:440}
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'
+=
+\int_V G(\Bx, \Bx') \lrspacegrad' F(\Bx') dV'
+=
+\int_V \lr{ G(\Bx, \Bx') \lspacegrad' } F(\Bx') dV'
++
+\int_V G(\Bx, \Bx') \lr{ \lspacegrad' F(\Bx') } dV',
+\end{dmath}
+
+which can be rearranged to prove \cref{lemma:greensFunctionOverview:420}.
+
