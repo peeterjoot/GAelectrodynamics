@@ -9,63 +9,240 @@
 
 We will now introduce Green's functions, which provide a general method of solving many of the linear differential equations that will be encountered in electromagnetism.
 
-One such linear differential equation is the inhomogeneous wave equation
+\subsubsection{Time domain problems in electromagnetism}
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:162}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F(\Bx, t) = B(\Bx, t)
-\end{dmath}
+Examples of the PDEs that we can apply Green's function techniques to include
 
-The time harmonic (frequency domain) representation of the wave equation can be found by assuming a that fixed frequency solution exists.
-In complex notation, that means that we can assume that all sources and fields have a complex exponential time dependence of the form
-\footnote{This is the engineering convention for the time dependence.
-The reader must take care when reading the literature, since some authors (notably in physics) use the opposite sign convention
-\( F(\Bx, t) = \Real\lr{ F(\Bx) e^{-i \omega t }} \).}
+\begin{subequations}
+\label{eqn:greensFunctionOverview:200}
+\begin{equation}\label{eqn:greensFunctionOverview:220}
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F(\Bx, t) = J(\Bx, t)
+\end{equation}
+\begin{equation}\label{eqn:greensFunctionOverview:162}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F(\Bx, t) =
+\lr{ \spacegrad - \inv{c} \PD{t}{} }
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F(\Bx, t) =
+B(\Bx, t).
+\end{equation}
+\end{subequations}
+
+The reader is no doubt familiar with the wave equation (\cref{eqn:greensFunctionOverview:162}), where \( F \) is the waving function, and \( B \) is the forcing function.
+Scalar and vector valued wave equations are
+encountered in scalar and vector forms in conventional electromagnetism.
+We will see multivector variations of the wave equation, so it should be assumed that \( F \) and \( B \) are multivector valued.
+
+\Cref{eqn:greensFunctionOverview:220} is actually the geometric algebra form of Maxwell's equation (singular),
+where \( F \) is a 1,2 multivector, and \( J \) is a multivector containing all the charge and current density contributions.
+We will call the operator in \cref{eqn:greensFunctionOverview:220} the spacetime gradient\footnote{A slightly different operator is also called the spacetime gradient in STA (Space Time Algebra) \citep{doran2003gap}, which employs a non-Euclidean basis to generate a four dimensional relativistic geometric algebra.
+Our spacetime gradient is related to the STA spacetime gradient by a constant factor.}.
+
+\subsubsection{Frequency domain problems in electromagnetism.}
+It will often be convient to utilize a time harmonic (frequency domain) representation of \cref{eqn:greensFunctionOverview:200}.
+This can be achieved by utilizing Fourier transform pairs or with a phasor representation.
+
+We may define Fourier transform pairs of multivector fields and sources in the conventional fashion
+
+\index{Fourier transform}
+\makedefinition{Multivector Fourier transform pairs}{dfn:greensFunctionOverview:280}{
+The Fourier transform pair for a multivector valued function \( f(\Bx, t) \) will be written as
+\begin{equation*}
+\begin{aligned}
+f(\Bx, t) &= \int f_\omega(\Bx) e^{j \omega t} d\omega \\
+f_\omega(\Bx) &= \inv{2 \pi} \int f(\Bx, t) e^{-j \omega t} dt,
+\end{aligned}
+\end{equation*}
+where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
+} % definition
+
+In these transform pairs, the imaginary \( j \) need not be represented by any geometrical imaginary such as \( \Be_{12} \).
+In particular, we need not assume that the represention of \( j \) is the
+\R{3} pseudoscalar \( I \), despite the fact that \( I \) does commute with all \R{3} multivectors.
+We wish to have the freedom to
+assume that non-geometric real and imaginary operations can be performed without picking or leaving out any specific grade pseudoscalar components of the multivector fields or sources, so we won't impose any a-priori restrictions on the representations of \( j \).
+In particular, this provides the freedom to utilize phasor (fixed frequency) representions of our multivector functions.
+%Introduction of yet another imaginary quantity in a geometric algebra context where we have so many to pick it somewhat unfortunate, but it allows us to apply Fourier transform techniques without worry about the non-commutative effects that might have to be considered should we choose to use a geometric imaginary to represent the frequency dependency.
+We will use the engineering convention for our
+phasor representations, where assuming a complex exponential time dependence of the following form is assumed
 
 \index{time harmonic}
 \index{frequency domain}
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:60}
-F(\Bx, t) = \Real\lr{ F(\Bx) e^{j \omega t} },
-\end{dmath}
+\makedefinition{Multivector phasor representation.}{dfn:greensFunctionOverview:300}{
+The phasor representation \( f(\Bx) \) of a multivector valued (real) function \( f(\Bx, t) \) is defined implicitly as
+\begin{equation*}
+f(\Bx, t) = \Real\lr{ f(\Bx) e^{j \omega t} },
+\end{equation*}
+where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
+} % definition
 
-where \( j \) is a scalar imaginary that need not be represented by any geometrical imaginary such as \( \Be_{123}, \Be_{12}, \cdots \).
-After substitution of the time harmonic representation into \cref{eqn:gradientGreensFunctionEuclidean:162}, the problem is reduced to finding a solution that is a function of space and time to one that is purely spatial
+The complex valued multivector \( f(\Bx) \) is still generated from the real Euclidean basis for \R{3}.
+We will have
+no reason to introduce complex inner products spaces into the mix.
+The reader must take care when reading any literature that utilizes Fourier transforms or phasor representation, since the conventions vary.
+In particular the physics representation of a phasor typically uses the opposite sign convention
+\( f(\Bx, t) = \Real\lr{ f(\Bx) e^{-i \omega t }} \).
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:159}
-\lr{ \spacegrad^2 + \frac{\omega^2}{c^2} } F(\Bx) = B(\Bx).
-\end{dmath}
-
-Superposition of discrete or continuous combinations of fixed frequency solutions, once found, can be used to determine more general solutions to the original wave equation \cref{eqn:gradientGreensFunctionEuclidean:162}.
-
-We will writing \( \omega^2/c^2 = k^2 \), to obtain the standard form of the Helmholtz equation we wish to solve
-
-\index{Helmholtz equation}
-\index{second order Helmholtz equation}
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:160}
-\lr{ \spacegrad^2 + k^2 } F(\Bx) = B(\Bx).
-\end{dmath}
-
-This is a linear differential equation that is second order with respect to the gradient.
-Despite employing a complex representations of the fields and sources, our vector basis is still a real valued Euclidean basis, and we will have no reason to introduce complex inner products spaces into the mix.
-We will also encounter statics problems that have no time dependence in electromagnetism.
-Some of these problems have the structure of \cref{eqn:gradientGreensFunctionEuclidean:160} with \( k = 0 \), and for those problems the fields and sources are real.
+Armed with Fourier transform or phasor representations, the frequency domain representations of
+\cref{eqn:greensFunctionOverview:200} are found to be
 
 \index{Helmholtz operator}
-Observe that the Helmholtz operator can be factored into operators that are first order in the gradient
+\begin{subequations}
+\label{eqn:greensFunctionOverview:320}
+\begin{equation}\label{eqn:greensFunctionOverview:240}
+\lr{ \spacegrad + j k } F(\Bx) = J(\Bx)
+\end{equation}
+\begin{equation}\label{eqn:greensFunctionOverview:260}
+\lr{ \spacegrad^2 + k^2 } F(\Bx)
+=
+\lr{ \spacegrad - j k } \lr{ \spacegrad + j k } F(\Bx)
+= B(\Bx),
+\end{equation}
+\end{subequations}
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:161}
-\lr{ \spacegrad - j k }\lr{ \spacegrad + j k } F(\Bx) = B(\Bx).
+where \( k = \omega/c \), and any explicit frequency dependence in our transform pairs has been suppressed.
+We will call these equations the first and second order Helmholtz equations respectively.
+The first order equation applies a multivector differential operator to a multivector field, which must equal the multivector forcing function (the sources).
+
+For statics problems (\( k = 0 \)), we may work with real fields and sources, dispensing with any need to take real parts once the equations are solved.
+
+\subsection{Green's function solutions.}
+
+\subsubsection{Unbounded.}
+
+As the operators in \cref{eqn:greensFunctionOverview:200}, and \cref{eqn:greensFunctionOverview:320} all have a similar linear structure, which we can write in a more abstract notation as
+
+\begin{dmath}\label{eqn:greensFunctionOverview:340}
+\LL F(\Bx) = J(\Bx).
 \end{dmath}
 
-We will see that the time harmonic Maxwell's equation, in its GA form, is a first order equation in the gradient of the form
+Given the linear structure of the PDE that we wish to solve, it makes sense to assume that the solutions also have a linear structure.
+The most general such solution we can assume has the form
 
-\index{first order Helmholtz equation}
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:180}
-\lr{ \spacegrad + j k } F(\Bx) = J(\Bx),
+\index{Green's function}
+\begin{dmath}\label{eqn:greensFunctionOverview:360}
+F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV' + F_0(\Bx),
 \end{dmath}
 
-where \( F \) is a (complex) 1,2 multivector, and \( J \) is a (complex) multivector containing all the charge and current density contributions.
-Our initial goal is to develop the Green's function toolbox that can be used to solve first and second order Helmholtz equations of the form
-\cref{eqn:gradientGreensFunctionEuclidean:180} and
-\cref{eqn:gradientGreensFunctionEuclidean:160} respectively.
+where \( F_0(\Bx) \) is any solution to the equivalent homogeneous equation \( \LL F_0 = 0 \), and \( G(\Bx, \Bx') \) is the Green's function associated with \cref{eqn:greensFunctionOverview:340}.
+Operating on the presumed solution
+\cref{eqn:greensFunctionOverview:360} with \( \LL \) yields
+
+\begin{dmath}\label{eqn:greensFunctionOverview:380}
+J(\Bx) = \LL F(\Bx) = \LL\lr{
+\int G(\Bx, \Bx') J(\Bx') dV' + F_0(\Bx) }
+=
+\int \lr{ \LL G(\Bx, \Bx') } J(\Bx') dV',
+\end{dmath}
+
+which shows that we require the Green's function to have delta function semantics satisfying
+
+\begin{dmath}\label{eqn:greensFunctionOverview:400}
+\LL G(\Bx, \Bx') = \delta(\Bx - \Bx').
+\end{dmath}
+
+The scalar valued Green's functions for the Laplacian and the (2nd order) Helmholtz equations are well known.
+The Green's functions for the spacetime gradient and the 1st order Helmholtz equation (which is just the gradient when \( k = 0 \)) are multivector valued and will be derived here.
+
+\subsubsection{Green's theorem.}
+
+When the presumed solution is a superposition of only states in a bounded region, such as
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:200}
+F(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
+\end{dmath}
+
+then life gets a bit more interesting, and requires different treatment for first and second order (in the gradient) problems.
+
+For the second order problems, we require Green's theorem, which must be generalized slightly for use with multivector fields.
+
+The basic idea is that we can relate the Laplacian's of the Green's function and the field
+\( F(\Bx') (\spacegrad')^2 G(\Bx, \Bx') = G(\Bx, \Bx') (\spacegrad')^2 F(\Bx') + \cdots \).
+That relation is usually expressed in terms of the difference of the two in the integral domain
+
+\maketheorem{Green's theorem}{thm:gradientGreensFunctionEuclidean:220}{
+Given a multivector function \( F \) and a scalar function \( G \)
+\begin{equation*}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV = \int_{\partial V} \lr{ F \ncap \cdot \spacegrad G - G \ncap \cdot \spacegrad F },
+\end{equation*}
+where \( \partial V \) is the boundary of the volume \( V \).
+} % theorem
+
+A straightforward, but perhaps inelligant way of proving this theorem is to expand the sandwich difference in coordinates
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:260}
+F \spacegrad^2 G - G \spacegrad^2 F
+=
+\sum_k F \partial_k \partial_k G - G \partial_k \partial_k F
+=
+\sum_k \partial_k \lr{
+F \partial_k G - G \partial_k F
+}
+-
+(\partial_k F)(\partial_k G) + (\partial_k G)(\partial_k F).
+\end{dmath}
+
+Since \( G \) is a scalar, the last two terms cancel, and we can integrate
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:280}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_V \partial_k \lr{ F \partial_k G - G \partial_k F }.
+\end{dmath}
+
+Each integral above involves one component of the gradient.
+From
+%the fundamental theorem of geometric calculus
+\cref{thm:fundamentalTheoremOfCalculus:1}
+we know that
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:300}
+\int_V \spacegrad Q dV = \int_{\partial V} \ncap Q dA,
+\end{dmath}
+
+for any multivector \( Q \).
+Equating components gives
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:340}
+\int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
+\end{dmath}
+
+which can be substituted into \cref{eqn:greensFunctionHelmholtz:280} to find
+
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:360}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F } dA
+=
+\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA,
+\end{dmath}
+
+which proves the theorem.
+
+\subsubsection{Bounded solutions to first order problems.}
+
+For first order problems we will need an intermediate result similar to Green's theorem.
+
+\makelemma{Normal relations for a gradient sandwich.}{lemma:greensFunctionOverview:420}{
+Given a multivector functions \( F(\Bx'), G(\Bx, \Bx') \), and a gradient \( \spacegrad' \) acting bidirectionally on functions \( \Bx' \), we have
+\begin{equation*}
+- \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } F(\Bx') dV'
+=
+\int_V G(\Bx, \Bx') \lr{ \lspacegrad' F(\Bx') } dV'
+-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{equation*}
+} % lemma
+
+This follows directly from \cref{thm:fundamentalTheoremOfCalculus:1}
+
+\begin{dmath}\label{eqn:greensFunctionOverview:440}
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'
+=
+\int_V G(\Bx, \Bx') \lrspacegrad' F(\Bx') dV'
+=
+\int_V \lr{ G(\Bx, \Bx') \lspacegrad' } F(\Bx') dV'
++
+\int_V G(\Bx, \Bx') \lr{ \lspacegrad' F(\Bx') } dV',
+\end{dmath}
+
+which can be rearranged to prove \cref{lemma:greensFunctionOverview:420}.
 
 %}

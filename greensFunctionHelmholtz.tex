@@ -5,19 +5,20 @@
 %{
 \subsubsection{Unbounded superposition solutions for the Helmholtz equation.}
 
-We can utilize \cref{eqn:gradientGreensFunctionEuclidean:160} to illustrate the Green's function technique.
+(FIXME: reference)
+We can utilize \cref{eqn:greensFunctionOverview:160} to illustrate the Green's function technique.
 As this equation is a linear differential operator relating the wave and the driving sources,
 it is reasonable to assume that the solution also has a general linear structure, such as
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:100}
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:100}
 F(\Bx) = \int dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
 \end{dmath}
 
 where the function \( G(\Bx, \Bx') \) is called the Green's function for the Helmholtz operator, and \( F_0 \) is any particular solution to the inhomogeneous Helmholtz equation \( \lr{ \spacegrad^2 + k^2 } F_0 = 0 \).
-Operating on \cref{eqn:gradientGreensFunctionEuclidean:100} with the Helmholtz operator \( \spacegrad + k^2 \) we find that the Green's function must
+Operating on \cref{eqn:greensFunctionHelmholtz:100} with the Helmholtz operator \( \spacegrad + k^2 \) we find that the Green's function must
 satisfy
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:140}
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:140}
 \lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx') = \delta(\Bx - \Bx').
 \end{dmath}
 
@@ -27,7 +28,7 @@ While it is possible \citep{schwinger1998classical} to derive the Green's functi
 \index{Green's function!Helmholtz}
 \maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
 The advancing (causal), and the receding (acausal) Green's functions satisfying
-\cref{eqn:gradientGreensFunctionEuclidean:140} are respectively
+\cref{eqn:greensFunctionHelmholtz:140} are respectively
 
 \begin{equation*}
 \begin{aligned}
@@ -44,87 +45,18 @@ A demonstration that these Green's function representations are valid can be fou
 \index{Green's function!Laplacian}
 Observe that as a special case, the Helmholtz Green's function reduces to the Green's function for the Laplacian when \( k = 0 \)
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:80}
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:80}
 G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
 \end{dmath}
 
 \subsubsection{Bounded superposition solutions for the Helmholtz equation.}
 
-When the presumed solution is a superposition of only states in a bounded region, such as
-
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:200}
-F(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
-\end{dmath}
-
-then life gets a bit more interesting.
-For such problems, we require Green's theorem, which must be generalized slightly for use with multivector fields.
-The basic idea is that we can relate the Laplacian's of the Green's function and the field
-\( F(\Bx') (\spacegrad')^2 G(\Bx, \Bx') = G(\Bx, \Bx') (\spacegrad')^2 F(\Bx') + \cdots \).
-That relation is usually expressed in terms of the difference of the two in the integral domain
-
-\maketheorem{Green's theorem}{thm:gradientGreensFunctionEuclidean:220}{
-Given a multivector function \( F \) and a scalar function \( G \)
-\begin{equation*}
-\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV = \int_{\partial V} \lr{ F \ncap \cdot \spacegrad G - G \ncap \cdot \spacegrad F },
-\end{equation*}
-where \( \partial V \) is the boundary of the volume \( V \).
-} % theorem
-
-A straightforward, but perhaps inelligant way of proving this theorem is to expand the sandwich difference in coordinates
-
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:260}
-F \spacegrad^2 G - G \spacegrad^2 F
-=
-\sum_k F \partial_k \partial_k G - G \partial_k \partial_k F
-=
-\sum_k \partial_k \lr{
-F \partial_k G - G \partial_k F
-}
--
-(\partial_k F)(\partial_k G) + (\partial_k G)(\partial_k F).
-\end{dmath}
-
-Since \( G \) is a scalar, the last two terms cancel, and we can integrate
-
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:280}
-\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
-=
-\sum_k \int_V \partial_k \lr{ F \partial_k G - G \partial_k F }.
-\end{dmath}
-
-Each integral above involves one component of the gradient.
-From
-%the fundamental theorem of geometric calculus
-\cref{thm:fundamentalTheoremOfCalculus:1}
-we know that
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:300}
-\int_V \spacegrad Q dV = \int_{\partial V} \ncap Q dA,
-\end{dmath}
-
-for any multivector \( Q \).
-Equating components gives
-
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:340}
-\int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
-\end{dmath}
-
-which can be substituted into \cref{eqn:gradientGreensFunctionEuclidean:280} to find
-
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:360}
-\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
-=
-\sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F } dA
-=
-\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA,
-\end{dmath}
-
-which proves the theorem.
 For our application of
 {thm:gradientGreensFunctionEuclidean:3} to the Helmholtz problem, we
 are actually interested in a antisymmetric sandwich of the Helmholtz operator by the function \( F \) and the scalar (Green's) function \( G \), but
 that reduces to a sandwich of Laplacian's
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:240}
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:240}
 F \lr{ \spacegrad^2 + k^2 } G - G \lr{ \spacegrad^2 + k^2 } F
 =
 F \spacegrad^2 G + \cancel{F k^2 G} - G \spacegrad^2 F - \cancel{G k^2 F}
@@ -134,7 +66,7 @@ F \spacegrad^2 G - G \spacegrad^2 F,
 
 so
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:380}
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:380}
 \int_V F(\Bx') \lr{ (\spacegrad')^2 + k^2 } G(\Bx, \Bx')
 =
 \int_V G(\Bx, \Bx') \lr{ (\spacegrad')^2 + k^2} F(\Bx') dV'
@@ -144,9 +76,10 @@ so
 
 This shows that if we assume the Green's function satisfies
 the delta function condition
-\cref{eqn:gradientGreensFunctionEuclidean:140}
+\cref{eqn:greensFunctionHelmholtz:140}
 %that was also true for the unbounded case
-, then the general solution to \cref{eqn:gradientGreensFunctionEuclidean:160} is
+, then the general solution to \cref{eqn:greensFunctionOverview:160} is
+(FIXME: reference)
 
 \boxedEquation{eqn:gradientGreensFunctionEuclidean:400}{
 \begin{aligned}

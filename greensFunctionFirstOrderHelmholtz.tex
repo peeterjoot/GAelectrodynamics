@@ -6,18 +6,18 @@
 
 The non-zero frequency generalization of the gradient equations above are multivector equations of the form
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:660}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:660}
 \lr{ \spacegrad + j k } F(\Bx) = J(\Bx).
 \end{dmath}
 
 As above, this can be solved by assuming a superposition solution
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:680}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:680}
 F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV',
 \end{dmath}
 
 where
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:700}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:700}
 \lr{ \spacegrad + j k } G(\Bx, \Bx')  = \delta(\Bx - \Bx').
 \end{dmath}
 
@@ -41,13 +41,13 @@ If we denote the (advanced) Green's function for the 2nd order Helmholtz operato
 \cref{thm:gradientGreensFunctionEuclidean:3}
 as \( \phi(\Bx, \Bx') \), we must have
 
-\begin{equation}\label{eqn:gradientGreensFunctionEuclidean:740}
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:740}
 \lr{ \rspacegrad + j k } G(\Bx, \Bx') = \delta(\Bx - \Bx') =
 \lr{ \rspacegrad + j k } \lr{ \rspacegrad - j k } \phi(\Bx, \Bx'),
 \end{equation}
 
 we see that the Green's function is given by
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:760}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:760}
 G(\Bx, \Bx')
 =
 \lr{ \rspacegrad - j k } \phi(\Bx, \Bx').
@@ -55,7 +55,7 @@ G(\Bx, \Bx')
 
 This can be computed directly
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:780}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:780}
 G(\Bx, \Bx')
 =
 \lr{ \rspacegrad - j k } \rcap \PD{r}{} \lr{ -\frac{e^{-j k r}}{4 \pi r} }
@@ -73,9 +73,9 @@ j k \lr{ 1 + \rcap } + \frac{\rcap}{r}
 
 as claimed.
 Observe that since \( \phi \) is scalar valued, we can also rewrite
-\cref{eqn:gradientGreensFunctionEuclidean:760} in terms of a right acting operator
+\cref{eqn:greensFunctionFirstOrderHelmholtz:760} in terms of a right acting operator
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:800}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:800}
 G(\Bx, \Bx')
 =
 \phi(\Bx, \Bx')
@@ -86,7 +86,7 @@ G(\Bx, \Bx')
 \end{dmath}
 
 so
-\begin{equation}\label{eqn:gradientGreensFunctionEuclidean:820}
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:820}
 G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } =
 \phi(\Bx, \Bx') \lr{ (\lspacegrad')^2 + k^2 }
 =
@@ -95,9 +95,9 @@ G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } =
 
 This is relavant for bounded superposition states, which we will discuss next now that the proof of
 \cref{thm:gradientGreensFunctionEuclidean:720} is complete.  In particular, we may rearrange
-\cref{eqn:gradientGreensFunctionEuclidean:500}
+\cref{eqn:greensFunctionGradient:500}
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:840}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:840}
 \begin{aligned}
 -\int_V \lr{ G(\Bx, \Bx') \lspacegrad'} F(\Bx') dV'
 &=
@@ -109,7 +109,7 @@ This is relavant for bounded superposition states, which we will discuss next no
 
 and add \( \int_V G(\Bx, \Bx') j k F(\Bx') dV' \) to both sides to find
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:860}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:860}
 \begin{aligned}
 \int_V \lr{ G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } } F(\Bx') dV'
 &=
@@ -119,9 +119,9 @@ and add \( \int_V G(\Bx, \Bx') j k F(\Bx') dV' \) to both sides to find
 \end{aligned}
 \end{dmath}
 
-Utilizing \cref{thm:gradientGreensFunctionEuclidean:720}, and substituting \( J(\Bx') \) from \cref{eqn:gradientGreensFunctionEuclidean:660}, we find that one solution is
+Utilizing \cref{thm:gradientGreensFunctionEuclidean:720}, and substituting \( J(\Bx') \) from \cref{eqn:greensFunctionFirstOrderHelmholtz:660}, we find that one solution is
 
-\begin{dmath}\label{eqn:gradientGreensFunctionEuclidean:880}
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:880}
 F(\Bx)
 =
 \int_V G(\Bx, \Bx') J(\Bx') dV'
