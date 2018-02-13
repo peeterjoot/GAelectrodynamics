@@ -74,12 +74,13 @@ f(\Bx, t) = \Real\lr{ f(\Bx) e^{j \omega t} },
 where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
 } % definition
 
-The complex valued multivector \( f(\Bx) \) is still generated from the real Euclidean basis for \R{3}.
-We will have
+The complex valued multivector \( f(\Bx) \) is still generated from the real Euclidean basis for \R{3}, so
+there will be 
 no reason to introduce complex inner products spaces into the mix.
+
 The reader must take care when reading any literature that utilizes Fourier transforms or phasor representation, since the conventions vary.
 In particular the physics representation of a phasor typically uses the opposite sign convention
-\( f(\Bx, t) = \Real\lr{ f(\Bx) e^{-i \omega t }} \).
+\( f(\Bx, t) = \Real\lr{ f(\Bx) e^{-i \omega t }} \), which toggles the sign of all the imaginaries in derived results.
 
 Armed with Fourier transform or phasor representations, the frequency domain representations of
 \cref{eqn:greensFunctionOverview:200} are found to be
@@ -102,17 +103,20 @@ where \( k = \omega/c \), and any explicit frequency dependence in our transform
 We will call these equations the first and second order Helmholtz equations respectively.
 The first order equation applies a multivector differential operator to a multivector field, which must equal the multivector forcing function (the sources).
 
-For statics problems (\( k = 0 \)), we may work with real fields and sources, dispensing with any need to take real parts once the equations are solved.
+For statics problems (\( k = 0 \)), we may work with real fields and sources, dispensing with any need to take real parts.
 
 \subsection{Green's function solutions.}
 
 \subsubsection{Unbounded.}
 
-As the operators in \cref{eqn:greensFunctionOverview:200}, and \cref{eqn:greensFunctionOverview:320} all have a similar linear structure, which we can write in a more abstract notation as
+The operators in \cref{eqn:greensFunctionOverview:200}, and \cref{eqn:greensFunctionOverview:320} all have a similar linear structure.
+Abstracting that structure, all these problems have the form
 
 \begin{dmath}\label{eqn:greensFunctionOverview:340}
-\LL F(\Bx) = J(\Bx).
+\LL F(\Bx) = J(\Bx),
 \end{dmath}
+
+where \( \LL \) is an operator formed from a linear combination of linear operators \( 1, \spacegrad, \spacegrad^2, \partial_t, \partial_{tt}) \).
 
 Given the linear structure of the PDE that we wish to solve, it makes sense to assume that the solutions also have a linear structure.
 The most general such solution we can assume has the form
