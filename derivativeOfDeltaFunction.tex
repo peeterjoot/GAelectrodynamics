@@ -1,0 +1,97 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%%%\input{../latex/blogpost.tex}
+%%%\renewcommand{\basename}{derivativeOfDeltaFunction}
+%%%%\renewcommand{\dirname}{notes/phy1520/}
+%%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%%\newcommand{\dateintitle}{}
+%%%%\newcommand{\keywords}{}
+%%%
+%%%\input{../latex/peeter_prologue_print2.tex}
+%%%
+%%%\usepackage{peeters_layout_exercise}
+%%%\usepackage{peeters_braket}
+%%%\usepackage{peeters_figures}
+%%%\usepackage{siunitx}
+%%%%\usepackage{mhchem} % \ce{}
+%%%%\usepackage{macros_bm} % \bcM
+%%%%\usepackage{macros_qed} % \qedmarker
+%%%%\usepackage{txfonts} % \ointclockwise
+%%%
+%%%\beginArtNoToc
+%%%
+%%%\generatetitle{Derivative of a delta function}
+%\chapter{Derivative of a delta function}
+\label{chap:derivativeOfDeltaFunction}
+
+%In the geometric algebra formulation of Maxwell's equation (singular in GA), the Green's function for the spacetime derivative ends up with terms like
+%In the geometric algebra formulation of Maxwell's equation (singular in GA), 
+The Green's function for the spacetime derivative ends up with terms like
+
+\begin{dmath}\label{eqn:derivativeOfDeltaFunction:20}
+\begin{aligned}
+\frac{d}{dr} &\delta( -r/c + t - t' ) \\
+\frac{d}{dt} &\delta( -r/c + t - t' ),
+\end{aligned}
+\end{dmath}
+
+where \( t' \) is the integration variable of the test function that the delta function will be applied to.
+If these were derivatives with respect to the integration variable, then we could use
+
+\begin{dmath}\label{eqn:derivativeOfDeltaFunction:60}
+\int_{-\infty}^\infty
+\lr{ \frac{d}{dt'} \delta(t') } \phi(t') = -\phi'(0),
+\end{dmath}
+
+which follows by chain rule, and an assumption that \( \phi(t') \) is well behaved at the points at infinity.
+It is not clear that how, if at all, this could be applied to either of \cref{eqn:derivativeOfDeltaFunction:20} or \cref{eqn:derivativeOfDeltaFunction:40}.
+
+Let's go back to square one, and figure out the meaning of these delta functions by their action on a test function.
+We wish to compute
+
+\begin{dmath}\label{eqn:derivativeOfDeltaFunction:80}
+\int_{-\infty}^\infty \frac{d}{du} \delta( a u + b - t' ) f(t') dt'.
+\end{dmath}
+
+Let's start with a change of variables \( t'' = a u + b - t' \), for which we find
+
+\begin{dmath}\label{eqn:derivativeOfDeltaFunction:100}
+\begin{aligned}
+t' &= a u + b - t'' \\
+dt'' &= - dt' \\
+\frac{d}{du} &= \frac{dt''}{du} \frac{d}{dt''} = a \frac{d}{dt''}.
+\end{aligned}
+\end{dmath}
+
+Substitution back into \cref{eqn:derivativeOfDeltaFunction:80} gives
+
+\begin{dmath}\label{eqn:derivativeOfDeltaFunction:120}
+a \int_{\infty}^{-\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) (-dt'')
+=
+a \int_{-\infty}^{\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) dt''
+=
+\evalrange{a \delta(t'') f( a u + b - t'')}{-\infty}{\infty}
+-
+a \int_{-\infty}^{\infty} \delta( t'' )  \frac{d}{dt''} f( a u + b - t'' ) dt''
+=
+- \evalbar{ a \frac{d}{dt''} f( a u + b - t'' ) }{t'' = 0}
+=
+\evalbar{ a \frac{d}{ds} f( s ) }{s = a u + b}.
+\end{dmath}
+
+This shows that the action of the derivative of the delta function (with respect to a non-integration variable parameter \( u \)) is
+
+%\begin{dmath}\label{eqn:derivativeOfDeltaFunction:140}
+\boxedEquation{eqn:derivativeOfDeltaFunction:160}{
+\frac{d}{du} \delta( a u + b - t' )
+\sim
+\evalbar{a \frac{d}{ds}}{s = a u + b}.
+}
+%\end{dmath}
+
+%%%%}
+%%%%\EndArticle
+%%%\EndNoBibArticle

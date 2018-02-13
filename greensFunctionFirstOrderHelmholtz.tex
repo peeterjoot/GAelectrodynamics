@@ -4,24 +4,11 @@
 %
 %{
 
-The non-zero frequency generalization of the gradient equations above are multivector equations of the form
+The specialization of \cref{eqn:greensFunctionSolutions:400} to the first order Helmholtz equation \cref{eqn:greensFunctionOverview:240} is
 
-\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:660}
-\lr{ \spacegrad + j k } F(\Bx) = J(\Bx).
-\end{dmath}
-
-As above, this can be solved by assuming a superposition solution
-
-\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:680}
-F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV',
-\end{dmath}
-
-where
 \begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:700}
 \lr{ \spacegrad + j k } G(\Bx, \Bx')  = \delta(\Bx - \Bx').
 \end{dmath}
-
-FIXME: this basic idea has been repeated over and over again.  Probably worth stating it once up front.
 
 This Green's function is multivector valued
 
@@ -36,6 +23,12 @@ G(\Bx, \Bx') = \frac{e^{-j k r}}{4 \pi r} \lr{ j k \lr{ 1 + \rcap } + \frac{\rca
 \end{equation*}
 where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
 } % theorem
+
+A special but important case is the \( k = 0 \) condition, which provides the
+Green's function for the gradient, which is vector valued
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:900}
+G(\Bx, \Bx' ; k = 0) = \inv{4 \pi} \frac{\rcap}{r^2}.
+\end{equation}
 
 If we denote the (advanced) Green's function for the 2nd order Helmholtz operator
 \cref{thm:gradientGreensFunctionEuclidean:3}
@@ -58,7 +51,9 @@ This can be computed directly
 \begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:780}
 G(\Bx, \Bx')
 =
-\lr{ \rspacegrad - j k } \rcap \PD{r}{} \lr{ -\frac{e^{-j k r}}{4 \pi r} }
+\lr{ \rspacegrad - j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} }
+=
+\lr{ \rcap \PD{r}{} -j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} }
 =
 \frac{-e^{-j k r}}{4 \pi}
 \lr{
@@ -94,20 +89,9 @@ G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } =
 \end{equation}
 
 This is relavant for bounded superposition states, which we will discuss next now that the proof of
-\cref{thm:gradientGreensFunctionEuclidean:720} is complete.  In particular, we may rearrange
-\cref{eqn:greensFunctionGradient:500}
-
-\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:840}
-\begin{aligned}
--\int_V \lr{ G(\Bx, \Bx') \lspacegrad'} F(\Bx') dV'
-&=
-\int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx')} dV' \\
-&-
-\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA',
-\end{aligned}
-\end{dmath}
-
-and add \( \int_V G(\Bx, \Bx') j k F(\Bx') dV' \) to both sides to find
+\cref{thm:gradientGreensFunctionEuclidean:720} is complete.
+In particular addition of
+\( \int_V G(\Bx, \Bx') j k F(\Bx') dV' \) to both sides of \cref{lemma:greensFunctionOverview:420} gives
 
 \begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:860}
 \begin{aligned}
@@ -119,7 +103,9 @@ and add \( \int_V G(\Bx, \Bx') j k F(\Bx') dV' \) to both sides to find
 \end{aligned}
 \end{dmath}
 
-Utilizing \cref{thm:gradientGreensFunctionEuclidean:720}, and substituting \( J(\Bx') \) from \cref{eqn:greensFunctionFirstOrderHelmholtz:660}, we find that one solution is
+Utilizing \cref{thm:gradientGreensFunctionEuclidean:720}, and substituting \( J(\Bx') \)
+from \cref{eqn:greensFunctionOverview:240},
+we find that one solution to the first order Helmholtz equation is
 
 \begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:880}
 F(\Bx)

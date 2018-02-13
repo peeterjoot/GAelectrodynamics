@@ -1,8 +1,18 @@
-- Green's: split and move subsection references to chapters.tex :
+- pruned Gradient Green's function completely.
 
+   This introduces a couple dropped references:
+
+     Reference `eqn:greensFunctionFirstOrderHelmholtz:660' on page 1 undefined on input line 115
+     Reference `eqn:greensFunctionGradient:500' on page 1 undefined on input line 91
+     Reference `thm:gradientGreensFunctionEuclidean:1' on page 1 undefined on input line 7
+
+- Write up Green's derivation for the spacetime gradient and use it to derive the Griffiths results
+  for E and B in terms of \rho, \dotrho, \BJ and \dot{\BJ}
+
+- 
    cylinderField.tex
 
-   ?
+      What was this?  It's now orphaned.
 
 - far field application of Green's function for grad+jk.  GAFP does this nicely, but
 it's a bit hard to follow, and their notation for the Green's function is not spelled

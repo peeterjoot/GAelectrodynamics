@@ -4,14 +4,15 @@
 %
 \index{Green's function}
 \index{convolution}
-From \cref{thm:gradientGreensFunctionEuclidean:1}, the
+From \cref{thm:gradientGreensFunctionEuclidean:720}
+%From \cref{thm:gradientGreensFunctionEuclidean:1}, the
 \R{3} Green's function for the gradient (on an infinite spherical bounding surface) is
 
 \begin{dmath}\label{eqn:electrostatics_invertingGradient:260}
-G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3}.
+G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3},
 \end{dmath}
 
-The Green's function convolution that inverts the electric field gradient equation is
+so the convolution that inverts the electric field gradient equation is
 \begin{dmath}\label{eqn:electrostatics_invertingGradient:621}
 \BE(\Bx)
 = \int_V dV' G(\Bx, \Bx') \spacegrad' \BE(\Bx')
