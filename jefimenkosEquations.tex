@@ -3,31 +3,31 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-\input{../latex/blogpost.tex}
-\renewcommand{\basename}{jefimenkosEquations}
-%\renewcommand{\dirname}{notes/phy1520/}
-\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%\newcommand{\dateintitle}{}
-%\newcommand{\keywords}{}
-
-\input{../latex/peeter_prologue_print2.tex}
-
-\usepackage{peeters_layout_exercise}
-\usepackage{peeters_braket}
-\usepackage{peeters_figures}
-\usepackage{siunitx}
-%\usepackage{mhchem} % \ce{}
-%\usepackage{macros_bm} % \bcM
-%\usepackage{macros_qed} % \qedmarker
-%\usepackage{txfonts} % \ointclockwise
-
-\newcommand{\dotBJ}[0]{\mathbf{\dot{J}}}
-
-\beginArtNoToc
-
-\generatetitle{Inverting Maxwell's equation}
-%\chapter{Inverting Maxwell's equation}
-%\label{chap:jefimenkosEquations}
+%%%\input{../latex/blogpost.tex}
+%%%\renewcommand{\basename}{jefimenkosEquations}
+%%%%\renewcommand{\dirname}{notes/phy1520/}
+%%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%%\newcommand{\dateintitle}{}
+%%%%\newcommand{\keywords}{}
+%%%
+%%%\input{../latex/peeter_prologue_print2.tex}
+%%%
+%%%\usepackage{peeters_layout_exercise}
+%%%\usepackage{peeters_braket}
+%%%\usepackage{peeters_figures}
+%%%\usepackage{siunitx}
+%%%%\usepackage{mhchem} % \ce{}
+%%%%\usepackage{macros_bm} % \bcM
+%%%%\usepackage{macros_qed} % \qedmarker
+%%%%\usepackage{txfonts} % \ointclockwise
+%%%
+%%%\newcommand{\dotBJ}[0]{\mathbf{\dot{J}}}
+%%%
+%%%\beginArtNoToc
+%%%
+%%%\generatetitle{Inverting Maxwell's equation}
+%%%%\chapter{Inverting Maxwell's equation}
+\label{chap:jefimenkosEquations}
 
 Maxwell's equation (\cref{eqn:maxwellsEquations:460}) is invertable using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}.
 
@@ -116,8 +116,8 @@ As \( F = \BE + I \eta \BH \), we can read of the respective electric and magnet
 \inv{4 \pi}
 \int dV'
 \lr{
-   \frac{\rho}{\epsilon r^2} \rcap(\Bx', t_r)
-   + \frac{\dot{\rho}}{\epsilon c r} \rcap(\Bx', t_r)
+\frac{\rcap}{\epsilon r} \lr{
+\frac{\rho(\Bx', t_r)}{r} + \frac{\dot{\rho}(\Bx', t_r) }{c} }
    - \frac{\eta }{ c r } \dotBJ(\Bx', t_r)
 } \\
 \BH &=
@@ -131,8 +131,7 @@ As \( F = \BE + I \eta \BH \), we can read of the respective electric and magnet
 \end{aligned}
 \end{dmath}
 
-which checks against Griffiths.
+which checks against Griffiths.  The disadvantages of separating the field and current components into their constituent components is also made painfully obvious by the complexity of \cref{eqn:jefimenkosEquations:100} compared to the equivalent multivector form \cref{eqn:jefimenkosEquations:60}.
 
 %}
-\EndArticle
-%\EndNoBibArticle
+%%%\EndArticle
