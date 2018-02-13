@@ -5,20 +5,9 @@
 %{
 \subsubsection{Unbounded superposition solutions for the Helmholtz equation.}
 
-(FIXME: reference)
-We can utilize \cref{eqn:greensFunctionOverview:160} to illustrate the Green's function technique.
-As this equation is a linear differential operator relating the wave and the driving sources,
-it is reasonable to assume that the solution also has a general linear structure, such as
+The specialization of \cref{eqn:greensFunctionSolutions:400} to the Helmholtz equation \cref{eqn:greensFunctionOverview:260} is
 
-\begin{dmath}\label{eqn:greensFunctionHelmholtz:100}
-F(\Bx) = \int dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
-\end{dmath}
-
-where the function \( G(\Bx, \Bx') \) is called the Green's function for the Helmholtz operator, and \( F_0 \) is any particular solution to the inhomogeneous Helmholtz equation \( \lr{ \spacegrad^2 + k^2 } F_0 = 0 \).
-Operating on \cref{eqn:greensFunctionHelmholtz:100} with the Helmholtz operator \( \spacegrad + k^2 \) we find that the Green's function must
-satisfy
-
-\begin{dmath}\label{eqn:greensFunctionHelmholtz:140}
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:420}
 \lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx') = \delta(\Bx - \Bx').
 \end{dmath}
 
@@ -28,7 +17,7 @@ While it is possible \citep{schwinger1998classical} to derive the Green's functi
 \index{Green's function!Helmholtz}
 \maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
 The advancing (causal), and the receding (acausal) Green's functions satisfying
-\cref{eqn:greensFunctionHelmholtz:140} are respectively
+\cref{eqn:greensFunctionHelmholtz:420} are respectively
 
 \begin{equation*}
 \begin{aligned}
@@ -39,7 +28,8 @@ G_{\textrm{rec}}(\Bx, \Bx') &= -\frac{e^{j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm
 } % theorem
 
 We will use the advancing Green's function, and refer to this function as \( G(\Bx, \Bx') \) without any subscript.
-A demonstration that these Green's function representations are valid can be found in \cref{chap:helmholtzGreens}.
+Because it may not be obvious that these
+Green's function representations are valid in a multivector context, a demonstration of this fact can be found in \cref{chap:helmholtzGreens}.
 
 \index{Laplacian!Green's function}
 \index{Green's function!Laplacian}
@@ -52,9 +42,9 @@ G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
 \subsubsection{Bounded superposition solutions for the Helmholtz equation.}
 
 For our application of
-{thm:gradientGreensFunctionEuclidean:3} to the Helmholtz problem, we
+\cref{thm:gradientGreensFunctionEuclidean:3} to the Helmholtz problem, we
 are actually interested in a antisymmetric sandwich of the Helmholtz operator by the function \( F \) and the scalar (Green's) function \( G \), but
-that reduces to a sandwich of Laplacian's
+that reduces to an asymmetric sandwich of our functions around the Laplacian
 
 \begin{dmath}\label{eqn:greensFunctionHelmholtz:240}
 F \lr{ \spacegrad^2 + k^2 } G - G \lr{ \spacegrad^2 + k^2 } F
@@ -76,10 +66,10 @@ so
 
 This shows that if we assume the Green's function satisfies
 the delta function condition
-\cref{eqn:greensFunctionHelmholtz:140}
-%that was also true for the unbounded case
-, then the general solution to \cref{eqn:greensFunctionOverview:160} is
-(FIXME: reference)
+\cref{eqn:greensFunctionHelmholtz:420}
+, then the general solution of
+\cref{eqn:greensFunctionOverview:260} is
+formed from a bounded superposition of sources is
 
 \boxedEquation{eqn:gradientGreensFunctionEuclidean:400}{
 \begin{aligned}
