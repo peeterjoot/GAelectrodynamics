@@ -1,3 +1,7 @@
+- footnote about the CliffordBasic package now follows first use.  Add some more sample calculations, and move footnote earlier
+
+   (perhaps generalizing to include other CAS engines like Maxima.)
+
 - pruned Gradient Green's function completely.
 
    This introduces a couple dropped references:

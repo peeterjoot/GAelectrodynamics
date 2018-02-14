@@ -145,22 +145,22 @@ In parametric form, the lines in this problem are
 
 \begin{dmath}\label{eqn:solutionOfLinearSystem:1000}
 \begin{aligned}
-\Br_1(s) &= \Ba_0 + s( \Ba_1 - \Ba_2 ) \\
-\Br_2(t) &= \Bb_0 + t( \Bb_1 - \Bb_2 ),
+\Br_1(s) &= \Ba_0 + s( \Ba_1 - \Ba_0 ) \\
+\Br_2(t) &= \Bb_0 + t( \Bb_1 - \Bb_0 ),
 \end{aligned}
 \end{dmath}
 
 so the solution, if it exists, is found at the point satisfying the equality
 
 \begin{dmath}\label{eqn:solutionOfLinearSystem:1020}
-\Ba_0 + s( \Ba_1 - \Ba_2 ) = \Bb_0 + t( \Bb_1 - \Bb_2 ).
+\Ba_0 + s( \Ba_1 - \Ba_0 ) = \Bb_0 + t( \Bb_1 - \Bb_0 ).
 \end{dmath}
 
 With
 \begin{dmath}\label{eqn:solutionOfLinearSystem:1040}
 \begin{aligned}
-\Bu_1 &= \Ba_1 - \Ba_2 \\
-\Bu_2 &= \Bb_1 - \Bb_2 \\
+\Bu_1 &= \Ba_1 - \Ba_0 \\
+\Bu_2 &= \Bb_1 - \Bb_0 \\
 \Bd &= \Ba_0 - \Bb_0,
 \end{aligned}
 \end{dmath}
