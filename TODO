@@ -1,3 +1,18 @@
+- Also: re: chapter II.
+
+   At this point in time, this chapter is essentially is a write-once (except for Green's functions which has been reworked), read-none document. There are a number of things about it that I am not happy with. In particular, I think that the focus should be the fundamental theorem of geometric calculus. Right now, most of the early focus of the chapter is the GA form of Stokes' theorem, and the fundamental theorem is almost an afterthought. For single and double parameter volume elements I tie things to the geometry, but do not do so for trivector volume elements. I think it would be best to restructure this chapter as:
+
+   - fundamental theorem: 1 parameter volume elements
+   - fundamental theorem: 2 parameter volume elements
+   - fundamental theorem: 3 parameter volume elements
+
+   after each, show how that relates to equivalent conventional results.
+
+   - finish off with a general statement of the fundamental theorem, and its connection to the general GA Stokes theorem.
+   - move on to Green's functions after that.
+
+   I'm not sure if there's really a good reason to include the Helmholtz theorem section at the end of the chapter. I happen to like it, since it's a nice compact derivation, but it's somewhat out of place since we don't have a good reason to work with separate divergence and curl operations in a GA context. Better would be a more general first order statement showing that the gradient (not its divergence and curl) uniquely determines the solution if the function or the Green's function vanishes on the boundary
+
 - footnote about the CliffordBasic package now follows first use.  Add some more sample calculations, and move footnote earlier
 
    (perhaps generalizing to include other CAS engines like Maxima.)
@@ -13,7 +28,7 @@
 - Write up Green's derivation for the spacetime gradient and use it to derive the Griffiths results
   for E and B in terms of \rho, \dotrho, \BJ and \dot{\BJ}
 
-- 
+-
    cylinderField.tex
 
       What was this?  It's now orphaned.

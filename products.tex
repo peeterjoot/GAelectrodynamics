@@ -324,7 +324,41 @@ or
 
 The direction of the cross product \( \Ba \cross \Bb \) is normal to the plane represented by the bivector \( \Ba \wedge \Bb \).  The magnitude of both (up to a sign) is the area of the parallelogram spanned by the two vectors.
 
-This relationship means that we can also express the
+\makeexample{Wedge and cross product relationship.}{example:products:2000}{
+To take some of the abstraction from \cref{eqn:SimpleProducts2:1620} let's consider a specific example.  Let
+\begin{dmath}\label{eqn:products:2020}
+\begin{aligned}
+\Ba &= \Be_1 + 2 \Be_2 + 3 \Be_3 \\
+\Bb &= 4 \Be_1 + 5 \Be_2 + 6 \Be_3.
+\end{aligned}
+\end{dmath}
+The reader should check that the cross product of these two vectors is
+\begin{dmath}\label{eqn:products:2040}
+\Ba \cross \Bb = -3 \Be_1 - 6 \Be_2 - 3 \Be_3.
+\end{dmath}
+By direct computation, we find that the wedge and the cross products are related by a \R{3} pseudoscalar factor
+\begin{dmath}\label{eqn:products:2060}
+\Ba \wedge \Bb
+=
+\lr{ \Be_1 + 2 \Be_2 + 3 \Be_3 } \wedge \lr{ 4 \Be_1 + 5 \Be_2 + 6 \Be_3 }
+=
+5 \Be_{12} + 6 \Be_{13}
++ 8 \Be_{21} + 12 \Be_{23}
++ 12 \Be_{31} + 15 \Be_{32}
+=
+3 \Be_{21} + 6 \Be_{31} + 3 \Be_{32}
+=
+-3 \Be_{12} - 6 \Be_{13} - 3 \Be_{23}
+=
+\Be_{123} (-3 \Be_{3}) + \Be_{132}(- 6 \Be_{2}) + \Be_{231}(- 3 \Be_{1})
+=
+\Be_{123} (-3 \Be_{3} - 6 \Be_{2} - 3 \Be_{1})
+=
+I (\Ba \cross \Bb).
+\end{dmath}
+} % example
+
+The relationship between the wedge and cross products allows us to express the
 \R{3} vector product as a multivector combination of the dot and cross products
 
 \boxedEquation{eqn:SimpleProducts2:1640}{
