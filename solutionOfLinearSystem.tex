@@ -119,10 +119,11 @@ c = e[1] + 2 e[2] - e[4];
 aWedgeB = OuterProduct[a, b]
 cWedgeB = OuterProduct[c, b]
 aWedgeC = OuterProduct[a, c]
-iab = \mmaFrac{aWedgeB}{GeometricProduct[aWedgeB, aWedgeB]};
+iab = aWedgeB / GeometricProduct[aWedgeB, aWedgeB];
 x = GeometricProduct[iab, cWedgeB]
 y = GeometricProduct[iab, aWedgeC]
 \end{mmaCell}
+%iab = \mmaFrac{aWedgeB}{GeometricProduct[aWedgeB, aWedgeB]};
 
 Which gives
 \begin{dmath}\label{eqn:solutionOfLinearSystem:1300}

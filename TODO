@@ -92,6 +92,8 @@ don't have to be fixed up).
 
    -- statement is a cop-out.  fix.
 
+   workaround: just deleted this for now.  Stick to \R{3} and below.
+
 - Got to try plotting the ring fields.
 
 - Lorentz force, boosts: gabookII chapter 35.  Is there a reasonable paravector implementation of this?
