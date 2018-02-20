@@ -3,87 +3,145 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \index{curvilinear coordinates}
-\paragraph{Rough idea:}
 Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
-Consider a continuous subspace parameterized by a two parameter vector function \( \Bx = \Bx(u_1, u_2) \) that is differentiable with respect to either parameter
+%Consider a continuous subspace parameterized by a two parameter vector function \( \Bx = \Bx(u_1, u_2) \) that is differentiable with respect to either parameter
+As an example, consider a two parameter planar subspace of parameterized by the following continuous vector function
 
-\begin{dmath}\label{eqn:curvilinearDefined:40}
-\begin{aligned}
-d\Bx_{u_1} &= \PD{u}{\Bx} du_1 \\
-d\Bx_{u_2} &= \PD{v}{\Bx} du_2,
-\end{aligned}
+\begin{dmath}\label{eqn:curvilinearDefined:480}
+\Bx(u_1, u_2) = u_1 \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 },
 \end{dmath}
 
-At the point of evaluation, the span of these differentials or the partials themselves, is called the tangent space.
-We will utilize the partials as a basis for the tangent space
+where \( u_1 \in [0,1] \) and \( u_2 \in [0, \pi/2] \).
+This parameterization spans the first quadrant of the ellipse with semi-major axis length 1, and semi-minor axis length \( 1/2 \)
+\footnote{
+A parameterization of an elliptic area may or may not not be of much use in electrodynamics.  It does, however, provide a fairly simple but non-trivial example of a non-orthonormal parameterization.}
+Contours for this parameterization are plotted in \cref{fig:ellipticalContours:ellipticalContoursFig1}.
+The radial contours are for fixed values of \( u_2 \) and the elliptical contours fix the value of \( u_1 \), and depict a set of ellipic curves
+with a semi-major/major axis ratio of \( 1/2 \).
+
+\imageFigure{../figures/GAelectrodynamics/ellipticalContoursFig1}{Contours for an elliptical region.}{fig:ellipticalContours:ellipticalContoursFig1}{0.3}
+
+We define a curvilinear basis associated with each point in the region by the partials
 
 \begin{dmath}\label{eqn:curvilinearDefined:80}
 \begin{aligned}
-\Bx_{u_1} &= \PD{u_1}{\Bx} \\
-\Bx_{u_2} &= \PD{u_2}{\Bx}.
+\Bx_{1} &= \PD{u_1}{\Bx} \\
+\Bx_{2} &= \PD{u_2}{\Bx}.
 \end{aligned}
 \end{dmath}
 
-There is no reason to presume that there is any orthonormality constraint on the basis \( \setlr{ \Bx_{u_1}, \Bx_{u_2} } \) for this two parameter subspace, so a reciprocal basis \( \setlr{ \Bx^u, \Bx^v } \)
-must be used to compute coordinates, however,
-we must restrict attention to only those parametrizations for which the tangent space volume element is non-zero
+For our the function \cref{eqn:curvilinearDefined:480} our curvilinear basis elements are
+
+\begin{dmath}\label{eqn:curvilinearDefined:520}
+\begin{aligned}
+\Bx_{1} &= \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 } \\
+\Bx_{2} &= u_1 \Be_2 \frac{\sqrt{3}}{2} \sinh\lr{ \Atanh(1/2) + \Be_{12} u_2 }.
+\end{aligned}
+\end{dmath}
+
+We form vector valued differentials for each parameter
+
+\begin{dmath}\label{eqn:curvilinearDefined:500}
+\begin{aligned}
+d\Bx_{1} &= \Bx_1 du_1 \\
+d\Bx_{2} &= \Bx_2 du_2.
+\end{aligned}
+\end{dmath}
+
+For \cref{eqn:curvilinearDefined:480},
+the values of these differentials \( d\Bx_1, d\Bx_2 \) with \( du_1 = du_2 = 0.1 \) are plotted
+in
+\cref{fig:ellipticalContours:ellipticalContoursFig2}
+for the points
+\( (u_1, u_2) = (0.7, 5 \pi/20), (0.9, 3 \pi/20), (1.0, 5 \pi/20) \)
+in
+(dark-thick) red, blue and purple respectively.
+
+\imageFigure{../figures/GAelectrodynamics/ellipticalContoursFig2}{Differentials for an elliptical parameterization.}{fig:ellipticalContours:ellipticalContoursFig2}{0.3}
+
+In this case and in general there is no reason to presume that there is any orthonormality constraint on the basis \( \setlr{ \Bx_{1}, \Bx_{2} } \) for a given two parameter subspace.
+
+Should we wish to calculate the reciprocal frame
+for \cref{eqn:curvilinearDefined:480}
+, we would find
+(\cref{problem:curvilinearDefined:560}) that
+
+\begin{dmath}\label{eqn:curvilinearDefined:540}
+\begin{aligned}
+\Bx^{1} &= \Be_1 \sqrt{3} \sinh\lr{ \Atanh(1/2) + \Be_{12} u_2 } \\
+\Bx^{2} &= \frac{\Be_2}{u_1} \sqrt{3} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 }.
+\end{aligned}
+\end{dmath}
+
+These are plotted (scaled by \( da = 0.1 \) so they fit in the image nicely) in \cref{fig:ellipticalContours:ellipticalContoursFig2} using thin light arrows.
+
+When evaluating surface integrals, we will form
+oriented (bivector) area elements from the wedge product of the differentials
 
 \begin{dmath}\label{eqn:curvilinearDefined:60}
-d\Bx_{u_1} \wedge d\Bx_{u_2} \ne 0.
+d^2 \Bx \equiv d\Bx_{1} \wedge d\Bx_{2}.
 \end{dmath}
 
-\makeexample{A two parameter surface.}{example:curvilinearDefined:420}{
-As an illustration, consider a two parameter subspace of \R{3}
+This absolute value of this area element \( \sqrt{-(d^2 \Bx)^2} \) is the area of the parallelogram spanned by \( d\Bx_1, d\Bx_2 \).
+In this example, all such area elements lie in the \( x-y \) plane, but that need not be the case.
 
-\begin{dmath}\label{eqn:curvilinearDefined:440}
-\Bx(u_1, u_2)
-=
-u_1 \Be_1 + u_2 \Be_2 + \lr{(u_1 - 2 u_2)^2 + \cos(u_2) \sin(5 u_1 + u_2)} \Be_3.
-\end{dmath}
+Also note that we will only perform integrals for those parametrizations for which the area element \( d^2 \Bx \) is non-zero.
 
-The tangent space associated with this parameterization is spanned by the vectors
+%If the spacing between the contours is made small enough, the boundaries of each partition will define a planar region at the point of evaluation.
+%All points in the interior will be accessible by a combination of the vectors formed from the partials of \( \Bx \) at that point.
 
-\begin{dmath}\label{eqn:curvilinearDefined:460}
-\begin{aligned}
-\Bx_{u_1}
-&=
-\Be_1 + \lr{
-   2 (u_1 - 2 u_2) + 5 \cos(u_2) \cos(5 u_1 + u_2)
-} \Be_3 \\
-\Bx_{u_2}
-&=
-\Be_2 +
-\lr{
-   -4 (u_1 - 2 u_2)
-- \sin(u_2) \sin(5 u_1 + u_2)
-+ \cos(u_2) \cos(5 u_1 + u_2)
-} \Be_3.
-\end{aligned}
-\end{dmath}
+\makeproblem{Elliptic curvilinear and reciprocal basis.}{problem:curvilinearDefined:560}{
+From \cref{eqn:curvilinearDefined:480}, compute the
+curvilinear coordinates \cref{eqn:curvilinearDefined:520}, and the reciprocal frame vectors \cref{eqn:curvilinearDefined:540}.
+Check using scalar grade selection that \( \Bx^i \cdot \Bx_j = {\delta^i}_j \).
+Hints: Given \( \mu = \Atanh(1/2) \),
+\begin{itemize}
+\item \( \cosh( \mu + i \theta ) \Be_2 = \Be_2 \cosh( \mu - i \theta ) \).
+\item \( \Real\lr{ \cosh( \mu - i \theta ) \sinh( \mu + i \theta ) } = 2/3 \).
+\end{itemize}
+} % problem
 
-This tangent space is plotted in \cref{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}.
+\paragraph{fixme:}
+don't introduce the idea of tangent space until a 3D example.
+Remove the \R{3} reference above, and keep this first example planar.
 
-FIXME: Wolfgang: ``Plot the TpM at special point \( P(0.3,1.5,0.3) \) in Fig.  Calculate using hand and CAS MM.''
-} % example
+At the point of evaluation, the span of these differentials is called the tangent space.
+In this particular case the tangent space at all points in the region is the entire x-y plane.
+These partials locally span the tangent space at a given point on the surface.
 
-\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFieldFig1}{Curvilinear coordinates along a two parameter surface.}{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}{0.3}
-
-\paragraph{General definition}
-
-More generally, given a parameterization of \( \Bx(u_1, u_2, \cdots, u_k) \), a curvilinear basis defined on the tangent space is induced by the partials
-
-\begin{dmath}\label{eqn:curvilinearDefined:240}
-\Bx_{u_i} = \PD{u_i}{\Bx}.
-\end{dmath}
-
-The volume element for the subspace is
-
-\begin{dmath}\label{eqn:curvilinearDefined:260}
-d^k \Bx = du_1 du_2 \cdots du_k\,
-\Bx_{u_1} \wedge
-\Bx_{u_2} \wedge \cdots \wedge
-\Bx_{u_k}.
-\end{dmath}
-
-Unlike a scalar volume, this volume element is oriented.
+%%%%\makeexample{A two parameter surface.}{example:curvilinearDefined:420}{
+%%%%As an illustration, consider a two parameter subspace of \R{3}
+%%%%
+%%%%\begin{dmath}\label{eqn:curvilinearDefined:440}
+%%%%\Bx(u_1, u_2)
+%%%%=
+%%%%u_1 \Be_1 + u_2 \Be_2 + \lr{(u_1 - 2 u_2)^2 + \cos(u_2) \sin(5 u_1 + u_2)} \Be_3.
+%%%%\end{dmath}
+%%%%
+%%%%The tangent space associated with this parameterization is spanned by the vectors
+%%%%
+%%%%\begin{dmath}\label{eqn:curvilinearDefined:460}
+%%%%\begin{aligned}
+%%%%\Bx_{u_1}
+%%%%&=
+%%%%\Be_1 + \lr{
+%%%%   2 (u_1 - 2 u_2) + 5 \cos(u_2) \cos(5 u_1 + u_2)
+%%%%} \Be_3 \\
+%%%%\Bx_{u_2}
+%%%%&=
+%%%%\Be_2 +
+%%%%\lr{
+%%%%   -4 (u_1 - 2 u_2)
+%%%%- \sin(u_2) \sin(5 u_1 + u_2)
+%%%%+ \cos(u_2) \cos(5 u_1 + u_2)
+%%%%} \Be_3.
+%%%%\end{aligned}
+%%%%\end{dmath}
+%%%%
+%%%%This tangent space is plotted in \cref{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}.
+%%%%
+%%%%FIXME: Wolfgang: ``Plot the TpM at special point \( P(0.3,1.5,0.3) \) in Fig.  Calculate using hand and CAS MM.''
+%%%%} % example
+%%%%
+%%%%\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFieldFig1}{Curvilinear coordinates along a two parameter surface.}{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}{0.3}
 
