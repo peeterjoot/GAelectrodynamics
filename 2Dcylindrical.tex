@@ -6,6 +6,9 @@
 \index{polar coordinates}
 \index{curvilinear coordinates}
 One of the simplest curvilinear coordinate systems are polar coordinates (cylindrical coordinates in a plane.)
+
+FIXME: Wolfgang: ``picture.''
+
 The parameterization associated with such a space is
 
 \begin{dmath}\label{eqn:2Dcylindrical:100}
@@ -43,15 +46,25 @@ Noting that this is a normal set of vectors, the reciprocal basis can be found b
 
 \index{gradient}
 For completeness, it's worth verifying that the gradient representation of the reciprocal frame provides this same result.
-Those gradients can be computed by implicit differentiation of
+The \( x, y \) variables are related to \( \rho, \phi \) through
+
+\begin{dmath}\label{eqn:2Dcylindrical:620}
+\begin{aligned}
+x &= r \cos\phi \\
+y &= r \sin\phi.
+\end{aligned}
+\end{dmath}
+
+Rearranging slightly to facilitate evaluation of the \( x, y \) partials
+
 \begin{dmath}\label{eqn:2Dcylindrical:500}
 \begin{aligned}
-x^2 + y^2 &= \rho^2 \\
+\rho^2 &= x^2 + y^2 \\
 \tan\phi &= y/x,
 \end{aligned}
 \end{dmath}
 
-The derivatives are
+we can evaluate the components of the gradients by implicit differentiation
 
 \begin{dmath}\label{eqn:2Dcylindrical:520}
 \begin{aligned}
@@ -68,7 +81,7 @@ The gradients are
 \begin{dmath}\label{eqn:2Dcylindrical:560}
 \spacegrad \rho
 = \inv{\rho} (\cos\phi, \sin\phi)
-= e_1 e^{\Be_{12} \phi}
+= \Be_1 e^{\Be_{12} \phi}
 = \Bx^\rho
 \end{dmath}
 \begin{dmath}\label{eqn:2Dcylindrical:580}
@@ -93,7 +106,7 @@ In this particular parameterization, it is convenient to define a locally orthon
 \begin{dmath}\label{eqn:2Dcylindrical:200}
 \begin{aligned}
 \rhocap &= \Bx_\rho = \Be_1 \exp\lr{ \Be_{12} \phi } \\
-\phicap &= \inv{r} \Bx_\phi = \Be_2 \exp\lr{ \Be_{12} \phi },
+\phicap &= \inv{\rho} \Bx_\phi = \Be_2 \exp\lr{ \Be_{12} \phi },
 \end{aligned}
 \end{dmath}
 
@@ -126,6 +139,12 @@ d\rho d\phi
 \Be_1 \exp\lr{ \Be_{12} \phi } \rho
 \Be_2 \exp\lr{ \Be_{12} \phi }
 }
+\end{dmath}
+
+To evaluate this we use \cref{thm:SimpleProducts2:1780}, property (c), and change the order of a pair of vector and complex exponentials, performing the required conjugation of that exponential
+
+\begin{dmath}\label{eqn:2Dcylindrical:640}
+d\Bx_\rho \wedge d\Bx_\phi
 =
 \rho d\rho d\phi
 \gpgradetwo{

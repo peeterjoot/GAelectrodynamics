@@ -9,24 +9,43 @@
 \chapter*{Preface}%\normalsize
   \addcontentsline{toc}{chapter}{Preface}
 
-A book on Geometric Algebra applications to electromagnetism.
+This book introduces the fundamentals of geometric algebra and calculus, and applies those tools to the study of electromagnetism.
 
-The target audience are undergraduate student with sufficient background in electromagnetism that knowledge of Maxwell's equations can be presumed.  
+Geometric algebra provides a structure that can represent oriented point, line, plane, and volume segments.
+Vectors, which can be thought of as a representation of oriented line segments, are generalized to multivectors.
+A full fledged, but non-commutative (i.e. order matters) multipliciation operation will be defined
+for products of vectors.
+Namely, the square of a vector is the square of its length.
+This simple rule, along with a requirement that we can sum vectors and their products, essentially defines geometric algebra.
+Such sums of scalars, vectors and vector products are called multivectors.
 
-Alternatives to the usual 3D vector or coordinate based derivations of various problems will be presented that highlight some of the ways that Geometric Algebra can be used to tackle electromagnetic problems.
+The reader will see that familiar concepts such as the dot and cross product are related to a more general vector product, and that algebraic structures such as complex numbers can be represented as multivectors.  We will be able to utilize generalized complex exponentials to do rotations in arbitrarily oriented planes in space, and will find that simple geometric algebra representations of many geometric transformations are possible.
+
+Generalizations of the divergence and Stokes' theorems are required once we choose to work with multivector functions.  There is an unfortunate learning curve required to express this generalization, but once overcome, we will be left with a single powerful multivector integration theorem that has no analogue in conventional vector calculus.  This fundamental theorem of geometric calculus incorporates
+Green's (area) theorem, the divergence theorem, Stokes' theorems, and complex residue calculus.  Multivector calculus also provides the opportunity to define a few unique and powerful Green's functions that almost trivialize solutions of Maxwell's equations.
+
+Instead of working separately with electric and magnetic fields, we will work with a hybrid multivector field that includes both electric and magnetic field contributions, and with a
+multivector current that includes both charge and current densities.
+The natural representation of Maxwell's equations is a single multivector equation that is easier to solve and manipulate then the conventional mess of divergence and curl equations are familiar to the reader.
+
+This book is aimed at graduate electrical engineering or physics undergraduate students or advanced undergraduates.
+While all the fundamental results of electromagnetism are derived from Maxwell's equations, there will be no attempt to motivate Maxwell's equations themselves, so existing familiarity with the subject is desirable.
 
 \paragraph{These notes contain:}
 
 \begin{itemize}
 \item An introduction to Geometric Algebra (GA).
-\item Application of Geometric Algebra to electromagnetism, with a focus on engineering applications.
+\item Geometric calculus, and Green's function solutions of differential equations.
+\item Application of Geometric Algebra to electromagnetism.
 \end{itemize}
 
-There are two potential audiences for these notes.  The first is for a student new to GA faced with the learning curve of both GA itself and the notational changes needed to apply it to electromagnetism.  The second audience is the individual who already has some knowledge of GA, and may want to skim yet another boilerplate ``Introduction to Geometric Algebra'' to get an idea of the notation in use, and move on to the electromagnetism applications.  To serve both potential audiences, much of the substance of the introductory GA material has been deferred to the problems.  Students new to GA should attempt all these problems before falling back to just reading the solutions.
+\paragraph{Prerequisites:}
 
-It will be assumed that the reader is familiar with 
-rotation matrices,
-complex numbers, dot and vector products, coordinate representation of vector spaces, linear transformations, and determinants.  
-% tensors intimacy?
+It will be assumed that the reader is familiar with rotation matrices,
+complex numbers, dot and vector products and vector spaces, coordinate representation, linear transformations, determinants, Stokes, Green's and divergence theorems.
+
+\paragraph{Thanks:}
+
+I'd like to thank Steven De Keninck, and Dr. Wolfgang Lindner for their review of some of the earlier drafts of this book.  Their suggestions significantly improved the quality and readability of the text.
 
 Peeter Joot \quad peeterjoot@protonmail.com

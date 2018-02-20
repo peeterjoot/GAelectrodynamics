@@ -11,7 +11,7 @@ These dynamics can be determined without having to
 compute all the interactions of that charge with all the charges and currents in space, nor having to continually account for
 the interactions of those charge with each other.
 
-We will use vector differential form of Maxwell's equations with antenna theory extensions as our starting point
+We will use vector differential form of Maxwell's equations with antenna theory extensions (fictious magnetic sources) as our starting point
 
 \index{magnetic charge density}
 \index{electric charge density}
@@ -71,7 +71,7 @@ The sources \( \BM, \rho_\txtm \) can be considered fictional, representing phys
 
 In general, the relationship between the electric and magnetic fields (constitutivity relationships) may be complicated
 non-isotropic tensor operators, functions of all of \( \BE, \BD, \BB \) and \( \BH \).
-It will often be useful to assume that the these constitutive relationships between the electric and magnetic fields are independent
+It will often be useful to assume that these constitutive relationships between the electric and magnetic fields are independent
 
 \begin{subequations}
 \label{eqn:freespace:300}
@@ -126,25 +126,25 @@ Two conventions exist for the frequency dependence
 
 \Cref{eqn:freespace:20} is the engineering convention (used herein), and \cref{eqn:freespace:40} is the physics convention.
 Care is required by the reader to understand which form of frequency dependence has been assumed.
-In either representation the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued.
-Given this frequency dependence Maxwell's equations take the form
-
-%\input{../ece1229-antenna/MaxwellsTimeHarmonic.tex}
-\begin{subequations}
-\label{eqn:freespace:99}
-\begin{dmath}\label{eqn:freespace:100}
-\spacegrad \cross \BE = - \BM - j \omega \BB
-\end{dmath}
-\begin{dmath}\label{eqn:freespace:120}
-\spacegrad \cross \BH = \BJ + j \omega \BD
-\end{dmath}
-\begin{dmath}\label{eqn:freespace:140}
-\spacegrad \cdot \BD = \rho
-\end{dmath}
-\begin{dmath}\label{eqn:freespace:160}
-\spacegrad \cdot \BB = \rho_\txtm.
-\end{dmath}
-\end{subequations}
+In either representation the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued, but we still require the basis to be Euclidean, and do not require complex inner product spaces.  In such a representation, the square of a vector is still a scalar, but may be complex valued.
+%%%Given this frequency dependence Maxwell's equations take the form
+%%%
+%%%%\input{../ece1229-antenna/MaxwellsTimeHarmonic.tex}
+%%%\begin{subequations}
+%%%\label{eqn:freespace:99}
+%%%\begin{dmath}\label{eqn:freespace:100}
+%%%\spacegrad \cross \BE = - \BM - j \omega \BB
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:freespace:120}
+%%%\spacegrad \cross \BH = \BJ + j \omega \BD
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:freespace:140}
+%%%\spacegrad \cdot \BD = \rho
+%%%\end{dmath}
+%%%\begin{dmath}\label{eqn:freespace:160}
+%%%\spacegrad \cdot \BB = \rho_\txtm.
+%%%\end{dmath}
+%%%\end{subequations}
 
 Continuous models for charge and current distributions are used in Maxwell's equations, despite the
 fact that charges (i.e. electrons) are particles, and are not distributed in space.

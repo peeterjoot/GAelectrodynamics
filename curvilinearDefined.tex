@@ -14,9 +14,7 @@ d\Bx_{u_2} &= \PD{v}{\Bx} du_2,
 \end{aligned}
 \end{dmath}
 
-At the point evaluation,
-the span of these differentials or the partials themselves,
- is called the tangent space.
+At the point of evaluation, the span of these differentials or the partials themselves, is called the tangent space.
 We will utilize the partials as a basis for the tangent space
 
 \begin{dmath}\label{eqn:curvilinearDefined:80}
@@ -34,9 +32,40 @@ we must restrict attention to only those parametrizations for which the tangent 
 d\Bx_{u_1} \wedge d\Bx_{u_2} \ne 0.
 \end{dmath}
 
-As an illustration, the two parameter surface \( \Bx(u_1, u_2) = (u_1, u_2, (u_1 - 2 u_2)^2 + \cos(u_2) \sin(5 u_1 + u_2)) \)
-and its associated tangent space is plotted in
-\cref{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}.
+\makeexample{A two parameter surface.}{example:curvilinearDefined:420}{
+As an illustration, consider a two parameter subspace of \R{3}
+
+\begin{dmath}\label{eqn:curvilinearDefined:440}
+\Bx(u_1, u_2)
+=
+u_1 \Be_1 + u_2 \Be_2 + \lr{(u_1 - 2 u_2)^2 + \cos(u_2) \sin(5 u_1 + u_2)} \Be_3.
+\end{dmath}
+
+The tangent space associated with this parameterization is spanned by the vectors
+
+\begin{dmath}\label{eqn:curvilinearDefined:460}
+\begin{aligned}
+\Bx_{u_1}
+&=
+\Be_1 + \lr{
+   2 (u_1 - 2 u_2) + 5 \cos(u_2) \cos(5 u_1 + u_2)
+} \Be_3 \\
+\Bx_{u_2}
+&=
+\Be_2 +
+\lr{
+   -4 (u_1 - 2 u_2)
+- \sin(u_2) \sin(5 u_1 + u_2)
++ \cos(u_2) \cos(5 u_1 + u_2)
+} \Be_3.
+\end{aligned}
+\end{dmath}
+
+This tangent space is plotted in \cref{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}.
+
+FIXME: Wolfgang: ``Plot the TpM at special point \( P(0.3,1.5,0.3) \) in Fig.  Calculate using hand and CAS MM.''
+} % example
+
 \imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFieldFig1}{Curvilinear coordinates along a two parameter surface.}{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}{0.3}
 
 \paragraph{General definition}
@@ -91,13 +120,13 @@ the coordinates \( b_{ij} \) can be determined by dotting \( B \) with \( \Bx^{u
 \begin{dmath}\label{eqn:curvilinearDefined:340}
 B \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
 =
-\inv{2} \sum_{i' , j'} b_{i'j'} \lr{ \Bx_{u_i'} \wedge \Bx_{u_j'} } \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
+\inv{2} \sum_{r, s} b_{rs} \lr{ \Bx_{u_r} \wedge \Bx_{u_s} } \cdot \lr{ \Bx^{u_j} \wedge \Bx^{u_i} }
 =
-\inv{2} \sum_{i' , j'} b_{i'j'} \lr{ \lr{ \Bx_{u_i'} \wedge \Bx_{u_j'} } \cdot \Bx^{u_j} } \cdot \Bx^{u_i}
+\inv{2} \sum_{r, s} b_{rs} \lr{ \lr{ \Bx_{u_r} \wedge \Bx_{u_s} } \cdot \Bx^{u_j} } \cdot \Bx^{u_i}
 =
-\inv{2} \sum_{i' , j'} b_{i'j'} \lr{  \Bx_{u_i'} {\delta_j'}^j - \Bx_{u_j'} {\delta_i'}^j } \cdot \Bx^{u_i}
+\inv{2} \sum_{r, s} b_{rs} \lr{ \Bx_{u_r} {\delta_s}^j - \Bx_{u_s} {\delta_r}^j } \cdot \Bx^{u_i}
 =
-\inv{2} \sum_{i' , j'} b_{i'j'} \lr{  {\delta_i'}^i {\delta_j'}^j - {\delta_j'}^i {\delta_i'}^j }
+\inv{2} \sum_{r, s} b_{rs} \lr{ {\delta_r}^i {\delta_s}^j - {\delta_s}^i {\delta_r}^j }
 =
 \inv{2} \lr{ b_{i j} - b_{ji} }.
 \end{dmath}
