@@ -1,0 +1,62 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%%%Any multivector can be expressed in terms of the curvilinear basis \( \setlr{ \Bx_{u_1}, \Bx_{u_2}, \cdots, \Bx_k} \), but computation of the curvilinear coordinates requires the reciprocal basis.
+%%%
+%%%For example, a vector \( \Bf \) constrained to the tangent space admits a representation
+%%%
+%%%\begin{dmath}\label{eqn:curvilinearDefinedCoordinates:380}
+%%%\Bf = \sum_i a_i \Bx_{u_i}.
+%%%\end{dmath}
+%%%
+%%%Dotting with \( \Bx^{u_j} \) gives
+%%%
+%%%\begin{dmath}\label{eqn:curvilinearDefinedCoordinates:280}
+%%%\Bf \cdot \Bx^{u_j}
+%%%= \sum_i a_i \Bx_{u_i} \cdot \Bx^{u_j}
+%%%= \sum_i a_i {\delta^i}_j
+%%%= a_j,
+%%%\end{dmath}
+%%%
+%%%so
+%%%\begin{dmath}\label{eqn:curvilinearDefinedCoordinates:300}
+%%%\Bf = \sum_i \lr{ \Bf \cdot \Bx^{u_i} } \Bx_{u_i}.
+%%%\end{dmath}
+%%%
+\subsubsection{Bivector coordinates.}
+Higher grade multivector objects may also be represented in curvilinear coordinates.  Illustrating by example, we will calculate the coordinates of a
+bivector constrained to a three parameter manifold \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \) which can be represented as
+
+\begin{equation}\label{eqn:curvilinearDefinedCoordinates:320}
+B
+= \inv{2} \sum_{i, j} B^{ij} \Bx_{i} \wedge \Bx_{j}
+= \sum_{i < j} B^{ij} \Bx_{i} \wedge \Bx_{j}
+\end{equation}
+
+The coordinates \( B^{ij} \) can be determined by dotting \( B \) with \( \Bx^{j} \wedge \Bx^{i} \), where \( i \ne j \), yielding
+
+\begin{dmath}\label{eqn:curvilinearDefinedCoordinates:340}
+B \cdot \lr{ \Bx^{j} \wedge \Bx^{i} }
+=
+\inv{2} \sum_{r, s} B^{rs} \lr{ \Bx_{r} \wedge \Bx_{s} } \cdot \lr{ \Bx^{j} \wedge \Bx^{i} }
+=
+\inv{2} \sum_{r, s} B^{rs} \lr{ \lr{ \Bx_{r} \wedge \Bx_{s} } \cdot \Bx^{j} } \cdot \Bx^{i}
+=
+\inv{2} \sum_{r, s} B^{rs} \lr{ \Bx_{r} {\delta_s}^j - \Bx_{s} {\delta_r}^j } \cdot \Bx^{i}
+=
+\inv{2} \sum_{r, s} B^{rs} \lr{ {\delta_r}^i {\delta_s}^j - {\delta_s}^i {\delta_r}^j }
+=
+\inv{2} \lr{ B^{i j} - B^{j i} }.
+\end{dmath}
+
+We see that the coordinates of a bivector, even with respect to a non-orthonormal basis, are antisymmetric, so
+\cref{eqn:curvilinearDefinedCoordinates:340} is just \( B^{ij} \) as claimed.  That is
+
+\begin{dmath}\label{eqn:curvilinearDefinedCoordinates:401}
+B^{ij} = B \cdot \lr{ \Bx^{j} \wedge \Bx^{i} }.
+\end{dmath}
+
+Just as the reciprocal frame was instrumental for computation of the coordinates of a vector with respect to an arbitrary (i.e. non-orthonormal frame), we use the reciprocal frame to calculate the coordinates of a bivector, and could do the same for higher grade k-vectors as well.
+%}
