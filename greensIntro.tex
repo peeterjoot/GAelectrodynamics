@@ -1,0 +1,140 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%%\input{../latex/blogpost.tex}
+%%\renewcommand{\basename}{greensIntro}
+%%%\renewcommand{\dirname}{notes/phy1520/}
+%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%\newcommand{\dateintitle}{}
+%%%\newcommand{\keywords}{}
+%%
+%%\input{../latex/peeter_prologue_print2.tex}
+%%
+%%\usepackage{peeters_layout_exercise}
+%%\usepackage{peeters_braket}
+%%\usepackage{peeters_figures}
+%%\usepackage{siunitx}
+%%%\usepackage{mhchem} % \ce{}
+%%%\usepackage{macros_bm} % \bcM
+%%%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{macros_cal} % \LL
+%%%\usepackage{txfonts} % \ointclockwise
+%%
+%%\beginArtNoToc
+%%
+%%\generatetitle{Green's functions.}
+%%%\chapter{Green's functions.}
+\label{chap:greensIntro}
+
+Every engineer's toolbox includes Laplace and Fourier transform tricks for transforming differential equations to the frequency domain.
+Here the space and time domain equivalent of the frequency and time domain linear system response function, called the Green's function, is introduced.
+
+Everybody's favorite differential equation, the harmonic oscillator, can be used as an illustrative example
+
+\begin{dmath}\label{eqn:greensIntro:300}
+x'' + k x' + (\omega_0)^2 x = f(t).
+\end{dmath}
+
+Here derivatives are with respect to time, \( \omega_0 \) is the intrinsic angular frequency of the oscillator, \( k \) is a damping factor, and \( f(t) \) is a forcing function.
+If the oscillator represents a child on a swing at the park (a pendulum system), then \( k \) represents the friction in the swing pivot and retardation due to wind, and the forcing function represents the father pushing the swing.  The forcing function \( f(t) \) could include an initial impulse to get the child up to speed, or could have a periodic aspect, such as the
+father running underdogs\footnote{The underdog is a non-passive swing pushing technique, where you run behind and under the swing, giving a push as you go.
+Before my kids learned to ``pump their legs'', and even afterwards, this was their favorite way of being pushed on the swing.
+With two or more kids this forcing function tires quickly, as it is split between the oscillating children.}
+ as the child gleefully shouts ``Again, again, again!''
+
+The full solution of this problem is
+\( x(t) = x_s(t) + x_0(t) \),
+where \( x_s(t) \) is a solution of \cref{eqn:greensIntro:300} and 
+\( x_0 \) is any solution of the homogeneous equation \( x_0'' + k x_0' + (\omega_0)^2 x_0 = 0 \), picked to satisfy the boundary value constraints of the problem.
+
+Let's attack this problem initially with Fourier transforms (\cref{dfn:greensFunctionOverview:280})
+
+We can assume zero position and velocity for the non-homogeneous problem, since we can adjust the boundary conditions with the homogeneous solution \( x_0(t) \).  With zero boundary conditions on \( x, x' \), the transform of \cref{eqn:greensIntro:300} is
+
+\begin{dmath}\label{eqn:greensIntro:320}
+((-j \omega)^2 + j \omega + (\omega_0)^2) X(\omega) = F(\omega),
+\end{dmath}
+
+so the system is solved in the frequency domain by the system response function \( G(\omega) \)
+
+\begin{dmath}\label{eqn:greensIntro:340}
+X(\omega) = G(\omega) F(\omega),
+\end{dmath}
+
+where
+\begin{dmath}\label{eqn:greensIntro:360}
+G(\omega) = -\inv{\omega^2 - j \omega - (\omega_0)^2}.
+\end{dmath}
+
+We can apply the inverse transformation to find the time domain solution for the forced oscillator problem.
+
+\begin{dmath}\label{eqn:greensIntro:380}
+x(t)
+= \int d\omega G(\omega) F(\omega) e^{j \omega t}
+= \int d\omega G(\omega) \lr{ \inv{2 \pi} \int dt' f(t') e^{-j \omega t'} dt' } e^{j \omega t}
+= \int dt' f(t')
+\lr{ \inv{2 \pi} \int d\omega G(\omega) e^{j \omega (t-t')} }.
+\end{dmath}
+
+The frequency domain integral is the Green's function.
+We'll write this as
+
+\begin{dmath}\label{eqn:greensIntro:400}
+G(t,t') = \inv{2 \pi} \int d\omega G(\omega) e^{j \omega (t-t')}.
+\end{dmath}
+
+If we can evaluate this integral, then the system can be considered solved, where a solution is given by the convolution integral
+\begin{dmath}\label{eqn:greensIntro:420}
+x(t) = \int dt' f(t') G(t,t') + x_0(t).
+\end{dmath}
+
+The Green's function is the weighting factor that determines how much of \( f(t') \) for each time \( t' \) contributes to the motion of the system that is explicitly due to the forcing function.  Green's functions for physical problems are causal, so only forcing events in the past contribute to the current state of the system (i.e. if you were to depend on only future pushes of the swing, you would have a very bored child.)
+
+An alternate way of viewing a linear systems problem is to assume that a convolution solution of the form
+\cref{eqn:greensIntro:420} must exist.
+Since the equation is a linear, it is reasonable to assume that a linear weighted sum of all the forcing function values must contribute to the solution.
+If such a solution is assumed, then we can operate on that solution with the differential operator for the problem.
+For our harmonic oscillator problem that operator is
+
+\begin{dmath}\label{eqn:greensIntro:440}
+\LL = \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2.
+\end{dmath}
+
+We find
+
+\begin{dmath}\label{eqn:greensIntro:460}
+f(t)
+=
+\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
+x(t)
+=
+\int dt' f(t') G(t,t')
+=
+\int dt' f(t')
+\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
+G(t,t').
+\end{dmath}
+
+We see that the Green's function, when acted on by the differential operator, must have the characteristics of a delta function
+\begin{dmath}\label{eqn:greensIntro:480}
+\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
+G(t,t')
+=
+\delta( t - t').
+\end{dmath}
+
+The problem of determining the Green's function, implicitly determining the solution of any forced system, can be viewed as seeking
+the solution of distribution equations of the form
+
+\boxedEquation{eqn:greensIntro:500}{
+\LL G(t,t') = \delta( t - t').
+}
+
+Framing the problem this way is independent of whatever techniques (transform or other) that we may choose to use to determine the structure of the Green's function itself.  Observe that the Green's function itself is not unique.  In particular, we may add any solution of the homogeneous problem \( \LL G_0(t,t') = 0 \) to the Green's function, just as we can do so for the forced system itself.
+
+We will see that Green's functions provide a general method of solving many of the linear differential equations that will be encountered in electromagnetism.
+
+%}
+%\EndNoBibArticle

@@ -1,0 +1,51 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+It will often be convient to utilize a time harmonic (frequency domain) representations.
+%of \cref{eqn:greensFunctionOverview:200}.
+This can be achieved by utilizing Fourier transform pairs or with a phasor representation.
+
+We may define Fourier transform pairs of multivector fields and sources in the conventional fashion
+
+\index{Fourier transform}
+\makedefinition{Multivector Fourier transform pairs}{dfn:greensFunctionOverview:280}{
+The Fourier transform pair for a multivector valued function \( f(\Bx, t) \) will be written as
+\begin{equation*}
+\begin{aligned}
+f(\Bx, t) &= \int f_\omega(\Bx) e^{j \omega t} d\omega \\
+f_\omega(\Bx) &= \inv{2 \pi} \int f(\Bx, t) e^{-j \omega t} dt,
+\end{aligned}
+\end{equation*}
+where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
+} % definition
+
+In these transform pairs, the imaginary \( j \) need not be represented by any geometrical imaginary such as \( \Be_{12} \).
+In particular, we need not assume that the represention of \( j \) is the
+\R{3} pseudoscalar \( I \), despite the fact that \( I \) does commute with all \R{3} multivectors.
+We wish to have the freedom to
+assume that non-geometric real and imaginary operations can be performed without picking or leaving out any specific grade pseudoscalar components of the multivector fields or sources, so we won't impose any a-priori restrictions on the representations of \( j \).
+In particular, this provides the freedom to utilize phasor (fixed frequency) representions of our multivector functions.
+%Introduction of yet another imaginary quantity in a geometric algebra context where we have so many to pick it somewhat unfortunate, but it allows us to apply Fourier transform techniques without worry about the non-commutative effects that might have to be considered should we choose to use a geometric imaginary to represent the frequency dependency.
+We will use the engineering convention for our
+phasor representations, where assuming a complex exponential time dependence of the following form is assumed
+
+\index{time harmonic}
+\index{frequency domain}
+\makedefinition{Multivector phasor representation.}{dfn:greensFunctionOverview:300}{
+The phasor representation \( f(\Bx) \) of a multivector valued (real) function \( f(\Bx, t) \) is defined implicitly as
+\begin{equation*}
+f(\Bx, t) = \Real\lr{ f(\Bx) e^{j \omega t} },
+\end{equation*}
+where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
+} % definition
+
+The complex valued multivector \( f(\Bx) \) is still generated from the real Euclidean basis for \R{3}, so
+there will be
+no reason to introduce complex inner products spaces into the mix.
+
+The reader must take care when reading any literature that utilizes Fourier transforms or phasor representation, since the conventions vary.
+In particular the physics representation of a phasor typically uses the opposite sign convention
+\( f(\Bx, t) = \Real\lr{ f(\Bx) e^{-i \omega t }} \), which toggles the sign of all the imaginaries in derived results.
+%}
