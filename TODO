@@ -1,24 +1,16 @@
 - Wolfgang:
 
-   - p.74: At the point __OF__ evaluation, the span of these differentials
-
-      fixed.
-
    - p74: Asanillustration,thetwoparametersurface x(u 1 ,u 2 ) = (u 1 ,u 2 ,(u 1 -2u 2 ) 2 +cos(u 2 )sin(5u 1 +
    u 2 )) and its associated tangent space_s_ (is) are plotted in fig. 2.2.
    Recommandation:
    + ToDo?: calculate xu1 and xu2.
 
-      done.
+      removed this temporarily.  perhaps restore as a 2d manifold example in R3
 
      Plot the TpM at special point P(0.3,1.5,0.3) in Fig.
      Calculate using hand and CAS MM.
 
->>      todo
-
-   - p75: why the prime in (2.37)? To indicate free vars?
-
-      fixed.
+      todo
 
    - (2.46a) = e1*exp(e12*phi)   <-- E1 bold face
      I would elaborate about the first line of (2.46a) a bit:
@@ -27,43 +19,35 @@
 
 ?
 
-   - (2.47):  =1/rho* x_phi = ..
-
-      fixed.
-
-   - would you please explain the minus sign in (2.49, =4)
-
-      done.
-
    - p82: It is easily argued that both volume element calculation methods are best performed by a
      computer algebra system.
      (PLEASE: can you/we show this as an exercise?!
      In EVA I had to use xu = r *(e1*sin(t)*cos(p)+e2*sin(t)*sin(p)+e3*cos(p)).
      But the result deserves interpretation ..)
 
->>      todo
+      todo
 
    - p83: The position vector to a point _within_ [better: ON THE SURFACE OF {not INside ;}]
      the torus can be stated directly
    Q:  (2.62)-(2.64)  I COULD NOT VERIFIY WITH CAS !?
 
->> todo.
+ todo.
 
    - p84: Greenís theorem _relates_ [sharper: EQUATES .. with..] the integral around a closed
 
->> todo.
+ todo.
    - p87: you should spend an concrete example for (2.78) using GA and using MM (me: EigenMath ;)
 
->> todo.
+ todo.
 
    -
      SHOULD (2.89) GET A FRAMING RECTANGLE?  ;)
 
->> todo.  (not sure how to do this with a subequation environment).
+ todo.  (not sure how to do this with a subequation environment).
 
    - p88: you should give an concrete (also CAS) example for (2.78) and (2.85).
 
->> todo
+ todo
 
    - An example parameterization with one parameter, and the corresponding differential with respect
      to that parameter, is plotted in fig. 2.6, for a parameterization over  __[a; b] 2 [0; 1]
@@ -89,29 +73,29 @@
 
    - (2.89)  WHAT IS psi?
 
->> clarify more explicitly.
+      clarify more explicitly.
 
    - p89: 2.4.2 the 'example' is a 'theoretical' implication.
      To staffold the reader you should give an concrete (also CAS) example for (2.84),
      perhaps [17, Ex.7.17 p.96 orEx.7.20] or [Din, p.53 Ex 6.1, page attached].
 
->> ?
+      ?
 
    - p89: The vector derivative, _E.G._ the projection of the gradient ..
 
->> ?
+      ?
 
    - p90: besides the 'abstract' fig. 2.7 one could take the fine
      Fig. 2.3 (Torus M), pick a concrete point p, paint the TpM and
      calculate the vec.deriv. there .. and show it in the Fig.
      You have done all prerequsites earlier .. ;)
 
->> ?
+      ?
 
    - p91: at the end of 2.4.3 a concrete example using GA methods like attached
      ex. like [din.Ex.9.3]?
 
->> ?
+      ?
 
 - Wolfgang:
 

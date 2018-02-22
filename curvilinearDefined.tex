@@ -109,39 +109,31 @@ At the point of evaluation, the span of these differentials is called the tangen
 In this particular case the tangent space at all points in the region is the entire x-y plane.
 These partials locally span the tangent space at a given point on the surface.
 
-%%%%\makeexample{A two parameter surface.}{example:curvilinearDefined:420}{
-%%%%As an illustration, consider a two parameter subspace of \R{3}
-%%%%
-%%%%\begin{dmath}\label{eqn:curvilinearDefined:440}
-%%%%\Bx(u_1, u_2)
-%%%%=
-%%%%u_1 \Be_1 + u_2 \Be_2 + \lr{(u_1 - 2 u_2)^2 + \cos(u_2) \sin(5 u_1 + u_2)} \Be_3.
-%%%%\end{dmath}
-%%%%
-%%%%The tangent space associated with this parameterization is spanned by the vectors
-%%%%
-%%%%\begin{dmath}\label{eqn:curvilinearDefined:460}
-%%%%\begin{aligned}
-%%%%\Bx_{u_1}
-%%%%&=
-%%%%\Be_1 + \lr{
-%%%%   2 (u_1 - 2 u_2) + 5 \cos(u_2) \cos(5 u_1 + u_2)
-%%%%} \Be_3 \\
-%%%%\Bx_{u_2}
-%%%%&=
-%%%%\Be_2 +
-%%%%\lr{
-%%%%   -4 (u_1 - 2 u_2)
-%%%%- \sin(u_2) \sin(5 u_1 + u_2)
-%%%%+ \cos(u_2) \cos(5 u_1 + u_2)
-%%%%} \Be_3.
-%%%%\end{aligned}
-%%%%\end{dmath}
-%%%%
-%%%%This tangent space is plotted in \cref{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}.
-%%%%
-%%%%FIXME: Wolfgang: ``Plot the TpM at special point \( P(0.3,1.5,0.3) \) in Fig.  Calculate using hand and CAS MM.''
-%%%%} % example
-%%%%
-%%%%\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFieldFig1}{Curvilinear coordinates along a two parameter surface.}{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}{0.3}
+\subsubsection{Curved two parameter surfaces.}
+
+Continuing to illustrate by example, let's now consider a non-planar two parameter surface
+
+\begin{dmath}\label{eqn:curvilinearDefined:560}
+\Bx(u_1, u_2) =
+(u_1-u_2)^2
+\Be_1
++ (1-(u_2)^2 ) \Be_2
++ u_1 u_2 \Be_3.
+\end{dmath}
+
+The curvilinear basis elements are
+\begin{dmath}\label{eqn:curvilinearDefined:580}
+\begin{aligned}
+\Bx_1 &= 2 (u_1 - u_2) \Be_1 + u_2 \Be_3 \\
+\Bx_2 &= 2 (u_2 - u_1) \Be_1 - 2 u_2 \Be_2 + u_1 \Be_3.
+\end{aligned}
+\end{dmath}
+
+These vectors and two examples of the oriented plane (rescaled to fit) formed by \( \Bx_1 \wedge \Bx_2 \) is plotted in
+\cref{fig:2dmanifold:2dmanifoldFig1}.
+This plane is called the tangent space at the point in question, and has been evaluated at \( (u_1, u_2) = (0.5,0.5), (0.35, 0.75) \).
+
+\imageFigure{../figures/GAelectrodynamics/2dmanifoldFig1}{Two parameter manifold.}{fig:2dmanifold:2dmanifoldFig1}{0.3}
+
+%\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFieldFig1}{Curvilinear coordinates along a two parameter surface.}{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}{0.3}
 
