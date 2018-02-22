@@ -121,15 +121,23 @@ Continuing to illustrate by example, let's now consider a non-planar two paramet
 + u_1 u_2 \Be_3.
 \end{dmath}
 
-The curvilinear basis elements are
+The curvilinear basis elements, and the area element, are
 \begin{dmath}\label{eqn:curvilinearDefined:580}
 \begin{aligned}
 \Bx_1 &= 2 (u_1 - u_2) \Be_1 + u_2 \Be_3 \\
-\Bx_2 &= 2 (u_2 - u_1) \Be_1 - 2 u_2 \Be_2 + u_1 \Be_3.
+\Bx_2 &= 2 (u_2 - u_1) \Be_1 - 2 u_2 \Be_2 + u_1 \Be_3 \\
+\Bx_1 \wedge \Bx_2 &=
+-4 v_1
+\left(u_1-v_1\right)
+\Be_{12}
++2 v_1^2 \Be_{23}
++
+\left(2 v_1^2-2 u_1^2\right)
+\Be_{31}.
 \end{aligned}
 \end{dmath}
 
-These vectors and two examples of the oriented plane (rescaled to fit) formed by \( \Bx_1 \wedge \Bx_2 \) is plotted in
+Two examples of these vectors and the associated area element (rescaled to fit) is plotted in
 \cref{fig:2dmanifold:2dmanifoldFig1}.
 This plane is called the tangent space at the point in question, and has been evaluated at \( (u_1, u_2) = (0.5,0.5), (0.35, 0.75) \).
 
@@ -137,3 +145,35 @@ This plane is called the tangent space at the point in question, and has been ev
 
 %\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFieldFig1}{Curvilinear coordinates along a two parameter surface.}{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}{0.3}
 
+The results of \cref{eqn:curvilinearDefined:580} can be calculated easily by hand for this particular parameterization, but also submit to symbolic calculation software.  Here's a complete example using CliffordBasic
+
+\begin{mmaCell}[moredefined={$SetSignature}]{Input}
+  << CliffordBasic`;
+  $SetSignature=\{3,0\};
+\end{mmaCell}
+
+\begin{mmaCell}[moredefined={e, OuterProduct, GFactor},morepattern={u_, v_}]{Input}
+  ClearAll[xp, x, x1, x2]
+  (* Use dummy parameter values for the derivatives, and then switch them to function parameter values. *)
+  xp :=  (a - b)^2  e[1] + (1 - b^2) e[2] + b a e[3];
+  x[u_, v_] := xp /. \{a \(\pmb{\to}\) \mmaPat{u}, b\(\pmb{\to}\)\mmaPat{v}\};
+  x1[u_, v_] := D[xp, a] /. \{a \(\pmb{\to}\) \mmaPat{u}, b\(\pmb{\to}\)\mmaPat{v}\};
+  x2[u_, v_] := D[xp, b] /. \{a \(\pmb{\to}\) \mmaPat{u}, b\(\pmb{\to}\)\mmaPat{v}\};
+
+  x1[u,v]
+  x2[u,v]
+  (* CliffordBasic display of wedge doesn't currently group by the wedge basis bivectors. *)
+  OuterProduct[x1[u, v], x2[u, v]] // GFactor
+\end{mmaCell}
+
+\begin{mmaCell}{Output}
+  2 (u-v) e[1] + v e[3]
+\end{mmaCell}
+
+\begin{mmaCell}{Output}
+  -2 (u - v) e[1] - 2 v e[2] + u e[3]
+\end{mmaCell}
+
+\begin{mmaCell}{Output}
+  (-4 u v + 4 \mmaSup{v}{2}) e[1,2] + (2 \mmaSup{u}{2} - 2 \mmaSup{v}{2}) e[1,3] + 2 \mmaSup{v}{2} e[2,3]
+\end{mmaCell}
