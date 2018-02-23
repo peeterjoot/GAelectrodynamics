@@ -375,5 +375,14 @@ perl -p -i ../latex/bin/latexRegex.pl curvilinearDefined.tex
 
 #../latex/bin/lgrep jefimenkosEquations.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl jefimenkosEquations.tex
+../latex/bin/lgrep curvilinearThree.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl curvilinearThree.tex
+
 ../latex/bin/lgrep greensIntro.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl greensIntro.tex
+
+../latex/bin/lgrep lineintegral.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl lineintegral.tex
+
+../latex/bin/lgrep gradient.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl gradient.tex

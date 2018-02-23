@@ -1,0 +1,137 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{gradient}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Gradient and vector derivative.}
+%\chapter{Gradient.}
+\label{chap:gradient}
+
+\paragraph{definition}
+\input{curvilinearThree.tex}
+
+\paragraph{Gradient.}
+
+With the introduction of the ideas of reciprocal frame and curvilinear coordinates, we are getting closer to be able to formulate the geometric algebra generalizations of vector calculus.
+
+The next step in the required mathematical preliminaries for geometric calculus is to determine the form of the gradient with respect to curvilinear coordinates and the
+parameters associated with those coordinates.
+
+Suppose we have a vector parameterization of \R{N}
+
+\begin{dmath}\label{eqn:gradient:60}
+\Bx = \Bx(u_1, u_2, \cdots, u_N).
+\end{dmath}
+
+We can employ the chain rule to express the gradient in terms of derivatives with respect to \( u_i \)
+
+\begin{dmath}\label{eqn:gradient:80}
+\spacegrad
+=
+\sum_i \Be_i \PD{x_i}{}
+=
+\sum_{i,j} \Be_i
+\PD{x_i}{u_j}
+\PD{u_j}{}
+=
+\sum_j \lr{ \sum_i \Be_i \PD{x_i}{u_j} } \PD{u_j}{}
+=
+\sum_j \lr{ \spacegrad u_j } \PD{u_j}{}.
+\end{dmath}
+
+It turns out that the gradients of the parameters are in fact the reciprocal frame vectors
+
+\maketheorem{Reciprocal frame vectors}{thm:curvilinearGradient:1}{
+Given a curvilinear basis with elements \( \Bx_i = \PDi{u_i}{\Bx} \), the reciprocal frame vectors are given by
+\begin{dmath*}
+\Bx^i = \spacegrad u_i.
+\end{dmath*}
+} % theorem
+
+This can be proven by direct computation
+
+\begin{dmath}\label{eqn:curvilinearGradient:20}
+\Bx^i \cdot \Bx_j
+=
+(\spacegrad u_i) \cdot \PD{u_j}{\Bx}
+=
+\sum_{r,s=1}^n
+\lr{ \Be_r \PD{x_r}{u_i} } \cdot \lr{ \Be_s \PD{u_j}{x_s} }
+=
+\sum_{r,s=1}^n (\Be_r \cdot \Be_s)
+\PD{x_r}{u_i} \PD{u_j}{x_s}
+=
+\sum_{r,s=1}^n \delta_{rs}
+\PD{x_r}{u_i} \PD{u_j}{x_s}
+=
+\sum_{r=1}^n
+\PD{x_r}{u_i} \PD{u_j}{x_r}
+=
+\PD{u_i}{u_j}
+=
+\delta_{ij}.
+\end{dmath}
+
+This shows that \( \Bx^i = \spacegrad u_i \) has the properties required of the reciprocal frame, proving the theorem.  We are now able to define the gradient with respect to an arbitrary set of parameters
+
+\maketheorem{Curvilinear representation of the gradient}{thm:curvilinearGradient:2}{
+Given an N-parameter vector parameterization
+\( \Bx = \Bx(u_1, u_2, \cdots, u_N) \)
+of \R{N},
+with curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the gradient can be expressed as
+\begin{dmath*}
+\spacegrad = \sum_i \Bx^i \PD{u_i}{}.
+\end{dmath*}
+It is often convenient to define \( \partial_i \equiv \PDi{u_i}{} \), so that the gradient can be expressed in mixed index representation
+\begin{dmath*}
+\spacegrad = \sum_i \Bx^i \partial_i.
+\end{dmath*}
+%or the same with sums over mixed indexes implied.
+} % theorem
+
+An excellent discussion of the relationships of the reciprocal frame and the gradient can be found in \citep{aMacdonaldVAGC}.
+
+\paragraph{Vector derivative.}
+
+Given curvilinear coordinates defined on a subspace \cref{dfn:curvilinearThree:280}, we don't have enough parameters to define the gradient.  For calculus on the k-dimensional subspace, we define the vector derivative
+
+\index{vector derivative}
+\maketheorem{Vector derivative}{thm:gradient:100}{
+Given an k-parameter vector parameterization
+\( \Bx = \Bx(u_1, u_2, \cdots, u_k) \) of \R{N} with \( k \le N \),
+and curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the vector derivative \( \boldpartial \) is defined as
+\begin{dmath*}
+\boldpartial = \sum_{i=1}^k \Bx^i \partial_i.
+\end{dmath*}
+} % theorem
+
+When the dimension of the subspace (number of parameters) equals the dimension of the underlying vector space, the vector derivative equals the gradient.  Otherwise we can write
+
+\begin{dmath}\label{eqn:gradient:n}
+\spacegrad = \boldpartial + \spacegrad_\perp,
+\end{dmath}
+
+and can think of the vector derivative as the projection of the gradient onto the tangent space at the point of evaluation.
+
+%}
+\EndArticle
