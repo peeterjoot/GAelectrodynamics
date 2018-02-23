@@ -1,0 +1,30 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+
+Given curvilinear coordinates defined on a subspace \cref{dfn:curvilinearThree:280}, we don't have enough parameters to define the gradient.  For calculus on the k-dimensional subspace, we define the vector derivative
+
+\index{vector derivative}
+\maketheorem{Vector derivative}{thm:gradient:100}{
+Given an k-parameter vector parameterization
+\( \Bx = \Bx(u_1, u_2, \cdots, u_k) \) of \R{N} with \( k \le N \),
+and curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the vector derivative \( \boldpartial \) is defined as
+\begin{dmath*}
+\boldpartial = \sum_{i=1}^k \Bx^i \partial_i.
+\end{dmath*}
+} % theorem
+
+When the dimension of the subspace (number of parameters) equals the dimension of the underlying vector space, the vector derivative equals the gradient.  Otherwise we can write
+
+\begin{dmath}\label{eqn:gradient:101}
+\spacegrad = \boldpartial + \spacegrad_\perp,
+\end{dmath}
+
+and can think of the vector derivative as the projection of the gradient onto the tangent space at the point of evaluation.
+
+Please see \citep{aMacdonaldVAGC} for an excellent introduction of the reciprocal frame, the gradient, and the vector derivative, and for
+details about the connectivity of the manifold ignored here.
+
+%}

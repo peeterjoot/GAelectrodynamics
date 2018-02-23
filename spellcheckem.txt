@@ -13,7 +13,6 @@ circularlinecharge.tex
 colinearVectors.tex
 complex.tex
 curvilinearDefined.tex
-curvilinearGradient.tex
 curvilinearspherical.tex
 cylinderField.tex
 distributionDotVectorBivector.tex
@@ -116,3 +115,5 @@ greensFunctionGradient.tex
 greensFunctionOverview.tex
 greensFunctionHelmholtz.tex
 greensFunctionSolutions.tex
+gradient.tex
+vectorDerivative.tex
