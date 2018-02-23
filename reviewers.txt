@@ -1,0 +1,22 @@
+Major reviewers:
+   Steven De Keninck (author of ganja.js) <enkimute@gmail.com>
+   Dr. Wolfgang Lindner <lindnerw@t-online.de> 
+
+Minor reviewers:
+   Quirino Sugon Jr. <qsugon@observatory.ph>
+
+      This is a great book. I would like to use it for my undergraduate mathematical physics courses. It is very understandable with many worked out examples, not hiding in the phrase “it is easy to show that”.  Let me know when the book is finished, so that i can officially recommend it to our department and my students.
+      Sincerely yours,
+      Quirino
+      PS, I only saw one typo in p. 108, inside the boxed definition for Green’s function. There is 62 in the denominator which should not be there.
+
+   Miroslav Josipović <miroslav.josipovic@gmail.com>
+
+      Objected to use of scalar imaginary j, instead of e_{12}, e_{123}, or other bivector or trivector "geometric imaginary".
+
+Have a copy, but no feedback:
+
+   Allan Cortzen <acortzen@gmail.com> 
+   Ginanjar Utama <ginanjar.utama@gmail.com> 
+   Alfonso Juarez <jajg1968@yahoo.com>
+   Alan Macdonald <macdonal@luther.edu>

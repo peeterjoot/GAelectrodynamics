@@ -25,7 +25,10 @@
      In EVA I had to use xu = r *(e1*sin(t)*cos(p)+e2*sin(t)*sin(p)+e3*cos(p)).
      But the result deserves interpretation ..)
 
-      todo
+      >> I've commented out this line for now.  Try this in mathematica both with GA and non-GA.
+      I think both the GA and the non-GA problems-for-the-student are perhaps a bit tough.
+      Maybe do this explicitly.  Would also be good to highlight why there's a relationship
+      between the Jacobean and the volume element.  Show that first in polar coordinates.
 
    - p83: The position vector to a point _within_ [better: ON THE SURFACE OF {not INside ;}]
      the torus can be stated directly

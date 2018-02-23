@@ -1,5 +1,5 @@
-#../latex/bin/lgrep 2Dcylindrical.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl 2Dcylindrical.tex
+../latex/bin/lgrep 2Dcylindrical.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl 2Dcylindrical.tex
 
 #../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex

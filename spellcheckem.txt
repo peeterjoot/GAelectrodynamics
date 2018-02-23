@@ -117,3 +117,4 @@ greensFunctionHelmholtz.tex
 greensFunctionSolutions.tex
 gradient.tex
 vectorDerivative.tex
+curvilinearExamples.tex

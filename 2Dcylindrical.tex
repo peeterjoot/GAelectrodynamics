@@ -5,11 +5,12 @@
 %\index{cylindrical coordinates}
 \index{polar coordinates}
 \index{curvilinear coordinates}
-One of the simplest curvilinear coordinate systems are polar coordinates (cylindrical coordinates in a plane.)
+We will now consider a simple concrete example of a vector parameterization, that of polar coordinates in \R{2}, as illustrated in
+\cref{fig:curvilinearPolar:curvilinearPolarFig1}.
 
-FIXME: Wolfgang: ``picture.''
+\imageFigure{../figures/GAelectrodynamics/curvilinearPolarFig1}{Polar coordinates.}{fig:curvilinearPolar:curvilinearPolarFig1}{0.3}
 
-The parameterization associated with such a space is
+The parameterization is simplest in complex exponential form
 
 \begin{dmath}\label{eqn:2Dcylindrical:100}
 \Bx(\rho, \phi) = \rho \Be_1 \exp\lr{ \Be_{12} \phi }.
@@ -33,6 +34,114 @@ The curvilinear coordinate basis is therefore
 \Be_2 \exp\lr{ \Be_{12} \phi }.
 \end{dmath}
 \end{subequations}
+
+To show that these vectors are 
+perpendicular, we can
+select the scalar grade of their product, and
+use \cref{thm:SimpleProducts2:1780}, property (c) to swap the vector and complex exponential, conjugating the exponential
+
+\begin{dmath}\label{eqn:2Dcylindrical:640}
+\Bx_\rho \cdot \Bx_\phi
+=
+\gpgradezero{
+   \lr{ \Be_1 \exp\lr{ \Be_{12} \phi } }
+   \lr{ \rho \Be_2 \exp\lr{ \Be_{12} \phi } }
+}
+=
+\rho
+\gpgradezero{
+   \Be_1 \exp\lr{ \Be_{12} \phi }
+   \exp\lr{ -\Be_{12} \phi } \Be_2
+}
+=
+\rho
+\gpgradezero{
+   \Be_1
+\Be_2
+}
+=
+0.
+\end{dmath}
+
+We can use the same method to find the (squared) length of the vectors
+
+\begin{dmath}\label{eqn:2Dcylindrical:680}
+\Bx_\rho^2
+=
+\gpgradezero{
+   \Be_1 \exp\lr{ \Be_{12} \phi }
+   \Be_1 \exp\lr{ \Be_{12} \phi }
+}
+=
+\gpgradezero{
+   \Be_1 \exp\lr{ \Be_{12} \phi }
+   \exp\lr{ -\Be_{12} \phi } \Be_1
+}
+=
+\gpgradezero{
+   \Be_1^2
+}
+= 1,
+\end{dmath}
+
+and
+
+\begin{dmath}\label{eqn:2Dcylindrical:700}
+\Bx_\phi^2
+=
+\gpgradezero{
+   \lr{ \rho \Be_2 \exp\lr{ \Be_{12} \phi } }
+   \lr{ \rho \Be_2 \exp\lr{ \Be_{12} \phi } }
+}
+=
+\rho^2
+\gpgradezero{
+   \Be_2 \exp\lr{ \Be_{12} \phi }
+   \exp\lr{ -\Be_{12} \phi } \Be_2
+}
+=
+\rho^2
+\gpgradezero{
+\Be_2^2
+}
+= \rho^2.
+\end{dmath}
+
+The volume element for this subspace is
+\begin{dmath}\label{eqn:2Dcylindrical:220}
+d\Bx_\rho \wedge d\Bx_\phi
+=
+d\rho d\phi
+\Bx_\rho \wedge \Bx_\phi
+=
+d\rho d\phi
+\gpgradetwo{
+\Bx_\rho \Bx_\phi
+}
+=
+d\rho d\phi
+\gpgradetwo{
+\Be_1 \exp\lr{ \Be_{12} \phi } \rho
+\Be_2 \exp\lr{ \Be_{12} \phi }
+}
+=
+\rho d\rho d\phi
+\gpgradetwo{
+\Be_1 \Be_2 \exp\lr{ -\Be_{12} \phi }
+\exp\lr{ \Be_{12} \phi }
+}
+=
+\rho d\rho d\phi \Be_{12}.
+\end{dmath}
+
+Observe that the (oriented) volume of a circular region of radius \( r \) in this space has the expected result
+
+\begin{dmath}\label{eqn:2Dcylindrical:360}
+\int d\Bx_\rho \wedge d\Bx_\phi
+=
+\int_0^r \rho d\rho \int_0^{2\pi} d\phi \Be_{12}
+= \pi r^2 \Be_{12}.
+\end{dmath}
 
 \index{reciprocal basis}
 Noting that this is a normal set of vectors, the reciprocal basis can be found by inspection
@@ -120,48 +229,6 @@ so that \( \Bx^\rho = \Bx_\rho = \rhocap \), \( \Bx_\phi = \rho \rhocap \), and 
 =
 \rhocap \PD{\rho}{}
 +\inv{\rho} \phicap \PD{\phi}{}.
-\end{dmath}
-
-The volume element for this subspace is
-\begin{dmath}\label{eqn:2Dcylindrical:220}
-d\Bx_\rho \wedge d\Bx_\phi
-=
-d\rho d\phi
-\Bx_\rho \wedge \Bx_\phi
-=
-d\rho d\phi
-\gpgradetwo{
-\Bx_\rho \Bx_\phi
-}
-=
-d\rho d\phi
-\gpgradetwo{
-\Be_1 \exp\lr{ \Be_{12} \phi } \rho
-\Be_2 \exp\lr{ \Be_{12} \phi }
-}
-\end{dmath}
-
-To evaluate this we use \cref{thm:SimpleProducts2:1780}, property (c), and change the order of a pair of vector and complex exponentials, performing the required conjugation of that exponential
-
-\begin{dmath}\label{eqn:2Dcylindrical:640}
-d\Bx_\rho \wedge d\Bx_\phi
-=
-\rho d\rho d\phi
-\gpgradetwo{
-\Be_1 \Be_2 \exp\lr{ -\Be_{12} \phi }
-\exp\lr{ \Be_{12} \phi }
-}
-=
-\rho d\rho d\phi \Be_{12}.
-\end{dmath}
-
-Observe that the (oriented) volume of a circular region of radius \( r \) in this space has the expected result
-
-\begin{dmath}\label{eqn:2Dcylindrical:360}
-\int d\Bx_\rho \wedge d\Bx_\phi
-=
-\int_0^r \rho d\rho \int_0^{2\pi} d\phi \Be_{12}
-= \pi r^2 \Be_{12}.
 \end{dmath}
 
 Given a vector \( \Bv = \Be_1 f(\rho, \phi) + \Be_2 g(\rho, \phi) \), the cylindrical representation \( \Bv = \Bv_\rho \rhocap + \Bv_\phi \phicap \) can be found by computing the dot products

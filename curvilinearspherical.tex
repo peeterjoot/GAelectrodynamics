@@ -112,7 +112,7 @@ r^2 \sin\theta
 \Be_2 e^{i \phi}
 }
 =
-r^2 \sin\theta \Be_{123}
+r^2 \sin\theta\, \Be_{123}
 .
 \end{dmath}
 
@@ -132,8 +132,19 @@ r \cos\theta \cos\phi & r \cos\theta \sin\phi & -r \sin\theta \\
 \end{vmatrix}.
 \end{dmath}
 
-It is easily argued that both volume element calculation methods are best performed by a computer algebra system.
+Expanding this determinant (\cref{problem:curvilinearspherical:1}) gives
+\begin{dmath}\label{eqn:curvilinearspherical:n}
+dV =
+dr d\theta d\phi\, r^2 \sin\theta,
+\end{dmath}
 
-FIXME: Wolfgang: ``please show this as an exercise!''
+consistent with \cref{eqn:curvilinearspherical:300}.
+
+\makeproblem{Spherical volume Jacobean.}{problem:curvilinearspherical:1}{
+Expand the determinant in \cref{eqn:curvilinearspherical:320}.
+} % problem
+
+%It is easily argued that both volume element calculation methods are best performed by a computer algebra system.
+%FIXME: Wolfgang: ``please show this as an exercise!''
 %  In EVA I had to use xu = r *(e1*sin(t)*cos(p)+e2*sin(t)*sin(p)+e3*cos(p)).
 %  But the result deserves interpretation ..)
