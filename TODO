@@ -1,3 +1,9 @@
+- started edit of the polar form example.
+
+   - show connection between the area element and jacobean.
+   - vector derivative with zcap extension to R^3
+   - chunk this into subsubsections.
+
 - Wolfgang:
 
    - p74: Asanillustration,thetwoparametersurface x(u 1 ,u 2 ) = (u 1 ,u 2 ,(u 1 -2u 2 ) 2 +cos(u 2 )sin(5u 1 +

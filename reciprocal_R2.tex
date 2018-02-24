@@ -61,24 +61,45 @@ As \( \Bx_1 \wedge \Bx_2 \), the pseudoscalar for the subspace spanned by \( \se
 
 %\makeexample{Numerical example}{example:reciprocal_R2:n}{
 \paragraph{Numerical example:}
-Here is a Mathematica calculation of the reciprocal frame depicted in \cref{fig:obliqueReciprocal:obliqueReciprocalFig2} 
+Here is a Mathematica calculation of the reciprocal frame depicted in \cref{fig:obliqueReciprocal:obliqueReciprocalFig2}
 
-\begin{mmaCell}[moredefined={x1, e, x2, x12, OuterProduct, inverse, GeometricProduct, x12inverse, s1, InnerProduct, s2},morepattern={a_,a}]{Input}
-x1 = e[1] + e[2]; x2 = e[1] + 2 e[2];
-x12 = OuterProduct[x1, x2];
-inverse[a_] := a / GeometricProduct[a, a];
-x12inverse = inverse[x12];
-s1 = InnerProduct[x2, x12inverse];
-s2 = InnerProduct[x1, -x12inverse];
+\begin{mmaCell}[moredefined={x1, x2, inverse, e, x12, OuterProduct, GeometricProduct, x12inverse, s1, InnerProduct, s2, dots},morepattern={a_, a, b_, b}]{Input}
+  ClearAll[x1, x2, inverse]
+  x1 = e[1] + e[2]; x2 = e[1] + 2 e[2];
+  x12 = OuterProduct[x1, x2];
+  inverse[a_] := a / GeometricProduct[a, a] ;
+  x12inverse = inverse[x12];
+  s1 = InnerProduct[x2, x12inverse];
+  s2 = InnerProduct[x1, -x12inverse];
+  s1
+  s2
+  dots[a_,b_] := \{a , "\(\pmb{\cdot}\)", b, " = ",
+                   InnerProduct[a // ReleaseHold, b // ReleaseHold]\};
+  MapThread[dots, \{\{x1 // HoldForm, x2 // HoldForm,
+                      x1 // HoldForm, x2 // HoldForm\},
+                  \{s1 // HoldForm, s1 // HoldForm,
+                    s2 // HoldForm, s2 // HoldForm\}\}] // Grid
 \end{mmaCell}
-%inverse[a_] := \mmaFrac{a}{GeometricProduct[a, a]};
+\begin{mmaCell}{Output}
+  2 e[1] - e[2]
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  -e[1] + e[2]
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  x1	\(\cdot\)	s1	 = 	1
+  x2	\(\cdot\)	s1	 = 	0
+  x1	\(\cdot\)	s2	 = 	0
+  x2	\(\cdot\)	s2	 = 	1
+\end{mmaCell}
 
-This gives \( \Bx^1 = 2 \Be_1 - \Be_2, \Bx^2 = \Be_2 - \Be_1 \), which 
-satisfies the defining property
-\( \Bx_i \cdot \Bx^j = {\delta_i}^j \).
-%\begin{mmaCell}[moredefined={InnerProduct, x1, s1, x2, s2},morepattern={\#1}]{Input}
-%  (InnerProduct[#1[[1]],#1[[2]]]&)/@\{\{x1,s1\},\{x2,s2\},\{x1,s2\},\{x2,s1\}\}
-%\end{mmaCell}
+This shows the reciprocal vector calculations using \cref{eqn:reciprocal_R2:180} and that the
+%This gives \( \Bx^1 = 2 \Be_1 - \Be_2, \Bx^2 = \Be_2 - \Be_1 \), which
+%satisfies the
+defining property
+\( \Bx_i \cdot \Bx^j = {\delta_i}^j \)
+of the reciprocal frame vectors
+is satisfied.
 %} % example
 
 \paragraph{Example: \R{2}:}

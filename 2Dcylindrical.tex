@@ -5,6 +5,7 @@
 %\index{cylindrical coordinates}
 \index{polar coordinates}
 \index{curvilinear coordinates}
+
 We will now consider a simple concrete example of a vector parameterization, that of polar coordinates in \R{2}, as illustrated in
 \cref{fig:curvilinearPolar:curvilinearPolarFig1}.
 
@@ -231,27 +232,27 @@ so that \( \Bx^\rho = \Bx_\rho = \rhocap \), \( \Bx_\phi = \rho \rhocap \), and 
 +\inv{\rho} \phicap \PD{\phi}{}.
 \end{dmath}
 
-Given a vector \( \Bv = \Be_1 f(\rho, \phi) + \Be_2 g(\rho, \phi) \), the cylindrical representation \( \Bv = \Bv_\rho \rhocap + \Bv_\phi \phicap \) can be found by computing the dot products
-
-\begin{subequations}
-\label{eqn:2Dcylindrical:420}
-\begin{dmath}\label{eqn:2Dcylindrical:440}
-\Bv \cdot \rhocap
-=
-\gpgradezero{ (\Be_1 f + \Be_2 g) \Be_1 e^{\Be_{12} \phi} }
-=
-f \cos\phi + g \sin\phi
-\end{dmath}
-\begin{dmath}\label{eqn:2Dcylindrical:460}
-\Bv \cdot \phicap
-=
-\gpgradezero{ (\Be_1 f + \Be_2 g) \Be_2 e^{\Be_{12} \phi} }
-=
-g \cos\phi - f \sin\phi,
-\end{dmath}
-\end{subequations}
-
-so
-\begin{dmath}\label{eqn:2Dcylindrical:480}
-\Bv = \lr{ f \cos\phi + g \sin\phi } \rhocap + \lr{ g \cos\phi - f \sin\phi } \phicap.
-\end{dmath}
+%%Given a vector \( \Bv = \Be_1 f(\rho, \phi) + \Be_2 g(\rho, \phi) \), the cylindrical representation \( \Bv = \Bv_\rho \rhocap + \Bv_\phi \phicap \) can be found by computing the dot products
+%%
+%%\begin{subequations}
+%%\label{eqn:2Dcylindrical:420}
+%%\begin{dmath}\label{eqn:2Dcylindrical:440}
+%%\Bv \cdot \rhocap
+%%=
+%%\gpgradezero{ (\Be_1 f + \Be_2 g) \Be_1 e^{\Be_{12} \phi} }
+%%=
+%%f \cos\phi + g \sin\phi
+%%\end{dmath}
+%%\begin{dmath}\label{eqn:2Dcylindrical:460}
+%%\Bv \cdot \phicap
+%%=
+%%\gpgradezero{ (\Be_1 f + \Be_2 g) \Be_2 e^{\Be_{12} \phi} }
+%%=
+%%g \cos\phi - f \sin\phi,
+%%\end{dmath}
+%%\end{subequations}
+%%
+%%so
+%%\begin{dmath}\label{eqn:2Dcylindrical:480}
+%%\Bv = \lr{ f \cos\phi + g \sin\phi } \rhocap + \lr{ g \cos\phi - f \sin\phi } \phicap.
+%%\end{dmath}

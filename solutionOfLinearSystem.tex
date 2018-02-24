@@ -113,29 +113,44 @@ https://github.com/jlaragonvera/Geometric-Algebra.
 }
 
 \begin{mmaCell}[moredefined={a, b, c, iab, aWedgeB, cWedgeB, aWedgeC, x, y, e, OuterProduct, GeometricProduct}]{Input}
-a = e[1] + e[2];
-b = e[1] + e[4];
-c = e[1] + 2 e[2] - e[4];
-aWedgeB = OuterProduct[a, b]
-cWedgeB = OuterProduct[c, b]
-aWedgeC = OuterProduct[a, c]
-iab = aWedgeB / GeometricProduct[aWedgeB, aWedgeB];
-x = GeometricProduct[iab, cWedgeB]
-y = GeometricProduct[iab, aWedgeC]
+  ClearAll[a, b, c, iab, aWedgeB, cWedgeB, aWedgeC, x, y]
+  a = e[1] + e[2];
+  b = e[1] + e[4];
+  c = e[1] + 2 e[2] - e[4]; 
+  
+  aWedgeB = OuterProduct[a, b];
+  cWedgeB = OuterProduct[c, b];
+  aWedgeC = OuterProduct[a, c];
+  
+  (* 1/aWedgeB *)
+  iab = aWedgeB / GeometricProduct[aWedgeB, aWedgeB]; 
+  x = GeometricProduct[iab, cWedgeB];
+  y = GeometricProduct[iab, aWedgeC];
+  
+  \{\{a \(\pmb{\wedge}\) b = , aWedgeB\},\{c \(\pmb{\wedge}\) b = , cWedgeB\}, 
+  \{a \(\pmb{\wedge}\) c = , aWedgeC\},\{\"x = \", x\},\{\"y = \", y\}
+  \} // Grid
 \end{mmaCell}
-%iab = \mmaFrac{aWedgeB}{GeometricProduct[aWedgeB, aWedgeB]};
+\begin{mmaCell}{Output}
+  a \(\wedge\) b = 	-e[1,2] + e[1,4] + e[2,4]
+  c \(\wedge\) b = 	-2 e[1,2] + 2 e[1,4] + 2 e[2,4]
+  a \(\wedge\) c = 	e[1,2] - e[1,4] - e[2,4]
+  x = 	2
+  y = 	-1
+\end{mmaCell}
 
-Which gives
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1300}
-\begin{aligned}
-\Ba \wedge \Bb &= \Be_{21} + \Be_{14} + \Be_{24} \\
-\Bc \wedge \Bb &= 2 \Be_{21} + 2 \Be_{14} + 2 \Be_{24} \\
-\Ba \wedge \Bc &= -\Be_{21} - \Be_{14} - \Be_{24} \\
-x &= 2 \\
-y &= -1.
-\end{aligned}
-\end{dmath}
-
+which shows that \( 2 \Ba - \Bb = \Bc \).
+%%Which gives
+%%\begin{dmath}\label{eqn:solutionOfLinearSystem:1300}
+%%\begin{aligned}
+%%\Ba \wedge \Bb &= \Be_{21} + \Be_{14} + \Be_{24} \\
+%%\Bc \wedge \Bb &= 2 \Be_{21} + 2 \Be_{14} + 2 \Be_{24} \\
+%%\Ba \wedge \Bc &= -\Be_{21} - \Be_{14} - \Be_{24} \\
+%%x &= 2 \\
+%%y &= -1.
+%%\end{aligned}
+%%\end{dmath}
+%%
 \subsubsection{Example: intersection of two lines.}
 
 As a concrete example, let's solve the intersection of two lines problem illustrated in \cref{fig:intersectionOfLines:intersectionOfLinesFig1}.
