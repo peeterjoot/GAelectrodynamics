@@ -6,18 +6,29 @@
 \index{polar coordinates}
 \index{curvilinear coordinates}
 
-We will now consider a simple concrete example of a vector parameterization, that of polar coordinates in \R{2}, as illustrated in
+We will now consider a simple concrete example of a vector parameterization, that of polar coordinates in \R{2}
+\begin{dmath}\label{eqn:2Dcylindrical:100}
+\Bx(\rho, \phi) = \rho \Be_1 \exp\lr{ \Be_{12} \phi },
+\end{dmath}
+as illustrated in
 \cref{fig:curvilinearPolar:curvilinearPolarFig1}.
 
 \imageFigure{../figures/GAelectrodynamics/curvilinearPolarFig1}{Polar coordinates.}{fig:curvilinearPolar:curvilinearPolarFig1}{0.3}
 
-The parameterization is simplest in complex exponential form
+Using this example we will
 
-\begin{dmath}\label{eqn:2Dcylindrical:100}
-\Bx(\rho, \phi) = \rho \Be_1 \exp\lr{ \Be_{12} \phi }.
-\end{dmath}
+\begin{itemize}
+\item Compute the curvilinear coordinates.  We will refer to these as \( \Bx_\rho, \Bx_\phi \), instead of \( \Bx_1, \Bx_2 \).
+\item Find the squared length of \( \Bx_\rho, \Bx_\phi \), and show that they are perpendicular (but not orthonormal.)
+\item Perform a first bivector valued integral.
+\item Compute the reciprocal frame vectors with geometric arguments.
+\item Compute the reciprocal frame explicitly from the gradients of the coordinates.
+\item Find the polar form of the gradient with respect to this parameterization.
+\end{itemize}
 
-The curvilinear coordinate basis is therefore
+\paragraph{Curvilinear coordinates.}
+
+The curvilinear coordinate basis can be computed directly
 
 \begin{subequations}
 \label{eqn:2Dcylindrical:120}
@@ -36,7 +47,8 @@ The curvilinear coordinate basis is therefore
 \end{dmath}
 \end{subequations}
 
-To show that these vectors are 
+\paragraph{Normality.}
+To show that these vectors are
 perpendicular, we can
 select the scalar grade of their product, and
 use \cref{thm:SimpleProducts2:1780}, property (c) to swap the vector and complex exponential, conjugating the exponential
@@ -64,6 +76,7 @@ use \cref{thm:SimpleProducts2:1780}, property (c) to swap the vector and complex
 0.
 \end{dmath}
 
+\paragraph{Length of basis elements.}
 We can use the same method to find the (squared) length of the vectors
 
 \begin{dmath}\label{eqn:2Dcylindrical:680}
@@ -108,44 +121,54 @@ and
 = \rho^2.
 \end{dmath}
 
-The volume element for this subspace is
-\begin{dmath}\label{eqn:2Dcylindrical:220}
-d\Bx_\rho \wedge d\Bx_\phi
+\paragraph{A bivector integral.}
+One of our goals is to understand the multivector generalization of Stokes' theorem and the divergence theorem, but even before that, we can evaluate some simple multivector integrals.  In particular, we can calculate the (oriented) area of a circle, given a bivector representation of the area element.
+
+\begin{dmath}\label{eqn:2Dcylindrical:360}
+\int_{\rho=0}^r
+\int_{\phi=0}^{2\pi}
+ d\Bx_\rho \wedge d\Bx_\phi
 =
-d\rho d\phi
+\int_{\rho=0}^r
+\int_{\phi=0}^{2\pi}
+d\rho d\phi\,
 \Bx_\rho \wedge \Bx_\phi
 =
-d\rho d\phi
+\int_{\rho=0}^r
+\int_{\phi=0}^{2\pi}
+d\rho d\phi\,
 \gpgradetwo{
 \Bx_\rho \Bx_\phi
 }
 =
-d\rho d\phi
+\int_{\rho=0}^r
+\int_{\phi=0}^{2\pi}
+d\rho d\phi\,
 \gpgradetwo{
 \Be_1 \exp\lr{ \Be_{12} \phi } \rho
 \Be_2 \exp\lr{ \Be_{12} \phi }
 }
 =
-\rho d\rho d\phi
+\int_{\rho=0}^r
+\int_{\phi=0}^{2\pi}
+\rho d\rho d\phi\,
 \gpgradetwo{
 \Be_1 \Be_2 \exp\lr{ -\Be_{12} \phi }
 \exp\lr{ \Be_{12} \phi }
 }
 =
-\rho d\rho d\phi \Be_{12}.
-\end{dmath}
-
-Observe that the (oriented) volume of a circular region of radius \( r \) in this space has the expected result
-
-\begin{dmath}\label{eqn:2Dcylindrical:360}
-\int d\Bx_\rho \wedge d\Bx_\phi
-=
-\int_0^r \rho d\rho \int_0^{2\pi} d\phi \Be_{12}
+\int_{\rho=0}^r
+\int_{\phi=0}^{2\pi}
+\rho d\rho d\phi \, \Be_{12}
+%\int_0^r \rho d\rho \int_0^{2\pi} d\phi \Be_{12}
 = \pi r^2 \Be_{12}.
 \end{dmath}
 
-\index{reciprocal basis}
-Noting that this is a normal set of vectors, the reciprocal basis can be found by inspection
+Integrating the bivector area over a circular region gives us the area of that region, but weighted by the \R{2} pseudoscalar.  This is an oriented area.
+
+\paragraph{Reciprocal basis.}
+\index{reciprocal basis!polar}
+Because \( \Bx_\rho, \Bx_\phi \) are mutually perpendicular, we have only to rescale them to determine the reciprocal basis, and can do so by inspection
 
 \begin{dmath}\label{eqn:2Dcylindrical:180}
 \begin{aligned}
@@ -154,18 +177,19 @@ Noting that this is a normal set of vectors, the reciprocal basis can be found b
 \end{aligned}
 \end{dmath}
 
-\index{gradient}
-For completeness, it's worth verifying that the gradient representation of the reciprocal frame provides this same result.
-The \( x, y \) variables are related to \( \rho, \phi \) through
+\index{Gradient of the coordinates.}
+According to \cref{thm:curvilinearGradient:1}
+we should be able to find \cref{eqn:2Dcylindrical:180} by computing the gradients of \( \rho \) and \( \phi \) respectively.
+If we do so using the \R{2} standard basis representation of the gradient, we must first solve for \( \rho = \rho(x,y), \phi = \phi(x,y) \), inverting
 
 \begin{dmath}\label{eqn:2Dcylindrical:620}
 \begin{aligned}
-x &= r \cos\phi \\
-y &= r \sin\phi.
+x &= \rho \cos\phi \\
+y &= \rho \sin\phi.
 \end{aligned}
 \end{dmath}
 
-Rearranging slightly to facilitate evaluation of the \( x, y \) partials
+An implicit solution to this inversion problem is
 
 \begin{dmath}\label{eqn:2Dcylindrical:500}
 \begin{aligned}
@@ -174,18 +198,18 @@ Rearranging slightly to facilitate evaluation of the \( x, y \) partials
 \end{aligned}
 \end{dmath}
 
-we can evaluate the components of the gradients by implicit differentiation
+which we can implicitly differentiate to evaluate the components of the desired gradients
 
 \begin{dmath}\label{eqn:2Dcylindrical:520}
 \begin{aligned}
 2 \rho \PD{x}{\rho} &= 2 x \\
 2 \rho \PD{y}{\rho} &= 2 y \\
 \inv{\cos^2\phi} \PD{x}{\phi} &= -\frac{y}{x^2} \\
-\inv{\cos^2\phi} \PD{y}{\phi} &= \inv{x},
+\inv{\cos^2\phi} \PD{y}{\phi} &= \inv{x}.
 \end{aligned}
 \end{dmath}
 
-The gradients are
+The gradients are therefore
 \begin{subequations}
 \label{eqn:2Dcylindrical:540}
 \begin{dmath}\label{eqn:2Dcylindrical:560}
@@ -209,21 +233,33 @@ The gradients are
 \end{dmath}
 \end{subequations}
 
-which is consistent with the result found by inspection as desired.
+which is consistent with \cref{eqn:2Dcylindrical:180}, as expected.
 
-In this particular parameterization, it is convenient to define a locally orthonormal coordinate basis \( \setlr{ \rhocap, \phicap } \)
-
-\begin{dmath}\label{eqn:2Dcylindrical:200}
-\begin{aligned}
-\rhocap &= \Bx_\rho = \Be_1 \exp\lr{ \Be_{12} \phi } \\
-\phicap &= \inv{\rho} \Bx_\phi = \Be_2 \exp\lr{ \Be_{12} \phi },
-\end{aligned}
-\end{dmath}
-
-so that \( \Bx^\rho = \Bx_\rho = \rhocap \), \( \Bx_\phi = \rho \rhocap \), and \( \Bx^\phi = \rhocap/\rho \), and the gradient is
+\paragraph{Gradient.}
+The polar form of the \R{2} gradient is
 
 \begin{dmath}\label{eqn:2Dcylindrical:600}
 \spacegrad
+=
+\Bx^\rho \PD{\rho}{}
++ \Bx^\phi \PD{\phi}{}
+=
+\rhocap \PD{\rho}{}
++\inv{\rho} \phicap \PD{\phi}{},
+\end{dmath}
+
+where
+\begin{dmath}\label{eqn:2Dcylindrical:200}
+\begin{aligned}
+\rhocap &= \Bx_\rho = \Be_1 \exp\lr{ \Be_{12} \phi } = \Bx^\rho \\
+\phicap &= \inv{\rho} \Bx_\phi = \Be_2 \exp\lr{ \Be_{12} \phi } = \rho \Bx^\phi.
+\end{aligned}
+\end{dmath}
+
+Should we extend this vector space to \R{3}, the parameterization of \cref{eqn:2Dcylindrical:100} covers the subspace of the x-y plane, and for that subspace, the vector derivative is
+
+\begin{dmath}\label{eqn:2Dcylindrical:601}
+\boldpartial
 =
 \Bx^\rho \PD{\rho}{}
 + \Bx^\phi \PD{\phi}{}

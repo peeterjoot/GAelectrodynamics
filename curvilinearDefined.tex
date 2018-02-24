@@ -154,7 +154,8 @@ The results of \cref{eqn:curvilinearDefined:580} can be calculated easily by han
 
 \begin{mmaCell}[moredefined={e, OuterProduct, GFactor},morepattern={u_, v_}]{Input}
   ClearAll[xp, x, x1, x2]
-  (* Use dummy parameter values for the derivatives, and then switch them to function parameter values. *)
+  (* Use dummy parameter values for the derivatives,
+     and then switch them to function parameter values. *)
   xp :=  (a - b)^2  e[1] + (1 - b^2) e[2] + b a e[3];
   x[u_, v_] := xp /. \{a \(\pmb{\to}\) \mmaPat{u}, b\(\pmb{\to}\)\mmaPat{v}\};
   x1[u_, v_] := D[xp, a] /. \{a \(\pmb{\to}\) \mmaPat{u}, b\(\pmb{\to}\)\mmaPat{v}\};
@@ -162,9 +163,9 @@ The results of \cref{eqn:curvilinearDefined:580} can be calculated easily by han
 
   x1[u,v]
   x2[u,v]
-  (* CliffordBasic display of wedge doesn't currently group by the wedge basis bivectors. *)
   OuterProduct[x1[u, v], x2[u, v]] // GFactor
 \end{mmaCell}
+%  (* CliffordBasic display of wedge doesn't currently group by the wedge basis bivectors. *)
 
 \begin{mmaCell}{Output}
   2 (u-v) e[1] + v e[3]
