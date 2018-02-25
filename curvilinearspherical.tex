@@ -29,7 +29,32 @@ this is
 \Bx = r \Be_3 e^{j \theta}.
 \end{dmath}
 
-The curvilinear basis vectors can now be computed
+This curvilinear basis can be easily be computed in software
+\begin{mmaCell}[moredefined={i, j, ej, x, xr, xt, xp, e, \
+GeometricProduct},morepattern={phi_, t_, p_, r_, theta_}]{Input}
+  ClearAll[i, j, ej, x, xr, xt, xp]
+  i = e[1, 2];
+  j[phi_] = GeometricProduct[e[3, 1], Cos[phi] + i Sin[phi]];
+  ej[t_, p_] = Cos[t] + j[p] Sin[t];
+  x[r_, t_, p_] = r GeometricProduct[e[3], ej[t, p]];
+
+  xr[r_, theta_, phi_] = D[x[a, theta, phi], a] /. a\(\pmb{\to}\)r;
+  xt[r_, theta_, phi_] = D[x[r, t, phi], t] /. t\(\pmb{\to}\)theta;
+  xp[r_, theta_, phi_] = D[x[r, theta, p], p] /. p\(\pmb{\to}\)phi;
+
+  \{x[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}]\} // Column
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  r (Cos[\(\theta\)] e[3] + Cos[\(\phi\)] e[1] Sin[\(\theta\)] + e[2] Sin[\(\theta\)] Sin[\(\phi\)])
+  Cos[\(\theta\)] e[3] + Cos[\(\phi\)] e[1] Sin[\(\theta\)] + e[2] Sin[ \(\theta\)] Sin[\(\phi\)]
+  r (Cos[\(\theta\)] Cos[\(\phi\)] e[1] - e[3] Sin[\(\theta\)] + Cos[\(\theta\)] e[2] Sin[\(\phi\)])
+  r (Cos[\(\phi\)] e[2] Sin[\(\theta\)] - e[1] Sin[\(\theta\)] Sin[\(\phi\)])
+\end{mmaCell}
+
+Unfortunately the compact representation is lost doing so.  Computing them manually, we find
 
 \begin{subequations}
 \label{eqn:curvilinearspherical:80}
@@ -90,9 +115,11 @@ In particular, this shows that the spherical representation of the gradient is
 +\inv{r \sin\theta} \phicap \PD{\phi}{}.
 \end{dmath}
 
-The spherical (oriented) volume element can also be computed in a compact fashion, without having to evaluate a very messy Jacobian determinant
+The spherical (oriented) volume element can also be computed in a compact fashion
 
 \begin{dmath}\label{eqn:curvilinearspherical:300}
+\frac{d^3 \Bx}{dr d\theta d\phi}
+=
 \Bx_r \wedge \Bx_\theta \wedge \Bx_\phi
 =
 \gpgradethree{
@@ -116,35 +143,48 @@ r^2 \sin\theta\, \Be_{123}
 .
 \end{dmath}
 
-The final reduction is left as a problem for the student.
-It is left to the student to evaluate whether this method is easier or more difficult than the conventional volume element Jacobean determinant expansion
+The scalar factor is in fact the Jacobean with respect to the spherical parameterization
 
 \begin{dmath}\label{eqn:curvilinearspherical:320}
-dV =
-dr d\theta d\phi\,
+\frac{dV}{
+dr d\theta d\phi}
+=
 \frac{\partial( x_1, x_2, x_3)}{\partial(r, \theta, \phi)}
 =
-dr d\theta d\phi\,
 \begin{vmatrix}
 \sin\theta \cos\phi & \sin\theta \sin\phi & \cos\theta \\
 r \cos\theta \cos\phi & r \cos\theta \sin\phi & -r \sin\theta \\
 -r \sin\theta \sin\phi & r \sin\theta \cos\phi & 0 \\
-\end{vmatrix}.
+\end{vmatrix}
+=
+r^2 \sin\theta.
 \end{dmath}
 
-Expanding this determinant (\cref{problem:curvilinearspherical:1}) gives
-\begin{dmath}\label{eqn:curvilinearspherical:n}
-dV =
-dr d\theta d\phi\, r^2 \sin\theta,
-\end{dmath}
+The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of the Jacobean
+\cref{eqn:curvilinearspherical:320} both easily submit to software evaluation
 
-consistent with \cref{eqn:curvilinearspherical:300}.
+\begin{mmaCell}[moredefined={OuterProduct, xr, xt, xp, e1, e2, e3, jacobean, e}]{Input}
+  OuterProduct[ xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}]]
+
+  \{e1,e2,e3\} = IdentityMatrix[3];
+  jacobean = \{xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}]\} /. \{e[1] \(\pmb{\to}\) e1, e[2] \(\pmb{\to}\) e2, e[3]\(\pmb{\to}\)e3\};
+  Det[  jacobean ] // Simplify
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  \mmaSup{r}{2} e[1,2,3] Sin[\(\theta\)]
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  \mmaSup{r}{2} Sin[\(\theta\)]
+\end{mmaCell}
+
+Performing these calculations manually is left as a problem
+for the student (\cref{problem:curvilinearspherical:1}).
 
 \makeproblem{Spherical volume Jacobean.}{problem:curvilinearspherical:1}{
-Expand the determinant in \cref{eqn:curvilinearspherical:320}.
+Perform the final reduction of \cref{eqn:curvilinearspherical:300}, and
+expand the determinant in \cref{eqn:curvilinearspherical:320}.
 } % problem
-
-%It is easily argued that both volume element calculation methods are best performed by a computer algebra system.
-%FIXME: Wolfgang: ``please show this as an exercise!''
-%  In EVA I had to use xu = r *(e1*sin(t)*cos(p)+e2*sin(t)*sin(p)+e3*cos(p)).
-%  But the result deserves interpretation ..)
