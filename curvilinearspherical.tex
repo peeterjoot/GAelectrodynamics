@@ -29,9 +29,8 @@ this is
 \Bx = r \Be_3 e^{j \theta}.
 \end{dmath}
 
-This curvilinear basis can be easily be computed in software
-\begin{mmaCell}[moredefined={i, j, ej, x, xr, xt, xp, e, \
-GeometricProduct},morepattern={phi_, t_, p_, r_, theta_}]{Input}
+The curvilinear basis can be easily be computed in software
+\begin{mmaCell}[moredefined={i, j, ej, x, xr, xt, xp, e, GeometricProduct},morepattern={phi_, t_, p_, r_, theta_}]{Input}
   ClearAll[i, j, ej, x, xr, xt, xp]
   i = e[1, 2];
   j[phi_] = GeometricProduct[e[3, 1], Cos[phi] + i Sin[phi]];
@@ -54,7 +53,7 @@ GeometricProduct},morepattern={phi_, t_, p_, r_, theta_}]{Input}
   r (Cos[\(\phi\)] e[2] Sin[\(\theta\)] - e[1] Sin[\(\theta\)] Sin[\(\phi\)])
 \end{mmaCell}
 
-Unfortunately the compact representation is lost doing so.  Computing them manually, we find
+Unfortunately the compact representation is lost doing so.  Computing the basis elements manually, we find
 
 \begin{subequations}
 \label{eqn:curvilinearspherical:80}
@@ -81,7 +80,19 @@ r \sin\theta \Be_2 e^{i \phi}.
 \end{subequations}
 
 These are all mutually normal, which can be verified by computing dot products.
-With that asserted, orthonormalization of the curvilinear basis is now possible by inspection
+
+\begin{mmaCell}[moredefined={x1, x2, x3, xr, xt, xp, InnerProduct}]{Input}
+  ClearAll[x1, x2, x3]
+  x1 = xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
+  x2 = xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
+  x3 = xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
+  MapThread[InnerProduct, \{\{x1, x2, x3\}, \{x2, x3, x1\}\}]// Simplify
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  \{0,0,0\}
+\end{mmaCell}
+
+Orthonormalization of the curvilinear basis is now possible by inspection
 
 \begin{dmath}\label{eqn:curvilinearspherical:240}
 \begin{aligned}
@@ -161,7 +172,7 @@ r^2 \sin\theta.
 \end{dmath}
 
 The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of the Jacobean
-\cref{eqn:curvilinearspherical:320} both easily submit to software evaluation
+\cref{eqn:curvilinearspherical:320}, are both easily verified with software
 
 \begin{mmaCell}[moredefined={OuterProduct, xr, xt, xp, e1, e2, e3, jacobean, e}]{Input}
   OuterProduct[ xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
