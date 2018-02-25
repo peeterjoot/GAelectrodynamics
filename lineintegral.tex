@@ -3,36 +3,145 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-\input{../latex/blogpost.tex}
-\renewcommand{\basename}{lineintegral}
-%\renewcommand{\dirname}{notes/phy1520/}
-\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%\newcommand{\dateintitle}{}
-%\newcommand{\keywords}{}
+%%%\input{../latex/blogpost.tex}
+%%%\renewcommand{\basename}{lineintegral}
+%%%%\renewcommand{\dirname}{notes/phy1520/}
+%%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%%\newcommand{\dateintitle}{}
+%%%%\newcommand{\keywords}{}
+%%%
+%%%\input{../latex/peeter_prologue_print2.tex}
+%%%
+%%%\usepackage{peeters_layout_exercise}
+%%%\usepackage{peeters_braket}
+%%%\usepackage{peeters_figures}
+%%%\usepackage{siunitx}
+%%%%\usepackage{mhchem} % \ce{}
+%%%%\usepackage{macros_bm} % \bcM
+%%%%\usepackage{macros_qed} % \qedmarker
+%%%%\usepackage{txfonts} % \ointclockwise
+%%%
+%%%\beginArtNoToc
+%%%
+%%%\generatetitle{Multivector line integral.}
+%\section{Line integral.}
+\label{chap:lineintegral}
 
-\input{../latex/peeter_prologue_print2.tex}
+\index{differential form}
+A single parameter curve, and the corresponding differential with respect to that parameter, is plotted in
+\cref{fig:oneParameterDifferential:oneParameterDifferentialFig1}.
+%, for a parameterization over \( [a, b] \in [0,1]\otimes[0,1] \).
 
-\usepackage{peeters_layout_exercise}
-\usepackage{peeters_braket}
-\usepackage{peeters_figures}
-\usepackage{siunitx}
-%\usepackage{mhchem} % \ce{}
-%\usepackage{macros_bm} % \bcM
-%\usepackage{macros_qed} % \qedmarker
-%\usepackage{txfonts} % \ointclockwise
+\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.3}
 
-\beginArtNoToc
+The differential with respect to the parameter \( a \) is
 
-\generatetitle{XXX}
-%\chapter{XXX}
-%\label{chap:lineintegral}
-% \citep{sakurai2014modern} pr X.Y
-% \citep{pozar2009microwave}
-% \citep{qftLectureNotes}
-% \citep{doran2003gap}
-% \citep{jackson1975cew}
-% \citep{griffiths1999introduction}
+\begin{equation}\label{eqn:lineintegral:20}
+d\Bx_a = \PD{a}{\Bx} da = \Bx_a da.
+\end{equation}
+
+On this curve the projection of the gradient (the vector derivative) has just one component
+
+\begin{dmath}\label{eqn:lineintegral:40}
+\boldpartial
+=
+\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
+=
+\Bx^a \PD{a}{}
+\equiv
+\Bx^a \partial_a.
+\end{dmath}
+
+We are now ready to state the generalization of the fundamental theorem of calculus for multivector line integrals.
+
+\makedefinition{Multivector line integral.}{dfn:lineintegral:100}{
+Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), we define the line integral as
+\begin{equation*}
+\int_C F d^1\Bx \boldpartial G
+\equiv
+\int_C \lr{ F d^1\Bx \lboldpartial} G
++
+\int_C F d^1\Bx \lr{ \rboldpartial G },
+\end{equation*}
+
+where is the one parameter differential form \( d^1 \Bx = da \Bx_a \) over the curve in question.
+} % definition
+
+Because multivectors may not commute with the vector derivative or the differential, we allow the vector derivative to act bidirectionally using the chain rule.
+The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
+Should we wish to only integrate single functions, we can set either of the other to \( 1 \), yielding integrals of the form
+\( \int_C F d^1\Bx \lboldpartial, \) or \( \int_C d^1\Bx \boldpartial G \).
+
+The fundamental theorem of calculus for a mulitvector line integral is just
+
+\maketheorem{Multivector line integral.}{thm:lineintegral:100}{
+Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral
+\begin{equation*}
+\int_C F d^1\Bx \boldpartial G
+= \evalbar{F G}{\Delta a}.
+\end{equation*}
+} % theorem
+
+Using the (single variable) parameterization \( a \) above, the proof follows directly by expansion
+
+\begin{dmath}\label{eqn:lineintegral:120}
+\int_C F d^1\Bx \boldpartial G
+=
+\int_C \lr{ F d^1\Bx \lboldpartial} G
++
+\int_C F d^1\Bx \lr{ \rboldpartial G }
+=
+\int_C \PD{a}{F} da \Bx_a \Bx^a G
++
+\int_C F da \Bx_a \Bx^a \PD{a}{G}
+=
+\int_C da \PD{a}{F} G
++
+\int_C da F \PD{a}{G}
+=
+\int_C da \PD{a}{} \lr{ F G }
+=
+F(a_1) G(a_1) -
+F(a_0) G(a_0).
+.
+\end{dmath}
+
+We have a perfect cancellation of the reciprocal frame \( \Bx^a \) with the vector \( \Bx_a \) that lies along the curve, since \( \Bx^a \Bx_a = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve (assumed to be \( [a_0, a_1] \) in the expansion above.)
+
+For a single parameter subspace
+the reciprocal frame vector \( \Bx^a \)
+is trivial to calculate, as it is just the inverse of \( \Bx_a \), that is \( \Bx^a = \Bx_a/\Norm{\Bx_a}^2 \).
+Observe that we did not actually have to calculate it, but instead only require that the vector is invertible.
+
+An important (and familiar) special case of \cref{thm:lineintegral:100} is the fundamental theorem of calculus for line integrals, which can be obtained by using a
+single scalar function \( f \)
+
+\maketheorem{Line integral of a scalar function.}{thm:lineintegral:180}{
+Given a scalar function \( f \), its line integral is given by
+\begin{equation*}
+\int_C d^1\Bx \cdot \spacegrad f = \evalbar{F}{\Delta a}.
+\end{equation*}
+} % theorem
+
+Writing out \cref{thm:lineintegral:100} with \( F = 1, G = f(\Bx(a)) \), we have
+
+\begin{dmath}\label{eqn:lineintegral:140}
+\int_C d^1\Bx \boldpartial f = \evalbar{f}{\Delta a}.
+\end{dmath}
+
+This is a multivector equation with scalar and bivector grades on the left hand side, but only scalar grades on the right.  Equating grades yields two equations
+
+\begin{subequations}
+\label{eqn:lineintegral:180}
+\begin{dmath}\label{eqn:lineintegral:160}
+\int_C d^1\Bx \cdot \boldpartial f = \evalbar{f}{\Delta a}
+\end{dmath}
+\begin{dmath}\label{eqn:lineintegral:200}
+\int_C d^1\Bx \wedge \boldpartial f = 0
+\end{dmath}
+\end{subequations}
+
+Because \( d^1\Bx \cdot \boldpartial = d^1\Bx \cdot \spacegrad \), we can replace the vector derivative with the gradient in \cref{eqn:lineintegral:160}, which yields the conventional line integral result, proving the theorem.
 
 %}
-\EndArticle
 %\EndNoBibArticle

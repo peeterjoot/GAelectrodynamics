@@ -1,0 +1,156 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{surfaceintegral}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Multivector surface integral.}
+%\section{Surface integral.}
+%\label{chap:surfaceintegral}
+
+\index{area element}
+\index{differential form}
+An example parameterization with two parameters, and the corresponding differentials with respect to those parameters, is plotted in
+\cref{fig:twoParameterDifferential:twoParameterDifferentialFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFig1}{Two parameter manifold differentials.}{fig:twoParameterDifferential:twoParameterDifferentialFig1}{0.4}
+
+Given parameters \( a, b \), the differentials along each of the parameterization directions are
+
+\begin{dmath}\label{eqn:surfaceintegral:100}
+\begin{aligned}
+d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
+d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
+\end{aligned}
+\end{dmath}
+
+The ``volume'' element for this parameterization (a surface area element) is
+
+\begin{equation}\label{eqn:surfaceintegral:120}
+d^2 \Bx
+=
+d\Bx_a \wedge
+d\Bx_b
+=
+da db (\Bx_a \wedge \Bx_b).
+\end{equation}
+
+The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
+
+\begin{dmath}\label{eqn:surfaceintegral:200}
+\boldpartial
+=
+\sum_\mu \Bx^\mu (\Bx_\mu \cdot \spacegrad)
+=
+\Bx^a \PD{a}{}
++
+\Bx^b \PD{b}{}
+\equiv
+\Bx^a \partial_a
++
+\Bx^b \partial_b.
+\end{dmath}
+
+The Stokes integral can be evaluated over this volume element for either scalar fields \( \psi \) or vector fields \( \Bf \), and takes the form
+
+\begin{subequations}
+\label{eqn:surfaceintegral:140}
+\begin{equation}\label{eqn:surfaceintegral:160}
+\int_A d^2 \Bx \cdot (\boldpartial \wedge \psi) =
+\int_A (d^2 \Bx \cdot \boldpartial) \psi
+=
+\int_{\partial A} d^1 \Bx \psi
+\end{equation}
+\begin{equation}\label{eqn:surfaceintegral:180}
+\int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf) =
+\int_A (d^2 \Bx \cdot \boldpartial) \cdot \Bf
+=
+\int_{\partial A} d^1 \Bx \cdot \Bf.
+\end{equation}
+\end{subequations}
+FIXME: Wolfgang: ``SHOULD these GET A FRAMING RECTANGLE?''
+
+To extract the full meaning of this the boundary differential \( d^1 \Bx \) must be computed.
+This has the same structure for a vector or scalar field
+
+\begin{dmath}\label{eqn:surfaceintegral:220}
+\begin{aligned}
+\int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf)
+&=
+\int_A (d^2 \Bx \cdot \boldpartial) \cdot \Bf \\
+&=
+\sum_\mu \int_A (d^2 \Bx \cdot \Bx^\mu) \cdot \partial_\mu \Bf \\
+&=
+\sum_\mu \int_A da db  \lr{ \Bx_a \wedge \Bx_b ) \cdot \Bx^\mu } \cdot \partial_\mu \Bf \\
+&=
+\sum_\mu \int_A da db  \lr{ \Bx_a {\delta_b}^\mu - \Bx_b {\delta_a}^\mu } \cdot \partial_\mu \Bf \\
+&=
+\int_A da db  \lr{ \Bx_a \cdot \PD{b}{ \Bf} - \Bx_b \cdot \PD{a}{\Bf} }
+\end{aligned}
+\end{dmath}
+
+While \( \Bx_a, \Bx_b \) both depend on both parameters \( a, b \), the differential form immediately above is still a perfect integral in the variables of the partials since \( \Bx_a \) is computed with \( b \) held fixed, and \( \Bx_b \) is computed with \( a \) held fixed.
+Proceeding with the integrals that match the respective partials, this gives
+
+\begin{dmath}\label{eqn:surfaceintegral:240}
+\int_A d^2 \Bx \cdot (\boldpartial \wedge \Bf)
+=
+\int
+da \Bx_a \cdot \evalbar{\Bf}{\Delta b}
+-\int
+db \Bx_b \cdot \evalbar{\Bf}{\Delta a}
+=
+\int
+d\Bx_a \cdot \evalbar{\Bf}{\Delta b}
+-\int
+d\Bx_b \cdot \evalbar{\Bf}{\Delta a}.
+\end{dmath}
+
+This shows that the boundary differential \( d^1 \Bx \) in \cref{eqn:surfaceintegral:140} is given by
+
+\begin{dmath}\label{eqn:surfaceintegral:260}
+d^1 \Bx = d\Bx_a - d\Bx_b,
+\end{dmath}
+
+where it is implied that the field in question is evaluated at the boundaries of the parameter that has been eliminated by this first integration.
+This boundary integral can be interpreted as the integral around a contour, as indicated in
+\cref{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}.
+
+\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialBoundaryFig2}{Contour for two parameter surface boundary.}{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}{0.4}
+
+Additionally, as with the single parameter case, a substitution of the gradient does not change the result, since any component of the gradient that lies outside of the tangent space on the surface has a zero dot product with the surface volume element \( d^2 \Bx \).
+This allows the two parameter Stokes integrals to be written as
+
+%\begin{dmath}\label{eqn:surfaceintegral:280}
+\boxedEquation{eqn:surfaceintegral:280}{
+\begin{aligned}
+\int_A d^2 \Bx \cdot \spacegrad \psi &= \ointclockwise d\Bx \psi \\
+\int_A d^2 \Bx \cdot (\spacegrad \wedge \Bf) &= \ointclockwise d\Bx \cdot \Bf.
+\end{aligned}
+}
+%\end{dmath}
+
+It can be shown that this two parameter Stokes integral is equivalent to Green's theorem.
+
+%}
+%\EndArticle
+\EndNoBibArticle

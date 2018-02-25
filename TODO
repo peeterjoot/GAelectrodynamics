@@ -1,8 +1,8 @@
-- started edit of the polar form example.
 
-   - show connection between the area element and jacobean.
-   - vector derivative with zcap extension to R^3
-   - chunk this into subsubsections.
+
+- In general want to show connection between the area/volume element and jacobean.
+
+   Did that for the specific case of spherical polar parameterization in R{3}.
 
 - Wolfgang:
 
@@ -22,19 +22,6 @@
      I would elaborate about the first line of (2.46a) a bit:
      "Thinking at the typical polar-cord-picture e.g. [18, p.5], we get:"
      (x/roh)^2+..=1  ==> x/roh= cos(phi) ..
-
-?
-
-   - p82: It is easily argued that both volume element calculation methods are best performed by a
-     computer algebra system.
-     (PLEASE: can you/we show this as an exercise?!
-     In EVA I had to use xu = r *(e1*sin(t)*cos(p)+e2*sin(t)*sin(p)+e3*cos(p)).
-     But the result deserves interpretation ..)
-
-      >> I've commented out this line for now.  Try this in mathematica both with GA and non-GA.
-      I think both the GA and the non-GA problems-for-the-student are perhaps a bit tough.
-      Maybe do this explicitly.  Would also be good to highlight why there's a relationship
-      between the Jacobean and the volume element.  Show that first in polar coordinates.
 
    - p83: The position vector to a point _within_ [better: ON THE SURFACE OF {not INside ;}]
      the torus can be stated directly
