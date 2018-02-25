@@ -118,3 +118,4 @@ greensFunctionSolutions.tex
 gradient.tex
 vectorDerivative.tex
 curvilinearExamples.tex
+curvilinearsphericalProblem.tex

@@ -2,6 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+%{
 \index{curvilinear coordinates}
 \index{spherical coordinates}
 The spherical vector parameterization admits a compact GA representation.
@@ -92,6 +93,7 @@ These are all mutually normal, which can be verified by computing dot products.
   \{0,0,0\}
 \end{mmaCell}
 
+An algebraic computation of these dot products is left as a problem for the student (\cref{problem:sphericaldot:1}).
 Orthonormalization of the curvilinear basis is now possible by inspection
 
 \begin{dmath}\label{eqn:curvilinearspherical:240}
@@ -192,10 +194,6 @@ The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of
   \mmaSup{r}{2} Sin[\(\theta\)]
 \end{mmaCell}
 
-Performing these calculations manually is left as a problem
-for the student (\cref{problem:curvilinearspherical:1}).
-
-\makeproblem{Spherical volume Jacobean.}{problem:curvilinearspherical:1}{
-Perform the final reduction of \cref{eqn:curvilinearspherical:300}, and
-expand the determinant in \cref{eqn:curvilinearspherical:320}.
-} % problem
+Performing these calculations manually are left as problems
+for the student (\cref{problem:curvilinearspherical:1}, \cref{problem:volumeselection:1}).
+%}
