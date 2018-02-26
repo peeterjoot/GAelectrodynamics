@@ -1,11 +1,3 @@
-- These are now unresolved (moved to .junk/...)
-
-  Reference `eqn:twoparameter:140' on page 1 undefined on input line 6
-  Reference `eqn:twoparameter:280' on page 1 undefined on input line 15
-  Reference `eqn:twoparameter:280' on page 1 undefined on input line 24
-  Reference `thm:stokesTheoremGeometricAlgebra:1660' on page 1 undefined on input line 74
-
-Look to see what they map to in the new surface integral text.
 
 - In general want to show connection between the area/volume element and jacobean.
 

@@ -388,3 +388,5 @@ perl -p -i ../latex/bin/latexRegex.pl lineintegral.tex
 perl -p -i ../latex/bin/latexRegex.pl gradient.tex
 ../latex/bin/lgrep surfaceintegral.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl surfaceintegral.tex
+../latex/bin/lgrep volumeintegral.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl volumeintegral.tex

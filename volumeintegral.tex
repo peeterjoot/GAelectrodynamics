@@ -1,0 +1,137 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{volumeintegral}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Volume integral.}
+%\chapter{Volume integral.}
+\label{chap:volumeintegral}
+
+\paragraph{TODO:}
+
+\paragraph{FIXME: Original notes to mine.}
+
+\index{volume parameterization}
+\index{area element}
+\index{differential form}
+An example parameterization with three parameters, and the corresponding differentials with respect to those parameters, and the outwards normals, are sketched in
+\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
+
+\imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
+
+Given parameters \( a, b, c \), the differentials along each of the parameterization directions are
+
+\begin{dmath}\label{eqn:volumeintegral:1421}
+\begin{aligned}
+d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
+d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db \\
+d\Bx_c &= \PD{c}{\Bx} dc = \Bx_c dc.
+\end{aligned}
+\end{dmath}
+
+The ``volume'' element for this parameterization (a surface area element) is
+
+\begin{equation}\label{eqn:volumeintegral:1441}
+d^3 \Bx
+=
+d\Bx_a
+\wedge
+d\Bx_b
+\wedge
+d\Bx_c
+=
+da db dc (\Bx_a \wedge \Bx_b \wedge \Bx_c).
+\end{equation}
+
+The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has three components
+
+\begin{dmath}\label{eqn:volumeintegral:1461}
+\boldpartial
+=
+\sum_\mu \Bx^\mu (\Bx_\mu \cdot \spacegrad)
+=
+\Bx^a \PD{a}{}
++
+\Bx^b \PD{b}{}
++
+\Bx^c \PD{c}{}
+\equiv
+\Bx^a \partial_a
++
+\Bx^b \partial_b
++
+\Bx^c \partial_c.
+\end{dmath}
+
+The Stokes integral can be evaluated over this volume element for either scalar fields \( \psi \), vector fields \( \Bf \), or bivector fields \( B \) and takes the form
+
+\begin{subequations}
+\label{eqn:volumeintegral:1481}
+\begin{equation}\label{eqn:volumeintegral:1501}
+\int_V d^3 \Bx \cdot (\boldpartial \wedge \psi) =
+\int_V (d^3 \Bx \cdot \boldpartial) \psi
+=
+\int_{\partial V} d^2 \Bx \psi
+\end{equation}
+\begin{equation}\label{eqn:volumeintegral:1521}
+\int_V d^3 \Bx \cdot (\boldpartial \wedge \Bf) =
+\int_V (d^3 \Bx \cdot \boldpartial) \cdot \Bf
+=
+\int_{\partial V} d^2 \Bx \cdot \Bf
+\end{equation}
+\begin{equation}\label{eqn:volumeintegral:1541}
+\int_V d^3 \Bx \cdot (\boldpartial \wedge B) =
+\int_V (d^3 \Bx \cdot \boldpartial) \cdot B
+=
+\int_{\partial V} d^2 \Bx \cdot B.
+\end{equation}
+\end{subequations}
+
+When working with \R{3} vector spaces, \( \boldpartial = \spacegrad \), but in higher dimensional spaces, the gradient can also be substituted above due using the same arguments about projection onto the tangent space.
+
+An explicit value for the differential form of the boundary integral is desired and can be obtained from the mnemonic \cref{eqn:statement:1561}
+
+\begin{dmath}\label{eqn:volumeintegral:1581}
+\sum_i d^3 \Bx \cdot \Bx^i
+=
+\sum_i da db dc \lr{ \Bx_a \wedge \Bx_b \wedge \Bx_c } \cdot \Bx^i
+=
+\sum_i da db dc \lr{
+\Bx_a \wedge \Bx_b +
+\Bx_b \wedge \Bx_c +
+\Bx_c \wedge \Bx_a }.
+\end{dmath}
+
+The bounding form for the three parameter volume is therefore
+
+\begin{dmath}\label{eqn:volumeintegral:1601}
+d^2 \Bx
+=
+d\Bx_a \wedge d\Bx_b +
+d\Bx_b \wedge d\Bx_c +
+d\Bx_c \wedge d\Bx_a.
+\end{dmath}
+
+%}
+%\EndArticle
+\EndNoBibArticle
