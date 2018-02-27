@@ -1,9 +1,35 @@
+-
+
+   There is no (concrete or CAS) worked example for _Integration with GA_ yet.
+   I think you will think about it ;)
+   Maybe there is a typical problem from a course for electro-engineers ?
+
+- I've made right handed assumptions in my area and volume integral formulations.  Need to clarify those, or make a note to
+  ensure that we pick a parameterization for which the hypervolume element is positive with respect to the standard basis.
 
 - In general want to show connection between the area/volume element and jacobean.
 
    Did that for the specific case of spherical polar parameterization in R{3}.
 
-- Wolfgang:
+- Wolfgang.  email: e&m draft - Greens with MM: Suggestion:
+
+   Idea: you could collect your formulas in 2.5 in a mathematica notebook, to give the reader the possibility to run/test the solutions. Maybe you could demonstate it using some code of clifford?
+
+   => produce an Appendix with links to all the Mathematica notebooks.  Will need to add metadata references for them.
+
+- review: email attachments: e&m draft 348 - some hints
+
+- review: Attachments-e&m draft version 321 - hints, screenshots, Eigenmath code
+
+- review: Wolfgang/353-26.txt
+
+- review: 348-greensIntro.pdf
+
+   embedded pdf comments in this doc.
+
+- review: Wolfgang/346-chapter25.txt
+
+- Wolfgang/346-chapter22-24.txt
 
    - p74: Asanillustration,thetwoparametersurface x(u 1 ,u 2 ) = (u 1 ,u 2 ,(u 1 -2u 2 ) 2 +cos(u 2 )sin(5u 1 +
    u 2 )) and its associated tangent space_s_ (is) are plotted in fig. 2.2.
@@ -92,44 +118,13 @@
 
       ?
 
-- Wolfgang:
-
-   > - p 72: numercal example:
-   > Very fine!
-   > You should also show the result of MM's calculation: s1= .. s2=..
-   > because s1, s2 does not show up in the main text.
-
-   Figure out how to do this with mmacell, and look at all the mathematica examples in this respect.
-
-- Also: re: chapter II.
-
-   At this point in time, this chapter is essentially is a write-once (except for Green's functions which has been reworked), read-none document. There are a number of things about it that I am not happy with. In particular, I think that the focus should be the fundamental theorem of geometric calculus. Right now, most of the early focus of the chapter is the GA form of Stokes' theorem, and the fundamental theorem is almost an afterthought. For single and double parameter volume elements I tie things to the geometry, but do not do so for trivector volume elements. I think it would be best to restructure this chapter as:
-
-   - fundamental theorem: 1 parameter volume elements
-   - fundamental theorem: 2 parameter volume elements
-   - fundamental theorem: 3 parameter volume elements
-
-   after each, show how that relates to equivalent conventional results.
-
-   - finish off with a general statement of the fundamental theorem, and its connection to the general GA Stokes theorem.
-   - move on to Green's functions after that.
+-
 
    I'm not sure if there's really a good reason to include the Helmholtz theorem section at the end of the chapter. I happen to like it, since it's a nice compact derivation, but it's somewhat out of place since we don't have a good reason to work with separate divergence and curl operations in a GA context. Better would be a more general first order statement showing that the gradient (not its divergence and curl) uniquely determines the solution if the function or the Green's function vanishes on the boundary
 
 - footnote about the CliffordBasic package now follows first use.  Add some more sample calculations, and move footnote earlier
 
    (perhaps generalizing to include other CAS engines like Maxima.)
-
-- pruned Gradient Green's function completely.
-
-   This introduces a couple dropped references:
-
-     Reference `eqn:greensFunctionFirstOrderHelmholtz:660' on page 1 undefined on input line 115
-     Reference `eqn:greensFunctionGradient:500' on page 1 undefined on input line 91
-     Reference `thm:gradientGreensFunctionEuclidean:1' on page 1 undefined on input line 7
-
-- Write up Green's derivation for the spacetime gradient and use it to derive the Griffiths results
-  for E and B in terms of \rho, \dotrho, \BJ and \dot{\BJ}
 
 -
    cylinderField.tex
@@ -141,24 +136,7 @@ it's a bit hard to follow, and their notation for the Green's function is not sp
 out for the uninitiated.  Perhaps try to do something like that, but in a more accessible
 fashion (also not assuming mu = epsilon = c = 1 and using j \omega instead of -i \omega)
 
--
-Now that I've got all the basic Green's function ideas down, there are two followup
-steps:
-
-1) Clean it up to remove redundancies.
-2) Probably also want to cover the Green's function for the time domain
-   spacetime gradient: \grad + (1/c) \partial_t and/or the wave equation
-   in the time domain.
-
 - placement of the primes in \lspacegrad' \rspacegrad' or their squares looks bad.
-
-- now have a lot of redundancy in the Green's function stuff.  Can do this up front for all differential operators.
-
-- write up derivation of 1st order Helmholtz Green's function.  probably want to prune the verification of the
-plain gradient Green's function from the appendix (nice, but unneccessary ... also means that the R^n dependencies
-don't have to be fixed up).
-
-- With a standalone and complete discussion of Green's functions in chapter 2, may want to see if there is stuff to prune later.
 
 - differentiate: have two different theorem's labelled Green's theorem (one for area, and other for bounded Green's fucntions)
 

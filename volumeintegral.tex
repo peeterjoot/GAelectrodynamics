@@ -95,7 +95,7 @@ where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \B
 } % definition
 
 \maketheorem{Multivector volume integral.}{thm:volumeintegral:100}{
-Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), the volume integral
+Given an connected volume \( V \) parameterized by three parameters for which \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple, and multivector functions \( F, G \), a volume integral can be reduced to a surface integral as follows
 \begin{equation*}
 \int_V F d^3\Bx \boldpartial G
 = \ointctrclockwise_{\partial V} F d^2\Bx G,
@@ -122,16 +122,17 @@ Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this
 \cancel{ \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \wedge \Bx^i },
 \end{dmath}
 
-for all \( \Bx^i \).  This product reduces to
+for all \( \Bx^i \).  These products reduces to
 \begin{dmath}\label{eqn:volumeintegral:1621}
 \begin{aligned}
 \lr{ \Bx_2 \wedge \Bx_3 \wedge \Bx_1 } \Bx^1 &= \Bx_2 \wedge \Bx_3 \\
 \lr{ \Bx_3 \wedge \Bx_1 \wedge \Bx_2 } \Bx^2 &= \Bx_3 \wedge \Bx_1 \\
-\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^3 &= \Bx_1 \wedge \Bx_2 \\
+\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^3 &= \Bx_1 \wedge \Bx_2.
 \end{aligned}
 \end{dmath}
 
-Inserting this into the volume integral, we find
+Inserting \cref{eqn:volumeintegral:1621}
+into the volume integral, we find
 
 \begin{dmath}\label{eqn:volumeintegral:380}
 \int_V F d^3\Bx \boldpartial G
@@ -165,7 +166,7 @@ Inserting this into the volume integral, we find
 }
 \end{dmath}
 
-We are able to pull out the partials because \( \Bx_i = \PDi{u_i}{\Bx}, \Bx_j = \PD{u_j}{\Bx}\) are computed with the parameters \( u_k \) fixed for each \( i \ne j \ne k \).
+We are able to pull out the partials because \( \Bx_i = \PDi{u_i}{\Bx}, \Bx_j = \PDi{u_j}{\Bx}\) are computed with the parameters \( u_k \) fixed for each \( i \ne j \ne k \).
 
 This leaves three perfect differentials, which can integrated separately, giving
 
@@ -191,7 +192,9 @@ This leaves three perfect differentials, which can integrated separately, giving
 \evalbar{ \lr{ F d\Bx_1 \wedge d\Bx_2 G } }{\Delta u_3}.
 \end{dmath}
 
-With the aid of a geometrical model, such as that of \cref{fig:differentialVolume:differentialVolumeFig}, it is possible to convince oneself that each of these surface elements match up to a uniformly oriented clockwise oriented surface.
+With the aid of a geometrical model, such as that of \cref{fig:differentialVolume:differentialVolumeFig}, if
+assuming that \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple).
+it is possible to convince oneself that the two parameter integrands describe an integral over a counterclockwise oriented surface (
 \imageTwoFigures{../figures/GAelectrodynamics/differentialVolumeFig1}{../figures/GAelectrodynamics/differentialVolumeFig2}{Differential surface of a volume.}{fig:differentialVolume:differentialVolumeFig}{scale=0.05}
 
 We obtain the RHS of \cref{thm:volumeintegral:100} if we
