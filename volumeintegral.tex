@@ -27,8 +27,11 @@
 %\chapter{Volume integral.}
 \label{chap:volumeintegral}
 
-\paragraph{TODO:}
+\subsection{Volume integral.}
 
+\index{volume parameterization}
+\index{volume element}
+\index{differential form}
 A three parameter curve, and the corresponding differentials with respect to those parameters, is sketched in
 \cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
 
@@ -95,13 +98,13 @@ where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \B
 Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), the volume integral
 \begin{equation*}
 \int_V F d^3\Bx \boldpartial G
-= \ointclockwise_{\partial V} F d^2\Bx G,
+= \ointctrclockwise_{\partial V} F d^2\Bx G,
 \end{equation*}
 
-where \( \partial V \) is the boundary of the volume \( V \).
+where \( \partial V \) is the boundary of the volume \( V \), and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume.
 } % theorem
 
-To see why this works, we would first like to reduce the product of the volume element and the vector derivative
+To see why this works, and define \( d^2 \Bx \) more precisely, we would first like to reduce the product of the volume element and the vector derivative
 
 \begin{dmath}\label{eqn:volumeintegral:300}
 d^3\Bx \boldpartial
@@ -120,7 +123,7 @@ Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this
 \end{dmath}
 
 for all \( \Bx^i \).  This product reduces to
-\begin{dmath}\label{eqn:volumeintegral:n}
+\begin{dmath}\label{eqn:volumeintegral:1621}
 \begin{aligned}
 \lr{ \Bx_2 \wedge \Bx_3 \wedge \Bx_1 } \Bx^1 &= \Bx_2 \wedge \Bx_3 \\
 \lr{ \Bx_3 \wedge \Bx_1 \wedge \Bx_2 } \Bx^2 &= \Bx_3 \wedge \Bx_1 \\
@@ -176,17 +179,35 @@ This leaves three perfect differentials, which can integrated separately, giving
 \evalbar{ \lr{ F \Bx_3 \wedge \Bx_1 G } }{\Delta u_2}
 +
 \int du_1 du_2
-\evalbar{ \lr{ F \Bx_1 \wedge \Bx_2 G } }{\Delta u_3}.
+\evalbar{ \lr{ F \Bx_1 \wedge \Bx_2 G } }{\Delta u_3}
+=
+\int
+\evalbar{ \lr{ F d\Bx_2 \wedge d\Bx_3 G } }{\Delta u_1}
++
+\int
+\evalbar{ \lr{ F d\Bx_3 \wedge d\Bx_1 G } }{\Delta u_2}
++
+\int
+\evalbar{ \lr{ F d\Bx_1 \wedge d\Bx_2 G } }{\Delta u_3}.
 \end{dmath}
 
-With the aid of a geometrical model (FIXME: picture), or in a pinch
-\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}
-, it is possible to convince oneself that each of these surface elements match up to a uniformly oriented clockwise oriented surface.
+With the aid of a geometrical model, such as that of \cref{fig:differentialVolume:differentialVolumeFig}, it is possible to convince oneself that each of these surface elements match up to a uniformly oriented clockwise oriented surface.
+\imageTwoFigures{../figures/GAelectrodynamics/differentialVolumeFig1}{../figures/GAelectrodynamics/differentialVolumeFig2}{Differential surface of a volume.}{fig:differentialVolume:differentialVolumeFig}{scale=0.05}
 
-%%%\subsection{Two parameter Stokes' theorem.}
-%%%
-%%%Two special cases of \cref{thm:volumeintegral:100} when scalar and vector functions are integrated over a volume.  For scalar functions we have
-%%%
+We obtain the RHS of \cref{thm:volumeintegral:100} if we
+introduce a mnemonic for the bounding oriented surface of the volume
+
+\begin{dmath}\label{eqn:volumeintegral:1641}
+d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 + d\Bx_2 \wedge d\Bx_3 + d\Bx_3 \wedge d\Bx_1,
+\end{dmath}
+
+where it is implied that each component of this area element and anything that it is multiplied with is evaluated on the boundaries of the integration volume (for the parameter omitted) as detailed explicitly in
+\cref{eqn:volumeintegral:400}.
+
+\subsection{Three parameter Stokes' theorem.}
+
+Three special cases of \cref{thm:volumeintegral:100} can be obtained by integrating scalar, vector or bivector functions over the volume.  For scalar functions we have
+
 %%%\maketheorem{Surface integral of scalar function (Stokes').}{thm:volumeintegral:420}{
 %%%Given a scalar function \( f(\Bx) \) its volume integrals is given by
 %%%\begin{equation*}
@@ -321,108 +342,6 @@ With the aid of a geometrical model (FIXME: picture), or in a pinch
 %%%
 %%%Substitution into \cref{eqn:volumeintegral:580} proves the last part of \cref{thm:volumeintegral:500}.
 %%%
-
-\paragraph{FIXME: Original notes to mine.}
-
-\index{volume parameterization}
-\index{area element}
-\index{differential form}
-An example parameterization with three parameters, and the corresponding differentials with respect to those parameters, and the outwards normals, are sketched in
-(cut)
-
-Given parameters \( a, b, c \), the differentials along each of the parameterization directions are
-
-\begin{dmath}\label{eqn:volumeintegral:1421}
-\begin{aligned}
-d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
-d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db \\
-d\Bx_c &= \PD{c}{\Bx} dc = \Bx_c dc.
-\end{aligned}
-\end{dmath}
-
-The ``volume'' element for this parameterization (a surface area element) is
-
-\begin{equation}\label{eqn:volumeintegral:1441}
-d^3 \Bx
-=
-d\Bx_a
-\wedge
-d\Bx_b
-\wedge
-d\Bx_c
-=
-da db dc (\Bx_a \wedge \Bx_b \wedge \Bx_c).
-\end{equation}
-
-The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has three components
-
-\begin{dmath}\label{eqn:volumeintegral:1461}
-\boldpartial
-=
-\sum_\mu \Bx^\mu (\Bx_\mu \cdot \spacegrad)
-=
-\Bx^a \PD{a}{}
-+
-\Bx^b \PD{b}{}
-+
-\Bx^c \PD{c}{}
-\equiv
-\Bx^a \partial_a
-+
-\Bx^b \partial_b
-+
-\Bx^c \partial_c.
-\end{dmath}
-
-The Stokes integral can be evaluated over this volume element for either scalar fields \( \psi \), vector fields \( \Bf \), or bivector fields \( B \) and takes the form
-
-\begin{subequations}
-\label{eqn:volumeintegral:1481}
-\begin{equation}\label{eqn:volumeintegral:1501}
-\int_V d^3 \Bx \cdot (\boldpartial \wedge \psi) =
-\int_V (d^3 \Bx \cdot \boldpartial) \psi
-=
-\int_{\partial V} d^2 \Bx \psi
-\end{equation}
-\begin{equation}\label{eqn:volumeintegral:1521}
-\int_V d^3 \Bx \cdot (\boldpartial \wedge \Bf) =
-\int_V (d^3 \Bx \cdot \boldpartial) \cdot \Bf
-=
-\int_{\partial V} d^2 \Bx \cdot \Bf
-\end{equation}
-\begin{equation}\label{eqn:volumeintegral:1541}
-\int_V d^3 \Bx \cdot (\boldpartial \wedge B) =
-\int_V (d^3 \Bx \cdot \boldpartial) \cdot B
-=
-\int_{\partial V} d^2 \Bx \cdot B.
-\end{equation}
-\end{subequations}
-
-When working with \R{3} vector spaces, \( \boldpartial = \spacegrad \), but in higher dimensional spaces, the gradient can also be substituted above due using the same arguments about projection onto the tangent space.
-
-(FIXME: LABEL)
-An explicit value for the differential form of the boundary integral is desired and can be obtained from the mnemonic \cref{eqn:statement:1561}
-
-\begin{dmath}\label{eqn:volumeintegral:1581}
-\sum_i d^3 \Bx \cdot \Bx^i
-=
-\sum_i da db dc \lr{ \Bx_a \wedge \Bx_b \wedge \Bx_c } \cdot \Bx^i
-=
-\sum_i da db dc \lr{
-\Bx_a \wedge \Bx_b +
-\Bx_b \wedge \Bx_c +
-\Bx_c \wedge \Bx_a }.
-\end{dmath}
-
-The bounding form for the three parameter volume is therefore
-
-\begin{dmath}\label{eqn:volumeintegral:1601}
-d^2 \Bx
-=
-d\Bx_a \wedge d\Bx_b +
-d\Bx_b \wedge d\Bx_c +
-d\Bx_c \wedge d\Bx_a.
-\end{dmath}
 
 %}
 %\EndArticle
