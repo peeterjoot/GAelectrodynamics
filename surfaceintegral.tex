@@ -82,7 +82,7 @@ Given an connected surface \( S \) parameterized by two parameters, and multivec
 \int_S F d^2\Bx \lr{ \rboldpartial G },
 \end{equation*}
 
-where the two parameter differential form \( d^1 \Bx = da db\, \Bx_a \wedge d\Bx_b \) varies over the surface.
+where the two parameter differential form \( d^2 \Bx = da db\, \Bx_a \wedge \Bx_b \) varies over the surface.
 } % definition
 
 As mentioned in a line integral context,
@@ -208,6 +208,7 @@ Two special cases of \cref{thm:surfaceintegral:100} when scalar and vector funct
 \maketheorem{Surface integral of scalar function (Stokes').}{thm:surfaceintegral:420}{
 Given a scalar function \( f(\Bx) \) its surface integrals is given by
 \begin{equation*}
+\int_S d^2 \Bx \cdot \boldpartial f =
 \int_S d^2 \Bx \cdot \spacegrad f = \ointclockwise_{\partial S} d\Bx f.
 \end{equation*}
 In \R{3} this can be written as

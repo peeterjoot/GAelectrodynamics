@@ -29,15 +29,306 @@
 
 \paragraph{TODO:}
 
+A three parameter curve, and the corresponding differentials with respect to those parameters, is sketched in
+\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
+
+\imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
+
+Given parameters \( u_1, u_2, u_3 \), we can denote the differentials along each of the parameterization directions as
+
+\begin{dmath}\label{eqn:volumeintegral:100}
+\begin{aligned}
+d\Bx_1 &= \PD{u_1}{\Bx} du_1 = \Bx_1 du_1 \\
+d\Bx_2 &= \PD{u_2}{\Bx} du_2 = \Bx_2 du_2 \\
+d\Bx_3 &= \PD{u_3}{\Bx} du_3 = \Bx_3 du_3 \\
+\end{aligned}
+\end{dmath}
+
+The trivector valued volume element for this parameterization is
+
+\begin{equation}\label{eqn:volumeintegral:120}
+d^3 \Bx
+=
+d\Bx_1 \wedge
+d\Bx_1 \wedge
+d\Bx_1
+=
+d^3 u\, (\Bx_1 \wedge \Bx_2 \wedge \Bx_3),
+\end{equation}
+
+where \( d^3 u = du_1 du_2 du_3 \).
+The vector derivative, the projection of the gradient onto the volume at the point of integration (also called the tangent space), now has three components
+
+\begin{dmath}\label{eqn:volumeintegral:200}
+\boldpartial
+=
+\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
+=
+\Bx^1 \PD{u_1}{}
++
+\Bx^2 \PD{u_2}{}
++
+\Bx^3 \PD{u_3}{}
+\equiv
+\Bx^1 \partial_1
++
+\Bx^2 \partial_2
++
+\Bx^3 \partial_3
+\end{dmath}
+
+We define a multivector volume integral by
+
+\makedefinition{Multivector volume integral.}{dfn:volumeintegral:100}{
+Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), we define the volume integral as
+\begin{equation*}
+\int_V F d^3\Bx \boldpartial G
+\equiv
+\int_V \lr{ F d^3\Bx \lboldpartial} G
++
+\int_V F d^3\Bx \lr{ \rboldpartial G },
+\end{equation*}
+where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \Bx_2 \wedge \Bx_3, d^3 u = du_1 du_2 du_3 \) varies over the volume.
+} % definition
+
+\maketheorem{Multivector volume integral.}{thm:volumeintegral:100}{
+Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), the volume integral
+\begin{equation*}
+\int_V F d^3\Bx \boldpartial G
+= \ointclockwise_{\partial V} F d^2\Bx G,
+\end{equation*}
+
+where \( \partial V \) is the boundary of the volume \( V \).
+} % theorem
+
+To see why this works, we would first like to reduce the product of the volume element and the vector derivative
+
+\begin{dmath}\label{eqn:volumeintegral:300}
+d^3\Bx \boldpartial
+=
+d^3 u\, \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \lr{ \Bx^1 \partial_1 + \Bx^2 \partial_2 + \Bx^3 \partial_3 }.
+\end{dmath}
+
+Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this multivector product has only a vector grade.  That is
+
+\begin{dmath}\label{eqn:volumeintegral:320}
+\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^i
+=
+\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \cdot \Bx^i
++
+\cancel{ \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \wedge \Bx^i },
+\end{dmath}
+
+for all \( \Bx^i \).  This product reduces to
+\begin{dmath}\label{eqn:volumeintegral:n}
+\begin{aligned}
+\lr{ \Bx_2 \wedge \Bx_3 \wedge \Bx_1 } \Bx^1 &= \Bx_2 \wedge \Bx_3 \\
+\lr{ \Bx_3 \wedge \Bx_1 \wedge \Bx_2 } \Bx^2 &= \Bx_3 \wedge \Bx_1 \\
+\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^3 &= \Bx_1 \wedge \Bx_2 \\
+\end{aligned}
+\end{dmath}
+
+Inserting this into the volume integral, we find
+
+\begin{dmath}\label{eqn:volumeintegral:380}
+\int_V F d^3\Bx \boldpartial G
+=
+\int_V \lr{ F d^3\Bx \lboldpartial} G
++
+\int_V F d^3\Bx \lr{ \rboldpartial G }
+=
+\int_V d^3 u\, \lr{
+   (\partial_1 F) \Bx_2 \wedge \Bx_3 G
+   +
+   (\partial_2 F) \Bx_3 \wedge \Bx_1 G
+   +
+   (\partial_3 F) \Bx_1 \wedge \Bx_2 G
+}
++
+\int_V d^3 u\, \lr{
+   F \Bx_2 \wedge \Bx_3 (\partial_1 G)
+   +
+   F \Bx_3 \wedge \Bx_1 (\partial_2 G)
+   +
+   F \Bx_1 \wedge \Bx_2 (\partial_3 G)
+}
+=
+\int_V d^3 u\, \lr{
+   \partial_1 (F \Bx_2 \wedge \Bx_3 G)
+   +
+   \partial_2 (F \Bx_3 \wedge \Bx_1 G)
+   +
+   \partial_3 (F \Bx_1 \wedge \Bx_2 G)
+}
+\end{dmath}
+
+We are able to pull out the partials because \( \Bx_i = \PDi{u_i}{\Bx}, \Bx_j = \PD{u_j}{\Bx}\) are computed with the parameters \( u_k \) fixed for each \( i \ne j \ne k \).
+
+This leaves three perfect differentials, which can integrated separately, giving
+
+\begin{dmath}\label{eqn:volumeintegral:400}
+\int_V F d^3\Bx \boldpartial G
+=
+\int du_2 du_3
+\evalbar{ \lr{ F \Bx_2 \wedge \Bx_3 G } }{\Delta u_1}
++
+\int du_3 du_1
+\evalbar{ \lr{ F \Bx_3 \wedge \Bx_1 G } }{\Delta u_2}
++
+\int du_1 du_2
+\evalbar{ \lr{ F \Bx_1 \wedge \Bx_2 G } }{\Delta u_3}.
+\end{dmath}
+
+With the aid of a geometrical model (FIXME: picture), or in a pinch
+\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}
+, it is possible to convince oneself that each of these surface elements match up to a uniformly oriented clockwise oriented surface.
+
+%%%\subsection{Two parameter Stokes' theorem.}
+%%%
+%%%Two special cases of \cref{thm:volumeintegral:100} when scalar and vector functions are integrated over a volume.  For scalar functions we have
+%%%
+%%%\maketheorem{Surface integral of scalar function (Stokes').}{thm:volumeintegral:420}{
+%%%Given a scalar function \( f(\Bx) \) its volume integrals is given by
+%%%\begin{equation*}
+%%%\int_V d^3 \Bx \cdot \boldpartial f =
+%%%\int_V d^3 \Bx \cdot \spacegrad f = \ointclockwise_{\partial V} d\Bx f.
+%%%\end{equation*}
+%%%In \R{3} this can be written as
+%%%\begin{equation*}
+%%%\int_V dA \ncap \cross \spacegrad f = \ointctrclockwise_{\partial V} d\Bx f,
+%%%\end{equation*}
+%%%where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
+%%%} % theorem
+%%%
+%%%To show the first part, we can split the (multivector) volume integral into vector and trivector grades
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:440}
+%%%\int_V d^3\Bx \boldpartial f
+%%%=
+%%%\int_V d^3\Bx \cdot \boldpartial f
+%%%+
+%%%\int_V d^2\Bx \wedge \boldpartial f.
+%%%\end{dmath}
+%%%
+%%%Since \( \Bx^a, \Bx^b \) both lie in the span of \( \setlr{ \Bx_a, \Bx_b } \),
+%%%\( d^2\Bx \wedge \boldpartial = 0 \), killing the second integral in \cref{eqn:volumeintegral:440}.
+%%%If the gradient is decomposed into its projection along the tangent
+%%%space (the vector derivative) and its perpendicular components, only the vector derivative components of the
+%%%gradient contribute to its dot product with the volume element.  That is
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:460}
+%%%d^2 \Bx \cdot \spacegrad
+%%%=
+%%%d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b + \cdots }
+%%%=
+%%%d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b }
+%%%=
+%%%d^2 \Bx \cdot \boldpartial.
+%%%\end{dmath}
+%%%
+%%%This means that for a scalar function
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:480}
+%%%\int_V d^2\Bx \boldpartial f
+%%%=
+%%%\int_V d^2\Bx \cdot \spacegrad f.
+%%%\end{dmath}
+%%%
+%%%The second part of the theorem follows by grade selection, and application of a duality transformation for the volume element
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:500}
+%%%d^2 \Bx \cdot \spacegrad f
+%%%=
+%%%\gpgradeone{ d^2 \Bx \spacegrad f }
+%%%=
+%%%dA \gpgradeone{ I \ncap \spacegrad f }
+%%%=
+%%%dA \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f} }
+%%%=
+%%%-dA \ncap \cross \spacegrad f.
+%%%\end{dmath}
+%%%
+%%%back substitution of \cref{eqn:volumeintegral:500} completes the proof of \cref{thm:volumeintegral:420}.
+%%%
+%%%For vector functions we have
+%%%
+%%%\maketheorem{Surface integral of a vector function (Stokes').}{thm:volumeintegral:500}{
+%%%Given a vector function \( \Bf(\Bx) \) the volume integral is given by
+%%%\begin{equation*}
+%%%\int_V d^2 \Bx \cdot (\spacegrad \wedge \Bf) = \ointclockwise_{\partial V} d\Bx \cdot \Bf.
+%%%\end{equation*}
+%%%In \R{3} this can be written as
+%%%\begin{equation*}
+%%%\int_V dA \ncap \cdot \lr{ \spacegrad \cross \Bf} = \ointctrclockwise_{\partial V} d\Bx \cdot \Bf,
+%%%\end{equation*}
+%%%where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
+%%%} % theorem
+%%%
+%%%This follows by setting \( F = 1, G = \Bf \) in \cref{thm:volumeintegral:100} and selecting the scalar grade.  In particular we may form the
+%%%scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The first is
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:520}
+%%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
+%%%=
+%%%\gpgradezero{ (d^2 \Bx \cdot \boldpartial + d^2 \Bx \wedge \boldpartial ) \Bf }
+%%%\end{dmath}
+%%%
+%%%%The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only trivector and quad-vector components (the latter is zero in \R{3}), so its scalar grade selection is zero, and we are left with
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:540}
+%%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
+%%%=
+%%%(d^2 \Bx \cdot \boldpartial) \cdot \Bf
+%%%=
+%%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf,
+%%%\end{dmath}
+%%%
+%%%where we have used \cref{eqn:volumeintegral:460} again.  This product can also be written as
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:560}
+%%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf
+%%%=
+%%%\gpgradezero{ (d^2 \Bx \cdot \spacegrad) \Bf }
+%%%=
+%%%\gpgradezero{ (d^2 \Bx \spacegrad - d^2 \Bx \wedge \spacegrad) \Bf }
+%%%=
+%%%\gpgradezero{ d^2 \Bx \spacegrad \Bf }
+%%%=
+%%%\gpgradezero{ d^2 \Bx \lr{ \cancel{ \spacegrad \cdot \Bf } + \spacegrad \wedge \Bf } }
+%%%=
+%%%d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }.
+%%%\end{dmath}
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:580}
+%%%\ointclockwise_{\partial V} d\Bx \cdot \Bf
+%%%=
+%%%\gpgradezero{ \int_V d^2\Bx \boldpartial \Bf }
+%%%=
+%%%\int_V \lr{ d^2\Bx \cdot \spacegrad } \cdot \Bf
+%%%=
+%%%\int_V d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf },
+%%%\end{dmath}
+%%%
+%%%as claimed.  In particular in \R{3}, we have
+%%%
+%%%\begin{dmath}\label{eqn:volumeintegral:600}
+%%%d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf }
+%%%=
+%%%dA \gpgradezero{ I \ncap I \lr{ \spacegrad \cross \Bf } }
+%%%=
+%%%-dA \ncap \cdot \lr{ \spacegrad \cross \Bf }.
+%%%\end{dmath}
+%%%
+%%%Substitution into \cref{eqn:volumeintegral:580} proves the last part of \cref{thm:volumeintegral:500}.
+%%%
+
 \paragraph{FIXME: Original notes to mine.}
 
 \index{volume parameterization}
 \index{area element}
 \index{differential form}
 An example parameterization with three parameters, and the corresponding differentials with respect to those parameters, and the outwards normals, are sketched in
-\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
-
-\imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
+(cut)
 
 Given parameters \( a, b, c \), the differentials along each of the parameterization directions are
 
@@ -109,6 +400,7 @@ The Stokes integral can be evaluated over this volume element for either scalar 
 
 When working with \R{3} vector spaces, \( \boldpartial = \spacegrad \), but in higher dimensional spaces, the gradient can also be substituted above due using the same arguments about projection onto the tangent space.
 
+(FIXME: LABEL)
 An explicit value for the differential form of the boundary integral is desired and can be obtained from the mnemonic \cref{eqn:statement:1561}
 
 \begin{dmath}\label{eqn:volumeintegral:1581}
