@@ -12,20 +12,17 @@ We will see that the GA formulation of the statics equations (no time dependence
 \begin{dmath}\label{eqn:greensFunctionGradient:420}
 \spacegrad F(\Bx) = J(\Bx),
 \end{dmath}
-
 where \( F, J \) are multivector fields and sources respectively.  We can assume an unbounded superposition solution
 
 \begin{dmath}\label{eqn:greensFunctionGradient:440}
 F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV' + F_0(\Bx),
 \end{dmath}
-
 where \( F_0 \) is any solution to the homogeneous gradient equation \( \spacegrad F_0 = 0 \), and operate on this presumed solution with the gradient to find
 
 \begin{dmath}\label{eqn:greensFunctionGradient:460}
 J(\Bx)
 = \int \spacegrad G(\Bx, \Bx') J(\Bx') dV',
 \end{dmath}
-
 so the Green's function \( G \) for this system must satisfy
 
 \begin{dmath}\label{eqn:greensFunctionGradient:480}
@@ -57,14 +54,12 @@ G(\Bx, \Bx')
 = \spacegrad \lr{ -\inv{4\pi} \inv{ \Norm{\Bx - \Bx'} } }
 = -\inv{4\pi} \rcap \PD{r}{} \inv{r},
 \end{dmath}
-
 where \( \Br = \Bx - \Bx', r = \Norm{\Br} \), and \( \rcap = \Br/r \).  Proceeding with the derivatives, we find
 \begin{dmath}\label{eqn:greensFunctionGradient:600}
 G(\Bx, \Bx')
 = -\inv{4\pi} \rcap \lr{ -\inv{r^2} }
 = \frac{\rcap}{4 \pi r^2},
 \end{dmath}
-
 as claimed.  To show that the Green's function commutes with the gradient at points \( \Bx \ne \Bx' \) we can compute the (bivector) curl
 
 \begin{dmath}\label{eqn:greensFunctionGradient:620}
@@ -115,7 +110,6 @@ G(\Bx, \Bx') \lspacegrad'
 \spacegrad' G(\Bx', \Bx)
 = -\delta(\Bx - \Bx'),
 \end{dmath}
-
 we have
 \begin{dmath}\label{eqn:greensFunctionGradient:540}
 -F(\Bx)
@@ -124,7 +118,6 @@ we have
 =
 \int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA',
 \end{dmath}
-
 or
 \boxedEquation{eqn:gradientGreensFunctionEuclidean:560}{
 F(\Bx)

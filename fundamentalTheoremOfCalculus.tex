@@ -36,7 +36,7 @@ For blades \(F, G \), and a volume element \(d^k \Bx\),
 \end{equation*}
 }
 
-The Fundamental Theorem as stated here generalized Stokes' theorem in a couple ways.
+The Fundamental Theorem as stated here generalized Stokes' theorem in a couple of ways.
 One generalization is that the blade grade restriction of Stokes' theorem are missing in action.
 This theorem is a multivector result, whereas the LHS and RHS of Stokes' are of equal grade.
 Additional, the fundamental theorem promotes the action of the vector derivative to a bidirectional operator.
@@ -44,15 +44,13 @@ Not all formulations of this theorem include that generalization.
 For example \citep{aMacdonaldVAGC} states the theorem as
 
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:180}
-\int_V d^k \Bx \boldpartial F = \oint_{\partial V} d^{k-1} \Bx F.
+\int_V d^k \Bx \boldpartial F = \oint_{\partial V} d^{k-1} \Bx F,
 \end{dmath}
-
 whereas \citep{doran2003gap} points out there is a variant with the vector derivative acting to the left
 
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:200}
 \int_V F d^k \Bx \boldpartial = \oint_{\partial V} F d^{k-1} \Bx,
 \end{dmath}
-
 but does not promote the vector derivative to a bidirectional operator.
 Here I follow \citep{sobczyk2011fundamental} which uses a bidirectional vector derivative, providing the most general expression of the fundamental theorem of (geometric) calculus.
 
@@ -60,7 +58,7 @@ This theorem and Stokes' theorem, both single formulas, are loaded and abstract 
 Most of those definitions can be found in the previous Stokes' theorem chapter, but are summarized here
 
 \begin{itemize}
-\item The volume integral is over a \(m\) dimensional surface (manifold).
+\item The volume integral is over a \(m\) dimensional surface (manifold) \( V \).
 \item Integration over the boundary of the manifold \(V\) is indicated by \( \partial V \).
 \item This manifold is assumed to be spanned by a parameterized vector \( \Bx(u^1, u^2, \cdots, u^k) \).
 \item A curvilinear coordinate basis \( \setlr{ \Bx_i } \) can be defined on the manifold by
@@ -70,13 +68,12 @@ Most of those definitions can be found in the previous Stokes' theorem chapter, 
 \item A dual basis \( \setlr{\Bx^i} \) reciprocal to the tangent vector basis \( \Bx_i \) can be calculated subject to the requirement \( \Bx_i \cdot \Bx^j = \delta_i^j \).
 \item The vector derivative \(\boldpartial\), the projection of the gradient onto the tangent space of the manifold, is defined by
 \begin{equation}\label{eqn:fundamentalTheoremOfCalculus:100}
-\boldpartial = \Bx^i \partial_i = \sum_{i=1}^k \Bx_i \PD{u^i}{}.
+\boldpartial = \sum_{i = 1}^k \Bx^i \partial_i = \sum_{i=1}^k \Bx_i \PD{u^i}{}.
 \end{equation}
 \item The volume element is defined by
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:60}
 d^k \Bx = d\Bx_1 \wedge d\Bx_2 \cdots \wedge d\Bx_k,
 \end{dmath}
-
 where
 
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:80}
@@ -104,7 +101,6 @@ d^{k-1} \Bx = \sum_{i = 1}^k (-1)^{k-i} d\Bx_1 \wedge d\Bx_2 \cdots \wedge d\Bx_
    \Biglr{ \lr{ d\Bx_1 \wedge d\Bx_2 \cdots \wedge d\Bx_{i-1} \wedge d\Bx_{i+1} \wedge \cdots \wedge d\Bx_k } \cdot F }
 }{u^i = u^i(0)}{u^i(1)},
 \end{dmath}
-
 where both the a area form and the blade \( F \) are evaluated at the end points of the parameterization range.
 \item
 The bidirectional vector derivative operator acts both to the left and right on \( F \) and \( G \).
@@ -152,7 +148,6 @@ Both the reciprocal frame vectors and the curvilinear basis span the tangent spa
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:280}
 \Bx^i = \sum_j \lr{ \Bx^i \cdot \Bx^j } \Bx_j,
 \end{dmath}
-
 so \( \Bx^i \in \Span \setlr{ \Bx_j, j \in [1,k] } \).
 This means that \( d^k \Bx \wedge \Bx^i = 0 \), and
 %Writing \( d^k u = du^1 du^2 \cdots du^k \), we have

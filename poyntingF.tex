@@ -12,17 +12,15 @@ In conventional electromagnetism the energy and momentum density of the fields a
 \begin{dmath}\label{eqn:poyntingF:20}
 \begin{aligned}
 \calE &= \inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH } \\
-\bcP c &= \inv{c} \BS = \inv{c} \BE \cross \BH.
+\bcP c &= \inv{c} \BS = \inv{c} \BE \cross \BH,
 \end{aligned}
 \end{dmath}
-
 where \( \calE \) is the energy density, \( \BS \) is the Poynting vector representing energy flux through a surface per unit time, and \( \bcP \) is the momentum density of the fields.
 In geometric algebra, it is arguably more natural to write the Poynting vector as a bivector-vector dot product
 
 \begin{dmath}\label{eqn:poyntingF:1100}
 \BS = \lr{ I \BH } \cdot \BE,
 \end{dmath}
-
 however, we can do better, relating both the
 energy and momentum densities to a single multivector formed from the products of the electrodynamic field \( F \) with its reverse \( F^\dagger \)
 
@@ -64,7 +62,6 @@ T(1)
 =
 \calE + \frac{\BS}{c},
 \end{dmath}
-
 as claimed in \cref{eqn:poyntingF:20} and \cref{eqn:poyntingF:60}.  \( T(1) \) has one scalar component, and three vector components, and represents four
 four of the sixteen components of a larger energy-momentum tensor.  The geometric algebra form of the complete energy-momentum tensor is
 \index{energy-momentum tensor}
@@ -75,7 +72,6 @@ four of the sixteen components of a larger energy-momentum tensor.  The geometri
 T(a) = \inv{2} \epsilon F a F^\dagger,
 }
 %\end{dmath}
-
 where \( a \) is one of \( 1, \Be_1, \Be_2 \) or \( \Be_3 \), or any linear combination of these 0,1 grade multivector elements.  Observe that \( T(a) \) is a linear operator with respect to any parameter \( a = \alpha + \Ba, \alpha \in \bbR, \Ba \in \bbR^3 \).  \( T(a) \) only 0 and 1 grade elements, which we have seen for scalar parameters \( a \).  We will see by direct expansion that this is also the case for vector parameters.
 Such an expansion of \( T(\Be_k) \) is harder to do algebaicly than \cref{eqn:poyntingF:80}
 \footnote{Such an expansion is a worthwhile problem to develop GA manipulation skills.  The reader is encouraged to try this independently first, and to refer to
@@ -177,7 +173,6 @@ The Maxwell stress tensor components \( \gpgradeone{T(\Be_k)} \) can be found ex
 \equiv
 \Ba \cdot \lrT,
 \end{dmath}
-
 so that
 \begin{dmath}\label{eqn:poyntingF:1160}
 \lr{ \Ba \cdot \lrT } \cdot \Bb
@@ -203,6 +198,4 @@ T(\alpha + \Ba)
 %+ \gpgradeone{ T(\Ba) }.
 }
 %\end{dmath}
-
 where the shorthand \( \BT(\Ba) = \gpgradeone{T(\Ba)} \) has been introduced for the Maxwell stress tensor.
-

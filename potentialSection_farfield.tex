@@ -12,7 +12,6 @@ radial spherical wave representation
 \begin{dmath}\label{eqn:potentialSection_farfield:2400}
 \BA = \frac{e^{-j k r}}{r} \bcA( \theta, \phi ),
 \end{dmath}
-
 we can compute the far field ( \( r \gg 1 \) ) electrodynamic field \( F \).
 The spherical representation of the gradient is
 
@@ -63,7 +62,6 @@ Finally, the far field gradient of the divergence of \( \BA \) is
 \approx
 -k^2 \rcap \lr{ \rcap \cdot \BA },
 \end{dmath}
-
 again neglecting any \( O(1/r^2) \) terms.  The field is
 \begin{dmath}\label{eqn:potentialSection_farfield:2500}
 F
@@ -76,7 +74,6 @@ F
 =
 -j \omega \rcap \lr{ \rcap \wedge \BA} - j \omega \rcap \wedge \BA,
 \end{dmath}
-
 or
 %\begin{dmath}\label{eqn:potentialSection_farfield:2520}
 \boxedEquation{eqn:potentialSection_farfield:2520}{
@@ -103,7 +100,6 @@ Having calculated the far field approximation for the electrodynamic field for a
 F = -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF },
 }
 %\end{dmath}
-
 for which the electric and magnetic field components are
 
 \begin{dmath}\label{eqn:potentialSection_farfield:2600}
@@ -122,12 +118,10 @@ We will calculate the far field along the propagation direction vector \( \kcap 
 i &= \Be_{32},
 \end{aligned}
 \end{dmath}
-
 for the infinitesimal dipole potential
 \begin{dmath}\label{eqn:potentialSection_farfield:2640}
 \BA = \frac{\Be_3 \mu I_0 l}{4 \pi r} e^{-j k r},
 \end{dmath}
-
 as illustrated in \cref{fig:vectorPotential:vectorPotentialFig1}.
 
 \imageFigure{../figures/GAelectrodynamics/vectorPotentialFig1}{Vertical infinitesimal dipole and selected propagation direction.}{fig:vectorPotential:vectorPotentialFig1}{0.3}
@@ -152,11 +146,10 @@ The wedge of \( \kcap \) with \( \BA \) is proportional to
 =
 -i \sin\theta,
 \end{dmath}
-
 so from \cref{eqn:potentialSection_farfield:2520} the field is
 
 \begin{dmath}\label{eqn:potentialSection_farfield:2680}
-F = j \omega \lr{ 1 + \Be_3 e^{i\theta} } i \sin\theta \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
+F = j \omega \lr{ 1 + \Be_3 e^{i\theta} } i \sin\theta \frac{\mu I_0 l}{4 \pi r} e^{-j k r}.
 \end{dmath}
 
 The electric and magnetic fields can be found from the respective vector and bivector grades of \cref{eqn:potentialSection_farfield:2680}
@@ -170,7 +163,6 @@ The electric and magnetic fields can be found from the respective vector and biv
 =
 \frac{j k \eta I_0 l \sin\theta}{4 \pi r} e^{-j k r} \lr{ \Be_2 \cos\theta - \Be_3 \sin\theta },
 \end{dmath}
-
 and
 \begin{dmath}\label{eqn:potentialSection_farfield:2720}
 \BH

@@ -54,14 +54,17 @@ illustrated in
 \paragraph{Bivector.}
 
 We now wish to define a bivector, or 2-vector, as a 2 dimensional object representing a signed plane segment with magnitude and orientation.
-%\footnote{This physical (plane segment) representation can break down when the underlying vector space has greater than three dimensions.}.
-Values such as torque and angular momentum, which are usually represented as cross products, can be represented as bivectors lying in the plane of the torque or angular momentum instead of normal to that plane.  A bivector representation can eliminate the requirement utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts to be generalized to dimensions higher than three when desirable.
+The bivector provides a structure that encodes plane oriented quantities such as torque, angular momentum, or a general plane of rotation.
+A quantity like angular momentum can be represented as a magnitude times a quantity that represents the orientation of the plane of rotation.
+In conventional vector algebra we use the normal of the plane to describe this orientation, but that is generally problematic as there is no unique normal in higher dimensional spaces. 
+Use of the normal is also logically problematic in two dimensional spaces, which have to be extended to three dimensions to use normal centric constructs like the cross product.
+A bivector representation can eliminate the requirement utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts to be generalized to dimensions higher than three when desirable.
 
-Assuming a vector product, with properties to be defined, we can algebraically define a bivector as
+Assuming a vector product, with properties to be defined, a bivector is algebraically described as
 
 \makedefinition{Bivector.}{dfn:multivector:60}{
 A bivector, or 2-vector, is a sum of products of pairs of normal vectors.
-Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
+Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
 a general bivector can be expressed as
 \begin{equation*}
 \sum_{1 \le i \ne j \le N} B_{ij} \Be_i \Be_j,
@@ -104,8 +107,7 @@ Again, assuming a vector product
 
 \makedefinition{Trivector.}{dfn:multivector:80}{
 A trivector, or 3-vector, is a sum of products of triplets of mutually normal vectors.
-Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
-a general trivector can be expressed as
+Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), a trivector is any value
 \begin{equation*}
 \sum_{1 \le i \ne j \ne k \le N} T_{ijk} \Be_i \Be_j \Be_k,
 \end{equation*}

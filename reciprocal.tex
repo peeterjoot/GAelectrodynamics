@@ -27,7 +27,6 @@ Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where t
 \begin{dmath*}
 \Bx_i \cdot \Bx^j = {\delta_i}^j,
 \end{dmath*}
-
 where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector, and \( {\delta_i}^j \) is the Kronecker delta.
 } % definition
 
@@ -47,11 +46,9 @@ Summation convention will not be used explicitly in this text, as it deviates fr
 \subsubsection{Vector coordinates.}
 The most important application of a reciprocal frame is for the computation of the coordinates of a vector with respect to a non-orthonormal frame.
 Let a vector \( \Ba \) have coordinates \( a^i \) with respect to a basis \( \setlr{ \Bx_i } \)
-
 \begin{dmath}\label{eqn:reciprocal:20}
 \Ba = \sum_j a^j \Bx_j,
 \end{dmath}
-
 where \( j \) in \( a^j \) is an index not a power\footnote{In tensor algebra, any index that is found in matched upper and lower index pairs, is known as a dummy summation index, whereas an index that is unmatched is known as a free index.  For example, in \( a^j b_{ij} \) (summation implied) \( j \) is a summation index, and \( i \) is a free index.  We are free to make a change of variables of any summation index, so for the same example we can write
 \( a^k b_{ik} \).  These index tracking conventions are obvious when summation symbols are included explicitly, as we will do.}.
 

@@ -10,7 +10,7 @@
 Here is a 3D example of a parameterization with a non-normal curvilinear basis, that of a
 toroidal subspace specifed by two angles and a radial distance to the center of the toroid, as illustrated in \cref{fig:toriodalSegment}.
 
-The position vector to a point within the torus can be stated directly
+The position vector on the surface of a toroid of radius \( \rho \) within the torus can be stated directly
 
 \begin{subequations}
 \begin{align}\label{eqn:torusCenterOfMassParameterization:1}
@@ -39,22 +39,39 @@ After some regrouping the curvilinear basis is found to be
 The oriented
 volume element can be computed using a trivector selection operation, which conveniently wipes out a number of the interior exponentials
 
-\begin{align}\label{eqn:torusCenterOfMassParameterization:4}
+%\begin{align}\label{eqn:torusCenterOfMassParameterization:4}
+\begin{dmath}\label{eqn:torusCenterOfMassParameterization:4}
 \PD{\rho}{\Bx} \wedge \PD{\theta}{\Bx} \wedge \PD{\phi}{\Bx}
-&=
-\rho \left( R + \rho \sin\phi \right) \gpgradethree{ e^{-j\theta/2} \Be_1 e^{ i \phi } \Be_2 \Be_3 e^{ i \phi } e^{j \theta/2} }
-\end{align}
+=
+\rho \left( R + \rho \sin\phi \right) \gpgradethree{ e^{-j\theta/2} \Be_1 e^{ i \phi } \Be_2 \Be_3 e^{ i \phi } e^{j \theta/2} }.
+%\end{align}
+\end{dmath}
 
 Note that \(\Be_1\) commutes with \(j = \Be_3 \Be_2\), so also with \(e^{-j\theta/2}\).
 Also \(\Be_2 \Be_3 = -j\) anticommutes with \(i\), so
-there is a conjugate commutation effect \(e^{i\phi} j = j e^{-i\phi}\).
+there is a conjugate commutation effect \(e^{i\phi} j = j e^{-i\phi}\).  This gives
+
+\begin{dmath}\label{eqn:torusCenterOfMassParameterization:n}
+\gpgradethree{ e^{-j\theta/2} \Be_1 e^{ i \phi } \Be_2 \Be_3 e^{ i \phi } e^{j \theta/2} }
+=
+-\gpgradethree{ \Be_1 e^{-j\theta/2} j e^{ -i \phi } e^{ i \phi } e^{j \theta/2} }
+=
+-\gpgradethree{ \Be_1 e^{-j\theta/2} j e^{j \theta/2} }
+=
+-\gpgradethree{ \Be_1 j }
+=
+I.
+\end{dmath}
+
 Together the trivector grade selection reduces almost magically to just
 
-\begin{align}\label{eqn:torusCenterOfMassParameterization:5}
+\begin{equation}\label{eqn:torusCenterOfMassParameterization:5}
 \PD{\rho}{\Bx} \wedge \PD{\theta}{\Bx} \wedge \PD{\phi}{\Bx}
-&=
-\rho \left( R + \rho \sin\phi \right) \Be_1 \Be_2 \Be_3
-\end{align}
+=
+\rho \left( R + \rho \sin\phi \right) I.
+\end{equation}
+
+FIXME: show this with Mathematica too.
 
 Thus the (scalar) volume element is
 

@@ -81,7 +81,6 @@ Given an connected surface \( S \) parameterized by two parameters, and multivec
 +
 \int_S F d^2\Bx \lr{ \rboldpartial G },
 \end{equation*}
-
 where the two parameter differential form \( d^2 \Bx = da db\, \Bx_a \wedge \Bx_b \) varies over the surface.
 } % definition
 
@@ -97,7 +96,6 @@ Given an connected surface \( S \) parameterized by two parameters, and multivec
 \int_S F d^2\Bx \boldpartial G
 = \ointclockwise_{\partial S} F d\Bx G,
 \end{equation*}
-
 where \( \partial S \) is the boundary of the surface \( S \).
 } % theorem
 
@@ -106,7 +104,7 @@ To see why this works, we would first like to reduce the product of the area ele
 \begin{dmath}\label{eqn:surfaceintegral:300}
 d^2\Bx \boldpartial
 =
-da db\, \lr{ \Bx_a \wedge \Bx_b } \lr{ \Bx^a \partial_a + \Bx^b \partial_b }
+da db\, \lr{ \Bx_a \wedge \Bx_b } \lr{ \Bx^a \partial_a + \Bx^b \partial_b }.
 \end{dmath}
 
 Since \( \Bx^a \in \Span \setlr{ \Bx_a, \Bx_b } \), this multivector product has only a vector grade.  That is
@@ -141,13 +139,12 @@ Similarly
 =
 \Bx_a,
 \end{dmath}
-
 so
 \begin{dmath}\label{eqn:surfaceintegral:360}
 d^2\Bx \boldpartial
 =
 \Bx_a \partial_b
--\Bx_b \partial_a
+-\Bx_b \partial_a.
 \end{dmath}
 
 Inserting this into the surface integral, we find
@@ -180,7 +177,7 @@ This leaves two perfect differentials, which can both be integrated separately. 
 =
 \int_{\Delta a} da\, \evalbar{\lr{ F \PD{a}{\Bx} G }}{\Delta b} - \int_{\Delta b} db\, \evalbar{\lr{ F \PD{b}{\Bx} G }}{\Delta a}
 =
-\int_{\Delta a} \evalbar{\lr{ F d\Bx_a G }}{\Delta b} - \int_{\Delta b} \evalbar{\lr{ F d\Bx_b G }}{\Delta a}
+\int_{\Delta a} \evalbar{\lr{ F d\Bx_a G }}{\Delta b} - \int_{\Delta b} \evalbar{\lr{ F d\Bx_b G }}{\Delta a}.
 \end{dmath}
 
 Suppose we are integrating over the unit parameter volume space \( [a, b] \in [0,1] \otimes [0,1] \) as illustrated in
@@ -288,7 +285,7 @@ scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The f
 \begin{dmath}\label{eqn:surfaceintegral:520}
 \gpgradezero{ d^2 \Bx \boldpartial \Bf }
 =
-\gpgradezero{ (d^2 \Bx \cdot \boldpartial + d^2 \Bx \wedge \boldpartial ) \Bf }
+\gpgradezero{ (d^2 \Bx \cdot \boldpartial + d^2 \Bx \wedge \boldpartial ) \Bf }.
 \end{dmath}
 
 The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only bivector and quad-vector components (the latter is zero in \R{3}), so its scalar grade selection is zero, and we are left with
@@ -300,7 +297,6 @@ The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only bivector a
 =
 (d^2 \Bx \cdot \spacegrad) \cdot \Bf,
 \end{dmath}
-
 where we have used \cref{eqn:surfaceintegral:460} again.  This product can also be written as
 
 \begin{dmath}\label{eqn:surfaceintegral:560}
@@ -326,7 +322,6 @@ d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }.
 =
 \int_S d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf },
 \end{dmath}
-
 as claimed.  In particular in \R{3}, we have
 
 \begin{dmath}\label{eqn:surfaceintegral:600}
@@ -358,6 +353,8 @@ often stated for \R{2} with a Cartesian \(x,y\) parameterization, such as \( \Bf
 \ointclockwise_{\partial S} P dx + Q dy.
 \end{equation*}
 } % theorem
+
+FIXME: Add an example (lots to pick from in any 3rd term calc text)
 
 The first equality in \cref{thm:surfaceintegral:620} holds in \R{N} for vectors expressed in terms of an arbitrary curvilinear basis.
 Only the coordinates of the vector \( \Bf \) contribute to this integral, and only those that lie in the tangent space.
@@ -440,7 +437,6 @@ Substituting these results into
 =
 \int_S du_1 du_2\, \lr{ \partial_2 f_1 - \partial_1 f_2 },
 \end{dmath}
-
 which completes the proof.
 
 %}

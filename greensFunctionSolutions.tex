@@ -11,7 +11,6 @@ Abstracting that structure, all these problems have the form
 \begin{dmath}\label{eqn:greensFunctionSolutions:340}
 \LL F(\Bx) = J(\Bx),
 \end{dmath}
-
 where \( \LL \) is an operator formed from a linear combination of linear operators \( 1, \spacegrad, \spacegrad^2, \partial_t, \partial_{tt} \).
 
 Given the linear structure of the PDE that we wish to solve, it makes sense to assume that the solutions also have a linear structure.
@@ -21,7 +20,6 @@ The most general such solution we can assume has the form
 \begin{dmath}\label{eqn:greensFunctionSolutions:360}
 F(\Bx, t) = \int G(\Bx, \Bx' ; t, t') J(\Bx', t') dV' dt' + F_0(\Bx, t),
 \end{dmath}
-
 where \( F_0(\Bx, t) \) is any solution to the equivalent homogeneous equation \( \LL F_0 = 0 \), and \( G(\Bx, \Bx' ; t, t') \) is the Green's function (to be determined) associated with \cref{eqn:greensFunctionSolutions:340}.
 Operating on the presumed solution
 \cref{eqn:greensFunctionSolutions:360} with \( \LL \) yields
@@ -30,13 +28,12 @@ Operating on the presumed solution
 J(\Bx, t) = \LL F(\Bx, t) = \LL\lr{
 \int G(\Bx, \Bx' ; t, t') J(\Bx', t') dV' dt' + F_0(\Bx, t) }
 =
-\int \lr{ \LL G(\Bx, \Bx'; t, t') } J(\Bx', t') dV' dt'
+\int \lr{ \LL G(\Bx, \Bx'; t, t') } J(\Bx', t') dV' dt',
 \end{dmath}
-
 which shows that we require the Green's function to have delta function semantics satisfying
 
 \begin{dmath}\label{eqn:greensFunctionSolutions:400}
-\LL G(\Bx, \Bx' ; t, t') = \delta(\Bx - \Bx') \delta(t - t')
+\LL G(\Bx, \Bx' ; t, t') = \delta(\Bx - \Bx') \delta(t - t').
 \end{dmath}
 
 The scalar valued Green's functions for the Laplacian and the (2nd order) Helmholtz equations are well known.
@@ -57,7 +54,6 @@ then life gets a bit more interesting.  For instance, consider a problem for whi
 \begin{dmath}\label{eqn:greensFunctionSolutions:200}
 F(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
 \end{dmath}
-
 then life gets a bit more interesting.
 This sort of problem requires different treatment for operators that are first and second order in the gradient.
 
@@ -105,14 +101,12 @@ we know that
 \begin{dmath}\label{eqn:greensFunctionSolutions:300}
 \int_V \spacegrad Q dV = \int_{\partial V} \ncap Q dA,
 \end{dmath}
-
 for any multivector \( Q \).
 Equating components gives
 
 \begin{dmath}\label{eqn:greensFunctionSolutions:460}
 \int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
 \end{dmath}
-
 which can be substituted into \cref{eqn:greensFunctionSolutions:280} to find
 
 \begin{dmath}\label{eqn:greensFunctionSolutions:480}
@@ -122,7 +116,6 @@ which can be substituted into \cref{eqn:greensFunctionSolutions:280} to find
 =
 \int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA,
 \end{dmath}
-
 which proves the theorem.
 
 \subsubsection{Bounded solutions to first order problems.}
@@ -151,7 +144,6 @@ This follows directly from \cref{thm:fundamentalTheoremOfCalculus:1}
 +
 \int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx') } dV',
 \end{dmath}
-
 which can be rearranged to prove \cref{lemma:greensFunctionOverview:420}.
 
 %}

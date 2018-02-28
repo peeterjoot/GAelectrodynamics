@@ -9,7 +9,6 @@ Given a constant external magnetic field, the Lorentz force equation is reduced 
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:60}
 m \frac{d\Bv}{dt} = q (I \BB) \cdot \Bv,
 \end{dmath}
-
 or
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:80}
 \begin{aligned}
@@ -17,7 +16,6 @@ or
 \frac{d\Bv}{dt} &= \Bv \cdot \Omega,
 \end{aligned}
 \end{dmath}
-
 where \( \Omega \) is a bivector containing all the constant factors.
 
 This can be solved by introducing a multivector integration factor \( R \) and its reverse \( R^\dagger \) on the left and right respectively
@@ -28,13 +26,12 @@ R \frac{d\Bv}{dt} R^\dagger
 = \inv{2} R \lr{ \Bv \Omega - \Omega \Bv} R^\dagger
 = \inv{2} R \Bv \Omega R^\dagger - \inv{2} R \Omega \Bv R^\dagger,
 \end{dmath}
-
 or
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:120}
 0 =
 R \frac{d\Bv}{dt} R^\dagger
 + \inv{2} R \Omega \Bv R^\dagger
-- \inv{2} R \Bv \Omega R^\dagger
+- \inv{2} R \Bv \Omega R^\dagger.
 \end{dmath}
 
 Let
@@ -57,7 +54,6 @@ The integrating factor has solution
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:180}
 R = e^{\Omega t/2},
 \end{dmath}
-
 a ``complex exponential'', so the solution of \cref{eqn:lorentzForce_constantMagnetic:60} is
 
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:200}

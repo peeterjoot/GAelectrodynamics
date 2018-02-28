@@ -43,7 +43,7 @@ Given parameters \( u_1, u_2, u_3 \), we can denote the differentials along each
 \begin{aligned}
 d\Bx_1 &= \PD{u_1}{\Bx} du_1 = \Bx_1 du_1 \\
 d\Bx_2 &= \PD{u_2}{\Bx} du_2 = \Bx_2 du_2 \\
-d\Bx_3 &= \PD{u_3}{\Bx} du_3 = \Bx_3 du_3 \\
+d\Bx_3 &= \PD{u_3}{\Bx} du_3 = \Bx_3 du_3.
 \end{aligned}
 \end{dmath}
 
@@ -58,7 +58,6 @@ d\Bx_1
 =
 d^3 u\, (\Bx_1 \wedge \Bx_2 \wedge \Bx_3),
 \end{equation}
-
 where \( d^3 u = du_1 du_2 du_3 \).
 The vector derivative, the projection of the gradient onto the volume at the point of integration (also called the tangent space), now has three components
 
@@ -77,7 +76,7 @@ The vector derivative, the projection of the gradient onto the volume at the poi
 +
 \Bx^2 \partial_2
 +
-\Bx^3 \partial_3
+\Bx^3 \partial_3.
 \end{dmath}
 
 We define a multivector volume integral by
@@ -100,7 +99,6 @@ Given an connected volume \( V \) parameterized by three parameters for which \(
 \int_V F d^3\Bx \boldpartial G
 = \ointctrclockwise_{\partial V} F d^2\Bx G,
 \end{equation*}
-
 where \( \partial V \) is the boundary of the volume \( V \), and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume.
 } % theorem
 
@@ -121,7 +119,6 @@ Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this
 +
 \cancel{ \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \wedge \Bx^i },
 \end{dmath}
-
 for all \( \Bx^i \).  These products reduces to
 \begin{dmath}\label{eqn:volumeintegral:1621}
 \begin{aligned}
@@ -163,7 +160,7 @@ into the volume integral, we find
    \partial_2 (F \Bx_3 \wedge \Bx_1 G)
    +
    \partial_3 (F \Bx_1 \wedge \Bx_2 G)
-}
+}.
 \end{dmath}
 
 We are able to pull out the partials because \( \Bx_i = \PDi{u_i}{\Bx}, \Bx_j = \PDi{u_j}{\Bx}\) are computed with the parameters \( u_k \) fixed for each \( i \ne j \ne k \).
@@ -203,7 +200,6 @@ introduce a mnemonic for the bounding oriented surface of the volume
 \begin{dmath}\label{eqn:volumeintegral:1641}
 d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 + d\Bx_2 \wedge d\Bx_3 + d\Bx_3 \wedge d\Bx_1,
 \end{dmath}
-
 where it is implied that each component of this area element and anything that it is multiplied with is evaluated on the boundaries of the integration volume (for the parameter omitted) as detailed explicitly in
 \cref{eqn:volumeintegral:400}.
 

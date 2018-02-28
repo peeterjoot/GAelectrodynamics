@@ -11,7 +11,6 @@ From \cref{thm:gradientGreensFunctionEuclidean:720}
 \begin{dmath}\label{eqn:electrostatics_invertingGradient:260}
 G(\Bx, \Bx') = \inv{4 \pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3},
 \end{dmath}
-
 so the convolution that inverts the electric field gradient equation is
 \begin{dmath}\label{eqn:electrostatics_invertingGradient:621}
 \BE(\Bx)
@@ -19,7 +18,6 @@ so the convolution that inverts the electric field gradient equation is
 = \int_V dV' G(\Bx, \Bx') \lr{ \inv{\epsilon}\rho(\Bx') }
 = \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \lr{ \inv{\epsilon}\rho(\Bx') },
 \end{dmath}
-
 or
 %\begin{dmath}\label{eqn:electrostatics_invertingGradient:340}
 \boxedEquation{eqn:electrostatics_invertingGradient:340}{
@@ -27,7 +25,6 @@ or
 \inv{4 \pi \epsilon} \int dV' \rho(\Bx') \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3},
 }
 %\end{dmath}
-
 which is Coulomb's law.
 
 The convolution for the magnetic field is trivial
@@ -36,7 +33,6 @@ The convolution for the magnetic field is trivial
 = \int_V dV' G(\Bx, \Bx') \spacegrad' \BB(\Bx')
 = \int_V dV' G(\Bx, \Bx') (0),
 \end{dmath}
-
 so the magnetic field is zero everywhere
 \begin{dmath}\label{eqn:electrostatics_invertingGradient:320}
 \BB(\Bx) = 0.

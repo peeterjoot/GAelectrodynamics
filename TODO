@@ -1,3 +1,21 @@
+- Remove newlines between \end{equation,dmath} that have commas or logically continue.  done this up to page 22 of the current draft.
+
+  search for these systematically.
+
+- Mo suggested 'is' instead of 'can be' in the bivector definition.  I use 'can be' many times, and 
+  something more definitive might be better.
+
+- We don’t usually try to represent of a quantity that has the
+apparent dimensions of a point graphically.
+
+   >> not clear to mo.
+
+- 
+      If you are inclined to skip this, please at least examine the
+      stated dot product definition, since the conventional positive definite property is not assumed.
+
+   >> perhaps eliminate this, since no non-Euclidean metric use has been introduced.
+
 -
 
    There is no (concrete or CAS) worked example for _Integration with GA_ yet.
@@ -29,96 +47,160 @@
 
 - review: Wolfgang/346-chapter25.txt
 
+   Hints 345 §2.5:
+   ---------------
+   (As before I write  MY COMMENTS BIG to contrast from main text)
+
+   - p.96: 'The fundamental theorem of geometric calculus is a generalization of Stokes
+   theorem __theorem__ 2.4 to multivector integrals'
+
+   WHERE:
+      # grep -in theorem.*cref.thm *tex
+      fundamentalTheoremOfCalculus.tex:28:The fundamental theorem of geometric calculus is a generalization of Stokes' theorem \cref{thm:stokesTheoremGeometricAlgebra:1740} to multivector integrals.
+      fundamentalTheoremOfCalculus.tex:125:For Stokes' theorem \cref{thm:stokesTheoremGeometricAlgebra:1740}, after the work of stating exactly what is meant by this theorem, most of the proof follows from the fact that for \( s < k \) the volume curl dot product can be expanded as
+
+   - p.97: 'This theorem and Stokes theorem, both single formulas, are loaded and abstract statement ..'
+     I don't understand the last 5 words.
+
+   - p.97: 'A dual basis {x^i} reciprocal to the tangent vector basis xi ..'
+     IS the dual basis the reciprocal basis? DUAL=RECIPROCAL?
+
+   - p.100: Definition 2.2: Multivector Fourier transform pairs
+     PLEASE give a small example following Def. Check with MM (=MatheMatica)?
+     
+   - p.100: Definition 2.3: Multivector phasor representation.
+     PLEASE give a small example following Def. Check with MM (=MatheMatica)?
+     It may be very new for your readers ..
+     They need to get a 'working' comprehension ;)
+
+   - I found a nice notation in Prof. Speck's lecture notes.
+     He uses for clarity using = (Def vs. fact or proposition):  
+         def
+     ..  =  ..
+     Maybe it could be used in your text (construct a LaTeX \def ?)?
+
+   - p.104:  'a gradient \/' acting bidirectionally on functions of x' '
+     Please remember or explain what is meant by "bidirectionally".
+
+   - p.105: appendix C.1 is a interesting computation!
+
+   WHERE: c.1 helmholtz operator.
+
+     Is it worth doing steps of it using/showing MM
+     to compactify/verify the computation?
+     I will try it with EigenMath or Maxima (wL.ToDo ;)
+
+   - p.106: ' Theorem 2.8: Greens function for the first order Helmholtz operator.
+     The Greens function satisfying ? ..'
+                                     ?
+     What is meant by del_arrow/back_arrow? 
+     I suspect: advancing (causal), and the receding (acausal)?
+     One can rediscover the meaning following the proof in (2.152).
+
+   - p.106: after  'This is relavant for bounded superposition states, which we will discuss next now that the
+   proof of theorem 2.8 is complete.'  you should open a new line \lf? paragraph?
+
+   -----------------------------------------------------------------------
+   GENERAL REMARK:
+   This part of your text is very formal e.g. algebraic.
+   This could be problemeatic for the comprhension of amny readers.
+   Is it possible to use 1-3 simple examples/physical situations  
+   througout this chap. 2.6 to visualize and concretize your results?
+   I think of the example/s in 
+
+   Green's Function -- from Wolfram MathWorld, I send you the picture, or
+   https://brilliant.org/wiki/greens-functions-in-physics/ 
+
+   These done with MM and the new GA calculus ..
+   -----------------------------------------------------------------------
+
 - Wolfgang/346-chapter22-24.txt
 
-   - p74: Asanillustration,thetwoparametersurface x(u 1 ,u 2 ) = (u 1 ,u 2 ,(u 1 -2u 2 ) 2 +cos(u 2 )sin(5u 1 +
-   u 2 )) and its associated tangent space_s_ (is) are plotted in fig. 2.2.
-   Recommandation:
-   + ToDo?: calculate xu1 and xu2.
-
-      removed this temporarily.  perhaps restore as a 2d manifold example in R3
-
-     Plot the TpM at special point P(0.3,1.5,0.3) in Fig.
-     Calculate using hand and CAS MM.
-
-      todo
-
-   - (2.46a) = e1*exp(e12*phi)   <-- E1 bold face
-     I would elaborate about the first line of (2.46a) a bit:
-     "Thinking at the typical polar-cord-picture e.g. [18, p.5], we get:"
-     (x/roh)^2+..=1  ==> x/roh= cos(phi) ..
-
-   - p83: The position vector to a point _within_ [better: ON THE SURFACE OF {not INside ;}]
+   - p83: 
      the torus can be stated directly
    Q:  (2.62)-(2.64)  I COULD NOT VERIFIY WITH CAS !?
 
- todo.
+   WHERE:
+      torusCenterOfMassParameterization.tex:74:FIXME: show this with Mathematica too. 
 
-   - p84: Greenís theorem _relates_ [sharper: EQUATES .. with..] the integral around a closed
+   RESOLUTION:
+      
+      Mathematica calculation of the basis and volume element.
 
- todo.
-   - p87: you should spend an concrete example for (2.78) using GA and using MM (me: EigenMath ;)
+   - p87: (Green's theorem) you should spend an concrete example for (2.78) using GA and using MM (me: EigenMath ;)
 
- todo.
+   WHERE:
+      surfaceintegral.tex:362:FIXME: Add an example
 
-   -
-     SHOULD (2.89) GET A FRAMING RECTANGLE?  ;)
+   RESOLUTION:
+      Add an example (lots to pick from in any 3rd term calc text)
+      Also CAS example.
 
- todo.  (not sure how to do this with a subequation environment).
+   - p88: you should give an concrete (also CAS) example for (2.85).
 
-   - p88: you should give an concrete (also CAS) example for (2.78) and (2.85).
+   WHERE: (line integral theorem)
+      grep -n 'ine integral of a scalar functi' *tex
 
- todo
+   RESOLUTION:
+      As suggested.
 
-   - An example parameterization with one parameter, and the corresponding differential with respect
-     to that parameter, is plotted in fig. 2.6, for a parameterization over  __[a; b] 2 [0; 1]
-    [0; 1] __   SHOULD BE: a <- [0,1].
-
-   -  .. has just one component [, SO THE VECTOR DERIVATIVE IS:]
-   ----------------------------------------------------------
-   I think your impetus and your main motivation is to do Calculus using GA.
-   IMO , therefore you should show some typical 'classical' vector analysis
-   calculations using in contrast GA methods (plus MM).
-   This is new, unusal and unkown and a big merit of your work/research -
-   hence there should be in your ongoing work in the selection of contrasting
-   examples and exercises in the spirit of
-   [Mac]=[17] Macdonald (I like his style)
-   or
-   [Din] S. Dineen: "Multivariate Calculus and Geometry."
-         Springer. ISBN 1-85233-472-X.
-   (IMO a very good classical book with clear examples,
-   struggeling for good understanding of concepts by the reader. No CAS used).
-   I recommend to usesome examples/exercises form this books and solve them
-   using GA ..
-   -----------------------------------------------------------
-
-   - (2.89)  WHAT IS psi?
-
-      clarify more explicitly.
+   - General:
+      ----------------------------------------------------------
+      I think your impetus and your main motivation is to do Calculus using GA.
+      IMO , therefore you should show some typical 'classical' vector analysis
+      calculations using in contrast GA methods (plus MM).
+      This is new, unusal and unkown and a big merit of your work/research -
+      hence there should be in your ongoing work in the selection of contrasting
+      examples and exercises in the spirit of
+      [Mac]=[17] Macdonald (I like his style)
+      or
+      [Din] S. Dineen: "Multivariate Calculus and Geometry."
+            Springer. ISBN 1-85233-472-X.
+      (IMO a very good classical book with clear examples,
+      struggeling for good understanding of concepts by the reader. No CAS used).
+      I recommend to usesome examples/exercises form this books and solve them
+      using GA ..
+      -----------------------------------------------------------
 
    - p89: 2.4.2 the 'example' is a 'theoretical' implication.
      To staffold the reader you should give an concrete (also CAS) example for (2.84),
      perhaps [17, Ex.7.17 p.96 orEx.7.20] or [Din, p.53 Ex 6.1, page attached].
 
-      ?
+     WHERE:
+      This referred to:
+            2.4.2 One parameter specialization of Stokes’ theorem.
 
-   - p89: The vector derivative, _E.G._ the projection of the gradient ..
-
-      ?
+     RESOLUTION:
+      This has now moved, and is now stated as a consequence of GAGC.  The concrete example
+      comment still applies.  There should be multivector examples as well as scalar
+      and vector examples throughout the line integral section (as well as the same for
+      area and volume integrals)
 
    - p90: besides the 'abstract' fig. 2.7 one could take the fine
      Fig. 2.3 (Torus M), pick a concrete point p, paint the TpM and
      calculate the vec.deriv. there .. and show it in the Fig.
      You have done all prerequsites earlier .. ;)
 
-      ?
+     WHERE: 
+         ../figures/GAelectrodynamics/toroidFig1
+         gaToroid.nb
+
+     RESOLUTION:
+
+         Nice idea.  Plot the tangent plane at a point as suggested.
 
    - p91: at the end of 2.4.3 a concrete example using GA methods like attached
      ex. like [din.Ex.9.3]?
 
-      ?
+     WHERE: 
 
--
+         2.4.3 Two parameter specialization of Stokes’ theorem.
+
+     RESOLUTION:
+
+         Do this (as suggested for the line integral case).
+
+- Helmholtz:
 
    I'm not sure if there's really a good reason to include the Helmholtz theorem section at the end of the chapter. I happen to like it, since it's a nice compact derivation, but it's somewhat out of place since we don't have a good reason to work with separate divergence and curl operations in a GA context. Better would be a more general first order statement showing that the gradient (not its divergence and curl) uniquely determines the solution if the function or the Green's function vanishes on the boundary
 

@@ -55,7 +55,6 @@ this shows that we can parameterize the Maxwell stress tensor by the gradient it
 =
 \BT(\spacegrad),
 \end{dmath}
-
 which really means
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:300}
@@ -63,7 +62,6 @@ which really means
 =
 \frac{\epsilon}{2} \gpgradeone{ F \spacegrad F^\dagger },
 \end{dmath}
-
 where \( \spacegrad \) acts bidirectionally using the chain rule on both \( F \) and \( F^\dagger \).
 
 To reduce the current terms, we will consider electric and magnetic sources in sequence.
@@ -73,7 +71,6 @@ Starting with an electric current density
 \begin{equation}\label{eqn:poyntingLorentzForce:60}
 J = \frac{\rho}{\epsilon}\lr{ 1 - \Bv_\txte/c } = J^\dagger,
 \end{equation}
-
 the grade selection of the current term is
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:80}
@@ -93,7 +90,7 @@ c\rho \Be_k \cdot \lr{ \BE + \Bv_\txte \cross \BB }.
 Given a magnetic current density \( \BM = \Bv_\txtm \rho_\txtm \) the multivector current is
 
 \begin{equation}\label{eqn:poyntingLorentzForce:120}
-J = I \rho_\txtm \lr{ 1 - \Bv_\txtm/c } = -J^\dagger
+J = I \rho_\txtm \lr{ 1 - \Bv_\txtm/c } = -J^\dagger.
 \end{equation}
 
 This time we have
@@ -128,14 +125,12 @@ Incidentally, as a side effect, this shows the desired form of the dual Lorentz 
 \begin{dmath}\label{eqn:poyntingLorentzForce:140}
 \frac{d\Bp}{dt} = \epsilon q_\txtm \lr{ c \BB - \frac{\Bv_\txtm}{c} \cross \BE },
 \end{dmath}
-
 so for (fictious) magnetic sources the electric field does no work, whereas for electric sources the magnetic field does no work.
 If we identify
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:200}
 \bcP_{\textrm{em}} = \inv{c^2} \BS/c^2,
 \end{dmath}
-
 as the momentum density of the field, and identify
 
 \begin{dmath}\label{eqn:poyntingLorentzForce:220}
@@ -144,7 +139,6 @@ as the momentum density of the field, and identify
 \rho \lr{ \BE + \Bv_\txte \cross \BB }
 + \rho_\txtm \lr{ \BB - \Bv_\txtm \cross \BE },
 \end{dmath}
-
 as the mechanical momentum density associated with the particles in the volume, then the total momentum density is
 %\begin{dmath}\label{eqn:poyntingLorentzForce:240}
 \boxedEquation{eqn:poyntingLorentzForce:240}{

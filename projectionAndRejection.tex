@@ -12,7 +12,6 @@ Given a vector \( \Bx \) and vector \( \Bu \) the projection of \( \Bx \) onto t
 \begin{equation*}
 \Proj_\Bu(\Bx) = (\Bx \cdot \ucap) \ucap,
 \end{equation*}
-
 where \( \ucap = \Bu/\Norm{\Bu} \).
 The rejection of \( \Bx \) by \( \Bu \) is defined as the component of \( \Bx \) that is
 normal to \( \Bu \)
@@ -64,7 +63,6 @@ In particular, a vector can be written as it's own grade-1 selection
 \begin{dmath}\label{eqn:projectionAndRejection:920}
 \Bx = \gpgradeone{ \Bx },
 \end{dmath}
-
 so the rejection can be re-expressed
 using \cref{dfn:generalizedDot:100}
 as a generalized bivector-vector dot product
@@ -101,7 +99,6 @@ b \Be_2 (\Be_1 \Be_1)
 =
 b \Be_2,
 \end{dmath}
-
 as expected.
 } % example
 
@@ -141,7 +138,7 @@ Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bx \) by \( \Bu
 (\Bx \wedge \ucap) \cdot \ucap
 =
 \inv{2}
-\lr{ b (\Be_{32} + \Be_{31} ) + a \Be_{21} } \cdot ( \Be_1 + \Be_2 )
+\lr{ b (\Be_{32} + \Be_{31} ) + a \Be_{21} } \cdot ( \Be_1 + \Be_2 ).
 \end{dmath}
 
 Each of these bivector-vector dot products has the form \( \Be_{rs} \cdot \Be_t = \gpgradeone{ \Be_{rst} } \) which is zero whenever the indexes \( r,s, t\) are unique, and is a vector whenever one of indexes are repeated (\( r = t \), or \( s = t \)).
@@ -168,7 +165,6 @@ We can alternatively compute the radial and azimuthal components of these vector
 \Ba &= {\Ba \rcap } \rcap = {\Ba \cdot \rcap  + \Ba \wedge \rcap } \rcap,
 \end{aligned}
 \end{dmath}
-
 so
 \begin{dmath}\label{eqn:projectionAndRejection:1200}
 \begin{aligned}

@@ -9,7 +9,7 @@ The magnetostatic Maxwell equation \cref{eqn:magnetostatics:380} can be inverted
 
 \begin{dmath}\label{eqn:magnetostatics_biotSavart:40}
 I \BB(\Bx)
-= \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx')
+= \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx').
 \end{dmath}
 
 This expansion can be simplified by inserting a no-op grade selection operation
@@ -21,7 +21,6 @@ I \BB(\Bx)
 = \inv{4\pi} \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \wedge (-\mu \BJ(\Bx')),
 \end{dmath}
 or
-
 \boxedEquation{eqn:magnetostatics:760}{
 I \BB(\Bx)
 = \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \wedge \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.

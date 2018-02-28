@@ -87,7 +87,6 @@ f(\Bx + \Bx'')
 \left( \spacegrad^2 + k^2 \right) \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}}
 dV'',
 \end{dmath}
-
 where a change of variables \(\Bx'' = \Bx' - \Bx \), as illustrated in
 \cref{fig:neighbourhood:neighbourhoodFig1},
  has been performed.
@@ -141,7 +140,6 @@ To evaluate the Laplacian term of \cref{eqn:helmholtzGreens:430}, we can make a 
 =
 \spacegrad_{\Bx''} \cdot \left(\spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right),
 \end{equation}
-
 and then employ the divergence theorem
 
 \begin{dmath}\label{eqn:helmholtzGreens:450}
@@ -151,7 +149,6 @@ and then employ the divergence theorem
 =
 \int_{\partial V} \left( \spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right) \cdot \ncap dA'',
 \end{dmath}
-
 where \( \partial V \) represents the surface of the \( \Norm{\Bx''} < \epsilon \) neighbourhood, and \( \ncap \) is the unit vector directed along \( \Bx'' = \Bx' - \Bx \).
 To evaluate this surface integral we will require only the radial portion of the gradient.  With \( r = \Norm{\Bx''} \), that is
 

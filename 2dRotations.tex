@@ -20,9 +20,7 @@ Using a polar vector representation
 \begin{dmath}\label{eqn:2dRotations:280}
    \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
 \end{dmath}
-
-it can be
-demonstrated directly that
+it can be demonstrated directly that
 unit pseudoscalar multiplication of an arbitrary vector will induce a \( \pi/2 \) rotation.
 \index{pseudoscalar}
 
@@ -34,7 +32,6 @@ Multiplying the vector from the right by the pseudoscalar gives
 = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
 = \rho \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta },
 \end{dmath}
-
 a counterclockwise rotation of \( \pi/2 \) radians, and
 multiplying the vector by the pseudoscalar from the left gives
 
@@ -44,7 +41,6 @@ i \Bx
 = \rho \Be_1 \Be_2 \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_1 \Be_2
 = \rho \lr{ -\Be_2 \cos\theta + \Be_1 \sin\theta },
 \end{dmath}
-
 a clockwise rotation by \( \pi/2 \) radians
 (\cref{problem:2dRotations:1}).
 
@@ -61,7 +57,6 @@ Euler's formula
 \begin{dmath}\label{eqn:2dRotations:1140}
 e^{i\theta} = \cos\theta + i \sin\theta,
 \end{dmath}
-
 which holds for this pseudoscalar imaginary representation too (\cref{problem:2dRotations:Euler}).
 \index{complex exponential}
 By writing \( \Be_2 = \Be_1 \Be_1 \Be_2 \),
@@ -126,7 +121,6 @@ A radial vector can be written as
 \begin{dmath}\label{eqn:2dRotations:1200}
 \Br = r \rcap,
 \end{dmath}
-
 as illustrated in \cref{fig:radialVectorCylindrical:radialVectorCylindricalFig1}.
 The polar representation of the radial and azimuthal unit vector are simply
 
@@ -140,7 +134,6 @@ The polar representation of the radial and azimuthal unit vector are simply
 \Be_2 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } = \Be_2 \cos\theta - \Be_1 \sin\theta,
 \end{aligned}
 \end{dmath}
-
 where \( i = \Be_{12} \) is the unit bivector for the x-y plane.  We can show that these unit vectors are orthogonal easily
 
 \begin{dmath}\label{eqn:2dRotations:1340}
@@ -150,7 +143,6 @@ where \( i = \Be_{12} \) is the unit bivector for the x-y plane.  We can show th
 = \gpgradezero{ \Be_1 \Be_2 }
 = 0,
 \end{dmath}
-
 since the scalar grade selection of a bivector is zero.
 
 We can find the
@@ -161,7 +153,6 @@ velocity and acceleration by taking time derivatives
 \Ba &= r'' \rcap + 2 r' \rcap' + r \rcap'',
 \end{aligned}
 \end{dmath}
-
 but to make these more meaningful want to evaluate the \( \rcap, \thetacap \) derivatives explicitly.  Those are
 \begin{equation}\label{eqn:2dRotations:1260}
 \begin{aligned}
@@ -169,13 +160,11 @@ but to make these more meaningful want to evaluate the \( \rcap, \thetacap \) de
 \thetacap' &= \lr{ \Be_2 e^{i \theta} }' = \Be_2 \Be_1 \Be_2 e^{i\theta} \theta' = -\Be_1 e^{i\theta} \theta' = -\rcap \omega,
 \end{aligned}
 \end{equation}
-
 where \( \omega = d\theta/dt \).  The velocity and acceleration vectors can now be written explicitly in terms of radial and azimuthal components.  The velocity is
 
 \begin{dmath}\label{eqn:2dRotations:1280}
 \Bv = r' \rcap + r \omega \thetacap,
 \end{dmath}
-
 and the acceleration is
 
 \begin{dmath}\label{eqn:2dRotations:1300}
@@ -183,7 +172,6 @@ and the acceleration is
 = r'' \rcap + 2 r' \omega \thetacap + r (\omega \thetacap)'
 = r'' \rcap + 2 r' \omega \thetacap + r \omega' \thetacap - r \omega^2 \rcap,
 \end{dmath}
-
 or
 \begin{dmath}\label{eqn:2dRotations:1320}
 \Ba
@@ -233,21 +221,15 @@ Show that for scalar \( \theta \), and any multivector \( J \) that satisfies \(
 \end{equation*}
 
 \makesubproblem{}{problem:2dRotations:Euler:c}
-
 Show that the trigonometric and hyperbolic Euler formulas
-
 \begin{equation*}
 \begin{aligned}
 e^{ J \theta } &= \cos \theta + J \sin \theta \\
 e^{ K \theta } &= \cosh \theta + K \sinh \theta,
 \end{aligned}
 \end{equation*}
-
 hold for multivectors \( J, K \) satisfying \( J^2 = -1 \) and \( K^2 = 1 \) respectively.
-
 \makesubproblem{}{problem:2dRotations:Euler:b}
 Given multivectors \( X, Y \), show that splitting a multivector exponential into factors of the form
 \( e^{ X + Y } = e^{ X } E^{ Y } \) requires \( x \) and \( y \) to commute.
 } % problem
-
-

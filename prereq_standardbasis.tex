@@ -30,7 +30,6 @@ given a basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \), and two vectors
    \By &= \sum_{i = 1}^N y_i \Be_i,
 \end{aligned}
 \end{dmath}
-
 the dot product of the two is
 
 \begin{dmath}\label{eqn:prereq_standardbasis:260}
@@ -41,7 +40,6 @@ the dot product of the two is
 =
    \sum_{i,j = 1}^N x_i y_j \lr{ \Be_i \cdot \Be_j }.
 \end{dmath}
-
 Such an expansion in coordinates can be written in matrix form as
 
 \begin{dmath}\label{eqn:prereq_standardbasis:280}
@@ -49,14 +47,11 @@ Such an expansion in coordinates can be written in matrix form as
 =
 \Bx^\T G \By,
 \end{dmath}
-
 where \( G \) is the symmetric matrix with elements \( g_{ij} = \Be_i \cdot \Be_j \).
 This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space.
 
-In this book the metric is always diagonal, with all diagonal values having an absolute value of one.
-The positive definite property \( \Bx^\T G \By \ge 0 \) is not required of the metric or its associated dot product.
-This omission has specific
-relevance in electrodynamics, since Maxwell's equations take their simplest form when expressed in terms of four-vector (relativistic) vector spaces, where some of the metric matrix elements are negative.
+For Euclidean spaces, which are the primary focus of this book, the metric is not only diagonal, but is the identity matrix.
+Slightly more general metrics are of interest in electrodynamics.  In particular, a four dimensional (relativistic) vector space, where the metric has diagonals \( (1,-1,-1,-1) \) or \( (-1, 1,1,1) \) allows for the construction of a geometric algebra that allows Maxwell's equations to take their very simplest form.  Such a metric does not have the (Euclidean) positive definite property \( \Bx^\T G \Bx \ge 0 \).
 
 \index{length}
 \makedefinition{Length}{dfn:prerequisites:norm}{
@@ -64,7 +59,6 @@ relevance in electrodynamics, since Maxwell's equations take their simplest form
 \begin{equation*}
    \Norm{\Bx}^2 = \Bx \cdot \Bx,
 \end{equation*}
-
 a quantity that need not be positive.
 The length of a vector \( \Bx \) is defined as
 \begin{equation*}
