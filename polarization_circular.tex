@@ -9,7 +9,6 @@
 \index{right circular polarization}
 
 The time domain field when written out explicitly in terms of the Jones vector components is
-
 \begin{dmath}\label{eqn:polarization_circular:160}
 F(\Bx, t) = (1 + \Be_3) \lr{
 \lr{ \alpha_1 \Be_1 + \alpha_2 \Be_2 } \cos\lr{ \omega t - \beta z }
@@ -21,12 +20,10 @@ Linear, circular, and elliptical polarization patterns can be obtained by select
 In particular,
 a field for which the
 change in phase
-
 \begin{dmath}\label{eqn:polarization_circular:520}
 \phi = \omega t - \beta z,
 \end{dmath}
 results in the electric field tracing out a (clockwise,counterclockwise) circle
-
 \begin{dmath}\label{eqn:polarization_circular:180}
 \begin{aligned}
 \BE_\txtL &= \Abs{\BE} \lr{ \Be_1 \cos\phi + \Be_2 \sin\phi } = \Abs{\BE} \Be_1 \exp\lr{  \Be_{12} \phi } \\
@@ -42,12 +39,10 @@ There are different conventions for the polarization orientation, and here the I
 % ( I didn't notice the inscribed X's in the polarization figures: https://en.wikibooks.org/wiki/Physics_Study_Guide/Vectors_and_scalars#How_to_draw_vectors_that_are_in_or_out_of_the_plane_of_the_page_.28or_board.29 )
 
 The bivector exponential representation of the circularly polarized electric fields in \cref{eqn:polarization_circular:180} indicates that it is possible to represent arbitrary field polarization in a GA form that does not require any real part operation, as follows
-
 \begin{dmath}\label{eqn:polarization_circular:200}
 F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtL e^{i\phi} + \alpha_\txtR e^{-i\phi} },
 \end{dmath}
 where the constants \( \alpha_\txtL, \alpha_\txtR \) are both complex with respect to the unit bivector imaginary \( i = \Be_{12} \) representing the plane transverse to the propagation direction
-
 \begin{dmath}\label{eqn:polarization_circular:220}
 \begin{aligned}
 \alpha_\txtL &= \alpha_{\txtL 1} + i \alpha_{\txtL 2} \\
@@ -58,7 +53,6 @@ where the constants \( \alpha_\txtL, \alpha_\txtR \) are both complex with respe
 If a transformation from scalar to bivector imaginary \( j \rightarrow \Be_{12} = i \) is made in the Jones vector component representation of \cref{eqn:polarization:140},
 then
 the coefficients \cref{eqn:polarization_circular:220} of the circular polarization states are related to the Jones vector by (\cref{problem:polarization:1})
-
 \begin{dmath}\label{eqn:polarization_circular:260}
 \begin{aligned}
 \alpha_\txtL &= \inv{2}\lr{ c_1 - i c_2 } \\

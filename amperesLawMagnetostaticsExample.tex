@@ -16,13 +16,11 @@ Combining the two parameter Stokes' theorem integral from
 %\cref{eqn:twoparameter:280}
 \cref{thm:surfaceintegral:500}
 , and Maxwell's magnetostatics equations for \( \BB \) in \cref{eqn:magnetostatics:380} we have
-
 \begin{dmath}\label{eqn:amperesLawMagnetostaticsExample:20}
 \int_A d^2 \Bx \cdot (\spacegrad \wedge \BB) = \ointclockwise d\Bx \cdot \BB = \mu \int d^2 \Bx \cdot (I \BJ).
 \end{dmath}
 
 Flipping the orientation of the Stokes' integral so that we are integrating along the \( \phicap \) direction, we have
-
 \begin{dmath}\label{eqn:amperesLawMagnetostaticsExample:40}
 \ointctrclockwise d\Bx \cdot \BB
 = -\mu I \int d^2 \Bx \wedge \BJ
@@ -30,14 +28,12 @@ Flipping the orientation of the Stokes' integral so that we are integrating alon
 \end{dmath}
 where \( I_\txte \) is the enclosed charge (in this case \( I_1 \)).
 Because of symmetry, the magnetic field due to this one line charge is
-
 \begin{dmath}\label{eqn:amperesLawMagnetostaticsExample:60}
 \BB
 = \frac{\mu I_\txte \phicap}{2 \pi R},
 \end{dmath}
 where \( R \) is the radius of the circle centred one the current, out to the point \( \Br \) where the field is observed.
 Each of the current sources at points \( \Bp_k \) contributes a magnetic field
-
 \begin{dmath}\label{eqn:amperesLawMagnetostaticsExample:80}
 \BB_k(\Br)
 = \frac{\mu I_k \rcap_k \Be_{12} }{2 \pi \Norm{ \Br - \Bp_k} }
@@ -46,7 +42,6 @@ Each of the current sources at points \( \Bp_k \) contributes a magnetic field
 \end{dmath}
 where the azimuthal angle has been determined by rotating the radial unit vector counterclockwise by 90 degrees using \( \phicap_k = \rcap_k\, \Be_{12} \).
 The total magnetic field bivector between the charges is
-
 \begin{equation}\label{eqn:amperesLawMagnetostaticsExample:100}
 I \BB(\Br)
 = \frac{\mu}{2\pi} \sum_{k = 1}^2 I_k \inv{\Bp_k - \Br } \Be_3.

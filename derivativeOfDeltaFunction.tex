@@ -30,7 +30,6 @@
 %In the geometric algebra formulation of Maxwell's equation (singular in GA), the Green's function for the spacetime derivative ends up with terms like
 %In the geometric algebra formulation of Maxwell's equation (singular in GA),
 The Green's function for the spacetime derivative ends up with terms like
-
 \begin{dmath}\label{eqn:derivativeOfDeltaFunction:20}
 \begin{aligned}
 \frac{d}{dr} &\delta( -r/c + t - t' ) \\
@@ -39,7 +38,6 @@ The Green's function for the spacetime derivative ends up with terms like
 \end{dmath}
 where \( t' \) is the integration variable of the test function that the delta function will be applied to.
 If these were derivatives with respect to the integration variable, then we could use
-
 \begin{dmath}\label{eqn:derivativeOfDeltaFunction:60}
 \int_{-\infty}^\infty
 \lr{ \frac{d}{dt'} \delta(t') } \phi(t') = -\phi'(0),
@@ -50,13 +48,11 @@ It is not clear that how, if at all, this could be applied to either of \cref{eq
 
 Let's go back to square one, and figure out the meaning of these delta functions by their action on a test function.
 We wish to compute
-
 \begin{dmath}\label{eqn:derivativeOfDeltaFunction:80}
 \int_{-\infty}^\infty \frac{d}{du} \delta( a u + b - t' ) f(t') dt'.
 \end{dmath}
 
 Let's start with a change of variables \( t'' = a u + b - t' \), for which we find
-
 \begin{dmath}\label{eqn:derivativeOfDeltaFunction:100}
 \begin{aligned}
 t' &= a u + b - t'' \\
@@ -66,7 +62,6 @@ dt'' &= - dt' \\
 \end{dmath}
 
 Substitution back into \cref{eqn:derivativeOfDeltaFunction:80} gives
-
 \begin{dmath}\label{eqn:derivativeOfDeltaFunction:120}
 a \int_{\infty}^{-\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) (-dt'')
 =

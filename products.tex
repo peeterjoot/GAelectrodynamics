@@ -12,7 +12,6 @@ Let \( \ucap \) and \( \vcap \) be an orthonormal pair of vectors in the plane o
 
 With respect to the orthonormal vectors \( \ucap \) and \( \vcap \), a
 a polar representation of \( \Ba, \Bb \) is
-
 \begin{dmath}\label{eqn:products:1660}
 \begin{aligned}
 \Ba &= \Norm{\Ba} \ucap e^{ i_{ab} \theta_a } = \Norm{\Ba} e^{ -i_{ab} \theta_a } \ucap \\
@@ -21,7 +20,6 @@ a polar representation of \( \Ba, \Bb \) is
 \end{dmath}
 where \( i_{ab} = \ucap \vcap \) is a unit pseudoscalar for the planar subspace spanned by \( \Ba \) and \( \Bb \).
 The vector product of these two vectors is
-
 \begin{dmath}\label{eqn:products:1680}
 \Ba \Bb
 =
@@ -45,7 +43,6 @@ e^{ i_{ab} (\theta_b - \theta_a)}.
 
 We see that the product of two vectors is a multivector that has only grades 0 and 2.
 This can be expressed symbolically as
-
 \begin{dmath}\label{eqn:products:1800}
 \Ba \Bb
 =
@@ -98,7 +95,6 @@ Summarizing \cref{eqn:products:1680} with our new operators, we write
 \makeexample{Products of two unit vectors.}{example:products:1860}{
 To develop some intuition about the vector product, let's consider product of two unit vectors \( \Ba, \Bb \) in the equilateral triangle of
 \cref{fig:exponentialVectorProduct:exponentialVectorProductFig1}, where
-
 \begin{dmath}\label{eqn:products:1880}
 \begin{aligned}
 \Ba &= \inv{\sqrt{2}} \lr{ \Be_3 + \Be_1 } = \Be_3 \exp\lr{ \Be_{31} \pi/4 } \\
@@ -109,7 +105,6 @@ To develop some intuition about the vector product, let's consider product of tw
 \imageFigure{../figures/GAelectrodynamics/exponentialVectorProductFig1}{Equilateral triangle in \R{3}.}{fig:exponentialVectorProduct:exponentialVectorProductFig1}{0.3}
 
 The product of these vectors is
-
 \begin{dmath}\label{eqn:products:1900}
 \Ba \Bb
 =
@@ -121,14 +116,12 @@ The product of these vectors is
 \end{dmath}
 
 Let the bivector factor be designated
-
 \begin{dmath}\label{eqn:products:1920}
 j = \frac{\Be_{32} + \Be_{13} + \Be_{12 } }{\sqrt{3}}.
 \end{dmath}
 
 The reader can check (\cref{problem:products:2000})
 that \( j \) is a unit bivector (i.e. it squares to \( -1 \)), allowing us to write
-
 \begin{dmath}\label{eqn:products:1940}
 \Ba \Bb =
 \inv{2} + \frac{\sqrt{3}}{2} j
@@ -139,7 +132,6 @@ that \( j \) is a unit bivector (i.e. it squares to \( -1 \)), allowing us to wr
 Since both vector factors were unit length, this ``complex'' exponential has no leading scalar factor contribution from \( \Norm{\Ba} \Norm{\Bb} \).
 
 From the above analysis, we can also see that in this case, the product of two 0,2 multivectors was itself a 0,2 multivector.  We can see that by forming the product
-
 \begin{dmath}\label{eqn:products:1960}
 \Ba \Bb =
 \biglr{
@@ -170,7 +162,6 @@ Two wedge product properties can be immediately deduced from the polar represent
 
 We have now had a few hints that the wedge product might be related to the cross product.  Given two vectors \( \Ba, \Bb \) both the wedge and the cross product contain a \( \Norm{\Ba} \Norm{\Bb} \sin \Delta \theta \) factor, and both the wedge and cross product are antisymmetric operators.
 The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = \Ba \cross \Bc + \Ba \cross \Bc + \cdots \).  To see whether this is the case for the wedge product, let's examine the coordinate expansion of the wedge product.  Let
-
 \begin{dmath}\label{eqn:products:1160}
 \begin{aligned}
 \Ba &= \sum_i a_i \Be_i \\
@@ -179,7 +170,6 @@ The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = \Ba
 \end{dmath}
 
 The product of these vectors is
-
 \begin{dmath}\label{eqn:products:1360}
 \Ba \Bb
 =
@@ -194,7 +184,6 @@ The product of these vectors is
 
 Since \( \Be_i \Be_i = 1 \), we see again that the scalar component of the product is the dot product \( \sum_i a_i b_i \).
 The remaining grade 2 components are the wedge product, for which the coordinate expansion can be simplified further
-
 \begin{dmath}\label{eqn:products:1460}
 \Ba \wedge \Bb
 =
@@ -232,7 +221,6 @@ It is now straightforward to show that the wedge product is distributive and bil
 It is also simple to use \cref{eqn:products:1320} to show that \( \Bb \wedge \Ba = -\Ba \wedge \Bb \) and \( \Ba \wedge \Ba = 0 \).
 
 For \R{2} there is only one term in \cref{eqn:products:1320}
-
 \begin{dmath}\label{eqn:products:1720}
 \Ba \wedge \Bb
 =
@@ -246,7 +234,6 @@ b_1 & b_2
 \index{cross product}
 We are used to writing the cross product as a \( 3 x 3 \) determinant, which can also be done with the coordinate expansion of the
 \R{3} wedge product
-
 \begin{equation}\label{eqn:products:1740}
 \Ba \wedge \Bb
 =

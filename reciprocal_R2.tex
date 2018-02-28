@@ -5,7 +5,6 @@
 %{
 How are the reciprocal frame vectors computed?  While these vectors have a natural GA representation, this is not intrinsically a GA problem, and can be solved with standard linear algebra, using a matrix inversion.
 For example, given a 2D basis \( \setlr{ \Bx_1, \Bx_2 } \), the reciprocal basis can be assumed to have a coordinate representation in the original basis
-
 \begin{dmath}\label{eqn:reciprocal_R2:100}
 \begin{aligned}
 \Bx^1 &= a \Bx_1 + b \Bx_2 \\
@@ -23,7 +22,6 @@ Imposing the constraints of \cref{dfn:reciprocal:frame} leads to a pair of 2x2 l
 
 The reader may notice that for \R{3} the denominator is related to the norm of the cross product \( \Bx_1 \cross \Bx_2 \).
 More generally, this can be expressed as the square of the bivector \( \Bx_1 \wedge \Bx_2 \)
-
 \begin{dmath}\label{eqn:reciprocal_R2:140}
 -\lr{\Bx_1 \wedge \Bx_2 }^2
 =
@@ -102,7 +100,6 @@ is satisfied.
 \paragraph{Example: \R{2}:}
 
 Given a pair of arbitrary oriented vectors in \R{2}, \( \Bx_1 = a_1 \Be_1 + a_2 \Be_2, \Bx_2 = b_1 \Be_1 + b_2 \Be_2 \), the pseudoscalar associated with the basis \( \setlr{ \Bx_1, \Bx_2} \) is
-
 \begin{dmath}\label{eqn:reciprocal_R2:260}
 \Bx_1 \wedge \Bx_2
 =
@@ -112,7 +109,6 @@ Given a pair of arbitrary oriented vectors in \R{2}, \( \Bx_1 = a_1 \Be_1 + a_2 
 \end{dmath}
 
 The inverse of this pseudoscalar is
-
 \begin{dmath}\label{eqn:reciprocal_R2:280}
 \inv{\Bx_1 \wedge \Bx_2 }
 =
@@ -120,7 +116,6 @@ The inverse of this pseudoscalar is
 \end{dmath}
 
 So for this fixed oblique \R{2} basis, the reciprocal frame is just
-
 \begin{dmath}\label{eqn:reciprocal_R2:300}
 \begin{aligned}
 \Bx^1 &= \Bx_2 \frac{\Be_{21}}{ a_1 b_2 - a_2 b_1 } \\

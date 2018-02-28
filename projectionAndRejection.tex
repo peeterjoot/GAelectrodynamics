@@ -27,7 +27,6 @@ An example of projection and rejection with respect to a direction vector \( \Bu
 \imageFigure{../figures/GAelectrodynamics/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.3}
 
 Computation of the projective and rejective components of a vector \( \Bx \) relative to a direction \( \ucap \) requires little more than a multiplication by \( 1 = \ucap \ucap \), and some rearrangement
-
 \begin{dmath}\label{eqn:projectionAndRejection:680}
 \Bx =
 \Bx \ucap \ucap
@@ -59,14 +58,12 @@ Instead this will come in handy as a new abstract algebraic tool.
 
 When it is desirable to perform this calculation explicitly, it can be done more efficiently using a no-op grade selection operation.
 In particular, a vector can be written as it's own grade-1 selection
-
 \begin{dmath}\label{eqn:projectionAndRejection:920}
 \Bx = \gpgradeone{ \Bx },
 \end{dmath}
 so the rejection can be re-expressed
 using \cref{dfn:generalizedDot:100}
 as a generalized bivector-vector dot product
-
 \begin{equation}\label{eqn:projectionAndRejection:940}
 \Rej{\Bu}{\Bx}
 = \gpgradeone{ \lr{ \Bx \wedge \ucap } \ucap }
@@ -74,7 +71,6 @@ as a generalized bivector-vector dot product
 \end{equation}
 
 In \R{3}, using \cref{thm:generalizedDot:tripleCross}, the rejection operation can also be expressed as a triple cross product
-
 \begin{dmath}\label{eqn:projectionAndRejection:1140}
 \Rej{\Bu}{\Bx}
 = \ucap \cross \lr{ \Bx \cross \ucap }.
@@ -112,7 +108,6 @@ Here's a slightly less trivial \R{3} example
 \makeexample{An \R{3} rejection.}{example:projectionAndRejection:r3rejection}{
 Let \( \Bx = a \Be_2 + b \Be_3 \) and \( \ucap = ( \Be_1 + \Be_2 )/\sqrt{2} \) for which the
 wedge product is
-
 \begin{dmath}\label{eqn:projectionAndRejection:1040}
 \Bx \wedge \ucap = \inv{\sqrt{2}}
 \begin{vmatrix}
@@ -133,7 +128,6 @@ b (\Be_{32} + \Be_{31} ) + a \Be_{21}
 \end{dmath}
 
 Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bx \) by \( \Bu \) is
-
 \begin{dmath}\label{eqn:projectionAndRejection:1060}
 (\Bx \wedge \ucap) \cdot \ucap
 =
@@ -143,7 +137,6 @@ Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bx \) by \( \Bu
 
 Each of these bivector-vector dot products has the form \( \Be_{rs} \cdot \Be_t = \gpgradeone{ \Be_{rst} } \) which is zero whenever the indexes \( r,s, t\) are unique, and is a vector whenever one of indexes are repeated (\( r = t \), or \( s = t \)).
 This leaves
-
 \begin{dmath}\label{eqn:projectionAndRejection:1100}
 (\Bx \wedge \ucap) \cdot \ucap
 =
@@ -158,7 +151,6 @@ b \Be_3 + \frac{a}{2}( \Be_2 - \Be_1 ).
 In \cref{eqn:2dRotations:1280}, and \cref{eqn:2dRotations:1300} we found the polar representation of the velocity and acceleration vectors associated with the radial parameterization \( \Br(r, \theta) = r \rcap(\theta) \).
 
 We can alternatively compute the radial and azimuthal components of these vectors in terms of their projective and rejective components
-
 \begin{dmath}\label{eqn:projectionAndRejection:1180}
 \begin{aligned}
 \Bv &= {\Bv \rcap } \rcap = {\Bv \cdot \rcap  + \Bv \wedge \rcap } \rcap \\
@@ -212,7 +204,6 @@ In terms of the vector inverse, the projection and rejection operations with res
 It was claimed in the definition of rejection that the rejection is normal to the projection.
 This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).
 This also follows naturally using the grade selection operator representation of the dot product
-
 \begin{dmath}\label{eqn:projectionAndRejection:720}
 \Rej{\Bu}{\Bx} \cdot \Proj_\Bu(\Bx)
 =

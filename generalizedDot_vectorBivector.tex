@@ -9,14 +9,12 @@ Unlike the dot product of two vectors, a vector-bivector dot product is order de
 
 The vector dot product is zero when the two vectors are normal.
 This is also true if the vector and bivector are normal, that is, having no common factor, as in
-
 \begin{equation}\label{eqn:generalizedDot_vectorBivector:661}
 \Be_1 \cdot \Be_{23} = \gpgradeone{ \Be_{123} } = 0.
 \end{equation}
 
 On the other hand, a non-zero vector-bivector dot product requires the vector to have some overlap with the bivector.
 A bivector formed from the product of two normal vectors \( B = \Ba \Bb, \, \Ba \cdot \Bb = 0 \), will have a non-zero dot product with any vector that lies in \( \Span \setlr{ \Ba, \Bb} \)
-
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:682}
 \lr{ \alpha \Ba + \beta \Bb } \cdot (\Ba\Bb)
 =
@@ -38,7 +36,6 @@ The dot product of a vector and a wedge product of two vectors distributes as
 } % theorem
 
 Before proving this theorem, let's take a look at what it implies.  This shows that only vectors that lie in the span of the plane represented by the bivector will result in a non-zero vector-bivector dot product.  We also know that when a vector that lies entirely in the span of a bivector is multiplied by that bivector, the result is rotated by \( \pm \pi/2 \).  This means that a vector-bivector dot product is normal to the vector that is dotted with the bivector.  This can also be seen algebraically since
-
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1120}
 \Ba \cdot \lr{ \Ba \cdot \lr{ \Bb \wedge \Bc }}
 =
@@ -53,7 +50,6 @@ The net effect of a vector-bivector dot product is to select only components of 
 There are (somewhat tricky) coordinate free ways to prove
 \cref{thm:generalizedDot:wedgeDotDistribution}
 , but a dumber simple expansion in coordinates also does the job.
-
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:681}
 \begin{aligned}
 \Ba \cdot \lr{ \Bb \wedge \Bc } &= \sum_{i, j, k} a_i b_j c_k \Be_i \cdot (\Be_j \wedge \Be_k)
@@ -66,7 +62,6 @@ There are (somewhat tricky) coordinate free ways to prove
 
 If all of \( i, j, k \) are unique then \( \gpgradeone{ \Be_i \Be_j \Be_k } = 0 \), so the vector selection is non-zero only when \( i \) equals one of \( j, k \).
 For example
-
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1040}
 \begin{aligned}
 \gpgradeone{ \Be_1 \Be_1 \Be_2 } &= \Be_2 \\
@@ -77,7 +72,6 @@ For example
 Given \( j \ne k \), and \( i = j \) or \( i = k \),  then it is simple to show
 (\cref{problem:generalizedDot:distributionUnitVectorsa})
 that
-
 \begin{equation}\label{eqn:generalizedDot_vectorBivector:1020}
 \gpgradeone{ \Be_i \Be_j \Be_k }
 = \gpgradeone{ \Be_k \Be_j \Be_i },
@@ -85,7 +79,6 @@ that
 so \( \Ba \cdot \lr{ \Bb \wedge \Bc } = \lr{ \Bc \wedge \Bb } \cdot \Ba \).
 Additionally
 (\cref{problem:generalizedDot:distributionUnitVectorsb})
-
 \begin{equation}\label{eqn:generalizedDot_vectorBivector:980}
 \gpgradeone{ \Be_i \Be_j \Be_k }
 =
@@ -94,7 +87,6 @@ Additionally
 \end{equation}
 
 Plugging \cref{eqn:generalizedDot_vectorBivector:980} back into \cref{eqn:generalizedDot_vectorBivector:681} proves the theorem
-
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1060}
 \Ba \cdot \lr{ \Bb \wedge \Bc }
 = \sum_{i, j, k} a_i b_j c_k \lr{ \Be_k \lr{ \Be_j \cdot \Be_i }
@@ -119,13 +111,11 @@ For vectors in \R{3}, the dot product of a vector and vector wedge product can b
 This can be proven by invoking the well known
 identity for the triple cross product
 (\citep{jackson1975cew})
-
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1100}
 \Ba \cross ( \Bb \cross \Bc ) = (\Ba \cdot \Bc) \Bb - (\Ba \cdot \Bb) \Bc.
 \end{dmath}
 
 Alternatively, it can be proven directly by applying the identity \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) to the vector-bivector product, and then selecting the vector grade
-
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1000}
 \Ba \lr{ \Bb \wedge \Bc }
 =
@@ -145,7 +135,6 @@ I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 \end{dmath}
 
 This multivector has a pseudoscalar (grade 3) component, and a vector component, so selecting the grade one component proves the theorem
-
 \begin{equation}\label{eqn:generalizedDot_vectorBivector:1080}
 \gpgradeone{ \Ba \lr{ \Bb \wedge \Bc } }
 =

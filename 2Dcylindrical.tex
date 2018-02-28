@@ -52,7 +52,6 @@ To show that these vectors are
 perpendicular, we can
 select the scalar grade of their product, and
 use \cref{thm:SimpleProducts2:1780}, property (c) to swap the vector and complex exponential, conjugating the exponential
-
 \begin{dmath}\label{eqn:2Dcylindrical:640}
 \Bx_\rho \cdot \Bx_\phi
 =
@@ -78,7 +77,6 @@ use \cref{thm:SimpleProducts2:1780}, property (c) to swap the vector and complex
 
 \paragraph{Length of basis elements.}
 We can use the same method to find the (squared) length of the vectors
-
 \begin{dmath}\label{eqn:2Dcylindrical:680}
 \Bx_\rho^2
 =
@@ -98,7 +96,6 @@ We can use the same method to find the (squared) length of the vectors
 = 1,
 \end{dmath}
 and
-
 \begin{dmath}\label{eqn:2Dcylindrical:700}
 \Bx_\phi^2
 =
@@ -168,7 +165,6 @@ Integrating the bivector area over a circular region gives us the area of that r
 \paragraph{Reciprocal basis.}
 \index{reciprocal basis!polar}
 Because \( \Bx_\rho, \Bx_\phi \) are mutually perpendicular, we have only to rescale them to determine the reciprocal basis, and can do so by inspection
-
 \begin{dmath}\label{eqn:2Dcylindrical:180}
 \begin{aligned}
 \Bx^\rho &= \Be_1 \exp\lr{ \Be_{12} \phi } \\
@@ -180,7 +176,6 @@ Because \( \Bx_\rho, \Bx_\phi \) are mutually perpendicular, we have only to res
 According to \cref{thm:curvilinearGradient:1}
 we should be able to find \cref{eqn:2Dcylindrical:180} by computing the gradients of \( \rho \) and \( \phi \) respectively.
 If we do so using the \R{2} standard basis representation of the gradient, we must first solve for \( \rho = \rho(x,y), \phi = \phi(x,y) \), inverting
-
 \begin{dmath}\label{eqn:2Dcylindrical:620}
 \begin{aligned}
 x &= \rho \cos\phi \\
@@ -189,7 +184,6 @@ y &= \rho \sin\phi.
 \end{dmath}
 
 An implicit solution to this inversion problem is
-
 \begin{dmath}\label{eqn:2Dcylindrical:500}
 \begin{aligned}
 \rho^2 &= x^2 + y^2 \\
@@ -197,7 +191,6 @@ An implicit solution to this inversion problem is
 \end{aligned}
 \end{dmath}
 which we can implicitly differentiate to evaluate the components of the desired gradients
-
 \begin{dmath}\label{eqn:2Dcylindrical:520}
 \begin{aligned}
 2 \rho \PD{x}{\rho} &= 2 x \\
@@ -235,7 +228,6 @@ which is consistent with \cref{eqn:2Dcylindrical:180}, as expected.
 
 \paragraph{Gradient.}
 The polar form of the \R{2} gradient is
-
 \begin{dmath}\label{eqn:2Dcylindrical:600}
 \spacegrad
 =
@@ -254,7 +246,6 @@ where
 \end{dmath}
 
 Should we extend this vector space to \R{3}, the parameterization of \cref{eqn:2Dcylindrical:100} covers the subspace of the x-y plane, and for that subspace, the vector derivative is
-
 \begin{dmath}\label{eqn:2Dcylindrical:601}
 \boldpartial
 =

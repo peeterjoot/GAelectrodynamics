@@ -6,7 +6,6 @@
 Poynting's theorem, the conservation relationship between energy and momentum density (or more generally, the energy-momentum tensor) and the sources, can be stated in terms of the multivector field \( F \) and the multivector current \( J \).
 To derive this relationship we can act on (all terms of) \( F a F^\dagger \) with the space+time derivative operator \( \spacegrad + (1/c) \partial_t \).
 We do so within a scalar selection operation, which simplifies things, and allows for cyclic permutation of the multivector factors (i.e. \(\gpgradezero{ABC} = \gpgradezero{CAB}\)).
-
 \begin{dmath}\label{eqn:poyntingTheorem:100}
 \frac{\epsilon}{2} \gpgradezero{ \lr{ c \spacegrad + \PD{t}{} } F a F^\dagger }
 =
@@ -24,7 +23,6 @@ the over-dot notation of
 chain rule expansion of
 \cref{eqn:poyntingTheorem:100}
 , as the gradient may not commute with \( F \).  Another application of Maxwell's equation reduces this further
-
 \begin{dmath}\label{eqn:poyntingTheorem:960}
 \frac{\epsilon}{2} \gpgradezero{ \lr{ c \spacegrad + \PD{t}{} } F a F^\dagger }
 =
@@ -43,7 +41,6 @@ c \spacegrad \cdot \gpgradeone{ \frac{\epsilon}{2} F a F^\dagger }
 }
 
 For \( a = 1 \), since scalars are reversion invariant (\(\alpha^\dagger = \alpha\) for any scalars \( \alpha \))
-
 \begin{equation}\label{eqn:poyntingTheorem:1000}
 \gpgradezero{ F^\dagger J }
 =
@@ -63,7 +60,6 @@ c \spacegrad \cdot \gpgradeone{ \frac{\epsilon}{2} F F^\dagger }
 
 The conventional statement of this theorem in terms of \( \BD, \BE, \BB, \BH, \BJ, \BM \) follows by direct substitution.
 The multivector current \( J \) and its reverse are
-
 \begin{dmath}\label{eqn:poyntingTheorem:160}
 \begin{aligned}
 J &= \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_m - \BM } \\
@@ -71,7 +67,6 @@ J^\dagger &= \eta \lr{ c \rho - \BJ } - I \lr{ c \rho_m - \BM },
 \end{aligned}
 \end{dmath}
 so
-
 \begin{dmath}\label{eqn:poyntingTheorem:180}
 0 =
 \spacegrad \cdot \BS
@@ -95,7 +90,6 @@ The sum of the last two terms is the time rate of change of the energy density.
 In particular,
 with neither electric nor magnetic current sources in a region of space,
 the change of energy density through a volume is matched by a corresponding flux through the bounding surface
-
 \begin{dmath}\label{eqn:poyntingTheorem:740}
 \PD{t}{} \int_V
 \inv{2} dV \lr{

@@ -5,7 +5,6 @@
 
 The Lorentz force equation that determines the dynamics of a charged particle in an external field \( F \) has been restated as a multivector differential equation, but how to solve such an equation is probably not obvious.
 Given a constant external magnetic field, the Lorentz force equation is reduced to
-
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:60}
 m \frac{d\Bv}{dt} = q (I \BB) \cdot \Bv,
 \end{dmath}
@@ -19,7 +18,6 @@ or
 where \( \Omega \) is a bivector containing all the constant factors.
 
 This can be solved by introducing a multivector integration factor \( R \) and its reverse \( R^\dagger \) on the left and right respectively
-
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:100}
 R \frac{d\Bv}{dt} R^\dagger
 = R \Bv \cdot \Omega R^\dagger
@@ -40,7 +38,6 @@ Let
 \end{dmath}
 
 Since \( \Omega \) is a bivector \( \dot{R}^\dagger = -\Omega R^\dagger/2 \), so by chain rule
-
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:160}
 0
 =
@@ -50,12 +47,10 @@ R \Bv R^\dagger
 \end{dmath}
 
 The integrating factor has solution
-
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:180}
 R = e^{\Omega t/2},
 \end{dmath}
 a ``complex exponential'', so the solution of \cref{eqn:lorentzForce_constantMagnetic:60} is
-
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:200}
 \Bv(t) = e^{-\Omega t/2} \Bv(0) e^{\Omega t/2}.
 \end{dmath}
@@ -63,7 +58,6 @@ a ``complex exponential'', so the solution of \cref{eqn:lorentzForce_constantMag
 The velocity of the charged particle traces out a helical path.
 Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.
 If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
-
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:220}
 \begin{aligned}
 \Bv(0)_\parallel &= \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \\

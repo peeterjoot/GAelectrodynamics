@@ -35,7 +35,6 @@ A two parameter curve, and the corresponding differentials with respect to those
 \imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFig1}{Two parameter manifold differentials.}{fig:twoParameterDifferential:twoParameterDifferentialFig1}{0.4}
 
 Given parameters \( a, b \), the differentials along each of the parameterization directions are
-
 \begin{dmath}\label{eqn:surfaceintegral:100}
 \begin{aligned}
 d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
@@ -44,7 +43,6 @@ d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
 \end{dmath}
 
 The bivector valued surface area element for this parameterization is
-
 \begin{equation}\label{eqn:surfaceintegral:120}
 d^2 \Bx
 =
@@ -55,7 +53,6 @@ da db (\Bx_a \wedge \Bx_b).
 \end{equation}
 
 The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
-
 \begin{dmath}\label{eqn:surfaceintegral:200}
 \boldpartial
 =
@@ -100,7 +97,6 @@ where \( \partial S \) is the boundary of the surface \( S \).
 } % theorem
 
 To see why this works, we would first like to reduce the product of the area element and the vector derivative
-
 \begin{dmath}\label{eqn:surfaceintegral:300}
 d^2\Bx \boldpartial
 =
@@ -108,7 +104,6 @@ da db\, \lr{ \Bx_a \wedge \Bx_b } \lr{ \Bx^a \partial_a + \Bx^b \partial_b }.
 \end{dmath}
 
 Since \( \Bx^a \in \Span \setlr{ \Bx_a, \Bx_b } \), this multivector product has only a vector grade.  That is
-
 \begin{dmath}\label{eqn:surfaceintegral:320}
 \lr{ \Bx_a \wedge \Bx_b } \Bx^a
 =
@@ -148,7 +143,6 @@ d^2\Bx \boldpartial
 \end{dmath}
 
 Inserting this into the surface integral, we find
-
 \begin{dmath}\label{eqn:surfaceintegral:380}
 \int_S F d^2\Bx \boldpartial G
 =
@@ -171,7 +165,6 @@ We are able to pull out the partials because \( \Bx_a \) is computed with the pa
 and \( \Bx_b \) is computed with the parameter \( a \) fixed.
 
 This leaves two perfect differentials, which can both be integrated separately.  That gives
-
 \begin{dmath}\label{eqn:surfaceintegral:400}
 \int_S F d^2\Bx \boldpartial G
 =
@@ -216,7 +209,6 @@ where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \)
 } % theorem
 
 To show the first part, we can split the (multivector) surface integral into vector and trivector grades
-
 \begin{dmath}\label{eqn:surfaceintegral:440}
 \int_S d^2\Bx \boldpartial f
 =
@@ -230,7 +222,6 @@ Since \( \Bx^a, \Bx^b \) both lie in the span of \( \setlr{ \Bx_a, \Bx_b } \),
 If the gradient is decomposed into its projection along the tangent
 space (the vector derivative) and its perpendicular components, only the vector derivative components of the
 gradient contribute to its dot product with the area element.  That is
-
 \begin{dmath}\label{eqn:surfaceintegral:460}
 d^2 \Bx \cdot \spacegrad
 =
@@ -242,7 +233,6 @@ d^2 \Bx \cdot \boldpartial.
 \end{dmath}
 
 This means that for a scalar function
-
 \begin{dmath}\label{eqn:surfaceintegral:480}
 \int_S d^2\Bx \boldpartial f
 =
@@ -250,7 +240,6 @@ This means that for a scalar function
 \end{dmath}
 
 The second part of the theorem follows by grade selection, and application of a duality transformation for the area element
-
 \begin{dmath}\label{eqn:surfaceintegral:500}
 d^2 \Bx \cdot \spacegrad f
 =
@@ -281,7 +270,6 @@ where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \)
 
 This follows by setting \( F = 1, G = \Bf \) in \cref{thm:surfaceintegral:100} and selecting the scalar grade.  In particular we may form the
 scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The first is
-
 \begin{dmath}\label{eqn:surfaceintegral:520}
 \gpgradezero{ d^2 \Bx \boldpartial \Bf }
 =
@@ -289,7 +277,6 @@ scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The f
 \end{dmath}
 
 The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only bivector and quad-vector components (the latter is zero in \R{3}), so its scalar grade selection is zero, and we are left with
-
 \begin{dmath}\label{eqn:surfaceintegral:540}
 \gpgradezero{ d^2 \Bx \boldpartial \Bf }
 =
@@ -298,7 +285,6 @@ The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only bivector a
 (d^2 \Bx \cdot \spacegrad) \cdot \Bf,
 \end{dmath}
 where we have used \cref{eqn:surfaceintegral:460} again.  This product can also be written as
-
 \begin{dmath}\label{eqn:surfaceintegral:560}
 (d^2 \Bx \cdot \spacegrad) \cdot \Bf
 =
@@ -323,7 +309,6 @@ d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }.
 \int_S d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf },
 \end{dmath}
 as claimed.  In particular in \R{3}, we have
-
 \begin{dmath}\label{eqn:surfaceintegral:600}
 d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf }
 =
@@ -377,7 +362,6 @@ du_1 du_2\, \sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\p
 With a bit of trouble, we will see that the second integrand is zero.  On the other hand, the first integrand
 simplifies
 without too much trouble
-
 \begin{dmath}\label{eqn:surfaceintegral:680}
 \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j
 =
@@ -403,7 +387,6 @@ For the second integrand, we have
 \end{dmath}
 
 We can apply the chain rule (backwards) to the portion in brackets to find
-
 \begin{dmath}\label{eqn:surfaceintegral:720}
 \Bx_1 \cdot (\partial_2 \Bx^j)
 -
@@ -427,7 +410,6 @@ In this reduction the derivatives of \( \Bx_i \cdot \Bx^j = \delta_{ij} \) were 
 
 Substituting these results into
 \cref{thm:surfaceintegral:500} we find
-
 \begin{dmath}\label{eqn:surfaceintegral:740}
 \ointclockwise_{\partial S} d\Bx \cdot \Bf
 =

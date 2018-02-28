@@ -7,7 +7,6 @@
 
 The operators in \cref{eqn:greensFunctionOverview:200}, and \cref{eqn:greensFunctionOverview:320} all have a similar linear structure.
 Abstracting that structure, all these problems have the form
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:340}
 \LL F(\Bx) = J(\Bx),
 \end{dmath}
@@ -23,7 +22,6 @@ F(\Bx, t) = \int G(\Bx, \Bx' ; t, t') J(\Bx', t') dV' dt' + F_0(\Bx, t),
 where \( F_0(\Bx, t) \) is any solution to the equivalent homogeneous equation \( \LL F_0 = 0 \), and \( G(\Bx, \Bx' ; t, t') \) is the Green's function (to be determined) associated with \cref{eqn:greensFunctionSolutions:340}.
 Operating on the presumed solution
 \cref{eqn:greensFunctionSolutions:360} with \( \LL \) yields
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:380}
 J(\Bx, t) = \LL F(\Bx, t) = \LL\lr{
 \int G(\Bx, \Bx' ; t, t') J(\Bx', t') dV' dt' + F_0(\Bx, t) }
@@ -31,7 +29,6 @@ J(\Bx, t) = \LL F(\Bx, t) = \LL\lr{
 \int \lr{ \LL G(\Bx, \Bx'; t, t') } J(\Bx', t') dV' dt',
 \end{dmath}
 which shows that we require the Green's function to have delta function semantics satisfying
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:400}
 \LL G(\Bx, \Bx' ; t, t') = \delta(\Bx - \Bx') \delta(t - t').
 \end{dmath}
@@ -50,7 +47,6 @@ The Green's functions for the spacetime gradient and the 1st order Helmholtz equ
 
 When the presumed solution is a superposition of only states in a bounded region
 then life gets a bit more interesting.  For instance, consider a problem for which the differential operator is a function of space only, with a presumed solution such as
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:200}
 F(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
 \end{dmath}
@@ -72,7 +68,6 @@ where \( \partial V \) is the boundary of the volume \( V \).
 } % theorem
 
 A straightforward, but perhaps inelligant way of proving this theorem is to expand the antisymmetric product in coordinates
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:260}
 F \spacegrad^2 G - G \spacegrad^2 F
 =
@@ -86,7 +81,6 @@ F \partial_k G - G \partial_k F
 \end{dmath}
 
 Since \( G \) is a scalar, the last two terms cancel, and we can integrate
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:280}
 \int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
 =
@@ -103,12 +97,10 @@ we know that
 \end{dmath}
 for any multivector \( Q \).
 Equating components gives
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:460}
 \int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
 \end{dmath}
 which can be substituted into \cref{eqn:greensFunctionSolutions:280} to find
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:480}
 \int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
 =
@@ -134,7 +126,6 @@ Given multivector functions \( F(\Bx'), G(\Bx, \Bx') \), and a gradient \( \spac
 } % lemma
 
 This follows directly from \cref{thm:fundamentalTheoremOfCalculus:1}
-
 \begin{dmath}\label{eqn:greensFunctionSolutions:440}
 \int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'
 =

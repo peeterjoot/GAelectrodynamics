@@ -9,20 +9,17 @@ Let's now compute the field due to a static charge or current density on a ring 
 \imageFigure{../figures/GAelectrodynamics/chargeAndCurrentOnRingFig1}{Field due to a circular distribution.}{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}{0.3}
 
 A static charge distribution on a ring at \( z = 0 \) has the form
-
 \begin{dmath}\label{eqn:ringField:20}
 \rho(\Bx) = \lambda \delta(z) \delta(r - R).
 \end{dmath}
 
 As always the current distribution is of the form \( \BJ = \Bv \rho \), and in this case the velocity is azimuthal \( \Bv = \Be_2 e^{i\phi}, i = \Be_{12} \).
 The total multivector current is
-
 \begin{dmath}\label{eqn:ringField:40}
 J = \inv{\epsilon} \lambda \delta(z) \delta(r - R) \lr{ 1 - \frac{\Bv}{c} }.
 \end{dmath}
 
 Let the point that we observe the field, and the integration variables be
-
 \begin{dmath}\label{eqn:ringField:60}
 \begin{aligned}
 \Bx &= z \Be_3 + r \rhocap \\
@@ -31,7 +28,6 @@ Let the point that we observe the field, and the integration variables be
 \end{dmath}
 
 The field is
-
 \begin{dmath}\label{eqn:ringField:80}
 F(\Bx)
 = \frac{\lambda}{4 \pi \epsilon} \iiint dz' r' dr' d\phi' \delta(z') \delta(r' - R) \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} }
@@ -40,7 +36,6 @@ F(\Bx)
 
 Without loss of generality, we can align the axes so that \( \rhocap = \Be_1 \), and
 introduce dimensionless variables
-
 \begin{dmath}\label{eqn:ringField:100}
 \begin{aligned}
 \tilde{z} &= z/R \\
@@ -62,7 +57,6 @@ In the denominator, the vector square expands as
 \tilde{r}^2 + 1 - 2 \tilde{r} \cos(\phi'),
 \end{dmath}
 and the grade selection in the numerator is
-
 \begin{dmath}\label{eqn:ringField:160}
 \begin{aligned}
 \gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'}}}{1,2}
@@ -74,7 +68,6 @@ and the grade selection in the numerator is
 
 Any of the exponential integrals terms
 are of the form
-
 \begin{dmath}\label{eqn:ringField:180}
 \int_0^{2\pi} d\phi' e^{i\phi'} f(\cos(\phi')) = \int_0^{2\pi} d\phi' \cos(\phi') f(\cos(\phi')),
 \end{dmath}
@@ -114,7 +107,6 @@ both tailing off quickly with \( z, \rho \), with largest values the ring.
 Finally, restoring generality by making the
 transformation \( \Be_1 \rightarrow \Be_1 e^{i \phi} = \rhocap, \Be_2 \rightarrow \Be_2 e^{i\phi} = \phicap \), the field is
 now fully determined
-
 \begin{dmath}\label{eqn:ringField:220}
 F
 =
@@ -128,7 +120,6 @@ F
 
 The field directions are nicely parameterized as multivector expresssions, with the relative weightings in different directions scaled by the position dependent integral coefficients of \cref{eqn:ringField:260}.
 The multivector field can be separated into its respective electric and magnetic components by inspection
-
 \begin{dmath}\label{eqn:ringField:240}
 \begin{aligned}
 \BE &=

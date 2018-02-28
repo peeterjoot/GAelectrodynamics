@@ -6,7 +6,6 @@
 
 In general the product of two k-vectors is a multivector, with a selection of different grades.
 For example, the product of two bivectors may have grades 0, 2, or 4
-
 \begin{dmath}\label{eqn:generalizedDot:601}
 \Be_{12} \lr{ \Be_{21} + \Be_{23} + \Be_{34} }
 =
@@ -15,7 +14,6 @@ For example, the product of two bivectors may have grades 0, 2, or 4
 
 Similarly,
 the product of a vector and bivector generally has grades 1 and 3
-
 \begin{dmath}\label{eqn:generalizedDot:621}
 \Be_1 \lr{ \Be_{12} + \Be_{23} }
 =
@@ -37,12 +35,10 @@ A \cdot B \equiv
 }
 
 If \( A, B \) are k-vectors with equal grade, then the dot product is just the scalar selection of their product
-
 \begin{dmath}\label{eqn:generalizedDot:580}
 A \cdot B = \gpgradezero{ A B },
 \end{dmath}
 and if \( A, B \) are a k-vectors with grades \( r \ne s \) respectively, then their dot product is a single grade selection
-
 \begin{dmath}\label{eqn:generalizedDot:581}
 A \cdot B = \gpgrade{ A B }{\Abs{r - s}}.
 \end{dmath}
@@ -50,7 +46,6 @@ A \cdot B = \gpgrade{ A B }{\Abs{r - s}}.
 \makeexample{Multivector dot products.}{example:generalizedDot:661}{
 
 The most common and useful multivector dot products are for pairs of multivectors that are each entirely a specific grade, such as a vector-bivector dot product
-
 \begin{dmath}\label{eqn:generalizedDot:681}
 \lr{ \Be_1 + 2 \Be_2 } \cdot \lr{ \Be_{12} + \Be_{23} }
 =
@@ -123,7 +118,6 @@ A \lfloor B &= \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i - j},
 \end{aligned}
 \end{equation*}
 where any selection of a negative grade is taken to be zero.  The scalar product is defined as
-
 \begin{equation*}
 A \conj B = \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{0}.
 \end{equation*}

@@ -7,13 +7,11 @@
 \paragraph{Example.  field of a cylindrical distribution.}
 
 Consider an electric multivector current distribution for static surface charge density \( \sigma \) and a current moving with constant (magnitude) current \( \Bv \) on a cylinder of radius \( R \)
-
 \begin{dmath}\label{eqn:cylinderField:20}
 J = \inv{\epsilon_0} \sigma \delta( r - R ) \lr{ 1 - \frac{\Bv}{c} }.
 \end{dmath}
 
 Using cylindrical coordinates for the field observation point \( \Bx \) and the volume integration point \( \Bx' \) have parameterization
-
 \begin{dmath}\label{eqn:cylinderField:40}
 \begin{aligned}
 \Bx &= z \Be_3 + r \rhocap \\
@@ -22,7 +20,6 @@ Using cylindrical coordinates for the field observation point \( \Bx \) and the 
 \end{dmath}
 where \( \rhocap = \Be_1 e^{i \phi} \), and \( \rhocap' = \Be_1 e^{i \phi'} \), and \( i = \Be_{12} \).
 The field is
-
 \begin{dmath}\label{eqn:cylinderField:60}
 F = \frac{\sigma}{4 \pi \epsilon_0}
 \int_{-\infty}^\infty dz' \int_0^\infty r' dr' \int d\phi' \frac{
@@ -31,14 +28,12 @@ F = \frac{\sigma}{4 \pi \epsilon_0}
 \end{dmath}
 where \( \Delta_r = r \rhocap - r' \rhocap' \).
 The z-axis integrals are of the form
-
 \begin{dmath}\label{eqn:cylinderField:80}
 \int_{-\infty}^\infty dz' \frac{ (1, z-z') }{ \lr{(z-z')^2 + a^2 }^{3/2}}
 =
 \lr{ \frac{2}{a^2} \sgn(z), 0 },
 \end{dmath}
 so the field is
-
 \begin{dmath}\label{eqn:cylinderField:100}
 F
 =
@@ -56,7 +51,6 @@ F
 \end{dmath}
 where \( \tilde{r} = r/R \).
 Let's consider two cases \( \Bv = v \Be_3 \), and \( \Bv(\phi') = v \phicap' = v \Be_2 e^{i\phi'} \).  This means there are three integrals of interest
-
 \begin{dmath}\label{eqn:cylinderField:120}
 \int_0^{2 \pi} d\phi' \frac{(1, e^{i\phi'}, e^{2 i\phi'})}{1 + a^2 - 2 a \cos(\phi-\phi')}.
 \end{dmath}

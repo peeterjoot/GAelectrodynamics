@@ -38,7 +38,6 @@ A three parameter curve, and the corresponding differentials with respect to tho
 \imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
 
 Given parameters \( u_1, u_2, u_3 \), we can denote the differentials along each of the parameterization directions as
-
 \begin{dmath}\label{eqn:volumeintegral:100}
 \begin{aligned}
 d\Bx_1 &= \PD{u_1}{\Bx} du_1 = \Bx_1 du_1 \\
@@ -48,7 +47,6 @@ d\Bx_3 &= \PD{u_3}{\Bx} du_3 = \Bx_3 du_3.
 \end{dmath}
 
 The trivector valued volume element for this parameterization is
-
 \begin{equation}\label{eqn:volumeintegral:120}
 d^3 \Bx
 =
@@ -60,7 +58,6 @@ d^3 u\, (\Bx_1 \wedge \Bx_2 \wedge \Bx_3),
 \end{equation}
 where \( d^3 u = du_1 du_2 du_3 \).
 The vector derivative, the projection of the gradient onto the volume at the point of integration (also called the tangent space), now has three components
-
 \begin{dmath}\label{eqn:volumeintegral:200}
 \boldpartial
 =
@@ -103,7 +100,6 @@ where \( \partial V \) is the boundary of the volume \( V \), and \( d^2 \Bx \) 
 } % theorem
 
 To see why this works, and define \( d^2 \Bx \) more precisely, we would first like to reduce the product of the volume element and the vector derivative
-
 \begin{dmath}\label{eqn:volumeintegral:300}
 d^3\Bx \boldpartial
 =
@@ -111,7 +107,6 @@ d^3 u\, \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \lr{ \Bx^1 \partial_1 + \Bx^2 \pa
 \end{dmath}
 
 Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this multivector product has only a vector grade.  That is
-
 \begin{dmath}\label{eqn:volumeintegral:320}
 \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^i
 =
@@ -130,7 +125,6 @@ for all \( \Bx^i \).  These products reduces to
 
 Inserting \cref{eqn:volumeintegral:1621}
 into the volume integral, we find
-
 \begin{dmath}\label{eqn:volumeintegral:380}
 \int_V F d^3\Bx \boldpartial G
 =
@@ -166,7 +160,6 @@ into the volume integral, we find
 We are able to pull out the partials because \( \Bx_i = \PDi{u_i}{\Bx}, \Bx_j = \PDi{u_j}{\Bx}\) are computed with the parameters \( u_k \) fixed for each \( i \ne j \ne k \).
 
 This leaves three perfect differentials, which can integrated separately, giving
-
 \begin{dmath}\label{eqn:volumeintegral:400}
 \int_V F d^3\Bx \boldpartial G
 =
@@ -196,7 +189,6 @@ it is possible to convince oneself that the two parameter integrands describe an
 
 We obtain the RHS of \cref{thm:volumeintegral:100} if we
 introduce a mnemonic for the bounding oriented surface of the volume
-
 \begin{dmath}\label{eqn:volumeintegral:1641}
 d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 + d\Bx_2 \wedge d\Bx_3 + d\Bx_3 \wedge d\Bx_1,
 \end{dmath}

@@ -3,7 +3,6 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 The GA formulation of Maxwell's equation has only been applied in media where it has been assumed throughout that linear constitutive relationships
-
 \begin{dmath}\label{eqn:inMatter:20}
 \begin{aligned}
 \BD &= \epsilon \BE \\
@@ -11,7 +10,6 @@ The GA formulation of Maxwell's equation has only been applied in media where it
 \end{aligned}
 \end{dmath}
 have been available.  Without such assumptions the GA formalism for Maxwell's equations cannot be written as a single equation with one multivector field, but requires two equations and two multivector fields.  The two multivector fields are
-
 \begin{dmath}\label{eqn:inMatter:40}
 \begin{aligned}
 F &= \BE + I c \BB \\
@@ -19,7 +17,6 @@ G &= \BD + \frac{I}{c} \BH,
 \end{aligned}
 \end{dmath}
 for which Maxwell's equations are
-
 \begin{dmath}\label{eqn:inMatter:60}
 \begin{aligned}
 \gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{0,1} &= \rho - \frac{\BJ}{c} \\
@@ -74,7 +71,6 @@ c I \spacegrad \cdot \BB.
 \end{subequations}
 
 After rearranging and cancelling common factors of \( c, I \) Maxwell's equations are recovered
-
 \begin{dmath}\label{eqn:inMatter:180}
 \begin{aligned}
 \spacegrad \cdot \BD &= \rho \\
@@ -85,7 +81,6 @@ After rearranging and cancelling common factors of \( c, I \) Maxwell's equation
 \end{dmath}
 
 One possible strategy for solving these equations is to impose an additional set of constraints on the grades in question
-
 \begin{dmath}\label{eqn:inMatter:200}
 \begin{aligned}
 \gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{2,3} &= 0 \\
@@ -93,7 +88,6 @@ One possible strategy for solving these equations is to impose an additional set
 \end{aligned}
 \end{dmath}
 so that all the grade selection filters can be cleared
-
 \begin{dmath}\label{eqn:inMatter:220}
 \begin{aligned}
 \lr{ \spacegrad + \inv{c} \PD{t}{} } G &= \rho - \frac{\BJ}{c} \\

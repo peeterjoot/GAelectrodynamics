@@ -32,7 +32,6 @@ Every engineer's toolbox includes Laplace and Fourier transform tricks for trans
 Here the space and time domain equivalent of the frequency and time domain linear system response function, called the Green's function, is introduced.
 
 Everybody's favorite differential equation, the harmonic oscillator, can be used as an illustrative example
-
 \begin{dmath}\label{eqn:greensIntro:300}
 x'' + k x' + (\omega_0)^2 x = f(t).
 \end{dmath}
@@ -52,12 +51,10 @@ where \( x_s(t) \) is a solution of \cref{eqn:greensIntro:300} and
 Let's attack this problem initially with Fourier transforms (\cref{dfn:greensFunctionOverview:280})
 
 We can assume zero position and velocity for the non-homogeneous problem, since we can adjust the boundary conditions with the homogeneous solution \( x_0(t) \).  With zero boundary conditions on \( x, x' \), the transform of \cref{eqn:greensIntro:300} is
-
 \begin{dmath}\label{eqn:greensIntro:320}
 ((-j \omega)^2 + j \omega + (\omega_0)^2) X(\omega) = F(\omega),
 \end{dmath}
 so the system is solved in the frequency domain by the system response function \( G(\omega) \)
-
 \begin{dmath}\label{eqn:greensIntro:340}
 X(\omega) = G(\omega) F(\omega),
 \end{dmath}
@@ -67,7 +64,6 @@ G(\omega) = -\inv{\omega^2 - j \omega - (\omega_0)^2}.
 \end{dmath}
 
 We can apply the inverse transformation to find the time domain solution for the forced oscillator problem.
-
 \begin{dmath}\label{eqn:greensIntro:380}
 x(t)
 = \int d\omega G(\omega) F(\omega) e^{j \omega t}
@@ -78,7 +74,6 @@ x(t)
 
 The frequency domain integral is the Green's function.
 We'll write this as
-
 \begin{dmath}\label{eqn:greensIntro:400}
 G(t,t') = \inv{2 \pi} \int d\omega G(\omega) e^{j \omega (t-t')}.
 \end{dmath}
@@ -95,13 +90,11 @@ An alternate way of viewing a linear systems problem is to assume that a convolu
 Since the equation is a linear, it is reasonable to assume that a linear weighted sum of all the forcing function values must contribute to the solution.
 If such a solution is assumed, then we can operate on that solution with the differential operator for the problem.
 For our harmonic oscillator problem that operator is
-
 \begin{dmath}\label{eqn:greensIntro:440}
 \LL = \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2.
 \end{dmath}
 
 We find
-
 \begin{dmath}\label{eqn:greensIntro:460}
 f(t)
 =

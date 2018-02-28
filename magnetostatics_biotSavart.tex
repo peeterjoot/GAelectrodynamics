@@ -6,14 +6,12 @@
 \index{Biot-Savart law}
 \index{Green's function!gradient}
 The magnetostatic Maxwell equation \cref{eqn:magnetostatics:380} can be inverted directly using the Green's function for the gradient
-
 \begin{dmath}\label{eqn:magnetostatics_biotSavart:40}
 I \BB(\Bx)
 = \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx').
 \end{dmath}
 
 This expansion can be simplified by inserting a no-op grade selection operation
-
 \begin{dmath}\label{eqn:magnetostatics_biotSavart:680}
 I \BB(\Bx)
 = \gpgradetwo{ \int_V dV' G(\Bx, \Bx') \spacegrad' I \BB(\Bx') }
@@ -28,7 +26,6 @@ I \BB(\Bx)
 
 This is the Biot-Savart law in its GA form.
 The traditional expression requires only a duality transformation \( \BJ \wedge \Bf = I ( \BJ \cross \Bf) \), or
-
 \begin{dmath}\label{eqn:magnetostatics_biotSavart:700}
 \BB(\Bx)
 = \frac{\mu}{4\pi} \int_V dV' \BJ(\Bx') \cross \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 }.
@@ -38,7 +35,6 @@ The freedom to insert a no-op bivector grade selection may seem like a sneaky mo
 To remove doubt about the validity of this move, here is a demonstration that
 the scalar grade discarded by the grade selection operation on the integrand of \cref{eqn:magnetostatics_biotSavart:680} is explicitly zero,
 provided the current density vanishes faster than \( r \) on the infinite sphere.
-
 \begin{dmath}\label{eqn:magnetostatics_biotSavart:60}
  \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
 = \frac{\mu}{4\pi} \int_V dV' \lr{ \spacegrad \inv{ \Abs{\Bx - \Bx'} }} \cdot \BJ(\Bx')
@@ -52,7 +48,6 @@ provided the current density vanishes faster than \( r \) on the infinite sphere
 
 By \cref{eqn:magnetostatics:460}, the divergence of the current density is zero, which kills the second term.
 The divergence theorem can be used to express the remaining integral as a surface integral, so
-
 \begin{dmath}\label{eqn:magnetostatics_biotSavart:100}
  \int_V dV' \frac{\Bx - \Bx'}{ \Abs{\Bx - \Bx'}^3 } \cdot \BJ(\Bx')
 =  \int_V dV' \spacegrad' \cdot \frac{\BJ(\Bx')}{ \Abs{\Bx - \Bx'} }

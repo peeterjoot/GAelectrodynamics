@@ -4,7 +4,6 @@
 %
 %original ideas from gabookII/electrodynamics/transverseField.tex:
 Under source free conditions, Maxwell's equation in GA form is
-
 \begin{equation}\label{eqn:transverseField:2}
 \begin{aligned}
 F &= \BE + I \eta \BH \\
@@ -14,31 +13,26 @@ F &= \BE + I \eta \BH \\
 
 Maxwell's equation allows for components of the electric and magnetic field along the propagation direction and the transverse plane, however, it is possible to relate the transverse and propagating field components.
 Assume that the propagation direction is along the z-axis (either forward or backwards), with angular frequency \( \omega \), with the field represented by the real part of
-
 \begin{dmath}\label{eqn:transverseField:28}
 F(x, y, z, t) = F(x, y) e^{j \omega t \mp j k z}.
 \end{dmath}
 
 We split the gradient into transverse and \(z\)-axis components
-
 \begin{dmath}\label{eqn:transverseField:88}
 \spacegrad = \spacegrad_t + \Be_3 \partial_z,
 \end{dmath}
 so that Maxwell's equation becomes
-
 \begin{equation}\label{eqn:transverseField:summaryMax2}
 \lr{\spacegrad_t + j \lr{ \frac{\omega}{c} \mp k \Be_3 } } F(x,y) = 0.
 \end{equation}
 
 With \( F = F(x, y) \)
-
 \begin{dmath}\label{eqn:transverseField:148}
 \spacegrad_t F = - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F.
 \end{dmath}
 
 We require a way to expressing the components of the field that lie in the propagation direction and transverse planes.
 Let the propagation component be designated \( F_z \) so that
-
 \begin{dmath}\label{eqn:transverseField:108}
 F_z
 =
@@ -56,7 +50,6 @@ F_z
 + \inv{2} I \eta \lr{ \BH + \Be_3 \BH \Be_3 },
 \end{dmath}
 showing that the propagation component \( F_z \) and transverse components \( F_t = F - F_z \) of the total field are
-
 \begin{dmath}\label{eqn:transverseField:128}
 \begin{aligned}
 F_z &= \inv{2} \lr{ F + \Be_3 F \Be_3 } \\
@@ -65,14 +58,12 @@ F_t &= \inv{2} \lr{ F - \Be_3 F \Be_3 }.
 \end{dmath}
 
 Since \( \spacegrad_t \) has no \( \xcap, \ycap \) components, \( \Be_3 \) anticommutes with the transverse gradient
-
 \begin{dmath}\label{eqn:transverseField:168}
 \Be_3 \spacegrad_t = - \spacegrad_t \Be_3,
 \end{dmath}
 but commutes with \( 1 \mp \Be_3 \).
 %In \cref{eqn:transverseField:168} it is implied that the action of \( \spacegrad_t \) is on everything to its right.
 This means that
-
 \begin{dmath}\label{eqn:transverseField:188}
 \inv{2} \lr{ \spacegrad_t F \pm \Be_3 \lr{ \spacegrad_t F } \Be_3 }
 =
@@ -89,7 +80,6 @@ or
 \end{aligned}
 \end{dmath}
 so Maxwell's equation \cref{eqn:transverseField:148} becomes
-
 \begin{dmath}\label{eqn:transverseField:228}
 \begin{aligned}
 \spacegrad_t F_t &= - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F_z \\
@@ -110,7 +100,6 @@ F_t &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } 
 
 The relation for \( F_t \) in \cref{eqn:transverseField:248} is usually stated in terms of the electric and magnetic fields.
 To compute that split we need to expand most of the terms in the numerator
-
 \begin{dmath}\label{eqn:transverseField:268}
 \lr{ \frac{\omega}{c} \pm k \Be_3 } \spacegrad_t F_z
 =

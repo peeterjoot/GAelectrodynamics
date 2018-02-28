@@ -23,7 +23,6 @@ We will borrow the upper and lower index (tensor) notation from relativistic phy
 \index{reciprocal frame}
 \makedefinition{Reciprocal frame}{dfn:reciprocal:frame}{
 Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where the vectors \( \Bx_i \) are not necessarily orthonormal, the reciprocal frame is defined as the set of vectors \( \setlr{ \Bx^1, \Bx^2, \cdots \Bx^n } \) satisfying
-
 \begin{dmath*}
 \Bx_i \cdot \Bx^j = {\delta_i}^j,
 \end{dmath*}
@@ -33,7 +32,6 @@ where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a supers
 Note that any orthonormal basis is also its reciprocal basis.
 
 The definition above introduces mixed index variables for the first time in this text, which may be unfamiliar.  These are most often used in tensor algebra, where any expression that has pairs of upper and lower indexes implies a sum, and is called the summation (or Einstein) convention.  For example:
-
 \begin{dmath}\label{eqn:reciprocal:400}
 \begin{aligned}
 a_i b^i &\equiv \sum_i a_i b^i \\
@@ -53,7 +51,6 @@ where \( j \) in \( a^j \) is an index not a power\footnote{In tensor algebra, a
 \( a^k b_{ik} \).  These index tracking conventions are obvious when summation symbols are included explicitly, as we will do.}.
 
 Dotting with the reciprocal frame vectors \( \Bx^i \) provides these coordinates \( a^i \)
-
 \begin{dmath}\label{eqn:reciprocal:40}
 \Ba \cdot \Bx^i
 = \lr{\sum_j a^j \Bx_j} \cdot \Bx^i
@@ -62,13 +59,11 @@ Dotting with the reciprocal frame vectors \( \Bx^i \) provides these coordinates
 \end{dmath}
 
 The vector can also be expressed with coordinates taken with respect to the reciprocal frame.  Let those coordinates be \( a_i \), so that
-
 \begin{dmath}\label{eqn:reciprocal:60}
 \Ba = \sum_i a_i \Bx^i.
 \end{dmath}
 
 Dotting with the basis vectors \( \Bx_i \) provides the reciprocal frame relative coordinates \( a_i \)
-
 \begin{dmath}\label{eqn:reciprocal:80}
 \Ba \cdot \Bx_i
 = \lr{\sum_j a_j \Bx^j} \cdot \Bx_i
@@ -77,7 +72,6 @@ Dotting with the basis vectors \( \Bx_i \) provides the reciprocal frame relativ
 \end{dmath}
 
 We can summarize \cref{eqn:reciprocal:40} and \cref{eqn:reciprocal:80} by stating that a vector can be expressed in terms of coordinates relative to either the original or reciprocal basis as follows
-
 \begin{equation}\label{eqn:reciprocal:420}
 \Ba
 = \sum_j \lr{ \Ba \cdot \Bx^j } \Bx_j

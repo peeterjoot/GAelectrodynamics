@@ -16,7 +16,6 @@ rotation direction dependant on the order of multiplication.
 {Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.5}
 
 Using a polar vector representation
-
 \begin{dmath}\label{eqn:2dRotations:280}
    \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
 \end{dmath}
@@ -25,7 +24,6 @@ unit pseudoscalar multiplication of an arbitrary vector will induce a \( \pi/2 \
 \index{pseudoscalar}
 
 Multiplying the vector from the right by the pseudoscalar gives
-
 \begin{dmath}\label{eqn:2dRotations:300}
 \Bx i
 = \Bx \Be_1 \Be_2
@@ -34,7 +32,6 @@ Multiplying the vector from the right by the pseudoscalar gives
 \end{dmath}
 a counterclockwise rotation of \( \pi/2 \) radians, and
 multiplying the vector by the pseudoscalar from the left gives
-
 \begin{dmath}\label{eqn:2dRotations:3}
 i \Bx
 = \Be_1 \Be_2 \Bx
@@ -53,7 +50,6 @@ In complex number theory the complex exponential \( e^{i\theta} \) can be used a
 Geometric algebra puts this rotation operator into the vector algebra toolbox, by utilizing
 Euler's formula
 \index{Euler's formula}
-
 \begin{dmath}\label{eqn:2dRotations:1140}
 e^{i\theta} = \cos\theta + i \sin\theta,
 \end{dmath}
@@ -61,7 +57,6 @@ which holds for this pseudoscalar imaginary representation too (\cref{problem:2d
 \index{complex exponential}
 By writing \( \Be_2 = \Be_1 \Be_1 \Be_2 \),
 a complex exponential can be factored directly out of the polar vector representation \cref{eqn:2dRotations:280}
-
 \begin{dmath}\label{eqn:2dRotations:940}
 \Bx
 =
@@ -78,7 +73,6 @@ a complex exponential can be factored directly out of the polar vector represent
 
 We end up with a complex exponential multivector factor on the right.
 Alternatively, since \( \Be_2 = \Be_2 \Be_1 \Be_1 \), a complex exponential can be factored out on the left
-
 \begin{dmath}\label{eqn:2dRotations:960}
 \Bx
 =
@@ -94,7 +88,6 @@ Alternatively, since \( \Be_2 = \Be_2 \Be_1 \Be_1 \), a complex exponential can 
 \end{dmath}
 
 Left and right exponential expressions have now been found for the polar representation
-
 \begin{equation}\label{eqn:2dRotations:1120}
 \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
 = \rho e^{-i\theta} \Be_1 = \rho \Be_1 e^{i\theta}.
@@ -107,7 +100,6 @@ illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 
 This generalizes to rotations of \R{N} vectors constrained to a plane.
 Given orthonormal vectors \( \ucap, \vcap \) and any vector in the plane of these two vectors (\( \Bx \in \Span\setlr{\ucap,\vcap} \)), this vector is rotated \( \theta \) radians in the direction of rotation that takes \( \ucap \) to \( \vcap \) by
-
 \begin{equation}\label{eqn:2dRotations:1160}
 \Bx' = \Bx e^{ \ucap \vcap \theta } = e^{-\ucap \vcap \theta} \Bx.
 \end{equation}
@@ -117,15 +109,12 @@ The sense of rotation for the rotation \( e^{ \ucap \vcap \theta} \) is opposite
 \makeexample{Velocity and acceleration in polar coordinates.}{example:2dRotations:1180}{
 Complex exponential representations of rotations work very nicely for describing vectors in polar coordinates.
 A radial vector can be written as
-
 \begin{dmath}\label{eqn:2dRotations:1200}
 \Br = r \rcap,
 \end{dmath}
 as illustrated in \cref{fig:radialVectorCylindrical:radialVectorCylindricalFig1}.
 The polar representation of the radial and azimuthal unit vector are simply
-
 \imageFigure{../figures/GAelectrodynamics/radialVectorCylindricalFig1}{Radial vector in polar coordinates.}{fig:radialVectorCylindrical:radialVectorCylindricalFig1}{0.3}
-
 \begin{dmath}\label{eqn:2dRotations:1220}
 \begin{aligned}
 \rcap &= \Be_1 e^{i\theta} =
@@ -135,7 +124,6 @@ The polar representation of the radial and azimuthal unit vector are simply
 \end{aligned}
 \end{dmath}
 where \( i = \Be_{12} \) is the unit bivector for the x-y plane.  We can show that these unit vectors are orthogonal easily
-
 \begin{dmath}\label{eqn:2dRotations:1340}
 \rcap \cdot \thetacap
 = \gpgradezero{ \rcap \thetacap }
@@ -161,12 +149,10 @@ but to make these more meaningful want to evaluate the \( \rcap, \thetacap \) de
 \end{aligned}
 \end{equation}
 where \( \omega = d\theta/dt \).  The velocity and acceleration vectors can now be written explicitly in terms of radial and azimuthal components.  The velocity is
-
 \begin{dmath}\label{eqn:2dRotations:1280}
 \Bv = r' \rcap + r \omega \thetacap,
 \end{dmath}
 and the acceleration is
-
 \begin{dmath}\label{eqn:2dRotations:1300}
 \Ba
 = r'' \rcap + 2 r' \omega \thetacap + r (\omega \thetacap)'
@@ -180,7 +166,6 @@ or
 \end{dmath}
 
 Using \cref{eqn:2dRotations:1220}, we also have the option of factoring out the rotation operation from the position vector or any of its derivatives
-
 \begin{dmath}\label{eqn:2dRotations:1360}
 \begin{aligned}
 \Br &= \lr{ r \Be_1 } e^{i \theta } \\
@@ -212,7 +197,6 @@ e^x &= \sum_{k = 0}^\infty \frac{x^k}{k!} \\
 
 \makesubproblem{}{problem:2dRotations:Euler:a}
 Show that for scalar \( \theta \), and any multivector \( J \) that satisfies \( J^2 = -1 \)
-
 \begin{equation*}
 \begin{aligned}
 \cosh (J \theta ) &= \cos \theta \\

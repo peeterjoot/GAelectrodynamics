@@ -21,7 +21,6 @@ We've found solutions for a number of static charge and current distributions.
 \end{enumerate}
 
 In all cases the field has the form \( F = A ( 1 - \Bv/c ) \), where \( A \) is either a vector or a bivector that anticommutes with the current velocity \( \Bv \), so the energy-momentum tensor \( T(1) \) has the form
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:860}
 T(1)
 = \frac{\epsilon}{2} A ( 1 - \Bv/c )^2 A^\dagger
@@ -64,7 +63,6 @@ Let's do this calculation for each of the fields above in turn to illustrate.
 \paragraph{(a):}
 
 To calculate \( T(\Be_3) \) we can reduce the following products
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:960}
 F \Be_3 F^\dagger
 =
@@ -80,7 +78,6 @@ E^2 \rhocap \lr{ 1 - \Bv/c} \Be_3 \lr{1 - \Bv/c} \rhocap
 \end{dmath}
 
 Since
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:980}
 T(\Be_k)
 = - \frac{\BS}{c} \cdot \Be_k + \BT(\Be_k).
@@ -94,7 +91,6 @@ This means that \( \BS \cdot \Be_3 = \epsilon E^2 v \), as already found.  The v
 
 This component of the stress tensor is aligned along the same axis as the velocity.
 Calculation of the other stress tensor components is easiest in cylindrical coordinates.  Along the radial direction
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1020}
 \begin{aligned}
 \rhocap \lr{ 1 - \Bv/c } \rhocap \lr{1 - \Bv/c} \rhocap
@@ -104,7 +100,6 @@ Calculation of the other stress tensor components is easiest in cylindrical coor
 \end{aligned}
 \end{dmath}
 and along the azimuthal direction
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1100}
 \begin{aligned}
 \rhocap \lr{ 1 - \Bv/c } \thetacap \lr{1 - \Bv/c} \rhocap
@@ -120,7 +115,6 @@ and along the azimuthal direction
 Since \( T(\Ba) \) is a linear operator for any vector parameters \( \Ba \), it cannot have any grade zero component along any directions \( \Be \cdot \Be_3 = 0 \).
 No grade zero component of \( T(\Be_1), T(\Be_2) \) implies that the Poynting vector is zero along the \( \Be_1 \) and \( \Be_2 \) directions respectively, as we saw above in
 \cref{eqn:poyntingStaticExamples:900}.
-
 %\begin{dmath}\label{eqn:poyntingStaticExamples:1120}
 %\rhocap \rhocap \rhocap = \rhocap
 %\rhocap \thetacap \rhocap = -\thetacap
@@ -143,7 +137,6 @@ No grade zero component of \( T(\Be_1), T(\Be_2) \) implies that the Poynting ve
 %\end{dmath}
 
 In summary
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1080}
 \begin{aligned}
 \BT(\rhocap) &= \frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \rhocap \\
@@ -157,12 +150,10 @@ In summary
 For this field that \( \BT(\rhocap) \) is entirely radial, whereas \( \BT(\thetacap) \) is entirely azimuthal.
 
 In terms of an arbitrary vector in cylindrical coordinates
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1200}
 \Ba = a_\rho \rhocap + a_\theta \thetacap + a_z \Be_3,
 \end{dmath}
 the grade one component of the tensor is
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1140}
 \BT(\Ba) =
 \frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \lr{ a_\rho \rhocap - a_\theta \thetacap }
@@ -172,7 +163,6 @@ the grade one component of the tensor is
 \paragraph{(b):}
 
 For \( F = \eta H I \rhocap \lr{ 1 - \Bv/c } \), and \( \Bv = v \Be_3 \) we have
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1160}
 F \Ba F^\dagger
 =
@@ -184,7 +174,6 @@ F \Ba F^\dagger
 We can write the tensor components immediately, since
 \cref{eqn:poyntingStaticExamples:1160}
 has exactly the same structure as the tensor components computed in part (a) above.  That is
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1180}
 \BT(\Ba) =
 \frac{\mu}{2} H^2 \lr{1 -\Bv^2/c^2} \lr{ a_\rho \rhocap - a_\theta \thetacap }
@@ -194,14 +183,12 @@ has exactly the same structure as the tensor components computed in part (a) abo
 \paragraph{(c):}
 
 For \( F = E \Be_3 \lr{ 1 - \Bv/c } \), and \( \Bv = v \rhocap \), we have
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1220}
 F \Ba F^\dagger
 =
 E^2 \Be_3 \lr{ 1 - (v/c) \rhocap } \Ba \lr{ 1 - (v/c) \rhocap } \Be_3,
 \end{dmath}
 so we need the following grade selections
-
 \begin{equation}\label{eqn:poyntingStaticExamples:1260}
 \begin{aligned}
 \gpgradeone{ \Be_3 \lr{ 1 - (v/c) \rhocap } \rhocap \lr{ 1 - (v/c) \rhocap } \Be_3 }
@@ -240,7 +227,6 @@ So the Maxwell stress tensor components of interest are
 \paragraph{(d):}
 
 For \( F = \eta H i \lr{ 1 - \Bv/c }, i = \Be_{12} \), and \( \Bv = v \rhocap \), we can use a duality transformation for the unit bivector \( i \)
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1340}
 F = \eta H I \Be_3 \lr{ 1 - \Bv/c },
 \end{dmath}
@@ -250,7 +236,6 @@ F \Ba F^\dagger = \eta^2 H^2 \Be_3 \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \Be_3.
 \end{dmath}
 
 \Cref{eqn:poyntingStaticExamples:1360} has the structure found in part (c) above, so
-
 \begin{dmath}\label{eqn:poyntingStaticExamples:1380}
 \BT(\Ba)
 =
@@ -258,5 +243,3 @@ F \Ba F^\dagger = \eta^2 H^2 \Be_3 \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \Be_3.
 +
 \frac{\mu}{2} H^2 \lr{ 1 - (\Bv^2/c^2) } \lr{ a_z \Be_3 - a_\theta \thetacap }.
 \end{dmath}
-
-

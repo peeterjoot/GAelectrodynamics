@@ -8,23 +8,19 @@
 \index{Green's function!gradient representation}
 
 We will see that the GA formulation of the statics equations (no time dependence), all have the form
-
 \begin{dmath}\label{eqn:greensFunctionGradient:420}
 \spacegrad F(\Bx) = J(\Bx),
 \end{dmath}
 where \( F, J \) are multivector fields and sources respectively.  We can assume an unbounded superposition solution
-
 \begin{dmath}\label{eqn:greensFunctionGradient:440}
 F(\Bx) = \int G(\Bx, \Bx') J(\Bx') dV' + F_0(\Bx),
 \end{dmath}
 where \( F_0 \) is any solution to the homogeneous gradient equation \( \spacegrad F_0 = 0 \), and operate on this presumed solution with the gradient to find
-
 \begin{dmath}\label{eqn:greensFunctionGradient:460}
 J(\Bx)
 = \int \spacegrad G(\Bx, \Bx') J(\Bx') dV',
 \end{dmath}
 so the Green's function \( G \) for this system must satisfy
-
 \begin{dmath}\label{eqn:greensFunctionGradient:480}
 \spacegrad G(\Bx, \Bx') = \delta( \Bx - \Bx' ).
 \end{dmath}
@@ -42,13 +38,11 @@ At points \( \Bx \ne \Bx' \), \( \spacegrad \wedge G = 0 \), or
 
 To prove this, observe that we know the Laplacian representation of the delta function, so
 the Green's function for the gradient can be written as
-
 \begin{equation}\label{eqn:greensFunctionGradient:481}
 \spacegrad G(\Bx, \Bx') = \delta( \Bx - \Bx' ) = \spacegrad^2 \lr{ -\inv{4\pi} \inv{ \Norm{\Bx - \Bx'} } }.
 \end{equation}
 
 GA provides us the rather beautiful and remarkable ability to factor the Laplacian in to a product of gradients \( \spacegrad^2 = \spacegrad \spacegrad \), so the gradient's Green's function is
-
 \begin{dmath}\label{eqn:greensFunctionGradient:580}
 G(\Bx, \Bx')
 = \spacegrad \lr{ -\inv{4\pi} \inv{ \Norm{\Bx - \Bx'} } }
@@ -61,7 +55,6 @@ G(\Bx, \Bx')
 = \frac{\rcap}{4 \pi r^2},
 \end{dmath}
 as claimed.  To show that the Green's function commutes with the gradient at points \( \Bx \ne \Bx' \) we can compute the (bivector) curl
-
 \begin{dmath}\label{eqn:greensFunctionGradient:620}
 \spacegrad \wedge \frac{\Br}{r^3}
 =
@@ -86,7 +79,6 @@ This last sum is zero since it is the symmetric sum of an antisymmetric quantity
 We can determine the structure of an unbounded superposition solution through application of
 %the fundamental theorem of geometric calculus
 \cref{thm:fundamentalTheoremOfCalculus:1}
-
 \begin{dmath}\label{eqn:greensFunctionGradient:500}
 \int_V G(\Bx, \Bx') \lrspacegrad' F(\Bx') dV'
 =
@@ -100,7 +92,6 @@ We can determine the structure of an unbounded superposition solution through ap
 As with the Helmholtz equation, we can presuming that the Green's function of
 \cref{thm:gradientGreensFunctionEuclidean:1}
 for the unbounded superposition solution also applies here.  Since
-
 \begin{dmath}\label{eqn:greensFunctionGradient:520}
 G(\Bx, \Bx') \lspacegrad'
 =

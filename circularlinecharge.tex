@@ -33,7 +33,6 @@ Using the GA spherical parameterization of \cref{eqn:curvilinearspherical:40}, a
 %
 %The bivector \( j \) is a function of the azimuthal angle \( \phi \), but encodes all the geometry of the rotation.
 observation point now has the simple representation
-
 \begin{dmath}\label{eqn:circularlinecharge:60}
 \Bx = R \Be_3 e^{j \theta },
 \end{dmath}
@@ -41,7 +40,6 @@ and is the product of a polar directed vector with a complex exponential whos ar
 The bivector \( j \) is a function of the azimuthal angle \( \phi \), and encodes all the geometry of the rotation.
 To sum the contributions of the charge elements we need the distance between the charge element and the observation point.
 That vector difference is
-
 \begin{dmath}\label{eqn:circularlinecharge:80}
 \Bx - \Bx'
 =
@@ -49,7 +47,6 @@ R \Be_3 e^{j \theta } - r \Be_1 e^{i \phi'}.
 \end{dmath}
 
 Compare this to the tuple representation
-
 \begin{dmath}\label{eqn:circularlinecharge:100}
 \Bx - \Bx'
 = ( R \sin\theta \cos\phi - r \cos\phi', R \sin\theta \sin\phi - r \cos\phi', \cos\theta ),
@@ -63,7 +60,6 @@ R^2 + r^2 - 2 R r \lr{\Be_3 e^{j \theta} } \cdot \lr{ \Be_1 e^{i \phi'} }.
 \end{dmath}
 
 The dot product of unit vectors in \cref{eqn:circularlinecharge:120} can be reduced using scalar grade selection
-
 \begin{dmath}\label{eqn:circularlinecharge:140}
 \lr{\Be_3 e^{j \theta }} \cdot \lr{ \Be_1 e^{i \phi'} }
 =
@@ -93,7 +89,6 @@ The electric field is
 \end{dmath}
 
 Non-dimensionalizing \cref{eqn:circularlinecharge:180} with \( u = r/R \), a change of variables \( \alpha = \phi' - \phi \), and noting that \( i \phicap = \Be_1 e^{i \phi} \), the field is
-
 \begin{dmath}\label{eqn:circularlinecharge:200}
 \BE
 = \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \Be_3 e^{j \theta } - u \Be_1 e^{i\phi} e^{i \alpha} }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
