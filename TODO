@@ -1,6 +1,3 @@
-- Remove newlines between \end{equation,dmath} that have commas or logically continue.  done this up to page 22 of the current draft.
-
-  search for these systematically.
 
 - Mo suggested 'is' instead of 'can be' in the bivector definition.  I use 'can be' many times, and 
   something more definitive might be better.

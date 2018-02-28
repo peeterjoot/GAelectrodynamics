@@ -154,8 +154,8 @@ perl -p -i ../latex/bin/latexRegex.pl curvilinearDefined.tex
 #../latex/bin/lgrep multiplication.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl multiplication.tex
 
-#../latex/bin/lgrep multivector.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl multivector.tex
+../latex/bin/lgrep multivector.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl multivector.tex
 
 #../latex/bin/lgrep multivector_nomenclature.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl multivector_nomenclature.tex
