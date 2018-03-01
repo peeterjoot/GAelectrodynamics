@@ -15,9 +15,9 @@ SOURCE_DIRS += $(FIGURES)
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
 PRIMARY_SOURCES += FrontBackmatter/preface.tex
 
-#GENERATED_SOURCES += matlab.tex 
-#GENERATED_SOURCES += mathematica.tex 
-#GENERATED_SOURCES += julia.tex 
+#GENERATED_SOURCES += matlab.tex
+GENERATED_SOURCES += mathematica.tex
+#GENERATED_SOURCES += julia.tex
 
 EPS_FILES := $(wildcard $(FIGURES)/*.eps)
 PDFS_FROM_EPS := $(subst eps,pdf,$(EPS_FILES))
