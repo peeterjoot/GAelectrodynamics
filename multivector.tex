@@ -64,7 +64,7 @@ illustrated in
 \paragraph{Bivector.}
 
 We now wish to define a bivector, or 2-vector, as a 2 dimensional object representing a signed plane segment with magnitude and orientation.  Formally,
-assuming a vector product, with properties to be defined, a bivector is algebraically described as
+assuming a vector product, the algebraic description of a bivector is
 
 \makedefinition{Bivector.}{dfn:multivector:60}{
 A bivector, or 2-vector, is a sum of products of pairs of normal vectors.
@@ -81,14 +81,14 @@ The bivector provides a structure that can encode plane oriented quantities such
 A quantity like angular momentum can be represented as a magnitude times a quantity that represents the orientation of the plane of rotation.
 In conventional vector algebra we use the normal of the plane to describe this orientation, but that is problematic in higher dimensional spaces where there is no unique normal.
 Use of the normal to represent a plane is also logically problematic in two dimensional spaces, which have to be extended to three dimensions to use normal centric constructs like the cross product.
-A bivector representation of a plane can eliminate the requirement utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts (like the cross product) to be generalized to dimensions higher than three when desirable.
+A bivector representation of a plane can eliminate the requirement utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts (like the cross product) to be generalized to dimensions other than three when desirable.
 
 One of the implications of the contraction axiom \cref{eqn:multivector:120}, to be discussed in more detail a bit later, is a linear dependence between bivectors formed from normal products.  For example, given any pair of unit bivectors, where \( i \ne j \) we have
-\begin{dmath}\label{eqn:multivector:n}
+\begin{dmath}\label{eqn:multivector:140}
 \Be_i \Be_j + \Be_j \Be_i = 0,
 \end{dmath}
-This is why the sum in \cref{dfn:multivector:60} was over only half the possible pairs of \( i \ne j \) indexes.   
-The reader can check that the set of all bivectors is a vector space per 
+This is why the sum in \cref{dfn:multivector:60} was over only half the possible pairs of \( i \ne j \) indexes.
+The reader can check that the set of all bivectors is a vector space per
 \cref{def:prerequisites:vectorspace}, so we will call the set of all bivectors a bivector space.
 In \R{2} a basis for the bivector space is \( \setlr{ \Be_1 \Be_2 } \), whereas in \R{3} a basis for the bivector space is
 \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 } \).  The unit bivectors for two possible \R{3} bivector space bases are illustrated in
@@ -101,7 +101,7 @@ In \R{2} a basis for the bivector space is \( \setlr{ \Be_1 \Be_2 } \), whereas 
 {scale=0.35}
 
 We interpret the sign of a vector as an indication of the sense of the vector's ``head'' vs ``tail''.
-For a bivector, we can interpret the sign as a representation of a 
+For a bivector, we can interpret the sign as a representation of a
 a ``top'' vs. ``bottom'', or equivalently a left or right ``handedness'', as illustrated using arrows around a plane segment in
 \cref{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}.
 \imageFigure{../figures/GAelectrodynamics/circularBivectorsIn3DFig1}{Circular representation of two bivectors.}{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}{0.3}
@@ -109,18 +109,28 @@ For a product like \( \Be_1 \Be_2 \), the sense of the handedness follows the pa
 This is illustrated for all the unit bivectors in \cref{fig:unitBivectors:unitBivectorsFig}.
 In \R{3} we can use the right hand rule to visualize such a handedness.  You could say that we are using the direction of the fingers around the normal to indicate the sign of the bivector, but without actually drawing that normal.
 
-Other than having a boundary that defines the total area, a graphical bivector representation as a plane segment need not have any specific geometry.
-FIXME: figure.
+Similar to the interpretation of the magnitude of a vector as the length of that vector, we interpret the magnitude of a bivector (to be defined more exactly later), as the area of the bivector.
+Other than having a boundary that surrounds a given area, a graphical bivector representation as a plane segment need not have any specific geometry, which is illustrated in
+\cref{fig:bivectorRepresentationsInPlane:bivectorRepresentationsInPlaneFig1} for a set of bivectors all representing \( \Be_1 \Be_2 \).
+\imageFigure{../figures/GAelectrodynamics/bivectorRepresentationsInPlaneFig1}{Graphical representations of \( \Be_1 \Be_2 \).}{fig:bivectorRepresentationsInPlane:bivectorRepresentationsInPlaneFig1}{0.3}
 
 An oriented plane segment can always be represented as a bivector in any number of dimensions, however, when the generating vector space has dimension \( N \ge 4 \) not all bivectors defined by \cref{dfn:multivector:60} necessarily represent oriented plane segments.
 The restrictions required for a bivector to have an associated oriented plane segment interpretation in higher dimensional spaces will be defined later.
 
-\paragraph{FIXME: have addressed Mo's initial review comments up to this point.}
-
-With vectors, addition is performed by connecting vectors head to tail, which maintains the orientation.
-The same can be done with bivectors, where the bivectors are also connected with compatible orientation to construct a sum.
-This is illustrated graphically in \cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig1}, where a blue bivector with a right handed orientation is added to a red bivector with right handed orientation, to form a green bivector also with right handed orientation, where all orientations are with respect to the exterior of the bounding surface formed by the three bivectors.
-\imageFigure{../figures/GAelectrodynamics/AdditionOfBivectorsFig1}{Bivector addition.}{fig:AdditionOfBivectors:AdditionOfBivectorsFig1}{0.3}
+Vector addition can be performed graphically by connecting vectors head to tail, and joining the first tail to the last head.  A similar procedure can be used for bivector addition as well, but gets complicated if the bivectors lie in different planes.  Here is a simple bivector sum
+\begin{dmath}\label{eqn:multivector:160}
+3 \Be_1 \Be_2 - 2 \Be_1 \Be_2 + 5 \Be_1 \Be_2 = 6 \Be_1 \Be_2,
+\end{dmath}
+which can be interpretted as taking a 3 unit area, subtracting a 2 unit area, and adding a 5 unit area.  This sum is illustrated in
+\cref{fig:bivectorAdditionInPlane:bivectorAdditionInPlaneFig1}.
+An visualization of arbitrarily oriented bivector addition can be found in
+\cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}, where \( \text{blue} + \text{red} = \text{green} \).  This visualization shows that the
+moral of the story is that we will almost exclusively be adding bivectors algebraically, but can interpret the sum geometrically after the fact.
+\imageFigure{../figures/GAelectrodynamics/bivectorAdditionInPlaneFig1}{Graphical representation of bivector addition in plane.}{fig:bivectorAdditionInPlane:bivectorAdditionInPlaneFig1}{0.2}
+\imageFigure{../figures/GAelectrodynamics/AdditionOfBivectorsFig2}{Bivector addition.}{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}{0.3}
+%The same can be done with bivectors, where the bivectors are also connected with compatible orientation to construct a sum.
+%This is illustrated graphically in \cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig1}, where a blue bivector with a right handed orientation is added to a red bivector with right handed orientation, to form a green bivector also with right handed orientation, where all orientations are with respect to the exterior of the bounding surface formed by the three bivectors.
+%\imageFigure{../figures/GAelectrodynamics/AdditionOfBivectorsFig1}{Bivector addition.}{fig:AdditionOfBivectors:AdditionOfBivectorsFig1}{0.3}
 
 \index{trivector}
 \index{3-vector}
