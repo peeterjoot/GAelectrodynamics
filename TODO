@@ -1,3 +1,15 @@
+- Mo review:
+
+The only thing missing is an explicit enumeration of the basis elements for the complete R^3 geometric algebra.  i.e.
+
+1
+
+e1, e2, e3
+
+e_12, e_23, e_31
+
+e_123
+
 
 - Mo suggested 'is' instead of 'can be' in the bivector definition.  I use 'can be' many times, and 
   something more definitive might be better.
