@@ -57,18 +57,20 @@ If \( \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) is a normal basis for a k-dimensi
 A pseudoscalar that squares to \( \pm 1 \) is called a unit pseudoscalar.
 }
 
-In a two dimensional space \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \).
-We will see shortly that these are related by a constant factor.
-In a three dimensional space the trivector
-\( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 \Be_2 \).
-Both of these can be related by a constant factor.
+A pseudoscalar is the highest grade k-vector in the algebra, so in
+\R{2} any bivector is a pseudoscalar, and in \R{3} any trivector is a pseudoscalar.
+In \R{2}, \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \), both of which are related by a constant factor.
+In \R{3} the trivector \( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 \Be_2 \), and both of these can also be related by a constant factor.
+For the subspace \( \Span{ \Be_1, \Be_2 + \Be_3} \), one pseudoscalar is \( \Be_1(\Be_2 + \Be_3) \).
+
+If all the vector factors of a pseudoscalar are not just normal but orthonormal, then it is a unit pseudoscalar.
 %A pseudoscalar has an implied orientation, which can be
 %associated with the handedness of the underlying basis.
 It is conventional to refer to
 \boxedEquation{eqn:definitions:320}{
 \Be_{12} = \Be_1 \Be_2,
 }
-as ``the pseudoscalar'' for a two dimensional space, and to
+as ``the pseudoscalar'' for \R{2}, and to
 \boxedEquation{eqn:definitions:340}{
 \Be_{123} = \Be_1 \Be_2 \Be_3,
 }
@@ -83,8 +85,9 @@ i &= \Be_{12} \\
 I &= \Be_{123}.
 \end{aligned}
 \end{dmath}
-
-In this book, we will use \( i \) as a pseudoscalar for whatever planar subspace is convenient for the problem \( i = \Be_{31}, \Be_{23}, \cdots \), and not just the x-y plane.  For example, the bivector that describes the transverse plane for a plane wave propagating along a \( \kcap \) direction may be designated by \( i \), even if \( i \) does not lie in the x-y plane.
+For three dimensional problems in this book, \( i \) will often be used as the unit pseudoscalar for whatever planar subspace is relavent to the problem, which may not be the x-y plane.
+The meaning of \( i \) in any such cases will always be defined explicitly.
+%For example, the bivector that describes the transverse plane for a plane wave propagating along a \( \kcap \) direction may be designated by \( i \), even if \( i \) does not lie in the x-y plane.
 
 \makeproblem{Permutations of the \R{3} pseudoscalar}{problem:SimpleProducts2:permutationspseudoscalar}{
 Show that all the cyclic permutations of the \R{3} pseudoscalar are equal

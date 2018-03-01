@@ -6,27 +6,27 @@
 The product of two colinear vectors is a scalar, and the product of two normal vectors is a bivector.
 The product of two general vectors is a multivector with structure to be determined.
 A powerful way to examine this structure is to compute the product of two vectors in a polar representation with respect to the plane that they span.
-Let \( \ucap \) and \( \vcap \) be an orthonormal pair of vectors in the plane of \( \Ba \) and \( \Bb \), oriented in a positive rotational sense as illustrated in
+Let \( \Bu \) and \( \Bv \) be an orthonormal pair of vectors in the plane of \( \Ba \) and \( \Bb \), oriented in a positive rotational sense as illustrated in
 \cref{fig:Parallelogram:ParallelogramFig1}.
 \imageFigure{../figures/GAelectrodynamics/ParallelogramFig1}{Two vectors in a plane.}{fig:Parallelogram:ParallelogramFig1}{0.3}
 
-With respect to the orthonormal vectors \( \ucap \) and \( \vcap \), a
+With respect to the orthonormal vectors \( \Bu \) and \( \Bv \), a
 a polar representation of \( \Ba, \Bb \) is
 \begin{dmath}\label{eqn:products:1660}
 \begin{aligned}
-\Ba &= \Norm{\Ba} \ucap e^{ i_{ab} \theta_a } = \Norm{\Ba} e^{ -i_{ab} \theta_a } \ucap \\
-\Bb &= \Norm{\Bb} \ucap e^{ i_{ab} \theta_b } = \Norm{\Bb} e^{ -i_{ab} \theta_b } \ucap,
+\Ba &= \Norm{\Ba} \Bu e^{ i_{ab} \theta_a } = \Norm{\Ba} e^{ -i_{ab} \theta_a } \Bu \\
+\Bb &= \Norm{\Bb} \Bu e^{ i_{ab} \theta_b } = \Norm{\Bb} e^{ -i_{ab} \theta_b } \Bu,
 \end{aligned}
 \end{dmath}
-where \( i_{ab} = \ucap \vcap \) is a unit pseudoscalar for the planar subspace spanned by \( \Ba \) and \( \Bb \).
+where \( i_{ab} = \Bu \Bv \) is a unit pseudoscalar for the planar subspace spanned by \( \Ba \) and \( \Bb \).
 The vector product of these two vectors is
 \begin{dmath}\label{eqn:products:1680}
 \Ba \Bb
 =
-\lr{ \Norm{\Ba} e^{ -i_{ab} \theta_a } \ucap } \lr{ \Norm{\Bb} \ucap e^{ i_{ab} \theta_b } }
+\lr{ \Norm{\Ba} e^{ -i_{ab} \theta_a } \Bu } \lr{ \Norm{\Bb} \Bu e^{ i_{ab} \theta_b } }
 =
  \Norm{\Ba} \Norm{\Bb}
-e^{ -i_{ab} \theta_a } ( \ucap \ucap ) e^{ i_{ab} \theta_b }
+e^{ -i_{ab} \theta_a } ( \Bu \Bu ) e^{ i_{ab} \theta_b }
 =
  \Norm{\Ba} \Norm{\Bb}
 e^{ i_{ab} (\theta_b - \theta_a)}.

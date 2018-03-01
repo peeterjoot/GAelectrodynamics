@@ -99,12 +99,12 @@ illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
 \imageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}
 
 This generalizes to rotations of \R{N} vectors constrained to a plane.
-Given orthonormal vectors \( \ucap, \vcap \) and any vector in the plane of these two vectors (\( \Bx \in \Span\setlr{\ucap,\vcap} \)), this vector is rotated \( \theta \) radians in the direction of rotation that takes \( \ucap \) to \( \vcap \) by
+Given orthonormal vectors \( \Bu, \Bv \) and any vector in the plane of these two vectors (\( \Bx \in \Span\setlr{\Bu,\Bv} \)), this vector is rotated \( \theta \) radians in the direction of rotation that takes \( \Bu \) to \( \Bv \) by
 \begin{equation}\label{eqn:2dRotations:1160}
-\Bx' = \Bx e^{ \ucap \vcap \theta } = e^{-\ucap \vcap \theta} \Bx.
+\Bx' = \Bx e^{ \Bu \Bv \theta } = e^{-\Bu \Bv \theta} \Bx.
 \end{equation}
 
-The sense of rotation for the rotation \( e^{ \ucap \vcap \theta} \) is opposite that of \( e^{\vcap \ucap \theta} \), which provides a first hint that bivectors can be characterized as having an orientation, somewhat akin to thinking of a vector as having a head and a tail.
+The sense of rotation for the rotation \( e^{ \Bu \Bv \theta} \) is opposite that of \( e^{\Bv \Bu \theta} \), which provides a first hint that bivectors can be characterized as having an orientation, somewhat akin to thinking of a vector as having a head and a tail.
 
 \makeexample{Velocity and acceleration in polar coordinates.}{example:2dRotations:1180}{
 Complex exponential representations of rotations work very nicely for describing vectors in polar coordinates.

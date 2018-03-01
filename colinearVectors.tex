@@ -6,8 +6,7 @@ It was pointed out that the vector multiplication operation was not assumed to b
 The only condition for which the product of two vectors is order independent, is when those vectors are colinear.
 
 \index{commutation}
-\maketheorem{Commutation}{thm:multiplication:commutation}{
-A product of factors that commute is unchanged by interchange of those factors.
+\maketheorem{Vector commutation.}{thm:multiplication:commutation}{
 If \(\Bu\), and \(\Bv\) are non-zero colinear vectors, then they commute
 \begin{equation*}
 \Bu \Bv = \Bv \Bu.
@@ -15,7 +14,7 @@ If \(\Bu\), and \(\Bv\) are non-zero colinear vectors, then they commute
 } % theorem
 
 The proof is simple.
-Because these vectors are colinear there exists some \( \alpha \) for which \( \Bv = \alpha \Bu \), so
+Because these vectors are colinear there exists some scalar \( \alpha \) for which \( \Bv = \alpha \Bu \), so
 \begin{dmath}\label{eqn:colinearVectors:380}
 \Bv \Bu
 =
@@ -31,11 +30,11 @@ Because these vectors are colinear there exists some \( \alpha \) for which \( \
 \end{dmath}
 
 The contraction axiom ensures that the product of two colinear vectors is a scalar.
-In particular, the square of a unit vector is unity.
+In particular, the square of a unit vector, say \( \Bu \) is unity.
 This should be highlighted explicitly, because this property will be used again and again
 %\begin{equation}\label{eqn:colinearVectors:300}
 \boxedEquation{eqn:multiplication:320}{
-\xcap^2 = 1.
+\Bu^2 = 1.
 }
 %\end{equation}
 
@@ -43,9 +42,9 @@ For example, the squares of any orthonormal basis vectors are unity \( (\Be_1)^2
 
 A corollary of
 \cref{eqn:multiplication:320} is that we can factor \( 1 \) into
-the square of any unit vector
+the square of any unit vector \( \Bu \)
 \boxedEquation{eqn:multiplication:400}{
-1 = \xcap \xcap.
+1 = \Bu \Bu.
 }
 
-This has been highlighted explicitly, because this factorization trick will be used repeatedly.
+This factorization trick will be used repeatedly in this book.

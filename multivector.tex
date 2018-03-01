@@ -148,25 +148,34 @@ where \( \T_{ijk} \) is a scalar.
 The vector space \( V \) is said to generate a trivector space.
 } % definition
 
-In three dimensional space, we will see that all trivectors are scalar multiples of \( \Be_1 \Be_2 \Be_3 \), and
-can represent an oriented volume segment such as the differential form in a volume integral.
-This orientation can be visualized with a normal pointing into or out of the volume, or like bivectors, with a cyclic direction on the surface of the volume as in illustrated with the spherical volume of \cref{fig:orientedVolume:orientedVolumeFig1}.
-\imageFigure{../figures/GAelectrodynamics/orientedVolumeFig1}{Oriented Volume}{fig:orientedVolume:orientedVolumeFig1}{0.3}
-%In greater than three dimensions, a trivector can have a ``direction'' in the higher dimensional space, as well as a sidedness.
-%As was the case with the bivector, because not all the products \( \Be_i \Be_j \Be_k \) for any set of indexes \( i, j, k \) are independent, it is possible to form a trivector as a sum over a more restricted set, such as \( \sum_{1 \le i < j < k \le N} T_{ijk} \Be_i \Be_j \Be_k \).
-%In particular, in three dimensions, all trivectors can be expressed as scalar multiples of \( \Be_1 \Be_2 \Be_3 \).
-%
+In \R{3} all trivectors are scalar multiples of \( \Be_1 \Be_2 \Be_3 \).
+Like scalars, there is no direction to such a quantity, but like scalars trivectors may be signed.  The magnitude of a trivector may be interpretted as a volume.
+We will defer interpreting the sign of a trivector geometrically until we tackle integration theory.
+%%%, which requires some interpretation.
+%%%We can interpret the magnitude of a trivector as a volume, but what is a signed volume?
+%%%One answer to this question is that we can interpret the sign of the volume as the exterior or the interior of the surface on the boundry of the volume.
+%%%We will see another answer when we study integration theory, since geometric integration theory uses signed volume elements, and
+%%%swapping the order of two adjacent products in the volume element toggles the sign.
+%%%\footnote{In conventional integration theory,
+%%%this sign change occurs when swapping rows or columns in the Jacobian, but this is masked by taking the absolute value of the Jacobian after coordinate transformation.}
+%%%One possible interpretation of this sign is the interior or the exterior of the bounding surface of a volume.
+%%%%This orientation can be visualized with a normal pointing into or out of the volume, or like bivectors, with a cyclic direction on the surface of the volume as in illustrated with the spherical volume of \cref{fig:orientedVolume:orientedVolumeFig1}.
+%%%%\imageFigure{../figures/GAelectrodynamics/orientedVolumeFig1}{Oriented Volume}{fig:orientedVolume:orientedVolumeFig1}{0.3}
+%%%%In greater than three dimensions, a trivector can have a ``direction'' in the higher dimensional space, as well as a sidedness.
+%%%%As was the case with the bivector, because not all the products \( \Be_i \Be_j \Be_k \) for any set of indexes \( i, j, k \) are independent, it is possible to form a trivector as a sum over a more restricted set, such as \( \sum_{1 \le i < j < k \le N} T_{ijk} \Be_i \Be_j \Be_k \).
+%%%%In particular, in three dimensions, all trivectors can be expressed as scalar multiples of \( \Be_1 \Be_2 \Be_3 \).
+%%%%
 \index{k-vector}
 \index{grade}
 \paragraph{K-vector.}
 \makedefinition{K-vector and grade.}{dfn:multivector:100}{
 A k-vector is a sum of products of \( k \) mutually normal vectors.
-Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \),
+Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
 a general k-vector can be expressed as
 \begin{equation*}
-\sum_{1 \le i_1 \ne i_2 \cdots \ne i_k \le N} K_{i_1 i_2 \cdots i_k} \Be_{i_1} \Be_{i_2} \cdots \Be_{i_k},
+\sum_{1 \le i \ne j \cdots \ne m \le N} K_{i j \cdots m} \Be_{i} \Be_{j} \cdots \Be_{m},
 \end{equation*}
-where \( K_{i_1 i_2 \cdots i_k} \) is a scalar.
+where \( K_{i j \cdots m} \) is a scalar, indexed by \( k \) indexes \( i, j, \cdots, m \).
 
 The number \( k \) of normal vectors that generate a k-vector is called the grade.
 
