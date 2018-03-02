@@ -36,25 +36,28 @@ multivector functions \( F, G \), we define the k-volume integral as
 \end{equation*}
 } % definition
 
-Here \( \rboldpartial, \lboldpartial,\lrboldpartial \) are used to indicate that the vector derivative is acting only to the right,left, or both directions respectively.  The meaning of these can be made explicit by expansion in coordinates
+Because multivectors may not commute with the vector derivative or the differential, we allow the vector derivative to act bidirectionally using the chain rule.
+Here \( \rboldpartial, \lboldpartial,\lrboldpartial \) are used to indicate that the vector derivative is acting only to the right on \( G\), to the left on \( F\), or in both directions respectively.
+The meaning of these can be made explicit by expansion in coordinates
 \begin{dmath}\label{eqn:lineintegral:220}
 F \lrboldpartial G
 =
-(\partial_i F) \sum_i x^i G
+(\partial_i F) \sum_i \Bx^i G
 +
-F \sum_i x^i (\partial_i G)
+F \sum_i \Bx^i (\partial_i G)
 =
 (F \lboldpartial) G
 +
 F (\rboldpartial G).
 \end{dmath}
-
-This notation is also used for the gradient.  Some authors use overdots or ticks for this purpose to indicate the exact scope of a multivector derivative operator.  The basic problem is that we have to indicate the scope of the partials of the derivative operator, but may not be able to commute the multivector components of the operator.
-
-Because multivectors may not commute with the vector derivative or the differential, we allow the vector derivative to act bidirectionally using the chain rule.
-The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
+This bidirectional notation is also used for the gradient.
+%The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
 Should we wish to only integrate single functions, we can set either of the other to \( 1 \), yielding integrals of the form
-\( \int_C F d^1\Bx \lboldpartial, \) or \( \int_C d^1\Bx \boldpartial G \).
+\( \int F d^k\Bx \lboldpartial, \) or \( \int d^k\Bx \boldpartial G \).
+
+%The basic problem is that we have to indicate the scope of the partials of the derivative operator, but may not be able to commute the multivector components of the operator.
+Some authors use overdots or ticks to indicate the exact scope of a multivector derivative operator.
+FIXME: perhaps I should too?  That would emphasizes the fact that the action is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
 
 \subsection{Fundamental theorem.}
 \index{fundamental theorem of geometric calculus}
@@ -69,8 +72,8 @@ For blades \(F, G \), and a hypervolume element \(d^k \Bx\),
 \end{equation*}
 }
 
-There are some subtlies related to general triangulation of the surface and the smoothness of the surface that really need to be considered for a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}.  We won't attempt that here, and instead will provide separate rough sketches of the proof for each of the important geometric cases of line, surface and volume integrals.
-For a full proof and additional details, the reader is referred to \citep{hestenes1985clifford}, \citep{doran2003gap}, \citep{aMacdonaldVAGC} and \citep{sobczyk2011fundamental}, which all
+There are some subtlies related to general triangulation of the surface and the smoothness of the surface that really need to be considered for a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}.  We won't attempt that here, and instead will provide separate rough sketches of the proof for each of the important cases (line, surface and volume integrals.)
+For full proofs and additional details, the reader is referred to \citep{hestenes1985clifford}, \citep{doran2003gap}, \citep{aMacdonaldVAGC} and \citep{sobczyk2011fundamental}, which all
 which all tackle different aspects of general geometric calculus.
 
 Before considering line, surface and volume integrals we will first state an important special case of \cref{thm:fundamentalTheoremOfCalculus:1}, Stokes' theorem.
