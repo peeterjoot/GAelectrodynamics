@@ -168,16 +168,16 @@ r^2 \sin\theta.
 The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of the Jacobian
 \cref{eqn:curvilinearspherical:320}, are both easily verified with software
 
-\begin{mmaCell}[moredefined={OuterProduct, xr, xt, xp, e1, e2, e3, jacobean, e}]{Input}
+\begin{mmaCell}[moredefined={OuterProduct, xr, xt, xp, e1, e2, e3, jacobian, e}]{Input}
   OuterProduct[ xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
   xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
   xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}]]
 
   \{e1,e2,e3\} = IdentityMatrix[3];
-  jacobean = \{xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  jacobian = \{xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
   xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
   xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}]\} /. \{e[1] \(\pmb{\to}\) e1, e[2] \(\pmb{\to}\) e2, e[3]\(\pmb{\to}\)e3\};
-  Det[  jacobean ] // Simplify
+  Det[ jacobian ] // Simplify
 \end{mmaCell}
 \begin{mmaCell}{Output}
   \mmaSup{r}{2} e[1,2,3] Sin[\(\theta\)]

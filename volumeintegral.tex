@@ -75,7 +75,7 @@ The vector derivative, the projection of the gradient onto the volume at the poi
 \Bx^3 \partial_3.
 \end{dmath}
 
-We define a multivector volume integral by
+The volume integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
 
 \makedefinition{Multivector volume integral.}{dfn:volumeintegral:100}{
 Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), we define the volume integral as
@@ -88,6 +88,8 @@ Given an connected volume \( V \) parameterized by two parameters, and multivect
 \end{equation*}
 where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \Bx_2 \wedge \Bx_3, d^3 u = du_1 du_2 du_3 \) varies over the volume, and \( \lrboldpartial \) acts on \( F, G \), but not the volume element \( d^2 \Bx \).
 } % definition
+
+The volume integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
 
 \maketheorem{Multivector volume integral.}{thm:volumeintegral:100}{
 Given an connected volume \( V \) parameterized by three parameters for which \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple, and multivector functions \( F, G \), a volume integral can be reduced to a surface integral as follows
@@ -206,7 +208,7 @@ Given a scalar function \( f(\Bx) \) its volume integral is given by
 \end{equation*}
 In \R{3} this can be written as
 \begin{equation*}
-\int_V dV \spacegrad f = \ointctrclockwise_{\partial V} dA \ncap f
+\int_V dV \spacegrad f = \int_{\partial V} dA \ncap f
 \end{equation*}
 where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
 } % theorem
@@ -220,27 +222,47 @@ integral of the (bivector) curl is related to a surface integral by
 \end{equation*}
 In \R{3} this can be written as
 \begin{equation*}
-\int_V dV \spacegrad \cross \Bf = \ointctrclockwise_{\partial V} dA \ncap \cross \Bf,
+\int_V dV \spacegrad \cross \Bf = \int_{\partial V} dA \ncap \cross \Bf,
+\end{equation*}
+or with a duality transformation \( \Bf = I B \), where \( B \) is a bivector
+\begin{equation*}
+\int_V dV \spacegrad \cdot B = \int_{\partial V} dA \ncap \cdot \Bf,
 \end{equation*}
 where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
 } % theorem
 
 \maketheorem{Volume integral of bivector function (Stokes', divergence).}{thm:volumeintegral:1681}{
-Given a bivector function \( f(\Bx) \), the volume
+Given a bivector function \( B(\Bx) \), the volume
 integral of the (trivector) curl is related to a surface integral by
 \begin{equation*}
-\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge f } =
-\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge f } = \ointctrclockwise_{\partial V} d^2\Bx \cdot f.
+\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge B } =
+\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge B } = \ointctrclockwise_{\partial V} d^2\Bx \cdot B.
 \end{equation*}
 In \R{3} this can be written as
 \begin{equation*}
-\int_V dV \spacegrad \wedge f = \ointctrclockwise_{\partial V} dA \ncap \wedge f,
+\int_V dV \spacegrad \wedge B = \int_{\partial V} dA \ncap \wedge B,
 \end{equation*}
-or, making a duality transformation \( f(\Bx) = I \Bg(\Bx) \), where \( \Bg \) is a vector, by
+or, making a duality transformation \( B(\Bx) = I \Bf(\Bx) \), where \( \Bf \) is a vector, by
 \begin{equation*}
-\int_V dV \spacegrad \cdot \Bg = \ointctrclockwise_{\partial V} dA \ncap \cdot \Bg,
+\int_V dV \spacegrad \cdot \Bf = \int_{\partial V} dA \ncap \cdot \Bf,
 \end{equation*}
 where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
 } % theorem
+
+\subsection{Divergence theorem.}
+
+Observe that for \R{3} we there are dot product relations in each of
+\cref{thm:volumeintegral:420},
+\cref{thm:volumeintegral:1661} and
+\cref{thm:volumeintegral:1681} which can be summarized as
+\index{divergence theorem}
+\maketheorem{Divergence theorem.}{thm:volumeintegral:2661}{
+Given an \R{3} multivector \( M \) with grades 0,1,2 components
+\begin{equation*}
+\int_V dV \spacegrad \cdot M = \int{\partial V} dA \ncap \cdot M,
+\end{equation*}
+where \( \ncap \) is the outwards normal to the surface bounding \( V \).
+} % theorem
+
 %}
 %\EndNoBibArticle

@@ -32,7 +32,7 @@ A single parameter curve, and the corresponding differential with respect to tha
 \cref{fig:oneParameterDifferential:oneParameterDifferentialFig1}.
 %, for a parameterization over \( [a, b] \in [0,1]\otimes[0,1] \).
 
-\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.2}
 
 The differential with respect to the parameter \( a \) is
 \begin{equation}\label{eqn:lineintegral:20}
@@ -50,7 +50,8 @@ The vector derivative has just one component
 \Bx^a \partial_a.
 \end{dmath}
 
-(cut)
+The line integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
+
 \makedefinition{Multivector line integral.}{dfn:lineintegral:100}{
 Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), we define the line integral as
 \begin{equation*}
@@ -60,11 +61,10 @@ Given an connected curve \( C \) parameterized by a single parameter, and multiv
 +
 \int_C F d^1\Bx \lr{ \rboldpartial G },
 \end{equation*}
-where the one parameter differential form \( d^1 \Bx = da \Bx_a \) varies over the curve.
+where the one parameter differential form \( d^1 \Bx = da\, \Bx_a \) varies over the curve.
 } % definition
 
-
-The fundamental theorem of calculus for a mulitvector line integral is just
+The line integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
 
 \maketheorem{Multivector line integral.}{thm:lineintegral:100}{
 Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral
