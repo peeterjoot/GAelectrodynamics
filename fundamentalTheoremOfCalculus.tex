@@ -62,21 +62,25 @@ FIXME: perhaps I should too?  That would emphasizes the fact that the action is 
 \subsection{Fundamental theorem.}
 \index{fundamental theorem of geometric calculus}
 
-The fundamental theorem of geometric calculus is a generalization of Stokes' theorem \cref{thm:stokesTheoremGeometricAlgebra:1740} to multivector integrals.
-Notational, it looks like Stokes' theorem with all the dot and wedge products removed.
+The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems.
+It is a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, and to derive the geometric algebra form of Stokes' theorem.
 
 \maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
-For blades \(F, G \), and a hypervolume element \(d^k \Bx\),
+For multivectors \(F, G \), and a hypervolume element \(d^k \Bx\),
 \begin{equation*}
 \int_V F d^k \Bx \boldpartial G = \oint_{\partial V} F d^{k-1} \Bx G.
 \end{equation*}
 }
 
-There are some subtlies related to general triangulation of the surface and the smoothness of the surface that really need to be considered for a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}.  We won't attempt that here, and instead will provide separate rough sketches of the proof for each of the important cases (line, surface and volume integrals.)
+Additional work is required to describe the precise meaning of the boundary differential \( d^{k-1} \Bx \).  We will do so for line, surface, and volume integrals, proving the theorem in a limited fashion for each of those cases as we go.
+
+For a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}, additional mathematical sublties must be considered.
 For full proofs and additional details, the reader is referred to \citep{hestenes1985clifford}, \citep{doran2003gap}, \citep{aMacdonaldVAGC} and \citep{sobczyk2011fundamental}, which all
 which all tackle different aspects of general geometric calculus.
 
-Before considering line, surface and volume integrals we will first state an important special case of \cref{thm:fundamentalTheoremOfCalculus:1}, Stokes' theorem.
+Before considering multivector line, surface and volume integral specializations of
+\cref{thm:fundamentalTheoremOfCalculus:1},
+we will state Stokes' theorem in its geometric algebra form.
 
 %}
 %\EndArticle
