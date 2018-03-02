@@ -82,8 +82,8 @@ perl -p -i ../latex/bin/latexRegex.pl curvilinearDefined.tex
 #../latex/bin/lgrep frequencydomainPlaneWaves.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl frequencydomainPlaneWaves.tex
 
-#../latex/bin/lgrep fundamentalTheoremOfCalculus.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl fundamentalTheoremOfCalculus.tex
+../latex/bin/lgrep fundamentalTheoremOfCalculus.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl fundamentalTheoremOfCalculus.tex
 
 #../latex/bin/lgrep gacomparison.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl gacomparison.tex

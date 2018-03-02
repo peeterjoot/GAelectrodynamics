@@ -81,19 +81,19 @@ We define a multivector volume integral by
 \makedefinition{Multivector volume integral.}{dfn:volumeintegral:100}{
 Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), we define the volume integral as
 \begin{equation*}
-\int_V F d^3\Bx \boldpartial G
+\int_V F d^3\Bx \lrboldpartial G
 \equiv
 \int_V \lr{ F d^3\Bx \lboldpartial} G
 +
 \int_V F d^3\Bx \lr{ \rboldpartial G },
 \end{equation*}
-where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \Bx_2 \wedge \Bx_3, d^3 u = du_1 du_2 du_3 \) varies over the volume.
+where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \Bx_2 \wedge \Bx_3, d^3 u = du_1 du_2 du_3 \) varies over the volume, and \( \lrboldpartial \) acts on \( F, G \), but not the volume element \( d^2 \Bx \).
 } % definition
 
 \maketheorem{Multivector volume integral.}{thm:volumeintegral:100}{
 Given an connected volume \( V \) parameterized by three parameters for which \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple, and multivector functions \( F, G \), a volume integral can be reduced to a surface integral as follows
 \begin{equation*}
-\int_V F d^3\Bx \boldpartial G
+\int_V F d^3\Bx \lrboldpartial G
 = \ointctrclockwise_{\partial V} F d^2\Bx G,
 \end{equation*}
 where \( \partial V \) is the boundary of the volume \( V \), and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume.
@@ -197,142 +197,52 @@ where it is implied that each component of this area element and anything that i
 
 \subsection{Three parameter Stokes' theorem.}
 
-Three special cases of \cref{thm:volumeintegral:100} can be obtained by integrating scalar, vector or bivector functions over the volume.  For scalar functions we have
+Three special cases of \cref{thm:volumeintegral:100} can be obtained by integrating scalar, vector or bivector functions over the volume, as follows
 
-%%%\maketheorem{Surface integral of scalar function (Stokes').}{thm:volumeintegral:420}{
-%%%Given a scalar function \( f(\Bx) \) its volume integrals is given by
-%%%\begin{equation*}
-%%%\int_V d^3 \Bx \cdot \boldpartial f =
-%%%\int_V d^3 \Bx \cdot \spacegrad f = \ointclockwise_{\partial V} d\Bx f.
-%%%\end{equation*}
-%%%In \R{3} this can be written as
-%%%\begin{equation*}
-%%%\int_V dA \ncap \cross \spacegrad f = \ointctrclockwise_{\partial V} d\Bx f,
-%%%\end{equation*}
-%%%where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
-%%%} % theorem
-%%%
-%%%To show the first part, we can split the (multivector) volume integral into vector and trivector grades
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:440}
-%%%\int_V d^3\Bx \boldpartial f
-%%%=
-%%%\int_V d^3\Bx \cdot \boldpartial f
-%%%+
-%%%\int_V d^2\Bx \wedge \boldpartial f.
-%%%\end{dmath}
-%%%
-%%%Since \( \Bx^a, \Bx^b \) both lie in the span of \( \setlr{ \Bx_a, \Bx_b } \),
-%%%\( d^2\Bx \wedge \boldpartial = 0 \), killing the second integral in \cref{eqn:volumeintegral:440}.
-%%%If the gradient is decomposed into its projection along the tangent
-%%%space (the vector derivative) and its perpendicular components, only the vector derivative components of the
-%%%gradient contribute to its dot product with the volume element.  That is
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:460}
-%%%d^2 \Bx \cdot \spacegrad
-%%%=
-%%%d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b + \cdots }
-%%%=
-%%%d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b }
-%%%=
-%%%d^2 \Bx \cdot \boldpartial.
-%%%\end{dmath}
-%%%
-%%%This means that for a scalar function
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:480}
-%%%\int_V d^2\Bx \boldpartial f
-%%%=
-%%%\int_V d^2\Bx \cdot \spacegrad f.
-%%%\end{dmath}
-%%%
-%%%The second part of the theorem follows by grade selection, and application of a duality transformation for the volume element
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:500}
-%%%d^2 \Bx \cdot \spacegrad f
-%%%=
-%%%\gpgradeone{ d^2 \Bx \spacegrad f }
-%%%=
-%%%dA \gpgradeone{ I \ncap \spacegrad f }
-%%%=
-%%%dA \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f} }
-%%%=
-%%%-dA \ncap \cross \spacegrad f.
-%%%\end{dmath}
-%%%
-%%%back substitution of \cref{eqn:volumeintegral:500} completes the proof of \cref{thm:volumeintegral:420}.
-%%%
-%%%For vector functions we have
-%%%
-%%%\maketheorem{Surface integral of a vector function (Stokes').}{thm:volumeintegral:500}{
-%%%Given a vector function \( \Bf(\Bx) \) the volume integral is given by
-%%%\begin{equation*}
-%%%\int_V d^2 \Bx \cdot (\spacegrad \wedge \Bf) = \ointclockwise_{\partial V} d\Bx \cdot \Bf.
-%%%\end{equation*}
-%%%In \R{3} this can be written as
-%%%\begin{equation*}
-%%%\int_V dA \ncap \cdot \lr{ \spacegrad \cross \Bf} = \ointctrclockwise_{\partial V} d\Bx \cdot \Bf,
-%%%\end{equation*}
-%%%where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
-%%%} % theorem
-%%%
-%%%This follows by setting \( F = 1, G = \Bf \) in \cref{thm:volumeintegral:100} and selecting the scalar grade.  In particular we may form the
-%%%scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The first is
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:520}
-%%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
-%%%=
-%%%\gpgradezero{ (d^2 \Bx \cdot \boldpartial + d^2 \Bx \wedge \boldpartial ) \Bf }
-%%%\end{dmath}
-%%%
-%%%%The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only trivector and quad-vector components (the latter is zero in \R{3}), so its scalar grade selection is zero, and we are left with
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:540}
-%%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
-%%%=
-%%%(d^2 \Bx \cdot \boldpartial) \cdot \Bf
-%%%=
-%%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf,
-%%%\end{dmath}
-%%%
-%%%where we have used \cref{eqn:volumeintegral:460} again.  This product can also be written as
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:560}
-%%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf
-%%%=
-%%%\gpgradezero{ (d^2 \Bx \cdot \spacegrad) \Bf }
-%%%=
-%%%\gpgradezero{ (d^2 \Bx \spacegrad - d^2 \Bx \wedge \spacegrad) \Bf }
-%%%=
-%%%\gpgradezero{ d^2 \Bx \spacegrad \Bf }
-%%%=
-%%%\gpgradezero{ d^2 \Bx \lr{ \cancel{ \spacegrad \cdot \Bf } + \spacegrad \wedge \Bf } }
-%%%=
-%%%d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }.
-%%%\end{dmath}
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:580}
-%%%\ointclockwise_{\partial V} d\Bx \cdot \Bf
-%%%=
-%%%\gpgradezero{ \int_V d^2\Bx \boldpartial \Bf }
-%%%=
-%%%\int_V \lr{ d^2\Bx \cdot \spacegrad } \cdot \Bf
-%%%=
-%%%\int_V d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf },
-%%%\end{dmath}
-%%%
-%%%as claimed.  In particular in \R{3}, we have
-%%%
-%%%\begin{dmath}\label{eqn:volumeintegral:600}
-%%%d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf }
-%%%=
-%%%dA \gpgradezero{ I \ncap I \lr{ \spacegrad \cross \Bf } }
-%%%=
-%%%-dA \ncap \cdot \lr{ \spacegrad \cross \Bf }.
-%%%\end{dmath}
-%%%
-%%%Substitution into \cref{eqn:volumeintegral:580} proves the last part of \cref{thm:volumeintegral:500}.
-%%%
+\maketheorem{Volume integral of scalar function (Stokes').}{thm:volumeintegral:420}{
+Given a scalar function \( f(\Bx) \) its volume integral is given by
+\begin{equation*}
+\int_V d^3 \Bx \cdot \boldpartial f =
+\int_V d^3 \Bx \cdot \spacegrad f = \ointctrclockwise_{\partial V} d^2\Bx f.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_V dV \spacegrad f = \ointctrclockwise_{\partial V} dA \ncap f
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
+} % theorem
+
+\maketheorem{Volume integral of vector function (Stokes').}{thm:volumeintegral:1661}{
+Given a vector function \( \Bf(\Bx) \) the volume
+integral of the (bivector) curl is related to a surface integral by
+\begin{equation*}
+\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge \Bf } =
+\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge \Bf } = \ointctrclockwise_{\partial V} d^2\Bx \cdot \Bf.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_V dV \spacegrad \cross \Bf = \ointctrclockwise_{\partial V} dA \ncap \cross \Bf,
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
+} % theorem
+
+\maketheorem{Volume integral of bivector function (Stokes', divergence).}{thm:volumeintegral:1681}{
+Given a bivector function \( f(\Bx) \), the volume
+integral of the (trivector) curl is related to a surface integral by
+\begin{equation*}
+\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge f } =
+\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge f } = \ointctrclockwise_{\partial V} d^2\Bx \cdot f.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_V dV \spacegrad \wedge f = \ointctrclockwise_{\partial V} dA \ncap \wedge f,
+\end{equation*}
+or, making a duality transformation \( f(\Bx) = I \Bg(\Bx) \), where \( \Bg \) is a vector, by
+\begin{equation*}
+\int_V dV \spacegrad \cdot \Bg = \ointctrclockwise_{\partial V} dA \ncap \cdot \Bg,
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
+} % theorem
 
 %}
 %\EndArticle

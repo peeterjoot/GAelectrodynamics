@@ -50,6 +50,7 @@ The vector derivative has just one component
 \Bx^a \partial_a.
 \end{dmath}
 
+(cut)
 \makedefinition{Multivector line integral.}{dfn:lineintegral:100}{
 Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), we define the line integral as
 \begin{equation*}
@@ -62,27 +63,6 @@ Given an connected curve \( C \) parameterized by a single parameter, and multiv
 where the one parameter differential form \( d^1 \Bx = da \Bx_a \) varies over the curve.
 } % definition
 
-FIXME: move this side discussion to a better place and box it.
-
-Here \( \rboldpartial, \lboldpartial,\lrboldpartial \) are used to indicate that the vector derivative is acting only to the right,left, or both directions respectively.  The meaning of these can be made explicit by expansion in coordinates
-\begin{dmath}\label{eqn:lineintegral:220}
-F \lrboldpartial G
-=
-(\partial_i F) \sum_i x^i G
-+
-F \sum_i x^i (\partial_i G)
-=
-(F \lboldpartial) G
-+
-F (\rboldpartial G).
-\end{dmath}
-
-This notation is also used for the gradient.  Some authors use overdots or ticks for this purpose to indicate the exact scope of a multivector derivative operator.  The basic problem is that we have to indicate the scope of the partials of the derivative operator, but may not be able to commute the multivector components of the operator.
-
-Because multivectors may not commute with the vector derivative or the differential, we allow the vector derivative to act bidirectionally using the chain rule.
-The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
-Should we wish to only integrate single functions, we can set either of the other to \( 1 \), yielding integrals of the form
-\( \int_C F d^1\Bx \lboldpartial, \) or \( \int_C d^1\Bx \boldpartial G \).
 
 The fundamental theorem of calculus for a mulitvector line integral is just
 
