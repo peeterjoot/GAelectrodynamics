@@ -1,3 +1,11 @@
+- Stated the fundamental theorm and stokes expicitly.  Under line, surface (and volume when done), go back and reference 
+  those theorem statements, covering just the differences from the general statement.
+
+  Perhaps try a general proof of Stokes from the fundamental theorem, and get rid of the proofs for the special cases.
+
+  May be able to get rid of the references to the distribution theorems used in the original Stokes' proof.  Will there
+  be value keeping those?
+
 - had used bigwedge notation in Stokes but don't think I defined it.  removed it ... search for other instances of this.
 
 - add symbols to the index.
