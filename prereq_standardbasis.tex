@@ -15,7 +15,7 @@ a a' (\Bx \cdot \Bx') + b b' (\By \cdot \By')
 +
 a b' (\Bx \cdot \By') + b a' (\By \cdot \Bx') \)
 \\ \hline
-    (Optional) Positive definite & \( \Bx \cdot \Bx \ge 0 \) \\ \hline
+    (Optional) Positive length & \( \Bx \cdot \Bx > 0, \Bx \ne 0 \) \\ \hline
 \end{tcolorbox}
 } % definition
 
@@ -48,7 +48,7 @@ where \( G \) is the symmetric matrix with elements \( g_{ij} = \Be_i \cdot \Be_
 This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space.
 
 For Euclidean spaces, which are the primary focus of this book, the metric is not only diagonal, but is the identity matrix.
-Slightly more general metrics are of interest in electrodynamics.  In particular, a four dimensional (relativistic) vector space, where the metric has diagonals \( (1,-1,-1,-1) \) or \( (-1, 1,1,1) \) allows for the construction of a geometric algebra that allows Maxwell's equations to take their very simplest form.  Such a metric does not have the (Euclidean) positive definite property \( \Bx^\T G \Bx \ge 0 \).
+Slightly more general metrics are of interest in electrodynamics.  In particular, a four dimensional (relativistic) vector space, where the metric has diagonals \( (1,-1,-1,-1) \) or \( (-1, 1,1,1) \) allows for the construction of a geometric algebra that allows Maxwell's equations to take their very simplest form.  Such a metric does not have the (Euclidean) positive definite property \( \Bx^\T G \Bx > 0, \Bx \ne 0 \).
 
 \index{length}
 \makedefinition{Length}{dfn:prerequisites:norm}{
@@ -99,7 +99,7 @@ The length of a vector \( \Bx \) is defined as
 \index{Euclidean space}
 \makedefinition{Euclidean space.}{dfn:prerequisites:euclideanspace}{
    A vector space with basis
-   \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called Euclidean if all the dot product pairs between the basis elements are not only orthonormal, but positive definite.
+   \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called \textit{Euclidean} if all the dot product pairs between the basis elements are not only orthonormal, but positive definite.
 That is
 \begin{equation*}
 \Be_i \cdot \Be_j = \delta_{ij}.

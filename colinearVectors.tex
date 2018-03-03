@@ -7,26 +7,20 @@ The only condition for which the product of two vectors is order independent, is
 
 \index{commutation}
 \maketheorem{Vector commutation.}{thm:multiplication:commutation}{
-If \(\Bu\), and \(\Bv\) are non-zero colinear vectors, then they commute
+Given two vectors \( \Bx, \By \), if \( \By = \alpha \Bx \) for some scalar \( \alpha \), then \( Bx \) and \( \By \) commute
 \begin{equation*}
-\Bu \Bv = \Bv \Bu.
+\Bx \By = \By \Bx.
 \end{equation*}
 } % theorem
 
+%vu = auu.
+%uv = u(au) = auu
 The proof is simple.
-Because these vectors are colinear there exists some scalar \( \alpha \) for which \( \Bv = \alpha \Bu \), so
 \begin{dmath}\label{eqn:colinearVectors:380}
-\Bv \Bu
-=
-(\alpha \Bu) \Bu
-=
-\alpha \Bu \Bu
-=
-\Bu \alpha \Bu
-=
-\Bu (\alpha \Bu)
-=
-\Bu \Bv.
+\begin{aligned}
+\By \Bx &= \alpha \Bx \Bx \\
+\Bx \By &= \Bx \alpha \Bx = \alpha \Bx \Bx.
+\end{aligned}
 \end{dmath}
 
 The contraction axiom ensures that the product of two colinear vectors is a scalar.
