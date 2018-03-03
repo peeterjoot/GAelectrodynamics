@@ -17,7 +17,7 @@
 \usepackage{peeters_figures}
 %\usepackage{siunitx}
 %\usepackage{mhchem} % \ce{}
-\usepackage{macros_bm} % \bcM
+%\usepackage{macros_bm} % \bcM
 %\usepackage{macros_qed} % \qedmarker
 \usepackage{txfonts} % \ointclockwise
 
@@ -39,32 +39,41 @@ geometric algebra to problems in electromagnetism.
 
 \subsubsection{Why geometric algebra?}
 
-Euclidean vector algebra, in particular the vector algebra and calculus of \R{3}, 
+Euclidean vector algebra, in particular the vector algebra and calculus of \R{3},
 is the defacto language of electromagnetism within electrical engineering.
-We are all intimately familiar with dot and cross products, and with gradient, divergence and curl operations.
-There has to be a really good reason to introduce an alternate mathematical formalism.
+Maxwells's equations in the Heaviside-Gibbs formalism are
+\begin{dmath}\label{eqn:ece2500report:20}
+\begin{aligned}
+\spacegrad \cross \BE &= - \BM - \PD{t}{\BB} \\
+\spacegrad \cross \BH &= \BJ + \PD{t}{\BD} \\
+\spacegrad \cdot \BD &= \rho \\
+\spacegrad \cdot \BB &= \rho_\txtm.
+\end{aligned}
+\end{dmath}
+We are all intimately familiar with these equations, with the dot and the cross products, and with gradient, divergence and curl operations that are used to express them.
+Given how comfortable we are with this mathematical formalism, there has to be a really good reason to switch to something else.
 
-For high energy physics applications the use of relativistic tensor formalism can be more natural.  
+For high energy physics applications the use of relativistic tensor formalism can be more natural.
 In the tensor formalism, Maxwell's equations are reduced to a set of two tensor relationships
-\begin{dmath}\label{eqn:ece2500report:n}
+\begin{dmath}\label{eqn:ece2500report:40}
 \begin{aligned}
 \partial_\mu F^{\mu \nu} &= J^\nu \\
 \epsilon_{\alpha \beta \gamma \kappa} F^{\alpha \beta} &= 0.
 \end{aligned}
 \end{dmath}
-This provides a more unified and simpler theoretical framework for electromagnetism.  
-The tensor formalism is built around the concept of the four-vector, and comes with a few costs.  
-One cost is that we loose the vector electric and magnetic fields we are so comfortable with, and have to work with rank-2 antisymmetric tensors \( F^{\mu\nu} \) that contain all six electric and magnetic field components.  There is also 
+This provides a more unified and simpler theoretical framework for electromagnetism.
+The tensor formalism is built around the concept of the four-vector, and comes with a few costs.
+One cost is that we loose the vector electric and magnetic fields we are so comfortable with, and have to work with rank-2 antisymmetric tensors \( F^{\mu\nu} \) that contain all six electric and magnetic field components.  There is also
 the cost of loosing the distinction between space and time, both concepts near and dear to any down to earth electrical engineer.
 
-It has been argued that a differential forms treatment of 
-electromagnetism provides some of the same theoretical advantages as the tensor formalism, without the disadvanges 
+It has been argued that a differential forms treatment of
+electromagnetism provides some of the same theoretical advantages as the tensor formalism, without the disadvanges
 of introducing a hellish mess of index manipulation into the mix.
 With differential forms it is also possible to express Maxwell's equations as two equations
 FIXME: state.
-A number of calculations are more natural in this context.  
-However, this formalism also comes with a number of costs.  
-Most grievious of the costs is the requirement to use differentials based on the one-forms \( dx, dy, dz, dt \) as the basis for space and time.  
+A number of calculations are more natural in this context.
+However, this formalism also comes with a number of costs.
+Most grievious of the costs is the requirement to use differentials based on the one-forms \( dx, dy, dz, dt \) as the basis for space and time.
 There are not likely many engineers that would find the use of differentials for electric and magnetic fields and sources natural.
 
 \subsubsection{Results.}
