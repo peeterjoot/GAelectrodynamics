@@ -37,7 +37,13 @@ for a graduate or advanced undergraduate electrical engineering student to be ab
 geometric algebra to problems in electromagnetism.
 \end{enumerate}
 
-\subsubsection{Why geometric algebra?}
+\subsubsection{Why geometric algebra, and the many formalisms of electromagnetism.}
+
+Many mathematical formalisms exist for electromagnetism.
+These include the conventional Heaviside-Gibbs vector notation, quaternion notation, relativistic tensor notation, differential forms, and a number of geometric algebra representations.
+Geometric algebra is the new player to the game, with few applications in electrical engineering, and is explored in this project.
+
+Here is a synopsis of some of the currently significant formalisms for electromagnetism.
 
 \paragraph{Vector formalism.}
 Euclidean vector algebra, in particular the vector algebra and calculus of \R{3},
@@ -56,12 +62,14 @@ Maxwell's equations in the Heaviside-Gibbs vector formalism are
 We are all intimately familiar with these equations, with the dot and the cross products, and with gradient, divergence and curl operations that are used to express them.
 Given how comfortable we are with this mathematical formalism, there has to be a really good reason to switch to something else.
 
+%\paragraph{Quaterion formalism.}
+%Predating the Heaviside-Gibbs form of Maxwell's equations was the quaterion representation.
+
 \paragraph{Tensor formalism.}
-For high energy physics applications the use of relativistic tensor formalism can be more natural.
-In the tensor formalism, Maxwell's equations are reduced to a set of two tensor relationships
-\citep{landau1980classical},
+For high energy physics applications the use of relativistic tensor formalism is more natural.
+In the tensor formalism, Maxwell's equations are reduced to a set of two tensor relationships (\citep{landau1980classical},
 \citep{jackson1975cew},
-\citep{griffiths1999introduction}.
+\citep{griffiths1999introduction}).
 \begin{dmath}\label{eqn:ece2500report:40}
 \begin{aligned}
 \partial_\mu F^{\mu \nu} &= \mu_0 J^\nu \\
@@ -95,11 +103,11 @@ Most grievous of the costs is the requirement to use differentials \( dx^1, dx^2
 
 \paragraph{Space time algebra.}
 An elegant and powerful alternative to electrodynamics using tensor and differential forms, is STA, the \textit{Space Time Algebra}.
-This is a relativistic geometric algebra that allows Maxwell's equations \cref{eqn:ece2500report:40} to be combined into one equation \citep{doran2003gap}
+This is a relativistic \textit{geometric algebra} that allows Maxwell's equations \cref{eqn:ece2500report:40} to be combined into one equation (\citep{doran2003gap}, \citep{hestenes1966space})
 \begin{dmath}\label{eqn:ece2500report:80}
 \grad F = J,
 \end{dmath}
-where \( F = \BE + I c \BB \) is a bivector field containing both the electric and magnetic field ``vectors'', \( \grad = \gamma^\mu \partial_\mu \) is the spacetime derivative, \( J \) is a four vector containing electric charge and current components, and \( I = \gamma_0 \gamma_1 \gamma_2 \gamma_3 \) is the spacetime pseudoscalar, the ordered product of the basis vectors \( \setlr{ \gamma_\mu } \).
+where \( F = \BE + I c \BB \) is a bivector field containing both the electric and magnetic field ``vectors'', \( \grad = \gamma^\mu \partial_\mu \) is the spacetime gradient, \( J \) is a four vector containing electric charge and current components, and \( I = \gamma_0 \gamma_1 \gamma_2 \gamma_3 \) is the spacetime pseudoscalar, the ordered product of the basis vectors \( \setlr{ \gamma_\mu } \).
 In this formalism ``spatial'' vectors \( \Bx = \sum_{k>0} \gamma_k \gamma_0 x^k \) are represented as spacetime bivectors, requiring a small slight of hand when switching between STA notation and conventional vector representation.
 The STA representation is explicitly relativistic with a non-Euclidean relationships between the basis vectors \( \gamma_0 \cdot \gamma_0 = 1 = -\gamma_k \cdot \gamma_k, \forall k > 0 \).
 Having a single PDE for all of Maxwell's equations allows for direct Green's function solution of the field, and has a number of other advantages.
@@ -108,30 +116,55 @@ Many powerful and elegant theoretical results have been derived using this forma
 Unfortunately, much of the STA literature is inaccessible to the engineering student, practising engineers, or engineering instructors.
 To even start reading the literature, one must learn geometric algebra, aspects of special relativity and non-Euclidean geometry, generalized integration theory, and even some tensor analysis.
 
-In the geometric algebra literature, there are a few authors who have endorsed the use of Euclidean geometric algebras for relativistic applications \citep{baylis2004electrodynamics}, \citep{chappell2014geometric}.
+\paragraph{Paravector formalism.}
+In the geometric algebra literature, there are a few authors who have endorsed the use of Euclidean geometric algebras for relativistic applications (\citep{baylis2004electrodynamics}, \citep{chappell2014geometric}).
 These authors use an Euclidean basis ``vector'' \( \Be_0 = 1 \) for the timelike direction, and use a
 hybrid scalar plus vector representation of four vectors (called paravectors).
 Lorentz transformation and manipulation of paravectors requires a
 variety of conjugation, real and imaginary operators.
-These authors argue that a paravector representation provides an effective pedagodical bridge from Euclidean geometry to the Minkowski geometry of special relativity.
-It is the opinion of this author that for relativisitic operations, STA is a much more natural and less confusing choice.
+These authors argue that a paravector representation provides an effective pedagogical bridge from Euclidean geometry to the Minkowski geometry of special relativity.
+It is the opinion of this author that for relativistic operations, STA is a much more natural and less confusing choice.
 
 \paragraph{Euclidean geometric algebra.}
 This project explored non-relativistic applications of geometric algebra to electromagnetism.
-The aim was to cut a few of the mathematical prerequisites our of the picture and attempt to construct a geometric algebra treatment that includes many of the results from STA without imposing all of the costs required to learn that formalism.
+The aim was to cut out a few of the mathematical prerequisites and attempt to construct a geometric algebra treatment that includes many of the results from STA without imposing all of the costs required to learn that formalism.
 A self contained introduction to geometric algebra and generalized integration theory was written, with a focus on geometric algebras constructed from \R{2} and \R{3} spaces.
-Following all the prerequisite material is an exploration of geometric algebra applications to electromagnetism, covering many of the fundamental results that can be derived from Maxwell's equations in a more streamlined and compact fashion.
+An exploration of geometric algebra applications to electromagnetism was also written, covering many of the fundamental results derived from Maxwell's equations in a more streamlined and compact fashion.
+Like STA we use a use a hybrid field multivector
+\footnote{Multivector, bivector, trivector and other geometric algebra generalizations of the vector will be defined precisely later.}
+\begin{dmath}\label{eqn:ece2500report:100}
+F = \BE + I c \BB,
+\end{dmath}
+containing both electric and magnetic field components.
+Here \( I = \Be_1 \Be_2 \Be_3 \) is the \R{3} pseudoscalar, the ordered product of the basis vectors \( \setlr{ \Be_i } \).
+Unlike STA both \( \BE \) and \( \BB \) (or \( \BH \)) are vectors and not bivectors, so we are working with quantities already familiar to engineers.
+Maxwell's equation is written as a multivector equation
+\begin{dmath}\label{eqn:ece2500report:120}
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J,
+\end{dmath}
+where \( J \) is a multivector source containing both the electric charge and currents, and \( c \) is the group velocity for the medium (assumed uniform and isometric).
+\( J \) may optionally include the (fictitious) magnetic charge and currents useful in antenna theory.
+Like the STA Maxwell's equation \cref{eqn:ece2500report:120} is directly invertible using Green's function techniques, without requiring the solution of equivalent second order potential problems, nor any requirement to take the derivatives of those potentials to determine the fields.
+Many of the applications in the book use \( F \) instead of the component electric or magnetic fields.
+When desired, the electric and magnetic fields are easily extracted from the complete field, but it will be clear to the reader that it is often
+simpler to have the electric and magnetic on equal footing.
 
-Some researchers may find it distasteful that STA and relativity have been avoided completely.
-Maxwell's equations are inherently relativistic, and
-STA expresses the relativistic aspects of electromagnetism in an exceptional and beautiful fashion.
-It is the opinion of the author that an effective pedagogical path has been constructed in this work, one that bridges the gap between the conventional vector formalism to one using geometric algebra.
-Most of the results in this work can be generalized or translated to an STA approach with ease, which makes the STA literature much more accessible.
+An attempt has been made to avoid introducing as little new notation as possible.
+Some authors use special notation for the bivector valued magnetic field \( I \BB \), such as \( \bcap \) or \( \Bcap \), but because the literature is not consistent, \( I \BB \) (or \( I \BH \)) will be used explicitly for the bivector (magnetic) components of the total electromagnetic field \( F \).
+In the geometric algebra literature, there are conflicting conventions for the operator \( \spacegrad + (1/c) \PDi{t}{} \), which we will call the spacetime gradient, and write it out in full to avoid picking from the competing conventions in the literature.
+This operator is related by a constant factor (\(\gamma_0\)) to the spacetime gradient of STA.
 
 \subsubsection{Results.}
 
-The end product of this project was a small self contained book including an introduction to Euclidean geometric algebra, geometric calculus, and applications to electromagnetism.
-This report summarizes results from this book, omitting most derivations, and attempts to provide an overview of the work that can be used as a road map to the book for further exploration.
+The end product of this project was a fairly small self contained book including an introduction to Euclidean geometric algebra (64 pages), geometric calculus and multivector Green's functions (64 pages), and applications to electromagnetism (75 pages).
+This report summarizes results from this book, omitting most derivations, and attempts to provide an overview that may be used as a road map for the book for further exploration.
+
+Some researchers will find it distasteful that STA and relativity have been avoided completely.
+Maxwell's equations are inherently relativistic, and
+STA expresses the relativistic aspects of electromagnetism in an exceptional and beautiful fashion.
+However, a student of this book will have learned the geometric algebra and calculus prerequisites of STA, which
+will make the STA literature much more accessible, especially since most of the
+results in the book can be trivially translated into STA notation.
 
 %\subsubsection{Road map.}
 \section{Geometric Algebra.}
