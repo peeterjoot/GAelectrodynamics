@@ -1,0 +1,78 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{ece2500report}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Project report ECE2500.  Geometric Algebra for Electrical Engineers}
+\section{Motivation.}
+This is the report for an ECE2500 M.Eng project course.
+
+\subsubsection{Goals.}
+This project had a few goals
+\begin{enumerate}
+\item Perform a literature review of applications of geometric algebra to the study of electromagnetism.
+\item Identify the subset of the literature that had direct relevance to electrical engineering.
+\item Create a complete, and as compact as possible, introduction of the prerequisites required
+for a graduate or advanced undergraduate electrical engineering student to be able to apply
+geometric algebra to problems in electromagnetism.
+\end{enumerate}
+
+\subsubsection{Why geometric algebra?}
+
+Euclidean vector algebra, in particular the vector algebra and calculus of \R{3}, 
+is the defacto language of electromagnetism within electrical engineering.
+We are all intimately familiar with dot and cross products, and with gradient, divergence and curl operations.
+There has to be a really good reason to introduce an alternate mathematical formalism.
+
+For high energy physics applications the use of relativistic tensor formalism can be more natural.  
+In the tensor formalism, Maxwell's equations are reduced to a set of two tensor relationships
+\begin{dmath}\label{eqn:ece2500report:n}
+\begin{aligned}
+\partial_\mu F^{\mu \nu} &= J^\nu \\
+\epsilon_{\alpha \beta \gamma \kappa} F^{\alpha \beta} &= 0.
+\end{aligned}
+\end{dmath}
+This provides a more unified and simpler theoretical framework for electromagnetism.  
+The tensor formalism is built around the concept of the four-vector, and comes with a few costs.  
+One cost is that we loose the vector electric and magnetic fields we are so comfortable with, and have to work with rank-2 antisymmetric tensors \( F^{\mu\nu} \) that contain all six electric and magnetic field components.  There is also 
+the cost of loosing the distinction between space and time, both concepts near and dear to any down to earth electrical engineer.
+
+It has been argued that a differential forms treatment of 
+electromagnetism provides some of the same theoretical advantages as the tensor formalism, without the disadvanges 
+of introducing a hellish mess of index manipulation into the mix.
+With differential forms it is also possible to express Maxwell's equations as two equations
+FIXME: state.
+A number of calculations are more natural in this context.  
+However, this formalism also comes with a number of costs.  
+Most grievious of the costs is the requirement to use differentials based on the one-forms \( dx, dy, dz, dt \) as the basis for space and time.  
+There are not likely many engineers that would find the use of differentials for electric and magnetic fields and sources natural.
+
+\subsubsection{Results.}
+
+\section{Geometric Algebra.}
+\section{Geometric Calculus.}
+\section{Electromagnetism.}
+
+%}
+%\EndArticle
+\EndNoBibArticle

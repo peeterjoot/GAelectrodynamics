@@ -390,3 +390,5 @@ perl -p -i ../latex/bin/latexRegex.pl gradient.tex
 perl -p -i ../latex/bin/latexRegex.pl surfaceintegral.tex
 ../latex/bin/lgrep volumeintegral.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl volumeintegral.tex
+../latex/bin/lgrep ece2500report.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl ece2500report.tex

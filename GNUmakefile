@@ -39,6 +39,8 @@ include ../latex/make.rules
 maxwells.pdf :: $(shell cat spellcheckem.txt)
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 
+report : ece2500report.pdf
+
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 
 # FIXME: this should be an automatic dependency, but currently isn't.
