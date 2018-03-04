@@ -79,5 +79,9 @@ $(HOME)/Dropbox/$(THISDIR)/$(THISBOOK).pdf : $(THISBOOK).pdf
 mmacells/mmacells.sty:
 	git clone https://github.com/jkuczm/mmacells
 
+bib:
+	rm -f Bibliography.bib myrefs.bib
+	make Bibliography.bib myrefs.bib
+
 mmacells.sty: mmacells/mmacells.sty
 	cp $^ $@
