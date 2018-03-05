@@ -40,6 +40,7 @@ maxwells.pdf :: $(shell cat spellcheckem.txt)
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 
 report : ece2500report.pdf
+quat : quaternion2maxwellWithGA.pdf
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

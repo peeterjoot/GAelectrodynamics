@@ -1,0 +1,211 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{quaternion2maxwellWithGA}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+\usepackage{macros_bm} % \bcM
+\usepackage{macros_cal} % \calD
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\newcommand{\quatgrad}[0]{%
+\frac{d}{dr}%
+%\calD
+}
+
+\beginArtNoToc
+
+\generatetitle{A derivation of the quaternion Maxwell's equations using geometric algebra.}
+%\chapter{Quaternion Maxwell's equations using geometric algebra}
+%\label{chap:quaternion2maxwellWithGA}
+\section{Motivation.}
+The quaternion form of Maxwell's equations as stated in \citep{maxwell1881treatiseVolumeII} is nearly indecipherable.
+The modern quaternionic form of these equations can be found in \citep{jack2003physical}.
+Looking for this representation was driven by the question of whether or not the compact geometric algebra
+representations of Maxwell's equations \( \grad F = J \), was possible using a
+quaternion representation of the fields.
+
+As quaternions may be viewed as the even subalgebra of GA(3,0), it is possible to the quaternion representation of
+Maxwell's equations
+using only geometric algebra, including source terms and independent of the heat considerations discussed in \citep{jack2003physical}.
+Such a derivation will be performed here.
+Examination of the results appears to answer the question about the compact representation in the negative.
+
+\section{Quaternions as multivectors.}
+Quaternions are vector plus scalar sums, where the vector basis \( \setlr{ \Bi, \Bj, \Bk } \) are subject to the complex like multiplication rules
+\begin{equation}\label{eqn:complex:240}
+\begin{aligned}
+\Bi^2 &= \Bj^2 = \Bk^2 = -1 \\
+\Bi \Bj &= \Bk = -\Bj \Bi \\
+\Bj \Bk &= \Bi = -\Bk \Bj \\
+\Bk \Bi &= \Bj = -\Bi \Bk.
+\end{aligned}
+\end{equation}
+
+We can represent these basis vectors in terms of the \R{3} unit bivectors
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:260}
+\begin{aligned}
+\Bi &= \Be_{3} \Be_{2} = -I \Be_1 \\
+\Bj &= \Be_{1} \Be_{3} = -I \Be_2 \\
+\Bk &= \Be_{2} \Be_{1} = -I \Be_3,
+\end{aligned}
+\end{dmath}
+where \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the \R{3} basis elements.
+Within geometric algebra, the quaternion basis ``vectors'' are more properly viewed as a bivector space basis that happens to have dimension three.
+
+Following \citep{jack2003physical}, we may introduce a quaternionic spacetime gradient, and express that in terms of geometric algebra
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:280}
+\quatgrad = \inv{c} \PD{t}{}
++ \Bi \PD{x}{}
++ \Bj \PD{y}{}
++ \Bk \PD{z}{}
+=
+\inv{c}\PD{t}{} -I \spacegrad.
+\end{dmath}
+
+Of particular interest is how do we write the curl, divergence and time partials in terms of the
+quaternionic spacetime gradient or its components.
+Like \citep{jack2003physical}, we will use modern commutator notation for an antisymmetric difference of products
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:600}
+\antisymmetric{a}{b} = a b - b a,
+\end{dmath}
+and anticommutator notation for a symmetric difference of products
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:620}
+\symmetric{a}{b} = a b + b a.
+\end{dmath}
+The curl of a vector \( \Bf \) in terms of vector products with the gradient is
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:300}
+\spacegrad \cross \Bf
+= -I(\spacegrad \wedge \Bf)
+= -\frac{I}{2} \lr{ \spacegrad \Bf - \Bf \spacegrad }
+= \frac{1}{2} \lr{ (-I \spacegrad) \Bf - \Bf (-I\spacegrad) }
+= \inv{2} \antisymmetric{ -I \spacegrad }{ \Bf }
+= \inv{2} \antisymmetric{ \quatgrad }{ \Bf },
+\end{dmath}
+where the last step takes advantage of the fact that the timelike contribution of the spacetime gradient \cref{eqn:quaternion2maxwellWithGA:280} commutes with any vector \( \Bf \) due to its scalar nature, so cancels out of the commutator.
+In a similar fashion, the dot product may be written as an anticommutator
+\begin{equation}\label{eqn:quaternion2maxwellWithGA:480}
+\spacegrad \cdot \Bf
+=
+\inv{2} \lr{ \spacegrad \Bf + \Bf \spacegrad }
+=
+\inv{2} \symmetric{ \spacegrad}{ \Bf },
+\end{equation}
+as can the scalar time derivative
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:500}
+\PD{t}{\Bf}
+= \inv{2} \symmetric{ \inv{c} \PD{t}{} } { c \Bf }.
+\end{dmath}
+
+\section{Quaternionic form of Maxwell's equations.}
+Using geometric algebra as an intermediate transformation, let's see directly how to express Maxwell's equations in terms of this quaternionic operator.
+Our starting point is Maxwell's equations in their standard macroscopic form
+% with the (fictitious) magnetic sources useful in antenna theory tossed in for good measure
+\begin{subequations}
+\label{eqn:quaternion2maxwellWithGA:320}
+\begin{dmath}\label{eqn:ece2500report:20}
+\spacegrad \cross \BH = \BJ + \PD{t}{\BD}
+\end{dmath}
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:340}
+\spacegrad \cdot \BD = \rho
+\end{dmath}
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:360}
+%\spacegrad \cross \BE = - \BM - \PD{t}{\BB}
+\spacegrad \cross \BE = - \PD{t}{\BB}
+\end{dmath}
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:380}
+%\spacegrad \cdot \BB = \rho_\txtm.
+\spacegrad \cdot \BB = 0.
+\end{dmath}
+\end{subequations}
+Inserting \cref{eqn:quaternion2maxwellWithGA:300}, \cref{eqn:quaternion2maxwellWithGA:480}, and \cref{eqn:quaternion2maxwellWithGA:500}
+into
+Maxwell-Faraday
+\cref{eqn:quaternion2maxwellWithGA:360}
+and into
+Gauss's law for magnetism
+\cref{eqn:quaternion2maxwellWithGA:380}
+we have
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:400}
+\begin{aligned}
+\inv{2} \antisymmetric{ \quatgrad }{ \BE } &= - \symmetric{ \inv{c}\PD{t}{} }{ c \BB } \\
+\inv{2} \symmetric{ \spacegrad }{ c \BB } &= 0,
+\end{aligned}
+\end{dmath}
+or
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:420}
+\begin{aligned}
+\inv{2} \antisymmetric{ \quatgrad }{ -I \BE } + \symmetric{ \inv{c}\PD{t}{} }{ -I c \BB } &= 0 \\
+\inv{2} \symmetric{ -I \spacegrad }{ -I c \BB } &= 0
+\end{aligned}
+\end{dmath}
+We can introduce quaternionic electric and magnetic field ``vectors'' (really bivectors)
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:440}
+\begin{aligned}
+\bcE &= -I \BE = \Bi E_x + \Bj E_y + \Bk E_z \\
+\bcB &= -I \BB = \Bi B_x + \Bj B_y + \Bk B_z,
+\end{aligned}
+\end{dmath}
+and substitute these into \cref{eqn:quaternion2maxwellWithGA:420} and sum to find the quaternionic representation of the two source free Maxwell's equations
+\boxedEquation{eqn:quaternion2maxwellWithGA:460}{
+\inv{2} \antisymmetric{ \quatgrad }{ \bcE } + \inv{2} \symmetric{ \quatgrad }{ c \bcB } = 0.
+}
+
+Inserting \cref{eqn:quaternion2maxwellWithGA:300}, \cref{eqn:quaternion2maxwellWithGA:480}, and \cref{eqn:quaternion2maxwellWithGA:500}
+into
+Ampere-Maxwell
+\cref{eqn:ece2500report:20}
+and
+Gauss's law
+\cref{eqn:quaternion2maxwellWithGA:340}, we have
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:520}
+\begin{aligned}
+\inv{2} \antisymmetric{ \quatgrad }{ \BH } &= \BJ + \inv{2} \symmetric{ \inv{c} \PD{t}{} } { c \BD } \\
+\inv{2} \symmetric{ \spacegrad }{ c \BD } &= c \rho,
+\end{aligned}
+\end{dmath}
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:540}
+\begin{aligned}
+\inv{2} \antisymmetric{ \quatgrad }{ -I \BH } - \inv{2} \symmetric{ \inv{c} \PD{t}{} } { -I c \BD } &= -I \BJ \\
+-\inv{2} \symmetric{ -I \spacegrad }{ -I c \BD } &= c \rho.
+\end{aligned}
+\end{dmath}
+With quaternionic displacement vector and magnetization, and current densities
+\begin{dmath}\label{eqn:quaternion2maxwellWithGA:580}
+\begin{aligned}
+\bcD &= -I \BD = \Bi D_x + \Bj D_y + \Bk D_z \\
+\bcH &= -I \BH = \Bi H_x + \Bj H_y + \Bk H_z \\
+\bcJ &= -I \BJ = \Bi J_x + \Bj J_y + \Bk J_z,
+\end{aligned}
+\end{dmath}
+and summation of \cref{eqn:quaternion2maxwellWithGA:540} we have the remaining two Maxwell equations in their quaternionic form
+\boxedEquation{eqn:quaternion2maxwellWithGA:560}{
+\inv{2} \antisymmetric{ \quatgrad }{ \bcH } - \inv{2} \symmetric{ \quatgrad } { c \bcD } = c \rho + \bcJ.
+}
+
+\section{Conclusions.}
+Maxwell's equations in the quaternion representation have a structure that is not apparent in the Heaviside-Gibbs notation.
+There is some elegance to this result, but comes with the cost of having to use commutator and anticommutator operators, which are arguably non-intuitive.
+The compact geometric algebra representation of Maxwell's equation does not appear
+possible with a quaternion representation, as an additional complex degree of freedom would be required (biquaternions?)
+Such a degree of freedom may also
+allow a quaternion representation of
+the (fictitious) magnetic sources that are useful in antenna theory with a quaternion model.
+Magnetic sources are easily incorporated into the current multivector in geometric algebra, but if done so in the derivation above, yield an odd grade multivector source which has no quaternion representation.
+
+%}
+\EndArticle
