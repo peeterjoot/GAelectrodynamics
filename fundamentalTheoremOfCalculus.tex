@@ -26,38 +26,53 @@ We wish to generalize the concepts of line, surface and volume integrals to hype
 
 \makedefinition{Multivector integral.}{dfn:fundamentalTheoremOfCalculus:240}{
 Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
-multivector functions \( F, G \), we define the k-volume integral as
+multivector functions \( F, G \), we define k-volume integral with the vector derivative acting to the right on \( F \) as
+\begin{equation*}
+\int d^k\Bx \lr{ \rboldpartial F },
+\end{equation*}
+a k-volume integral with the vector derivative acting to the left \( F \) as
+\begin{equation*}
+\int F d^k\Bx \lboldpartial,
+\end{equation*}
+and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) as
 \begin{equation*}
 \int F d^k\Bx \lrboldpartial G
 \equiv
 \int \lr{ F d^k\Bx \lboldpartial} G
 +
-\int F d^k\Bx \lr{ \rboldpartial G }.
+\int F d^k\Bx \lr{ \rboldpartial G },
 \end{equation*}
+where the meaning given to these directionally acting derivative operations is
+\begin{equation*}
+F d^k \Bx \lrboldpartial G
+=
+F d^k \Bx \lr{ \sum_i \Bx^i {\stackrel{ \leftrightarrow }{\partial_i}} } G
+=
+(\partial_i F) d^k \Bx \sum_i \Bx^i G
++
+F d^k \Bx \sum_i \Bx^i (\partial_i G)
+\equiv
+(F d^k \Bx \lboldpartial) G
++
+F d^k \Bx (\rboldpartial G),
+\end{equation*}
+with \( \boldpartial \) acting on \( F \) and \( G \), but not the volume element \( d^k \Bx \), which may also be a function of the implied parameterization.
 } % definition
 
-Because multivectors may not commute with the vector derivative or the differential, we allow the vector derivative to act bidirectionally using the chain rule.
-Here \( \rboldpartial, \lboldpartial,\lrboldpartial \) are used to indicate that the vector derivative is acting only to the right on \( G\), to the left on \( F\), or in both directions respectively.
-The meaning of these can be made explicit by expansion in coordinates
-\begin{dmath}\label{eqn:lineintegral:220}
-F \lrboldpartial G
-=
-(\partial_i F) \sum_i \Bx^i G
-+
-F \sum_i \Bx^i (\partial_i G)
-=
-(F \lboldpartial) G
-+
-F (\rboldpartial G).
-\end{dmath}
-This bidirectional notation is also used for the gradient.
-%The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
-Should we wish to only integrate single functions, we can set either of the other to \( 1 \), yielding integrals of the form
-\( \int F d^k\Bx \lboldpartial, \) or \( \int d^k\Bx \boldpartial G \).
+The vector derivative (and gradient)
+may not commute with \( F, G \) nor the volume element \( d^k \Bx \), so we are forced to use some notation to indicate what the vector derivative (or gradient) acts on.
+In conventional right acting cases, where there is no ambiguity, arrows will usually be omitted, but braces may also be used to indicate the scope of derivative operators.
+This bidirectional notation will also be used for the gradient, especially for volume integrals in \R{3} where the vector derivative is identitical to the gradient.
 
-%The basic problem is that we have to indicate the scope of the partials of the derivative operator, but may not be able to commute the multivector components of the operator.
-Some authors use overdots or ticks to indicate the exact scope of a multivector derivative operator.
-FIXME: perhaps I should too?  That would emphasizes the fact that the action is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
+Some authors use overdots or ticks are used to indicate the exact scope of multivector derivative operators, as in
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:260}
+F d^k \Bx \boldpartial G =
+\dot{F} d^k \Bx \dot{\boldpartial} G
++
+F d^k \Bx \dot{\boldpartial} \dot{G}.
+\end{dmath}
+Here the (Hestenes) dot notation would have the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
+In this book, where we will use ticks to indicate whether gradients are with respect to primed \( \Bx' \) or unprimed \( \Bx \) variables, over arrows seemed like a better choice than dots to indicate operator scope, and have the advantage of being visually conspicuous.
 
 \subsection{Fundamental theorem.}
 \index{fundamental theorem of geometric calculus}

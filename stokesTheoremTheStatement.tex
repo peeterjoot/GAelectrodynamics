@@ -3,9 +3,11 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 An important consequence of the fundamental theorem of geometric calculus is the
-geometric algebra generalization of Stokes' theorem.  This form of Stokes' theorem is equivalent to the same from the theory of differential forms.
-Stokes' theorem in differential forms and geometric algebra is more general and powerful than Stokes' theorem from conventional vector calculus which only relates
-surface integrals to the line integral around the bounding surface.
+geometric algebra generalization of Stokes' theorem.
+The Stokes' theorem that we know from conventional vector calculus relates
+\R{3} surface integrals to the line integral around a bounding surface.
+The geometric algebra form of Stokes' theorem is equivalent to Stokes' theorem from the theory of differential forms, which relates
+hypervolume integrals to the integrals over their hypersurface boundaries, a much more general result.
 
 \maketheorem{Stokes' Theorem}{thm:stokesTheoremGeometricAlgebra:1740}{
 Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
@@ -15,11 +17,11 @@ Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
 %Here the volume integral is over a \(k\) dimensional hypervolumesurface (manifold).  The derivative operator \(\boldpartial\) is called the vector derviative and is the projection of the gradient onto the tangent space of the manifold.  Integration over the boundary of \(V\) is indicated by \( \partial V \).
 }
 
-We will see that most of the well known scalar and vector integral theorems are consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}.
+We still have to give meaning to the boundary hypersurface element \( d^{k-1} \Bx \), which will be done in turn for \( k = 1, 2, 3 \) (line, surface, and volume integrals).
+Once that is done, we will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.
 
-To prove the theorem, set \( F = 1 \) in \cref{thm:fundamentalTheoremOfCalculus:1}, and require that \( G \) is an s-blade, with grade \( s < k \).  We select the \( k-(s+1) \) grade, the lowest grade of \( d^k \Bx (\boldpartial \wedge G) \) from
-both sides of
-\cref{thm:fundamentalTheoremOfCalculus:1}.
+Assuming that \( d^{k-1} \Bx \) has some meaning temporarily, we can prove Stokes' theorem, by setting \( F = 1 \) in \cref{thm:fundamentalTheoremOfCalculus:1}.
+The proof requires that \( G \) is an s-blade, with grade \( s < k \), and only requires the selection of the \( k-(s+1) \) grade, the lowest grade of \( d^k \Bx (\boldpartial \wedge G) \), from both sides of \cref{thm:fundamentalTheoremOfCalculus:1}.
 
 For the grade selection of the hypervolume integral we have
 \begin{dmath}\label{eqn:stokesTheoremTheStatement:100}
