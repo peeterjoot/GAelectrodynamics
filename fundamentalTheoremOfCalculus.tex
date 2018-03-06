@@ -26,24 +26,24 @@ We wish to generalize the concepts of line, surface and volume integrals to hype
 
 \makedefinition{Multivector integral.}{dfn:fundamentalTheoremOfCalculus:240}{
 Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
-multivector functions \( F, G \), we define k-volume integral with the vector derivative acting to the right on \( F \) as
+multivector functions \( F, G \), a k-volume integral with the vector derivative acting to the right on \( G \) is written as
 \begin{equation*}
-\int d^k\Bx \lr{ \rboldpartial F },
+\int d^k\Bx \rboldpartial G,
 \end{equation*}
-a k-volume integral with the vector derivative acting to the left \( F \) as
+a k-volume integral with the vector derivative acting to the left on \( F \) is written as
 \begin{equation*}
 \int F d^k\Bx \lboldpartial,
 \end{equation*}
-and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) as
+and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) is written as
 \begin{equation*}
 \int F d^k\Bx \lrboldpartial G
 \equiv
 \int \lr{ F d^k\Bx \lboldpartial} G
 +
-\int F d^k\Bx \lr{ \rboldpartial G },
+\int F d^k\Bx \lr{ \rboldpartial G }.
 \end{equation*}
-where the meaning given to these directionally acting derivative operations is
-\begin{equation*}
+The explicit meaning of these directionally acting derivative operations is given by the chain rule coordinate expansion
+\begin{dmath*}
 F d^k \Bx \lrboldpartial G
 =
 F d^k \Bx \lr{ \sum_i \Bx^i {\stackrel{ \leftrightarrow }{\partial_i}} } G
@@ -55,24 +55,26 @@ F d^k \Bx \sum_i \Bx^i (\partial_i G)
 (F d^k \Bx \lboldpartial) G
 +
 F d^k \Bx (\rboldpartial G),
-\end{equation*}
+\end{dmath*}
 with \( \boldpartial \) acting on \( F \) and \( G \), but not the volume element \( d^k \Bx \), which may also be a function of the implied parameterization.
 } % definition
 
-The vector derivative (and gradient)
+The vector derivative
+% (and gradient)
 may not commute with \( F, G \) nor the volume element \( d^k \Bx \), so we are forced to use some notation to indicate what the vector derivative (or gradient) acts on.
 In conventional right acting cases, where there is no ambiguity, arrows will usually be omitted, but braces may also be used to indicate the scope of derivative operators.
 This bidirectional notation will also be used for the gradient, especially for volume integrals in \R{3} where the vector derivative is identitical to the gradient.
 
-Some authors use overdots or ticks are used to indicate the exact scope of multivector derivative operators, as in
+Some authors use the Hestenes dot notation, with overdots or primes to indicatating the exact scope of multivector derivative operators, as in
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:260}
 F d^k \Bx \boldpartial G =
 \dot{F} d^k \Bx \dot{\boldpartial} G
 +
 F d^k \Bx \dot{\boldpartial} \dot{G}.
 \end{dmath}
-Here the (Hestenes) dot notation would have the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
-In this book, where we will use ticks to indicate whether gradients are with respect to primed \( \Bx' \) or unprimed \( \Bx \) variables, over arrows seemed like a better choice than dots to indicate operator scope, and have the advantage of being visually conspicuous.
+The dot notation has the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
+However, in this book, where primed operators such as \( \spacegrad' \) are used to indicate that derivatives are taken with respect to primed \( \Bx' \) variables, a mix of dots and ticks would have been confusing.
+%Over arrows also have the advantage of being visually conspicuous.
 
 \subsection{Fundamental theorem.}
 \index{fundamental theorem of geometric calculus}
