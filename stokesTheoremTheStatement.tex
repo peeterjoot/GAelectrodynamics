@@ -9,19 +9,20 @@ The Stokes' theorem that we know from conventional vector calculus relates
 The geometric algebra form of Stokes' theorem is equivalent to Stokes' theorem from the theory of differential forms, which relates
 hypervolume integrals to the integrals over their hypersurface boundaries, a much more general result.
 
-\maketheorem{Stokes' Theorem}{thm:stokesTheoremGeometricAlgebra:1740}{
+\maketheorem{Stokes' theorem}{thm:stokesTheoremGeometricAlgebra:1740}{
 Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
-\begin{equation*}%\label{eqn:stokesTheoremTheStatement:120}
+\begin{equation*}
 \int_V d^k \Bx \cdot (\boldpartial \wedge F) = \int_{\partial V} d^{k-1} \Bx \cdot F.
 \end{equation*}
-%Here the volume integral is over a \(k\) dimensional hypervolumesurface (manifold).  The derivative operator \(\boldpartial\) is called the vector derviative and is the projection of the gradient onto the tangent space of the manifold.  Integration over the boundary of \(V\) is indicated by \( \partial V \).
 }
 
-We still have to give meaning to the boundary hypersurface element \( d^{k-1} \Bx \), which will be done in turn for \( k = 1, 2, 3 \) (line, surface, and volume integrals).
-Once that is done, we will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.
+We will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.
 
-Assuming that \( d^{k-1} \Bx \) has some meaning temporarily, we can prove Stokes' theorem, by setting \( F = 1 \) in \cref{thm:fundamentalTheoremOfCalculus:1}.
-The proof requires that \( G \) is an s-blade, with grade \( s < k \), and only requires the selection of the \( k-(s+1) \) grade, the lowest grade of \( d^k \Bx (\boldpartial \wedge G) \), from both sides of \cref{thm:fundamentalTheoremOfCalculus:1}.
+We can prove Stokes' theorem
+from \cref{thm:fundamentalTheoremOfCalculus:1}
+by setting \( F = 1 \), and requiring that \( G \)
+is an s-blade, with grade \( s < k \).
+The proof follows by selecting the \( k-(s+1) \) grade, the lowest grade of \( d^k \Bx (\boldpartial \wedge G) \), from both sides of \cref{thm:fundamentalTheoremOfCalculus:1}.
 
 For the grade selection of the hypervolume integral we have
 \begin{dmath}\label{eqn:stokesTheoremTheStatement:100}
@@ -33,27 +34,10 @@ For the grade selection of the hypervolume integral we have
 \int_V d^k \Bx (\boldpartial \wedge G )
 }{k-(s-1)},
 \end{dmath}
-however, the lowest grade of \( d^k \Bx (\boldpartial \cdot G ) \) is \( k -(s-1) = k - s + 1 > k - (s+1) \), so the divergence integral is zero.  This leaves
+however, the lowest grade of \( d^k \Bx (\boldpartial \cdot G ) \) is \( k -(s-1) = k - s + 1 > k - (s+1) \), so the divergence integral is zero.  As \( d^{k-1} \Bx \) is a \( k - 1 \) blade
 \begin{dmath}\label{eqn:stokesTheoremTheStatement:110}
 \int_V d^k \Bx \cdot (\boldpartial \wedge G )
 = \int_{\partial V} \gpgrade{d^{k-1} \Bx G}{k-(s+1)}
 = \int_{\partial V} d^{k-1} \Bx \cdot G,
 \end{dmath}
 proving the theorem.
-
-%%%\paragraph{FIXME: (rewrite) old proof using gagc.}
-%%%The vector derivative is defined by
-%%%\begin{equation}\label{eqn:stokesTheoremTheStatement:1400}
-%%%\boldpartial = \Bx^i \partial_i = \sum_i \Bx_i \PD{u^i}{}.
-%%%\end{equation}
-%%%
-%%%where \( \Bx^i \) are reciprocal frame vectors dual to the tangent vector basis \( \Bx_i \) associated with the parameters \( u^1, u^2, \cdots \).
-%%%%These will be defined in more detail in the next section.
-%%%Once the volume element, vector product and the other concepts are defined, the proof of
-%%%Stokes theorem is really just a statement that
-%%%\boxedEquation{eqn:stokesTheoremGeometricAlgebra:2840}{
-%%%\int_V d^k \Bx \cdot (\Bx^i \partial_i \wedge F) =
-%%%\int_V \lr{ d^k \Bx \cdot \Bx^i } \cdot \partial_i F.
-%%%}
-%%%
-%%%This dot product expansion applies to any degree blade and volume element provided the degree of the blade is less than that of the volume element (i.e. \(s < k\)).  That magic follows directly from \cref{thm:stokesTheoremGeometricAlgebra:1420}.

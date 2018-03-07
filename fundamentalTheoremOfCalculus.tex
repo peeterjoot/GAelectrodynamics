@@ -79,26 +79,68 @@ However, in this book, where primed operators such as \( \spacegrad' \) are used
 \subsection{Fundamental theorem.}
 \index{fundamental theorem of geometric calculus}
 
-The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems.
-It is a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, and to derive the geometric algebra form of Stokes' theorem.
+The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
+This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
+
+Before stating the theorem itself, we must state what we mean by the boundary integral.
+\makedefinition{Hypervolume boundary integral.}{dfn:fundamentalTheoremOfCalculus:280}{
+Given a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with volume element \( d^k \Bx = d^k u I_k \), where
+\( I_k = \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k \),
+we define the boundary integral for \( k > 1 \) as
+\begin{equation*}
+\oint_{\partial V} F d^{k-1} \Bx G
+\equiv
+\sum_i \int d^{k-1} u_i \evalbar{ \lr{ F (I_k \cdot \Bx^i) \cdot \Bx G }}{\Delta u_i},
+\end{equation*}
+where \( d^{k-1} u_i \) is the product of all \( du_j \) except for \( du_i \).
+For
+\( k = 1 \) we define the boundary ``integral'' as just the evaluation of the \( F G \) multivector product over the range of the parameter
+\begin{equation*}
+\oint_{\partial V} F d^{0} \Bx G
+\equiv
+\evalbar{ F G }{\Delta u_1}.
+\end{equation*}
+} % definition
+
+This will become more clear as the specific cases of \( k = 1, 2, 3 \), representing generalized line, surface, and volume integrals respectively, are considered.
 
 \maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
 For multivectors \(F, G \), and a hypervolume element \(d^k \Bx\),
 \begin{equation*}
-\int_V F d^k \Bx \boldpartial G = \oint_{\partial V} F d^{k-1} \Bx G.
+\int_V F d^k \Bx \boldpartial G = \oint_{\partial V} F d^{k-1} \Bx G,
 \end{equation*}
+where \( d^{k-1} \Bx \) will be defined.
 }
 
-This theorem relates the hypervolume integral to the integral over the bounding surface of hypervolume.
-Additional work is required to describe the precise meaning of the boundary differential \( d^{k-1} \Bx \).  We will do so for line, surface, and volume integrals, proving the theorem in a limited fashion for each of those cases as we go.
-
+The proof follows from direct expansion, starting with
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:300}
+\int_V F d^k \Bx \boldpartial G
+=
+\sum_i \int_V d^k u F I_k \Bx^i \lrpartial_i G
+=
+\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^k +  I_k \wedge \Bx^i } \lrpartial_i G.
+\end{dmath}
+Because \( \Bx^k \) lies in \( \Span \setlr{ \Bx_i } \), the wedge product above is zero, leaving
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:320}
+\int_V F d^k \Bx \boldpartial G
+=
+\sum_i \int_V d^k u F I_k \cdot \Bx^k \lrpartial_i G,
+\end{dmath}
+however all the wedge factors of \( I_k \cdot \Bx^k \) are \( \PDi{u_j}{\Bx} \) taken with \( i \) held constant, which means that this integral can be written as a perfect differential
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:340}
+\int_V F d^k \Bx \boldpartial G
+=
+\sum_i \int_V d^{k-1} u_i \partial_i \lr{ F I_k \cdot \Bx^k G},
+\end{dmath}
+and integrated in turn for each \( du_i \), leaving the boundary integral of \cref{dfn:fundamentalTheoremOfCalculus:280}, proving the theorem in a limited fashion.
 For a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}, additional mathematical sublties must be considered.
-For full proofs and additional details, the reader is referred to \citep{hestenes1985clifford}, \citep{doran2003gap}, \citep{aMacdonaldVAGC} and \citep{sobczyk2011fundamental}, which all
-which all tackle different aspects of general geometric calculus.
+The reader is referred to \citep{hestenes1985clifford}, \citep{doran2003gap},
+and \citep{sobczyk2011fundamental}, which all which tackle different aspects of general geometric calculus required for a full proof, as well as to \citep{aMacdonaldVAGC} which covers aspects of connectivity also omitted here.
 
-Before considering multivector line, surface and volume integral specializations of
-\cref{thm:fundamentalTheoremOfCalculus:1},
-we will state Stokes' theorem in its geometric algebra form.
+FIXME: I don't think this ``held constant'' argument is valid.  Instead I think that an argument like that of the Green's theorem proof below is actually required.  We end up with the miraculous perfect cancellation required, but not for a reason as trivial as held constant, since holding \( \Bx \) constant with respect to \( u_i \) doesn't mean that the result is not also a function of \( u_i \).  i.e. this will work because of equality of mixed partials, not because of ``held constant''.  That will make for a messier proof, and perhaps why MacDonald's nice little book skipped it all in the first place.
+
+For clarity, the argument above will be repeated separately for each of the line, surface, and volume integral cases, but before doing so
+we will state the general Stokes' theorem in its geometric algebra form.
 
 %}
 %\EndArticle
