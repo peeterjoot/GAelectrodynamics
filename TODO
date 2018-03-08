@@ -1,6 +1,4 @@
-- GAGC proof:
-
-   Think that my limited proof is actually busted, and have to think it through again.  See FIXME note that's been added.
+- have now added a more complete proof of gagc up front.  Now need to streamline the surface and volume integral content.
 
 - reciprocal frame: Alan:
 
@@ -12,15 +10,15 @@
 
 as "standard usage".  If I use that then I have to change all the rest too.  Look at some other examples of standard usage.
 
-- Alan suggested that in the definition of 
+- Alan suggested that in the definition of
 
-Euclidean 
+Euclidean
 
 this word be italizized.
 
 I've done that.  Look for other theorems/definitions where this should also be done.
 
-- Stated the fundamental theorm and stokes expicitly.  Under line, surface (and volume when done), go back and reference 
+- Stated the fundamental theorm and stokes expicitly.  Under line, surface (and volume when done), go back and reference
   those theorem statements, covering just the differences from the general statement.
 
   Perhaps try a general proof of Stokes from the fundamental theorem, and get rid of the proofs for the special cases.
@@ -45,7 +43,7 @@ e_12, e_23, e_31
 e_123
 
 
-- Mo suggested 'is' instead of 'can be' in the bivector definition.  I use 'can be' many times, and 
+- Mo suggested 'is' instead of 'can be' in the bivector definition.  I use 'can be' many times, and
   something more definitive might be better.
 
 - We don’t usually try to represent of a quantity that has the
@@ -53,7 +51,7 @@ apparent dimensions of a point graphically.
 
    >> not clear to mo.
 
-- 
+-
       If you are inclined to skip this, please at least examine the
       stated dot product definition, since the conventional positive definite property is not assumed.
 
@@ -110,14 +108,14 @@ apparent dimensions of a point graphically.
 
    - p.100: Definition 2.2: Multivector Fourier transform pairs
      PLEASE give a small example following Def. Check with MM (=MatheMatica)?
-     
+
    - p.100: Definition 2.3: Multivector phasor representation.
      PLEASE give a small example following Def. Check with MM (=MatheMatica)?
      It may be very new for your readers ..
      They need to get a 'working' comprehension ;)
 
    - I found a nice notation in Prof. Speck's lecture notes.
-     He uses for clarity using = (Def vs. fact or proposition):  
+     He uses for clarity using = (Def vs. fact or proposition):
          def
      ..  =  ..
      Maybe it could be used in your text (construct a LaTeX \def ?)?
@@ -136,7 +134,7 @@ apparent dimensions of a point graphically.
    - p.106: ' Theorem 2.8: Greens function for the first order Helmholtz operator.
      The Greens function satisfying ? ..'
                                      ?
-     What is meant by del_arrow/back_arrow? 
+     What is meant by del_arrow/back_arrow?
      I suspect: advancing (causal), and the receding (acausal)?
      One can rediscover the meaning following the proof in (2.152).
 
@@ -147,27 +145,27 @@ apparent dimensions of a point graphically.
    GENERAL REMARK:
    This part of your text is very formal e.g. algebraic.
    This could be problemeatic for the comprhension of amny readers.
-   Is it possible to use 1-3 simple examples/physical situations  
+   Is it possible to use 1-3 simple examples/physical situations
    througout this chap. 2.6 to visualize and concretize your results?
-   I think of the example/s in 
+   I think of the example/s in
 
    Green's Function -- from Wolfram MathWorld, I send you the picture, or
-   https://brilliant.org/wiki/greens-functions-in-physics/ 
+   https://brilliant.org/wiki/greens-functions-in-physics/
 
    These done with MM and the new GA calculus ..
    -----------------------------------------------------------------------
 
 - Wolfgang/346-chapter22-24.txt
 
-   - p83: 
+   - p83:
      the torus can be stated directly
    Q:  (2.62)-(2.64)  I COULD NOT VERIFIY WITH CAS !?
 
    WHERE:
-      torusCenterOfMassParameterization.tex:74:FIXME: show this with Mathematica too. 
+      torusCenterOfMassParameterization.tex:74:FIXME: show this with Mathematica too.
 
    RESOLUTION:
-      
+
       Mathematica calculation of the basis and volume element.
 
    - p87: (Green's theorem) you should spend an concrete example for (2.78) using GA and using MM (me: EigenMath ;)
@@ -224,7 +222,7 @@ apparent dimensions of a point graphically.
      calculate the vec.deriv. there .. and show it in the Fig.
      You have done all prerequsites earlier .. ;)
 
-     WHERE: 
+     WHERE:
          ../figures/GAelectrodynamics/toroidFig1
          gaToroid.nb
 
@@ -235,7 +233,7 @@ apparent dimensions of a point graphically.
    - p91: at the end of 2.4.3 a concrete example using GA methods like attached
      ex. like [din.Ex.9.3]?
 
-     WHERE: 
+     WHERE:
 
          2.4.3 Two parameter specialization of Stokes’ theorem.
 

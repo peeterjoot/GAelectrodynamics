@@ -28,19 +28,19 @@ We wish to generalize the concepts of line, surface and volume integrals to hype
 Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
 multivector functions \( F, G \), a k-volume integral with the vector derivative acting to the right on \( G \) is written as
 \begin{equation*}
-\int d^k\Bx \rboldpartial G,
+\int_V d^k\Bx \rboldpartial G,
 \end{equation*}
 a k-volume integral with the vector derivative acting to the left on \( F \) is written as
 \begin{equation*}
-\int F d^k\Bx \lboldpartial,
+\int_V F d^k\Bx \lboldpartial,
 \end{equation*}
 and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) is written as
 \begin{equation*}
-\int F d^k\Bx \lrboldpartial G
+\int_V F d^k\Bx \lrboldpartial G
 \equiv
-\int \lr{ F d^k\Bx \lboldpartial} G
+\int_V \lr{ F d^k\Bx \lboldpartial} G
 +
-\int F d^k\Bx \lr{ \rboldpartial G }.
+\int_V F d^k\Bx \lr{ \rboldpartial G }.
 \end{equation*}
 The explicit meaning of these directionally acting derivative operations is given by the chain rule coordinate expansion
 \begin{dmath*}
@@ -67,7 +67,7 @@ This bidirectional notation will also be used for the gradient, especially for v
 
 Some authors use the Hestenes dot notation, with overdots or primes to indicatating the exact scope of multivector derivative operators, as in
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:260}
-F d^k \Bx \boldpartial G =
+\dot{F} d^k \Bx \dot{\boldpartial} \dot{G} =
 \dot{F} d^k \Bx \dot{\boldpartial} G
 +
 F d^k \Bx \dot{\boldpartial} \dot{G}.
@@ -82,11 +82,15 @@ However, in this book, where primed operators such as \( \spacegrad' \) are used
 The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
 This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
 
-Before stating the theorem itself, we must state what we mean by the boundary integral.
-\makedefinition{Hypervolume boundary integral.}{dfn:fundamentalTheoremOfCalculus:280}{
-Given a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with volume element \( d^k \Bx = d^k u I_k \), where
-\( I_k = \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k \),
-we define the boundary integral for \( k > 1 \) as
+\maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
+Given
+multivectors \(F, G \),
+a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with hypervolume element \( d^k \Bx = d^k u I_k \), where
+\( I_k = \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k \), the hypervolume integral is related to the boundary integral by
+\begin{equation*}
+\int_V F d^k \Bx \lrboldpartial G = \oint_{\partial V} F d^{k-1} \Bx G,
+\end{equation*}
+where \( \partial V \) represents the boundary of the volume, and \( d^{k-1} \Bx \) is the hypersurface element.  The hypersurface element and boundary integral is defined for \( k > 1 \) as
 \begin{equation*}
 \oint_{\partial V} F d^{k-1} \Bx G
 \equiv
@@ -94,54 +98,53 @@ we define the boundary integral for \( k > 1 \) as
 \end{equation*}
 where \( d^{k-1} u_i \) is the product of all \( du_j \) except for \( du_i \).
 For
-\( k = 1 \) we define the boundary ``integral'' as just the evaluation of the \( F G \) multivector product over the range of the parameter
+\( k = 1 \) the hypersurface element and associated
+boundary ``integral''
+is really just convienent general shorthand, and
+should be taken to mean the evaluation of the \( F G \) multivector product over the range of the parameter
 \begin{equation*}
 \oint_{\partial V} F d^{0} \Bx G
 \equiv
 \evalbar{ F G }{\Delta u_1}.
 \end{equation*}
-} % definition
+} % theorem
 
-This will become more clear as the specific cases of \( k = 1, 2, 3 \), representing generalized line, surface, and volume integrals respectively, are considered.
+The geometry of the hypersurface element \( d^{k-1} \Bx \) will be made more clear when we
+consider the specific cases of \( k = 1, 2, 3 \), representing generalized line, surface, and volume integrals respectively.
 
-\maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
-For multivectors \(F, G \), and a hypervolume element \(d^k \Bx\),
-\begin{equation*}
-\int_V F d^k \Bx \boldpartial G = \oint_{\partial V} F d^{k-1} \Bx G.
-\end{equation*}
-}
-
-In the hypervolume integral, the
-geometric product of the volume element and vector derivative direction vectors can be split into dot and wedge contributions
+We will sketch a proof for \( k < 4 \) that omits a number of details.  This starts with expanding the hypervolume
+integral, by separating the
+geometric product of the volume element and vector derivative direction vectors into dot and wedge contributions
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:300}
-\int_V F d^k \Bx \boldpartial G
+\int_V F d^k \Bx \lrboldpartial G
 =
 \sum_i \int_V d^k u F I_k \Bx^i \lrpartial_i G
 =
-\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^k +  I_k \wedge \Bx^i } \lrpartial_i G.
+\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i +  I_k \wedge \Bx^i } \lrpartial_i G.
 \end{dmath}
-Because \( \Bx^k \) lies in \( \Span \setlr{ \Bx_i } \), the wedge product above is zero, leaving
+Because \( \Bx^i \) lies in \( \Span \setlr{ \Bx_j } \), the wedge product above is zero, leaving
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:320}
-\int_V F d^k \Bx \boldpartial G
+\int_V F d^k \Bx \lrboldpartial G
 =
-\sum_i \int_V d^k u F I_k \cdot \Bx^i \lrpartial_i G,
+\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} \lrpartial_i G,
 =
 \sum_i \int_V d^k u (\partial_i F) I_k \cdot \Bx^i G
 +
-\sum_i \int_V d^k u F I_k \cdot \Bx^i (\partial_i G)
+\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} (\partial_i G)
 =
-\sum_i \int_V d^k u \partial_i \lr{ F I_k \cdot \Bx^i G }
+\sum_i \int_V d^k u \partial_i \lr{ F \lr{ I_k \cdot \Bx^i} G }
 -
 \int_V d^k u F \lr{ \sum_i \partial_i \lr{ I_k \cdot \Bx^i } } G.
 \end{dmath}
 
-The sum in the second integral turns out to be zero, but it slightly messy to show in general.  Instead let's restrict this part of the proof to just the  \( k < 4 \) cases that are of interest for \R{3}, starting with \( k = 1 \), which is trivial
+The sum in the second integral turns out to be zero, but it slightly messy to show in general.
+For \( k = 1 \) this sum is trivial
 \begin{equation}\label{eqn:fundamentalTheoremOfCalculus:360}
 \partial_1 (\Bx_1 \cdot \Bx^1) = \partial_1 1 = 0.
 \end{equation}
 For \( k = 2 \), this sum is
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:380}
-\sum_{i = 1}^2 \partial_i \lr{ I_k \cdot \Bx^i }
+\sum_{i = 1}^2 \partial_i \lr{ I_3 \cdot \Bx^i }
 =
 \partial_1 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^1)
 +
@@ -154,23 +157,62 @@ For \( k = 2 \), this sum is
 -\frac{\partial^2 \Bx}{\partial u_1 \partial_2}
 +\frac{\partial^2 \Bx}{\partial u_2 \partial_1},
 \end{dmath}
-which is zero by equality of mixed partials.
-
-FIXME: rewrite from here.
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:340}
-\int_V F d^k \Bx \boldpartial G
-=
-\sum_i \int_V d^{k-1} u_i \partial_i \lr{ F I_k \cdot \Bx^k G},
+which is zero by equality of mixed partials.  For \( k = 2 \), this sum is
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:400}
+\begin{aligned}
+\sum_{i = 1}^3 \partial_i \lr{ I_k \cdot \Bx^i }
+&=
+\partial_3 \lr{ (\Bx_1 \wedge \Bx_2 \wedge \Bx_3) \cdot \Bx^3 }
++
+\partial_1 \lr{ (\Bx_2 \wedge \Bx_3 \wedge \Bx_1) \cdot \Bx^1 }
++
+\partial_2 \lr{ (\Bx_3 \wedge \Bx_1 \wedge \Bx_2) \cdot \Bx^2 } \\
+&=
+\partial_3 \lr{ \Bx_1 \wedge \Bx_2 }
++
+\partial_1 \lr{ \Bx_2 \wedge \Bx_3 }
++
+\partial_2 \lr{ \Bx_3 \wedge \Bx_1 } \\
+&=
+         (\partial_3 \Bx_1) \wedge \Bx_2 + \Bx_1 \wedge (\partial_3 \Bx_2) \\
+&\quad + (\partial_1 \Bx_2) \wedge \Bx_3 + \Bx_2 \wedge (\partial_1 \Bx_3) \\
+&\quad + (\partial_2 \Bx_3) \wedge \Bx_1 + \Bx_3 \wedge (\partial_2 \Bx_1) \\
+&=
+\Bx_2 \wedge \lr{ - \partial_3 \Bx_1 + \partial_1 \Bx_3 }
++
+\Bx_3 \wedge \lr{ - \partial_1 \Bx_2 + \partial_2 \Bx_1 }
++
+\Bx_1 \wedge \lr{ - \partial_2 \Bx_3 + \partial_3 \Bx_2 } \\
+&=
+\Bx_2 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_3 \partial_1} + \frac{\partial^2 \Bx}{\partial_1 \partial_3} }
++
+\Bx_3 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_1 \partial_2} + \frac{\partial^2 \Bx}{\partial_2 \partial_1} }
++
+\Bx_1 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_2 \partial_3} + \frac{\partial^2 \Bx}{\partial_3 \partial_2} },
+\end{aligned}
 \end{dmath}
-and integrated in turn for each \( du_i \), leaving the boundary integral of \cref{dfn:fundamentalTheoremOfCalculus:280}, proving the theorem in a limited fashion.
+which is also zero by equality of mixed partials.
+
+With the sum in the second integral of \cref{eqn:fundamentalTheoremOfCalculus:320} killed, we are left with a sum of perfect differentials, each separately integratable
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:340}
+\int_V F d^k \Bx \lrboldpartial G
+=
+\sum_i \int_{\partial V} d^{k-1} u_i \int_{\Delta u_i} du_i \PD{u_i}{} \lr{ F \lr{ I_k \cdot \Bx^i} G}
+=
+\sum_i \int_{\partial V} d^{k-1} u_i \evalbar{\lr{ F \lr{ I_k \cdot \Bx^i} G}}{\Delta u_i},
+\end{dmath}
+which completes the sketch of the proof.
+Most of the theoretical heavy lifting was done by the reciprocal frame vectors, but the final result does not actually require computing those vectors.
+When \( k \) equals the dimension of the space, as in \R{3} volume integrals, the vector derivative \( \boldpartial \) is identical to the \( \spacegrad \), in which case we do not even require the reciprocal frame vectors to express the gradient.
+
 For a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}, additional mathematical sublties must be considered.
-The reader is referred to \citep{hestenes1985clifford}, \citep{doran2003gap},
-and \citep{sobczyk2011fundamental}, which all which tackle different aspects of general geometric calculus required for a full proof, as well as to \citep{aMacdonaldVAGC} which covers aspects of connectivity also omitted here.
+Issues of connectivity of the hypervolumes (and integration theory in general) are covered very nicely in
+\citep{aMacdonaldVAGC}.
+For other general issues required for a complete proof, like the triagularization of the volume and its boundary, please see
+\citep{hestenes1985clifford}, \citep{doran2003gap}, and \citep{sobczyk2011fundamental}.
 
-FIXME: I don't think this ``held constant'' argument is valid.  Instead I think that an argument like that of the Green's theorem proof below is actually required.  We end up with the miraculous perfect cancellation required, but not for a reason as trivial as held constant, since holding \( \Bx \) constant with respect to \( u_i \) doesn't mean that the result is not also a function of \( u_i \).  i.e. this will work because of equality of mixed partials, not because of ``held constant''.  That will make for a messier proof, and perhaps why MacDonald's nice little book skipped it all in the first place.
-
-For clarity, the argument above will be repeated separately for each of the line, surface, and volume integral cases, but before doing so
-we will state the general Stokes' theorem in its geometric algebra form.
+Before moving on to the line, surface, and volume integral cases, we will state and prove the
+general Stokes' theorem in its geometric algebra form.
 
 %}
 %\EndArticle

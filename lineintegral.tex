@@ -74,9 +74,13 @@ Given an connected curve \( C \) parameterized by a single parameter, and multiv
 \end{equation*}
 } % theorem
 
-Using the (single variable) parameterization \( a \) above, the proof follows directly by expansion
+This really doesn't require proof as it is
+really just a restatement of \cref{thm:fundamentalTheoremOfCalculus:1} for \( k = 1 \).
+The proof of \cref{thm:fundamentalTheoremOfCalculus:1} was overkill for the simple line integral case,
+and some additional clarity can be obtained by repeating the proof explicitly for the
+the (single variable) parameterization \( a \) above
 \begin{dmath}\label{eqn:lineintegral:120}
-\int_C F d^1\Bx \boldpartial G
+\int_C F d^1\Bx \lrboldpartial G
 =
 \int_C \lr{ F d^1\Bx \lboldpartial} G
 +
@@ -93,11 +97,12 @@ Using the (single variable) parameterization \( a \) above, the proof follows di
 \int_C da \PD{a}{} \lr{ F G }
 =
 F(a_1) G(a_1) -
-F(a_0) G(a_0).
-.
+F(a_0) G(a_0),
 \end{dmath}
-
-We have a perfect cancellation of the reciprocal frame \( \Bx^a \) with the vector \( \Bx_a \) that lies along the curve, since \( \Bx^a \Bx_a = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve (assumed to be \( [a_0, a_1] \) in the expansion above.)
+where the boundaries of the parameterization have been assumed to be
+%\( C\lcolon a \in [a_0, a_1] \).
+\( C: a \in [a_0, a_1] \).
+We have a perfect cancellation of the reciprocal frame \( \Bx^a \) with the vector \( \Bx_a \) that lies along the curve, since \( \Bx^a \Bx_a = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve.
 
 For a single parameter subspace
 the reciprocal frame vector \( \Bx^a \)
@@ -110,7 +115,7 @@ single scalar function \( f \)
 \maketheorem{Line integral of a scalar function (Stokes').}{thm:lineintegral:180}{
 Given a scalar function \( f \), its line integral is given by
 \begin{equation*}
-\int_C d^1\Bx \cdot \boldpartial f =
+\int_C d^1\Bx \cdot \lrboldpartial f =
 \int_C d^1\Bx \cdot \spacegrad f = \evalbar{F}{\Delta a}.
 \end{equation*}
 } % theorem
