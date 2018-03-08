@@ -90,7 +90,7 @@ we define the boundary integral for \( k > 1 \) as
 \begin{equation*}
 \oint_{\partial V} F d^{k-1} \Bx G
 \equiv
-\sum_i \int d^{k-1} u_i \evalbar{ \lr{ F (I_k \cdot \Bx^i) \cdot \Bx G }}{\Delta u_i},
+\sum_i \int d^{k-1} u_i \evalbar{ \lr{ F \lr{ I_k \cdot \Bx^i} G }}{\Delta u_i},
 \end{equation*}
 where \( d^{k-1} u_i \) is the product of all \( du_j \) except for \( du_i \).
 For
@@ -107,12 +107,12 @@ This will become more clear as the specific cases of \( k = 1, 2, 3 \), represen
 \maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
 For multivectors \(F, G \), and a hypervolume element \(d^k \Bx\),
 \begin{equation*}
-\int_V F d^k \Bx \boldpartial G = \oint_{\partial V} F d^{k-1} \Bx G,
+\int_V F d^k \Bx \boldpartial G = \oint_{\partial V} F d^{k-1} \Bx G.
 \end{equation*}
-where \( d^{k-1} \Bx \) will be defined.
 }
 
-The proof follows from direct expansion, starting with
+In the hypervolume integral, the
+geometric product of the volume element and vector derivative direction vectors can be split into dot and wedge contributions
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:300}
 \int_V F d^k \Bx \boldpartial G
 =
@@ -124,9 +124,39 @@ Because \( \Bx^k \) lies in \( \Span \setlr{ \Bx_i } \), the wedge product above
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:320}
 \int_V F d^k \Bx \boldpartial G
 =
-\sum_i \int_V d^k u F I_k \cdot \Bx^k \lrpartial_i G,
+\sum_i \int_V d^k u F I_k \cdot \Bx^i \lrpartial_i G,
+=
+\sum_i \int_V d^k u (\partial_i F) I_k \cdot \Bx^i G
++
+\sum_i \int_V d^k u F I_k \cdot \Bx^i (\partial_i G)
+=
+\sum_i \int_V d^k u \partial_i \lr{ F I_k \cdot \Bx^i G }
+-
+\int_V d^k u F \lr{ \sum_i \partial_i \lr{ I_k \cdot \Bx^i } } G.
 \end{dmath}
-however all the wedge factors of \( I_k \cdot \Bx^k \) are \( \PDi{u_j}{\Bx} \) taken with \( i \) held constant, which means that this integral can be written as a perfect differential
+
+The sum in the second integral turns out to be zero, but it slightly messy to show in general.  Instead let's restrict this part of the proof to just the  \( k < 4 \) cases that are of interest for \R{3}, starting with \( k = 1 \), which is trivial
+\begin{equation}\label{eqn:fundamentalTheoremOfCalculus:360}
+\partial_1 (\Bx_1 \cdot \Bx^1) = \partial_1 1 = 0.
+\end{equation}
+For \( k = 2 \), this sum is
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:380}
+\sum_{i = 1}^2 \partial_i \lr{ I_k \cdot \Bx^i }
+=
+\partial_1 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^1)
++
+\partial_2 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^2)
+=
+\partial_1 (-\Bx_2)
++
+\partial_2 \Bx_1
+=
+-\frac{\partial^2 \Bx}{\partial u_1 \partial_2}
++\frac{\partial^2 \Bx}{\partial u_2 \partial_1},
+\end{dmath}
+which is zero by equality of mixed partials.
+
+FIXME: rewrite from here.
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:340}
 \int_V F d^k \Bx \boldpartial G
 =
