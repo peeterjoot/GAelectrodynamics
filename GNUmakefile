@@ -61,7 +61,7 @@ dropbox:
 
 alex:
 	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.V$(VER).pdf
-	cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.V$(VER).pdf
+	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.V$(VER).pdf
 	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
 
 tag:
