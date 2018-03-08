@@ -160,11 +160,12 @@ Inserting this into the surface integral, we find
 +
 \int_S da db\, F \lr{ \PD{a}{\Bx} \PD{b}{G} - \PD{b}{\Bx} \PD{a}{G} }
 =
+\int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }
+-
+\int_S da db\, F \lr{ \PD{b}{} \PD{a}{\Bx} - \PD{a}{} \PD{b}{\Bx} } G
+=
 \int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }.
 \end{dmath}
-
-We are able to pull out the partials because \( \Bx_a \) is computed with the parameter \( b \) fixed,
-and \( \Bx_b \) is computed with the parameter \( a \) fixed.
 
 This leaves two perfect differentials, which can both be integrated separately.  That gives
 \begin{dmath}\label{eqn:surfaceintegral:400}

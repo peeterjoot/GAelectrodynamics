@@ -111,105 +111,15 @@ should be taken to mean the evaluation of the \( F G \) multivector product over
 
 The geometry of the hypersurface element \( d^{k-1} \Bx \) will be made more clear when we
 consider the specific cases of \( k = 1, 2, 3 \), representing generalized line, surface, and volume integrals respectively.
-
-We will sketch a proof for \( k < 4 \) that omits a number of details.  This starts with expanding the hypervolume
-integral, by separating the
-geometric product of the volume element and vector derivative direction vectors into dot and wedge contributions
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:300}
-\int_V F d^k \Bx \lrboldpartial G
-=
-\sum_i \int_V d^k u F I_k \Bx^i \lrpartial_i G
-=
-\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i +  I_k \wedge \Bx^i } \lrpartial_i G.
-\end{dmath}
-Because \( \Bx^i \) lies in \( \Span \setlr{ \Bx_j } \), the wedge product above is zero, leaving
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:320}
-\int_V F d^k \Bx \lrboldpartial G
-=
-\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} \lrpartial_i G,
-=
-\sum_i \int_V d^k u (\partial_i F) I_k \cdot \Bx^i G
-+
-\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} (\partial_i G)
-=
-\sum_i \int_V d^k u \partial_i \lr{ F \lr{ I_k \cdot \Bx^i} G }
--
-\int_V d^k u F \lr{ \sum_i \partial_i \lr{ I_k \cdot \Bx^i } } G.
-\end{dmath}
-
-The sum in the second integral turns out to be zero, but it slightly messy to show in general.
-For \( k = 1 \) this sum is trivial
-\begin{equation}\label{eqn:fundamentalTheoremOfCalculus:360}
-\partial_1 (\Bx_1 \cdot \Bx^1) = \partial_1 1 = 0.
-\end{equation}
-For \( k = 2 \), this sum is
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:380}
-\sum_{i = 1}^2 \partial_i \lr{ I_3 \cdot \Bx^i }
-=
-\partial_1 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^1)
-+
-\partial_2 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^2)
-=
-\partial_1 (-\Bx_2)
-+
-\partial_2 \Bx_1
-=
--\frac{\partial^2 \Bx}{\partial u_1 \partial_2}
-+\frac{\partial^2 \Bx}{\partial u_2 \partial_1},
-\end{dmath}
-which is zero by equality of mixed partials.  For \( k = 2 \), this sum is
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:400}
-\begin{aligned}
-\sum_{i = 1}^3 \partial_i \lr{ I_k \cdot \Bx^i }
-&=
-\partial_3 \lr{ (\Bx_1 \wedge \Bx_2 \wedge \Bx_3) \cdot \Bx^3 }
-+
-\partial_1 \lr{ (\Bx_2 \wedge \Bx_3 \wedge \Bx_1) \cdot \Bx^1 }
-+
-\partial_2 \lr{ (\Bx_3 \wedge \Bx_1 \wedge \Bx_2) \cdot \Bx^2 } \\
-&=
-\partial_3 \lr{ \Bx_1 \wedge \Bx_2 }
-+
-\partial_1 \lr{ \Bx_2 \wedge \Bx_3 }
-+
-\partial_2 \lr{ \Bx_3 \wedge \Bx_1 } \\
-&=
-         (\partial_3 \Bx_1) \wedge \Bx_2 + \Bx_1 \wedge (\partial_3 \Bx_2) \\
-&\quad + (\partial_1 \Bx_2) \wedge \Bx_3 + \Bx_2 \wedge (\partial_1 \Bx_3) \\
-&\quad + (\partial_2 \Bx_3) \wedge \Bx_1 + \Bx_3 \wedge (\partial_2 \Bx_1) \\
-&=
-\Bx_2 \wedge \lr{ - \partial_3 \Bx_1 + \partial_1 \Bx_3 }
-+
-\Bx_3 \wedge \lr{ - \partial_1 \Bx_2 + \partial_2 \Bx_1 }
-+
-\Bx_1 \wedge \lr{ - \partial_2 \Bx_3 + \partial_3 \Bx_2 } \\
-&=
-\Bx_2 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_3 \partial_1} + \frac{\partial^2 \Bx}{\partial_1 \partial_3} }
-+
-\Bx_3 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_1 \partial_2} + \frac{\partial^2 \Bx}{\partial_2 \partial_1} }
-+
-\Bx_1 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_2 \partial_3} + \frac{\partial^2 \Bx}{\partial_3 \partial_2} },
-\end{aligned}
-\end{dmath}
-which is also zero by equality of mixed partials.
-
-With the sum in the second integral of \cref{eqn:fundamentalTheoremOfCalculus:320} killed, we are left with a sum of perfect differentials, each separately integratable
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:340}
-\int_V F d^k \Bx \lrboldpartial G
-=
-\sum_i \int_{\partial V} d^{k-1} u_i \int_{\Delta u_i} du_i \PD{u_i}{} \lr{ F \lr{ I_k \cdot \Bx^i} G}
-=
-\sum_i \int_{\partial V} d^{k-1} u_i \evalbar{\lr{ F \lr{ I_k \cdot \Bx^i} G}}{\Delta u_i},
-\end{dmath}
-which completes the sketch of the proof.
-Most of the theoretical heavy lifting was done by the reciprocal frame vectors, but the final result does not actually require computing those vectors.
-When \( k \) equals the dimension of the space, as in \R{3} volume integrals, the vector derivative \( \boldpartial \) is identical to the \( \spacegrad \), in which case we do not even require the reciprocal frame vectors to express the gradient.
-
-For a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}, additional mathematical sublties must be considered.
-Issues of connectivity of the hypervolumes (and integration theory in general) are covered very nicely in
-\citep{aMacdonaldVAGC}.
-For other general issues required for a complete proof, like the triagularization of the volume and its boundary, please see
-\citep{hestenes1985clifford}, \citep{doran2003gap}, and \citep{sobczyk2011fundamental}.
+Instead of terrorizing the reader with a general proof
+\cref{thm:fundamentalTheoremOfCalculus:1},
+which requires some unpleasant index gymnastics,
+this book
+will separately state and prove the fundamental theorem of calculus
+for each of the \( k = 1, 2, 3 \) cases that are of interest for problems in \R{2} and \R{3}.
+For the interested reader, a sketch of the general proof
+of \cref{thm:fundamentalTheoremOfCalculus:1}
+is available in \cref{chap:gagcProof}.
 
 Before moving on to the line, surface, and volume integral cases, we will state and prove the
 general Stokes' theorem in its geometric algebra form.

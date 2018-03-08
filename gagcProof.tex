@@ -1,0 +1,156 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%%%\input{../latex/blogpost.tex}
+%%%\renewcommand{\basename}{gagcProof}
+%%%%\renewcommand{\dirname}{notes/phy1520/}
+%%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%%\newcommand{\dateintitle}{}
+%%%%\newcommand{\keywords}{}
+%%%
+%%%\input{../latex/peeter_prologue_print2.tex}
+%%%
+%%%\usepackage{peeters_layout_exercise}
+%%%\usepackage{peeters_braket}
+%%%\usepackage{peeters_figures}
+%%%\usepackage{siunitx}
+%%%%\usepackage{mhchem} % \ce{}
+%%%%\usepackage{macros_bm} % \bcM
+%%%%\usepackage{macros_qed} % \qedmarker
+%%%%\usepackage{txfonts} % \ointclockwise
+%%%
+%%%\beginArtNoToc
+%%%
+%%%\generatetitle{Proof sketch for the fundamental theorem of geometric calculus.}
+\label{chap:gagcProof}
+
+We start with
+expanding the hypervolume
+integral, by separating the
+geometric product of the volume element and vector derivative direction vectors into dot and wedge contributions
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:300}
+\int_V F d^k \Bx \lrboldpartial G
+=
+\sum_i \int_V d^k u F I_k \Bx^i \lrpartial_i G
+=
+\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i +  I_k \wedge \Bx^i } \lrpartial_i G.
+\end{dmath}
+Because \( \Bx^i \) lies in \( \Span \setlr{ \Bx_j } \), the wedge product above is zero, leaving
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:320}
+\int_V F d^k \Bx \lrboldpartial G
+=
+\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} \lrpartial_i G,
+=
+\sum_i \int_V d^k u (\partial_i F) I_k \cdot \Bx^i G
++
+\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} (\partial_i G)
+=
+\sum_i \int_V d^k u \partial_i \lr{ F \lr{ I_k \cdot \Bx^i} G }
+-
+\int_V d^k u F \lr{ \sum_i \partial_i \lr{ I_k \cdot \Bx^i } } G.
+\end{dmath}
+
+The sum in the second integral turns out to be zero, but is somewhat messy to show in general.
+The \( k = 1 \) is a special case, as it is trivial
+\begin{equation}\label{eqn:fundamentalTheoremOfCalculus:360}
+\partial_1 (\Bx_1 \cdot \Bx^1) = \partial_1 1 = 0.
+\end{equation}
+The \( k = 2 \) case is illustrative
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:380}
+\sum_{i = 1}^2 \partial_i \lr{ I_3 \cdot \Bx^i }
+=
+\partial_1 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^1)
++
+\partial_2 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^2)
+=
+\partial_1 (-\Bx_2)
++
+\partial_2 \Bx_1
+=
+-\frac{\partial^2 \Bx}{\partial u_1 \partial_2}
++\frac{\partial^2 \Bx}{\partial u_2 \partial_1},
+\end{dmath}
+which is zero by equality of mixed partials.
+To show that this sums to zero in general observe that cyclic permuation of the wedge factors in the pseudoscalar only changes the sign
+\begin{dmath}\label{eqn:gagcProof:400}
+\Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k
+=
+\Bx_2 \wedge \Bx_3 \wedge \cdots \wedge \Bx_k \wedge \Bx_1 (-1)^{1 (k-1)}
+=
+\Bx_3 \wedge \Bx_4 \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 (-1)^{2 (k-1)}
+=
+\Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_i (-1)^{i (k-1)}.
+\end{dmath}
+The pseudoscalar dot product \( I_k \cdot \Bx^i \) is therefore
+\begin{dmath}\label{eqn:gagcProof:420}
+I_k \cdot \Bx^i
+=
+(\Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k) \cdot \Bx^i
+=
+\Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_{i-1} (-1)^{i (k-1)},
+\end{dmath}
+and the sum is
+\begin{dmath}\label{eqn:gagcProof:440}
+\begin{aligned}
+\sum_i &\partial_i \lr{ I_k \cdot \Bx^i } \\
+&=
+(\partial_{i,i+1} \Bx) \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_{i-1} (-1)^{i (k-1)} \\
+&\quad+
+\Bx_{i+1} \wedge (\partial_{i,i+2} \Bx) \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_{i-1} (-1)^{i (k-1)} \\
+&\quad+ \vdots \\
+&\quad+
+\Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge (\partial_{i,i-1} \Bx) (-1)^{i (k-1)}.
+\end{aligned}
+\end{dmath}
+For each \( i \ne j \) there will be one partial \( \partial_{i,j} \Bx \) and one partial \( \partial_{j,i} \Bx \) in this sum.  Consider, for example, the \( 1,2 \) case which come from the \( i = 1,2 \) terms in the sum
+\begin{dmath}\label{eqn:gagcProof:460}
+\begin{aligned}
+&\partial_1 ( \Bx_2 \wedge \Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k ) (-1)^{1(k-1)}
++
+\partial_2 ( \Bx_3 \wedge \Bx_4 \wedge \cdots \wedge \Bx_k \wedge \Bx_1) (-1)^{2(k-1)} \\
+&\quad=
+(\partial_{1,2} \Bx) \wedge \Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k ) (-1)^{1(k-1)}
++
+\Bx_3 \wedge \Bx_4 \wedge \cdots \wedge \Bx_k \wedge (\partial_{2,1}\Bx) (-1)^{2(k-1)}
++ \cdots
+\\
+&\quad=
+(-1)^{k-1} (\Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k )
+\wedge \lr{
+(-1)^{k-2} \partial_{1,2} \Bx + (-1)^{k-1} \partial_{2,1} \Bx
+}
++ \cdots \\
+&\quad=
+( \Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k ) \wedge \lr{
+- \frac{\partial^2 \Bx}{\partial u_1 \partial u_2}
++ \frac{\partial^2 \Bx}{\partial u_2 \partial u_1}
+}
++ \cdots
+\end{aligned}
+\end{dmath}
+By equality of mixed partials this difference of \(1,2\) partials are killed.  The same argument holds for all other indexes,
+proving that \( \sum_i \partial_i \lr{ I_k \cdot \Bx^i } = 0 \).
+
+\Cref{eqn:fundamentalTheoremOfCalculus:320} is left with a sum of perfect differentials, each separately integratable
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:340}
+\int_V F d^k \Bx \lrboldpartial G
+=
+\sum_i \int_{\partial V} d^{k-1} u_i \int_{\Delta u_i} du_i \PD{u_i}{} \lr{ F \lr{ I_k \cdot \Bx^i} G}
+=
+\sum_i \int_{\partial V} d^{k-1} u_i \evalbar{\lr{ F \lr{ I_k \cdot \Bx^i} G}}{\Delta u_i},
+\end{dmath}
+which completes the sketch of the proof.
+
+While much of the theoretical heavy lifting was carried by the reciprocal frame vectors, the final result does not actually require computing those vectors.
+When \( k \) equals the dimension of the space, as in \R{3} volume integrals, the vector derivative \( \boldpartial \) is identical to the \( \spacegrad \), in which case we do not even require the reciprocal frame vectors to express the gradient.
+
+For a full proof of \cref{thm:fundamentalTheoremOfCalculus:1}, additional mathematical sublties must be considered.
+Issues of connectivity of the hypervolumes (and integration theory in general) are covered very nicely in
+\citep{aMacdonaldVAGC}.
+For other general issues required for a complete proof, like the triagularization of the volume and its boundary, please see
+\citep{hestenes1985clifford}, \citep{doran2003gap}, and \citep{sobczyk2011fundamental}.
+
+%}
+%\EndArticle

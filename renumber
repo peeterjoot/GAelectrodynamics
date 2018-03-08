@@ -394,3 +394,5 @@ perl -p -i ../latex/bin/latexRegex.pl volumeintegral.tex
 perl -p -i ../latex/bin/latexRegex.pl ece2500report.tex
 ../latex/bin/lgrep quaternion2maxwellWithGA.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl quaternion2maxwellWithGA.tex
+../latex/bin/lgrep gagcProof.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl gagcProof.tex

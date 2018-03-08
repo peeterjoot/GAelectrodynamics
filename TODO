@@ -1,3 +1,8 @@
+- Theorem 2.6: Line integral of a scalar function
+
+   In proof of this theorem, the grade 2 component is ignored.  This probably deserves some thought and comment.
+   Relation to vector curl in \R{3}?
+
 - have now added a more complete proof of gagc up front.  Now need to streamline the surface and volume integral content.
 
 - reciprocal frame: Alan:

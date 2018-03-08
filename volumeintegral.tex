@@ -155,11 +155,71 @@ into the volume integral, we find
    \partial_2 (F \Bx_3 \wedge \Bx_1 G)
    +
    \partial_3 (F \Bx_1 \wedge \Bx_2 G)
-}.
+}
+-
+\int_V d^3 u\, \lr{
+   F (\partial_1 (\Bx_2 \wedge \Bx_3)) G
+   +
+   F (\partial_2 (\Bx_3 \wedge \Bx_1)) G
+   +
+   F (\partial_3 (\Bx_1 \wedge \Bx_2)) G
+}
+=
+\int_V d^3 u\, \lr{
+   \partial_1 (F \Bx_2 \wedge \Bx_3 G)
+   +
+   \partial_2 (F \Bx_3 \wedge \Bx_1 G)
+   +
+   \partial_3 (F \Bx_1 \wedge \Bx_2 G)
+}
+-
+\int_V d^3 u\, F
+\lr{
+   \partial_1 (\Bx_2 \wedge \Bx_3)
+   +
+   \partial_2 (\Bx_3 \wedge \Bx_1)
+   +
+   \partial_3 (\Bx_1 \wedge \Bx_2)
+}
+G
+.
 \end{dmath}
 
-We are able to pull out the partials because \( \Bx_i = \PDi{u_i}{\Bx}, \Bx_j = \PDi{u_j}{\Bx}\) are computed with the parameters \( u_k \) fixed for each \( i \ne j \ne k \).
-
+The sum within the second integral is
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:400}
+\begin{aligned}
+\sum_{i = 1}^3 \partial_i \lr{ I_k \cdot \Bx^i }
+&=
+\partial_3 \lr{ (\Bx_1 \wedge \Bx_2 \wedge \Bx_3) \cdot \Bx^3 }
++
+\partial_1 \lr{ (\Bx_2 \wedge \Bx_3 \wedge \Bx_1) \cdot \Bx^1 }
++
+\partial_2 \lr{ (\Bx_3 \wedge \Bx_1 \wedge \Bx_2) \cdot \Bx^2 } \\
+&=
+\partial_3 \lr{ \Bx_1 \wedge \Bx_2 }
++
+\partial_1 \lr{ \Bx_2 \wedge \Bx_3 }
++
+\partial_2 \lr{ \Bx_3 \wedge \Bx_1 } \\
+&=
+         (\partial_3 \Bx_1) \wedge \Bx_2 + \Bx_1 \wedge (\partial_3 \Bx_2) \\
+&\quad + (\partial_1 \Bx_2) \wedge \Bx_3 + \Bx_2 \wedge (\partial_1 \Bx_3) \\
+&\quad + (\partial_2 \Bx_3) \wedge \Bx_1 + \Bx_3 \wedge (\partial_2 \Bx_1) \\
+&=
+\Bx_2 \wedge \lr{ - \partial_3 \Bx_1 + \partial_1 \Bx_3 }
++
+\Bx_3 \wedge \lr{ - \partial_1 \Bx_2 + \partial_2 \Bx_1 }
++
+\Bx_1 \wedge \lr{ - \partial_2 \Bx_3 + \partial_3 \Bx_2 } \\
+&=
+\Bx_2 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_3 \partial_1} + \frac{\partial^2 \Bx}{\partial_1 \partial_3} }
++
+\Bx_3 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_1 \partial_2} + \frac{\partial^2 \Bx}{\partial_2 \partial_1} }
++
+\Bx_1 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_2 \partial_3} + \frac{\partial^2 \Bx}{\partial_3 \partial_2} },
+\end{aligned}
+\end{dmath}
+which is zero by equality of mixed partials.
 This leaves three perfect differentials, which can integrated separately, giving
 \begin{dmath}\label{eqn:volumeintegral:400}
 \int_V F d^3\Bx \boldpartial G
@@ -183,6 +243,7 @@ This leaves three perfect differentials, which can integrated separately, giving
 \evalbar{ \lr{ F d\Bx_1 \wedge d\Bx_2 G } }{\Delta u_3}.
 \end{dmath}
 
+This proves the theorem from an algebraic point of view.
 With the aid of a geometrical model, such as that of \cref{fig:differentialVolume:differentialVolumeFig}, if
 assuming that \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple).
 it is possible to convince oneself that the two parameter integrands describe an integral over a counterclockwise oriented surface (
