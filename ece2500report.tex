@@ -25,7 +25,66 @@
 
 \generatetitle{Project report ECE2500.  Geometric Algebra for Electrical Engineers}
 
-%\subsubsection{Road map.}
+\section{Motivation.}
+This is the report for an ECE2500 M.Eng project course.
+
+\subsubsection{Goals.}
+This project had a few goals
+\begin{enumerate}
+\item Perform a literature review of applications of geometric algebra
+%\footnote{Geometric algebra will be defined precisely later, along with bivector, trivector, multivector and other geometric algebra generalizations of the vector.}
+to the study of electromagnetism.
+\item Identify the subset of the literature that had direct relevance to electrical engineering.
+\item Create a complete, and as compact as possible, introduction of the prerequisites required
+for a graduate or advanced undergraduate electrical engineering student to be able to apply
+geometric algebra to problems in electromagnetism.
+\end{enumerate}
+
+Geometric algebra
+generalizes vectors, providing algebraic representations of not just directed line segments, but also points, plane segments, volumes, and higher degree geometric objects (hypervolumes.)
+The geometric algebra representation of planes, volumes and hypervolumes requires a vector dot product, a vector multiplication operation, and a generalized addition operation.
+The dot product
+provides the length of a vector and a test for whether or not any two vectors are perpendicular.
+The vector multiplication operation is used to construct
+directed plane segments (bivectors),
+and directed volumes (trivectors), which are built from the respective products of two or three mutually perpendicular vectors.
+The addition operation allows for sums of scalars, vectors, or any products of vectors.  Such a sum is called a multivector.
+
+The power to add scalars, vectors, and products of vectors can be exploited to simplify much of electromagnetism.
+In particular, Maxwell's equations for isotropic media can be merged into a single multivector equation
+\begin{dmath}\label{eqn:ece2500report:20}
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB } = \eta\lr{ c \rho - \BJ },
+\end{dmath}
+where \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) is the group velocity of the medium, \( \eta = \sqrt{\mu/\epsilon} \), \( \BE, \BB \) are the electric and magnetic fields, and
+\( \rho \) and \( \BJ \) are the charge and current densities.
+We will write this as
+\begin{dmath}\label{eqn:ece2500report:40}
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J,
+\end{dmath}
+where \( F = \BE + I c \BB \) is the combined (multivector) electromagnetic field, and \( J = \eta\lr{ c \rho - \BJ } \) is the multivector current.
+As a single PDE, the complete Green's function toolbox may be thrown at
+\cref{eqn:ece2500report:40}, inverting Maxwell's equation for the electromagnetic field, given any charge and current density distribution
+\begin{dmath}\label{eqn:ece2500report:60}
+F(\Bx, t)
+= \int dt' dV' G(\Bx, \Bx' ; t, t') J(\Bx', t').
+\end{dmath}
+Green's functions solutions for static field configurations simultaneously yield Coulomb's law and the Biot-Savart law for the respective electric and magnetic fields.
+% fixme: describe some other application here (plane waves, energy momentum, ...)
+
+Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias.
+The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to an electrical engineering audience.
+In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism.
+The end product of this project was a fairly small self contained book, titled ``Geometric Algebra for Electrical Engineers''.
+This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (75 pages), and some appendices.
+This report summarizes results from this book, omitting most derivations, and attempts to provide an overview that may be used as a road map for the book for further exploration.
+Many of the fundamental results of electromagnetism are derived directly from
+\cref{eqn:ece2500report:40}, the multivector Maxwell's equation, in a streamlined and compact fashion.
+This includes some new results, and many of the existing non-relativistic results from the geometric algebra literature.
+As a
+conceptual bridge, the book includes many examples of how to extract
+familiar conventional results from simpler multivector representations, also illustrating the hidden structure behind a number of seemingly
+disparate ideas in electromagnetism.
+
 \section{Geometric Algebra.}
 \section{Geometric Calculus.}
 \section{Electromagnetism.}
