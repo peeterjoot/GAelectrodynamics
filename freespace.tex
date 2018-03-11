@@ -71,7 +71,7 @@ The sources \( \BM, \rho_\txtm \) can be considered fictional, representing phys
 
 In general, the relationship between the electric and magnetic fields (constitutivity relationships) may be complicated
 non-isotropic tensor operators, functions of all of \( \BE, \BD, \BB \) and \( \BH \).
-It will often be useful to assume that these constitutive relationships between the electric and magnetic fields are independent
+In this book, we will assume that the constitutive relationships between the electric and magnetic fields are independent
 
 \begin{subequations}
 \label{eqn:freespace:300}
@@ -108,25 +108,26 @@ These constants are related to the speed of light, \( c = 3.00 \times 10^8 \si{m
 
 Antenna theory extends Maxwell's equations with fictional magnetic charge and current densities that are useful to model
 real phenomena such as infinitesimal current loops.
-
-The fields and sources are all real valued functions of both space and time.
-In many situations it will be desirable to work with a time harmonic (frequency-domain phasor) form of Maxwell's equations.
-Two conventions exist for the frequency dependence
-\index{time harmonic}
-
-\begin{subequations}
-\label{eqn:freespace:900}
-\begin{dmath}\label{eqn:freespace:20}
-\BY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{j\omega t} )
-\end{dmath}
-\begin{dmath}\label{eqn:freespace:40}
-\BY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{-i\omega t} ).
-\end{dmath}
-\end{subequations}
-
-\Cref{eqn:freespace:20} is the engineering convention (used herein), and \cref{eqn:freespace:40} is the physics convention.
-Care is required by the reader to understand which form of frequency dependence has been assumed.
-In either representation the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued, but we still require the basis to be Euclidean, and do not require complex inner product spaces.  In such a representation, the square of a vector is still a scalar, but may be complex valued.
+Antenna related problems are usually tackled in the frequency domain.  We will use the engineering conventions for the frequency domain described in \cref{fourier}.
+%
+%The fields and sources are all real valued functions of both space and time.
+%In many situations it will be desirable to work with a time harmonic (frequency-domain phasor) form of Maxwell's equations.
+%Two conventions exist for the frequency dependence
+%\index{time harmonic}
+%
+%\begin{subequations}
+%\label{eqn:freespace:900}
+%\begin{dmath}\label{eqn:freespace:20}
+%\BY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{j\omega t} )
+%\end{dmath}
+%\begin{dmath}\label{eqn:freespace:40}
+%\BY(\Bx, t) = \Real( \BY(\Bx, \omega) e^{-i\omega t} ).
+%\end{dmath}
+%\end{subequations}
+%
+%\Cref{eqn:freespace:20} is the engineering convention (used herein), and \cref{eqn:freespace:40} is the physics convention.
+%Care is required by the reader to understand which form of frequency dependence has been assumed.
+%In either representation the field (or source) \( \BY(\Bx, \Bomega) \) is allowed to be complex valued, but we still require the basis to be Euclidean, and do not require complex inner product spaces.  In such a representation, the square of a vector is still a scalar, but may be complex valued.
 %%%Given this frequency dependence Maxwell's equations take the form
 %%%
 %%%%\input{../ece1229-antenna/MaxwellsTimeHarmonic.tex}

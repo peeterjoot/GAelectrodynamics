@@ -55,7 +55,7 @@ In particular, Maxwell's equations for isotropic media can be merged into a sing
 \begin{dmath}\label{eqn:ece2500report:20}
 \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB } = \eta\lr{ c \rho - \BJ },
 \end{dmath}
-where \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) is the group velocity of the medium, \( \eta = \sqrt{\mu/\epsilon} \), \( \BE, \BB \) are the electric and magnetic fields, and
+where \( \spacegrad \) is the gradient, \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) is the group velocity of the medium, \( \eta = \sqrt{\mu/\epsilon} \), \( \BE, \BB \) are the electric and magnetic fields, and
 \( \rho \) and \( \BJ \) are the charge and current densities.
 We will write this as
 \begin{dmath}\label{eqn:ece2500report:40}
@@ -68,10 +68,20 @@ As a single PDE, the complete Green's function toolbox may be thrown at
 F(\Bx, t)
 = \int dt' dV' G(\Bx, \Bx' ; t, t') J(\Bx', t').
 \end{dmath}
-Green's functions solutions for static field configurations simultaneously yield Coulomb's law and the Biot-Savart law for the respective electric and magnetic fields.
-% fixme: describe some other application here (plane waves, energy momentum, ...)
+Green's functions may also be applied to static and frequency domain field configurations.
+Solving for, or working with, the combined field \( F \) shows the
+hidden structure behind a number of seemingly
+disparate ideas in electromagnetism.
+This project explored a number of ideas along these lines.
+For example, a
+Green's function solutions for the static field configurations simultaneously yields Coulomb's and the Biot-Savart law.
+Plane, circular and elliptical waves may be expressed compactly in a multivector form, naturally expressing the mutual perpendicularity of the electric field, magnetic field and the propagation directions, as well
+as the relationships between the electric and magnetic field components.
+The field energy density and Poynting vectors have a simple multivector form expressed in terms of \( F \) alone.
+Calculations of radiation pressure can be performed using only the normal component of what is known as the energy-momentum tensor in the conventional representation, which has a particularly compact multivector
+representation.
 
-Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias.
+Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias, or assumes high levels of mathematical or physics sophistication.
 The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to an electrical engineering audience.
 In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism.
 The end product of this project was a fairly small self contained book, titled ``Geometric Algebra for Electrical Engineers''.
@@ -82,8 +92,12 @@ Many of the fundamental results of electromagnetism are derived directly from
 This includes some new results, and many of the existing non-relativistic results from the geometric algebra literature.
 As a
 conceptual bridge, the book includes many examples of how to extract
-familiar conventional results from simpler multivector representations, also illustrating the hidden structure behind a number of seemingly
-disparate ideas in electromagnetism.
+familiar conventional results from simpler multivector representations.
+Also included are some sample calculations exploiting unique capabilities that geometric algebra provides.  In particular, vectors in a plane may be manipulated much like complex numbers, which has a number of advantages over working with coordinates explicitly.
+
+It is my belief that systematically working through all of the introductory and advanced topics in electromagnetism using geometric algebra
+would provide significant insight, as well as a new set of powerful tools and procedures of practical value to the electrical engineer or physics practitioner.
+The book produced in this project provides the prerequisite material for such exploration, and some first steps along the path of such an expedition.
 
 \section{Geometric Algebra.}
 \section{Geometric Calculus.}

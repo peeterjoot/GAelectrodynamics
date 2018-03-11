@@ -3,124 +3,93 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \index{Maxwell's equation}
-Assuming
-isotropic constituency relationships \cref{eqn:freespace:300}, and
-eliminating cross products in favor of wedge products,
-Maxwell's equations \cref{eqn:freespace:3399} become
+We will work with a multivector representation of the fields in isotropic media satisfying the
+constituency relationships from \cref{eqn:freespace:300}, and define a multivector field that includes both electric and magnetic components
 
-\begin{subequations}
-\label{eqn:isotropicMaxwells:61}
-\begin{dmath}\label{eqn:isotropicMaxwells:60}
-\spacegrad \wedge \BE = - I \BM - \mu \PD{t}{(I\BH)}
-\end{dmath}
-\begin{dmath}\label{eqn:isotropicMaxwells:80}
-\spacegrad \wedge \BH = I \BJ + I \epsilon \PD{t}{\BE}
-\end{dmath}
-\begin{dmath}\label{eqn:isotropicMaxwells:100}
-\spacegrad \cdot \BE = \rho/\epsilon
-\end{dmath}
-\begin{dmath}\label{eqn:isotropicMaxwells:120}
-\spacegrad \cdot \BH = \rho_\txtm/\mu.
-\end{dmath}
-\end{subequations}
-
-With a bit of rescaling, the dot and wedge products of \cref{eqn:isotropicMaxwells:60}, \cref{eqn:isotropicMaxwells:100} can be added, as can those of \cref{eqn:isotropicMaxwells:80}, \cref{eqn:isotropicMaxwells:120}.
-This reduces Maxwell's equations to a pair of first order coupled gradient equations
-
-\begin{subequations}
-\label{eqn:isotropicMaxwells:361}
-\begin{dmath}\label{eqn:isotropicMaxwells:360}
-\spacegrad \BE = \inv{\epsilon} \rho - I \BM - \mu \PD{t}{(I\BH)}
-\end{dmath}
-\begin{dmath}\label{eqn:isotropicMaxwells:380}
-\spacegrad (I \BH) = \frac{I \rho_\txtm}{\mu} - \BJ - \epsilon \PD{t}{\BE}.
-\end{dmath}
-\end{subequations}
-
-There is a symmetry in \cref{eqn:isotropicMaxwells:361} that an be made more apparent by
-making a transformation to fields with the same dimensions \( \sqrt{\epsilon} \BE, \sqrt{\mu} \BH \)
-
-\begin{subequations}
-\begin{dmath}\label{eqn:isotropicMaxwells:400}
-\spacegrad (\sqrt{\epsilon} \BE) = \inv{\sqrt{\epsilon}} \rho - I \sqrt{\epsilon} \BM - \sqrt{\epsilon \mu} \PD{t}{(I\sqrt{\mu} \BH)}
-\end{dmath}
-\begin{dmath}\label{eqn:isotropicMaxwells:420}
-\spacegrad (I \sqrt{\mu} \BH) = \frac{I \rho_\txtm}{\sqrt{\mu}} - \sqrt{\mu} \BJ - \sqrt{\epsilon\mu} \PD{t}{\sqrt{\epsilon} \BE}.
-\end{dmath}
-\end{subequations}
-
-Observations
+\makedefinition{Electromagnetic field strength.}{dfn:isotropicMaxwells:640}{
+The \textit{electromagnetic field strength} ([\si{V/m}] (Volts/meter)) is defined as
+\begin{equation*}
+F = \BE + I \eta \BH \quad(= \BE + I c \BB),
+\end{equation*}
+where
 \begin{itemize}
-\item
-The electric charge density of \cref{eqn:isotropicMaxwells:400} has a corresponding dual magnetic charge density in \cref{eqn:isotropicMaxwells:420}.
-\item
-There is a similar dual relationship between the electric and magnetic current densities and the fields themselves.
-\item
-The multivector equation \cref{eqn:isotropicMaxwells:400} has grades 0,2 (scalar and bivector), whereas the multivector equation \cref{eqn:isotropicMaxwells:420} has grades 1,3 (vector, pseudoscalar).
-\item
-The
-dimensions of the space and time differential operators \( [\spacegrad] = [\sqrt{\epsilon\mu} \PDi{t}{}] = 1/L = [\sqrt{\epsilon\mu}\PDi{t}{}]\) are equal.
-now equal,
-\end{itemize}
-
-Without any overlap of grades, it is possible to add (or subtract) these equations without any loss of information, as
-the original equations could always be recovered by grade selection.
-Adding \cref{eqn:isotropicMaxwells:400} gives
-\begin{dmath}\label{eqn:isotropicMaxwells:440}
-\lr{ \spacegrad + \sqrt{\epsilon\mu} \PD{t}{} }
-\lr{ \sqrt{\epsilon} \BE
-+
-I \sqrt{\mu} \BH
-}
-=
-\inv{\sqrt{\epsilon}} \rho
-- I \sqrt{\epsilon} \BM
-+\lr{
-\frac{I \rho_\txtm}{\sqrt{\mu}}
-- \sqrt{\mu} \BJ
-}
-.
-\end{dmath}
-
-After rescaling so that we are using
-the engineering convention where \( \BE \) and \( \BH \) are the primary fields, we obtain the geometric algebra multivector form of Maxwell's equation
-\boxedEquation{eqn:maxwellsEquations:460}{
-\begin{aligned}
-F &= \BE + \eta I \BH \\
-J &=
-\eta
-\lr{ c \rho - \BJ }
-+ I \lr{ c \rho_\txtm - \BM } \\
-\lr{ \spacegrad + \inv{c} \PD{t}{} } F
-&= J.
-\end{aligned}
-}
-
-Here
-
-\begin{itemize}
-\item \( F = \BE + \eta I \BH \) [\si{V/m}] (Volts/meter), is the electromagnetic field strength.
-This is a multivector field with vector and bivector components.  Some authors call this the Faraday.
-\item \( J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM } \) ([\si{A/m^2}] (Amperes/square meter)),
-is a multivector source containing all the electric and magnetic charge and current densities.  This is called the current.
-When the fictious magnetic source terms are included this source multivector has one grade for each possible source (scalar, vector, bivector, trivector).  When the current has no fictious magnetic sources, this is still a multivector, but contains only scalar and vector grades.
 \item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media.
-\item \( c = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media, and when \( \epsilon = \epsilon_0, \mu = \mu_0 \) is the speed of light.
-A justification for calling this the group velocity will follow shortly.
-\item As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the spacetime gradient\footnote{
-This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
-Instead of entering the fight, I've just written it out in full each time.}.
+\item \( c = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.  When \( \epsilon = \epsilon_0, \mu = \mu_0 \), \( c \) is the speed of light.
 \end{itemize}
+\( F \) is called the \textit{F}araday by some authors.
+} % definition
 
-Maxwell's equation \cref{eqn:maxwellsEquations:460} is a
-single multivector equation that relates a combined electromagnetic field to all the sources, including fictional magnetic sources if desired.
-%With electric and magnetic fields being observer frame dependent, we
+The factors of \( \eta \) (or \( c \)) that multiply the magnetic fields are for dimensional consistency, since \( [\sqrt{\epsilon} \BE] = [\sqrt{\mu} \BH] = [\BB/\sqrt{\mu}]\).
+The justification for imposing a dual (or complex) structure on the electromagnetic field strength can be found in the historical development of
+Maxwell's equations, but we will also see such a structure arise naturally in short order.
 
-There will be a number of problems where it will be simpler to solve for the electromagnetic field than to solve separately for the electric and magnetic fields.
-Given such a field solution, the electric and magnetic fields can be recovered by grade selection
-\begin{dmath}\label{eqn:isotropicMaxwells:480}
+No information is lost by imposing the complex structure of
+\cref{dfn:isotropicMaxwells:640}, since we can always obtain the
+electric field vector \( \BE \) and the magnetic field bivector \( I \BH \) by grade selection
+from the electromagnetic field strength when desired
+\begin{dmath}\label{eqn:isotropicMaxwells:620}
 \begin{aligned}
-\BE &= \gpgradeone{F} \\
-I \BH &= \inv{\eta} \gpgradetwo{F}.
+\BE &= \gpgradeone{ F } \\
+I \BH &= \inv{\eta} \gpgradetwo{ F }.
 \end{aligned}
 \end{dmath}
+
+We start by inserting the
+isotropic
+constituency relationships from \cref{eqn:freespace:300} into
+\cref{eqn:freespace:3399}, so that we are working with two field variables instead of four.  That is
+\begin{dmath}\label{eqn:isotropicMaxwells:500}
+\begin{aligned}
+\spacegrad \cdot \BE &= \inv{\epsilon} \rho \\
+\spacegrad \cross \BE &= - \BM - \mu \PD{t}{\BH} \\
+\spacegrad \cdot \BH &= \inv{\mu} \rho_\txtm \\
+\spacegrad \cross \BH &= \BJ + \epsilon \PD{t}{\BE}
+\end{aligned}
+\end{dmath}
+Inserting \( \Ba = \spacegrad \) into \cref{eqn:SimpleProducts2:1640} the vector product of the gradient with another vector yields dot and cross product contributions
+\begin{dmath}\label{eqn:isotropicMaxwells:520}
+\spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb.
+\end{dmath}
+Such a sum can be used to group
+\cref{eqn:isotropicMaxwells:500} into a pair of
+multivector gradient equations
+\begin{dmath}\label{eqn:isotropicMaxwells:540}
+\begin{aligned}
+\spacegrad \BE &= \inv{\epsilon} \rho + I \lr{ - \BM - \mu \PD{t}{\BH} } \\
+\spacegrad \BH &= \inv{\mu} \rho_\txtm + I \lr{ \BJ + \epsilon \PD{t}{\BE} }.
+\end{aligned}
+\end{dmath}
+Multiplying the gradient equation for the magnetic field by \( \eta I \) so that both equations have the same dimensions, and so that the electric field appears in both equations as \( \BE \) and not \( I \BE \), we find
+\begin{dmath}\label{eqn:isotropicMaxwells:560}
+\begin{aligned}
+\spacegrad \BE        + \inv{c} \PD{t}{} (I \eta \BH) &= \inv{\epsilon}\rho - I \BM  \\
+\spacegrad I \eta \BH + \inv{c} \PD{t}{\BE}           &= I c \rho_\txtm - \eta \BJ,
+\end{aligned}
+\end{dmath}
+where \( \mu/\eta = \eta \epsilon = 1/c \) was used to simplify things slightly, and all the field contributions have been moved to the left hand side.
+The first multivector equation has only scalar and bivector grades, whereas the second has only vector and trivector grades.  This means that if we add these equations, we can recover each by grade selection, and no information is lost.  That sum is
+\begin{dmath}\label{eqn:isotropicMaxwells:580}
+\lr{ \spacegrad + \inv{c}  \PD{t}{} } \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\end{dmath}
+Maxwell's equations have now been consolidated into a single multivector equation!
+
+For the charge and current sources we define a multivector current
+\makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
+The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
+\begin{equation*}
+J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\end{equation*}
+} % definition
+When fictitious magnetic source terms are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).  When the current has no fictitious magnetic sources, the current is still a multivector, but contains only scalar and vector grades.
+
+Using \cref{dfn:isotropicMaxwells:640}, and \cref{dfn:isotropicMaxwells:660} all of Maxwell's equations
+now have an extraordinarily compact representation.  We will call this Maxwell's equation (singular)
+\makedefinition{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
+Maxwell's equation is a multivector equation relating the change in the electromagnetic field strength to charge and current densities and is written as
+\begin{equation*}
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J.
+\end{equation*}
+} % definition
+Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
+As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
+Instead of entering the fight, it will be written it out in full in this book.}.
