@@ -56,7 +56,6 @@ magnetostatics_biotSavart.tex
 magnetostatics_enclosedCurrent.tex
 magnetostatics_enclosedCurrentDensity.tex
 magnetostatics_vectorPotential.tex
-manyfaces.tex
 multivector.tex
 multivector_nomenclature.tex
 normalFactorization.tex
@@ -106,7 +105,6 @@ torusCenterOfMassParameterization.tex
 vectorDerivative.tex
 vectorTrivectorDot.tex
 volumeselection.tex
-waveequation.tex
 wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex

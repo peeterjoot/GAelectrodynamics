@@ -402,3 +402,6 @@ perl -p -i ../latex/bin/latexRegex.pl isotropicMaxwells.tex
 
 #../latex/bin/lgrep gagcProof.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl gagcProof.tex
+
+../latex/bin/lgrep continuity.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl continuity.tex

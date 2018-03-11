@@ -71,7 +71,7 @@ The first multivector equation has only scalar and bivector grades, whereas the 
 \begin{dmath}\label{eqn:isotropicMaxwells:580}
 \lr{ \spacegrad + \inv{c}  \PD{t}{} } \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{dmath}
-Maxwell's equations have now been consolidated into a single multivector equation!
+Maxwell's equations have now been consolidated into a single multivector equation!  There is a lot of information packed into this single equation.  In particular, all the conventional Maxwell's equations can be extracted by grade selection operations.
 
 For the charge and current sources we define a multivector current
 \makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
@@ -93,3 +93,10 @@ Maxwell's equation is a multivector equation relating the change in the electrom
 Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
 As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
 Instead of entering the fight, it will be written it out in full in this book.}.
+\subsubsection{Problems.}
+\makeproblem{Dot and cross product relation to vector product.}{problem:isotropicMaxwells:700}{
+Using coordinate expansion, convince yourself of the validity of \cref{eqn:isotropicMaxwells:520}.
+} % problem
+\makeproblem{Extracting the conventional Maxwell's equations.}{problem:isotropicMaxwells:720}{
+Apply grade 0,1,2, and 3 selection operations to \cref{eqn:isotropicMaxwells:580} and determine the multiplicative (scalar or trivector) constants required to obtain \cref{eqn:isotropicMaxwells:500}.
+} % problem
