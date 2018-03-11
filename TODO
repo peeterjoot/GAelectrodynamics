@@ -1,3 +1,15 @@
+- Is {eqn:isotropicMaxwells:520} the first use of \grad f = grad . f + I grad cross f?
+
+(probably not: expect it's also in the Helmholtz content)
+
+   This probably deserves some standalone discussion.
+
+- references Maxwell's equation as a definition look weird (equation definition ...)
+
+   Perhaps restate Maxwell's as a theorem?
+
+   If not, then replace \cref for Maxwells' with \ref and manually put in the text that qualifies it.
+
 - Theorem 2.6: Line integral of a scalar function
 
    In proof of this theorem, the grade 2 component is ignored.  This probably deserves some thought and comment.
