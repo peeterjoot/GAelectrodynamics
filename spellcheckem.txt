@@ -49,7 +49,6 @@ landauEasy.tex
 linecharge.tex
 lorentzForce.tex
 lorentzForce_constantMagnetic.tex
-magnetostatics_biotSavart.tex
 magnetostatics_enclosedCurrent.tex
 magnetostatics_enclosedCurrentDensity.tex
 magnetostatics_vectorPotential.tex

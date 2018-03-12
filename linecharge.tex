@@ -4,7 +4,7 @@
 %
 %\makeexample{Line charge.}{example:linecharge:linecharge}{
 \index{line charge}
-In this example the electric field is calculated at a point on the z-axis, due to a line charge density of \( \lambda \) along a segment \( [a,b] \) of the x-axis.
+In this example the (electric) field is calculated at a point on the z-axis, due to a finite line charge density of \( \lambda \) along a segment \( [a,b] \) of the x-axis.
 This is illustrated in \cref{fig:linecharge:linechargeFig1}.
 \imageFigure{../figures/GAelectrodynamics/linechargeFig1}{Line charge density.}{fig:linecharge:linechargeFig1}{0.3}
 
@@ -29,9 +29,9 @@ This allows the squared vector length to be calculated as a product of complex c
 = r^2 + x^2 - 2 r x \cos\theta.
 \end{dmath}
 
-The total electric field is therefore
+The total (electric) field is therefore
 \begin{dmath}\label{eqn:linecharge:60}
-\BE
+F
 = \frac{\lambda}{4 \pi \epsilon_0} \int_a^b dx \frac{ r \Be_1 e^{i\theta} - x \Be_1 }{ \lr{ r^2 + x^2 - 2 x r \cos\theta }^{3/2} }
 = \frac{\lambda \Be_1}{4 \pi \epsilon_0 r} \int_{a/r}^{b/r} du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }.
 \end{dmath}

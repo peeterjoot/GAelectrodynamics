@@ -1,3 +1,10 @@
+- new undefs:
+
+  Reference `eqn:electrostatics_invertingGradient:260' on page 1 undefined on input line 12
+  Reference `eqn:electrostatics_invertingGradient:340' on page 1 undefined on input line 16
+  Reference `eqn:magnetostatics:380' on page 1 undefined on input line 10
+  Reference `eqn:magnetostatics:460' on pag
+
 - Is {eqn:isotropicMaxwells:520} the first use of \grad f = grad . f + I grad cross f?
 
 (probably not: expect it's also in the Helmholtz content)
