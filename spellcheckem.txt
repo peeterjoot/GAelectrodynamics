@@ -19,12 +19,10 @@ curvilinearsphericalProblem.tex
 cylinderField.tex
 distributionDotVectorBivector.tex
 dual.tex
-electrostatics.tex
 electrostaticsProblems.tex
 electrostatics_electricPotential.tex
-electrostatics_enclosedCharge.tex
-electrostatics_invertingGradient.tex
 electrostatics_poissonEquationSolution.tex
+enclosedCurrent.tex
 freespace.tex
 frequencydomainPlaneWaves.tex
 fundamentalTheoremOfCalculus.tex
@@ -51,7 +49,6 @@ landauEasy.tex
 linecharge.tex
 lorentzForce.tex
 lorentzForce_constantMagnetic.tex
-magnetostatics.tex
 magnetostatics_biotSavart.tex
 magnetostatics_enclosedCurrent.tex
 magnetostatics_enclosedCurrentDensity.tex

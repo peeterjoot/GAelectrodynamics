@@ -1,0 +1,37 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+We have already solved the statics equation using Green's function techniques, but we can also gain additional insight by simply integrating Maxwell's equation using \cref{thm:volumeintegral:100} which gives
+\begin{equation}\label{eqn:enclosedCurrent:20}
+\int_V dV \spacegrad F = \int_{\partial V} dA \ncap F = \int_V dV J
+\end{equation}
+The total current in the volume is related to the surface integral of \( \ncap F \) over the boundary of the volume.
+This is a multivector relationship, containing a substantial amount of information.
+This information can be extracted by
+expanding \( \ncap F \)
+\begin{dmath}\label{eqn:enclosedCurrent:40}
+\ncap F
+=
+\ncap \lr{ \BE + I \eta \BH }
+=
+\ncap \cdot \BE + I (\ncap \cross \BE) + I \eta \lr{ \ncap \cdot \BH + I \ncap \cross \BH }
+=
+\ncap \cdot \BE - \eta ( \ncap \cross \BH ) + I (\ncap \cross \BE) + I \eta (\ncap \cdot \BH),
+\end{dmath}
+so
+\begin{dmath}\label{eqn:enclosedCurrent:60}
+\begin{aligned}
+\int_{\partial V} dA\, \ncap \cdot \BE        &=  \inv{\epsilon} \int_V dV\, \rho \\
+\int_{\partial V} dA\, \ncap \cross \BH       &=                 \int_V dV\, \BJ \\
+\int_{\partial V} dA\, \ncap \cross \BE       &=               - \int_V dV\, \BM \\
+\int_{\partial V} dA\, \ncap \cdot \BH        &=  \inv{\mu} \int_V dV\, \rho_\txtm.
+\end{aligned}
+\end{dmath}
+Of course \cref{eqn:enclosedCurrent:60}
+could have obtained directly from Maxwell's equations in their conventional form \cref{eqn:freespace:3399}.
+However, had we integrated the conventional Maxwell's equations, it would not have been obvious that the crazy mix of
+fields, dot and cross products in \cref{eqn:enclosedCurrent:60} had a hidden structure as simple as
+\( \int_{\partial V} dA \ncap F = \int_V dV J \).
+%}

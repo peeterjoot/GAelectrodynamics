@@ -60,12 +60,28 @@ Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \(
 If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:220}
 \begin{aligned}
-\Bv(0)_\parallel &= \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \\
-\Bv(0)_\perp &= \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1} \\
-\Bv(t) &= \Bv(0)_\parallel e^{\Omega t} + \Bv(0)_\perp.
+\Bv(0)_\parallel &= \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1}
+                  = (\Bv(0) \wedge \Bcap) \cdot \Bcap \\
+\Bv(0)_\perp &= \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1}
+              = (\Bv(0) \cdot \Bcap) \Bcap \\
+\Bv(t) &=
+\Bv(0)_\parallel e^{\Omega t} + \Bv(0)_\perp \\
+       &=
+\Bv(0)_\parallel \cos( q B t/ m )
++
+\Bv(0)_\parallel \cross \Bcap \sin( q B t/ m )
++ \Bv(0)_\perp,
 \end{aligned}
 \end{dmath}
+where \( \BB = B \Bcap \).
 
 A multivector integration factor method for solving the Lorentz force equation in constant external electric and magnetic fields can be found in \citep{hestenes1999nfc}.  Other examples, solved using a relativistic formulation of GA, can be found in \citep{doran2003gap},
 \citep{hestenes1974properdynamics}, and
 \citep{hestenes1974propermechanics}.
+
+\subsubsection{Problems.}
+\makeproblem{Constant magnetic field.}{problem:lorentzForce_constantMagnetic:240}{
+In \cref{eqn:lorentzForce_constantMagnetic:220}, each of
+\( \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \), \( \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1} \), and
+\( \Bv(0)_\parallel e^{\Omega t} + \Bv(0)_\perp \), was expanded by setting \( \hat{\Omega} = I \Bcap \).  Perform those calculations.
+} % problem

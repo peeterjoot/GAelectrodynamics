@@ -133,8 +133,8 @@ perl -p -i ../latex/bin/latexRegex.pl isotropicMaxwells.tex
 #../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
 
-#../latex/bin/lgrep lorentzForce_constantMagnetic.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl lorentzForce_constantMagnetic.tex
+../latex/bin/lgrep lorentzForce_constantMagnetic.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl lorentzForce_constantMagnetic.tex
 
 #../latex/bin/lgrep magnetostatics.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl magnetostatics.tex
@@ -405,3 +405,6 @@ perl -p -i ../latex/bin/latexRegex.pl isotropicMaxwells.tex
 
 ../latex/bin/lgrep continuity.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl continuity.tex
+
+../latex/bin/lgrep enclosedCurrent.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl enclosedCurrent.tex
