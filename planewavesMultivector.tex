@@ -33,7 +33,7 @@ The geometric algebra form of Maxwell's equations in free space (or source free 
 \end{dmath}
 Here \( F = \BE + I c \BB \) is a multivector with grades 1 and 2 (vector and bivector components).
 The velcoty \( c \) is called the group velocity since \( F \), or its components \( \BE, \BH \) satisfy the wave equation, which can be seen by pre-multiplying with \( \spacegrad - (1/c)\PDi{t}{} \) to find
-\begin{dmath}\label{eqn:planewavesMultivector:n}
+\begin{dmath}\label{eqn:planewavesMultivector:300}
 \lr{ \spacegrad^2 - \inv{c^2}\PDSq{t}{} } F(\Bx, t) = 0.
 \end{dmath}
 
@@ -183,6 +183,155 @@ e^{-j \Bk \cdot \Bx + j \omega t}
 }
 %\end{boxed}
 where \( \BE \) is any vector for which \( \BE \cdot \Bk = 0 \).
+
+\section{OLD. Retain any}
+%\input{planewaves.tex}
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%\section{Plane waves.}
+\index{plane wave}
+\index{time harmonic}
+\index{source free}
+In the time harmonic representation for source free conditions Maxwell's equation \cref{dfn:isotropicMaxwells:680} is just
+\begin{dmath}\label{eqn:planewaves:560}
+\begin{aligned}
+F &= \BE + \eta I \BH \\
+\lr{ \spacegrad + j k } F &= 0,
+\end{aligned}
+\end{dmath}
+where \( k = \omega/v \) is the wave number.
+It is now possible to examine what constraints Maxwell's equation imposes on plane waves of the form
+%\begin{dmath}\label{eqn:planewaves:580}
+%\begin{aligned}
+%\BE(\Bk) &= \BE_0 e^{-j \Bk \cdot \Bx} \\
+%\BH(\Bk) &= \BH_0 e^{-j \Bk \cdot \Bx},
+%\end{aligned}
+%\end{dmath}
+\begin{dmath}\label{eqn:planewaves:600}
+F(\Bk) = F_0 e^{-j \Bk \cdot \Bx}.
+\end{dmath}
+
+where \( F = \Real( F(\Bk) e^{j \omega t} ) \).
+Let's seek a phasor solution \( F(\Bk) \) for the total electromagnetic field, but drop the explicit frequency dependence for simplicity
+
+%\input{frequencydomainPlaneWaves.tex}
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%\section{Plane waves}
+\index{plane wave}
+The gradient action on the electromagnetic field is
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:160}
+\spacegrad F_0 e^{-j \Bk \cdot \Bx}
+=
+\sum_{m = 1}^3 \Be_m \partial_m
+F_0 e^{-j \Bk \cdot \Bx}
+=
+\sum_{m = 1}^3 \Be_m
+F_0
+\lr{ -j k_m }
+e^{-j \Bk \cdot \Bx}
+=
+-j \Bk F_0,
+\end{dmath}
+so
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:180}
+j k (1 - \kcap) F_0 = 0.
+\end{dmath}
+
+This means that the field must be of the form
+%\begin{dmath}\label{eqn:frequencydomainPlaneWaves:200}
+\boxedEquation
+{eqn:frequencydomainPlaneWaves:200}
+{
+F = (1 + \kcap) \BE_0 e^{-j \Bk \cdot \Bx},
+}
+%\end{dmath}
+where \( \BE_0 \) is a vector valued complex constant, and \( \kcap \cdot \BE_0 = 0 \).
+The dot product constraint follows from the requirement that the \( I \BH \propto \kcap \BE_0 \) portion of the electromagnetic field is a bivector.
+The time domain representation of the field is
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:460}
+F = (1 + \kcap) \Real{ \BE_0 e^{-j \Bk \cdot \Bx} },
+\end{dmath}
+but we will see later
+instead of using a scalar imaginary \( j \), it is possible to use either the unit bivector for the transverse plane or the \R{3} unit pseudoscalar as the imaginary, and that a plane wave of any polarization can be encoded without any requirement to take real parts.
+
+From \cref{eqn:frequencydomainPlaneWaves:200} the interdependence of the electric and magnetic field portions of the field can be read off immediately.
+Those are
+
+\begin{subequations}
+\label{eqn:frequencydomainPlaneWaves:220}
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:221}
+\BE = \BE_0 e^{-j \Bk \cdot \Bx}
+\end{dmath}
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:222}
+I \BH = \inv{\eta} \kcap \BE_0 e^{-j \Bk \cdot \Bx},
+\end{dmath}
+\end{subequations}
+
+or
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:380}
+I \BH = \inv{\eta} \kcap \BE.
+\end{dmath}
+
+\index{pseudoscalar!spherical}
+Since the \R{3} pseudoscalar can be written as
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:400}
+I = \kcap \Ecap \Hcap,
+\end{dmath}
+the directions \( \kcap, \Ecap, \Hcap \) must form a right handed triple.
+It is thus expected that the magnetic field is perpendicular to the propagation direction, and that the electric and magnetic fields are explicitly perpendicular, facts that are easily verified
+
+\begin{subequations}
+\label{eqn:frequencydomainPlaneWaves:440}
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:260}
+\kcap \cdot \BH
+= \gpgradezero{ \kcap (-I \kcap \BE_0) } e^{-j \Bk \cdot \Bx}
+= -\gpgradezero{ I \BE_0 } e^{-j \Bk \cdot \Bx}
+= 0
+\end{dmath}
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:280}
+\BE \cdot \BH
+=
+\gpgradezero{ \BE \lr{ -\frac{I}{\eta}} \kcap \BE }
+=
+-\inv{\eta} \BE^2
+\gpgradezero{ \kcap I }
+=
+0.
+\end{dmath}
+\end{subequations}
+
+In conventional vector treatments of electromagnetic field theory the field relationships of \cref{eqn:frequencydomainPlaneWaves:220} and the propagation directions are written out explicitly as cross products, instead of multivector equations.
+Those cross product relations are obtained easily
+
+\begin{subequations}
+\label{eqn:frequencydomainPlaneWaves:420}
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:240}
+\BH
+= -I \inv{\eta} \kcap \BE
+= -I \inv{\eta} (\kcap \wedge \BE)
+= -I \inv{\eta} I (\kcap \cross \BE)
+= \inv{\eta} \kcap \cross \BE
+\end{dmath}
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:300}
+\BE
+= \eta \kcap I \BH
+= \eta I \kcap \wedge \BH
+= \eta I^2 \kcap \cross \BH
+= \eta \BH \cross \kcap
+\end{dmath}
+\begin{dmath}\label{eqn:frequencydomainPlaneWaves:340}
+\kcap
+= I \Hcap \Ecap
+= I (\Hcap \wedge \Ecap)
+= I^2 (\Hcap \cross \Ecap)
+= \Ecap \cross \Hcap.
+\end{dmath}
+\end{subequations}
 
 %}
 %\EndNoBibArticle

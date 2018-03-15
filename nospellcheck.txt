@@ -1,0 +1,25 @@
+GAelectrodynamics.tex
+appendixchapters.tex
+chapter1.tex
+chapter2.tex
+chapter3.tex
+chapters.tex
+classicthesis-config.tex
+currentBookCopyright.tex
+backmatter.tex
+mathematica.tex
+
+# standalone:
+maxwells.tex
+junk.tex
+ece2500report.tex
+greens.tex
+quaternion2maxwellWithGA.tex
+
+# orphaned.  Move to .junk/ ?
+boundary.tex
+ellipticalWaves.tex
+
+# move to .junk (incorporating into planewavesMultivector.tex)
+planewaves.tex
+frequencydomainPlaneWaves.tex

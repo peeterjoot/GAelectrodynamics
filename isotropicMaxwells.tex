@@ -34,10 +34,32 @@ I \BH &= \inv{\eta} \gpgradetwo{ F }.
 \end{aligned}
 \end{dmath}
 
-We start by inserting the
+We will also
+define a multivector current containing all charge densites and current densities
+\makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
+The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
+\begin{equation*}
+J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\end{equation*}
+} % definition
+When the fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).  With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
+
+Given the multivector field and current, it is now possible to state Maxwell's equation (singular) in its geometric algebra form
+\maketheorem{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
+Maxwell's equation is a multivector equation relating the change in the electromagnetic field strength to charge and current densities and is written as
+\begin{equation*}
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J.
+\end{equation*}
+} % theorem
+Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
+As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
+Instead of entering the fight, it will be written it out in full in this book.}.
+
+To prove \cref{dfn:isotropicMaxwells:680} we
+first insert the
 isotropic
 constituency relationships from \cref{eqn:freespace:300} into
-\cref{eqn:freespace:3399}, so that we are working with two field variables instead of four.  That is
+\cref{eqn:freespace:3399}, so that we are working with two field variables instead of four
 \begin{dmath}\label{eqn:isotropicMaxwells:500}
 \begin{aligned}
 \spacegrad \cdot \BE &= \inv{\epsilon} \rho \\
@@ -46,13 +68,13 @@ constituency relationships from \cref{eqn:freespace:300} into
 \spacegrad \cross \BH &= \BJ + \epsilon \PD{t}{\BE}
 \end{aligned}
 \end{dmath}
-Inserting \( \Ba = \spacegrad \) into \cref{eqn:SimpleProducts2:1640} the vector product of the gradient with another vector yields dot and cross product contributions
+Inserting \( \Ba = \spacegrad \) into \cref{eqn:SimpleProducts2:1640} the vector product of the gradient with another vector
 \begin{dmath}\label{eqn:isotropicMaxwells:520}
 \spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb.
 \end{dmath}
-Such a sum can be used to group
-\cref{eqn:isotropicMaxwells:500} into a pair of
-multivector gradient equations
+The respective dot and cross products for \( \BE \) and \( \BH \) in
+\cref{eqn:isotropicMaxwells:500}
+can be grouped using \cref{eqn:isotropicMaxwells:520} into multivector gradient equations
 \begin{dmath}\label{eqn:isotropicMaxwells:540}
 \begin{aligned}
 \spacegrad \BE &= \inv{\epsilon} \rho + I \lr{ - \BM - \mu \PD{t}{\BH} } \\
@@ -69,34 +91,20 @@ Multiplying the gradient equation for the magnetic field by \( \eta I \) so that
 where \( \mu/\eta = \eta \epsilon = 1/c \) was used to simplify things slightly, and all the field contributions have been moved to the left hand side.
 The first multivector equation has only scalar and bivector grades, whereas the second has only vector and trivector grades.  This means that if we add these equations, we can recover each by grade selection, and no information is lost.  That sum is
 \begin{dmath}\label{eqn:isotropicMaxwells:580}
-\lr{ \spacegrad + \inv{c}  \PD{t}{} } \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{dmath}
-Maxwell's equations have now been consolidated into a single multivector equation!  There is a lot of information packed into this single equation.  In particular, all the conventional Maxwell's equations can be extracted by grade selection operations.
+Application of \cref{dfn:isotropicMaxwells:640} and \cref{dfn:isotropicMaxwells:660} to
+\cref{eqn:isotropicMaxwells:580} proves the theorem, verifying the
+assertion that Maxwell's equations can be consolidated into a single multivector equation.
+There is a lot of information packed into this single equation.
+Where possible, we want to work with the multivector form of Maxwell's equation, either in the
+compact form of \cref{dfn:isotropicMaxwells:680} or the explicit form of \cref{eqn:isotropicMaxwells:580},
+and not decompose Maxwell's equation into the conventional representation by grade selection operations.
 
-For the charge and current sources we define a multivector current
-\makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
-The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
-\begin{equation*}
-J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
-\end{equation*}
-} % definition
-When fictitious magnetic source terms are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).  When the current has no fictitious magnetic sources, the current is still a multivector, but contains only scalar and vector grades.
-
-Using \cref{dfn:isotropicMaxwells:640}, and \cref{dfn:isotropicMaxwells:660} all of Maxwell's equations
-now have an extraordinarily compact representation.  We will call this Maxwell's equation (singular)
-\makedefinition{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
-Maxwell's equation is a multivector equation relating the change in the electromagnetic field strength to charge and current densities and is written as
-\begin{equation*}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J.
-\end{equation*}
-} % definition
-Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
-As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
-Instead of entering the fight, it will be written it out in full in this book.}.
 \subsubsection{Problems.}
 \makeproblem{Dot and cross product relation to vector product.}{problem:isotropicMaxwells:700}{
 Using coordinate expansion, convince yourself of the validity of \cref{eqn:isotropicMaxwells:520}.
 } % problem
 \makeproblem{Extracting the conventional Maxwell's equations.}{problem:isotropicMaxwells:720}{
-Apply grade 0,1,2, and 3 selection operations to \cref{eqn:isotropicMaxwells:580} and determine the multiplicative (scalar or trivector) constants required to obtain \cref{eqn:isotropicMaxwells:500}.
+Apply grade 0,1,2, and 3 selection operations to \cref{eqn:isotropicMaxwells:580}.  Determine the multiplicative (scalar or trivector) constants required to obtain \cref{eqn:isotropicMaxwells:500} from the equations that result from such grade selection operations.
 } % problem

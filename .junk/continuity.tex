@@ -1,0 +1,46 @@
+
+\index{wave equation}
+%Having assembled all of Maxwell's equations into \cref{dfn:isotropicMaxwells:680}, some results now follow almost trivially.
+%One such result is the wave equation in space free of sources.
+%In such a region, Maxwell's equation is just
+%\begin{dmath}\label{eqn:waveequation:480}
+%\lr{ \spacegrad + \inv{c} \PD{t}{} } F = 0.
+%\end{dmath}
+%
+%This can be multiplied from the left with the multivector operator \( \spacegrad - \inv{c} \PD{t}{} \), to give
+%\begin{dmath}\label{eqn:waveequation:500}
+%0 =
+%\lr{ \spacegrad - \inv{c} \PD{t}{} }
+%\lr{ \spacegrad + \inv{c} \PD{t}{} } F
+%=
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F,
+%\end{dmath}
+%or
+In source free conditions \cref{eqn:continuity:110} reduces to an homogeneous wave equation
+%\begin{dmath}\label{eqn:waveequation:520}
+\boxedEquation{eqn:continuity:520}{
+\spacegrad^2 F = \inv{c^2} \PDSq{t}{F}.
+}
+%\end{dmath}
+
+The solutions of the wave equation are well known, allowing us to immediately state that the solution is
+\begin{dmath}\label{eqn:continuity:560}
+F(\Bx, t) = f(\Norm{\Bx} \pm c t),
+\end{dmath}
+where \( f \) is any grade 1,2 multivector, provided that \( F \) also satisfies the constraints imposed by
+Maxwell's equation \cref{dfn:isotropicMaxwells:680}.
+
+In conventional electromagnetism, we have independent wave equations for
+each of the electric and magnetic fields.
+We can obtain those by applying vector and bivector grade selection operations to
+\cref{eqn:continuity:520} to find
+\begin{dmath}\label{eqn:waveequation:540}
+\begin{aligned}
+\spacegrad^2 \BE &= \inv{c^2} \PDSq{t}{\BE} \\
+\spacegrad^2 (I \BH) &= \inv{c^2} \PDSq{t}{(I \BH)}.
+\end{aligned}
+\end{dmath}
+The pseudoscalar factors in the magnetic field wave equation can be eliminated by multiplying with
+\( -I \), which yields the conventional pair of vector wave equations for the electric and magnetic fields.  Any solutions
+to
+\cref{eqn:waveequation:540} are also constrained by Maxwell's equation.

@@ -3,21 +3,53 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-Some would argue that the conventional form \cref{eqn:freespace:3100} of Maxwell's equations have built in redundancy since continuity equations on the charge and current densities couple some of these equations.  We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation, and derive those conditions.  This amounts to a statement that the
-multivector current \( J \) is not completely unconstrained.
+Some would argue that the conventional form \cref{eqn:freespace:3100} of Maxwell's equations have built in redundancy since continuity equations on the charge and current densities couple some of these equations.
+We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
+This amounts to a statement that the multivector current \( J \) is not completely unconstrained.
 
-To show this, we operate on \cref{dfn:isotropicMaxwells:680} with \( \spacegrad - (1/c) \partial_t \), one of the factors, along with the
+\maketheorem{Electromagnetic wave equation and continuity conditions.}{thm:continuity:600}{
+The electromagnetic field is a solution to the non-homogeneous wave equation
+\begin{equation*}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F =
+\lr{ \spacegrad - \inv{c} \PD{t}{} } J.
+\end{equation*}
+In source free conditions, this reduces to a homogeneous wave equation, with group velocity \( c \), the speed of the wave in the media.
+When expanded explicitly in terms of electric and magnetic fields, and charge and current densities, this single equation resolves to a
+non-homogeneous wave equation for each of the electric and magnetic fields
+\begin{equation*}
+\begin{aligned}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
+%&= \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{1}
+&= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
+%&= \inv{I \eta} \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{2}
+&= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
+\end{aligned}
+\end{equation*}
+as well as a pair of continuity equations coupling the respective charge and current densities
+\begin{equation*}
+\begin{aligned}
+\spacegrad \cdot \BJ + \PD{t}{\rho} &= 0 \\
+\spacegrad \cdot \BM + \PD{t}{\rho_\txtm} &= 0.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove, we operate on \cref{dfn:isotropicMaxwells:680} with \( \spacegrad - (1/c) \partial_t \), one of the factors, along with the
 spacetime gradient, of the
 d'Alembertian (wave equation) operator, which gives
 \begin{dmath}\label{eqn:continuity:110}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F =
-\lr{ \spacegrad - \inv{c} \PD{t}{} } J
-=
-\gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{1,2},
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F = \lr{ \spacegrad - \inv{c} \PD{t}{} } J.
 \end{dmath}
-where a no-op grade 1,2 selection operation has been introduced since the grades of the left and right hand sides must match.
-
-There is, however, information in the requirement that any grade 0,3 terms in the right hand side must be zero.
+Since the left hand side has only grades 1 and 2, \cref{eqn:continuity:110} splits naturally into two equations, one for grades 1,2 and one for grades 0,3
+\begin{dmath}\label{eqn:continuity:130}
+\begin{aligned}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F &= \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } J }{1,2} \\
+                                           0 &= \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } J }{0,3}.
+\end{aligned}
+\end{dmath}
+Unpacking these further, we find that there is information
+carried in the requirement that the grade 0,3 selection of \cref{eqn:continuity:130} is zero.
 In particular, grade 0 selection gives
 \begin{dmath}\label{eqn:continuity:40}
 0
@@ -35,10 +67,7 @@ In particular, grade 0 selection gives
 \lr{ \spacegrad \cdot \BJ + \PD{t}{\rho} }
 ,
 \end{dmath}
-so
-\boxedEquation{eqn:continuity:70}{
-\spacegrad \cdot \BJ + \PD{t}{\rho} = 0.
-}
+which demonstrates the continuity condition on the electric sources.
 Similarly, grade three selection gives
 \begin{dmath}\label{eqn:continuity:60}
 0
@@ -56,54 +85,52 @@ Similarly, grade three selection gives
    \spacegrad \cdot \BM + \PD{t}{\rho_\txtm}
 },
 \end{dmath}
-so
-\boxedEquation{eqn:continuity:90}{
-\spacegrad \cdot \BM + \PD{t}{\rho_\txtm} = 0.
+which demonstrates the continuity condition on the (fictitious) magnetic sources if included in the current.
+
+For the non-homogeneous wave equation of \cref{thm:continuity:600}, the current derivatives may be expanded explicitly.
+For the wave equation for the electric field, this is
+\begin{dmath}\label{eqn:continuity:150}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
+=
+\gpgradeone{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}
+=
+\gpgradeone{
+   \lr{ \spacegrad - \inv{c} \PD{t}{} }
+   \lr{
+      \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
+   }
 }
-
-\index{wave equation}
-%Having assembled all of Maxwell's equations into \cref{dfn:isotropicMaxwells:680}, some results now follow almost trivially.
-%One such result is the wave equation in space free of sources.
-%In such a region, Maxwell's equation is just
-%\begin{dmath}\label{eqn:waveequation:480}
-%\lr{ \spacegrad + \inv{c} \PD{t}{} } F = 0.
-%\end{dmath}
-%
-%This can be multiplied from the left with the multivector operator \( \spacegrad - \inv{c} \PD{t}{} \), to give
-%\begin{dmath}\label{eqn:waveequation:500}
-%0 =
-%\lr{ \spacegrad - \inv{c} \PD{t}{} }
-%\lr{ \spacegrad + \inv{c} \PD{t}{} } F
-%=
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F,
-%\end{dmath}
-%or
-In source free conditions \cref{eqn:continuity:110} reduces to an homogeneous wave equation
-%\begin{dmath}\label{eqn:waveequation:520}
-\boxedEquation{eqn:continuity:520}{
-\spacegrad^2 F = \inv{c^2} \PDSq{t}{F}.
+=
+\inv{\epsilon} \spacegrad \rho -I \lr{ \spacegrad \wedge \BM } + \inv{c} \eta \PD{t}{\BJ}
+= \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{1} = \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM,
+\end{dmath}
+as claimed.
+The forced magnetic field equation is
+\begin{dmath}\label{eqn:continuity:170}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
+=
+\inv{\eta I}
+\gpgradetwo{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}
+=
+\inv{\eta I}
+\gpgradetwo{
+   \lr{ \spacegrad - \inv{c} \PD{t}{} }
+   \lr{
+      \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
+   }
 }
-%\end{dmath}
-
-The solutions of the wave equation are well known, allowing us to immediately state that the solution is
-\begin{dmath}\label{eqn:continuity:560}
-F(\Bx, t) = f(\Norm{\Bx} \pm c t),
+=
+\inv{\eta I}
+\lr{
+   -\spacegrad \wedge \BJ + I c \spacegrad \rho_\txtm + \frac{I}{c} \PD{t}{\BM}
+}
+=
+\inv{I}
+\lr{
+   -I \lr{ \spacegrad \cross \BJ} + I \inv{\mu} \spacegrad \rho_\txtm + I \epsilon \PD{t}{\BM}
+}
+= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
 \end{dmath}
-where \( f \) is any grade 1,2 multivector, provided that \( F \) also satisfies the constraints imposed by
-Maxwell's equation \cref{dfn:isotropicMaxwells:680}.
+also as claimed.
 
-In conventional electromagnetism, we have independent wave equations for
-each of the electric and magnetic fields.
-We can obtain those by applying vector and bivector grade selection operations to
-\cref{eqn:continuity:520} to find
-\begin{dmath}\label{eqn:waveequation:540}
-\begin{aligned}
-\spacegrad^2 \BE &= \inv{c^2} \PDSq{t}{\BE} \\
-\spacegrad^2 (I \BH) &= \inv{c^2} \PDSq{t}{(I \BH)}.
-\end{aligned}
-\end{dmath}
-The pseudoscalar factors in the magnetic field wave equation can be eliminated by multiplying with
-\( -I \), which yields the conventional pair of vector wave equations for the electric and magnetic fields.  Any solutions
-to
-\cref{eqn:waveequation:540} are also constrained by Maxwell's equation.
 %}
