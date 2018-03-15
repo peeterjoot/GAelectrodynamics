@@ -5,7 +5,8 @@
 %{
 The conventional proof of Helmholtz's theorem uses the Green's function for the (second order) Helmholtz operator.
 Armed with a vector valued Green's function for the gradient, a first order proof is also possible.
-Both strategies will be illustrated here, as both use aspects of geometric calculus introduced in this chapter.
+As illustrations of the geometric integration theory developed in this chapter, both 
+strategies will be applied here to this problem.
 
 In either case, we start by forming an even grade multivector (gradient) equation containing both the dot and cross product contributions
 \begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:60}
@@ -49,9 +50,8 @@ M(\Bx)
 If \( \BM \) is well behaved enough that the boundary integral vanishes on an infinite surface, we see that \( \BM \) is completely specified by the divergence and the curl.
 In general, the divergence and the curl, must also be supplemented by the the value of vector valued function on the boundary.
 
-Observe that the boundary integral has a particularly simple form for a spherical surface.
-Switching to spherical coordinates \( \Br = \Bx' - \Bx = R\, \rcap(\theta, \phi) \) and noting that the outwards normal is given by
-\( \ncap = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \), we have
+Observe that the boundary integral has a particularly simple form for a spherical surface or radius \( R \) centered on \( \Bx' \).
+Switching to spherical coordinates \( \Br = \Bx' - \Bx = R\, \rcap(\theta, \phi) \) where \( \rcap = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \) is the outwards normal, we have
 \begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:840}
 -
 \int_{\partial V}
@@ -66,7 +66,6 @@ This is an average of \( \BM \) over the surface of the radius-\(R\) sphere surr
 
 \paragraph{Second order proof.}
 
-%\index{convolution}
 %Observe that the Laplacian of \( \BM \) is vector valued
 %
 %\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:760}
@@ -79,9 +78,11 @@ This is an average of \( \BM \) over the surface of the radius-\(R\) sphere surr
 %\spacegrad \cdot \BC = 0.
 %\end{dmath}
 
-This can be used to attempt to discover the relation between the vector \( \BM \) and its divergence and curl.
+Again, we use \cref{eqn:helmholtzDerviationMultivectorSolution:60}
+to discover the relation between the vector \( \BM \) and its divergence and curl.
 \index{delta function}
 The vector \( \BM \) can be expressed at the point of interest as a convolution with the delta function at all other points in space
+\index{convolution}
 \begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:80}
 \BM(\Bx) = \int_V dV' \delta(\Bx - \Bx') \BM(\Bx').
 \end{dmath}
