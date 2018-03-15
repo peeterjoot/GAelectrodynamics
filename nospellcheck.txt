@@ -19,7 +19,3 @@ quaternion2maxwellWithGA.tex
 # orphaned.  Move to .junk/ ?
 boundary.tex
 ellipticalWaves.tex
-
-# move to .junk (incorporating into planewavesMultivector.tex)
-planewaves.tex
-frequencydomainPlaneWaves.tex
