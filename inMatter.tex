@@ -2,25 +2,21 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-The GA formulation of Maxwell's equation has only been applied in media where it has been assumed throughout that linear constitutive relationships
-\begin{dmath}\label{eqn:inMatter:20}
-\begin{aligned}
-\BD &= \epsilon \BE \\
-\BB &= \mu \BH,
-\end{aligned}
-\end{dmath}
-have been available.  Without such assumptions the GA formalism for Maxwell's equations cannot be written as a single equation with one multivector field, but requires two equations and two multivector fields.  The two multivector fields are
+So far, we've considered only media where the linear constitutive relationships \cref{eqn:freespace:301} hold.
+Without such assumptions the GA formalism for Maxwell's equations cannot be written as a single equation with one multivector field, but requires two equations and two multivector fields.
+
+The two multivector fields are
 \begin{dmath}\label{eqn:inMatter:40}
 \begin{aligned}
-F &= \BE + I c \BB \\
-G &= \BD + \frac{I}{c} \BH,
+G &= \BE + I c \BB \\
+F &= \BD + \frac{I}{c} \BH,
 \end{aligned}
 \end{dmath}
 for which Maxwell's equations are
 \begin{dmath}\label{eqn:inMatter:60}
 \begin{aligned}
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{0,1} &= \rho - \frac{\BJ}{c} \\
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{2,3} &= I \lr{ c \rho_m - \BM }.
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{0,1} &= \rho - \frac{\BJ}{c} \\
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{2,3} &= I \lr{ c \rho_m - \BM }.
 \end{aligned}
 \end{dmath}
 
@@ -33,7 +29,7 @@ Doing so for each of the grades in turn, we have
 \begin{dmath}\label{eqn:inMatter:100}
 \rho
 =
-\gpgradezero{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }
+\gpgradezero{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }
 =
 \gpgradezero{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BD + \frac{I}{c} \BH } }
 =
@@ -42,7 +38,7 @@ Doing so for each of the grades in turn, we have
 \begin{dmath}\label{eqn:inMatter:120}
 - \frac{\BJ}{c}
 =
-\gpgradeone{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }
+\gpgradeone{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }
 =
 \gpgradeone{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BD + \frac{I}{c} \BH } }
 =
@@ -53,7 +49,7 @@ Doing so for each of the grades in turn, we have
 \begin{dmath}\label{eqn:inMatter:140}
 - I \BM
 =
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{2}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{2}
 =
 \gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB} }{2}
 =
@@ -62,7 +58,7 @@ Doing so for each of the grades in turn, we have
 \begin{dmath}\label{eqn:inMatter:160}
 I c \rho_m
 =
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{3}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{3}
 =
 \gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB} }{3}
 =
@@ -83,18 +79,18 @@ After rearranging and cancelling common factors of \( c, I \) Maxwell's equation
 One possible strategy for solving these equations is to impose an additional set of constraints on the grades in question
 \begin{dmath}\label{eqn:inMatter:200}
 \begin{aligned}
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{2,3} &= 0 \\
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{0,1} &= 0,
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{2,3} &= 0 \\
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{0,1} &= 0,
 \end{aligned}
 \end{dmath}
 so that all the grade selection filters can be cleared
 \begin{dmath}\label{eqn:inMatter:220}
 \begin{aligned}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } G &= \rho - \frac{\BJ}{c} \\
-\lr{ \spacegrad + \inv{c} \PD{t}{} } F &= I \lr{ c \rho_m - \BM }.
+\lr{ \spacegrad + \inv{c} \PD{t}{} } F &= \rho - \frac{\BJ}{c} \\
+\lr{ \spacegrad + \inv{c} \PD{t}{} } G &= I \lr{ c \rho_m - \BM }.
 \end{aligned}
 \end{dmath}
 
 Each of these now separately has the form of Maxwell's equation, and could be solved separately, subject to the constraint equations.
-Only if \( F, G \) can be related by a constant factor, say \( \epsilon F = G \), can these be summed directly (after non-dimensional scaling) to form Maxwell's equation.
+Only if \( G, F \) can be related by a constant factor, say \( \epsilon G = F \), can these be summed directly (after non-dimensional scaling) to form Maxwell's equation.
 Other non-constraint strategies for solving \cref{eqn:inMatter:60} would require additional thought and study.

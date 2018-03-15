@@ -1,0 +1,199 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{planewavesMultivector}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Multivector plane wave representation}
+%\chapter{Multivector plane wave representation}
+%\label{chap:planewavesMultivector}
+
+The geometric algebra form of Maxwell's equations in free space (or source free isotopic media with group velocity \( c \)) is the multivector equation
+\begin{equation}\label{eqn:planewavesMultivector:20}
+\lr{ \spacegrad + \inv{c}\PD{t}{} } F(\Bx, t) = 0.
+\end{equation}
+Here \( F = \BE + I c \BB \) is a multivector with grades 1 and 2 (vector and bivector components).  
+The velcoty \( c \) is called the group velocity since \( F \), or its components \( \BE, \BH \) satisfy the wave equation, which can be seen by pre-multiplying with \( \spacegrad - (1/c)\PDi{t}{} \) to find
+\begin{equation}\label{eqn:planewavesMultivector:n}
+\lr{ \spacegrad^2 - \inv{c^2}\PDSq{t}{} } F(\Bx, t) = 0.
+\end{equation}
+
+Let's look at the frequency domain solution of this equation with a presumed phasor representation
+\begin{equation}\label{eqn:planewavesMultivector:40}
+F(\Bx, t) = \Real \lr{ F(\Bk) e^{-j \Bk \cdot \Bx + j \omega t} },
+\end{equation}
+where \( j \) is a scalar imaginary, not necessarily with any geometric interpretation.
+
+Maxwell's equation reduces to just
+\begin{equation}\label{eqn:planewavesMultivector:60}
+0
+=
+-j \lr{ \Bk - \frac{\omega}{c} } F(\Bk).
+\end{equation}
+
+If \( F(\Bk) \) has a left multivector factor
+\begin{equation}\label{eqn:planewavesMultivector:80}
+F(\Bk) =
+\lr{ \Bk + \frac{\omega}{c} } \tilde{F},
+\end{equation}
+where \( \tilde{F} \) is a multivector to be determined, then
+\begin{equation}\label{eqn:planewavesMultivector:100}
+\begin{aligned}
+\lr{ \Bk - \frac{\omega}{c} }
+F(\Bk)
+&=
+\lr{ \Bk - \frac{\omega}{c} }
+\lr{ \Bk + \frac{\omega}{c} } \tilde{F} \\
+&=
+\lr{ \Bk^2 - \lr{\frac{\omega}{c}}^2 } \tilde{F},
+\end{aligned}
+\end{equation}
+which is zero if
+if \( \Norm{\Bk} = \ifrac{\omega}{c} \).
+
+Let \( \kcap = \ifrac{\Bk}{\Norm{\Bk}} \), and \( \Norm{\Bk} \tilde{F} = F_0 + F_1 + F_2 + F_3 \), where
+\( F_0, F_1, F_2, \) and \( F_3 \) are respectively have grades 0,1,2,3.  Then
+\begin{equation}\label{eqn:planewavesMultivector:120}
+\begin{aligned}
+F(\Bk)
+&= \lr{ 1 + \kcap } \lr{ F_0 + F_1 + F_2 + F_3 } \\
+&=
+F_0 + F_1 + F_2 + F_3
++
+\kcap F_0 + \kcap F_1 + \kcap F_2 + \kcap F_3 \\
+&=
+F_0 + F_1 + F_2 + F_3
++
+\kcap F_0 + \kcap \cdot F_1 + \kcap \cdot F_2 + \kcap \cdot F_3
++
+\kcap \wedge F_1 + \kcap \wedge F_2 \\
+&=
+\lr{
+   F_0 + \kcap \cdot F_1
+}
++
+\lr{
+   F_1 + \kcap F_0 + \kcap \cdot F_2
+}
++
+\lr{
+   F_2 + \kcap \cdot F_3 + \kcap \wedge F_1
+}
++
+\lr{
+   F_3 + \kcap \wedge F_2
+}.
+\end{aligned}
+\end{equation}
+Since the field \( F \) has only vector and bivector grades, the grades zero and three components of the expansion above must be zero, or
+\begin{equation}\label{eqn:planewavesMultivector:140}
+\begin{aligned}
+   F_0 &= - \kcap \cdot F_1 \\
+   F_3 &= - \kcap \wedge F_2,
+\end{aligned}
+\end{equation}
+so
+\begin{equation}\label{eqn:planewavesMultivector:160}
+\begin{aligned}
+F(\Bk)
+&=
+\lr{ 1 + \kcap } \lr{
+   F_1 - \kcap \cdot F_1 +
+   F_2 - \kcap \wedge F_2
+} \\
+&=
+\lr{ 1 + \kcap } \lr{
+   F_1 - \kcap F_1 + \kcap \wedge F_1 +
+   F_2 - \kcap F_2 + \kcap \cdot F_2
+}.
+\end{aligned}
+\end{equation}
+The multivector \( 1 + \kcap \) has the projective property of gobbling any leading factors of \( \kcap \)
+\begin{equation}\label{eqn:planewavesMultivector:180}
+\begin{aligned}
+(1 + \kcap)\kcap
+&= \kcap + 1 \\
+&= 1 + \kcap,
+\end{aligned}
+\end{equation}
+so for \( F_i \in F_1, F_2 \)
+\begin{equation}\label{eqn:planewavesMultivector:200}
+(1 + \kcap) ( F_i - \kcap F_i )
+=
+(1 + \kcap) ( F_i - F_i )
+= 0,
+\end{equation}
+leaving
+\begin{equation}\label{eqn:planewavesMultivector:220}
+F(\Bk)
+=
+\lr{ 1 + \kcap } \lr{
+   \kcap \cdot F_2 +
+   \kcap \wedge F_1
+}.
+\end{equation}
+
+For \( \kcap \cdot F_2 \) to be non-zero \( F_2 \) must be a bivector that lies in a plane containing \( \kcap \), and
+\( \kcap \cdot F_2 \) is a vector in that plane that is perpendicular to \( \kcap \).
+On the other hand \( \kcap \wedge F_1 \) is non-zero only if \( F_1 \) has a non-zero component that does not lie in along the \( \kcap \) direction, but \( \kcap \wedge F_1 \), like \( F_2 \) describes a plane that containing \( \kcap \).
+This means that having both bivector and vector free variables \( F_2 \) and \( F_1 \) provide more degrees of freedom than required.
+For example, if \( \BE \) is any vector, and \( F_2 = \kcap \wedge \BE \), then
+\begin{equation}\label{eqn:planewavesMultivector:240}
+\begin{aligned}
+\lr{ 1 + \kcap }
+   \kcap \cdot F_2
+&=
+\lr{ 1 + \kcap }
+   \kcap \cdot \lr{ \kcap \wedge \BE } \\
+&=
+\lr{ 1 + \kcap }
+\lr{
+   \BE
+-
+\kcap \lr{ \kcap \cdot \BE }
+} \\
+&=
+\lr{ 1 + \kcap }
+\kcap \lr{ \kcap \wedge \BE } \\
+&=
+\lr{ 1 + \kcap }
+\kcap \wedge \BE,
+\end{aligned}
+\end{equation}
+which has the form \( \lr{ 1 + \kcap } \lr{ \kcap \wedge F_1 } \), so the solution of the free space Maxwell's equation can be written
+\begin{equation}\label{eqn:planewavesMultivector:260}
+\boxed{
+F(\Bx, t)
+=
+\Real \lr{
+\lr{ 1 + \kcap }
+\BE\,
+e^{-j \Bk \cdot \Bx + j \omega t}
+}
+,
+}
+\end{equation}
+where \( \BE \) is any vector for which \( \BE \cdot \Bk = 0 \).
+
+%}
+%\EndArticle
+\EndNoBibArticle

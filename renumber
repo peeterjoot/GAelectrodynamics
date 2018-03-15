@@ -408,3 +408,5 @@ perl -p -i ../latex/bin/latexRegex.pl continuity.tex
 
 ../latex/bin/lgrep enclosedCurrent.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl enclosedCurrent.tex
+../latex/bin/lgrep planewavesMultivector.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl planewavesMultivector.tex

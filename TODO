@@ -1,3 +1,22 @@
+- planewavesMultivector.tex -- integrate replacing previous text.  Change into theorem/proof format.
+
+- example: Ampere's:
+
+   restate in terms of F?
+
+- dielectric and dimagnetic:
+
+   Can't I solve those using the Green's function method?
+
+   Instead of showing the solution works, perhaps go the other way around?
+
+- multivector potentials:
+
+   want to solve the potential equations.  Can I do a Green's function solution?
+
+   once done, look at the potentials work in the old electrostatics and magnetostatics sections.  Anything
+   worth saving?
+
 - new undefs:
 
   Reference `eqn:electrostatics_invertingGradient:260' on page 1 undefined on input line 12
