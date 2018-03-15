@@ -112,8 +112,8 @@
 #../latex/bin/lgrep greensTheorem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl greensTheorem.tex
 
-#../latex/bin/lgrep helmholtzDerviationMultivectorSolution.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl helmholtzDerviationMultivectorSolution.tex
+../latex/bin/lgrep helmholtzDerviationMultivectorSolution.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl helmholtzDerviationMultivectorSolution.tex
 
 #../latex/bin/lgrep helmholtzDerviationMultivectorStatement.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl helmholtzDerviationMultivectorStatement.tex

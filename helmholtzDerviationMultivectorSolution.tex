@@ -2,15 +2,71 @@
 % Copyright © 2016 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-\index{Helmholtz's theorem}
-\index{convolution}
-The gradient of the vector \( \BM \) can be written as a single even grade multivector
+%{
+The conventional proof of Helmholtz's theorem uses the Green's function for the (second order) Helmholtz operator.
+Armed with a vector valued Green's function for the gradient, a first order proof is also possible.
+Both strategies will be illustrated here, as both use aspects of geometric calculus introduced in this chapter.
+
+In either case, we start by forming an even grade multivector (gradient) equation containing both the dot and cross product contributions
 \begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:60}
 \spacegrad \BM
 = \spacegrad \cdot \BM + I \spacegrad \cross \BM
 = s + I \BC.
 \end{equation}
 
+\paragraph{First order proof.}
+
+For the first order case, we
+perform a grade one selection of \cref{lemma:greensFunctionOverview:420}, setting
+\( F = \BM \) where \( G \) is the Green's function for the gradient given by
+\cref{eqn:greensFunctionFirstOrderHelmholtz:900}.  The proof follows directly
+
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:820}
+M(\Bx)
+=
+- \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } \BM(\Bx') dV'
+=
+\int_V \gpgradeone{G(\Bx, \Bx') \lr{ \rspacegrad' \BM(\Bx') }} dV'
+-
+\int_{\partial V} \gpgradeone{ G(\Bx, \Bx') \ncap' \BM(\Bx') } dA'
+=
+\int_V
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \lr{ s(\Bx') + I \BC(\Bx') }} dV'
+-
+\int_{\partial V}
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'
+=
+\int_V
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\lr{ (\Bx - \Bx') s(\Bx') - (\Bx - \Bx') \cross \BC(\Bx') } dV'
+-
+\int_{\partial V}
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'.
+\end{dmath}
+If \( \BM \) is well behaved enough that the boundary integral vanishes on an infinite surface, we see that \( \BM \) is completely specified by the divergence and the curl.
+In general, the divergence and the curl, must also be supplemented by the the value of vector valued function on the boundary.
+
+Observe that the boundary integral has a particularly simple form for a spherical surface.
+Switching to spherical coordinates \( \Br = \Bx' - \Bx = R\, \rcap(\theta, \phi) \) and noting that the outwards normal is given by
+\( \ncap = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \), we have
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:840}
+-
+\int_{\partial V}
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'
+=
+\int_{\partial V}
+\frac{\BM(\Bx')}{4 \pi \Norm{\Bx - \Bx'}^2 } dA'
+= \inv{4\pi} \int_{\theta = 0}^\pi \int_{\phi = 0}^{2 \pi} \BM(R, \theta, \phi) \sin\theta d\theta d\phi.
+\end{dmath}
+This is an average of \( \BM \) over the surface of the radius-\(R\) sphere surrounding the point \( \Bx \) where the field \( \BM \) is evaluated.
+
+\paragraph{Second order proof.}
+
+%\index{convolution}
 %Observe that the Laplacian of \( \BM \) is vector valued
 %
 %\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:760}
@@ -131,3 +187,4 @@ These give
 \end{aligned}
 }
 %\end{dmath}
+%}
