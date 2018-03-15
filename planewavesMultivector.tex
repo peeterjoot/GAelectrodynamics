@@ -82,9 +82,10 @@ showing that the field phasor \( F(\Bk) = \BE(\Bk) + I \eta \BH(\Bk) \) splits n
 \begin{equation*}
 \begin{aligned}
 \BE(\Bk) &= \BE e^{-j \Bk \cdot \Bx} \\
-\eta \BH(\Bk) &= \kcap \cross \BE \, e^{-j \Bk \cdot \Bx}
+\eta \BH(\Bk) &= \kcap \cross \BE \, e^{-j \Bk \cdot \Bx},
 \end{aligned}
 \end{equation*}
+where the directions \( \kcap, \BE, \BH \) form a right handed triple.
 } % theorem
 
 We wish to act on \( F(\Bk) e^{-j \Bk \cdot \Bx + j \omega t } \) with the spacetime gradient \( \spacegrad + (1/c)\partial_t \), but
@@ -102,7 +103,8 @@ e^{-j \Bk \cdot \Bx}
 =
 -j \Bk A.
 \end{dmath}
-Therefore, insertion of \cref{eqn:planewavesMultivector:640} into
+Therefore, insertion of the presumed phasor solution of the field from
+\cref{dfn:planewavesMultivector:680} into
 \cref{eqn:planewavesMultivector:300} gives
 \begin{dmath}\label{eqn:planewavesMultivector:60}
 0
@@ -128,7 +130,7 @@ F(\Bk)
 which is zero if
 if \( \Norm{\Bk} = \ifrac{\omega}{c} \).
 Let \( \Norm{\Bk} \tilde{F} = F_0 + F_1 + F_2 + F_3 \), where
-\( F_0, F_1, F_2, \) and \( F_3 \) are respectively have grades 0,1,2,3, so that
+\( F_0, F_1, F_2, \) and \( F_3 \) respectively have grades 0,1,2,3, so that
 \begin{dmath}\label{eqn:planewavesMultivector:120}
 F(\Bk)
 = \lr{ 1 + \kcap } \lr{ F_0 + F_1 + F_2 + F_3 }
@@ -260,9 +262,8 @@ F(\Bk)
 \BE \, e^{-j \Bk \cdot \Bx}
 =
 \lr{ \BE + I \kcap \cross \BE }
-\, e^{-j \Bk \cdot \Bx},
+\, e^{-j \Bk \cdot \Bx}.
 \end{equation}
-which completes the proof.
 
 It is also noteworthy that
 the directions \( \kcap, \Ecap, \Hcap \) form a right handed triple, which can be seen by computing their product
@@ -284,8 +285,10 @@ Should there be doubt, explicit dot products may be computed with ease using gra
 \end{aligned}
 \end{equation}
 where the zeros follow by noting that \( I \Ecap, I \kcap \) are both bivectors.
-The right handed triple relationship between the propagation direction and fields is conventionally expressed not as a pseudoscalar relationship as in
-\cref{eqn:planewavesMultivector:740} but as a cross product.  We may do that too if desired
+The conventional representation of the right handed triple relationship between the propagation direction and fields is stated as a cross product,
+not as a
+pseudoscalar relationship as in
+\cref{eqn:planewavesMultivector:740}. These are easily seen to be equivalent
 \begin{dmath}\label{eqn:frequencydomainPlaneWaves:340}
 \kcap
 = I \Hcap \Ecap
@@ -293,5 +296,6 @@ The right handed triple relationship between the propagation direction and field
 = I^2 (\Hcap \cross \Ecap)
 = \Ecap \cross \Hcap.
 \end{dmath}
+
 %}
 %\EndNoBibArticle

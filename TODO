@@ -1,7 +1,6 @@
 - more unresolved references after plane wave rewrite:
 
   Reference `eqn:frequencydomainPlaneWaves:200' on page 1 undefined on input line 9
-  Reference `eqn:planewavesMultivector:640' on page 1 undefined on input line 105
 
 - example: Ampere's:
 
