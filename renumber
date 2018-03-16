@@ -220,8 +220,8 @@
 #../latex/bin/lgrep potentialSection_magnetic.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl potentialSection_magnetic.tex
 
-#../latex/bin/lgrep poyntingF.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
+../latex/bin/lgrep poyntingF.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
 
 #../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
@@ -406,8 +406,8 @@
 #../latex/bin/lgrep enclosedCurrent.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl enclosedCurrent.tex
 
-../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
+#../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
 
 #../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex

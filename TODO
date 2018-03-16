@@ -1,8 +1,10 @@
+- before a \makedefinition, theorem, ... should I end any sentance?  I think so, and don't in many places.
+
 - rework as theorem/proof:
 
-   Energy and Momentum
+   Energy and Momentum (rest)
    Polarization (harder)
-   Multivector potential (harder) 
+   Multivector potential (harder)
 
 - expect that the boundary condition analysis really belongs with the dielectric media treatment, and that additional insight will be gained by doing so.
 

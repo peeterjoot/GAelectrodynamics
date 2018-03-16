@@ -3,41 +3,115 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 
-In conventional electromagnetism the energy and momentum density of the fields are
-
+It is assumed here that the conventional definitions of the field energy and momentum density are known to the reader, as well as the
+conservation equations relating their space and time derivatives.  For reference, the conventional definitions of those densities follow.
 \index{energy density}
 \index{momentum density}
 \index{Poynting vector}
 \index{energy flux}
-\begin{dmath}\label{eqn:poyntingF:20}
+\makedefinition{(Conventional) Energy and momentum density and Poynting vector.}{dfn:poyntingF:1220}{
+The quantities \( \calE \) and \( \bcP \) defined as
+%\label{eqn:poyntingF:20}
+\begin{equation*}
 \begin{aligned}
 \calE &= \inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH } \\
-\bcP c &= \inv{c} \BS = \inv{c} \BE \cross \BH,
+\bcP c &= \inv{c} \BE \cross \BH,
 \end{aligned}
-\end{dmath}
-where \( \calE \) is the energy density, \( \BS \) is the Poynting vector representing energy flux through a surface per unit time, and \( \bcP \) is the momentum density of the fields.
-In geometric algebra, it is arguably more natural to write the Poynting vector as a bivector-vector dot product
+\end{equation*}
+are known respectively as the field energy and momentum densities.
+\( \BS = c^2 \bcP = \BE \cross \BH \) is called the Poynting vector.
+} % definition
+We will derive the conservation relationships that justify calling \( \calE, \bcP \) the energy and momentum densities, and will also show that the
+Poynting vector represents the energy flux through a surface per unit time.
+
+In geometric algebra, it is arguably more natural to write the Poynting vector as a bivector-vector dot product such as
 \begin{dmath}\label{eqn:poyntingF:1100}
-\BS = \lr{ I \BH } \cdot \BE,
+\BS = \inv{\eta} \lr{ I \eta \BH } \cdot \BE,
 \end{dmath}
-however, we can do better, relating both the
-energy and momentum densities to a single multivector formed from the products of the electrodynamic field \( F \) with its reverse \( F^\dagger \)
-\boxedEquation{eqn:poyntingF:60}{
-T(1) \equiv \inv{2} \epsilon F F^\dagger = \calE + \bcP c = \calE + \frac{\BS}{c},
-}
-
-so
-\begin{dmath}\label{eqn:poyntingF:40}
+since this involves only components of the total electromagnetic field strength \( F = \BE + I \eta \BH \).
+However, we can do better, representing both \( \calE \) and \( \BS \) in terms of \( F \) directly.  The key to doing so is making use of the fact that
+the energy and momentum densities are themselves components of a larger symmetric rank-2 energy momentum tensor, which can in turn be represented
+compactly in geometric algebra.
+\index{energy-momentum tensor}
+\index{Maxwell stress tensor}
+\makedefinition{(Conventional) energy-momentum and Maxwell stress tensors.}{dfn:poyntingF:1180}{
+The rank-2 symmetric tensor \( \Theta^{\mu\nu} \), with components
+%\label{eqn:poyntingF:840}
+\begin{equation*}
 \begin{aligned}
-\calE &= \inv{2} \epsilon \gpgradezero{ F F^\dagger } \\
-\bcP c &= \inv{2} \epsilon \gpgradeone{ F F^\dagger } \\
-\BS &= \inv{2 \eta} \gpgradeone{ F F^\dagger }.
+\Theta^{00} &= \frac{\epsilon}{2} \lr{ \BE^2 + \eta^2 \BH^2 } \\
+\Theta^{0i} &= \inv{c} \lr{ \BE \cross \BH } \cdot \Be_i \\
+\Theta^{ij} &= -\epsilon \lr{ E_i E_j + \eta^2 H_i H_j - \inv{2} \delta_{ij} \lr{ \BE^2 + \eta^2 \BH^2 } },
 \end{aligned}
-\end{dmath}
+\end{equation*}
+is called the energy-momentum tensor.
+The spatial index subset of this tensor is known as the Maxwell stress tensor, and is often
+represented in dyadic notation
+\begin{equation*}
+\lr{ \Ba \cdot \lrT } \cdot \Bb
+=
+\sum_{i,j} a_i T_{ij} b_j,
+\end{equation*}
+or
+\begin{equation*}
+\Ba \cdot \lrT \equiv \sum_{i,j} a_i T_{ij} \Be_j
+\end{equation*}
+where \( T_{ij} = -\Theta^{ij} \).
+} % definition
+Here we use the usual convention of Greek indices such as \( \mu,\nu \) for ranging over both time (0) and spatial \( \setlr{1,2,3} \) indexes, and
+and Latin letters such as \( i, j \)
+for the ``spatial'' indexes
+\( \setlr{1,2,3} \).
+The names and notation for the tensors vary considerably\footnote{\( \Theta^{\mu\nu} \) in
+\cref{dfn:poyntingF:1180}
+is called the symmetric
+stress tensor by some authors \citep{jackson1975cew},
+and the energy-momentum tensor by others, and is sometimes written \( T^{\mu\nu} \) (\citep{landau1980classical}, \citep{doran2003gap}).
+The sign conventions and notation for the spatial components \( \Theta^{ij} \) vary as well, but all authors appear to call this subset the Maxwell stress tensor.
+The Maxwell stress tensor may be written as \( \sigma_{ij} (=-\Theta^{ij}) \) \citep{landau1980classical}, or as
+\( T_{ij} (=-\Theta^{ij}) \)
+(\citep{griffiths1999introduction}, \citep{jackson1975cew}.)
+}.
 
-This dispenses with any requirement to refer to electric or magnetic field components in isolation.
+%(cut)
+%linear multivector function
+%%formed from products of the electrodynamic field \( F \) with its reverse \( F^\dagger \),
+%that contains both the energy and momentum densties.
 
-Expanding \( T(1) \) in terms of \( \BE, \BH \) gives
+In geometric algebra the energy momentum tensor, and the Maxwell stress tensor may be represented as linear grade 0,1 multivector valued functions of a grade 0,1 multivector.
+\makedefinition{Energy-momentum and Maxwell stress tensors.}{dfn:poyntingF:1200}{
+We define the \textit{energy-momentum tensor} as
+\begin{equation*}
+T(a) = \inv{2} \epsilon F a F^\dagger,
+\end{equation*}
+where \( a \) is a 0,1 multivector parameter.
+We introduce a shorthand notation for grade one selection with vector valued parameters
+\begin{equation*}
+\BT(\Ba) = \gpgradeone{T(\Ba)},
+\end{equation*}
+and call this the \textit{Maxwell stress tensor}.
+} % definition
+
+\maketheorem{Expansion of the energy-momentum tensor.}{thm:poyntingF:1240}{
+Given a scalar parameter \( \alpha \), and a vector parameter \( \Ba = \sum_k a_k \Be_k \), the energy-momentum tensor of
+\cref{dfn:poyntingF:1200} is a grade 0,1 multivector, and may be expanded in terms of \( \calE, \BS \) and \( \BT(\Ba) \) as
+%\label{eqn:poyntingF:1120}
+\begin{equation*}
+T(\alpha + \Ba)
+=
+\alpha \lr{
+   \calE + \frac{\BS}{c}
+}
+-
+\Ba \cdot \frac{\BS}{c}
++ \BT(\Ba),
+\end{equation*}
+where \( \BT(\Be_i) \cdot \Be_j = -\Theta^{ij} \), or \( \BT(\Ba) = \Ba \cdot \lrT \).
+} % theorem
+
+\Cref{thm:poyntingF:1240} relates the geometric algebra definition of the energy-momentum tensor to the quantities found in the conventional
+electromagnetism literature.
+Because \( T \) is a linear function of its parameter, we may prove this in parts, starting with \( \alpha = 1, \Ba = 0 \), which gives
 \begin{dmath}\label{eqn:poyntingF:80}
 T(1)
 =
@@ -57,24 +131,26 @@ T(1)
 +
 \frac{1}{c} \BE \cross \BH
 =
-\calE + \frac{\BS}{c},
+\calE + \frac{\BS}{c}.
 \end{dmath}
-as claimed in \cref{eqn:poyntingF:20} and \cref{eqn:poyntingF:60}.  \( T(1) \) has one scalar component, and three vector components, and represents four
-four of the sixteen components of a larger energy-momentum tensor.  The geometric algebra form of the complete energy-momentum tensor is
-\index{energy-momentum tensor}
-\index{Maxwell stress tensor}
-%\begin{dmath}\label{eqn:poyntingF:760}
-\boxedEquation{eqn:poyntingF:760}{
-T(a) = \inv{2} \epsilon F a F^\dagger,
-}
-%\end{dmath}
-where \( a \) is one of \( 1, \Be_1, \Be_2 \) or \( \Be_3 \), or any linear combination of these 0,1 grade multivector elements.  Observe that \( T(a) \) is a linear operator with respect to any parameter \( a = \alpha + \Ba, \alpha \in \bbR, \Ba \in \bbR^3 \).  \( T(a) \) only 0 and 1 grade elements, which we have seen for scalar parameters \( a \).  We will see by direct expansion that this is also the case for vector parameters.
-Such an expansion of \( T(\Be_k) \) is harder to do algebaicly than \cref{eqn:poyntingF:80}
-\footnote{Such an expansion is a worthwhile problem to develop GA manipulation skills.  The reader is encouraged to try this independently first, and to refer to
+An immediate take away from this expansion is that we
+may dispense with any requirement to refer to electric or magnetic field components in isolation and can express the energy and momentum densities (and Poynting) vector in terms of only the total electromagnetic field strength
+\begin{dmath}\label{eqn:poyntingF:40}
+\begin{aligned}
+\calE &= \inv{2} \epsilon \gpgradezero{ F F^\dagger } \\
+\bcP c &= \inv{2} \epsilon \gpgradeone{ F F^\dagger } \\
+\BS &= \inv{2 \eta} \gpgradeone{ F F^\dagger }.
+\end{aligned}
+\end{dmath}
+The power of this simple construction will be illustrated later when we compute the field energy and momentum densities for a number of Maxwell equation solutions in their geometric algebra form.
+
+An expansion of \( T(\Be_k) \) is harder to do algebraically than \cref{eqn:poyntingF:80}, but doing so will demonstrate that \( T(a) \) is a 0,1 grade multivector parameter for any grade 0,1 parameter\footnote{Such an expansion is a worthwhile problem to develop GA manipulation skills.  The reader is encouraged to try this independently first, and to refer to
 \cref{chap:stressTensorAlgebraically}
 for hints if required.}.
-On the other hand, it is easy to expand the energy-momentum tensor \( T(a) \) symbolically by brute force using a GA computer algebra package.
-A Mathematica expansion of the elements of \( T(a) \) gives:
+Cheating a bit, here are the results of a
+brute force expansion of \( T(a) \) using a
+Mathematica
+GA computer algebra package
 
 \begin{subequations}
 \label{eqn:poyntingF:800}
@@ -116,28 +192,7 @@ T(\Be_3)
 \end{equation}
 \end{subequations}
 
-The components of the multivectors \( T(a) \) that we are calling the energy-momentum tensor, are more conventionally written out
-as a symmetric tensor \( \Theta^{ij} \) as follows
-\begin{dmath}\label{eqn:poyntingF:840}
-\begin{aligned}
-\Theta^{00} &= \frac{\epsilon}{2} \lr{ \BE^2 + \eta^2 \BH^2 } \\
-\Theta^{0i} &= \inv{c} \lr{ \BE \cross \BH } \cdot \Be_i \\
-\Theta^{ij} &= -\epsilon \lr{ E_i E_j + \eta^2 H_i H_j - \inv{2} \delta_{ij} \lr{ \BE^2 + \eta^2 \BH^2 } }.
-\end{aligned}
-\end{dmath}
-
-The names and notation for this tensor components varies.
-\( \Theta^{\alpha\beta}, \alpha, \beta \in \setlr{0,1,2,3} \) as defined in \cref{eqn:poyntingF:840} is called the symmetric
-stress tensor \citep{jackson1975cew},
-whereas other authors call this the energy-momentum tensor and express it as \( T^{\alpha\beta} \) \citep{landau1980classical}, \citep{doran2003gap}.
-The sign conventions and notation for the spatial components \( \Theta^{ij}, i, j \in \setlr{1,2,3} \) vary as well, but all authors appear to call this subset the Maxwell stress tensor.
-The Maxwell stress tensor is written as \( \sigma_{ij} (=-\Theta^{ij}) \) \citep{landau1980classical}, or as
-\( T_{ij} (=-\Theta^{ij}) \)
-\citep{griffiths1999introduction},
-\citep{jackson1975cew}.
-
-The symmetric stress tensor components of \cref{eqn:poyntingF:840}
-are related to the multivector representation expanded in \cref{eqn:poyntingF:800} by
+Comparison to \cref{dfn:poyntingF:1180} shows that multivector energy momentum tensor is related to the conventional tensor representation by
 \begin{dmath}\label{eqn:poyntingF:820}
 \begin{aligned}
 &\gpgradezero{ T(1) }
@@ -150,44 +205,31 @@ are related to the multivector representation expanded in \cref{eqn:poyntingF:80
 &\gpgradezero{ T(\Be_i) }
 %= -\frac{\BS}{c} \cdot \Be_i
 = {\Theta_i}^0 = -\Theta^{i0} \\
-&\gpgradeone{ T(\Be_i) } \cdot \Be_j = {\Theta_i}^j = -\Theta^{ij}.
+&\BT(\Be_i) \cdot \Be_j = {\Theta_i}^j = -\Theta^{ij} = T_{ij}.
 \end{aligned}
 \end{dmath}
 
-The Maxwell stress tensor components \( \gpgradeone{T(\Be_k)} \) can be found expressed in a dyadic notation (\citep{griffiths1999introduction}, \citep{jackson1975cew}) as follows
+The only thing left to show is that how \( \BT(\Ba) \) is equivalent to the dyadic notation found in
+(\citep{griffiths1999introduction}, \citep{jackson1975cew}).
 \begin{dmath}\label{eqn:poyntingF:1140}
-\gpgradeone{ T(\Ba) }
+\BT(\Ba)
 =
-\sum_i a_i \gpgradeone{ T(\Be_i) }
+\sum_i a_i \BT(\Be_i)
 =
-\sum_{i,j} a_i \lr{ \gpgradeone{ T(\Be_i) } \cdot \Be_j } \Be_j
+\sum_{i,j} a_i \lr{ \BT(\Be_i) \cdot \Be_j } \Be_j
 =
 \sum_{i,j} a_i T_{ij} \Be_j
-\equiv
-\Ba \cdot \lrT,
-\end{dmath}
-so that
-\begin{dmath}\label{eqn:poyntingF:1160}
-\lr{ \Ba \cdot \lrT } \cdot \Bb
 =
-\sum_{i,j} a_i T_{ij} b_j.
+\Ba \cdot \lrT.
 \end{dmath}
-
-With the Maxwell stress tensor parameterized by a vector, we don't really have any need for this dyadic notation, but it is worth mentioning to
-understand how the two formalisms are related.
-
-The complete specification of the energy-momentum tensor for a parameter \( a = \alpha + \Ba = \alpha + \sum_k a_k \Be_k \) is
-%\begin{dmath}\label{eqn:poyntingF:1120}
-\boxedEquation{eqn:poyntingF:1120}{
-T(\alpha + \Ba)
-=
-\alpha \lr{
-   \calE + \frac{\BS}{c}
-}
--
-\Ba \cdot \frac{\BS}{c}
-+ \BT(\Ba),
-%+ \gpgradeone{ T(\Ba) }.
-}
+%so that
+%\begin{dmath}\label{eqn:poyntingF:1160}
+%\lr{ \Ba \cdot \lrT } \cdot \Bb
+%=
+%\sum_{i,j} a_i T_{ij} b_j.
 %\end{dmath}
-where the shorthand \( \BT(\Ba) = \gpgradeone{T(\Ba)} \) has been introduced for the Maxwell stress tensor.
+The dyadic notation is really just a clumsy way of expressing the fact that \( \BT(\Ba) \) is a linear vector valued function of a vector, which naturally
+has a matrix representation.
+%With the Maxwell stress tensor parameterized by a vector, we don't really have any need for this dyadic notation, but it is worth mentioning to
+%understand how the two formalisms are related.
+

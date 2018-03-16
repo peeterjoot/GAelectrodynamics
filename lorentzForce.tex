@@ -32,18 +32,26 @@ The respective power and force experienced by particles with electric (and/or ma
 \inv{c} \frac{dT}{dt} = \gpgrade{ F Q }{0,1},
 \end{equation*}
 where \( \gpgradezero{dT/dt} = \ifrac{d\calE}{dt} \) is the power and \( \gpgradeone{dT/dt} = c \ifrac{d\Bp}{dt} \) is the force on the particle, and
-\( Q \) is an electric or magnetic charge/velocity multivector defined by \cref{dfn:lorentzForce:280}.
-The conventional representation of the Lorentz force/power equations given by \cref{eqn:freespace:180} may be recovered by grade selection operations.
-For magnetic particles, that grade selection gives
+\( Q \) is an electric or magnetic charge/velocity multivector of \cref{dfn:lorentzForce:280}.
+The conventional representation of the Lorentz force/power equations
 \begin{equation*}
 \begin{aligned}
-\frac{d\Bp}{dt} &= \epsilon q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE } \\
-\frac{d\calE}{dt} &= \inv{\eta} q_\txtm \BB \cdot \Bv_\txtm.
+\gpgradeone{ F Q } &= \ddt{\Bp} = q \lr{ \BE + \Bv \cross \BB } \\
+c \gpgradezero{ F Q } &= \ddt{\calE} = q \BE \cdot \Bv.
+\end{aligned}
+\end{equation*}
+%given by \cref{eqn:freespace:180}
+may be recovered by grade selection operations.
+For magnetic particles, such a grade selection gives
+\begin{equation*}
+\begin{aligned}
+\gpgradeone{ F Q } &= \frac{d\Bp}{dt} = \epsilon q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE } \\
+c \gpgradezero{ F Q } &= \frac{d\calE}{dt} = \inv{\eta} q_\txtm \BB \cdot \Bv_\txtm.
 \end{aligned}
 \end{equation*}
 } % theorem
 
-To prove 
+To prove
 \cref{thm:lorentzForce:300},
 we can expand the multivector product
 \( F q \lr{ 1 + \ifrac{\Bv}{c} } \) into its constituent grades
@@ -86,6 +94,6 @@ required form for the dual Lorentz force equation, as determined from the conser
 \cref{eqn:poyntingLorentzForce:140}.
 Scaling the grade zero component by \( c \) completes the proof.
 
-FIXME: was there an energy-momentum tensor derivation of the energy for a magnetic charge density?
+FIXME: did I have an energy-momentum tensor derivation of the time rate of change of energy for a magnetic charge density?
 
 %As the electric and magnetic field contributions to the force are subsumed by the total electromagnetic field strength \( F \), \cref{thm:lorentzForce:300} puts the electric and magnetic fields on equal footing.
