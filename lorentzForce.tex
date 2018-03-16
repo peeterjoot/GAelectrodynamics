@@ -13,13 +13,13 @@ T = \calE + c \Bp.
 } % definition
 
 \makedefinition{Multivector charge.}{dfn:lorentzForce:280}{
-We may define a \textit{multivector charge} that includes both the magnitude and velocity (relative to the speed of light) of the charge.  For electric charges this is
+We may define a \textit{multivector charge} that includes both the magnitude and velocity (relative to the speed of light) of the charged particle.  For electric charges this is
 \begin{equation*}
-Q_\txte = q_\txte \lr{ 1 + \Bv_\txte/c },
+Q = q_\txte \lr{ 1 + \Bv_\txte/c },
 \end{equation*}
 and for magnetic charges
 \begin{equation*}
-Q_\txtm = -I \epsilon q_\txtm \lr{ 1 + \Bv_\txtm/c }.
+Q = -I \epsilon q_\txtm \lr{ 1 + \Bv_\txtm/c }.
 \end{equation*}
 } % definition
 FIXME: better name than charge for this?
@@ -71,7 +71,7 @@ in the grade zero component and the Lorentz force \cref{eqn:freespace:220} in th
 A substitution \( q \rightarrow -I \epsilon q_\txtm, \Bv \rightarrow \Bv_\txtm \), and subsequent grade 0,1 selection gives
 \begin{dmath}\label{eqn:lorentzForce:320}
 \gpgrade{
--I q_\txtm F \lr{ 1 + \frac{\Bv}{c} }
+-I \epsilon q_\txtm F \lr{ 1 + \frac{\Bv_\txtm}{c} }
 }{0,1}
 =
 - I \epsilon q_\txtm \lr{ c I \BB + \inv{c} \BE \wedge \Bv_\txtm }
