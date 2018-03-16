@@ -1,4 +1,11 @@
-- expect that the boundary condition analysis really belongs with the dielectric media treatment.
+- rework as theorem/proof:
+
+   Energy and Momentum
+   Polarization (harder)
+   Multivector potential (harder) 
+   Lorentz force
+
+- expect that the boundary condition analysis really belongs with the dielectric media treatment, and that additional insight will be gained by doing so.
 
 - undefs:
 
@@ -20,10 +27,11 @@ and the text that followed.  I don't like the contrast of the color selection:
    MidnightBlue,BrickRed
    Green,BrickRed
 
-Pick a pair of colors that work nicer together.
+Fell back to:
 
-DarkOliveGreen
-Maroon
+   DarkOliveGreen,Maroon
+
+   (general color scheme used elsewhere.)  Something that looks darker in equations might be nice.
 
 - example: Ampere's:
 
