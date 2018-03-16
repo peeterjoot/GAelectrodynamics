@@ -34,7 +34,9 @@
 \usepackage{enumerate}
 \tcbuselibrary{skins}
 
-\newcommand{\dotBJ}[0]{\mathbf{\dot{J}}}
+\newcommand{\dispdot}[2][.2ex]{\dot{\raisebox{0pt}[\dimexpr\height+#1][\depth]{$#2$}}}% \dispdot[<displace>]{<stuff>}
+%\newcommand{\dotBJ}[0]{\mathbf{\dispdot{J}}}
+\newcommand{\dotBJ}[0]{\dispdot{\mathbf{J}}}
 
 %\newcommand{\lrspacetimegrad}[2]{\lr{\stackrel{ \leftrightarrow }{#2 \spacegrad + #1 \PD{t}{}}}}
 %\newcommand{\lspacetimegrad}[2]{\lr{\stackrel{ \leftarrow }{#2 \spacegrad + #1 \PD{t}{}}}}

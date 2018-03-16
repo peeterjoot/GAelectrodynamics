@@ -43,12 +43,12 @@ F_0(\Bx, t)
 \lr{
    \frac{\rcap}{r^2} J(\Bx', t_r)
    +
-   \inv{c r} \lr{ 1 + \rcap } \dot{J}(\Bx', t_r)
+   \inv{c r} \lr{ 1 + \rcap } \dispdot{J}(\Bx', t_r)
 },
 \end{equation*}
-where \( F_0(\Bx, t) \) is any specific solution of the homogenoous equation \( \lr{ \spacegrad + (1/c) \partial_t } F_0 = 0 \), 
+where \( F_0(\Bx, t) \) is any specific solution of the homogenoous equation \( \lr{ \spacegrad + (1/c) \partial_t } F_0 = 0 \),
 time derivatives are denoted by overdots, and all times are evaluated at the retarded time \( t_r = t - r/c \).
-When expanded in terms of the electric and magnetic fields, the non-homoegenous portion of this solution is known as the
+When expanded in terms of the electric and magnetic fields (ignoring magnetic sources), the non-homoegenous portion of this solution is known as the
 Jefimenkos' equations \citep{griffiths1999introduction}.
 \begin{dmath}\label{eqn:jefimenkosEquations:100}
 \begin{aligned}
@@ -57,7 +57,7 @@ Jefimenkos' equations \citep{griffiths1999introduction}.
 \int dV'
 \lr{
 \frac{\rcap}{\epsilon r} \lr{
-\frac{\rho(\Bx', t_r)}{r} + \frac{\dot{\rho}(\Bx', t_r) }{c} }
+\frac{\rho(\Bx', t_r)}{r} + \frac{\dispdot{\rho}(\Bx', t_r) }{c} }
    - \frac{\eta }{ c r } \dotBJ(\Bx', t_r)
 } \\
 \BH &=
@@ -70,7 +70,7 @@ Jefimenkos' equations \citep{griffiths1999introduction}.
 } \cross \rcap,
 \end{aligned}
 \end{dmath}
-%which checks against Griffiths. 
+%which checks against Griffiths.
 } % theorem
 
 The full solution is
@@ -79,9 +79,9 @@ F(\Bx, t)
 = F_0(\Bx, t)
 + \int dV' dt' G(\Bx - \Bx', t - t') J(\Bx', t')
 = F_0(\Bx, t)
-+ 
-\inv{4\pi} 
-\int dV' dt' 
++
+\inv{4\pi}
+\int dV' dt'
 \lr{
    \lr{
    - \frac{\rcap}{r^2} \PD{r}{}
@@ -111,7 +111,7 @@ the convolution reduces to
 \end{dmath}
 
 There have been lots of opportuntites to mess up with signs and factors of \( c \), so let's expand this out explicitly for a non-magnetic current source \( J = \rho/\epsilon - \eta \BJ \).
-%, and check the results against Jefimenko's equations found in 
+%, and check the results against Jefimenko's equations found in
 %\citep{griffiths1999introduction}.
 Neglect the contribution of the homogeneous solution \( F_0 \), and utilizing our freedom to
 insert a no-op grade 1,2 selection operation, that
@@ -124,7 +124,7 @@ F =
    \frac{\rcap}{r^2}
 \lr{ \frac{\rho}{\epsilon} - \eta \BJ }
    +
-   \inv{c r} \lr{ 1 + \rcap } \lr{ \frac{\dot{\rho}}{\epsilon} - \eta \dotBJ }
+   \inv{c r} \lr{ 1 + \rcap } \lr{ \frac{\dispdot{\rho}}{\epsilon} - \eta \dotBJ }
 }{1,2}
 =
 \inv{4 \pi}
@@ -133,7 +133,7 @@ F =
    \frac{\rcap}{\epsilon r^2} \rho
    - \eta \frac{\rcap}{r^2} \wedge \BJ
    - \frac{\eta}{ c r } \dotBJ
-   + \inv{c r} \rcap \frac{\dot{\rho}}{\epsilon}
+   + \inv{c r} \rcap \frac{\dispdot{\rho}}{\epsilon}
    - \frac{\eta}{c r} \rcap \wedge \dotBJ
 }
 =
@@ -141,7 +141,7 @@ F =
 \int dV'
 \lr{
    \frac{\rcap}{\epsilon r^2} \rho
-   + \frac{\rcap \dot{\rho}}{\epsilon c r}
+   + \frac{\rcap \dispdot{\rho}}{\epsilon c r}
    - \frac{\eta \dotBJ}{ c r }
    - I \frac{\eta }{c r} \rcap \cross \dotBJ
    - I \frac{\eta}{r^2} \rcap \cross \BJ
@@ -150,7 +150,7 @@ F =
 
 As \( F = \BE + I \eta \BH \), the respective electric and magnetic fields by inspection.  After re-inserting the space and time parameters that we suppressed temporarily, the proof is complete.
 
-The disadvantages of separating the field and current components into their constituent components is also made painfully obvious by the complexity of \cref{eqn:jefimenkosEquations:100} compared to the equivalent multivector form \cref{eqn:jefimenkosEquations:60}.
+The disadvantages of separating the field and current components into their constituent components is also made painfully obvious by the complexity of the conventional statement of the solution compared to the equivalent multivector form.
 
 %}
 %%%\EndArticle
