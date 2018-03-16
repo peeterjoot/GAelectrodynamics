@@ -3,36 +3,23 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %original ideas from gabookII/electrodynamics/transverseField.tex:
-Under source free conditions, Maxwell's equation in GA form is
-\begin{equation}\label{eqn:transverseField:2}
+We now wish to consider more general solutions to the source free Maxwell's equation than the plane wave solutions derived in \cref{chap:planewavesMultivector}.
+One way of tackling this problem is to assume the solution exists, but ask how the field components that lie strictly along the propagation direction are related to the transverse components of the field.
+Without loss of generality, it can be assumed that the propagation direction is along the z-axis.
+
+\maketheorem{Transverse and propagation field components.}{thm:transverseField:288}{
+If \( \Be_3 \) is the
+propagation direction, the components of a field \( F \) in the propagation direction and in the transverse plane are respectively
+\begin{equation*}
 \begin{aligned}
-F &= \BE + I \eta \BH \\
-0 &= \lr{ \spacegrad + \inv{c} \partial_t } F.
+F_z &= \inv{2} \lr{ F + \Be_3 F \Be_3 } \\
+F_t &= \inv{2} \lr{ F - \Be_3 F \Be_3 },
 \end{aligned}
-\end{equation}
+\end{equation*}
+where \( F = F_z + F_t \).
+} % theorem
 
-Maxwell's equation allows for components of the electric and magnetic field along the propagation direction and the transverse plane, however, it is possible to relate the transverse and propagating field components.
-Assume that the propagation direction is along the z-axis (either forward or backwards), with angular frequency \( \omega \), with the field represented by the real part of
-\begin{dmath}\label{eqn:transverseField:28}
-F(x, y, z, t) = F(x, y) e^{j \omega t \mp j k z}.
-\end{dmath}
-
-We split the gradient into transverse and \(z\)-axis components
-\begin{dmath}\label{eqn:transverseField:88}
-\spacegrad = \spacegrad_t + \Be_3 \partial_z,
-\end{dmath}
-so that Maxwell's equation becomes
-\begin{equation}\label{eqn:transverseField:summaryMax2}
-\lr{\spacegrad_t + j \lr{ \frac{\omega}{c} \mp k \Be_3 } } F(x,y) = 0.
-\end{equation}
-
-With \( F = F(x, y) \)
-\begin{dmath}\label{eqn:transverseField:148}
-\spacegrad_t F = - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F.
-\end{dmath}
-
-We require a way to expressing the components of the field that lie in the propagation direction and transverse planes.
-Let the propagation component be designated \( F_z \) so that
+To determine the components of the field that lie in the propagation direction and transverse planes, we state the field in the propagation direction, building it from the electric and magnetic field projections along the z-axis
 \begin{dmath}\label{eqn:transverseField:108}
 F_z
 =
@@ -47,15 +34,79 @@ F_z
 =
 \inv{2}
 \lr{ \BE + \Be_3 \BE \Be_3 }
-+ \inv{2} I \eta \lr{ \BH + \Be_3 \BH \Be_3 },
++ \inv{2} I \eta \lr{ \BH + \Be_3 \BH \Be_3 }
+=
+\inv{2} \lr{ F + \Be_3 F \Be_3 }.
 \end{dmath}
-showing that the propagation component \( F_z \) and transverse components \( F_t = F - F_z \) of the total field are
-\begin{dmath}\label{eqn:transverseField:128}
+The difference \( F - F_z \) is the transverse component
+\begin{dmath}\label{eqn:transverseField:308}
+F_t
+= F - F_z
+=
+F -
+\inv{2} \lr{ F + \Be_3 F \Be_3 }
+=
+\inv{2} \lr{ F - \Be_3 F \Be_3 },
+\end{dmath}
+as claimed.
+
+We wish to split the gradient into transverse and propagation direction components.
+
+\makedefinition{Transverse and propagation direction gradients.}{dfn:transverseField:328}{
+Define the \textit{propagation direction gradient} as \( \Be_3 \partial_z \), and
+\textit{transverse gradient} by
+\begin{equation*}
+\spacegrad_t = \spacegrad - \Be_3 \partial_z.
+\end{equation*}
+} % definition
+
+Given this definition, we seek to show that
+
+\maketheorem{Transverse and propagation field solutions.}{thm:transverseField:348}{
+Given a field propagating along the z-axis (either forward or backwards), with angular frequency \( \omega \), represented by the real part of
+\begin{equation*}
+F(x, y, z, t) = F(x, y) e^{j \omega t \mp j k z},
+\end{equation*}
+the field components that solve the source free Maxwell's equation are related by
+\begin{equation*}
 \begin{aligned}
-F_z &= \inv{2} \lr{ F + \Be_3 F \Be_3 } \\
-F_t &= \inv{2} \lr{ F - \Be_3 F \Be_3 }.
+F_t &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_z \\
+F_z &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_t.
 \end{aligned}
+\end{equation*}
+Written out explicitly, the transverse field component expands as
+\begin{equation*}
+\begin{aligned}
+\BE_t &=
+\frac{j}{{\frac{\omega}{c}}^2 - k^2}
+\lr{
+   \pm k \spacegrad_t E_z
+   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
+}
+\\
+\eta \BH_t &=
+\frac{j}{{\frac{\omega}{c}}^2 - k^2}
+\lr{
+   \pm k \eta \spacegrad_t H_z
+   -
+   \frac{\omega}{c}
+   \Be_3 \cross \spacegrad_t E_z
+}.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove we first insert the assumed phasor representation into Maxwell's equation, which gives
+\begin{equation}\label{eqn:transverseField:summaryMax2}
+\lr{\spacegrad_t + j \lr{ \frac{\omega}{c} \mp k \Be_3 } } F(x,y) = 0.
+\end{equation}
+
+Dropping the \( x, y \) dependence for now (i.e.  \( F(x, y) \rightarrow F \), we find a relation between the transverse gradient of \( F \) and the propagation direction gradient of \( F \)
+
+\begin{dmath}\label{eqn:transverseField:148}
+\spacegrad_t F = - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F.
 \end{dmath}
+From this we now seek to determine the relationships between \( F_t \) and \( F_z \).
 
 Since \( \spacegrad_t \) has no \( \xcap, \ycap \) components, \( \Be_3 \) anticommutes with the transverse gradient
 \begin{dmath}\label{eqn:transverseField:168}
@@ -89,17 +140,20 @@ so Maxwell's equation \cref{eqn:transverseField:148} becomes
 
 Provided \( \omega^2 \ne (k c)^2 \), these can be inverted.
 Such an inversion allows an application of the transverse gradient to whichever one
-of \( F_z, F_t \) is known, to compute the other.
+of \( F_z, F_t \) is known, to compute the other, as stated in
+\cref{thm:transverseField:348}.
 
-\boxedEquation{eqn:transverseField:248}{
+The relation for \( F_t \) in
+\cref{thm:transverseField:348}
+is usually stated in terms of the electric and magnetic fields.
+To perform that expansion, we must first evaluate the multivector inverse explicitly
+\begin{dmath}\label{eqn:transverseField:348}
 \begin{aligned}
 F_z &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } \spacegrad_t F_t \\
 F_t &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } \spacegrad_t F_z.
 \end{aligned}
-}
-
-The relation for \( F_t \) in \cref{eqn:transverseField:248} is usually stated in terms of the electric and magnetic fields.
-To compute that split we need to expand most of the terms in the numerator
+\end{dmath}
+so that we are in position to expand most of the terms in the numerator
 \begin{dmath}\label{eqn:transverseField:268}
 \lr{ \frac{\omega}{c} \pm k \Be_3 } \spacegrad_t F_z
 =
@@ -118,30 +172,18 @@ To compute that split we need to expand most of the terms in the numerator
    \Be_3 \cross \spacegrad_t E_z
 },
 \end{dmath}
-which means the transverse electric and magnetic fields are
-\begin{dmath}\label{eqn:transverseField:288}
-\begin{aligned}
-\BE_t &=
-\frac{j}{{\frac{\omega}{c}}^2 - k^2}
-\lr{
-   \pm k \spacegrad_t E_z
-   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
-}
-\\
-\eta \BH_t &=
-\frac{j}{{\frac{\omega}{c}}^2 - k^2}
-\lr{
-   \pm k \eta \spacegrad_t H_z
-   -
-   \frac{\omega}{c}
-   \Be_3 \cross \spacegrad_t E_z
-}.
-\end{aligned}
-\end{dmath}
+from which the transverse electric and magnetic fields stated in
+\cref{thm:transverseField:348} can be read off.
+A similar expansion for \( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \) is also possible.
 
-There is considerably more complexity required to express the transverse field in terms of separate electric and magnetic components compared to the equivalent total transverse field expression of
-\cref{eqn:transverseField:248}.
+%There is considerably more complexity required to express the transverse field in terms of separate electric and magnetic components
+%compared to the equivalent total transverse field expression of...
 
 \makeproblem{Transverse electric and magnetic field components.}{problem:transverseField:1}{
 Fill in the missing details in the steps of \cref{eqn:transverseField:268}.
+} % problem
+
+\makeproblem{Propagation direction components.}{problem:transverseField:2}{
+Perform an expansion like \cref{eqn:transverseField:268} to find
+\( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \).
 } % problem

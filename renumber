@@ -28,9 +28,6 @@
 #../latex/bin/lgrep bladeDotWedgeSymmetryIdentitiesTheorem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl bladeDotWedgeSymmetryIdentitiesTheorem.tex
 
-#../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
-
 #../latex/bin/lgrep circularlinecharge.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl circularlinecharge.tex
 
@@ -409,5 +406,14 @@
 #../latex/bin/lgrep planewavesMultivector.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl planewavesMultivector.tex
 
-../latex/bin/lgrep enclosedCurrent.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl enclosedCurrent.tex
+#../latex/bin/lgrep enclosedCurrent.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl enclosedCurrent.tex
+
+../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
+
+../latex/bin/lgrep flux.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl flux.tex
+
+../latex/bin/lgrep transverseField.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl transverseField.tex

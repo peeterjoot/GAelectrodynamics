@@ -1,3 +1,5 @@
+- expect that the boundary condition analysis really belongs with the dielectric media treatment.
+
 - undefs:
 
   Reference `eqn:electrostatics:380' on page 1 undefined on input line 12
