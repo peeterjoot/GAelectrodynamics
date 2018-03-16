@@ -3,13 +3,35 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-We have already solved the statics equation using Green's function techniques, but we can also gain additional insight by simply integrating Maxwell's equation using \cref{thm:volumeintegral:100} which gives
+In conventional electrostatics we obtain a relation between the normal electric field component and the enclosed charge.
+The geometric algebra generalization of this is a relation between the field and the enclosed multivector current
+\maketheorem{Enclosed multivector current.}{thm:enclosedCurrent:60}{
+The total multivector current in the volume is related to the surface integral of \( \ncap F \) over the boundary of the volume by
+\begin{equation*}
+\int_{\partial V} dA \ncap F = \int_V dV J.
+\end{equation*}
+This is a multivector equation, carrying inforamation for each grade in the multivector current, and after explicit expansion is equivalent to
+\begin{equation*}
+\begin{aligned}
+\int_{\partial V} dA\, \ncap \cdot \BE        &=  \inv{\epsilon} \int_V dV\, \rho \\
+\int_{\partial V} dA\, \ncap \cross \BH       &=                 \int_V dV\, \BJ \\
+\int_{\partial V} dA\, \ncap \cross \BE       &=               - \int_V dV\, \BM \\
+\int_{\partial V} dA\, \ncap \cdot \BH        &=  \inv{\mu} \int_V dV\, \rho_\txtm.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:enclosedCurrent:60}
+simply evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}
 \begin{equation}\label{eqn:enclosedCurrent:20}
-\int_V dV \spacegrad F = \int_{\partial V} dA \ncap F = \int_V dV J
+\int_V dV \spacegrad F = \int_{\partial V} dA \ncap F,
 \end{equation}
-The total current in the volume is related to the surface integral of \( \ncap F \) over the boundary of the volume.
-This is a multivector relationship, containing a substantial amount of information.
-This information can be extracted by
+and note that
+\begin{dmath}\label{eqn:enclosedCurrent:60}
+\int_V dV \spacegrad F = \int_V dV J.
+\end{dmath}
+This is a multivector relationship, containing a substantial amount of information, which can be
+extracted by
 expanding \( \ncap F \)
 \begin{dmath}\label{eqn:enclosedCurrent:40}
 \ncap F
@@ -18,20 +40,23 @@ expanding \( \ncap F \)
 =
 \ncap \cdot \BE + I (\ncap \cross \BE) + I \eta \lr{ \ncap \cdot \BH + I \ncap \cross \BH }
 =
-\ncap \cdot \BE - \eta ( \ncap \cross \BH ) + I (\ncap \cross \BE) + I \eta (\ncap \cdot \BH),
+\ncap \cdot \BE - \eta ( \ncap \cross \BH ) + I (\ncap \cross \BE) + I \eta (\ncap \cdot \BH).
 \end{dmath}
-so
-\begin{dmath}\label{eqn:enclosedCurrent:60}
+Inserting this into
+\cref{thm:enclosedCurrent:60}, and equating grades, we find
+\begin{dmath}\label{eqn:enclosedCurrent:80}
 \begin{aligned}
-\int_{\partial V} dA\, \ncap \cdot \BE        &=  \inv{\epsilon} \int_V dV\, \rho \\
-\int_{\partial V} dA\, \ncap \cross \BH       &=                 \int_V dV\, \BJ \\
-\int_{\partial V} dA\, \ncap \cross \BE       &=               - \int_V dV\, \BM \\
-\int_{\partial V} dA\, \ncap \cdot \BH        &=  \inv{\mu} \int_V dV\, \rho_\txtm.
+\int_{\partial V} dA \ncap \cdot \BE &= \int_V dV \inv{\epsilon}\rho \\
+- \int_{\partial V} dA \eta ( \ncap \cross \BH ) &= - \int_V dV \eta \BJ \\
+ I \int_{\partial V} dA (\ncap \cross \BE) &= - I \int_V dV \BM \\
+ I \int_{\partial V} dA \eta (\ncap \cdot \BH) &=  I \int_V dV c \rho_\txtm,
 \end{aligned}
 \end{dmath}
-Of course \cref{eqn:enclosedCurrent:60}
+
+which completes the proof after cancelling common factors and some minor adjustments of the multiplicative constants.
+Of course \cref{eqn:enclosedCurrent:80}
 could have obtained directly from Maxwell's equations in their conventional form \cref{eqn:freespace:3399}.
 However, had we integrated the conventional Maxwell's equations, it would not have been obvious that the crazy mix of
-fields, dot and cross products in \cref{eqn:enclosedCurrent:60} had a hidden structure as simple as
+fields, sources, dot and cross products in \cref{eqn:enclosedCurrent:60} had a hidden structure as simple as
 \( \int_{\partial V} dA \ncap F = \int_V dV J \).
 %}

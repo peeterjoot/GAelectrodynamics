@@ -3,49 +3,28 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-Similar to electrostatics and magnetostatics, we can restrict attention to time invariant fields (\( \partial_t F = 0\)) and time invariant sources (\(\partial_t J = 0\)), but consider both electric and magnetic sources.  In that case Maxwell's equation is reduced to a first order gradient equation
+Similar to electrostatics and magnetostatics, we can restrict attention to time invariant fields (\( \partial_t F = 0\)) and time invariant sources (\(\partial_t J = 0\)), but consider both electric and magnetic sources.  In that case Maxwell's equation is reduced to an invertible first order gradient equation
 \begin{dmath}\label{eqn:statics:20}
-\spacegrad F(\Bx) = J(\Bx).
+\spacegrad F(\Bx) = J(\Bx),
 \end{dmath}
 
-Using the Green's function for the (first order) gradient \cref{eqn:electrostatics_invertingGradient:260}, this can be inverted as
-\begin{dmath}\label{eqn:statics:40}
-F(\Bx)
-= \int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')
-= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
-= \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
-\end{dmath}
-
-A no-op grade selection has been inserted to simplify subsequent manipulation
-\footnote{If this grade selection filter is omitted, it is possible to show that the scalar and pseudoscalar contributions to the \( (\Bx -\Bx') J \) product are zero on the boundary of the Green's integration volume. \citep{jancewicz1988multivectors:appendixI}},
-yielding a compact solution to the Maxwell statics equation
-\boxedEquation{eqn:statics:80}{
+\maketheorem{Maxwell's statics solution.}{thm:statics:100}{
+The solution to the Maxwell statics equation is given by
+\begin{equation*}
 F(\Bx)
 = \inv{4\pi} \int_V dV' \frac{\gpgrade{(\Bx - \Bx') J(\Bx')}{1,2}}{\Norm{\Bx - \Bx'}^3} + F_0,
-}
-
+\end{equation*}
 where \( F_0 \) is any function for which \( \spacegrad F_0 = 0 \).
-
-It will be preferable and simpler to work with combined fields and densities, however, some insight can be gained by
-explicit expansion of \cref{eqn:statics:80} in terms of charge and current densities.
-The grade selection, in terms of terms of \( \Bs = \Bx -\Bx' \) expands as
-\begin{dmath}\label{eqn:statics:60}
-\gpgrade{\Bs J}{1,2}
-=
-\eta \gpgrade{\Bs (v \rho - \BJ)}{1,2}
-+
-\gpgrade{\Bs I(v \rho_m - \BM)}{1,2}
-=
-\inv{\epsilon} \Bs \rho + \eta \BJ \wedge \Bs + \Bs v \rho_m I + \Bs \cross \BM,
-\end{dmath}
-so the solution \( F = \BE + \eta I \BH \) to the Maxwell statics equation in terms of the charge and current densities, and electric and magnetic fields is
-\begin{dmath}\label{eqn:statics:100}
+The explicit expansion in electric and magnetic fields and charge and current densities is given by
+\begin{equation*}
 \begin{aligned}
 \BE(\Bx)
 &=
 \inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
 \lr{
+{\color{DarkOliveGreen}
    \inv{\epsilon}(\Bx - \Bx') \rho(\Bx')
+}
    +
    (\Bx - \Bx') \cross \BM(\Bx')
 } \\
@@ -53,15 +32,72 @@ so the solution \( F = \BE + \eta I \BH \) to the Maxwell statics equation in te
 &=
 \inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
 \lr{
+{\color{Maroon}
   \BJ(\Bx') \cross (\Bx - \Bx')
+}
 + \inv{\mu} (\Bx - \Bx') \rho_m(\Bx')
 }.
 \end{aligned}
+\end{equation*}
+} % theorem
+
+We see that the solution incorporates both a {\color{DarkOliveGreen}Coulomb's law} contribution and a {\color{Maroon}Biot-Savart law} contribution, as well as their magnetic source analogues if applicable.
+
+To prove \cref{thm:statics:100},
+we utilize the Green's function for the (first order) gradient
+\cref{eqn:greensFunctionFirstOrderHelmholtz:900},
+%\cref{eqn:electrostatics_invertingGradient:260},
+finding immediately
+\begin{dmath}\label{eqn:statics:40}
+F(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')
+= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
+= \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
 \end{dmath}
+Here a no-op grade selection has been inserted to simplify subsequent manipulation\footnote{If this grade selection filter is omitted, it is possible to show that the scalar and pseudoscalar contributions to the \( (\Bx -\Bx') J \) product are zero on the boundary of the Green's integration volume. \citep{jancewicz1988multivectors:appendixI}}.
+We are also free to add any grade 1,2 solution of the homogeneous gradient equation, which provides the multivector form of the solution.
 
-We see that the combined solution \cref{eqn:statics:80} incorporates both a Coulomb's law contribution and a Biot-Savart law contribution (and their analogues for the fictious magnetic sources).
+To unpack the multivector result, let \( \Bs = \Bx -\Bx' \), and expand the grade 1,2 selection
+\begin{dmath}\label{eqn:statics:60}
+\gpgrade{\Bs J}{1,2}
+=
+\eta \gpgrade{\Bs (c \rho - \BJ)}{1,2}
++
+\gpgrade{\Bs I(c \rho_m - \BM)}{1,2}
+=
+\eta c \Bs \rho - \eta (\Bs \wedge \BJ)
++
+c I \Bs \rho_m
+-
+I (\Bs \wedge \BM)
+=
+\inv{\epsilon} \Bs \rho
++ \eta I (\BJ \cross \Bs)
++ \Bs c \rho_m I
++ \Bs \cross \BM,
+\end{dmath}
+so the field is
+\begin{dmath}\label{eqn:statics:n}
+\begin{aligned}
+F(\Bx)
+&=
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+\inv{\epsilon} \Bs \rho
++ \Bs \cross \BM
+} \\
+&\quad + I
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+\Bs c \rho_m
++ \eta \BJ \cross \Bs
+}.
+\end{aligned}
+\end{dmath}
+Comparing this expansion to the field components
+\( F = \BE + \eta I \BH \), we complete the proof.
 
-\makeproblem{}{problem:statics:81}{
-Fill in any steps left out of the derivations of \cref{eqn:statics:60} and \cref{eqn:statics:100}.
-} % problem
+%\makeproblem{}{problem:statics:81}{
+%Fill in any steps left out of the derivations of \cref{eqn:statics:60} and \cref{eqn:statics:100}.
+%} % problem
 %}
