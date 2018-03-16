@@ -127,9 +127,6 @@
 #../latex/bin/lgrep linecharge.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl linecharge.tex
 
-#../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
-
 #../latex/bin/lgrep lorentzForce_constantMagnetic.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl lorentzForce_constantMagnetic.tex
 
@@ -409,11 +406,14 @@
 #../latex/bin/lgrep enclosedCurrent.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl enclosedCurrent.tex
 
-../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
+../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
+
+#../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
 
 ../latex/bin/lgrep flux.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl flux.tex
 
-../latex/bin/lgrep transverseField.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl transverseField.tex
+#../latex/bin/lgrep transverseField.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl transverseField.tex

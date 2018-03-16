@@ -2,16 +2,51 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-The Lorentz force equation \cref{eqn:freespace:200}
-can be restated
-in terms of \( F = \BE + I \eta \BH = \BE + I c \BB \) as
-\begin{dmath}\label{eqn:lorentzForce:20}
-%\boxedEquation{eqn:lorentzForce:20}{
-\frac{d\Bp}{dt} = q \gpgradeone{ F \lr{ 1 + \frac{\Bv}{c} } },
-%}
-\end{dmath}
-which puts the electric and magnetic fields on equal footing.
-This can be demonstrated by splitting the \( F \lr{ 1 + \ifrac{\Bv}{c} } \) multivector into its constituent grades
+We now wish to express the Lorentz force equation \cref{eqn:freespace:200} in its geometric algebra form.
+Like the energy-momentum tensor, there is value to introduce a multivector with energy and momentum components
+
+\makedefinition{Energy-momentum multivector.}{dfn:lorentzForce:300}{
+For a particle with energy \( \calE \) and momentum \( \Bp \), we define the \textit{energy-momentum multivector} as
+\begin{equation*}
+T = \calE + c \Bp.
+\end{equation*}
+} % definition
+
+\makedefinition{Multivector charge.}{dfn:lorentzForce:280}{
+We may define a \textit{multivector charge} that includes both the magnitude and velocity (relative to the speed of light) of the charge.  For electric charges this is
+\begin{equation*}
+Q_\txte = q_\txte \lr{ 1 + \Bv_\txte/c },
+\end{equation*}
+and for magnetic charges
+\begin{equation*}
+Q_\txtm = -I \epsilon q_\txtm \lr{ 1 + \Bv_\txtm/c }.
+\end{equation*}
+} % definition
+FIXME: better name than charge for this?
+
+With a multivector charge defined, the Lorentz force equation can be stated in terms of the total electromagnetic field strength
+\maketheorem{Lorentz force and power.}{thm:lorentzForce:300}{
+The respective power and force experienced by particles with electric (and/or magnetic) charges is described by
+\cref{dfn:lorentzForce:280} is
+\begin{equation*}
+\inv{c} \frac{dT}{dt} = \gpgrade{ F Q }{0,1},
+\end{equation*}
+where \( \gpgradezero{dT/dt} = \ifrac{d\calE}{dt} \) is the power and \( \gpgradeone{dT/dt} = c \ifrac{d\Bp}{dt} \) is the force on the particle, and
+\( Q \) is an electric or magnetic charge/velocity multivector defined by \cref{dfn:lorentzForce:280}.
+The conventional representation of the Lorentz force/power equations given by \cref{eqn:freespace:180} may be recovered by grade selection operations.
+For magnetic particles, that grade selection gives
+\begin{equation*}
+\begin{aligned}
+\frac{d\Bp}{dt} &= \epsilon q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE } \\
+\frac{d\calE}{dt} &= \inv{\eta} q_\txtm \BB \cdot \Bv_\txtm.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove 
+\cref{thm:lorentzForce:300},
+we can expand the multivector product
+\( F q \lr{ 1 + \ifrac{\Bv}{c} } \) into its constituent grades
 \begin{dmath}\label{eqn:lorentzForce:40}
 q F \lr{ 1 + \frac{\Bv}{c} }
 =
@@ -30,18 +65,27 @@ q \BE
 + q (I \BB) \wedge \Bv.
 \end{dmath}
 
-The grade 0 component of this product hints of \cref{eqn:freespace:220}, and substitution into the vector grade selection operation of \cref{eqn:lorentzForce:20} recovers \cref{eqn:freespace:200} as desired.
-
-Looking to the energy-momentum tensor for the continuum equivalent of the dual Lorentz force equation \cref{eqn:poyntingLorentzForce:140}, we can introduce a generalized multivector charge
-\begin{dmath}\label{eqn:lorentzForce:240}
-Q =
-q_\txte \lr{ 1 + \Bv_\txte/c }
--I \epsilon q_\txtm \lr{ 1 + \Bv_\txtm/c },
+We see the (c-scaled) particle power relationship
+\cref{eqn:freespace:220}
+in the grade zero component and the Lorentz force \cref{eqn:freespace:220} in the grade 1 component.
+A substitution \( q \rightarrow -I \epsilon q_\txtm, \Bv \rightarrow \Bv_\txtm \), and subsequent grade 0,1 selection gives
+\begin{dmath}\label{eqn:lorentzForce:320}
+\gpgrade{
+-I q_\txtm F \lr{ 1 + \frac{\Bv}{c} }
+}{0,1}
+=
+- I \epsilon q_\txtm \lr{ c I \BB + \inv{c} \BE \wedge \Bv_\txtm }
+- I \epsilon q_\txtm I \BB \cdot \Bv_\txtm
+=
+\epsilon q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE }
++
+\epsilon q_\txtm \BB \cdot \Bv_\txtm.
 \end{dmath}
-where \( q_\txte, q_\txtm \) are the electric and magnetic charges, and \( \Bv_\txte, \Bv_\txtm \) are their respective velocities.
-The Lorentz force equation, including both electric and fictious magnetic charges, can now be written as
-%\begin{dmath}\label{eqn:lorentzForce:260}
-\boxedEquation{eqn:lorentzForce:260}{
-\frac{d\Bp}{dt} = \gpgradeone{ F Q }.
-}
-%\end{dmath}
+The grade one component of this multivector has the
+required form for the dual Lorentz force equation, as determined from the conservation relationships for the energy-momentum tensor in
+\cref{eqn:poyntingLorentzForce:140}.
+Scaling the grade zero component by \( c \) completes the proof.
+
+FIXME: was there an energy-momentum tensor derivation of the energy for a magnetic charge density?
+
+%As the electric and magnetic field contributions to the force are subsumed by the total electromagnetic field strength \( F \), \cref{thm:lorentzForce:300} puts the electric and magnetic fields on equal footing.
