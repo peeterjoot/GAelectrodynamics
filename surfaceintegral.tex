@@ -97,6 +97,17 @@ Given an connected surface \( S \) parameterized by two parameters, and multivec
 \end{equation*}
 where \( \partial S \) is the boundary of the surface \( S \).
 } % theorem
+In \R{2} with \( d^2 \Bx = i dA, i = \Be_{12} \), this may be written
+\begin{dmath}\label{eqn:surfaceintegral:760}
+\int_S F i \spacegrad G\, dA
+= \ointclockwise_{\partial S} F d\Bx G.
+\end{dmath}
+As \( i \) does not commute with all \R{2} multivectors, unless \( F = 1 \) we cannot generally pull \( i \) out of the integral.
+In \R{3}, with \( d^2 \Bx = I \ncap dA \), we may use a scalar area element, but cannot generally replace the vector derivative with the gradient.
+%\begin{dmath}\label{eqn:surfaceintegral:780}
+%I \int_S F \ncap \boldpartial G\, dA
+%= \ointclockwise_{\partial S} F d\Bx G.
+%\end{dmath}
 
 To see why this works, we would first like to reduce the product of the area element and the vector derivative
 \begin{dmath}\label{eqn:surfaceintegral:300}
