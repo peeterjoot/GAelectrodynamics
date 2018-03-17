@@ -4,7 +4,7 @@
 %
 %{
 \input{../latex/blogpost.tex}
-\renewcommand{\basename}{flux}
+\renewcommand{\basename}{amperes}
 %\renewcommand{\dirname}{notes/phy1520/}
 \renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
 %\newcommand{\dateintitle}{}
@@ -23,29 +23,29 @@
 
 \beginArtNoToc
 
-\generatetitle{Field flux.}
+\generatetitle{Generalizing Ampere's law using geometric algebra.}
 %\chapter{Field flux.}
 \label{chap:flux}
 
 The question I'd like to explore in this post is how Ampere's law, the relationship between the line integral of the magnetic field to current (i.e. the enclosed current) 
-\begin{dmath}\label{eqn:flux:20}
+\begin{dmath}\label{eqn:amperes:20}
 \ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ,
 \end{dmath}
 generalizes to geometric algebra where Maxwell's equations for a statics configuration (all time derivatives zero) is
-\begin{dmath}\label{eqn:flux:40}
+\begin{dmath}\label{eqn:amperes:40}
 \spacegrad F = J,
 \end{dmath}
 where the multivector fields and currents are
-\begin{dmath}\label{eqn:flux:60}
+\begin{dmath}\label{eqn:amperes:60}
 \begin{aligned}
 F &= \BE + I \eta \BH \\
 J &= \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{aligned}
 \end{dmath}
-Here (ficticous) the magnetic charge and current densities that can be useful in antenna theory have been included in the multivector current for generality.
+Here (fictitious) the magnetic charge and current densities that can be useful in antenna theory have been included in the multivector current for generality.
 
 My presumption is that it should be possible to utilize the fundamental theorem of geometric calculus for expressing the integral over an oriented surface to its boundary, but applied directly to Maxwell's equation.  That integral theorem has the form
-\begin{dmath}\label{eqn:flux:80}
+\begin{dmath}\label{eqn:amperes:80}
 \int_A d^2 \Bx \boldpartial F = \ointclockwise_{\partial A} d\Bx F,
 \end{dmath}
 where \( d^2 \Bx = d\Ba \wedge d\Bb \) is a two parameter bivector valued surface, and \( \boldpartial \) is vector derivative, the projection of the gradient onto the tangent space.
@@ -54,11 +54,11 @@ I won't try to explain all of geometric calculus here, and refer the interested 
 excellent reference on geometric calculus and integration theory.
 
 The gotcha is that we actually want a surface integral with \( \spacegrad F \).  We can split the gradient into the vector derivative a normal component
-\begin{dmath}\label{eqn:flux:160}
+\begin{dmath}\label{eqn:amperes:160}
 \spacegrad = \boldpartial + \ncap (\ncap \cdot \spacegrad),
 \end{dmath}
 so
-\begin{dmath}\label{eqn:flux:100}
+\begin{dmath}\label{eqn:amperes:100}
 \int_A d^2 \Bx \spacegrad F
 =
 \int_A d^2 \Bx \boldpartial F
@@ -66,7 +66,7 @@ so
 \int_A d^2 \Bx \ncap \lr{ \ncap \cdot \spacegrad } F,
 \end{dmath}
 so
-\begin{dmath}\label{eqn:flux:120}
+\begin{dmath}\label{eqn:amperes:120}
 \ointclockwise_{\partial A} d\Bx F
 =
 \int_A d^2 \Bx \lr{ J - \ncap \lr{ \ncap \cdot \spacegrad } F }
@@ -75,7 +75,7 @@ so
 \end{dmath}
 
 This is not nearly as nice as the magnetic flux relationship which was nicely split with the current and fields nicely separated.  The \( d\Bx F \) product has all possible grades, as does the \( d^2 \Bx J \) product (in general).  Observe however, that the normal term on the right has only grades 1,2, so we can split our line integral relations into pairs with and without grade 1,2 components
-\begin{dmath}\label{eqn:flux:140}
+\begin{dmath}\label{eqn:amperes:140}
 \begin{aligned}
 \ointclockwise_{\partial A} \gpgrade{d\Bx F}{0,3}
 &=
@@ -86,8 +86,8 @@ This is not nearly as nice as the magnetic flux relationship which was nicely sp
 \end{aligned}
 \end{dmath}
 
-Let's expand these explicitly in terms of the component fields and densities to check against the conventional relationships, and see if things look right.  The line integrant expands to
-\begin{dmath}\label{eqn:flux:180}
+Let's expand these explicitly in terms of the component fields and densities to check against the conventional relationships, and see if things look right.  The line integrand expands to
+\begin{dmath}\label{eqn:amperes:180}
 d\Bx F
 =
 d\Bx \lr{ \BE + I \eta \BH }
@@ -102,7 +102,7 @@ d\Bx \cdot \BE
 + I \eta (d\Bx \cdot \BH),
 \end{dmath}
 the current integrand expands to
-\begin{dmath}\label{eqn:flux:200}
+\begin{dmath}\label{eqn:amperes:200}
 I \ncap J
 =
 I \ncap
@@ -125,7 +125,7 @@ I \ncap
 \end{dmath}
 
 We are left with
-\begin{dmath}\label{eqn:flux:220}
+\begin{dmath}\label{eqn:amperes:220}
 \begin{aligned}
 \ointclockwise_{\partial A}
 \lr{
@@ -156,7 +156,7 @@ We are left with
 \end{dmath}
 This is a crazy mess of dots, crosses, fields and sources.  We can split it into one equation for each grade,
 which will probably look a little more regular.  That is
-\begin{dmath}\label{eqn:flux:240}
+\begin{dmath}\label{eqn:amperes:240}
 \begin{aligned}
 \ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA \ncap \cdot \BM \\
 \ointclockwise_{\partial A} d\Bx \cross \BH
@@ -177,8 +177,8 @@ which will probably look a little more regular.  That is
 \ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA \ncap \cdot \BJ \\
 \end{aligned}
 \end{dmath}
-The first and last equations could have been obtained much more easily from Maxwell's equations in their conventional form more easily.  The two cross product equations with the normal derivatives are not familiar to me, even without the fictious magnetic sources.  It is somewhat remarkable that so much can be packed into one multivector equation:
-\begin{dmath}\label{eqn:flux:260}
+The first and last equations could have been obtained much more easily from Maxwell's equations in their conventional form more easily.  The two cross product equations with the normal derivatives are not familiar to me, even without the fictitious magnetic sources.  It is somewhat remarkable that so much can be packed into one multivector equation:
+\begin{dmath}\label{eqn:amperes:260}
 \ointclockwise_{\partial A} d\Bx F
 =
 I \int_A dA \lr{ \ncap J - \PD{n}{F} }.
