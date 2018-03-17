@@ -87,7 +87,7 @@ This is not nearly as nice as the magnetic flux relationship which was nicely sp
 \end{dmath}
 
 Let's expand these explicitly in terms of the component fields and densities to check against the conventional relationships, and see if things look right.  The line integrant expands to
-\begin{dmath}\label{eqn:flux:n}
+\begin{dmath}\label{eqn:flux:180}
 d\Bx F
 =
 d\Bx \lr{ \BE + I \eta \BH }
@@ -96,16 +96,16 @@ d\Bx \cdot \BE + I \eta d\Bx \cdot \BH
 +
 d\Bx \wedge \BE + I \eta d\Bx \wedge \BH
 =
-d\Bx \cdot \BE 
+d\Bx \cdot \BE
 - \eta (d\Bx \cross \BH)
 + I (d\Bx \cross \BE )
 + I \eta (d\Bx \cdot \BH),
 \end{dmath}
 the current integrand expands to
-\begin{dmath}\label{eqn:flux:n}
+\begin{dmath}\label{eqn:flux:200}
 I \ncap J
 =
-I \ncap 
+I \ncap
 \lr{
    \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
 }
@@ -116,12 +116,72 @@ I \ncap
 \ncap \cdot \BM
 % 1
 + \eta (\ncap \cross \BJ)
-- \ncap c \rho_\txtm 
+- \ncap c \rho_\txtm
 % 2
 + I (\ncap \cross \BM)
-+ \ncap I \frac{\rho}{\epsilon} 
++ \ncap I \frac{\rho}{\epsilon}
 % 3
 - \eta I (\ncap \cdot \BJ).
+\end{dmath}
+
+We are left with
+\begin{dmath}\label{eqn:flux:220}
+\begin{aligned}
+\ointclockwise_{\partial A}
+\lr{
+   d\Bx \cdot \BE + I \eta (d\Bx \cdot \BH)
+}
+&=
+\int_A dA
+\lr{
+   \ncap \cdot \BM - \eta I (\ncap \cdot \BJ)
+} \\
+\ointclockwise_{\partial A}
+\lr{
+   - \eta (d\Bx \cross \BH)
+   + I (d\Bx \cross \BE )
+}
+&=
+\int_A dA
+\lr{
+   % 1
+     \eta (\ncap \cross \BJ)
+   - \ncap c \rho_\txtm
+   % 2
+   + I (\ncap \cross \BM)
+   + \ncap I \frac{\rho}{\epsilon}
+   -\PD{n}{} \lr{ I \BE - \eta \BH }
+}.
+\end{aligned}
+\end{dmath}
+This is a crazy mess of dots, crosses, fields and sources.  We can split it into one equation for each grade,
+which will probably look a little more regular.  That is
+\begin{dmath}\label{eqn:flux:240}
+\begin{aligned}
+\ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA \ncap \cdot \BM \\
+\ointclockwise_{\partial A} d\Bx \cross \BH
+&=
+\int_A dA
+\lr{
+   - \ncap \cross \BJ
+   + \frac{ \ncap \rho_\txtm }{\mu}
+   - \PD{n}{\BH}
+} \\
+\ointclockwise_{\partial A} d\Bx \cross \BE &=
+\int_A dA
+\lr{
+     \ncap \cross \BM
+   + \frac{\ncap \rho}{\epsilon}
+   - \PD{n}{\BE}
+} \\
+\ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA \ncap \cdot \BJ \\
+\end{aligned}
+\end{dmath}
+The first and last equations could have been obtained much more easily from Maxwell's equations in their conventional form more easily.  The two cross product equations with the normal derivatives are not familiar to me, even without the fictious magnetic sources.  It is somewhat remarkable that so much can be packed into one multivector equation:
+\begin{dmath}\label{eqn:flux:260}
+\ointclockwise_{\partial A} d\Bx F
+=
+I \int_A dA \lr{ \ncap J - \PD{n}{F} }.
 \end{dmath}
 
 %}
