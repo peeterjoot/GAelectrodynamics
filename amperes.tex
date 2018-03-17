@@ -25,70 +25,90 @@
 
 \generatetitle{Generalizing Ampere's law using geometric algebra.}
 %\chapter{Field flux.}
-\label{chap:flux}
+\label{chap:amperes}
 
-The question I'd like to explore in this post is how Ampere's law, the relationship between the line integral of the magnetic field to current (i.e. the enclosed current) 
-\begin{dmath}\label{eqn:amperes:20}
-\ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ,
-\end{dmath}
-generalizes to geometric algebra where Maxwell's equations for a statics configuration (all time derivatives zero) is
-\begin{dmath}\label{eqn:amperes:40}
-\spacegrad F = J,
-\end{dmath}
-where the multivector fields and currents are
-\begin{dmath}\label{eqn:amperes:60}
+%Ampere's law is a relationship for static configurations between the line integral of the magnetic field to the enclosed current, the flux of the current density through a surface
+In this section we will present the generalization of Ampere's law to line integrals of the total electromagnetic field strength.
+
+\maketheorem{Line integral of the field.}{thm:amperes:280}{
+The line integral of the electromagnetic field strength is
+\begin{equation*}
+\ointclockwise_{\partial A} d\Bx\, F
+=
+I \int_A dA \lr{ \ncap J - \PD{n}{F} },
+\end{equation*}
+where \( \PDi{n}{F} = \lr{ \ncap \cdot \spacegrad } F \).
+Expressed in terms of the conventional consistent fields and sources, this multivector relationship expands to four equations, one for each grade
+\begin{equation*}
 \begin{aligned}
-F &= \BE + I \eta \BH \\
-J &= \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA\, \ncap \cdot \BM \\
+\ointclockwise_{\partial A} d\Bx \cross \BH
+&=
+\int_A dA
+\lr{
+   - \ncap \cross \BJ
+   + \frac{ \ncap \rho_\txtm }{\mu}
+   - \PD{n}{\BH}
+} \\
+\ointclockwise_{\partial A} d\Bx \cross \BE &=
+\int_A dA
+\lr{
+     \ncap \cross \BM
+   + \frac{\ncap \rho}{\epsilon}
+   - \PD{n}{\BE}
+} \\
+\ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA\, \ncap \cdot \BJ.
 \end{aligned}
-\end{dmath}
-Here (fictitious) the magnetic charge and current densities that can be useful in antenna theory have been included in the multivector current for generality.
+\end{equation*}
+} % theorem
+The last of the scalar equations in
+\cref{thm:amperes:280}
+is Ampere's law
+\begin{equation}\label{eqn:amperes:20}
+\ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ = I_{\textrm{enc}},
+\end{equation}
+and the first is the dual of Ampere's law for (fictious) magnetic current density\footnote{Even without the fictitious magnetic sources, neither the name nor applications of the two cross product line integrals with the normal derivatives are familiar to the author.}.
+In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.  This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
 
-My presumption is that it should be possible to utilize the fundamental theorem of geometric calculus for expressing the integral over an oriented surface to its boundary, but applied directly to Maxwell's equation.  That integral theorem has the form
-\begin{dmath}\label{eqn:amperes:80}
-\int_A d^2 \Bx \boldpartial F = \ointclockwise_{\partial A} d\Bx F,
+To prove
+\cref{thm:amperes:280}
+we compute the surface integral of the current \( J = \spacegrad F \)
+\begin{dmath}\label{eqn:amperes:240}
+\int_A d^2 \Bx\, J
+=
+\int_A d^2 \Bx \spacegrad F.
 \end{dmath}
-where \( d^2 \Bx = d\Ba \wedge d\Bb \) is a two parameter bivector valued surface, and \( \boldpartial \) is vector derivative, the projection of the gradient onto the tangent space.
-I won't try to explain all of geometric calculus here, and refer the interested reader to
-\citep{aMacdonaldVAGC}, which is an
-excellent reference on geometric calculus and integration theory.
-
-The gotcha is that we actually want a surface integral with \( \spacegrad F \).  We can split the gradient into the vector derivative a normal component
+As we are working in \R{3} not \R{2}, the gradient may not be replaced by the vector derivative in \cref{eqn:amperes:240}.  Instead we
+must split the gradient into its vector derivative component, the projection of the gradient onto the tangent plane of the integration surface, and its normal component
 \begin{dmath}\label{eqn:amperes:160}
-\spacegrad = \boldpartial + \ncap (\ncap \cdot \spacegrad),
+\spacegrad = \boldpartial + \ncap (\ncap \cdot \spacegrad).
 \end{dmath}
-so
+The surface integral form \cref{eqn:surfaceintegral:300}
+of the fundamental theorem of geometric calculus may be
+applied to the vector derivative portion of the field integral
 \begin{dmath}\label{eqn:amperes:100}
 \int_A d^2 \Bx \spacegrad F
 =
-\int_A d^2 \Bx \boldpartial F
+\int_A d^2 \Bx\, \boldpartial F
 +
-\int_A d^2 \Bx \ncap \lr{ \ncap \cdot \spacegrad } F,
+\int_A d^2 \Bx\, \ncap \lr{ \ncap \cdot \spacegrad } F,
 \end{dmath}
 so
 \begin{dmath}\label{eqn:amperes:120}
-\ointclockwise_{\partial A} d\Bx F
+\ointclockwise_{\partial A} d\Bx\, F
 =
 \int_A d^2 \Bx \lr{ J - \ncap \lr{ \ncap \cdot \spacegrad } F }
 =
 \int_A dA \lr{ I \ncap J - \lr{ \ncap \cdot \spacegrad } I F }
+=
+\int_A dA \lr{ I \ncap J - I \PD{n}{F} },
 \end{dmath}
+where the surface area bivector has been written in its dual form \( d^2 \Bx = I \ncap dA \) in terms of a scalar area element, and the directional derivative has been written in scalar form with respect to a parameter \( n \) that represents the length along the normal direction.  This proves the first part of
+\cref{thm:amperes:280}.
 
-This is not nearly as nice as the magnetic flux relationship which was nicely split with the current and fields nicely separated.  The \( d\Bx F \) product has all possible grades, as does the \( d^2 \Bx J \) product (in general).  Observe however, that the normal term on the right has only grades 1,2, so we can split our line integral relations into pairs with and without grade 1,2 components
-\begin{dmath}\label{eqn:amperes:140}
-\begin{aligned}
-\ointclockwise_{\partial A} \gpgrade{d\Bx F}{0,3}
-&=
-\int_A dA \gpgrade{ I \ncap J }{0,3} \\
-\ointclockwise_{\partial A} \gpgrade{d\Bx F}{1,2}
-&=
-\int_A dA \lr{ \gpgrade{ I \ncap J }{1,2} - \lr{ \ncap \cdot \spacegrad } I F }.
-\end{aligned}
-\end{dmath}
-
-Let's expand these explicitly in terms of the component fields and densities to check against the conventional relationships, and see if things look right.  The line integrand expands to
+Observe that the \( d\Bx\, F \) product has all possible grades
 \begin{dmath}\label{eqn:amperes:180}
-d\Bx F
+d\Bx\, F
 =
 d\Bx \lr{ \BE + I \eta \BH }
 =
@@ -101,7 +121,7 @@ d\Bx \cdot \BE
 + I (d\Bx \cross \BE )
 + I \eta (d\Bx \cdot \BH),
 \end{dmath}
-the current integrand expands to
+as does the \( I \ncap J \) product (in general)
 \begin{dmath}\label{eqn:amperes:200}
 I \ncap J
 =
@@ -123,8 +143,18 @@ I \ncap
 % 3
 - \eta I (\ncap \cdot \BJ).
 \end{dmath}
-
-We are left with
+On the other hand \( I F = I \BE - \eta \BH \) has only grades 1,2, like \( F \) itself.  This allows the line integrals to be split by grade selection into components with and without a normal derivative
+\begin{dmath}\label{eqn:amperes:140}
+\begin{aligned}
+\ointclockwise_{\partial A} \gpgrade{d\Bx\, F}{0,3}
+&=
+\int_A dA\, \gpgrade{ I \ncap J }{0,3} \\
+\ointclockwise_{\partial A} \gpgrade{d\Bx\, F}{1,2}
+&=
+\int_A dA \lr{ \gpgrade{ I \ncap J }{1,2} - \lr{ \ncap \cdot \spacegrad } I F }.
+\end{aligned}
+\end{dmath}
+The first of \cref{eqn:amperes:140} contains Ampere's law and its dual as one multivector equation, which can be seen more readily by explicit expansion in the constituent fields and sources using \cref{eqn:amperes:180}, \cref{eqn:amperes:200}
 \begin{dmath}\label{eqn:amperes:220}
 \begin{aligned}
 \ointclockwise_{\partial A}
@@ -154,35 +184,16 @@ We are left with
 }.
 \end{aligned}
 \end{dmath}
-This is a crazy mess of dots, crosses, fields and sources.  We can split it into one equation for each grade,
-which will probably look a little more regular.  That is
-\begin{dmath}\label{eqn:amperes:240}
-\begin{aligned}
-\ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA \ncap \cdot \BM \\
-\ointclockwise_{\partial A} d\Bx \cross \BH
-&=
-\int_A dA
-\lr{
-   - \ncap \cross \BJ
-   + \frac{ \ncap \rho_\txtm }{\mu}
-   - \PD{n}{\BH}
-} \\
-\ointclockwise_{\partial A} d\Bx \cross \BE &=
-\int_A dA
-\lr{
-     \ncap \cross \BM
-   + \frac{\ncap \rho}{\epsilon}
-   - \PD{n}{\BE}
-} \\
-\ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA \ncap \cdot \BJ \\
-\end{aligned}
-\end{dmath}
-The first and last equations could have been obtained much more easily from Maxwell's equations in their conventional form more easily.  The two cross product equations with the normal derivatives are not familiar to me, even without the fictitious magnetic sources.  It is somewhat remarkable that so much can be packed into one multivector equation:
-\begin{dmath}\label{eqn:amperes:260}
-\ointclockwise_{\partial A} d\Bx F
-=
-I \int_A dA \lr{ \ncap J - \PD{n}{F} }.
-\end{dmath}
+
+Further grade selection operations, and minor adjustments of the leading constants completes the proof.
+
+It is also worth pointing out that for pure magnetostatics problems where \( J = \eta \BJ, F = I \eta \BH \), that Ampere's law can be written in a trivector form
+\begin{equation}\label{eqn:amperes:260}
+\ointclockwise_{\partial A} d\Bx \wedge F = I \int_A dA\, \ncap \cdot J = I \eta \int_A dA\, \ncap \cdot \BJ.
+\end{equation}
+This encodes the fact that the magnetic field component of the total electromagnetic field strength is most naturally expressed in
+geometric algebra as a bivector.
+% \( I \eta \BH \), and not just the vector \( \BH \).
 
 %}
 \EndArticle
