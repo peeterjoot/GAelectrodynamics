@@ -1,8 +1,3 @@
-
-- figure: amperesLawBetweenTwoCurrentsFig1
-
-   should color the region of applicability (intersection of the two max radius circles).
-
 - undefs:
 
   Reference `eqn:electrostatics:380' on page 1 undefined on input line 12
