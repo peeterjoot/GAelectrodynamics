@@ -19,15 +19,9 @@
 
    chapter 3: rework as theorem/proof:
 
-   - Energy and Momentum (rest) : 10 pages.
-
-      Poynting's theorem
-      Lorentz force
-      Examples (probably nothing todo).
-      complex energy and power.
-
    - Polarization (harder) : 6 pages.
    - Multivector potential (harder) : 11 pages.
+   - Lorentz force: 2 pages -- incorporate into integral form of Poynting vector.  Doesn't really need a proof now.
 
    chapter4:
    - electric and magnetic potentials: 2 pages.
@@ -35,7 +29,7 @@
    - dielectric media: 3 pages.
 
    ====
-   34 pages pending.
+   26 pages pending.
 
 - think I have a mix of:
 

@@ -4,13 +4,52 @@
 %
 \index{complex power}
 
-The time domain representation of a phasor based field \( F = F(\omega) \) is
+\maketheorem{Complex power representation.}{thm:poyntingFComplexPower:300}{
+Given a time domain representation of a phasor based field \( F = F(\omega) \)
+\begin{equation*}
+F(t)
+= \Real\lr{ F e^{j \omega t} },
+\end{equation*}
+the energy momentum tensor multivector \( T(1) \) has the representation
+\begin{equation*}
+T(1) = \calE + \frac{\BS}{c}
+\frac{\epsilon}{4} \Real \lr{ F^\conj F^\dagger + F F^\dagger e^{2 j \omega t} }.
+\end{equation*}
+With the usual definition of the complex Poynting vector
+%\label{eqn:poyntingFComplexPower:240}
+\begin{equation*}
+\calS = \inv{2} \BE \cross \BH^\conj = \inv{2} \lr{ I \BH^\conj } \cdot \BE,
+\end{equation*}
+the energy and momentum components of \( T(1) \), for real \( \mu, \epsilon \) are
+%\label{eqn:poyntingFComplexPower:260}
+\begin{equation*}
+\begin{aligned}
+\calE &=
+\inv{4} \lr{
+\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 }
++
+\inv{4} \Real
+\lr{
+   \lr{ \epsilon \BE^2 + \mu \BH^2}
+   e^{2 j \omega t }
+} \\
+\BS &= \Real \calS
++
+\inv{2} \Real
+\lr{
+\lr{ \BE \cross \BH }
+   e^{2 j \omega t }
+}.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:poyntingFComplexPower:300} we start by expanding the real part operation explicitly
 \begin{dmath}\label{eqn:poyntingFComplexPower:20}
 F(t)
 = \Real\lr{ F e^{j \omega t} }
 = \inv{2} \lr{ F e^{j \omega t} + F^\conj e^{-j\omega t} }.
 \end{dmath}
-
 The energy-momentum multivector for the field is therefore
 \begin{dmath}\label{eqn:poyntingFComplexPower:40}
 \inv{2} \epsilon F(t) {F(t)}^\dagger
@@ -32,20 +71,20 @@ F F^\dagger e^{2 j \omega t}
 F^\conj F^\dagger + \lr{ F^\conj F^\dagger }^\conj
 },
 \end{dmath}
-which can be written as
-%\begin{dmath}\label{eqn:poyntingFComplexPower:60}
-\boxedEquation{eqn:poyntingFComplexPower:60}{
-\calE + \frac{\BS}{v}
+so we have
+\begin{dmath}\label{eqn:poyntingFComplexPower:60}
+%\boxedEquation{eqn:poyntingFComplexPower:60}{
+\calE + \frac{\BS}{c}
 =
 \inv{2} \epsilon F(t) {F(t)}^\dagger
 =
-\frac{\epsilon}{4} \Real \lr{ F^\conj F^\dagger + F F^\dagger e^{2 j \omega t} }.
-}
-%\end{dmath}
+\frac{\epsilon}{4} \Real \lr{ F^\conj F^\dagger + F F^\dagger e^{2 j \omega t} },
+%}
+\end{dmath}
+which proves the first part of the theorem.
 
-Assuming real \( \epsilon, \mu \), lets look at how these terms expand in terms of \( \BD = \epsilon \BE, \BB = \mu \BH\), starting with the constant contribution to the energy and momentum
-
-% e eta = sqrt( e^2 mu/e ) = sqrt( e mu ) = 1/v
+Next, we'd like to expand \( T(1) \)
+% e eta = sqrt( e^2 mu/e ) = sqrt( e mu ) = 1/c
 % e eta^2 = e mu/e = mu
 \begin{dmath}\label{eqn:poyntingFComplexPower:80}
 \inv{4} \epsilon F^\conj F^\dagger
@@ -58,30 +97,29 @@ Assuming real \( \epsilon, \mu \), lets look at how these terms expand in terms 
 =
 \inv{4} \lr{
 \epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2
-+ \frac{I}{v} \lr{ \BH^\conj \BE - \BE^\conj \BH }
++ \frac{I}{c} \lr{ \BH^\conj \BE - \BE^\conj \BH }
 }.
 \end{dmath}
-
 The scalar terms are already real, but the real part of the vector term is
 \begin{dmath}\label{eqn:poyntingFComplexPower:200}
-\frac{I}{4 v} \Real \lr{ \BH^\conj \BE - \BE^\conj \BH }
+\frac{I}{4 c} \Real \lr{ \BH^\conj \BE - \BE^\conj \BH }
 =
-\frac{I}{8 v} \lr{
+\frac{I}{8 c} \lr{
 \BH^\conj \BE - \BE^\conj \BH
 + \BH \BE^\conj - \BE \BH^\conj
 }
 =
-\frac{I}{8 v} \lr{
+\frac{I}{8 c} \lr{
 2 \BH^\conj \wedge \BE
 + 2 \BH \wedge \BE^\conj
 }
 =
-\frac{1}{4 v} \lr{
+\frac{1}{4 c} \lr{
 \BE \cross \BH^\conj
 + \BE^\conj \cross \BH
 }
 =
-\frac{1}{2 v} \Real \lr{
+\frac{1}{2 c} \Real \lr{
 \BE \cross \BH^\conj
 }.
 \end{dmath}
@@ -89,53 +127,30 @@ The scalar terms are already real, but the real part of the vector term is
 The \( \epsilon F F^\dagger \) factor of \( e^{2 j \omega t} \) above was expanded in \cref{eqn:poyntingF:80}, so the energy momentum multivector is
 \begin{dmath}\label{eqn:poyntingFComplexPower:220}
 \begin{aligned}
-\calE + \frac{\BS}{v}
+\calE + \frac{\BS}{c}
 &=
 \inv{4} \lr{
 \epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 }
 +
-\frac{1}{2 v} \Real \lr{
+\frac{1}{2 c} \Real \lr{
 \BE \cross \BH^\conj
 } \\
 &+
 \Real
 \lr{
    \lr{
-     \inv{4} \lr{ \BD \cdot \BE + \BH \cdot \BB}
-   + \frac{1}{2 v} \BE \cross \BH
+     \inv{4} \lr{ \epsilon \BE^2 + \mu \BH^2 }
+   + \frac{1}{2 c} \BE \cross \BH
    }
    e^{2 j \omega t }
 }.
 \end{aligned}
 \end{dmath}
+Expressing \cref{eqn:poyntingFComplexPower:220} in terms
+of the complex Poynting vector \( \calS \), completes the proof.
 
-It is conventional to introduce a complex Poynting vector
-\begin{equation}\label{eqn:poyntingFComplexPower:240}
-\calS = \inv{2} \BE \cross \BH^\conj = \inv{2} \lr{ I \BH^\conj } \cdot \BE,
-\end{equation}
-so the energy and momentum split of \( \epsilon F F^\dagger/2 \) is
-\begin{dmath}\label{eqn:poyntingFComplexPower:260}
-\begin{aligned}
-\calE &=
-\inv{4} \lr{
-\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 }
-+
-\inv{4} \Real
-\lr{
-   \lr{ \BD \cdot \BE + \BH \cdot \BB}
-   e^{2 j \omega t }
-} \\
-\BS &= \Real \calS
-+
-\inv{2} \Real
-\lr{
-\lr{ \BE \cross \BH }
-   e^{2 j \omega t }
-}.
-\end{aligned}
-\end{dmath}
-
-Averaging over one period \( T \) kills the sinusoidal contributions, so the steady state energy and Poynting vectors are just
+Observe that
+averaging over one period \( T \) kills any sinusoidal contributions, so the steady state energy and Poynting vectors are just
 \begin{dmath}\label{eqn:poyntingFComplexPower:280}
 \begin{aligned}
 \inv{T} \int_\tau^{\tau+T} \calE(t) dt &=
@@ -145,9 +160,9 @@ Averaging over one period \( T \) kills the sinusoidal contributions, so the ste
 \end{aligned}
 \end{dmath}
 
-Much of the preceding discussion shows how to determine the conventional energy and Poynting vector expressions in terms of separate electric and magnetic fields.
-While this demonstrate that the GA approach yields equivalent results, what we really want to do is to
-avoid separate electric and magnetic fields, using
-\cref{eqn:poyntingFComplexPower:60} to describe the energy and momentum of the field in terms of the composite field \( F \) directly.
-When using \( F \) instead of the component fields,
-scalar and vector grade selection can be used to decouple the energy and momentum terms when desired.
+%Much of the preceding discussion shows how to determine the conventional energy and Poynting vector expressions in terms of separate electric and magnetic fields.
+%While this demonstrate that the GA approach yields equivalent results, what we really want to do is to
+%avoid separate electric and magnetic fields, using
+%\cref{eqn:poyntingFComplexPower:60} to describe the energy and momentum of the field in terms of the composite field \( F \) directly.
+%When using \( F \) instead of the component fields,
+%scalar and vector grade selection can be used to decouple the energy and momentum terms when desired.

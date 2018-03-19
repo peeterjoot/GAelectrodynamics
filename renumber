@@ -223,14 +223,14 @@
 #../latex/bin/lgrep poyntingF.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
 
-#../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
+../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
 
 #../latex/bin/lgrep poyntingStaticExamples.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl poyntingStaticExamples.tex
 
-../latex/bin/lgrep poyntingTheorem.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl poyntingTheorem.tex
+#../latex/bin/lgrep poyntingTheorem.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl poyntingTheorem.tex
 
 ../latex/bin/lgrep poyntingTheoremRewrite.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl poyntingTheoremRewrite.tex

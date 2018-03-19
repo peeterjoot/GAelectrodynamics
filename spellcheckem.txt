@@ -81,7 +81,6 @@ potentialSection_magnetic.tex
 poyntingF.tex
 poyntingFComplexPower.tex
 poyntingStaticExamples.tex
-poyntingTheorem.tex
 poyntingTheoremRewrite.tex
 prereq_basisspandim.tex
 prereq_standardbasis.tex
