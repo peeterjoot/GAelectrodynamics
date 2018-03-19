@@ -1,0 +1,91 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{ampereExample}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Ampere's law example.  Two currents.}
+%\chapter{Ampere's law example}
+\label{chap:ampereExample}
+
+Let's try using Ampere's law as stated in \cref{thm:amperes:280} two compute the field a point on the x-y plane between two
+z-axis electric currents of magnitude \( I_1, I_2 \) flowing through the points \( \Bp_1, \Bp_2 \) as illustrated in
+\cref{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/amperesLawBetweenTwoCurrentsFig1}{Magnetic field between two current sources.}{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}{0.3}
+
+Solving the system with superpostion, let's consider first one source flowing through \( \Bp = (p_x, p_y, 0) \) with current \( \BJ = \Be_3 I_\txte \delta( x - p_x) \delta( y - p_y ) \), and evaluate the field due to this source at the point \( \Br \).
+With
+only magnetic sources in the multivector current, Ampere's law takes the form
+\begin{dmath}\label{eqn:ampereExample:20}
+\ointctrclockwise_{\partial A} d\Bx F = -I \int_A dA \Be_3 (-\eta \BJ) = I \eta I_\txte.
+\end{dmath}
+The field \( F \) must be a bivector satisfying \( d\Bx \cdot F = 0 \).  The circle is parameterized by
+\begin{dmath}\label{eqn:ampereExample:40}
+\Br = \Bp + R \Be_1 e^{i\phi},
+\end{dmath}
+so
+\begin{dmath}\label{eqn:ampereExample:60}
+d\Bx = R \Be_2 e^{i\phi} d\phi = R \phicap d\phi.
+\end{dmath}
+With the line element having only a \( \phicap \) component, \( F \) must be a bivector proportional to \( \Be_3 \rcap \).
+Let \( F = F_0 \Be_{31} e^{i\phi} \), where \( F_0 \) is a scalar, so that \( d\Br F \) is a constant multiple of the unit pseudoscalar
+\begin{dmath}\label{eqn:ampereExample:80}
+\int_0^{2\pi} d\Br F
+=
+R F_0 \int_0^{2\pi} \Be_2 e^{i\phi} d\phi \Be_{31} e^{i\phi}
+=
+R F_0 \int_0^{2\pi} \Be_{231} e^{-i\phi} e^{i\phi} d\phi
+=
+2 \pi I R F_0,
+\end{dmath}
+so
+\begin{dmath}\label{eqn:ampereExample:100}
+F_0 =
+\inv{I 2 \pi R} I I_\txte
+=
+ \frac{I_\txte}{2 \pi R}.
+\end{dmath}
+The field strength relative to the point \( \Bp \) is
+\begin{dmath}\label{eqn:ampereExample:120}
+F
+=
+ \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap
+=
+ \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap.
+\end{dmath}
+
+Switching to an origin relative coordinate system, removing the \( z = 0 \) restriction for \( \Br \) and \( \Bp_k \), and summing over both currents, the total field at any point \( \Br \) strictly between the currents is
+\begin{dmath}\label{eqn:ampereExample:140}
+F
+=
+\sum_{k = 1,2}
+ \frac{\eta I_k}{2 \pi} \Be_3 \inv{\Be_3 \lr{ \Be_3 \wedge \lr{ \Br - \Bp_k}}}
+=
+\sum_{k = 1,2}
+ \frac{\eta I_k}{2 \pi} \inv{ \Be_3 \wedge \lr{ \Br - \Bp_k} }.
+\end{dmath}
+The bivector nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
+
+%}
+\EndArticle
+%\EndNoBibArticle

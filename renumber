@@ -223,8 +223,8 @@
 #../latex/bin/lgrep poyntingF.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl poyntingF.tex
 
-../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
+#../latex/bin/lgrep poyntingFComplexPower.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
 
 #../latex/bin/lgrep poyntingStaticExamples.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl poyntingStaticExamples.tex
@@ -232,8 +232,8 @@ perl -p -i ../latex/bin/latexRegex.pl poyntingFComplexPower.tex
 #../latex/bin/lgrep poyntingTheorem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl poyntingTheorem.tex
 
-../latex/bin/lgrep poyntingTheoremRewrite.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl poyntingTheoremRewrite.tex
+#../latex/bin/lgrep poyntingTheoremRewrite.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl poyntingTheoremRewrite.tex
 
 #../latex/bin/lgrep prereq_basisspandim.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prereq_basisspandim.tex
@@ -415,8 +415,11 @@ perl -p -i ../latex/bin/latexRegex.pl poyntingTheoremRewrite.tex
 #../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
 
-../latex/bin/lgrep amperes.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl amperes.tex
+#../latex/bin/lgrep amperes.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl amperes.tex
 
 #../latex/bin/lgrep transverseField.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl transverseField.tex
+
+../latex/bin/lgrep ampereExample.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl ampereExample.tex
