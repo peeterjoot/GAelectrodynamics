@@ -1,8 +1,7 @@
-- Lorentz force.
 
-   FIXME: did I have an energy-momentum tensor derivation of the time rate of change of energy for a magnetic charge density?
+- figure: amperesLawBetweenTwoCurrentsFig1
 
-   A: Yes.  integratation of this section with the Lorentz force section is in order.
+   should color the region of applicability (intersection of the two max radius circles).
 
 - undefs:
 
