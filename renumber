@@ -229,8 +229,11 @@
 #../latex/bin/lgrep poyntingStaticExamples.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl poyntingStaticExamples.tex
 
-#../latex/bin/lgrep poyntingTheorem.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl poyntingTheorem.tex
+../latex/bin/lgrep poyntingTheorem.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poyntingTheorem.tex
+
+../latex/bin/lgrep poyntingTheoremRewrite.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl poyntingTheoremRewrite.tex
 
 #../latex/bin/lgrep prereq_basisspandim.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prereq_basisspandim.tex

@@ -58,8 +58,6 @@ linecharge.tex
 lineintegral.tex
 lorentzForce.tex
 lorentzForce_constantMagnetic.tex
-magnetostatics_enclosedCurrent.tex
-magnetostatics_enclosedCurrentDensity.tex
 magnetostatics_vectorPotential.tex
 maxwellsEquations.tex
 multivector.tex
@@ -82,9 +80,9 @@ potentialSection_gauge.tex
 potentialSection_magnetic.tex
 poyntingF.tex
 poyntingFComplexPower.tex
-poyntingLorentzForce.tex
 poyntingStaticExamples.tex
 poyntingTheorem.tex
+poyntingTheoremRewrite.tex
 prereq_basisspandim.tex
 prereq_standardbasis.tex
 prereq_vectorspace.tex

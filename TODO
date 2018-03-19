@@ -1,3 +1,9 @@
+- Lorentz force.
+
+   FIXME: did I have an energy-momentum tensor derivation of the time rate of change of energy for a magnetic charge density?
+
+   A: Yes.  integratation of this section with the Lorentz force section is in order.
+
 - undefs:
 
   Reference `eqn:electrostatics:380' on page 1 undefined on input line 12
@@ -12,7 +18,14 @@
 - REWRITE:
 
    chapter 3: rework as theorem/proof:
+
    - Energy and Momentum (rest) : 10 pages.
+
+      Poynting's theorem
+      Lorentz force
+      Examples (probably nothing todo).
+      complex energy and power.
+
    - Polarization (harder) : 6 pages.
    - Multivector potential (harder) : 11 pages.
 

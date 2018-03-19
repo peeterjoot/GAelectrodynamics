@@ -13,31 +13,36 @@ T = \calE + c \Bp.
 } % definition
 
 \makedefinition{Multivector charge.}{dfn:lorentzForce:280}{
-We may define a \textit{multivector charge} that includes both the magnitude and velocity (relative to the speed of light) of the charged particle.  For electric charges this is
+We may define a \textit{multivector charge} that includes both the magnitude and velocity (relative to the speed of light) of the charged particle.
+\begin{equation*}
+Q = \int_V J dV,
+\end{equation*}
+where \( \BJ = \rho_\txte \Bv_\txte, \BM = \rho_\txtm \Bv_\txtm \).
+For electric charges this is
 \begin{equation*}
 Q = q_\txte \lr{ 1 + \Bv_\txte/c },
 \end{equation*}
 and for magnetic charges
 \begin{equation*}
-Q = -I \epsilon q_\txtm \lr{ 1 + \Bv_\txtm/c }.
+Q = I q_\txtm \lr{ 1 + \Bv_\txtm/c },
 \end{equation*}
+where \( q_\txte = \int_V \rho_\txte dV, q_\txtm = \int_V \rho_\txtm dV \).
 } % definition
-FIXME: better name than charge for this?
 
 With a multivector charge defined, the Lorentz force equation can be stated in terms of the total electromagnetic field strength
 \maketheorem{Lorentz force and power.}{thm:lorentzForce:300}{
 The respective power and force experienced by particles with electric (and/or magnetic) charges is described by
 \cref{dfn:lorentzForce:280} is
 \begin{equation*}
-\inv{c} \frac{dT}{dt} = \gpgrade{ F Q }{0,1},
+\inv{c} \frac{dT}{dt} = \gpgrade{ F Q^\dagger }{0,1},
 \end{equation*}
 where \( \gpgradezero{dT/dt} = \ifrac{d\calE}{dt} \) is the power and \( \gpgradeone{dT/dt} = c \ifrac{d\Bp}{dt} \) is the force on the particle, and
-\( Q \) is an electric or magnetic charge/velocity multivector of \cref{dfn:lorentzForce:280}.
+\( Q^\dagger \) is the electric or magnetic charge/velocity multivector of \cref{dfn:lorentzForce:280}.
 The conventional representation of the Lorentz force/power equations
 \begin{equation*}
 \begin{aligned}
-\gpgradeone{ F Q } &= \ddt{\Bp} = q \lr{ \BE + \Bv \cross \BB } \\
-c \gpgradezero{ F Q } &= \ddt{\calE} = q \BE \cdot \Bv.
+\gpgradeone{ F Q^\dagger } &= \ddt{\Bp} = q \lr{ \BE + \Bv \cross \BB } \\
+c \gpgradezero{ F Q^\dagger } &= \ddt{\calE} = q \BE \cdot \Bv.
 \end{aligned}
 \end{equation*}
 %given by \cref{eqn:freespace:180}
@@ -45,8 +50,8 @@ may be recovered by grade selection operations.
 For magnetic particles, such a grade selection gives
 \begin{equation*}
 \begin{aligned}
-\gpgradeone{ F Q } &= \frac{d\Bp}{dt} = \epsilon q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE } \\
-c \gpgradezero{ F Q } &= \frac{d\calE}{dt} = \inv{\eta} q_\txtm \BB \cdot \Bv_\txtm.
+\gpgradeone{ F Q^\dagger } &= \frac{d\Bp}{dt} = q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE } \\
+c \gpgradezero{ F Q^\dagger } &= \frac{d\calE}{dt} = \inv{\eta} q_\txtm \BB \cdot \frac{\Bv_\txtm}{c}.
 \end{aligned}
 \end{equation*}
 } % theorem
@@ -76,24 +81,24 @@ q \BE
 We see the (c-scaled) particle power relationship
 \cref{eqn:freespace:220}
 in the grade zero component and the Lorentz force \cref{eqn:freespace:220} in the grade 1 component.
-A substitution \( q \rightarrow -I \epsilon q_\txtm, \Bv \rightarrow \Bv_\txtm \), and subsequent grade 0,1 selection gives
+A substitution \( q \rightarrow -I q_\txtm, \Bv \rightarrow \Bv_\txtm \), and subsequent grade 0,1 selection gives
 \begin{dmath}\label{eqn:lorentzForce:320}
 \gpgrade{
--I \epsilon q_\txtm F \lr{ 1 + \frac{\Bv_\txtm}{c} }
+-I q_\txtm F \lr{ 1 + \frac{\Bv_\txtm}{c} }
 }{0,1}
 =
-- I \epsilon q_\txtm \lr{ c I \BB + \inv{c} \BE \wedge \Bv_\txtm }
-- I \epsilon q_\txtm I \BB \cdot \Bv_\txtm
+- I q_\txtm \lr{ c I \BB + \inv{c} \BE \wedge \Bv_\txtm }
+- I q_\txtm I \BB \cdot \Bv_\txtm
 =
-\epsilon q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE }
+q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE }
 +
-\epsilon q_\txtm \BB \cdot \Bv_\txtm.
+q_\txtm \BB \cdot \Bv_\txtm.
 \end{dmath}
 The grade one component of this multivector has the
 required form for the dual Lorentz force equation, as determined from the conservation relationships for the energy-momentum tensor in
 \cref{eqn:poyntingLorentzForce:140}.
 Scaling the grade zero component by \( c \) completes the proof.
 
-FIXME: did I have an energy-momentum tensor derivation of the time rate of change of energy for a magnetic charge density?
+%FIXME: did I have an energy-momentum tensor derivation of the time rate of change of energy for a magnetic charge density?
 
 %As the electric and magnetic field contributions to the force are subsumed by the total electromagnetic field strength \( F \), \cref{thm:lorentzForce:300} puts the electric and magnetic fields on equal footing.
