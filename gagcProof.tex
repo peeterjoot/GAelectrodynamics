@@ -30,7 +30,7 @@ We start with
 expanding the hypervolume
 integral, by separating the
 geometric product of the volume element and vector derivative direction vectors into dot and wedge contributions
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:300}
+\begin{dmath}\label{eqn:gagcProof:300}
 \int_V F d^k \Bx \lrboldpartial G
 =
 \sum_i \int_V d^k u F I_k \Bx^i \lrpartial_i G
@@ -38,7 +38,7 @@ geometric product of the volume element and vector derivative direction vectors 
 \sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i +  I_k \wedge \Bx^i } \lrpartial_i G.
 \end{dmath}
 Because \( \Bx^i \) lies in \( \Span \setlr{ \Bx_j } \), the wedge product above is zero, leaving
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:320}
+\begin{dmath}\label{eqn:gagcProof:320}
 \int_V F d^k \Bx \lrboldpartial G
 =
 \sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} \lrpartial_i G,
@@ -54,11 +54,11 @@ Because \( \Bx^i \) lies in \( \Span \setlr{ \Bx_j } \), the wedge product above
 
 The sum in the second integral turns out to be zero, but is somewhat messy to show in general.
 The \( k = 1 \) is a special case, as it is trivial
-\begin{equation}\label{eqn:fundamentalTheoremOfCalculus:360}
+\begin{equation}\label{eqn:gagcProof:360}
 \partial_1 (\Bx_1 \cdot \Bx^1) = \partial_1 1 = 0.
 \end{equation}
 The \( k = 2 \) case is illustrative
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:380}
+\begin{dmath}\label{eqn:gagcProof:380}
 \sum_{i = 1}^2 \partial_i \lr{ I_3 \cdot \Bx^i }
 =
 \partial_1 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^1)
@@ -133,8 +133,8 @@ For each \( i \ne j \) there will be one partial \( \partial_{i,j} \Bx \) and on
 By equality of mixed partials this difference of \(1,2\) partials are killed.  The same argument holds for all other indexes,
 proving that \( \sum_i \partial_i \lr{ I_k \cdot \Bx^i } = 0 \).
 
-\Cref{eqn:fundamentalTheoremOfCalculus:320} is left with a sum of perfect differentials, each separately integratable
-\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:340}
+\Cref{eqn:gagcProof:320} is left with a sum of perfect differentials, each separately integratable
+\begin{dmath}\label{eqn:gagcProof:340}
 \int_V F d^k \Bx \lrboldpartial G
 =
 \sum_i \int_{\partial V} d^{k-1} u_i \int_{\Delta u_i} du_i \PD{u_i}{} \lr{ F \lr{ I_k \cdot \Bx^i} G}

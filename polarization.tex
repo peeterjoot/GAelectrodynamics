@@ -6,13 +6,27 @@
 \index{plane wave}
 \index{polarization}
 In a discussion of polarization, it is convenient to align the propagation direction along a fixed direction, usually the z-axis.
-Setting \( \kcap = \Be_3, \beta z = \Bk \cdot \Bx \) in \cref{eqn:frequencydomainPlaneWaves:200} the plane wave representation of the field is
+%%\begin{dmath}\label{eqn:frequencydomainPlaneWaves:200}
+%\boxedEquation
+%{eqn:frequencydomainPlaneWaves:200}
+%{
+%F = (1 + \kcap) \BE_0 e^{-j \Bk \cdot \Bx},
+%}
+%%\end{dmath}
+Setting \( \kcap = \Be_3, \beta z = \Bk \cdot \Bx \)
+in a
+plane wave representation from
+\cref{thm:planewavesMultivector:620}
+%\cref{eqn:frequencydomainPlaneWaves:200} the plane wave representation of
+the field is
 \begin{dmath}\label{eqn:polarization:20}
 \begin{aligned}
 F(\Bx, \omega) &= (1 + \Be_3) \BE e^{-j \beta z} \\
-F(\Bx, t) &= \Real\lr{ F(\Bx, \omega) e^{j \omega t} }.
+F(\Bx, t) &= \Real\lr{ F(\Bx, \omega) e^{j \omega t} },
 \end{aligned}
 \end{dmath}
+where \( \BE \cdot \Be_3 = 0 \)
+, (i.e. \( \BE \) is an electric field, and not just a free parameter).
 
 Here the imaginary \( j \) has no intrinsic geometrical interpretation, \( \BE = \BE_\txtr + j \BE_\txti \) is allowed to have complex values, and all components of \( \BE \) is perpendicular to the propagation direction (\( \Be_\txtr \cdot \Be_3 = \BE_\txti \cdot \Be_3 = 0 \)).
 \index{Jones vector}

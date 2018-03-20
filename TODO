@@ -1,3 +1,30 @@
+- removed solution for electrostatics
+
+      \boxedEquation{eqn:electrostatics_poissonEquationSolution:601}{
+      \phi(\Bx) = \inv{4 \pi \epsilon} \int dV' \frac{ \rho(\Bx') }{\Norm{\Bx - \Bx'}}.
+      }
+
+      \boxedEquation{eqn:magnetostatics_vectorPotential:560}{
+      \BA(\Bx) = \frac{\mu}{4\pi} \int dV' \frac{ \BJ(\Bx') }{\Norm{\Bx - \Bx'}}.
+      }
+
+   and related context.
+
+      -      \chapter{REWRITE and reincorporate above.}
+      -      \section{Electrostatics.}
+      -         \subsection{Electric potential.}
+      -            \input{electrostatics_electricPotential.tex}
+      -         \subsection{Poisson equation solution.}
+      -            \input{electrostatics_poissonEquationSolution.tex}
+      -         \subsection{Problems.}
+      -            \input{electrostaticsProblems.tex}
+      -      \section{Magnetostatics.}
+      -         \subsection{Vector potential.}
+      -            \input{magnetostatics_vectorPotential.tex}
+
+   Did I have anything like that in the multivector potential solution ... I don't think I did.
+   Look through the multivector potential section for anything on solutions.
+
 - undefs:
 
   Reference `eqn:electrostatics:380' on page 1 undefined on input line 12

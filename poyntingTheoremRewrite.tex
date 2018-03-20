@@ -79,7 +79,7 @@ F^\dagger F
 Plugging \cref{eqn:poyntingTheoremRewrite:1260} into \cref{eqn:poyntingTheoremRewrite:1240} proves the result.
 
 Finally, we want to evaluate the Maxwell stress tensor of the gradient
-\begin{dmath}\label{eqn:poyntingLorentzForce:260}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:260}
 \BT(\spacegrad)
 =
 \sum_{k = 1}^3 \Be_k \lr{ \BT(\spacegrad) } \cdot \Be_k
@@ -102,7 +102,7 @@ Will want to integrate \( \BT(\spacegrad) \) over a volume, which is essentially
 } % theorem
 
 To prove \cref{thm:poyntingTheoremRewrite:1281}, we make use of the symmetric property of the Maxwell stress tensor
-\begin{dmath}\label{eqn:poyntingLorentzForce:320}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:320}
 \int_V dV \BT(\spacegrad)
 =
 \sum_k \int_V dV \Be_k \spacegrad \cdot \BT(\Be_k)
@@ -148,7 +148,7 @@ The adjoint \( \overbar{T} \) and \( T \) satisfy the following relationships
 
 Using
 the cyclic scalar selection permutation property \(\gpgradezero{ABC} = \gpgradezero{CAB}\) we form
-\begin{dmath}\label{eqn:poyntingTheorem:1160}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1160}
 \gpgradezero{ x T(y) }
 =
 \frac{\epsilon}{2} \gpgradezero{ x F y F^\dagger }
@@ -156,7 +156,7 @@ the cyclic scalar selection permutation property \(\gpgradezero{ABC} = \gpgradez
 \frac{\epsilon}{2} \gpgradezero{ y F^\dagger x F }.
 \end{dmath}
 Referring back to \cref{dfn:poyntingTheorem:1120} we see that the adjoint must have the stated form.
-Proving the grade selection relationships of \cref{eqn:poyntingTheorem:1160} has been left as
+Proving the grade selection relationships of \cref{eqn:poyntingTheoremRewrite:1160} has been left as
 an exersize for the reader.  A brute force symbolic algebra proof using Mathematica is also available in \cref{path:GAelectrodynamics:stressEnergyTensorValues.nb}.
 %We can now state the adjoint form of \cref{thm:poyntingTheorem:1040}.
 
@@ -273,7 +273,7 @@ follows from
 We may use the scalar form of the theorem to extract the scalar grade, by setting \( a = 1 \), for which the right hand side
 can be reduced to a single term
 since scalars are reversion invariant
-\begin{equation}\label{eqn:poyntingTheorem:1000}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1000}
 \gpgradezero{ F^\dagger J }
 =
 \gpgradezero{ F^\dagger J }^\dagger
@@ -281,7 +281,7 @@ since scalars are reversion invariant
 \gpgradezero{ J^\dagger F },
 \end{equation}
 so
-\begin{dmath}\label{eqn:poyntingTheorem:960}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:960}
 \spacegrad \cdot \gpgradeone{ T(1) }
 + \inv{c} \PD{t}{} \gpgradezero{ T(1) }
 =
@@ -318,7 +318,7 @@ The left hand side of the vector grade selection follows by linearity using \cre
 \end{dmath}
 The right hand side is a bit messier to simplify.
 Let's do this in pieces by superposition, first considering just electric sources
-\begin{dmath}\label{eqn:poyntingLorentzForce:80}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:80}
 \frac{\epsilon}{2} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
 =
 \frac{\epsilon \eta}{2}
@@ -334,7 +334,7 @@ Let's do this in pieces by superposition, first considering just electric source
 \Be_k \cdot \lr{ \rho \BE + \mu \BJ \cross \BH },
 \end{dmath}
 and then magnetic sources
-\begin{dmath}\label{eqn:poyntingLorentzForce:180}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:180}
 \frac{\epsilon}{2 } \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
 =
 \frac{\epsilon }{2} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH) I (c \rho_\txtm - \BM)  - I (c \rho_\txtm - \BM)( \BE + I \eta \BH )} }
@@ -346,7 +346,7 @@ and then magnetic sources
 \Be_k \cdot \lr{ \rho_\txtm \BH + \epsilon \BE \cross \BM }.
 \end{dmath}
 Jointly,
-\cref{eqn:poyntingTheoremRewrite:1380}, \cref{eqn:poyntingLorentzForce:80}, \cref{eqn:poyntingLorentzForce:180} complete the proof.
+\cref{eqn:poyntingTheoremRewrite:1380}, \cref{eqn:poyntingTheoremRewrite:80}, \cref{eqn:poyntingTheoremRewrite:180} complete the proof.
 
 The integral form of \cref{thm:poyntingTheorem:1180} submits nicely to physical interpretation.
 \maketheorem{Poynting's theorem (integral form.)}{thm:poyntingTheoremRewrite:1420}{
