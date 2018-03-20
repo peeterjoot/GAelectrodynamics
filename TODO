@@ -25,17 +25,6 @@
    Did I have anything like that in the multivector potential solution ... I don't think I did.
    Look through the multivector potential section for anything on solutions.
 
-- undefs:
-
-  Reference `eqn:electrostatics:380' on page 1 undefined on input line 12
-  Reference `eqn:electrostatics_invertingGradient:340' on page 1 undefined on input line 16
-  Reference `eqn:frequencydomainPlaneWaves:200' on page 1 undefined on input line 9
-  Reference `eqn:magnetostatics:380' on page 1 undefined on input line 10
-  Reference `eqn:magnetostatics:380' on page 1 undefined on input line 15
-  Reference `eqn:magnetostatics:380' on page 1 undefined on input line 18
-  Reference `eqn:magnetostatics:380' on page 1 undefined on input line 8
-  Reference `eqn:statics:80' on page 1 undefined
-
 - REWRITE:
 
    chapter 3: rework as theorem/proof:
@@ -44,22 +33,8 @@
    - Multivector potential (harder) : 11 pages.
    - Lorentz force: 2 pages -- incorporate into integral form of Poynting vector.  Doesn't really need a proof now.
 
-   chapter4:
-   - electric and magnetic potentials: 2 pages.
-   - dielectric media: 3 pages.
-
    ====
-   24 pages pending.
-
-- think I have a mix of:
-
-   energy momentum tensor
-
-and
-
-   energy-momentum tensor
-
-   >> Be consistent.
+   19 pages pending.
 
 - before a \makedefinition, theorem, ... should I end any sentance?  I think so, and don't in many places.
 
