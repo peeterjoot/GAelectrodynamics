@@ -24,140 +24,129 @@
 \beginArtNoToc
 
 \generatetitle{Potential solutions to the static Maxwell's equation using geometric algebra}
-%\chapter{Potential solutions to the static Maxwell's equation using geometric algebra}
-%\label{chap:staticPotentials}
 
-When neither the electromagnetic field strength \( F = \BE + I \eta \BH \), nor current \( J = \eta (c \rho - \BJ) + I(c\rho_m - \BM) \) is a function of time,
-then the geometric algebra form of Maxwell's equations is the
-first order multivector (gradient) equation
-\begin{dmath}\label{eqn:staticPotentials:20}
+When neither the electromagnetic field strength \( F = \BE + I \eta \BH \), nor current \( J = \eta (c \rho - \BJ) + I(c\rho_m - \BM) \) is a function of time, then the geometric algebra form of Maxwell's equations is the first order multivector (gradient) equation
+\begin{equation}\label{eqn:staticPotentials:20}
 \spacegrad F = J.
-\end{dmath}
+\end{equation}
 
 While direct solutions to this equations are possible with the multivector Green's function for the gradient
-\begin{dmath}\label{eqn:staticPotentials:40}
+\begin{equation}\label{eqn:staticPotentials:40}
 G(\Bx, \Bx') = \inv{4\pi} \frac{\Bx - \Bx'}{\Norm{\Bx - \Bx'}^3 },
-\end{dmath}
+\end{equation}
 the aim in this post is to explore second order (potential) solutions in a geometric algebra context.  Can we assume that it is possible to find a multivector potential \( A \) for which
-% maketheorem here:
-\begin{dmath}\label{eqn:staticPotentials:60}
+\begin{equation}\label{eqn:staticPotentials:60}
 F = \spacegrad A,
-\end{dmath}
+\end{equation}
 is a solution to the Maxwell statics equation?  If such a solution exists, then Maxwell's equation is simply
-\begin{dmath}\label{eqn:staticPotentials:80}
+\begin{equation}\label{eqn:staticPotentials:80}
 \spacegrad^2 A = J,
-\end{dmath}
+\end{equation}
 which can be easily solved using the scalar Green's function for the Laplacian
-\begin{dmath}\label{eqn:staticPotentials:240}
+\begin{equation}\label{eqn:staticPotentials:240}
 G(\Bx, \Bx') = -\inv{\Norm{\Bx - \Bx'} },
-\end{dmath}
+\end{equation}
 a beastie that may be easier to convolve than the vector valued Green's function for the gradient.
 
-%From \cref{eqn:staticPotentials:80}
 It is immediately clear that some restrictions must be imposed on the multivector potential \(A\). In particular, since the field \( F \) has only vector and bivector grades, this gradient must have no scalar, nor pseudoscalar grades.  That is
-\begin{dmath}\label{eqn:staticPotentials:100}
+\begin{equation}\label{eqn:staticPotentials:100}
 \gpgrade{\spacegrad A}{0,3} = 0.
-\end{dmath}
+\end{equation}
 This constraint on the potential can be avoided if a grade selection operation is built directly into the assumed potential solution, requiring that the field is given by
-\begin{dmath}\label{eqn:staticPotentials:120}
+\begin{equation}\label{eqn:staticPotentials:120}
 F = \gpgrade{\spacegrad A}{1,2}.
-\end{dmath}
+\end{equation}
 However, after imposing such a constraint, Maxwell's equation has a much less friendly form
-\begin{dmath}\label{eqn:staticPotentials:140}
+\begin{equation}\label{eqn:staticPotentials:140}
 \spacegrad^2 A - \spacegrad \gpgrade{\spacegrad A}{0,3} = J.
-\end{dmath}
+\end{equation}
 Luckily, it is possible to introduce a transformation of potentials, called a gauge transformation, that eliminates the ugly grade selection term, and allows the potential equation to be expressed as a plain old Laplacian.  We do so by assuming first that it is possible to find a solution of the Laplacian equation that has the desired grade restrictions.  That is
-\begin{dmath}\label{eqn:staticPotentials:160}
+\begin{equation}\label{eqn:staticPotentials:160}
 \begin{aligned}
 \spacegrad^2 A' &= J \\
 \gpgrade{\spacegrad A'}{0,3} &= 0,
 \end{aligned}
-\end{dmath}
+\end{equation}
 for which \( F = \spacegrad A' \) is a grade 1,2 solution to \( \spacegrad F = J \).  Suppose that \( A \) is any formal solution, free of any grade restrictions, to \( \spacegrad^2 A = J \), and \( F = \gpgrade{\spacegrad A}{1,2} \).  Can we find a function \( \tilde{A} \) for which \( A = A' + \tilde{A} \)?
 
 Maxwell's equation in terms of \( A \) is
-\begin{dmath}\label{eqn:staticPotentials:180}
+\begin{equation}\label{eqn:staticPotentials:180}
+\begin{aligned}
 J
-= \spacegrad \gpgrade{\spacegrad A}{1,2}
-= \spacegrad^2 A
+&= \spacegrad \gpgrade{\spacegrad A}{1,2} \\
+&= \spacegrad^2 A
+- \spacegrad \gpgrade{\spacegrad A}{0,3} \\
+&= \spacegrad^2 (A' + \tilde{A})
 - \spacegrad \gpgrade{\spacegrad A}{0,3}
-= \spacegrad^2 (A' + \tilde{A})
-- \spacegrad \gpgrade{\spacegrad A}{0,3}
-\end{dmath}
+\end{aligned}
+\end{equation}
 or
-\begin{dmath}\label{eqn:staticPotentials:200}
+\begin{equation}\label{eqn:staticPotentials:200}
 \spacegrad^2 \tilde{A} = \spacegrad \gpgrade{\spacegrad A}{0,3}.
-\end{dmath}
+\end{equation}
 This non-homogeneous Laplacian equation that can be solved as is for \( \tilde{A} \) using the Green's function for the Laplacian.  Alternatively, we may also solve the equivalent first order system using the Green's function for the gradient.
-\begin{dmath}\label{eqn:staticPotentials:220}
+\begin{equation}\label{eqn:staticPotentials:220}
 \spacegrad \tilde{A} = \gpgrade{\spacegrad A}{0,3}.
-\end{dmath}
-Clearly \( \tilde{A} \) is not unique, as we can add any function \( \psi \) satisfying the
-homogeneous Laplacian equation \( \spacegrad^2 \psi = 0 \).
+\end{equation}
+Clearly \( \tilde{A} \) is not unique, as we can add any function \( \psi \) satisfying the homogeneous Laplacian equation \( \spacegrad^2 \psi = 0 \).
 
-In summary,
-if \( A \) is any multivector solution to \( \spacegrad^2 A = J \), that is
+In summary, if \( A \) is any multivector solution to \( \spacegrad^2 A = J \), that is
 \begin{equation}\label{eqn:staticPotentials:260}
 A(\Bx)
 = \int dV' G(\Bx, \Bx') J(\Bx')
 = -\int dV' \frac{J(\Bx')}{\Norm{\Bx - \Bx'} },
 \end{equation}
-then
-\( F = \spacegrad A' \) is a solution to Maxwell's equation, where \( A' = A - \tilde{A} \), and \( \tilde{A} \) is a solution to the non-homogeneous Laplacian equation
-% \cref{eqn:staticPotentials:200}
-or the non-homogeneous gradient equation
-% \cref{eqn:staticPotentials:220}
-above.
+then \( F = \spacegrad A' \) is a solution to Maxwell's equation, where \( A' = A - \tilde{A} \), and \( \tilde{A} \) is a solution to the non-homogeneous Laplacian equation or the non-homogeneous gradient equation above.
 
 \paragraph{Integral form of the gauge transformation.}
 
 Additional insight is possible by considering the gauge transformation in integral form.  Suppose that
-\begin{dmath}\label{eqn:staticPotentials:280}
+\begin{equation}\label{eqn:staticPotentials:280}
 A(\Bx) = -\int_V dV' \frac{J(\Bx')}{\Norm{\Bx - \Bx'} } - \tilde{A}(\Bx),
-\end{dmath}
+\end{equation}
 is a solution of \( \spacegrad^2 A = J \), where \( \tilde{A} \) is a multivector solution to the homogeneous Laplacian equation \( \spacegrad^2 \tilde{A} = 0 \).  Let's look at the constraints on \( \tilde{A} \) that must be imposed for \( F = \spacegrad A \) to be a valid (i.e. grade 1,2) solution of Maxwell's equation.
-\begin{dmath}\label{eqn:staticPotentials:300}
+\begin{equation}\label{eqn:staticPotentials:300}
+\begin{aligned}
 F
-= \spacegrad A
-=
+&= \spacegrad A \\
+&=
 -\int_V dV' \lr{ \spacegrad \inv{\Norm{\Bx - \Bx'} } } J(\Bx')
-- \spacegrad \tilde{A}(\Bx)
-=
+- \spacegrad \tilde{A}(\Bx) \\
+&=
 \int_V dV' \lr{ \spacegrad' \inv{\Norm{\Bx - \Bx'} } } J(\Bx')
-- \spacegrad \tilde{A}(\Bx)
-=
+- \spacegrad \tilde{A}(\Bx) \\
+&=
 \int_V dV' \spacegrad' \frac{J(\Bx')}{\Norm{\Bx - \Bx'} } - \int_V dV' \frac{\spacegrad' J(\Bx')}{\Norm{\Bx - \Bx'} }
-- \spacegrad \tilde{A}(\Bx)
-=
+- \spacegrad \tilde{A}(\Bx) \\
+&=
 \int_{\partial V} dA' \ncap' \frac{J(\Bx')}{\Norm{\Bx - \Bx'} } - \int_V \frac{\spacegrad' J(\Bx')}{\Norm{\Bx - \Bx'} }
 - \spacegrad \tilde{A}(\Bx).
-\end{dmath}
-Where \( \ncap' = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \), and the fundamental theorem of geometric calculus
-has been used to transform the gradient volume integral into an integral over the bounding surface.
-Operating on Maxwell's equation with the gradient gives \( \spacegrad^2 F = \spacegrad J \), which has only grades 1,2 on the left hand side, meaning that \( J \) is constrained in a way that requires \( \spacegrad J \) to have only grades 1,2.
-% reference to section that discussed this.
-This means that \( F \) has grades 1,2 if
-\begin{dmath}\label{eqn:staticPotentials:320}
+\end{aligned}
+\end{equation}
+Where \( \ncap' = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \), and the fundamental theorem of geometric calculus has been used to transform the gradient volume integral into an integral over the bounding surface.  Operating on Maxwell's equation with the gradient gives \( \spacegrad^2 F = \spacegrad J \), which has only grades 1,2 on the left hand side, meaning that \( J \) is constrained in a way that requires \( \spacegrad J \) to have only grades 1,2.  This means that \( F \) has grades 1,2 if
+\begin{equation}\label{eqn:staticPotentials:320}
 \spacegrad \tilde{A}(\Bx)
 = \int_{\partial V} dA' \frac{ \gpgrade{\ncap' J(\Bx')}{0,3} }{\Norm{\Bx - \Bx'} }.
-\end{dmath}
+\end{equation}
 The product \( \ncap J \) expands to
-\begin{dmath}\label{eqn:staticPotentials:340}
+\begin{equation}\label{eqn:staticPotentials:340}
+\begin{aligned}
 \ncap J
-=
-\gpgradezero{\ncap J_1} + \gpgradethree{\ncap J_2}
-=
-\ncap \cdot (-\eta \BJ) + \gpgradethree{\ncap (-I \BM)}
-=- \eta \ncap \cdot \BJ -I \ncap \cdot \BM,
-\end{dmath}
+&=
+\gpgradezero{\ncap J_1} + \gpgradethree{\ncap J_2} \\
+&=
+\ncap \cdot (-\eta \BJ) + \gpgradethree{\ncap (-I \BM)} \\
+&=- \eta \ncap \cdot \BJ -I \ncap \cdot \BM,
+\end{aligned}
+\end{equation}
 so
-\begin{dmath}\label{eqn:staticPotentials:360}
+\begin{equation}\label{eqn:staticPotentials:360}
 \spacegrad \tilde{A}(\Bx)
 =
 -\int_{\partial V} dA' \frac{ \eta \ncap' \cdot \BJ(\Bx') + I \ncap' \cdot \BM(\Bx')}{\Norm{\Bx - \Bx'} }.
-\end{dmath}
+\end{equation}
 Observe that if there is no flux of current density \( \BJ \) and (fictitious) magnetic current density \( \BM \) through the surface, then \( F = \spacegrad A \) is a solution to Maxwell's equation without any gauge transformation.  Alternatively \( F = \spacegrad A \) is also a solution if \( \lim_{\Bx' \rightarrow \infty} \BJ(\Bx')/\Norm{\Bx - \Bx'} = \lim_{\Bx' \rightarrow \infty} \BM(\Bx')/\Norm{\Bx - \Bx'} = 0 \) and the bounding volume is taken to infinity.
 
 %}
-\EndArticle
-%\EndNoBibArticle
+%\EndArticle
+\EndNoBibArticle
