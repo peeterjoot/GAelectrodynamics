@@ -22,9 +22,6 @@ cylinderField.tex
 derivativeOfDeltaFunction.tex
 distributionDotVectorBivector.tex
 dual.tex
-electrostaticsProblems.tex
-electrostatics_electricPotential.tex
-electrostatics_poissonEquationSolution.tex
 enclosedCurrent.tex
 fourier.tex
 freespace.tex
@@ -57,7 +54,6 @@ linecharge.tex
 lineintegral.tex
 lorentzForce.tex
 lorentzForce_constantMagnetic.tex
-magnetostatics_vectorPotential.tex
 maxwellsEquations.tex
 multivector.tex
 multivector_nomenclature.tex

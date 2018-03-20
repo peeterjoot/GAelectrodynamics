@@ -1,0 +1,106 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{staticPotentials}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Potential solutions to the static Maxwell's equation using geometric algebra}
+%\chapter{Potential solutions to the static Maxwell's equation using geometric algebra}
+%\label{chap:staticPotentials}
+
+Maxwell's equations for static configurations where neither the electromagnetic field strength \( F = \BE + I \eta \BH \), nor current \( J = \eta (c \rho - \BJ) + I(c\rho_m - \BM) \) is a function of time, is a first order multivector (gradient) equation of the form
+\begin{dmath}\label{eqn:staticPotentials:20}
+\spacegrad F = J.
+\end{dmath}
+
+While direct solutions to this equations are possible with the multivector Green's function for the gradient
+\begin{dmath}\label{eqn:staticPotentials:40}
+G(\Bx, \Bx') = \frac{\Bx - \Bx'}{4 \pi \Norm{\Bx - \Bx'}^3 },
+\end{dmath}
+the aim in this post is to explore second order (potential) solutions in a geometric algebra context.  Can we assume that it is possible to find a multivector potential \( A \) for which
+% maketheorem here:
+\begin{dmath}\label{eqn:staticPotentials:60}
+F = \spacegrad A,
+\end{dmath}
+is a solution to the Maxwell statics equation?  If such a solution exists, then Maxwell's equation is simply
+\begin{dmath}\label{eqn:staticPotentials:80}
+\spacegrad^2 A = J,
+\end{dmath}
+which can be easily solved using the Green's function for the Laplacian
+\begin{dmath}\label{eqn:staticPotentials:n}
+G(\Bx, \Bx') = -\inv{\Norm{\Bx - \Bx'} }.
+\end{dmath}
+
+It is immediately clear that some restrictions must be imposed on the potential. In particular, since the field \( F \) has only vector and bivector grades, this gradient must have no scalar, nor pseudoscalar grades.  That is
+\begin{dmath}\label{eqn:staticPotentials:100}
+\gpgrade{\spacegrad A}{0,3} = 0.
+\end{dmath}
+This constraint on the potential can be avoided if a grade selection operation is built directly into the assumed potential solution, requiring that the field is given by
+\begin{dmath}\label{eqn:staticPotentials:120}
+F = \gpgrade{\spacegrad A}{1,2}.
+\end{dmath}
+With such a constraint, Maxwell's equation has a much less friendly form
+\begin{dmath}\label{eqn:staticPotentials:140}
+\spacegrad^2 A - \spacegrad \gpgrade{\spacegrad A}{0,3} = J.
+\end{dmath}
+Luckily, it is possible to introduce a transformation of potentials, a gauge transformation, that eliminates the ugly grade selection term, and allows the potential equation to be expressed as a plain old Laplacian.  We do so by assuming first that it is possible to find a solution of the Laplacian equation that has the desired grade restrictions.  That is
+\begin{dmath}\label{eqn:staticPotentials:160}
+\begin{aligned}
+\spacegrad^2 A' &= J \\
+\gpgrade{\spacegrad A'}{0,3} &= 0,
+\end{aligned}
+\end{dmath}
+for which \( F = \spacegrad A' \) is a grade 1,2 solution to \( \spacegrad F = J \).  Suppose that \( A \) is any formal solution, free of any grade restrictions, to \( \spacegrad^2 A = J \), and \( F = \gpgrade{\spacegrad A}{1,2} \).  Can we find a function \( \tilde{A} \) for which \( A = A' + \tilde{A} \)?
+
+Maxwell's equation in terms of \( A \) is
+\begin{dmath}\label{eqn:staticPotentials:180}
+J
+= \spacegrad \gpgrade{\spacegrad A}{1,2}
+= \spacegrad^2 A
+- \spacegrad \gpgrade{\spacegrad A}{0,3}
+= \spacegrad^2 (A' + \tilde{A}
+- \spacegrad \gpgrade{\spacegrad A}{0,3}
+\end{dmath}
+or
+\begin{dmath}\label{eqn:staticPotentials:200}
+\spacegrad^2 \tilde{A} = \spacegrad \gpgrade{\spacegrad A}{0,3}.
+\end{dmath}
+This non-homogeneous Laplacian equation that can be solved as is for \( \tilde{A} \) using the Green's function for the Laplacian.  Alternatively, we may also solve the equivalent first order system using the Green's function for the gradient.
+\begin{dmath}\label{eqn:staticPotentials:220}
+\spacegrad \tilde{A} = \gpgrade{\spacegrad A}{0,3}.
+\end{dmath}
+Clearly \( \tilde{A} \) is not unique, as we can add any function \( \psi \) satisfying the
+homogeneous Laplacian equation \( \spacegrad^2 \phi = 0 \).
+
+In summary,
+if \( A \) is any multivector solution to \( \spacegrad^2 A = J \), then
+\( F = \spacegrad A' \) is a solution to Maxwell's equation, where \( A' = A - \tilde{A} \), and \( \tilde{A} \) is a solution to the non-homogeneous Laplacian equation
+% \cref{eqn:staticPotentials:200}
+or the non-homogeneous gradient equation
+% \cref{eqn:staticPotentials:220}
+above.
+
+\paragraph{Integral potential solutions.}
+
+%}
+\EndArticle
+%\EndNoBibArticle
