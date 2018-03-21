@@ -1,3 +1,5 @@
+- Have places that it would make sense to use label boxes.  I'd forgotten all about those.
+
 - removed solution for electrostatics
 
       \boxedEquation{eqn:electrostatics_poissonEquationSolution:601}{

@@ -427,3 +427,5 @@ perl -p -i ../latex/bin/latexRegex.pl ampereExample.tex
 perl -p -i ../latex/bin/latexRegex.pl multivectorPotential.tex
 ../latex/bin/lgrep staticPotentials.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl staticPotentials.tex
+../latex/bin/lgrep unpackStaticPotential.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl unpackStaticPotential.tex

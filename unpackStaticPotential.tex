@@ -1,0 +1,123 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{unpackStaticPotential}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%\beginArtNoToc
+%
+%\generatetitle{Unpacking the potential equation.}
+%%\chapter{Unpacking the potential equation.}
+\label{chap:unpackStaticPotential}
+
+In this section we will explore potential (second order) solutions of
+\cref{eqn:statics:20}, the Maxwell statics equation.
+While we can solve this for the field directly using
+the Green's function for the gradient \cref{eqn:greensFunctionFirstOrderHelmholtz:900}, a second order solution can use the scalar valued Green's function \cref{eqn:greensFunctionHelmholtz:80} which may be simpler to evaluate in some circumstances.
+
+\makedefinition{Multivector potential (statics.)}{thm:staticPotentials:380}{
+\( A \) is a \textit{multivector potential} for the (static) field if
+\begin{equation*}
+F = \gpgrade{\spacegrad A}{1,2}.
+\end{equation*}
+That is
+\begin{equation*}
+\spacegrad \gpgrade{\spacegrad A}{1,2} = J.
+\end{equation*}
+} % definition
+
+Without any a-priori knowledge, we should assume that the multivector potential contains all possible grades.  If those grades are indicated with subscripts, as in
+\begin{dmath}\label{eqn:unpackStaticPotential:20}
+A = A_0 + A_1 + A_2 + A_3,
+\end{dmath}
+then
+\begin{dmath}\label{eqn:unpackStaticPotential:40}
+F =F =  \gpgrade{\spacegrad A}{1,2}
+=
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+\spacegrad A_0 + \spacegrad \cdot A_2
+}
+{
+\(\BE\)
+}
++
+%\mathLabelBox[ labelstyle={yshift=0.2em}, linestyle={} ]
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+\spacegrad \wedge A_1 + \spacegrad A_3
+}
+{
+\(I \eta \BH\)
+}
+.
+\end{dmath}
+Application of the gradient to \cref{eqn:unpackStaticPotential:40} provides one equation for each grade
+\begin{dmath}\label{eqn:unpackStaticPotential:60}
+\begin{aligned}
+\spacegrad \cdot \lr{ \spacegrad A_0 + \cancel{\spacegrad \cdot A_2} } &= \frac{\rho}{\epsilon} \\
+\spacegrad \cdot \lr{ \spacegrad \wedge A_1 + \cancel{\spacegrad A_3} } &= -\eta \BJ \\
+\spacegrad \wedge \lr{ \cancel{\spacegrad A_0} + \spacegrad \cdot A_2 } &= -I \BM \\
+\spacegrad \wedge \lr{ \cancel{\spacegrad \wedge A_1} + \spacegrad A_3 } &= I c \rho_\txtm,
+\end{aligned}
+\end{dmath}
+where the cancelled terms follow from \( \spacegrad \wedge \spacegrad \wedge f = 0 \), after noting that \( \spacegrad \cdot (\spacegrad \cdot A_2) = I \spacegrad \wedge (\spacegrad \wedge (-I A_2)) \).
+The Maxwell statics equation uncouples completely, providing one equation for each grade, where each grade of the multivector potential is related to precisely one source.
+
+The conventional representation of these equations may be obtained with the following representation of the multivector potential.
+\makedefinition{Multivector potential representation.}{dfn:unpackStaticPotential:80}{
+Let
+%\label{eqn:potentialSection:40}
+\begin{equation*}
+A =
+      - \phi
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF },
+\end{equation*}
+where
+\begin{enumerate}
+\item \( \phi \) is the scalar potential \si{V} (Volts).
+\item \( \BA \) is the vector potential \si{W/m} (Webers/meter).
+\item \( \phi_m \) is the scalar potential for (fictitious) magnetic sources \si{A} (Amperes).
+\item \( \BF \) is the vector potential for (fictitious) magnetic sources \si{C} (Coulombs).
+\end{enumerate}
+} % definition
+
+This specific breakdown of \( A \) into scalar and vector potentials, and dual (pseudoscalar and bivector) potentials has been chosen to match SI conventions, specifically those of \citep{balanis2005antenna}.
+
+With substitution of \cref{dfn:unpackStaticPotential:80} into \cref{eqn:unpackStaticPotential:60}, and a bit of manipulation (\cref{problem:unpackStaticPotential:120}), the multivector potential equation \( \spacegrad \gpgrade{\spacegrad A}{1,2} = J \) is seen to expand to
+\begin{dmath}\label{eqn:unpackStaticPotential:100}
+\begin{aligned}
+\spacegrad^2 \phi &= -\frac{\rho}{\epsilon} \\
+\spacegrad \cdot \lr{ \spacegrad \wedge \BA } = \spacegrad^2 \BA - \spacegrad (\spacegrad \cdot \BA) &= - \mu \BJ \\
+\spacegrad \cdot \lr{ \spacegrad \wedge \BF } = \spacegrad^2 \BF - \spacegrad (\spacegrad \cdot \BF) &= - \epsilon \BM \\
+\spacegrad^2 \phi_\txtm &= -\frac{\rho_\txtm}{\mu} \\
+\end{aligned}
+\end{dmath}
+
+For statics problems, it is clearly desirable if we can find \( \BA, \BF \) such that \( \spacegrad \cdot \BA = 0, \spacegrad \cdot \BF = 0 \), as the potentials all follow by solution of a set of independent Laplacian equations.
+This can arranged by a suitable choice of gauge.  We will look next at gauge transformations from a multivector point of view.
+
+\makeproblem{Grade split of the potential equations.}{problem:unpackStaticPotential:120}{
+Verify \cref{eqn:unpackStaticPotential:100}.
+} % problem
+
+%}
+%\EndArticle

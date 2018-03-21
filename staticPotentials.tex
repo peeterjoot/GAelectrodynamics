@@ -26,25 +26,9 @@
 %\generatetitle{Potential solutions to the static Maxwell's equation using geometric algebra}
 %\chapter{Potential solutions to the static Maxwell's equation using geometric algebra}
 \label{chap:staticPotentials}
-
-In this section we will explore potential (second order) solutions of
-\cref{eqn:statics:20}, the Maxwell statics equation.
-While we can solve this for the field directly using
-the Green's function for the gradient \cref{eqn:greensFunctionFirstOrderHelmholtz:900}, a second order solution can use the scalar valued Green's function \cref{eqn:greensFunctionHelmholtz:80} which may be simpler to evaluate in some circumstances.
-
-\makedefinition{Multivector potential.}{thm:staticPotentials:380}{
-\( A \) is a \textit{multivector potential} for the field if
-\begin{equation*}
-F = \gpgrade{\spacegrad A}{1,2},
-\end{equation*}
-is a solution to \cref{eqn:statics:20}, the Maxwell statics equation.
-} % definition
+%\subsubsection{Gauge transformations.}
 
 Finding the potential requires solving the equation
-\begin{dmath}\label{eqn:staticPotentials:400}
-\spacegrad \gpgrade{\spacegrad A}{1,2} = J,
-\end{dmath}
-or equivalently
 \begin{dmath}\label{eqn:staticPotentials:140}
 \spacegrad^2 A - \spacegrad \gpgrade{\spacegrad A}{0,3} = J.
 \end{dmath}
@@ -57,7 +41,8 @@ since that would reduce Maxwell's equation to simply
 \spacegrad^2 A = J,
 \end{dmath}
 which we know how to solve.
-Suppose that the potential has all possible grades \( A = A_0 + A_1 + A_2 + A_3 \), then the split of the field
+Given the potential specified by \cref{eqn:unpackStaticPotential:20}, the 
+split of the field
 given by
 \cref{eqn:staticPotentials:60}
 into
@@ -142,9 +127,8 @@ so that \( A' = A - \tilde{A} \) has the required constraints on its vector and 
 If \( \spacegrad \gpgrade{\spacegrad A}{0,3} \) is zero, then the constraints are automatically satisfied, but we are
 free to add any \( \tilde{A} \) to the potential, provided that it is a solution of the homogeneous Laplacian equation \( \spacegrad^2 \tilde{A} = 0\).
 
-%\section{REWRITE MARKER}
-%\paragraph{Integral form of the gauge transformation.}
-%
+\subsubsection{Integral form of the gauge transformation.}
+
 Additional insight is possible by considering the gauge transformation in integral form.
 \maketheorem{Integral form of potential gauge transformation.}{thm:staticPotentials:460}{
 The solution of the Laplacian \cref{eqn:staticPotentials:80} is
@@ -156,6 +140,7 @@ For \( F = \spacegrad A \) to be a solution of
 \cref{eqn:statics:20}, the Maxwell statics equation, \( \tilde{A} \) must also be a solution of the gradient equation
 \begin{equation*}
 \spacegrad \tilde{A}(\Bx)
+= \int_{\partial V} dA' \frac{ \gpgrade{\ncap' J(\Bx')}{0,3} }{\Norm{\Bx - \Bx'} } 
 =
 -\int_{\partial V} dA' \frac{ \eta \ncap' \cdot \BJ(\Bx') + I \ncap' \cdot \BM(\Bx')}{\Norm{\Bx - \Bx'} }.
 \end{equation*}
@@ -179,7 +164,8 @@ F
 \int_{\partial V} dA' \ncap' \frac{J(\Bx')}{\Norm{\Bx - \Bx'} } - \int_V \frac{\spacegrad' J(\Bx')}{\Norm{\Bx - \Bx'} }
 - \spacegrad \tilde{A}(\Bx).
 \end{dmath}
-Where \( \ncap' = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \), and the fundamental theorem of geometric calculus
+Here \( \ncap' = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \) is the unit normal pointing away from the point \( \Bx \), and
+and the fundamental theorem of geometric calculus
 has been used to transform the gradient volume integral into an integral over the bounding surface.
 Operating on Maxwell's equation with the gradient gives \( \spacegrad^2 F = \spacegrad J \), which has only grades 1,2 on the left hand side, meaning that \( J \) is constrained in a way that requires \( \spacegrad J \) to have only grades 1,2.
 % reference to section that discussed this.
@@ -188,14 +174,14 @@ This means that \( F \) has grades 1,2 if
 \spacegrad \tilde{A}(\Bx)
 = \int_{\partial V} dA' \frac{ \gpgrade{\ncap' J(\Bx')}{0,3} }{\Norm{\Bx - \Bx'} }.
 \end{dmath}
-The product \( \ncap J \) expands to
+The product \( \ncap' J \) expands to
 \begin{dmath}\label{eqn:staticPotentials:340}
-\ncap J
+\ncap' J
 =
-\gpgradezero{\ncap J_1} + \gpgradethree{\ncap J_2}
+\gpgradezero{\ncap' J_1} + \gpgradethree{\ncap' J_2}
 =
-\ncap \cdot (-\eta \BJ) + \gpgradethree{\ncap (-I \BM)}
-=- \eta \ncap \cdot \BJ -I \ncap \cdot \BM,
+\ncap' \cdot (-\eta \BJ) + \gpgradethree{\ncap' (-I \BM)}
+=- \eta \ncap' \cdot \BJ -I \ncap' \cdot \BM,
 \end{dmath}
 so
 \begin{dmath}\label{eqn:staticPotentials:360}
@@ -206,9 +192,9 @@ so
 Observe that if there is no flux of current density \( \BJ \) and (fictitious) magnetic current density \( \BM \) through the surface (i.e. the currents form a closed loop in this volume), then \( F = \spacegrad A \) is a solution to Maxwell's equation without any gauge transformation.
 %Alternatively \( F = \spacegrad A \) is also a solution if \( \lim_{\Bx' \rightarrow \infty} \BJ(\Bx')/\Norm{\Bx - \Bx'} = \lim_{\Bx' \rightarrow \infty} \BM(\Bx')/\Norm{\Bx - \Bx'} = 0 \) and the bounding volume is taken to infinity.
 
-In the case where there are non-zero normal current components out of the volume,
-it should be noted that the question of existance has been ignored.
-In particular, while we can find a solution \( \tilde{A} \) of \cref{eqn:staticPotentials:360} using the Green's function for the gradient \cref{eqn:greensFunctionFirstOrderHelmholtz:900}, is such a solution also a solution of the homogeneous Laplacian equation?
+%In the case where there are non-zero normal current components out of the volume,
+%it should be noted that the question of existance has been ignored.
+%In particular, while we can find a solution \( \tilde{A} \) of \cref{eqn:staticPotentials:360} using the Green's function for the gradient \cref{eqn:greensFunctionFirstOrderHelmholtz:900}, is such a solution also a solution of the homogeneous Laplacian equation?
 
 %}
 %\EndNoBibArticle
