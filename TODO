@@ -67,8 +67,7 @@
 
    want to solve the potential equations.  Can I do a Green's function solution?
 
-   once done, look at the potentials work in the old electrostatics and magnetostatics sections.  Anything
-   worth saving?
+   Not sure that I showed this for the (non-statics) time domain problem.
 
 - Is {eqn:isotropicMaxwells:520} the first use of \grad f = grad . f + I grad cross f?
 
