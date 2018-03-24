@@ -8,10 +8,25 @@ Some would argue that the conventional form \cref{eqn:freespace:3100} of Maxwell
 We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
 This amounts to a statement that the multivector current \( J \) is not completely unconstrained.
 
+%It's helpful to introduce a d'Lambertian operator.  The sign convention that we will use for this operator is given by the following.
+%\index{\(\dLambertian\)}
+%\makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:190}{
+%Let
+%\begin{equation*}
+%\dLambertian =
+%\lr{ \spacegrad - \inv{c} \PD{t}{} }
+%\lr{ \spacegrad + \inv{c} \PD{t}{} }
+%=
+%\spacegrad^2 - \inv{c^2} \PDSq{t}{}.
+%\end{equation*}
+%} % definition
+%
 \maketheorem{Electromagnetic wave equation and continuity conditions.}{thm:continuity:600}{
 The electromagnetic field is a solution to the non-homogeneous wave equation
 \begin{equation*}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F =
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+F =
 \lr{ \spacegrad - \inv{c} \PD{t}{} } J.
 \end{equation*}
 In source free conditions, this reduces to a homogeneous wave equation, with group velocity \( c \), the speed of the wave in the media.
@@ -19,10 +34,14 @@ When expanded explicitly in terms of electric and magnetic fields, and charge an
 non-homogeneous wave equation for each of the electric and magnetic fields
 \begin{equation*}
 \begin{aligned}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BE
 %&= \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{1}
 &= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BH
 %&= \inv{I \eta} \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{2}
 &= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
 \end{aligned}
@@ -40,12 +59,16 @@ To prove, we operate on \cref{dfn:isotropicMaxwells:680} with \( \spacegrad - (1
 spacetime gradient, of the
 d'Alembertian (wave equation) operator, which gives
 \begin{dmath}\label{eqn:continuity:110}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F = \lr{ \spacegrad - \inv{c} \PD{t}{} } J.
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+F = \lr{ \spacegrad - \inv{c} \PD{t}{} } J.
 \end{dmath}
 Since the left hand side has only grades 1 and 2, \cref{eqn:continuity:110} splits naturally into two equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F &= \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } J }{1,2} \\
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+F &= \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } J }{1,2} \\
                                            0 &= \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } J }{0,3}.
 \end{aligned}
 \end{dmath}
@@ -91,7 +114,8 @@ which demonstrates the continuity condition on the (fictitious) magnetic sources
 For the non-homogeneous wave equation of \cref{thm:continuity:600}, the current derivatives may be expanded explicitly.
 For the wave equation for the electric field, this is
 \begin{dmath}\label{eqn:continuity:150}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
+\dLambertian \BE
 =
 \gpgradeone{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}
 =
@@ -108,7 +132,8 @@ For the wave equation for the electric field, this is
 as claimed.
 The forced magnetic field equation is
 \begin{dmath}\label{eqn:continuity:170}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
+\dLambertian \BH
 =
 \inv{\eta I}
 \gpgradetwo{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}

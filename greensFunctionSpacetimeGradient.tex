@@ -29,8 +29,21 @@
 %%%% \citep{griffiths1999introduction}
 
 We want to find the Green's function that solves spacetime gradient equations of the form \cref{eqn:greensFunctionOverview:220}.
-That Green's function is multivector valued and given by
+For the wave equation operator, it is helpful to introduce a d'Lambertian operator, defined as follows.
 
+\index{\(\dLambertian\)}
+\makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:120}{
+Let
+\begin{equation*}
+\dLambertian =
+\lr{ \spacegrad - \inv{c} \PD{t}{} }
+\lr{ \spacegrad + \inv{c} \PD{t}{} }
+=
+\spacegrad^2 - \inv{c^2} \PDSq{t}{}.
+\end{equation*}
+} % definition
+
+We will be able to derive the Green's function for the spacetime gradient from the Green's function for the d'Lambertian.  The Green's function for the spacetime gradient is multivector valued and given by the following.
 \maketheorem{Green's function for the spacetime gradient.}{thm:greensFunctionSpacetimeGradient:120}{
 The Green's function for the spacetime gradient, satisfying
 \begin{equation*}
@@ -57,9 +70,13 @@ function in a convolution integral to solve Maxwell's equation.
 To prove this result, let \( \phi(\Bx - \Bx', t - t') \) be the retarded time (causal)
 Green's function for the wave equation, satisfying
 \begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:40}
+\dLambertian
+\phi(\Bx - \Bx', t - t')
+=
 \lr{ \spacegrad + \inv{c} \PD{t}{} }
 \lr{ \spacegrad - \inv{c} \PD{t}{} }
-\phi(\Bx - \Bx', t - t') = \delta(\Bx - \Bx') \delta(t - t').
+\phi(\Bx - \Bx', t - t')
+= \delta(\Bx - \Bx') \delta(t - t').
 \end{dmath}
 
 This function has the value

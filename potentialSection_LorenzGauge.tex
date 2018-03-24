@@ -73,15 +73,25 @@ A similar transformation is also clearly possible to eliminate any pseudoscalar 
 Such a potential representation is desirable since
 Maxwell's equations for such a potential are completely decoupled
 \begin{dmath}\label{eqn:potentialSection_LorenzGauge:1760}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } A = J,
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } 
+\dLambertian
+A = J,
 \end{dmath}
 which is equivalent to precisely one non-homogeneous wave equation for each grade source and potential
 \begin{dmath}\label{eqn:potentialSection_LorenzGauge:1600}
 \begin{aligned}
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi &= - \inv{\epsilon} \rho \\
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BA &= - \mu \BJ \\
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi_m &= - \frac{I}{\mu} \rho_m \\
-\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BF &= - I \epsilon \BM,
+\dLambertian
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } 
+\phi &= - \inv{\epsilon} \rho \\
+\dLambertian
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } 
+\BA &= - \mu \BJ \\
+\dLambertian
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } 
+\phi_m &= - \frac{I}{\mu} \rho_m \\
+\dLambertian
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } 
+\BF &= - I \epsilon \BM,
 \end{aligned}
 \end{dmath}
 or equivalently, in the frequency domain, a forced Helmholtz equation for each grade

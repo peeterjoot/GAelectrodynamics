@@ -1,0 +1,59 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{gaugeGeneral}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\newcommand{\dLambertian}[0]{\Box}
+\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+
+\beginArtNoToc
+
+\generatetitle{Gauge transformation}
+%\chapter{Gauge transformation}
+\label{chap:gaugeGeneral}
+
+\maketheorem{Potential solution of Maxwell's equation.}{thm:gaugeGeneral:20}{
+If \( A \) is a multivector solution to \( \dLambertian A = J \),
+for which \( \gpgrade{\spacegrad A}{0,3} \ne 0 \),
+%, that is
+%\begin{equation*}
+%A(\Bx)
+%= \int dV' G(\Bx, \Bx') J(\Bx')
+%= -\int dV' \frac{J(\Bx')}{\Norm{\Bx - \Bx'} },
+%\end{equation*}
+then
+\( F = \spacegrad A' \) is a solution to Maxwell's equation, where \( A' = A - \tilde{A} \), and \( \tilde{A} \)
+is a solution of
+%\begin{equation*}
+%\spacegrad^2 \tilde{A} = \spacegrad \gpgrade{\spacegrad A}{0,3},
+%\end{equation*}
+of the non-homogeneous gradient equation
+\begin{equation*}
+\dLambertian \tilde{A} = \lr{ \spacegrad + \inv{c}\PD{t}{}} \gpgrade{\spacegrad A}{0,3}.
+\end{equation*}
+} % theorem
+
+
+
+%}
+%\EndArticle
+\EndNoBibArticle

@@ -67,12 +67,9 @@ polarization_linearPolarization.tex
 polarization_phaseAndEnergyMomentum.tex
 polarization_problems.tex
 polarization_pseudoscalarImaginary.tex
-potentialSection.tex
 potentialSection_LorenzGauge.tex
-potentialSection_electric.tex
 potentialSection_farfield.tex
 potentialSection_gauge.tex
-potentialSection_magnetic.tex
 poyntingF.tex
 poyntingFComplexPower.tex
 poyntingStaticExamples.tex

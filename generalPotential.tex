@@ -1,0 +1,181 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{generalPotential}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%\beginArtNoToc
+%
+%\generatetitle{Time domain multivector potentials}
+%%\chapter{Time domain multivector potentials}
+\label{chap:generalPotential}
+
+For time dependent fields and sources we need a time derivative in the derivative operator that produces the field from the potential.
+\makedefinition{Multivector potential.}{thm:generalPotential:80}{
+We call \( A \) the \textit{multivector potential} for the field if
+\begin{equation*}
+F = \gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{1,2},
+\end{equation*}
+and \( (\spacegrad + (1/c)\partial_t) F = J \).
+%  That is
+%\begin{equation*}
+%\lr{ \spacegrad + \inv{c} \PD{t}{} } \gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{1,2} = J.
+%\end{equation*}
+} % definition
+
+We may write Maxwell's equation in terms of the multivector potential as a modified wave equation
+\begin{dmath}\label{eqn:generalPotential:20}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+A = J +
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{0,3}.
+\end{dmath}
+As we saw in statics the pesky grade selection term on the right can be gauge transformed away.  Before formulating that
+gauge transformation,
+it's worthwhile to unpack
+\cref{thm:staticPotentials:380} to show how the electric and magnetic fields are related to the multivector potential, and
+get some intuition about the quantity to be transformed away.
+
+\maketheorem{Fields and the potential wave equations.}{thm:generalPotential:40}{
+In terms of the potential components, the electric field vector and the magnetic field bivector are
+\begin{equation*}
+\begin{aligned}
+\BE &=
+\gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{1}
+=
+   - \spacegrad \phi
+   - \PD{t}{\BA}
+   - \inv{\epsilon} \spacegrad \cross \BF \\
+I \eta \BH &=
+\gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{2}
+=
+   I \eta
+   \lr{
+      - \spacegrad \phi_\txtm
+      - \PD{t}{\BF}
+      + \inv{\mu} \spacegrad \cross \BA
+   }
+.
+\end{aligned}
+\end{equation*}
+The potentials are related to the sources by
+%\begin{equation*}
+%\begin{aligned}
+%- \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi &= \frac{\rho}{\epsilon} + \inv{c} \PD{t}{} \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+%c \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BA &= -\eta \BJ + \spacegrad \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+%\eta c I \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BF &= - I \BM + \spacegrad \cdot \lr{ I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} } } \\
+%-I \eta \lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \phi_\txtm &= I c \rho_\txtm + \inv{c} \PD{t}{} I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} }
+%\end{aligned}
+%\end{equation*}
+\begin{equation*}
+\begin{aligned}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:generalPotential:40} we start by expanding \( (\spacegrad - (1/c)\partial_t) A \) using
+\cref{dfn:unpackStaticPotential:80} and then group by grade to find
+\begin{dmath}\label{eqn:generalPotential:60}
+\begin{aligned}
+\lr{\spacegrad - \inv{c} \PD{t}{}} A
+&=
+\lr{\spacegrad - \inv{c} \PD{t}{}} \lr{  - \phi
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF } } \\
+&=
+- \spacegrad \phi + c \spacegrad \cdot \BA + c \spacegrad \wedge \BA + \inv{c} \PD{t}{\phi} - \PD{t}{\BA} \\
+&\quad + I \eta
+\lr{
+- \spacegrad \phi_\txtm + c \spacegrad \cdot \BF + c \spacegrad \wedge \BF + \inv{c} \PD{t}{\phi_\txtm} - \PD{t}{\BF}
+} \\
+&=
+c \spacegrad \cdot \BA
++ \inv{c} \PD{t}{\phi}
+\\
+&
++
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+   - \spacegrad \phi
+   - \PD{t}{\BA}
+   - \inv{\epsilon} \spacegrad \cross \BF
+}
+{
+\(\BE\)
+}
++
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+   I \eta
+   \lr{
+      - \spacegrad \phi_\txtm
+      - \PD{t}{\BF}
+      + \inv{\mu} \spacegrad \cross \BA
+   }
+}
+{\(I \eta \BH\)
+} \\
+&
++ I \eta\lr{
+  c \spacegrad \cdot \BF
++ \inv{c} \PD{t}{\phi_\txtm}
+},
+\end{aligned}
+\end{dmath}
+which shows the claimed field split.
+Unpacking Maxwell's equation by grade selection gives
+\begin{equation*}
+\begin{aligned}
+-
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\phi &= \frac{\rho}{\epsilon} + \inv{c} \PD{t}{} \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+c
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BA &= -\eta \BJ + \spacegrad \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+\eta c I
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BF &= - I \BM + \spacegrad \cdot \lr{ I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} } } \\
+-I \eta
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\phi_\txtm &= I c \rho_\txtm + \inv{c} \PD{t}{} I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} }
+\end{aligned}
+\end{equation*}
+Using \( \eta = \mu c, \eta c \epsilon = 1 \), and
+\( \spacegrad \cdot (I \psi) = I \spacegrad \psi \) for scalar \(\psi\), a bit
+of rearrangement completes the proof.
+
+%}
+%\EndNoBibArticle
