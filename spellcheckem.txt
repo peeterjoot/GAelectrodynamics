@@ -67,7 +67,6 @@ polarization_linearPolarization.tex
 polarization_phaseAndEnergyMomentum.tex
 polarization_problems.tex
 polarization_pseudoscalarImaginary.tex
-potentialSection_LorenzGauge.tex
 potentialSection_farfield.tex
 potentialSection_gauge.tex
 poyntingF.tex
