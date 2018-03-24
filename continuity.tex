@@ -14,8 +14,8 @@ This amounts to a statement that the multivector current \( J \) is not complete
 %Let
 %\begin{equation*}
 %\dLambertian =
-%\lr{ \spacegrad - \inv{c} \PD{t}{} }
-%\lr{ \spacegrad + \inv{c} \PD{t}{} }
+%\conjstgrad
+%\stgrad
 %=
 %\spacegrad^2 - \inv{c^2} \PDSq{t}{}.
 %\end{equation*}
@@ -27,7 +27,7 @@ The electromagnetic field is a solution to the non-homogeneous wave equation
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \dLambertian
 F =
-\lr{ \spacegrad - \inv{c} \PD{t}{} } J.
+\conjstgrad J.
 \end{equation*}
 In source free conditions, this reduces to a homogeneous wave equation, with group velocity \( c \), the speed of the wave in the media.
 When expanded explicitly in terms of electric and magnetic fields, and charge and current densities, this single equation resolves to a
@@ -37,12 +37,12 @@ non-homogeneous wave equation for each of the electric and magnetic fields
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \dLambertian
 \BE
-%&= \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{1}
+%&= \gpgrade{\conjstgrad J}{1}
 &= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \dLambertian
 \BH
-%&= \inv{I \eta} \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{2}
+%&= \inv{I \eta} \gpgrade{\conjstgrad J}{2}
 &= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
 \end{aligned}
 \end{equation*}
@@ -61,15 +61,15 @@ d'Alembertian (wave equation) operator, which gives
 \begin{dmath}\label{eqn:continuity:110}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \dLambertian
-F = \lr{ \spacegrad - \inv{c} \PD{t}{} } J.
+F = \conjstgrad J.
 \end{dmath}
 Since the left hand side has only grades 1 and 2, \cref{eqn:continuity:110} splits naturally into two equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \dLambertian
-F &= \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } J }{1,2} \\
-                                           0 &= \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } J }{0,3}.
+F &= \gpgrade{ \conjstgrad J }{1,2} \\
+                                           0 &= \gpgrade{ \conjstgrad J }{0,3}.
 \end{aligned}
 \end{dmath}
 Unpacking these further, we find that there is information
@@ -117,17 +117,17 @@ For the wave equation for the electric field, this is
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
 \dLambertian \BE
 =
-\gpgradeone{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}
+\gpgradeone{\conjstgrad J}
 =
 \gpgradeone{
-   \lr{ \spacegrad - \inv{c} \PD{t}{} }
+   \conjstgrad
    \lr{
       \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
    }
 }
 =
 \inv{\epsilon} \spacegrad \rho -I \lr{ \spacegrad \wedge \BM } + \inv{c} \eta \PD{t}{\BJ}
-= \gpgrade{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}{1} = \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM,
+= \gpgrade{\conjstgrad J}{1} = \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM,
 \end{dmath}
 as claimed.
 The forced magnetic field equation is
@@ -136,11 +136,11 @@ The forced magnetic field equation is
 \dLambertian \BH
 =
 \inv{\eta I}
-\gpgradetwo{\lr{ \spacegrad - \inv{c} \PD{t}{} } J}
+\gpgradetwo{\conjstgrad J}
 =
 \inv{\eta I}
 \gpgradetwo{
-   \lr{ \spacegrad - \inv{c} \PD{t}{} }
+   \conjstgrad
    \lr{
       \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
    }

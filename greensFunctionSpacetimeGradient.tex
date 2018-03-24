@@ -36,8 +36,8 @@ For the wave equation operator, it is helpful to introduce a d'Lambertian operat
 Let
 \begin{equation*}
 \dLambertian =
-\lr{ \spacegrad - \inv{c} \PD{t}{} }
-\lr{ \spacegrad + \inv{c} \PD{t}{} }
+\conjstgrad
+\stgrad
 =
 \spacegrad^2 - \inv{c^2} \PDSq{t}{}.
 \end{equation*}
@@ -47,7 +47,7 @@ We will be able to derive the Green's function for the spacetime gradient from t
 \maketheorem{Green's function for the spacetime gradient.}{thm:greensFunctionSpacetimeGradient:120}{
 The Green's function for the spacetime gradient, satisfying
 \begin{equation*}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } G(\Bx - \Bx', t - t') = \delta(\Bx - \Bx') \delta(t - t'),
+\stgrad G(\Bx - \Bx', t - t') = \delta(\Bx - \Bx') \delta(t - t'),
 \end{equation*}
 is
 \begin{equation*}
@@ -73,8 +73,8 @@ Green's function for the wave equation, satisfying
 \dLambertian
 \phi(\Bx - \Bx', t - t')
 =
-\lr{ \spacegrad + \inv{c} \PD{t}{} }
-\lr{ \spacegrad - \inv{c} \PD{t}{} }
+\stgrad
+\conjstgrad
 \phi(\Bx - \Bx', t - t')
 = \delta(\Bx - \Bx') \delta(t - t').
 \end{dmath}
@@ -92,7 +92,7 @@ Comparing \cref{eqn:greensFunctionSpacetimeGradient:40} to the defining statemen
 \begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:80}
 G(\Bx - \Bx', t - t')
 =
-\lr{ \spacegrad - \inv{c} \PD{t}{} } \phi(\Br, t - t')
+\conjstgrad \phi(\Br, t - t')
 =
 \lr{ \rcap \PD{r}{} - \inv{c} \PD{t}{} } \phi(\Br, t - t'),
 \end{dmath}

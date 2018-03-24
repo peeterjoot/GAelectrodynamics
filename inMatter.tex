@@ -15,8 +15,8 @@ F &= \BD + \frac{I}{c} \BH,
 for which Maxwell's equations are
 \begin{dmath}\label{eqn:inMatter:60}
 \begin{aligned}
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{0,1} &= \rho - \frac{\BJ}{c} \\
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{2,3} &= I \lr{ c \rho_m - \BM }.
+\gpgrade{ \stgrad F }{0,1} &= \rho - \frac{\BJ}{c} \\
+\gpgrade{ \stgrad G }{2,3} &= I \lr{ c \rho_m - \BM }.
 \end{aligned}
 \end{dmath}
 
@@ -29,18 +29,18 @@ Doing so for each of the grades in turn, we have
 \begin{dmath}\label{eqn:inMatter:100}
 \rho
 =
-\gpgradezero{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }
+\gpgradezero{ \stgrad F }
 =
-\gpgradezero{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BD + \frac{I}{c} \BH } }
+\gpgradezero{ \stgrad \lr{ \BD + \frac{I}{c} \BH } }
 =
 \spacegrad \cdot \BD
 \end{dmath}
 \begin{dmath}\label{eqn:inMatter:120}
 - \frac{\BJ}{c}
 =
-\gpgradeone{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }
+\gpgradeone{ \stgrad F }
 =
-\gpgradeone{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BD + \frac{I}{c} \BH } }
+\gpgradeone{ \stgrad \lr{ \BD + \frac{I}{c} \BH } }
 =
 \inv{c} \PD{t}{\BD} + \frac{I}{c} \spacegrad \wedge \BH
 =
@@ -49,18 +49,18 @@ Doing so for each of the grades in turn, we have
 \begin{dmath}\label{eqn:inMatter:140}
 - I \BM
 =
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{2}
+\gpgrade{ \stgrad G }{2}
 =
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB} }{2}
+\gpgrade{ \stgrad \lr{ \BE + I c \BB} }{2}
 =
 \spacegrad \wedge \BE + I \PD{t}{\BB}
 \end{dmath}
 \begin{dmath}\label{eqn:inMatter:160}
 I c \rho_m
 =
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{3}
+\gpgrade{ \stgrad G }{3}
 =
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB} }{3}
+\gpgrade{ \stgrad \lr{ \BE + I c \BB} }{3}
 =
 c I \spacegrad \cdot \BB.
 \end{dmath}
@@ -79,15 +79,15 @@ After rearranging and cancelling common factors of \( c, I \) Maxwell's equation
 One possible strategy for solving these equations is to impose an additional set of constraints on the grades in question
 \begin{dmath}\label{eqn:inMatter:200}
 \begin{aligned}
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{2,3} &= 0 \\
-\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } G }{0,1} &= 0,
+\gpgrade{ \stgrad F }{2,3} &= 0 \\
+\gpgrade{ \stgrad G }{0,1} &= 0,
 \end{aligned}
 \end{dmath}
 so that all the grade selection filters can be cleared
 \begin{dmath}\label{eqn:inMatter:220}
 \begin{aligned}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } F &= \rho - \frac{\BJ}{c} \\
-\lr{ \spacegrad + \inv{c} \PD{t}{} } G &= I \lr{ c \rho_m - \BM }.
+\stgrad F &= \rho - \frac{\BJ}{c} \\
+\stgrad G &= I \lr{ c \rho_m - \BM }.
 \end{aligned}
 \end{dmath}
 

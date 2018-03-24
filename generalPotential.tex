@@ -31,12 +31,12 @@ For time dependent fields and sources we need a time derivative in the derivativ
 \makedefinition{Multivector potential.}{thm:generalPotential:80}{
 We call \( A \) the \textit{multivector potential} for the field if
 \begin{equation*}
-F = \gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{1,2},
+F = \gpgrade{\conjstgrad A}{1,2},
 \end{equation*}
 and \( (\spacegrad + (1/c)\partial_t) F = J \).
 %  That is
 %\begin{equation*}
-%\lr{ \spacegrad + \inv{c} \PD{t}{} } \gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{1,2} = J.
+%\stgrad \gpgrade{\conjstgrad A}{1,2} = J.
 %\end{equation*}
 } % definition
 
@@ -45,7 +45,7 @@ We may write Maxwell's equation in terms of the multivector potential as a modif
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \dLambertian
 A = J +
-\lr{ \spacegrad + \inv{c} \PD{t}{} } \gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{0,3}.
+\stgrad \gpgrade{\conjstgrad A}{0,3}.
 \end{dmath}
 As we saw in statics the pesky grade selection term on the right can be gauge transformed away.  Before formulating that
 gauge transformation,
@@ -58,13 +58,13 @@ In terms of the potential components, the electric field vector and the magnetic
 \begin{equation*}
 \begin{aligned}
 \BE &=
-\gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{1}
+\gpgrade{\conjstgrad A}{1}
 =
    - \spacegrad \phi
    - \PD{t}{\BA}
    - \inv{\epsilon} \spacegrad \cross \BF \\
 I \eta \BH &=
-\gpgrade{\lr{\spacegrad - \inv{c} \PD{t}{}} A}{2}
+\gpgrade{\conjstgrad A}{2}
 =
    I \eta
    \lr{
@@ -106,9 +106,9 @@ To prove \cref{thm:generalPotential:40} we start by expanding \( (\spacegrad - (
 \cref{dfn:unpackStaticPotential:80} and then group by grade to find
 \begin{dmath}\label{eqn:generalPotential:60}
 \begin{aligned}
-\lr{\spacegrad - \inv{c} \PD{t}{}} A
+\conjstgrad A
 &=
-\lr{\spacegrad - \inv{c} \PD{t}{}} \lr{  - \phi
+\conjstgrad \lr{  - \phi
       + c \BA
       + \eta I \lr{ -\phi_m + c \BF } } \\
 &=

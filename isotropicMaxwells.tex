@@ -48,7 +48,7 @@ Given the multivector field and current, it is now possible to state Maxwell's e
 \maketheorem{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
 Maxwell's equation is a multivector equation relating the change in the electromagnetic field strength to charge and current densities and is written as
 \begin{equation*}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J.
+\stgrad F = J.
 \end{equation*}
 } % theorem
 Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
@@ -91,7 +91,7 @@ Multiplying the gradient equation for the magnetic field by \( \eta I \) so that
 where \( \mu/\eta = \eta \epsilon = 1/c \) was used to simplify things slightly, and all the field contributions have been moved to the left hand side.
 The first multivector equation has only scalar and bivector grades, whereas the second has only vector and trivector grades.  This means that if we add these equations, we can recover each by grade selection, and no information is lost.  That sum is
 \begin{dmath}\label{eqn:isotropicMaxwells:580}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\stgrad \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{dmath}
 Application of \cref{dfn:isotropicMaxwells:640} and \cref{dfn:isotropicMaxwells:660} to
 \cref{eqn:isotropicMaxwells:580} proves the theorem, verifying the

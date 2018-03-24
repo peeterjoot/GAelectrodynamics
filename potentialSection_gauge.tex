@@ -9,15 +9,15 @@
 Because the potential representation of the field is expressed as a grade 1,2 selection, the addition of scalar or pseudoscalar components to the grade selection will not alter the field.
 In particular, it is possible to alter the multivector potential
 \begin{dmath}\label{eqn:potentialSection_gauge:160}
-A \rightarrow A + \lr{ \spacegrad + \inv{c} \PD{t}{}} \psi,
+A \rightarrow A + \stgrad \psi,
 \end{dmath}
 where \( \psi \) is any multivector field with scalar and pseudoscalar grades, without changing the field
 \begin{dmath}\label{eqn:potentialSection_gauge:180}
 F
 \rightarrow
 \gpgrade{
-   \lr{ \spacegrad - \inv{c} \PD{t}{} }
-   \lr{ A + \lr{ \spacegrad + \inv{c} \PD{t}{}} \psi }
+   \conjstgrad
+   \lr{ A + \stgrad \psi }
 }{1,2}
 =
 F +

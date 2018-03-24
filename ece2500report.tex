@@ -53,13 +53,13 @@ The addition operation allows for sums of scalars, vectors, or any products of v
 The power to add scalars, vectors, and products of vectors can be exploited to simplify much of electromagnetism.
 In particular, Maxwell's equations for isotropic media can be merged into a single multivector equation
 \begin{dmath}\label{eqn:quaternion2maxwellWithGA:20}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I c \BB } = \eta\lr{ c \rho - \BJ },
+\stgrad \lr{ \BE + I c \BB } = \eta\lr{ c \rho - \BJ },
 \end{dmath}
 where \( \spacegrad \) is the gradient, \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) is the group velocity of the medium, \( \eta = \sqrt{\mu/\epsilon} \), \( \BE, \BB \) are the electric and magnetic fields, and
 \( \rho \) and \( \BJ \) are the charge and current densities.
 We will write this as
 \begin{dmath}\label{eqn:ece2500report:40}
-\lr{ \spacegrad + \inv{c} \PD{t}{} } F = J,
+\stgrad F = J,
 \end{dmath}
 where \( F = \BE + I c \BB \) is the combined (multivector) electromagnetic field, and \( J = \eta\lr{ c \rho - \BJ } \) is the multivector current.
 As a single PDE, the complete Green's function toolbox may be thrown at

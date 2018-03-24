@@ -3,37 +3,39 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-\input{../latex/blogpost.tex}
-\renewcommand{\basename}{gaugeGeneral}
-%\renewcommand{\dirname}{notes/phy1520/}
-\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%\newcommand{\dateintitle}{}
-%\newcommand{\keywords}{}
-
-\input{../latex/peeter_prologue_print2.tex}
-
-\usepackage{peeters_layout_exercise}
-\usepackage{peeters_braket}
-\usepackage{peeters_figures}
-\usepackage{siunitx}
-%\usepackage{mhchem} % \ce{}
-%\usepackage{macros_bm} % \bcM
-%\usepackage{macros_qed} % \qedmarker
-%\usepackage{txfonts} % \ointclockwise
-
-\newcommand{\dLambertian}[0]{\Box}
-\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
-\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
-
-\beginArtNoToc
-
-\generatetitle{Gauge transformation}
-%\chapter{Gauge transformation}
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{gaugeGeneral}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%\RequirePackage{amssymb} % relwave.tex uses this?
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%%\newcommand{\Box}[0]{\square}
+%\newcommand{\dLambertian}[0]{\square}
+%\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+%\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+%
+%\beginArtNoToc
+%
+%\generatetitle{Gauge transformation}
+%%\chapter{Gauge transformation}
 \label{chap:gaugeGeneral}
 
 \maketheorem{Potential solution of Maxwell's equation.}{thm:gaugeGeneral:20}{
 If \( A \) is a multivector solution to \( \dLambertian A = J \),
-for which \( \gpgrade{\spacegrad A}{0,3} \ne 0 \),
+for which \( \gpgrade{\conjstgrad A}{0,3} \ne 0 \),
 %, that is
 %\begin{equation*}
 %A(\Bx)
@@ -41,19 +43,56 @@ for which \( \gpgrade{\spacegrad A}{0,3} \ne 0 \),
 %= -\int dV' \frac{J(\Bx')}{\Norm{\Bx - \Bx'} },
 %\end{equation*}
 then
-\( F = \spacegrad A' \) is a solution to Maxwell's equation, where \( A' = A - \tilde{A} \), and \( \tilde{A} \)
-is a solution of
-%\begin{equation*}
-%\spacegrad^2 \tilde{A} = \spacegrad \gpgrade{\spacegrad A}{0,3},
-%\end{equation*}
-of the non-homogeneous gradient equation
+\( F = \conjstgrad A' \) is a grade 1,2 solution to Maxwell's equation \(\stgrad F = J\), where \( A' = A - \tilde{A} \), and \( \tilde{A} \)
+is a solution of the non-homogeneous wave equation
 \begin{equation*}
-\dLambertian \tilde{A} = \lr{ \spacegrad + \inv{c}\PD{t}{}} \gpgrade{\spacegrad A}{0,3}.
+\dLambertian \tilde{A} = \stgrad \gpgrade{\conjstgrad A}{0,3}.
 \end{equation*}
 } % theorem
 
+To prove \cref{thm:gaugeGeneral:20}, let's first assume that there exists an \( A' \) for which \( \gpgrade{\conjstgrad A}{0,3} = 0 \) that satisifes the wave equation
+\begin{dmath}\label{eqn:gaugeGeneral:60}
+\dLambertian A' = J.
+\end{dmath}
+For such a field \( F = \conjstgrad A' \) is a grade 1,2 solution of Maxwell's equation.
+Given an arbitrary solution \( A \) of \( \dLambertian A = J \), then \( F = \gpgrade{\conjstgrad A}{1,2} \) is a also solution
+of Maxwell's equation.  Let \( A = A' + \tilde{A} \) and insert this into Maxwell's equation
+\begin{dmath}\label{eqn:gaugeGeneral:20}
+J
+= \stgrad F
+= \stgrad \gpgrade{\conjstgrad A}{1,2}
+= \dLambertian A - \stgrad \gpgrade{\conjstgrad A}{0,3}
+= \dLambertian \lr{ A' + \tilde{A} } - \stgrad \gpgrade{\conjstgrad A}{0,3}.
+\end{dmath}
+Subtracting \cref{eqn:gaugeGeneral:60} from both sides of \cref{eqn:gaugeGeneral:20} and rearranging, we are left with
+\begin{dmath}\label{eqn:gaugeGeneral:40}
+\dLambertian \tilde{A} = \stgrad \gpgrade{\conjstgrad A}{0,3},
+\end{dmath}
+which completes the proof.
 
+From \cref{eqn:generalPotential:60}, we see that \cref{eqn:gaugeGeneral:40} means we seek a solution to
+\begin{dmath}\label{eqn:gaugeGeneral:80}
+\dLambertian \tilde{A} = \stgrad
+\lr{
+c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi}
++ I \eta
+   \lr{
+     c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm}
+   }
+}
+.
+\end{dmath}
+
+When the potentials are constrained by
+\begin{dmath}\label{eqn:gaugeGeneral:100}
+\begin{aligned}
+0 &= \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi}
+0 &= \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm},
+\end{aligned}
+\end{dmath}
+\index{Lorenz gauge}
+then
+we are said to be working in the Lorenz gauge.
 
 %}
-%\EndArticle
-\EndNoBibArticle
+%\EndNoBibArticle
