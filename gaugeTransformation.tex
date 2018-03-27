@@ -3,35 +3,35 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-\input{../latex/blogpost.tex}
-\renewcommand{\basename}{gaugeTransformation}
-%\renewcommand{\dirname}{notes/phy1520/}
-\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%\newcommand{\dateintitle}{}
-%\newcommand{\keywords}{}
-
-\input{../latex/peeter_prologue_print2.tex}
-
-\usepackage{peeters_layout_exercise}
-\usepackage{peeters_braket}
-\usepackage{peeters_figures}
-\usepackage{siunitx}
-%\usepackage{mhchem} % \ce{}
-%\usepackage{macros_bm} % \bcM
-\usepackage{macros_qed} % \qedmarker
-%\usepackage{txfonts} % \ointclockwise
-
-%\newcommand{\dLambertian}[0]{\Box}
-\newcommand{\dLambertian}[0]{\square}
-
-\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
-\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
-
-\beginArtNoToc
-
-\generatetitle{Multivector potentials.}
-%\chapter{Multivector potentials.}
-%\label{chap:gaugeTransformation}
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{gaugeTransformation}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%%\newcommand{\dLambertian}[0]{\Box}
+%\newcommand{\dLambertian}[0]{\square}
+%
+%\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+%\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+%
+%\beginArtNoToc
+%
+%\generatetitle{Multivector potentials.}
+%%\chapter{Multivector potentials.}
+\label{chap:gaugeTransformation}
 
 Conventional electromagnetism utilizes scalar and vector potentials, so it is reasonable to expect that
 the desired multivector representation of the potential is a grade 0,1 multivector.
@@ -45,8 +45,8 @@ F = \gpgrade{\conjstgrad A}{1,2}.
 \end{equation*}
 } % definition
 
-Before unpacking \( \conjstgrad A \), we want to label the 
-different grades of the multivector potential, and do so in a way that is consisent with the conventional 
+Before unpacking \( \conjstgrad A \), we want to label the
+different grades of the multivector potential, and do so in a way that is consisent with the conventional
 potential representation of the electric and magnetic fields.
 \makedefinition{Multivector potential representation.}{dfn:unpackStaticPotential:80}{
 Let
@@ -165,7 +165,8 @@ or
 \begin{dmath}\label{eqn:gaugeTransformation:40}
 \dLambertian A = J + \stgrad \gpgrade{\conjstgrad A}{0,3}.
 \end{dmath}
-This is almost a wave equation.  Inserting \cref{eqn:generalPotential:60} into \cref{eqn:gaugeTransformation:40} and selecting each grade gives four almost-wave equations
+This is almost a wave equation.
+Inserting \cref{eqn:generalPotential:60} into \cref{eqn:gaugeTransformation:40} and selecting each grade gives four almost-wave equations
 \begin{equation*}
 \begin{aligned}
 -
@@ -186,14 +187,17 @@ Using \( \eta = \mu c, \eta c \epsilon = 1 \), and
 \( \spacegrad \cdot (I \psi) = I \spacegrad \psi \) for scalar \(\psi\), a bit
 of rearrangement completes the proof.
 
-Clearly it is desirable if potentials can be found for which \( \spacegrad \cdot \BA + (1/c^2) \partial_t \phi = \spacegrad \cdot \BF + (1/c^2) \partial_t \phi_\txtm = 0 \).  Finding such potentials relies on the fact that the potential representation is not unique.  In particular, 
-we have the freedom to add any spacetime gradient to a potential without changing the field.
+Clearly it is desirable if potentials can be found for which \( \spacegrad \cdot \BA + (1/c^2) \partial_t \phi = \spacegrad \cdot \BF + (1/c^2) \partial_t \phi_\txtm = 0 \).
+Finding such potentials relies on the fact that the potential representation is not unique.
+In particular,
+we have the freedom to add any spacetime gradient of any scalar or pseudoscalar potential without changing the field.
 \maketheorem{Gauge invariance.}{thm:gaugeTransformation:60}{
-Adding the spacetime gradient to a potential
+The spacetime gradient of a grade 0,3 multivector \( \Psi \) may be added to a multivector potential
 \begin{equation*}
-A' = A + \stgrad \psi,
+A' = A + \stgrad \Psi,
 \end{equation*}
-leaves the field unchanged.  That is
+without changing the field.
+That is
 \begin{equation*}
 F
 = \gpgrade{\conjstgrad A}{1,2}
@@ -201,5 +205,76 @@ F
 \end{equation*}
 } % theorem
 
+To prove \cref{thm:gaugeTransformation:60} let
+\begin{dmath}\label{eqn:gaugeTransformation:100}
+A' = A + \stgrad (\psi + I \phi),
+\end{dmath}
+where \( \psi \) and \( \phi \) are scalar functions.
+The field for potential \( A' \) is
+\begin{dmath}\label{eqn:gaugeTransformation:120}
+F'
+= \gpgrade{\conjstgrad A'}{1,2}
+= \gpgrade{\conjstgrad \lr{A + \stgrad (\psi + I \phi)} }{1,2}
+= \gpgrade{\conjstgrad A}{1,2} + \gpgrade{ \conjstgrad \stgrad (\psi + I \phi)} {1,2}
+= F + \gpgrade{ \dLambertian (\psi + I \phi)} {1,2},
+\end{dmath}
+which is just \( F \) since
+since the d'Lambertian operator \( \dLambertian \) is a scalar operator and \( \psi + I \phi \) has no vector nor bivector grades.
+
+We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgrad A \) are zero, or a transformation that kills those grades is made.
+\maketheorem{Lorentz gauge transformation.}{thm:gaugeTransformation:140}{
+Given any multivector potential \( A \) solution of Maxwell's equation, the transformation
+\begin{equation*}
+A' = A - \stgrad \Psi,
+\end{equation*}
+where
+\begin{equation*}
+\dLambertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
+\end{equation*}
+allows Maxwell's equation to be written in wave equation form
+\begin{equation*}
+\dLambertian A' = J.
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:gaugeTransformation:140}, let
+\begin{dmath}\label{eqn:gaugeTransformation:200}
+A = A' + \stgrad \Psi,
+\end{dmath}
+so Maxwell's equation becomes
+\begin{dmath}\label{eqn:gaugeTransformation:220}
+J
+= \stgrad \gpgrade{ \conjstgrad A }{1,2}
+= \dLambertian A - \stgrad \gpgrade{ \conjstgrad A }{0,3}
+= \dLambertian A' + \dLambertian \stgrad \Psi - \stgrad \gpgrade{ \conjstgrad A }{0,3}
+= \dLambertian A' + \stgrad \lr{ \dLambertian \Psi - \gpgrade{ \conjstgrad A }{0,3} }.
+\end{dmath}
+Requiring
+\begin{dmath}\label{eqn:gaugeTransformation:240}
+\dLambertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
+\end{dmath}
+completes the proof.
+Observe that \( \Psi \) has only grades 0,3 as required of a gauge function.
+
+Such a transformation completely decouples Maxwell's equation, providing one scalar wave equation for each grade of \( \dLambertian A' = J \), relating each grade of the potential \(A'\) to exactly one grade of the source multivector current \( J \).
+We are free to immediately solve for \( A' \) using the (causal) Green's function for the d'Lambertian
+\begin{dmath}\label{eqn:gaugeTransformation:160}
+A'(\Bx, t)
+= -\int dV' dt' \frac{\delta(\Abs{\Bx - \Bx'} - c(t - t')}{4 \pi \Norm{\Bx - \Bx'} } J(\Bx', t')
+= -\inv{4\pi} \int dV' \frac{J(\Bx', t - \inv{c} \Norm{\Bx - \Bx'})}{\Norm{\Bx - \Bx'}},
+\end{dmath}
+which is the sum of all the current contributions relative to the point \( \Bx \) at the retarded time \( t_\txtr = t - (1/c) \Norm{\Bx - \Bx'}\).
+The field follows immediately by differentiation and grade selection
+\begin{dmath}\label{eqn:gaugeTransformation:180}
+F = \gpgrade{ \conjstgrad A' }{1,2}.
+\end{dmath}
+
+Again, using the Green's function for the d'Lambertian, the explicit form of the gauge function \( \Psi \) is
+\begin{dmath}\label{eqn:gaugeTransformation:260}
+\Psi = -\inv{4\pi} \int dV' \frac{\gpgrade{ \conjstgrad A(\Bx', t_\txtr) }{0,3}}{\Norm{\Bx - \Bx'}},
+\end{dmath}
+however, we don't actually need to compute this.
+Instead, we only have to know we are free to construct a field from any solution \( A' \) of \( \dLambertian A' = J \) using \cref{eqn:gaugeTransformation:180}.
+
 %}
-\EndArticle
+%\EndArticle
