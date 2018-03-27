@@ -42,6 +42,7 @@ maxwells.pdf :: $(shell cat spellcheckem.txt)
 report : ece2500report.pdf
 mx : maxwells.pdf
 mm : multivectorPotential.pdf
+gt : gaugeTransformation.pdf
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

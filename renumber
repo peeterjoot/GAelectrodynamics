@@ -441,3 +441,5 @@
 
 ../latex/bin/lgrep gaugeGeneral.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl gaugeGeneral.tex
+../latex/bin/lgrep gaugeTransformation.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl gaugeTransformation.tex
