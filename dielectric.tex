@@ -1,0 +1,246 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{dielectric}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\newcommand{\dLambertian}[0]{\square}
+
+\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+
+\beginArtNoToc
+
+\generatetitle{Maxwell's equation in media}
+%\chapter{Maxwell's equation in media}
+%\label{chap:dielectric}
+
+\subsection{Statement.}
+
+Without imposing the constitutive relationships \cref{eqn:freespace:300} the geometric algebra form of Maxwell's equations requires
+a pair of equations, multivector fields, and multivector sources, instead of one of each.
+\maketheorem{Maxwell's equations in media.}{thm:dielectric:20}{
+Maxwell's equations in media are
+\begin{equation*}
+\begin{aligned}
+\gpgrade{ \stgrad F }{0,1} &= J_\txte \\
+\gpgrade{ \stgrad G }{2,3} &= I J_\txtm,
+\end{aligned}
+\end{equation*}
+where \( c \) is the group velocity of \( F, G \) in the medium,
+the fields are grade 1,2 multivectors
+\begin{equation*}
+\begin{aligned}
+F &= \BD + \frac{I}{c}\BH \\
+G &= \BE + I c \BB,
+\end{aligned}
+\end{equation*}
+and the sources are grade 0,1 multivectors
+\begin{equation*}
+\begin{aligned}
+J_\txte &= \rho - \inv{c}\BJ \\
+J_\txtm &= c \rho_\txtm - \BM.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:dielectric:20} we may simply expand the spacetime gradients and grade selection operations,
+and compare to
+\cref{eqn:freespace:3399}, the conventional representation of Maxwell's equations.  For \( F \) we have
+\begin{dmath}\label{eqn:dielectric:80}
+\rho - \frac{\BJ}{c}
+=
+\gpgrade{
+\stgrad F
+}{0,1}
+=
+\gpgrade{
+\stgrad \lr{ \BD + \frac{I}{c}\BH }
+}{0,1}
+=
+\gpgrade{
+\spacegrad \cdot \BD
++
+\spacegrad \wedge \BD
++
+\frac{I}{c} \spacegrad \cdot \BH
++
+\frac{I}{c} \spacegrad \wedge \BH
++
+\inv{c} \PD{t}{\BD}
++ I
+\inv{c^2} \PD{t}{\BH}
+}{0,1}
+=
+\spacegrad \cdot \BD
++
+\inv{c} \PD{t}{\BD}
+-\frac{1}{c} \spacegrad \cross \BH,
+\end{dmath}
+and for \( G \)
+\begin{dmath}\label{eqn:dielectric:100}
+I\lr{ c \rho_\txtm - \BM }
+=
+\gpgrade{ \stgrad G }{2,3}
+=
+\gpgrade{
+   \stgrad \lr{\BE + I c \BB }
+}{2,3}
+=
+\gpgrade{
+   \spacegrad \cdot \BE
+   +\spacegrad \wedge \BE
+   + I c \spacegrad \cdot \BB
+   + I c \spacegrad \wedge \BB
+   + \inv{c} \PD{t}{\BE}
+   + I \PD{t}{\BB}
+}{2,3}
+=
+    \spacegrad \wedge \BE
+   + I c \spacegrad \cdot \BB
+   + I \PD{t}{\BB}
+=
+I \lr{
+    \spacegrad \cross \BE
+   + c \spacegrad \cdot \BB
+   + \PD{t}{\BB}
+}.
+\end{dmath}
+Applying further grade selection operations, rescaling (cancelling all factors of \( c \) and \( I \)), and a bit of rearranging, gives
+\begin{dmath}\label{eqn:dielectric:120}
+\begin{aligned}
+\spacegrad \cdot \BD &= \rho \\
+\spacegrad \cross \BH &= \BJ + \PD{t}{\BD} \\
+\spacegrad \cdot \BB &= \rho_\txtm \\
+\spacegrad \cross \BE &= -\BM -\PD{t}{\BB},
+\end{aligned}
+\end{dmath}
+which are Maxwell's equations, completing the proof.
+
+\makeproblem{Maxwell's equations in media.}{problem:dielectric:140}{
+The proof above is somewhat unfriendly, as it works backwards from the answer.  No
+motivation was given for why the particular multivector fields were chosen, nor
+why grade selection operations were required.
+To obtain some insight on why this works, prove
+\cref{thm:dielectric:20}
+from
+\cref{eqn:freespace:300} directly as follows:
+\begin{enumerate}
+\item Eliminate cross products using \( \spacegrad \cross \Bf = I (\spacegrad \wedge \Bf) \).
+\item Introduce a scalar constant \( c \) with dimensions of velocity and redimensionalize any time derivatives \( \PDi{t}{\Bf} = (1/c) \PDi{t}{(c \Bf)} \), so that \( [(1/c)\PDi{t}{}] = [\spacegrad] \).
+\item If required, multiply each of Maxwell's equations by a factor of \( I \), to obtain a scalar and vector equation for \( \BD, \BH \), and a bivector and pseudoscalar equation for \( \BE, \BB \).
+\item Sum the pairs of equations to form a multivector equation for each of \( \BD, \BH \) and \( \BE, \BB \).
+\item Factor the terms in each equation into a product of the spacetime gradient and the respective fields \( F, G \), and show the result may be simplified by grade selection.
+\end{enumerate}
+} % problem
+
+%\makeanswer{problem:dielectric:160}{
+%To prove \cref{thm:dielectric:20} we start by eliminating the cross products from
+%and grouping the fields
+%\begin{dmath}\label{eqn:dielectric:20}
+%\begin{aligned}
+%\PD{t}{\BD} +I \spacegrad \wedge \BH &= -\BJ  \\
+%\spacegrad \cdot \BD &= \rho \\
+%I \PD{t}{\BB} + \spacegrad \wedge \BE &= -I \BM  \\
+%I \spacegrad \cdot \BB &= I \rho_\txtm.
+%\end{aligned}
+%\end{dmath}
+%There are time and divergence operations that we may assume should be grouped into a single spacetime gradient.  Let \( c \) be a constant with dimensions of velocity (to be determined), and then redimensionalize
+%\begin{dmath}\label{eqn:dielectric:40}
+%\begin{aligned}
+%\inv{c} \PD{t}{\BD} +I \spacegrad \wedge \frac{\BH}{c} &= -\frac{\BJ}{c} \\
+%\spacegrad \cdot \BD &= \rho \\
+%\inv{c} \PD{t}{c I \BB} + \spacegrad \wedge \BE &= -I \BM  \\
+%I \spacegrad \cdot (c \BB) &= I c \rho_\txtm.
+%\end{aligned}
+%\end{dmath}
+%The dimensions of the pair of equations in \( (\BD,\BH) \) and \( \BE, \BB \) are now consistent.  The grades of these equations are respectively vector, scalar, bivector, and pseudoscalar, so the scalar-vector and bivector-pseudoscalar equations may be added without any loss of information.
+%\begin{dmath}\label{eqn:dielectric:60}
+%\begin{aligned}
+%\spacegrad \cdot \BD + \inv{c} \PD{t}{\BD} + I \spacegrad \wedge \frac{\BH}{c} &= \rho -\frac{\BJ}{c} \\
+%I \spacegrad \cdot (c \BB) + \inv{c} \PD{t}{c I \BB} + \spacegrad \wedge \BE &= I\lr{ c \rho_\txtm - \BM }.
+%\end{aligned}
+%\end{dmath}
+%The right hand sides are the \( J_\txte, I J_\txtm \) sources defined above.  Let's expand the grade selections of
+%} % answer
+
+\subsection{Transforming away the grade selection operations.}
+
+Because of the grade selection operations in \cref{thm:dielectric:20}, we cannot simply solve for \( F, G \) using the Green's function
+for the spacetime gradient.  However, we may make a gauge-like transformation of the fields, and use
+such transformations to solve simpler equations free of the grade selection operations.
+\maketheorem{Multivector transformation of the fields.}{thm:dielectric:180}{
+If \( F, G \) are solutions to \cref{thm:dielectric:20}, then so are
+\begin{equation*}
+\begin{aligned}
+F' &= F + \gpgrade{ \conjstgrad \Psi_{2,3} }{1,2} \\
+G' &= G + \gpgrade{ \conjstgrad \Psi_{0,1} }{1,2},
+\end{aligned}
+\end{equation*}
+where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) is any multivector with grades 0,1.
+} % theorem
+
+To prove \cref{thm:dielectric:180} we need to show that
+\begin{dmath}\label{eqn:dielectric:160}
+\begin{aligned}
+\gpgrade{\stgrad F'}{0,1} &= \gpgrade{\stgrad F}{0,1} \\
+\gpgrade{\stgrad G'}{2,3} &= \gpgrade{\stgrad G}{2,3}.
+\end{aligned}
+\end{dmath}
+Let's start with \( F \)
+\begin{dmath}\label{eqn:dielectric:140}
+\begin{aligned}
+\gpgrade{\stgrad F'}{0,1}
+&=
+\gpgrade{\stgrad F}{0,1}
++
+\gpgrade{\stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{1,2} }{0,1} \\
+&=
+\gpgrade{\stgrad F}{0,1}
++
+\gpgrade{ \dLambertian \Psi_{2,3} }{0,1} \\
+&\quad -
+\gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} }{0,1}.
+\end{aligned}
+\end{dmath}
+The second term is killed since \( \Psi_{2,3} \) has no grade 0,1 components by definition, so neither does \( \dLambertian \Psi_{2,3} \).
+To see that the last term is zero, note that \( \conjstgrad \Psi_{2,3} \) can have only grades 1,2,3, so \( \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) is a trivector.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) has only grades 2,3, which are obliterated by the final grade 0,1 selection operation, leaving just \( \gpgrade{\stgrad F}{0,1} \).
+For \( G \) we have
+\begin{dmath}\label{eqn:dielectric:180}
+\begin{aligned}
+\gpgrade{\stgrad G'}{2,3}
+&=
+\gpgrade{\stgrad G}{2,3}
++
+\gpgrade{\stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{1,2} }{2,3} \\
+&=
+\gpgrade{\stgrad G}{2,3}
++
+\gpgrade{ \dLambertian \Psi_{0,1} }{2,3} \\
+&\quad -
+\gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} }{2,3}.
+\end{aligned}
+\end{dmath}
+As before the d'Lambertian term is killed as it has no grades 2,3.
+To see that the last term is zero, note that \( \conjstgrad \Psi_{0,1} \) can have only grades 0,1,2, so \( \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) is a scalar.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) has only grades 0,1, which are obliterated by the final grade 2,3 selection operation, leaving \( \gpgrade{\stgrad G}{2,3} \), completing the proof.
+
+%}
+%\EndArticle
+\EndNoBibArticle

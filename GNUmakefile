@@ -41,6 +41,7 @@ maxwells.pdf :: $(shell cat spellcheckem.txt)
 
 report : ece2500report.pdf
 mx : maxwells.pdf
+di : dielectric.pdf
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

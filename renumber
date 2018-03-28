@@ -439,7 +439,11 @@
 #../latex/bin/lgrep generalPotential.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalPotential.tex
 
-../latex/bin/lgrep gaugeGeneral.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl gaugeGeneral.tex
-../latex/bin/lgrep gaugeTransformation.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl gaugeTransformation.tex
+#../latex/bin/lgrep gaugeGeneral.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl gaugeGeneral.tex
+
+#../latex/bin/lgrep gaugeTransformation.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl gaugeTransformation.tex
+
+../latex/bin/lgrep dielectric.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl dielectric.tex
