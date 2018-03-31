@@ -32,11 +32,12 @@
    chapter 3: rework as theorem/proof:
 
    - Polarization (harder) : 6 pages.
-   - Multivector potential (harder) : 11 pages.
+   - Multivector potential: far field: 5 pages.
    - Lorentz force: 2 pages -- incorporate into integral form of Poynting vector.  Doesn't really need a proof now.
+   - Boundary value: 5 pages.
 
    ====
-   19 pages pending.
+   18 pages pending.
 
 - before a \makedefinition, theorem, ... should I end any sentance?  I think so, and don't in many places.
 
