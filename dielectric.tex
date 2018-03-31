@@ -3,34 +3,34 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-\input{../latex/blogpost.tex}
-\renewcommand{\basename}{dielectric}
-%\renewcommand{\dirname}{notes/phy1520/}
-\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%\newcommand{\dateintitle}{}
-%\newcommand{\keywords}{}
-
-\input{../latex/peeter_prologue_print2.tex}
-
-\usepackage{peeters_layout_exercise}
-\usepackage{peeters_braket}
-\usepackage{peeters_figures}
-\usepackage{siunitx}
-%\usepackage{mhchem} % \ce{}
-%\usepackage{macros_bm} % \bcM
-\usepackage{macros_qed} % \qedmarker
-%\usepackage{txfonts} % \ointclockwise
-
-\newcommand{\dLambertian}[0]{\square}
-
-\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
-\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
-
-\beginArtNoToc
-
-\generatetitle{Maxwell's equation in media}
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{dielectric}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%\newcommand{\dLambertian}[0]{\square}
+%
+%\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+%\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+%
+%\beginArtNoToc
+%
+%\generatetitle{Maxwell's equation in media}
 %\chapter{Maxwell's equation in media}
-%\label{chap:dielectric}
+\label{chap:dielectric}
 
 \subsection{Statement.}
 
@@ -181,11 +181,50 @@ from
 %The right hand sides are the \( J_\txte, I J_\txtm \) sources defined above.  Let's expand the grade selections of
 %} % answer
 
-\subsection{Transforming away the grade selection operations.}
+\subsection{Alternative form.}
+
+\maketheorem{Grade selection free equations.}{thm:dielectric:200}{
+Given multivector solutions \( F', G' \) to
+\begin{equation*}
+\begin{aligned}
+J_\txte &= \stgrad F' \\
+I J_\txtm &= \stgrad G',
+\end{aligned}
+\end{equation*}
+these can be related to solutions \( F, G \) of Maxwell's equations given by \cref{thm:dielectric:20} by
+\begin{equation*}
+\begin{aligned}
+F &= \gpgrade{F'}{1,2} \\
+G &= \gpgrade{G'}{1,2},
+\end{aligned}
+\end{equation*}
+if
+\begin{equation*}
+\begin{aligned}
+\gpgrade{\stgrad \gpgradezero{F'}}{0,1} &= 0 \\
+\gpgrade{\stgrad \gpgradethree{G'}}{2,3} &= 0.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+The space time gradient equations of \cref{thm:dielectric:200} can be solved for \( F', G' \) using Green's function convolution.  If we can impose a zero scalar grade constraint on \( F' \) and a zero pseudoscalar grade constraint on \( G' \) then we have figured out how to solve \cref{thm:dielectric:20}.
+
+\paragraph{Question:} Would a grade selection of the convolution work?
+
+\begin{dmath}\label{eqn:dielectric:200}
+\begin{aligned}
+F &= \int dt' dV' \gpgrade{G(\Bx - \Bx', t - t') J_\txte}{1,2} \\
+G &= \int dt' dV' \gpgrade{G(\Bx - \Bx', t - t') I J_\txtm}{1,2},
+\end{aligned}
+\end{dmath}
+where \( G(\Bx - \Bx', t - t') \),
+is the Green's function for the space time gradient \cref{thm:greensFunctionSpacetimeGradient:120},
+not to be confused with \( G = \BE + I c \BB \),
+
+\subsection{Gauge like transformations.}
 
 Because of the grade selection operations in \cref{thm:dielectric:20}, we cannot simply solve for \( F, G \) using the Green's function
-for the spacetime gradient.  However, we may make a gauge-like transformation of the fields, and use
-such transformations to solve simpler equations free of the grade selection operations.
+for the spacetime gradient.  However, we may make a gauge-like transformation of the fields.  Additional exploration is required to determine if such transformations can be utilized to solve \cref{thm:dielectric:20}.
 \maketheorem{Multivector transformation of the fields.}{thm:dielectric:180}{
 If \( F, G \) are solutions to \cref{thm:dielectric:20}, then so are
 \begin{equation*}
@@ -241,6 +280,36 @@ For \( G \) we have
 As before the d'Lambertian term is killed as it has no grades 2,3.
 To see that the last term is zero, note that \( \conjstgrad \Psi_{0,1} \) can have only grades 0,1,2, so \( \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) is a scalar.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) has only grades 0,1, which are obliterated by the final grade 2,3 selection operation, leaving \( \gpgrade{\stgrad G}{2,3} \), completing the proof.
 
+An additional variation of \cref{thm:dielectric:180} is also possible.
+
+\maketheorem{Multivector transformation of the fields.}{thm:dielectric:220}{
+If \( F, G \) are solutions to \cref{thm:dielectric:20}, then so are
+\begin{equation*}
+\begin{aligned}
+F' &= F + \conjstgrad \Psi_{2,3} \\
+G' &= G + \conjstgrad \Psi_{0,1}
+\end{aligned}
+\end{equation*}
+where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) is any multivector with grades 0,1.
+} % theorem
+
+\Cref{thm:dielectric:220} can be proven by direct substitution.  For \( F \)
+\begin{dmath}\label{eqn:dielectric:220}
+\gpgrade{ \stgrad \lr{ F + \conjstgrad \Psi_{2,3} } }{0,1}
+=
+\gpgrade{ \stgrad F + \dLambertian \Psi_{2,3} }{0,1}
+=
+\gpgrade{ \stgrad F },
+\end{dmath}
+and for \( G\)
+\begin{dmath}\label{eqn:dielectric:240}
+\gpgrade{ \stgrad \lr{ G + \conjstgrad \Psi_{0,1} } }{2,3}
+=
+\gpgrade{ \stgrad G + \dLambertian \Psi_{0,1} }{2,3}
+=
+\gpgrade{ \stgrad G },
+\end{dmath}
+which completes the proof.
+
 %}
-%\EndArticle
-\EndNoBibArticle
+%\EndNoBibArticle
