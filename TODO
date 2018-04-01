@@ -1,3 +1,17 @@
+- change the pillbox figure to have the normal and pillbox surface pointing along the tangent plane at the point in question.
+  Also show a graphical illustration of the fields on both sides of the surface.
+
+- REWRITE:
+
+   chapter 3: rework as theorem/proof:
+
+   - Polarization (harder) : 6 pages.
+   - Multivector potential: far field: 5 pages.
+   - Lorentz force: 2 pages -- incorporate into integral form of Poynting vector.  Doesn't really need a proof now.
+
+   ====
+   13 pages pending.
+
 - Have places that it would make sense to use label boxes.  I'd forgotten all about those.
 
 - removed solution for electrostatics
@@ -26,18 +40,6 @@
 
    Did I have anything like that in the multivector potential solution ... I don't think I did.
    Look through the multivector potential section for anything on solutions.
-
-- REWRITE:
-
-   chapter 3: rework as theorem/proof:
-
-   - Polarization (harder) : 6 pages.
-   - Multivector potential: far field: 5 pages.
-   - Lorentz force: 2 pages -- incorporate into integral form of Poynting vector.  Doesn't really need a proof now.
-   - Boundary value: 5 pages.
-
-   ====
-   18 pages pending.
 
 - before a \makedefinition, theorem, ... should I end any sentance?  I think so, and don't in many places.
 

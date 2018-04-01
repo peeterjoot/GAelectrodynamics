@@ -207,9 +207,40 @@ if
 \end{equation*}
 } % theorem
 
-The space time gradient equations of \cref{thm:dielectric:200} can be solved for \( F', G' \) using Green's function convolution.  If we can impose a zero scalar grade constraint on \( F' \) and a zero pseudoscalar grade constraint on \( G' \) then we have figured out how to solve \cref{thm:dielectric:20}.
+To prove we select the grade 0,1 and grade 2,3 components from space time gradient equations of
+\cref{thm:dielectric:200}.  For the electric sources, this gives
+\begin{dmath}\label{eqn:dielectric:260}
+J_\txte
+= \gpgrade{\stgrad F'}{0,1}
+= \gpgrade{\stgrad \gpgrade{F'}{1,2}}{0,1}
++ \gpgrade{\stgrad \gpgradezero{F'}}{0,1}
++ \gpgrade{\stgrad \gpgradethree{F'}}{0,1},
+\end{dmath}
+however \( \stgrad \gpgrade{F'}{3} \) has only grade 2,3 components, leaving just
+\begin{dmath}\label{eqn:dielectric:280}
+J_\txte
+= \gpgrade{\stgrad \gpgrade{F'}{1,2}}{0,1}
++ \gpgrade{\stgrad \gpgradezero{F'}}{0,1},
+\end{dmath}
+as claimed.  For the magnetic sources, we have
+\begin{dmath}\label{eqn:dielectric:300}
+I J_\txtm
+= \gpgrade{\stgrad G'}{2,3}
+= \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
++ \gpgrade{\stgrad \gpgradezero{G'}}{2,3}
++ \gpgrade{\stgrad \gpgradethree{G'}}{2,3},
+\end{dmath}
+however \( \stgrad \gpgrade{G'}{0} \) has only grade 0,1 components, leaving just
+\begin{dmath}\label{eqn:dielectric:320}
+I J_\txtm
+= \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
++ \gpgrade{\stgrad \gpgradezero{G'}}{2,3},
+\end{dmath}
+completing the proof.
 
-\paragraph{Question:} Would a grade selection of the convolution work?
+\Cref{thm:dielectric:200} is probably a more effect geometric algebra form for solution of Maxwell's equations in matter, as the grade selection free spacetime gradients can be solved for \( F', G' \) directly using Green's function convolution.  However, we have an open question of how to impose a zero scalar grade constraint on \( F' \) and a zero pseudoscalar grade constraint on \( G' \).
+
+\paragraph{Question:} Is the solution as simple as grade selection of the convolution?
 
 \begin{dmath}\label{eqn:dielectric:200}
 \begin{aligned}

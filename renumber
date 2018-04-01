@@ -415,8 +415,8 @@
 #../latex/bin/lgrep lorentzForce.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl lorentzForce.tex
 
-#../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
+../latex/bin/lgrep boundarySurfaceSources.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl boundarySurfaceSources.tex
 
 #../latex/bin/lgrep amperes.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl amperes.tex
