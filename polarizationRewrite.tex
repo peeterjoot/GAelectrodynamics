@@ -1,0 +1,362 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{polarizationRewrite}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+\usepackage{macros_cal} % \calE
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Polarization}
+%\chapter{Polarization}
+%\label{chap:polarizationRewrite}
+
+      \section{Polarization.}
+         \subsection{Plane wave.}
+            %\input{polarization.tex}
+\index{plane wave}
+\index{polarization}
+In a discussion of polarization, it is convenient to align the propagation direction along a fixed direction, usually the z-axis.
+%%\begin{dmath}\label{eqn:frequencydomainPlaneWaves:200}
+%\boxedEquation
+%{eqn:frequencydomainPlaneWaves:200}
+%{
+%F = (1 + \kcap) \BE_0 e^{-j \Bk \cdot \Bx},
+%}
+%%\end{dmath}
+Setting \( \kcap = \Be_3, \beta z = \Bk \cdot \Bx \)
+in a
+plane wave representation from
+\cref{thm:planewavesMultivector:620}
+%\cref{eqn:frequencydomainPlaneWaves:200} the plane wave representation of
+the field is
+\begin{dmath}\label{eqn:polarization:20}
+\begin{aligned}
+F(\Bx, \omega) &= (1 + \Be_3) \BE e^{-j \beta z} \\
+F(\Bx, t) &= \Real\lr{ F(\Bx, \omega) e^{j \omega t} },
+\end{aligned}
+\end{dmath}
+where \( \BE \cdot \Be_3 = 0 \)
+, (i.e. \( \BE \) is an electric field, and not just a free parameter).
+
+Here the imaginary \( j \) has no intrinsic geometrical interpretation, \( \BE = \BE_\txtr + j \BE_\txti \) is allowed to have complex values, and all components of \( \BE \) is perpendicular to the propagation direction (\( \BE_\txtr \cdot \Be_3 = \BE_\txti \cdot \Be_3 = 0 \)).  Stated explicitly, this means that the electric field phasor may have real or complex components in either of the transverse plane basis directions, as in
+\begin{dmath}\label{eqn:polarization:640}
+\BE =
+\lr{ \alpha_1 + j \beta_1 } \Be_1 +
+\lr{ \alpha_2 + j \beta_2 } \Be_2.
+\end{dmath}
+The total time domain field for this general phasor field is easily found to be
+\begin{dmath}\label{eqn:polarization_circular:160}
+F(\Bx, t) = (1 + \Be_3) \lr{
+\lr{ \alpha_1 \Be_1 + \alpha_2 \Be_2 } \cos\lr{ \omega t - \beta z }
+-\lr{ \beta_1 \Be_1 + \beta_2 \Be_2 } \sin\lr{ \omega t - \beta z }
+}.
+\end{dmath}
+
+FIXME: rewrite marker.
+
+\index{Jones vector}
+A common representation of the electric field components is the Jones vector \( (c_1, c_2) \), which specifies complex coefficients for the electric field phasor in each of the possible directions
+\begin{dmath}\label{eqn:polarization:120}
+\BE = c_1 \Be_1 + c_2 \Be_2,
+\end{dmath}
+where \( c_1, c_2 \) are complex valued, say
+\begin{dmath}\label{eqn:polarization:140}
+\begin{aligned}
+c_1 &= \alpha_1 + j \beta_1 \\
+c_2 &= \alpha_2 + j \beta_2.
+\end{aligned}
+\end{dmath}
+
+The tuple \( (c_1, c_2) \) is called the Jones vector, and compactly encodes the geometry of the pattern that the electric field traces out in the transverse plane.
+         \subsection{Circular polarization basis.}
+            %\input{polarization_circular.tex}
+
+\index{circular polarization}
+\index{left circular polarization}
+\index{right circular polarization}
+
+The time domain field when written out explicitly in terms of the Jones vector components is
+(cut)
+Linear, circular, and elliptical polarization patterns can be obtained by selecting specific values of the Jones vector, or equivalently by selecting specific values for the \( \alpha_1, \alpha_2, \beta_1, \beta_2 \) constants in the time domain representation of \cref{eqn:polarization_circular:160}.
+In particular,
+a field for which the
+change in phase
+\begin{dmath}\label{eqn:polarization_circular:520}
+\phi = \omega t - \beta z,
+\end{dmath}
+results in the electric field tracing out a (clockwise,counterclockwise) circle
+\begin{dmath}\label{eqn:polarization_circular:180}
+\begin{aligned}
+\BE_\txtL &= \Abs{\BE} \lr{ \Be_1 \cos\phi + \Be_2 \sin\phi } = \Abs{\BE} \Be_1 \exp\lr{  \Be_{12} \phi } \\
+\BE_\txtR &= \Abs{\BE} \lr{ \Be_1 \cos\phi - \Be_2 \sin\phi } = \Abs{\BE} \Be_1 \exp\lr{ -\Be_{12} \phi },
+\end{aligned}
+\end{dmath}
+is referred to as having
+(right,left) circular polarization.
+There are different conventions for the polarization orientation, and here the IEEE antenna convention discussed in \citep{balanis1989advanced} are used.
+
+%Fixme: flipped the orientation I was using, as I noticed after the fact that the figures in Balanis use an orientation with x-axis up and y-axis right!
+% check that everything still looks correct.
+% ( I didn't notice the inscribed X's in the polarization figures: https://en.wikibooks.org/wiki/Physics_Study_Guide/Vectors_and_scalars#How_to_draw_vectors_that_are_in_or_out_of_the_plane_of_the_page_.28or_board.29 )
+
+The bivector exponential representation of the circularly polarized electric fields in \cref{eqn:polarization_circular:180} indicates that it is possible to represent arbitrary field polarization in a GA form that does not require any real part operation, as follows
+\begin{dmath}\label{eqn:polarization_circular:200}
+F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtL e^{i\phi} + \alpha_\txtR e^{-i\phi} },
+\end{dmath}
+where the constants \( \alpha_\txtL, \alpha_\txtR \) are both complex with respect to the unit bivector imaginary \( i = \Be_{12} \) representing the plane transverse to the propagation direction
+\begin{dmath}\label{eqn:polarization_circular:220}
+\begin{aligned}
+\alpha_\txtL &= \alpha_{\txtL 1} + i \alpha_{\txtL 2} \\
+\alpha_\txtR &= \alpha_{\txtR 1} + i \alpha_{\txtR 2}.
+\end{aligned}
+\end{dmath}
+
+If a transformation from scalar to bivector imaginary \( j \rightarrow \Be_{12} = i \) is made in the Jones vector component representation of \cref{eqn:polarization:140},
+then
+the coefficients \cref{eqn:polarization_circular:220} of the circular polarization states are related to the Jones vector by (\cref{problem:polarization:1})
+\begin{dmath}\label{eqn:polarization_circular:260}
+\begin{aligned}
+\alpha_\txtL &= \inv{2}\lr{ c_1 - i c_2 } \\
+\alpha_\txtR &= \inv{2}\lr{ c_1 + i c_2 }^\dagger.
+\end{aligned}
+\end{dmath}
+
+         \subsection{Linear polarization.}
+            %\input{polarization_linearPolarization.tex}
+
+Linear polarization is described by
+\begin{dmath}\label{eqn:polarization_linearPolarization:280}
+\begin{aligned}
+\alpha_\txtL &= \inv{2}\Abs{\BE} \Be_1 e^{i(\psi + \theta)} \\
+\alpha_\txtR &= \inv{2}\Abs{\BE} \Be_1 e^{i(\psi - \theta)},
+\end{aligned}
+\end{dmath}
+or
+\begin{dmath}\label{eqn:polarization_linearPolarization:300}
+F = \lr{ 1 + \Be_3 } \Abs{\BE} \Be_1 e^{i\psi} \cos( \omega t - \beta z + \theta ),
+\end{dmath}
+where \( \theta \) is an arbitrary initial phase.  The electric field \( \BE \) traces out all the points along the line spanning the points between \( \pm \Be_1 e^{i\psi} \Abs{\BE} \), whereas the magnetic field \( \BH \) traces
+out all the points along \( \pm \Be_2 e^{i\psi} \Abs{\BE}/\eta \) as illustrated (with \( \eta = 1 \)) in
+\cref{fig:linearPolarization:linearPolarizationFig1}.
+\imageFigure{../figures/GAelectrodynamics/linearPolarizationFig1}{Linear polarization.}{fig:linearPolarization:linearPolarizationFig1}{0.3}
+
+         \subsection{Other phase dependence and energy momentum.}
+            %\input{polarization_phaseAndEnergyMomentum.tex}
+
+The linear polarization of \cref{eqn:polarization_linearPolarization:300} can be generalized from sinosoidal functions of the phase angle \cref{eqn:polarization_circular:520}, to arbitrary functions, as in
+\begin{dmath}\label{eqn:polarization_phaseAndEnergyMomentum:540}
+F = \lr{ 1 + \Be_3 } \Abs{\BE} \Be_1 e^{i\psi} f(\phi).
+\end{dmath}
+
+For example, \( f(\phi) = e^{i\phi} \) would result in a circularly polarized state, and
+a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).
+
+If the phase dependence of \cref{eqn:polarization_phaseAndEnergyMomentum:540} is a scalar function, then
+the energy momentum multivector for the field can be calculated simply
+\begin{dmath}\label{eqn:polarization_phaseAndEnergyMomentum:560}
+\calE + \frac{\BS}{v}
+=
+\inv{2} \epsilon
+F F^\dagger
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 } \Abs{\BE}^2 \Be_1 \cancel{e^{i\psi}} f^2(\phi)
+\cancel{e^{-i\psi} }
+\Be_1
+\lr{ 1 + \Be_3 }
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 } \Abs{\BE}^2 \cancel{\Be_1} f^2(\phi)
+\cancel{\Be_1 }
+\lr{ 1 + \Be_3 }
+=
+\epsilon \lr{ 1 + \Be_3 } \Abs{\BE}^2 f^2(\phi),
+\end{dmath}
+where the projective property \( \lr{ 1 + \Be_3 }^2 = 2 \lr{ 1 + \Be_3 } \) was used in the final simplification.
+The energy, and Poynting vectors are
+\begin{dmath}\label{eqn:polarization_phaseAndEnergyMomentum:580}
+\begin{aligned}
+\calE &= \epsilon \Abs{\BE}^2 f^2(\phi) \\
+\BS &= \inv{\eta} \Be_3 \Abs{\BE}^2 f^2(\phi).
+\end{aligned}
+\end{dmath}
+% v epsilon = sqrt( epsilon^2/ (epsilon mu) ) = 1/eta
+
+More care for this calculation is required if the phase function \( f(\phi) \) is multivector valued, since it may not commute with the \( \Be_1 \) and \( e^{i\psi} \) factors of \( F \).
+         \subsection{Elliptical parameterization.}
+            %\input{polarization_elliptical.tex}
+An elliptical polarized electric field can be parameterized as
+\begin{dmath}\label{eqn:polarization_elliptical:340}
+\BE
+=
+E_a \Be_1 \cos\theta + E_b \Be_2 \sin\theta,
+\end{dmath}
+which corresponds to a Jones vector \( (E_a, -i E_b) \), or circular polarization coefficients with values
+\begin{dmath}\label{eqn:polarization_elliptical:400}
+\begin{aligned}
+\alpha_\txtL &= \inv{2}\lr{ E_a - E_b } \\
+\alpha_\txtR &= \inv{2}\lr{ E_a + E_b }.
+\end{aligned}
+\end{dmath}
+
+Therefore an elliptically polarized field can be represented as
+\begin{dmath}\label{eqn:polarization_elliptical:420}
+F = \inv{2} (1 + \Be_3) \Be_1 \lr{ (E_a + E_b) e^{i\phi} + (E_a - E_b) e^{-i\phi} }.
+\end{dmath}
+
+An interesting variation of the elliptical polarization uses a hyperbolic parameterization.
+If \( a, b \) are the semi-major/minor axes of the ellipse (i.e. \( a > b \)),
+and \( \Ba = a \Be_1 e^{i\psi} \) is the vectoral representation of the semi-major axis (not necessarily placed along \( \Be_1 \)),
+and \( e = \sqrt{1 - (b/a)^2} \) is the eccentricity of the ellipse,
+then it can be shown (\citep{hestenes1999nfc})
+that an elliptic parameterization can be written
+in the compact form
+\begin{dmath}\label{eqn:polarization_elliptical:360}
+\Br(\phi)
+=
+e \Ba \cosh( \tanh^{-1}(b/a) + i \phi).
+\end{dmath}
+
+When the bivector imaginary \( i = \Be_{12} \) is used then
+this parameterization is real and has only vector grades, so the electromagnetic field for a general elliptic wave has the form
+\begin{dmath}\label{eqn:polarization_elliptical:380}
+\begin{aligned}
+F &= e E_a \lr{ 1 + \Be_3 } \Be_1 e^{ i \psi } \cosh\lr{ m + i \phi} \\
+m &= \tanh^{-1}\lr{ E_b/E_a } \\
+e &= \sqrt{1 - {(E_b/E_a)}^2 },
+\end{aligned}
+\end{dmath}
+where \( E_a(E_b) \) are the magnitudes of the electric field components lying along the semi-major(minor) axes, and the propagation direction \( \Be_3 \) is normal to both the major and minor axis directions.
+An elliptic electric field polarization is illustrated in \cref{fig:ellipticalPolarization:ellipticalPolarizationFig1}, where the vectors representing the major and minor axes are \( \BE_a = E_a \Be_1 e^{i\psi}, \BE_b = E_b \Be_1 e^{i\psi} \).
+Observe that setting \( E_b = 0 \) results in the linearly polarized field of \cref{eqn:polarization_linearPolarization:300}.
+\imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
+
+Following the procedure of \cref{eqn:polarization_phaseAndEnergyMomentum:560}, the energy momentum of an elliptically polarized field is
+\begin{dmath}\label{eqn:polarization_elliptical:600}
+\calE + \frac{\BS}{v}
+=
+\inv{2} \epsilon
+F F^\dagger
+=
+\inv{2} \epsilon
+e^2 E_a^2 \lr{ 1 + \Be_3 } \Be_1 \cancel{e^{ i \psi }} \cosh\lr{ m + i \phi}
+\cosh\lr{ m - i \phi}
+\cancel{e^{ -i \psi } }
+\Be_1
+\lr{ 1 + \Be_3 }
+=
+\inv{2} \epsilon
+e^2 E_a^2 \lr{ 1 + \Be_3 }
+\lr{ \cosh(2m) + \cos(2 \phi) }
+=
+\inv{2} \epsilon
+\lr{ 1 + \Be_3 }
+\lr{ E_b^2 + 2 \lr{
+E_a^2 - E_b^2
+ } \cos^2 \phi }
+.
+\end{dmath}
+
+The simplification above made use of the identity \( (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2 \).
+%
+% $Assumptions = b > 0 && b < 1 && a > 0 && a > b;
+% (1 - (b/a)^2) Cosh[2 ArcTanh[b/a]] // FullSimplify
+
+         \subsection{Pseudoscalar imaginary.}
+            %\input{polarization_pseudoscalarImaginary.tex}
+
+The multivector \( 1 + \Be_3 \) acts as a projector, consuming any factors of \( \Be_3 \)
+\begin{dmath}\label{eqn:polarization_pseudoscalarImaginary:440}
+(1 + \Be_3) \Be_3
+=
+\Be_3 + \Be_3^2
+=
+1 + \Be_3.
+\end{dmath}
+
+This property allows all the bivector imaginaries \( i = \Be_{12} = \Be_3 I \) in \cref{eqn:polarization_circular:200} to be re-expressed in terms of the \R{3} pseudoscalar \( I = \Be_{123} \).  To illustrate this consider just the left circular polarized wave
+\begin{dmath}\label{eqn:polarization_pseudoscalarImaginary:460}
+F_\txtL
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL e^{i\phi}
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL \lr{ \cos\phi + \Be_3 I \sin\phi }
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL \cos\phi
+-\lr{ 1 + \Be_3 } \Be_3 \Be_1 \alpha_\txtL I \sin\phi
+=
+\lr{ 1 + \Be_3 } \Be_1 \alpha_\txtL e^{-I\phi}
+=
+\lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_{\txtL 1} + \Be_3 I\alpha_{\txtL 2}  } e^{-I\phi}
+=
+\lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_{\txtL 1} - I \alpha_{\txtL 2} } e^{-I\phi}.
+\end{dmath}
+
+This shows that the coefficients for the circular polarized states can be redefined using the pseudoscalar as an imaginary (in contrast to the bivector imaginary used in \cref{eqn:polarization_circular:220})
+\begin{dmath}\label{eqn:polarization_pseudoscalarImaginary:480}
+\begin{aligned}
+\alpha_\txtL' &= \alpha_{\txtL 1} - I \alpha_{\txtL 2} \\
+\alpha_\txtR' &= \alpha_{\txtR 1} - I \alpha_{\txtR 2},
+\end{aligned}
+\end{dmath}
+so that the plane wave is
+\begin{dmath}\label{eqn:polarization_pseudoscalarImaginary:500}
+F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtL' e^{-I\phi} + \alpha_\txtR' e^{I\phi} }.
+\end{dmath}
+
+Like \cref{eqn:polarization_circular:200} this plane wave representation does not require taking any real parts.  The transverse plane in which the electric and magnetic fields lie is defined by the duality relation \( i = I \Be_3 \).
+
+The energy momentum multivector for a wave described in terms of the pseudoscalar circular polarization states of \cref{eqn:polarization_pseudoscalarImaginary:500} is just
+\begin{dmath}\label{eqn:polarization_pseudoscalarImaginary:620}
+\calE + \frac{\BS}{v} =
+\epsilon \lr{ 1 + \Be_3 } \lr{ \Abs{\alpha_\txtL'}^2 + \Abs{\alpha_\txtR'}^2 },
+\end{dmath}
+where the absolute value is computed using the reverse as the conjugation operation \( \Abs{z}^2 = z z^\dagger \).
+
+         \subsection{Problems.}
+            %\input{polarization_problems.tex}
+
+\makeproblem{Circular polarization coefficients relationship to the Jones vector.}{problem:polarization:1}{
+By substituting \cref{eqn:polarization_circular:220} into \cref{eqn:polarization_circular:200}, and comparing to \cref{eqn:polarization_circular:160},
+show that the circular state coefficients have the following relationship to the Jones vector coordinates
+\begin{equation*}
+\begin{aligned}
+\alpha_\txtL &= \lr{ \alpha_1 + \beta_2 }/2 + i \lr{ -\alpha_2 + \beta_1 }/2 \\
+\alpha_\txtR &= \lr{ \alpha_1 - \beta_2 }/2 + i \lr{ -\alpha_2 - \beta_1 }/2,
+\end{aligned}
+\end{equation*}
+and use this to prove \cref{eqn:polarization_circular:260}.
+} % problem
+
+\makeproblem{Pseudoscalar Jones vector.}{problem:polarization:2}{
+With the Jones vector defined in terms of the \R{3} pseudoscalar
+\begin{equation*}
+\begin{aligned}
+c_1 &= \alpha_1 + I \beta_1 \\
+c_2 &= \alpha_2 + I \beta_2,
+\end{aligned}
+\end{equation*}
+calculate the values \( \alpha_\txtL', \alpha_\txtR' \) of \cref{eqn:polarization_pseudoscalarImaginary:480} in terms of this Jones vector.
+} % problem
+
+%}
+%\EndArticle
+\EndNoBibArticle

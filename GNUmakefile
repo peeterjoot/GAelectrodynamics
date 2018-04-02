@@ -41,6 +41,7 @@ maxwells.pdf :: $(shell cat spellcheckem.txt)
 
 report : ece2500report.pdf
 mx : maxwells.pdf
+pp : polarizationRewrite.pdf
 
 #greens.pdf :: gradientGreensFunctionEuclidean.tex
 

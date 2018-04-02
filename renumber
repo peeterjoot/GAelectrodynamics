@@ -447,3 +447,6 @@
 
 #../latex/bin/lgrep dielectric.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl dielectric.tex
+
+../latex/bin/lgrep polarizationRewrite.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl polarizationRewrite.tex
