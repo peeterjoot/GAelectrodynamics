@@ -63,13 +63,7 @@ multivector_nomenclature.tex
 normalFactorization.tex
 normalVectors.tex
 planewavesMultivector.tex
-polarization.tex
-polarization_circular.tex
-polarization_elliptical.tex
-polarization_linearPolarization.tex
-polarization_phaseAndEnergyMomentum.tex
-polarization_problems.tex
-polarization_pseudoscalarImaginary.tex
+polarizationRewrite.tex
 potentialSection_farfield.tex
 poyntingF.tex
 poyntingFComplexPower.tex
