@@ -5,16 +5,6 @@
 
    statement about the mean value theorem is vague, and notation is not defined.
 
-- REWRITE:
-
-   chapter 3: rework as theorem/proof:
-
-   - Multivector potential: far field: 5 pages.
-   - Lorentz force: 2 pages -- incorporate into integral form of Poynting vector.  Doesn't really need a proof now.
-
-   ====
-   7 pages pending.
-
 - Have places that it would make sense to use label boxes.  I'd forgotten all about those.
 
 - removed solution for electrostatics

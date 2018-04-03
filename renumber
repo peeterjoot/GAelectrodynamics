@@ -208,8 +208,8 @@
 #../latex/bin/lgrep potentialSection_electric.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl potentialSection_electric.tex
 
-#../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
+../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
 
 #../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex

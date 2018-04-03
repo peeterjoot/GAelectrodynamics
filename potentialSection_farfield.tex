@@ -5,14 +5,31 @@
 %{
 \index{far field}
 
-Given a
-vector potential with a
-radial spherical wave representation
-\begin{dmath}\label{eqn:potentialSection_farfield:2400}
+\maketheorem{Far field magnetic vector potential.}{thm:potentialSection_farfield:1}{
+Given a vector potential with a radial spherical wave representation
+%\label{eqn:potentialSection_farfield:2400}
+\begin{equation*}
 \BA = \frac{e^{-j k r}}{r} \bcA( \theta, \phi ),
-\end{dmath}
-we can compute the far field ( \( r \gg 1 \) ) electrodynamic field \( F \).
-The spherical representation of the gradient is
+\end{equation*}
+the far field (\(r \gg 1 \)) electromagnetic field is
+%\label{eqn:potentialSection_farfield:2520}{
+\begin{equation*}
+F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA}.
+\end{equation*}
+If \( \BA_\perp = \rcap \lr{ \rcap \wedge \BA} \) represents the
+non-radial component of the potential, the respective electric and magnetic field components are
+%\begin{dmath}\label{eqn:potentialSection_farfield:2560}
+\begin{equation*}
+\begin{aligned}
+\BE &= -j \omega \BA_\perp \\
+\BH &= \inv{\eta} \rcap \cross \BE.
+\end{aligned}
+\end{equation*}
+%\end{dmath}
+} % theorem
+
+To prove \cref{thm:potentialSection_farfield:1}, we will utilize a 
+spherical representation of the gradient
 \begin{dmath}\label{eqn:potentialSection_farfield:2420}
 \begin{aligned}
 \spacegrad &= \rcap \partial_r + \spacegrad_\perp \\
@@ -67,39 +84,38 @@ F
 =
 - j \omega \lr{ \BA - \rcap \lr{ \rcap \cdot \BA }} - j \omega \rcap \wedge \BA
 =
--j \omega \rcap \lr{ \rcap \wedge \BA} - j \omega \rcap \wedge \BA,
+-j \omega \rcap \lr{ \rcap \wedge \BA} - j \omega \rcap \wedge \BA
+=
+-j \omega \lr{ \rcap + 1 } \lr{ \rcap \wedge \BA},
 \end{dmath}
-or
-%\begin{dmath}\label{eqn:potentialSection_farfield:2520}
-\boxedEquation{eqn:potentialSection_farfield:2520}{
-F = -j \omega \lr{ \rcap + 1 } \lr{ \rcap \wedge \BA}.
-}
-%\end{dmath}
+which completes the first part of the proof.  Extraction of the electric and magnetic fields can be done by inspection and is left to the reader to prove.
 
 One interpretation of this is that the (bivector) magnetic field is represented by the plane perpendicular to the direction of propagation, and the electric field by a vector in that plane.
-These electric and magnetic fields can be extracted by inspection.
-Let \( \BA_\perp = \rcap \lr{ \rcap \wedge \BA} \) represent the
-non-radial component of the potential, so these respective fields are
-\begin{dmath}\label{eqn:potentialSection_farfield:2560}
-\begin{aligned}
-\BE &= -j \omega \BA_\perp \\
-\BH &= \inv{\eta} \rcap \cross \BE.
-\end{aligned}
-\end{dmath}
 
-Having calculated the far field approximation for the electrodynamic field for a vector potential \( \BA \) the field for the magnetic source vector potential \( \BF \) is
-%\begin{dmath}\label{eqn:potentialSection_farfield:2580}
-\boxedEquation{eqn:potentialSection_farfield:2580}{
-F = -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF },
-}
-%\end{dmath}
-for which the electric and magnetic field components are
-\begin{dmath}\label{eqn:potentialSection_farfield:2600}
+\maketheorem{Far field electric vector potential.}{thm:potentialSection_farfield:2}{
+Given a vector potential with a radial spherical wave representation
+%\label{eqn:potentialSection_farfield:2400}
+\begin{equation*}
+\BF = \frac{e^{-j k r}}{r} \bcF( \theta, \phi ),
+\end{equation*}
+the far field (\(r \gg 1 \)) electromagnetic field is
+%\label{eqn:potentialSection_farfield:2520}
+\begin{equation*}
+F = -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF }.
+\end{equation*}
+If \( \BF_\perp = \rcap \lr{ \rcap \wedge \BF} \) represents the
+non-radial component of the potential, the respective electric and magnetic field components are
+%\begin{dmath}\label{eqn:potentialSection_farfield:2560}
+\begin{equation*}
 \begin{aligned}
 \BE &= j \omega \eta \rcap \cross \BF \\
 \BH &= -j \omega \BF_\perp.
 \end{aligned}
-\end{dmath}
+\end{equation*}
+%\end{dmath}
+} % theorem
+
+The proof of \cref{thm:potentialSection_farfield:2} is left to the reader.
 
 \makeexample{Vertical dipole potential.}{example:potentialSection:1}{
 We will calculate the far field along the propagation direction vector \( \kcap \) in the z-y plane
