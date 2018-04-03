@@ -105,13 +105,13 @@ We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stat
 \maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:700}{
 The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
 \begin{equation*}
-F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtL e^{i\phi} + \alpha_\txtR e^{-i\phi} },
+F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{i\phi} + \alpha_\txtL e^{-i\phi} },
 \end{equation*}
 where
 \begin{equation*}
 \begin{aligned}
-\alpha_\txtL &= \inv{2}\lr{ c_1 + i c_2 } \\
-\alpha_\txtR &= \inv{2}\lr{ c_1 - i c_2 }^\dagger,
+\alpha_\txtR &= \inv{2}\lr{ c_1 + i c_2 } \\
+\alpha_\txtL &= \inv{2}\lr{ c_1 - i c_2 }^\dagger,
 \end{aligned}
 \end{equation*}
 where \( c_1, c_2 \) are the 0,2 grade multivector representation of the Jones vector coordinates from \cref{dfn:polarizationRewrite:680}.
@@ -153,8 +153,8 @@ which completes the proof.
 Linear polarization is described by
 \begin{dmath}\label{eqn:polarization_linearPolarization:280}
 \begin{aligned}
-\alpha_\txtL &= \inv{2}\Norm{\BE} e^{i(\psi + \theta)} \\
-\alpha_\txtR &= \inv{2}\Norm{\BE} e^{i(\psi - \theta)},
+\alpha_\txtR &= \inv{2}\Norm{\BE} e^{i(\psi + \theta)} \\
+\alpha_\txtL &= \inv{2}\Norm{\BE} e^{i(\psi - \theta)},
 \end{aligned}
 \end{dmath}
 so the field is
@@ -176,19 +176,19 @@ A field for which the change in phase
 results in the electric field tracing out a (clockwise,counterclockwise) circle
 \begin{dmath}\label{eqn:polarization_circular:180}
 \begin{aligned}
-\BE_\txtL &= \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{  \Be_{12} \phi } \\
-\BE_\txtR &= \Norm{\BE} \lr{ \Be_1 \cos\phi - \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{ -\Be_{12} \phi },
+\BE_\txtR &= \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{  \Be_{12} \phi } \\
+\BE_\txtL &= \Norm{\BE} \lr{ \Be_1 \cos\phi - \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{ -\Be_{12} \phi },
 \end{aligned}
 \end{dmath}
 is referred to as having
 (right,left) circular polarization, so the choice
-\(\alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \) results
+\(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) results
 in a right polarized wave
 \begin{dmath}\label{eqn:polarizationRewrite:720}
 F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{i(\omega t - k z)},
 \end{dmath}
 and
-\(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) results
+\(\alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \) results
 in a left polarized wave
 \begin{dmath}\label{eqn:polarizationRewrite:740}
 F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{-i(\omega t - k z)},
@@ -207,8 +207,8 @@ which corresponds to
 circular polarization coefficients with values
 \begin{dmath}\label{eqn:polarization_elliptical:400}
 \begin{aligned}
-\alpha_\txtL &= \inv{2}\lr{ E_a - E_b } \\
-\alpha_\txtR &= \inv{2}\lr{ E_a + E_b }.
+\alpha_\txtR &= \inv{2}\lr{ E_a - E_b } \\
+\alpha_\txtL &= \inv{2}\lr{ E_a + E_b }.
 \end{aligned}
 \end{dmath}
 
@@ -371,19 +371,19 @@ We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stat
 \maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:940}{
 The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
 \begin{equation*}
-F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtL e^{-I\phi} + \alpha_\txtR e^{I\phi} },
+F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{-I\phi} + \alpha_\txtL e^{I\phi} },
 \end{equation*}
 where
 \begin{equation*}
 \begin{aligned}
-\alpha_\txtL &= \inv{2}\lr{ c_1 + I c_2 }^\dagger \\
-\alpha_\txtR &= \inv{2}\lr{ c_1 - I c_2 },
+\alpha_\txtR &= \inv{2}\lr{ c_1 + I c_2 }^\dagger \\
+\alpha_\txtL &= \inv{2}\lr{ c_1 - I c_2 },
 \end{aligned}
 \end{equation*}
 where \( c_1, c_2 \) are the 0,2 grade multivector representation of the Jones vector coordinates from \cref{dfn:polarizationRewrite:920}.
 } % definition
 
-Notice that the signs of the exponentials have flipped for the left and right handed circular polarizations.  It may not obvious that the electric and magnetic fields in this representation have the desired transverse properties.  To see why that is still the case, and to understand the conjugation in the complex exponentials, consider the right circular polarization case with \( \alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \)
+Notice that the signs of the exponentials have flipped for the left and right handed circular polarizations.  It may not obvious that the electric and magnetic fields in this representation have the desired transverse properties.  To see why that is still the case, and to understand the conjugation in the complex exponentials, consider the right circular polarization case with \( \alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \)
 \begin{dmath}\label{eqn:polarizationRewrite:940}
 F
 = \lr{ 1 + \Be_3 } \Be_1 \Norm{\BE} e^{-I\phi}
@@ -459,20 +459,18 @@ F
 =
 \lr{ 1 + \Be_3 } \Be_1
 \lr{
-   \alpha_\txtL e^{-I\phi}
-+
    \alpha_\txtR e^{-I\phi}
++
+   \alpha_\txtL e^{-I\phi}
 },
 \end{dmath}
 which completes the proof.
 
-\section{FIXME: rewrite marker.}
-
-The energy momentum multivector for a wave described in terms of the pseudoscalar circular polarization states of \cref{eqn:polarization_pseudoscalarImaginary:500} is just
-\begin{dmath}\label{eqn:polarization_pseudoscalarImaginary:620}
-\calE + \frac{\BS}{v} =
-\epsilon \lr{ 1 + \Be_3 } \lr{ \Abs{\alpha_\txtL'}^2 + \Abs{\alpha_\txtR'}^2 },
-\end{dmath}
+Observe that there are some advantages to the pseudoscalar plane wave form, especially for computing energy momentum tensor components since \( I \) commutes with all grades.  For example, we can see practically by inspection that
+\begin{equation}\label{eqn:polarization_pseudoscalarImaginary:620}
+T(1) = \calE + \frac{\BS}{v} =
+\epsilon \lr{ 1 + \Be_3 } \lr{ \Abs{\alpha_\txtR}^2 + \Abs{\alpha_\txtL}^2 },
+\end{equation}
 where the absolute value is computed using the reverse as the conjugation operation \( \Abs{z}^2 = z z^\dagger \).
 
 %}
