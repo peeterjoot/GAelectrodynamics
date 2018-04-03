@@ -202,8 +202,8 @@ An elliptical polarized electric field can be parameterized as
 =
 E_a \Be_1 \cos\phi + E_b \Be_2 \sin\phi,
 \end{dmath}
-which corresponds to 
-%a Jones vector \( (E_a, -i E_b) \), or 
+which corresponds to
+%a Jones vector \( (E_a, -i E_b) \), or
 circular polarization coefficients with values
 \begin{dmath}\label{eqn:polarization_elliptical:400}
 \begin{aligned}
@@ -244,83 +244,113 @@ An elliptic electric field polarization is illustrated in \cref{fig:ellipticalPo
 Observe that setting \( E_b = 0 \) results in the linearly polarized field of \cref{eqn:polarization_linearPolarization:300}.
 \imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
 
-\section{FIXME:} rewrite marker.
+\subsection{Energy and momentum.}
 
-Following the procedure of \cref{eqn:polarization_phaseAndEnergyMomentum:560}, the energy momentum of an elliptically polarized field is
-\begin{dmath}\label{eqn:polarization_elliptical:600}
-\calE + \frac{\BS}{v}
-=
-\inv{2} \epsilon
-F F^\dagger
-=
-\inv{2} \epsilon
-e^2 E_a^2 \lr{ 1 + \Be_3 } \Be_1 \cancel{e^{ i \psi }} \cosh\lr{ m + i \phi}
-\cosh\lr{ m - i \phi}
-\cancel{e^{ -i \psi } }
-\Be_1
-\lr{ 1 + \Be_3 }
-=
-\inv{2} \epsilon
-e^2 E_a^2 \lr{ 1 + \Be_3 }
-\lr{ \cosh(2m) + \cos(2 \phi) }
-=
-\inv{2} \epsilon
-\lr{ 1 + \Be_3 }
-\lr{ E_b^2 + 2 \lr{
-E_a^2 - E_b^2
- } \cos^2 \phi }
-.
+Each of the polarizations considered above (linear, circular, elliptical) have the same general form
+\begin{dmath}\label{eqn:polarizationRewrite:760}
+F = \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f(\phi),
 \end{dmath}
+where \( f(\phi) \) is a complex valued function (i.e. grade 0,2).  The structure of \cref{eqn:polarizationRewrite:760} could be more general than considered so far.  For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).  Independent of the form of \( f \), we may compute the energy, momentum and Maxwell stress tensor for the plane wave given by \cref{eqn:polarizationRewrite:760}.
 
-The simplification above made use of the identity \( (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2 \).
-%
-% $Assumptions = b > 0 && b < 1 && a > 0 && a > b;
-% (1 - (b/a)^2) Cosh[2 ArcTanh[b/a]] // FullSimplify
-
-\subsection{Other phase dependence and energy momentum.}
-
-The linear polarization of \cref{eqn:polarization_linearPolarization:300} can be generalized from sinosoidal functions of the phase angle \cref{eqn:polarization_circular:520}, to arbitrary functions, as in
-\begin{dmath}\label{eqn:polarization_phaseAndEnergyMomentum:540}
-F = \lr{ 1 + \Be_3 } \Norm{\BE} \Be_1 e^{i\psi} f(\phi).
-\end{dmath}
-
-For example, \( f(\phi) = e^{i\phi} \) would result in a circularly polarized state, and
-a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).
-
-If the phase dependence of \cref{eqn:polarization_phaseAndEnergyMomentum:540} is a scalar function, then
-the energy momentum multivector for the field can be calculated simply
-\begin{dmath}\label{eqn:polarization_phaseAndEnergyMomentum:560}
-\calE + \frac{\BS}{v}
-=
-\inv{2} \epsilon
-F F^\dagger
-=
-\inv{2} \epsilon
-\lr{ 1 + \Be_3 } \Norm{\BE}^2 \Be_1 \cancel{e^{i\psi}} f^2(\phi)
-\cancel{e^{-i\psi} }
-\Be_1
-\lr{ 1 + \Be_3 }
-=
-\inv{2} \epsilon
-\lr{ 1 + \Be_3 } \Norm{\BE}^2 \cancel{\Be_1} f^2(\phi)
-\cancel{\Be_1 }
-\lr{ 1 + \Be_3 }
-=
-\epsilon \lr{ 1 + \Be_3 } \Norm{\BE}^2 f^2(\phi),
-\end{dmath}
-where the projective property \( \lr{ 1 + \Be_3 }^2 = 2 \lr{ 1 + \Be_3 } \) was used in the final simplification.
-The energy, and Poynting vectors are
-\begin{dmath}\label{eqn:polarization_phaseAndEnergyMomentum:580}
+\maketheorem{Energy momentum tensor components for a plane wave.}{thm:polarizationRewrite:780}{
+The energy momentum tensor components for the plane wave given by \cref{eqn:polarizationRewrite:760} are
+\begin{equation*}
 \begin{aligned}
-\calE &= \epsilon \Norm{\BE}^2 f^2(\phi) \\
-\BS &= \inv{\eta} \Be_3 \Norm{\BE}^2 f^2(\phi).
+T(1) &= -T(\Be_3) = \epsilon \lr{ 1 + \Be_3 } f f^\dagger = \calE + \frac{\BS}{c} \\
+T(\Be_1) &= T(\Be_2) = 0.
 \end{aligned}
-\end{dmath}
-% v epsilon = sqrt( epsilon^2/ (epsilon mu) ) = 1/eta
+\end{equation*}
+} % theorem
 
-More care for this calculation is required if the phase function \( f(\phi) \) is multivector valued, since it may not commute with the \( \Be_1 \) and \( e^{i\psi} \) factors of \( F \).
-         \subsection{Pseudoscalar imaginary.}
-            %\input{polarization_pseudoscalarImaginary.tex}
+Only the propagation direction of a plane wave, regardless of its polarization (or even whether or not there are Gaussian or other damping factors), carries any energy or momentum, and only the propagation direction component of the Maxwell stress tensor \( \BT(\Ba) \) is non-zero.
+
+To prove \cref{thm:polarizationRewrite:780}, we may compute \( T(a) \) separately for each of \( a = 1,\Be_1, \Be_2, \Be_3 \).  Key to all of these computations is the fact that \( \Be_3 \) commutes with scalars and \( i \), and \( \Be_1, \Be_2 \) both anticommute with \( i \), and more generally \(
+\begin{bmatrix}
+\Be_1 \\
+\Be_2
+\end{bmatrix}
+(a + i b) = (a - i b)
+\begin{bmatrix}
+\Be_1 \\
+\Be_2
+\end{bmatrix}
+\).  For \( T(1) \) we need the product of the field and its reverse
+\begin{dmath}\label{eqn:polarizationRewrite:780}
+F F^\dagger
+=
+\lr{ 1 + \Be_3 } \cancel{\Be_1 e^{i\psi}} \
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{ f f^\dagger
+}
+{
+scalar
+}
+\cancel{ e^{-i\psi} \Be_1} \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 }^2 f f^\dagger
+= 2 \lr{ 1 + \Be_3 } f f^\dagger,
+\end{dmath}
+so \( T(1) = \epsilon \lr{ 1 + \Be_3 } f f^\dagger \).  For \( T(\Be_3) \) we have
+\begin{dmath}\label{eqn:polarizationRewrite:800}
+F \Be_3 F^\dagger
+=
+\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_3 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+-\lr{ 1 + \Be_3 } \Be_3 \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+-\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+-2 \lr{ 1 + \Be_3 } f f^\dagger,
+\end{dmath}
+so \( T(\Be_3) = -T(1) \).
+For \( T(\Be_1) \), we have
+\begin{dmath}\label{eqn:polarizationRewrite:820}
+F \Be_1 F^\dagger
+=
+\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_1 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f^2 e^{i\psi} \Be_1^2 \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 } \Be_1 f^2 e^{2 i\psi} \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 } \Be_1 \lr{ 1 + \Be_3 } f^2 e^{2 i\psi}
+=
+\lr{ 1 + \Be_3 } \lr{ 1 - \Be_3 } \Be_1 f^2 e^{2 i\psi}
+=
+\lr{ 1 - \Be_3^2 } \Be_1 f^2 e^{2 i\psi}
+=
+0.
+\end{dmath}
+Clearly \( F \Be_2 F^\dagger = 0 \) as well, so \( T(\Be_1) = T(\Be_2) = 0 \), completing the proof.
+
+Using \cref{thm:polarizationRewrite:780} the energy momentum vector for the linearly polarized wave of \cref{eqn:polarization_linearPolarization:300} is
+\begin{dmath}\label{eqn:polarizationRewrite:n}
+T(1) = \frac{\epsilon}{2} \lr{ 1 + \Be_3 } \Norm{\BE}^2 \cos^2( \phi + \theta ),
+\end{dmath}
+and for the circularly polarized wave of \cref{eqn:polarizationRewrite:720}, or
+\cref{eqn:polarizationRewrite:740} is
+\begin{dmath}\label{eqn:polarizationRewrite:n}
+T(1) = \frac{\epsilon}{2} (1 + \Be_3) \Norm{\BE}^2.
+\end{dmath}
+A circularly polarized wave carries maximum energy and momentum, whereas the energy and momentum of a linearly polarized wave
+oscillates with the phase angle.
+
+For the elliptically polarized wave of \cref{eqn:polarization_elliptical:380} we have
+\( f(\phi) = e E_a \cosh\lr{ m + i \phi} \).  The absolute value of \( f \) is
+\begin{dmath}\label{eqn:polarizationRewrite:n}
+f f^\dagger
+= e^2 E_a^2 \cosh\lr{ m + i \phi} \lr{\cosh\lr{ m + i \phi}}^\dagger
+= e^2 E_a^2 \lr{ \cosh(2m) + \cos(2 \phi) }
+= e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }
+\end{dmath}
+The simplification above made use of the identity \( (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2 \).  The energy momentum for an elliptically polarized wave is therefore
+\begin{dmath}\label{eqn:polarizationRewrite:n}
+T(1)
+= \frac{\epsilon}{2} \lr{ 1 + \Be_3 } e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }.
+\end{dmath}
+As expected, the phase dependent portion of the energy momentum tensor vanishes as the wave function approaches circular polarization.
+
+\subsection{Pseudoscalar imaginary.}
 
 The multivector \( 1 + \Be_3 \) acts as a projector, consuming any factors of \( \Be_3 \)
 \begin{dmath}\label{eqn:polarization_pseudoscalarImaginary:440}
