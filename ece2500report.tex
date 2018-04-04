@@ -37,6 +37,7 @@
 %\usepackage{macros_qed} % \qedmarker
 \usepackage{txfonts} % \ointclockwise
 \usepackage{enumerate}
+\usepackage{mmacells}
 
 \beginArtNoToc
 
@@ -116,9 +117,9 @@ It is my belief that systematically working through all of the introductory and 
 would provide significant insight, as well as a new set of powerful tools and procedures of practical value to the electrical engineer or physics practitioner.
 The book produced in this project provides the prerequisite material for such exploration, and some first steps along the path of such an expedition.
 
-\section{Geometric Algebra.}
-\section{Geometric Calculus.}
-\section{Electromagnetism.}
+\section{Chapter I: Geometric Algebra.}
+\section{Chapter II: Geometric Calculus.}
+\section{Chapter III: Electromagnetism.}
 \subsection{Conventional Maxwell's equations.}
 In the book it is presumed that the reader is familiar with Maxwell's equations, and that no attempt to motivate them is required.  We start with Maxwell's equations with the antenna theory extensions (fictious magnetic sources)
 \begin{dmath}\label{eqn:ece2500report:2540}
@@ -1155,4 +1156,1788 @@ Note that in the special case where there are surface charge and current densiti
 
 \section{Conclusions.}
 
+\section{Chapter II: Geometric Calculus.}
+
+There were two goals of this chapter.  The first was to present the theory of multivector integration along curves and surfaces, and the second was to derive all the Green's functions required for electromagnetism.
+The multivector integration theory incorporates all of vector calculus as well as the more abstract theory of differential forms or integration on manifolds, but also generalizes both.
+
+\subsection{Reciprocal frames.}
+In order to work with the
+curvilinear non-orthonormal bases that will be encountered in general integration theory, the concept of a reciprocal frame is required.
+
+\makedefinition{Reciprocal frame}{dfn:reciprocal:frame}{
+Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where the vectors \( \Bx_i \) are not necessarily orthonormal, the reciprocal frame is defined as the set of vectors \( \setlr{ \Bx^1, \Bx^2, \cdots \Bx^n } \) satisfying
+\begin{dmath*}
+\Bx_i \cdot \Bx^j = {\delta_i}^j,
+\end{dmath*}
+where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector, and \( {\delta_i}^j \) is the Kronecker delta.
+} % definition
+
+Note that any orthonormal basis is also its reciprocal basis.  As also done in tensor and relativistic theory, we use mixed index (upper and lower) variables when working with curvilinear coordinates.  Summation (Einstein) convention was not used in the text, and all sums that could be implied by appropriately mixed indexes quantities are marked with an explicit summation symbol.
+
+A vector may be expressed in terms of either the curvilinear or reciprocal basis 
+\begin{equation}\label{eqn:ece2500report:n}
+\Ba 
+= \sum_i \lr{ \Ba \cdot \Bx^i } \Bx_i,
+= \sum_i \lr{ \Ba \cdot \Bx_i } \Bx^i
+\end{equation}
+showing that reciprocal frame can be used to compute the coordinates of a vector in the curvilinear basis and the curvilinear basis can be used to compute the coordinates with respect to the reciprocal basis.  
+Because we never use coordinates \( a_i = \Ba \cdot \Bx_i, a^i = \Ba \cdot \Bx^i \) isolated from the associated basis, we have no need of the covariant nor contravariant tensor nomenclature.  The text contains a number of examples of reciprocal frames, methods of computation, Mathematica examples, and other related concepts including computation of coordinates of higher grade blades with respect to curvilinear coordinates.
+
+\subsection{Curvilinear coordinates and hypervolume elements.}
+Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.  In the book we use one, two or three parameter bases.  For a vector parameterization \( \Bx(u_1, u_2, u_3) \) we define the curvilinear basis elements \( \Bx_i = \PDi{\Bx}{u_i} \), and associated vector valued differentials \( d\Bx_i = \Bx_i du_i \).  Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are formed by wedging the two vector differentials for a two parameter manifold, 
+whereas trivector valued volume elements  \( d^3 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 \)
+are formed by wedging all three of the differentials for the parameterized space.  Such hypervolume elements have an orientation, as changing the order of any two differentials toggles the sign.  As the book is concerned primarily with Euclidean spaces, the absolute values of such area and volume differentials are \( \sqrt{-\lr{ d^2 \Bx}^2}, \sqrt{-\lr{ d^3 \Bx}^3 } \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
+
+The book contains examples, figures, Mathematica calculations, and discussion that elaborates and explains these concepts in detail.
+
+\subsection{Gradient and vector derivative.}
+
+The final tool required to formulate multivector integration theory is the vector derivative, the projection of the gradient onto the integration manifold.  
+
+\maketheorem{Reciprocal frame vectors}{thm:curvilinearGradient:1}{
+Given a curvilinear basis with elements \( \Bx_i = \PDi{u_i}{\Bx} \), the reciprocal frame vectors are given by
+\begin{dmath*}
+\Bx^i = \spacegrad u_i.
+\end{dmath*}
+} % theorem
+
+\maketheorem{Curvilinear representation of the gradient}{thm:curvilinearGradient:2}{
+Given an N-parameter vector parameterization
+\( \Bx = \Bx(u_1, u_2, \cdots, u_N) \)
+of \R{N},
+with curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the gradient can be expressed as
+\begin{dmath*}
+\spacegrad = \sum_i \Bx^i \PD{u_i}{}.
+\end{dmath*}
+It is often convenient to define \( \partial_i \equiv \PDi{u_i}{} \), so that the gradient can be expressed in mixed index representation
+\begin{dmath*}
+\spacegrad = \sum_i \Bx^i \partial_i.
+\end{dmath*}
+%or the same with sums over mixed indexes implied.
+} % theorem
+
+\makedefinition{Vector derivative}{thm:gradient:100}{
+Given an k-parameter vector parameterization
+\( \Bx = \Bx(u_1, u_2, \cdots, u_k) \) of \R{N} with \( k \le N \),
+and curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the vector derivative \( \boldpartial \) is defined as
+\begin{dmath*}
+\boldpartial = \sum_{i=1}^k \Bx^i \partial_i.
+\end{dmath*}
+} % theorem
+
+In general the gradient contains the vector derivative and we can write \( \spacegrad = \boldpartial + \spacegrad_\perp \), but 
+ when the dimension of the subspace (number of parameters) equals the dimension of the underlying vector space, the vector derivative and gradient are identical.
+We may think of the vector derivative as the projection of the gradient onto the tangent space at the point of evaluation.
+
+In the book many many examples, figures, and Mathematica calculations are used to illustrate and explain the vector derivative and associated curvilinear parameterizations.
+This includes calculations of curvilinear coordinates, area and volume elements, and the vector derivative
+for polar, spherical and a toroidal coordinate systems.
+
+\chapter{REWRITE/PRUNE marker.}
+\subsection{Integration theory.}
+We wish to generalize the concepts of line, surface and volume integrals to hypervolumes and multivector functions, and define a hypervolume integral as
+
+\makedefinition{Multivector integral.}{dfn:fundamentalTheoremOfCalculus:240}{
+Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
+multivector functions \( F, G \), a k-volume integral with the vector derivative acting to the right on \( G \) is written as
+\begin{equation*}
+\int_V d^k\Bx \rboldpartial G,
+\end{equation*}
+a k-volume integral with the vector derivative acting to the left on \( F \) is written as
+\begin{equation*}
+\int_V F d^k\Bx \lboldpartial,
+\end{equation*}
+and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) is written as
+\begin{equation*}
+\int_V F d^k\Bx \lrboldpartial G
+\equiv
+\int_V \lr{ F d^k\Bx \lboldpartial} G
++
+\int_V F d^k\Bx \lr{ \rboldpartial G }.
+\end{equation*}
+The explicit meaning of these directionally acting derivative operations is given by the chain rule coordinate expansion
+\begin{dmath*}
+F d^k \Bx \lrboldpartial G
+=
+F d^k \Bx \lr{ \sum_i \Bx^i {\stackrel{ \leftrightarrow }{\partial_i}} } G
+=
+(\partial_i F) d^k \Bx \sum_i \Bx^i G
++
+F d^k \Bx \sum_i \Bx^i (\partial_i G)
+\equiv
+(F d^k \Bx \lboldpartial) G
++
+F d^k \Bx (\rboldpartial G),
+\end{dmath*}
+with \( \boldpartial \) acting on \( F \) and \( G \), but not the volume element \( d^k \Bx \), which may also be a function of the implied parameterization.
+} % definition
+
+The vector derivative
+% (and gradient)
+may not commute with \( F, G \) nor the volume element \( d^k \Bx \), so we are forced to use some notation to indicate what the vector derivative (or gradient) acts on.
+In conventional right acting cases, where there is no ambiguity, arrows will usually be omitted, but braces may also be used to indicate the scope of derivative operators.
+This bidirectional notation will also be used for the gradient, especially for volume integrals in \R{3} where the vector derivative is identitical to the gradient.
+
+Some authors use the Hestenes dot notation, with overdots or primes to indicatating the exact scope of multivector derivative operators, as in
+\begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:260}
+\dot{F} d^k \Bx \dot{\boldpartial} \dot{G} =
+\dot{F} d^k \Bx \dot{\boldpartial} G
++
+F d^k \Bx \dot{\boldpartial} \dot{G}.
+\end{dmath}
+The dot notation has the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
+However, in this book, where primed operators such as \( \spacegrad' \) are used to indicate that derivatives are taken with respect to primed \( \Bx' \) variables, a mix of dots and ticks would have been confusing.
+%Over arrows also have the advantage of being visually conspicuous.
+
+\subsubsection{Fundamental theorem.}
+
+The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
+This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
+
+\maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
+Given
+multivectors \(F, G \),
+a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with hypervolume element \( d^k \Bx = d^k u I_k \), where
+\( I_k = \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k \), the hypervolume integral is related to the boundary integral by
+\begin{equation*}
+\int_V F d^k \Bx \lrboldpartial G = \oint_{\partial V} F d^{k-1} \Bx G,
+\end{equation*}
+where \( \partial V \) represents the boundary of the volume, and \( d^{k-1} \Bx \) is the hypersurface element.  The hypersurface element and boundary integral is defined for \( k > 1 \) as
+\begin{equation*}
+\oint_{\partial V} F d^{k-1} \Bx G
+\equiv
+\sum_i \int d^{k-1} u_i \evalbar{ \lr{ F \lr{ I_k \cdot \Bx^i} G }}{\Delta u_i},
+\end{equation*}
+where \( d^{k-1} u_i \) is the product of all \( du_j \) except for \( du_i \).
+For
+\( k = 1 \) the hypersurface element and associated
+boundary ``integral''
+is really just convienent general shorthand, and
+should be taken to mean the evaluation of the \( F G \) multivector product over the range of the parameter
+\begin{equation*}
+\oint_{\partial V} F d^{0} \Bx G
+\equiv
+\evalbar{ F G }{\Delta u_1}.
+\end{equation*}
+} % theorem
+
+The geometry of the hypersurface element \( d^{k-1} \Bx \) will be made more clear when we
+consider the specific cases of \( k = 1, 2, 3 \), representing generalized line, surface, and volume integrals respectively.
+Instead of terrorizing the reader with a general proof
+\cref{thm:fundamentalTheoremOfCalculus:1},
+which requires some unpleasant index gymnastics,
+this book
+will separately state and prove the fundamental theorem of calculus
+for each of the \( k = 1, 2, 3 \) cases that are of interest for problems in \R{2} and \R{3}.
+For the interested reader, a sketch of the general proof
+of \cref{thm:fundamentalTheoremOfCalculus:1}
+is available in \cref{chap:gagcProof}.
+
+Before moving on to the line, surface, and volume integral cases, we will state and prove the
+general Stokes' theorem in its geometric algebra form.
+
+%}
+%\EndArticle
+   \subsubsection{Stokes' theorem.}
+%
+%
+An important consequence of the fundamental theorem of geometric calculus is the
+geometric algebra generalization of Stokes' theorem.
+The Stokes' theorem that we know from conventional vector calculus relates
+\R{3} surface integrals to the line integral around a bounding surface.
+The geometric algebra form of Stokes' theorem is equivalent to Stokes' theorem from the theory of differential forms, which relates
+hypervolume integrals of blades\footnote{Blades are isomorphic to the k-forms found in the theory of differential forms.} to the integrals over their hypersurface boundaries, a much more general result.
+
+\maketheorem{Stokes' theorem}{thm:stokesTheoremGeometricAlgebra:1740}{
+Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
+\begin{equation*}
+\int_V d^k \Bx \cdot (\boldpartial \wedge F) = \int_{\partial V} d^{k-1} \Bx \cdot F.
+\end{equation*}
+}
+
+We will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.
+
+We can prove Stokes' theorem
+from \cref{thm:fundamentalTheoremOfCalculus:1}
+by setting \( F = 1 \), and requiring that \( G \)
+is an s-blade, with grade \( s < k \).
+The proof follows by selecting the \( k-(s+1) \) grade, the lowest grade of \( d^k \Bx (\boldpartial \wedge G) \), from both sides of \cref{thm:fundamentalTheoremOfCalculus:1}.
+
+For the grade selection of the hypervolume integral we have
+\begin{dmath}\label{eqn:stokesTheoremTheStatement:100}
+\gpgrade{ \int_V d^k \Bx \boldpartial G }{k-(s+1)}
+=
+\gpgrade{
+\int_V d^k \Bx (\boldpartial \cdot G )
++
+\int_V d^k \Bx (\boldpartial \wedge G )
+}{k-(s-1)},
+\end{dmath}
+however, the lowest grade of \( d^k \Bx (\boldpartial \cdot G ) \) is \( k -(s-1) = k - s + 1 > k - (s+1) \), so the divergence integral is zero.  As \( d^{k-1} \Bx \) is a \( k - 1 \) blade
+\begin{dmath}\label{eqn:stokesTheoremTheStatement:110}
+\int_V d^k \Bx \cdot (\boldpartial \wedge G )
+= \int_{\partial V} \gpgrade{d^{k-1} \Bx G}{k-(s+1)}
+= \int_{\partial V} d^{k-1} \Bx \cdot G,
+\end{dmath}
+proving the theorem.
+   \subsubsection{Line integral.}
+%
+%
+%{
+%\subsection{Line integral.}
+\label{chap:lineintegral}
+
+A single parameter curve, and the corresponding differential with respect to that parameter, is plotted in
+\cref{fig:oneParameterDifferential:oneParameterDifferentialFig1}.
+%, for a parameterization over \( [a, b] \in [0,1]\otimes[0,1] \).
+
+\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.2}
+
+The differential with respect to the parameter \( a \) is
+\begin{equation}\label{eqn:lineintegral:20}
+d\Bx_a = \PD{a}{\Bx} da = \Bx_a da.
+\end{equation}
+
+The vector derivative has just one component
+\begin{dmath}\label{eqn:lineintegral:40}
+\boldpartial
+=
+\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
+=
+\Bx^a \PD{a}{}
+\equiv
+\Bx^a \partial_a.
+\end{dmath}
+
+The line integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
+
+\makedefinition{Multivector line integral.}{dfn:lineintegral:100}{
+Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), we define the line integral as
+\begin{equation*}
+\int_C F d^1\Bx \lrboldpartial G
+\equiv
+\int_C \lr{ F d^1\Bx \lboldpartial} G
++
+\int_C F d^1\Bx \lr{ \rboldpartial G },
+\end{equation*}
+where the one parameter differential form \( d^1 \Bx = da\, \Bx_a \) varies over the curve.
+} % definition
+
+The line integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
+
+\maketheorem{Multivector line integral.}{thm:lineintegral:100}{
+Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral
+\begin{equation*}
+\int_C F d^1\Bx \boldpartial G
+= \evalbar{F G}{\Delta a}.
+\end{equation*}
+} % theorem
+
+The proof follows by expansion.
+For
+the (single variable) parameterization \( a \) above
+\begin{dmath}\label{eqn:lineintegral:120}
+\int_C F d^1\Bx \lrboldpartial G
+=
+\int_C \lr{ F d^1\Bx \lboldpartial} G
++
+\int_C F d^1\Bx \lr{ \rboldpartial G }
+=
+\int_C \PD{a}{F} da \Bx_a \Bx^a G
++
+\int_C F da \Bx_a \Bx^a \PD{a}{G}
+=
+\int_C da \PD{a}{F} G
++
+\int_C da F \PD{a}{G}
+=
+\int_C da \PD{a}{} \lr{ F G }
+=
+F(a_1) G(a_1) -
+F(a_0) G(a_0),
+\end{dmath}
+where the boundaries of the parameterization have been assumed to be
+%\( C\lcolon a \in [a_0, a_1] \).
+\( C: a \in [a_0, a_1] \).
+We have a perfect cancellation of the reciprocal frame \( \Bx^a \) with the vector \( \Bx_a \) that lies along the curve, since \( \Bx^a \Bx_a = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve.
+
+For a single parameter subspace
+the reciprocal frame vector \( \Bx^a \)
+is trivial to calculate, as it is just the inverse of \( \Bx_a \), that is \( \Bx^a = \Bx_a/\Norm{\Bx_a}^2 \).
+Observe that we did not actually have to calculate it, but instead only require that the vector is invertible.
+
+An important (and familiar) special case of \cref{thm:lineintegral:100} is the fundamental theorem of calculus for line integrals, which can be obtained by using a
+single scalar function \( f \)
+
+\maketheorem{Line integral of a scalar function (Stokes').}{thm:lineintegral:180}{
+Given a scalar function \( f \), its line integral is given by
+\begin{equation*}
+\int_C d^1\Bx \cdot \lrboldpartial f =
+\int_C d^1\Bx \cdot \spacegrad f = \evalbar{f}{\Delta a}.
+\end{equation*}
+} % theorem
+
+Writing out \cref{thm:lineintegral:100} with \( F = 1, G = f(\Bx(a)) \), we have
+\begin{dmath}\label{eqn:lineintegral:140}
+\int_C d^1\Bx \boldpartial f = \evalbar{f}{\Delta a}.
+\end{dmath}
+
+This is a multivector equation with scalar and bivector grades on the left hand side, but only scalar grades on the right.  Equating grades yields two equations
+
+\begin{subequations}
+\label{eqn:lineintegral:180}
+\begin{dmath}\label{eqn:lineintegral:160}
+\int_C d^1\Bx \cdot \boldpartial f = \evalbar{f}{\Delta a}
+\end{dmath}
+\begin{dmath}\label{eqn:lineintegral:200}
+\int_C d^1\Bx \wedge \boldpartial f = 0
+\end{dmath}
+\end{subequations}
+
+Because \( d^1\Bx \cdot \boldpartial = d^1\Bx \cdot \spacegrad \), we can replace the vector derivative with the gradient in \cref{eqn:lineintegral:160}, which yields the conventional line integral result, proving the theorem.
+
+%}
+%\EndNoBibArticle
+   \subsubsection{Surface integral.}
+%
+%
+%{
+%\subsection{Surface integral.}
+%\label{chap:surfaceintegral}
+
+A two parameter curve, and the corresponding differentials with respect to those parameters, is plotted in
+\cref{fig:twoParameterDifferential:twoParameterDifferentialFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFig1}{Two parameter manifold differentials.}{fig:twoParameterDifferential:twoParameterDifferentialFig1}{0.4}
+
+Given parameters \( a, b \), the differentials along each of the parameterization directions are
+\begin{dmath}\label{eqn:surfaceintegral:100}
+\begin{aligned}
+d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
+d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
+\end{aligned}
+\end{dmath}
+
+The bivector valued surface area element for this parameterization is
+\begin{equation}\label{eqn:surfaceintegral:120}
+d^2 \Bx
+=
+d\Bx_a \wedge
+d\Bx_b
+=
+da db (\Bx_a \wedge \Bx_b).
+\end{equation}
+
+The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
+\begin{dmath}\label{eqn:surfaceintegral:200}
+\boldpartial
+=
+\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
+=
+\Bx^a \PD{a}{}
++
+\Bx^b \PD{b}{}
+\equiv
+\Bx^a \partial_a
++
+\Bx^b \partial_b.
+\end{dmath}
+
+The surface integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
+
+\makedefinition{Multivector surface integral.}{dfn:surfaceintegral:100}{
+Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), we define the surface integral as
+\begin{equation*}
+\int_S F d^2\Bx \boldpartial G
+\equiv
+\int_S \lr{ F d^2\Bx \lboldpartial} G
++
+\int_S F d^2\Bx \lr{ \rboldpartial G },
+\end{equation*}
+where the two parameter differential form \( d^2 \Bx = da db\, \Bx_a \wedge \Bx_b \) varies over the surface.
+} % definition
+
+%%As mentioned in a line integral context,
+%%multivectors may not commute with the vector derivative or the differential, so we allow the vector derivative to act bidirectionally using the chain rule.
+%%The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
+%%Should we wish to only integrate single functions, we can set either of the other to \( 1 \), yielding integrals of the form
+%%\( \int_S F d^2\Bx \lboldpartial, \) or \( \int_S d^2\Bx \boldpartial G \).
+
+The surface integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
+
+\maketheorem{Multivector surface integral.}{thm:surfaceintegral:100}{
+Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), the surface integral
+\begin{equation*}
+\int_S F d^2\Bx \boldpartial G
+= \ointclockwise_{\partial S} F d\Bx G,
+\end{equation*}
+where \( \partial S \) is the boundary of the surface \( S \).
+} % theorem
+In \R{2} with \( d^2 \Bx = i dA, i = \Be_{12} \), this may be written
+\begin{dmath}\label{eqn:surfaceintegral:760}
+\int_S F i \spacegrad G\, dA
+= \ointclockwise_{\partial S} F d\Bx G.
+\end{dmath}
+As \( i \) does not commute with all \R{2} multivectors, unless \( F = 1 \) we cannot generally pull \( i \) out of the integral.
+In \R{3}, with \( d^2 \Bx = I \ncap dA \), we may use a scalar area element, but cannot generally replace the vector derivative with the gradient.
+%\begin{dmath}\label{eqn:surfaceintegral:780}
+%I \int_S F \ncap \boldpartial G\, dA
+%= \ointclockwise_{\partial S} F d\Bx G.
+%\end{dmath}
+
+To see why this works, we would first like to reduce the product of the area element and the vector derivative
+\begin{dmath}\label{eqn:surfaceintegral:300}
+d^2\Bx \boldpartial
+=
+da db\, \lr{ \Bx_a \wedge \Bx_b } \lr{ \Bx^a \partial_a + \Bx^b \partial_b }.
+\end{dmath}
+
+Since \( \Bx^a \in \Span \setlr{ \Bx_a, \Bx_b } \), this multivector product has only a vector grade.  That is
+\begin{dmath}\label{eqn:surfaceintegral:320}
+\lr{ \Bx_a \wedge \Bx_b } \Bx^a
+=
+\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^a
++
+\cancel{ \lr{ \Bx_a \wedge \Bx_b } \wedge \Bx^a }
+=
+\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^a
+=
+\Bx_a \lr{ \Bx_b \cdot \Bx^a } -
+\Bx_b \lr{ \Bx_a \cdot \Bx^a }
+=
+-\Bx_b.
+\end{dmath}
+
+Similarly
+\begin{dmath}\label{eqn:surfaceintegral:340}
+\lr{ \Bx_a \wedge \Bx_b } \Bx^b
+=
+\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^b
++
+\cancel{ \lr{ \Bx_a \wedge \Bx_b } \wedge \Bx^b }
+=
+\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^b
+=
+\Bx_a \lr{ \Bx_b \cdot \Bx^b } -
+\Bx_b \lr{ \Bx_a \cdot \Bx^b }
+=
+\Bx_a,
+\end{dmath}
+so
+\begin{dmath}\label{eqn:surfaceintegral:360}
+d^2\Bx \boldpartial
+=
+\Bx_a \partial_b
+-\Bx_b \partial_a.
+\end{dmath}
+
+Inserting this into the surface integral, we find
+\begin{dmath}\label{eqn:surfaceintegral:380}
+\int_S F d^2\Bx \boldpartial G
+=
+\int_S \lr{ F d^2\Bx \lboldpartial} G
++
+\int_S F d^2\Bx \lr{ \rboldpartial G }
+=
+\int_S da db\, \lr{ \partial_b F \Bx_a - \partial_a F \Bx_b } G
++
+\int_S da db\, F \lr{ \Bx_a \partial_b G - \Bx_b \partial_a G }
+=
+\int_S da db\, \lr{ \PD{b}{F} \PD{a}{\Bx} - \PD{a}{F} \PD{b}{\Bx} } G
++
+\int_S da db\, F \lr{ \PD{a}{\Bx} \PD{b}{G} - \PD{b}{\Bx} \PD{a}{G} }
+=
+\int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }
+-
+\int_S da db\, F \lr{ \PD{b}{} \PD{a}{\Bx} - \PD{a}{} \PD{b}{\Bx} } G
+=
+\int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }.
+\end{dmath}
+
+This leaves two perfect differentials, which can both be integrated separately.  That gives
+\begin{dmath}\label{eqn:surfaceintegral:400}
+\int_S F d^2\Bx \boldpartial G
+=
+\int_{\Delta a} da\, \evalbar{\lr{ F \PD{a}{\Bx} G }}{\Delta b} - \int_{\Delta b} db\, \evalbar{\lr{ F \PD{b}{\Bx} G }}{\Delta a}
+=
+\int_{\Delta a} \evalbar{\lr{ F d\Bx_a G }}{\Delta b} - \int_{\Delta b} \evalbar{\lr{ F d\Bx_b G }}{\Delta a}.
+\end{dmath}
+
+Suppose we are integrating over the unit parameter volume space \( [a, b] \in [0,1] \otimes [0,1] \) as illustrated in
+\cref{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}.
+\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialBoundaryFig2}{Contour for two parameter surface boundary.}{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}{0.4}
+
+Comparing to the figure we see that we've ended up with a clockwise line integral around the boundary of the surface.
+For a given subset of the surface, the bivector area element can be chosen small enough that it lies in the tangent space
+to the surface at the point of integration.
+In that case, a larger bounding loop can be concepualized as the sum of a number of smaller ones, as sketched
+in \cref{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2},
+in which case the
+contributions of the interior loop segments cancel out.
+
+\imageFigure{../figures/gabook/loopIntegralInfinitesimalSumFig2}{Sum of infinitesimal loops.}{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2}{0.35}
+
+\subsubsection{Two parameter Stokes' theorem.}
+
+Two special cases of \cref{thm:surfaceintegral:100} when scalar and vector functions are integrated over a surface.  For scalar functions we have
+
+\maketheorem{Surface integral of scalar function (Stokes').}{thm:surfaceintegral:420}{
+Given a scalar function \( f(\Bx) \) its surface integrals is given by
+\begin{equation*}
+\int_S d^2 \Bx \cdot \boldpartial f =
+\int_S d^2 \Bx \cdot \spacegrad f = \ointclockwise_{\partial S} d\Bx f.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_S dA \ncap \cross \spacegrad f = \ointctrclockwise_{\partial S} d\Bx f,
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
+} % theorem
+
+To show the first part, we can split the (multivector) surface integral into vector and trivector grades
+\begin{dmath}\label{eqn:surfaceintegral:440}
+\int_S d^2\Bx \boldpartial f
+=
+\int_S d^2\Bx \cdot \boldpartial f
++
+\int_S d^2\Bx \wedge \boldpartial f.
+\end{dmath}
+
+Since \( \Bx^a, \Bx^b \) both lie in the span of \( \setlr{ \Bx_a, \Bx_b } \),
+\( d^2\Bx \wedge \boldpartial = 0 \), killing the second integral in \cref{eqn:surfaceintegral:440}.
+If the gradient is decomposed into its projection along the tangent
+space (the vector derivative) and its perpendicular components, only the vector derivative components of the
+gradient contribute to its dot product with the area element.  That is
+\begin{dmath}\label{eqn:surfaceintegral:460}
+d^2 \Bx \cdot \spacegrad
+=
+d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b + \cdots }
+=
+d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b }
+=
+d^2 \Bx \cdot \boldpartial.
+\end{dmath}
+
+This means that for a scalar function
+\begin{dmath}\label{eqn:surfaceintegral:480}
+\int_S d^2\Bx \boldpartial f
+=
+\int_S d^2\Bx \cdot \spacegrad f.
+\end{dmath}
+
+The second part of the theorem follows by grade selection, and application of a duality transformation for the area element
+\begin{dmath}\label{eqn:surfaceintegral:500}
+d^2 \Bx \cdot \spacegrad f
+=
+\gpgradeone{ d^2 \Bx \spacegrad f }
+=
+dA \gpgradeone{ I \ncap \spacegrad f }
+=
+dA \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f} }
+=
+-dA \ncap \cross \spacegrad f.
+\end{dmath}
+
+back substitution of \cref{eqn:surfaceintegral:500} completes the proof of \cref{thm:surfaceintegral:420}.
+
+For vector functions we have
+
+\maketheorem{Surface integral of a vector function (Stokes').}{thm:surfaceintegral:500}{
+Given a vector function \( \Bf(\Bx) \) the surface integral is given by
+\begin{equation*}
+\int_S d^2 \Bx \cdot (\spacegrad \wedge \Bf) = \ointclockwise_{\partial S} d\Bx \cdot \Bf.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_S dA \ncap \cdot \lr{ \spacegrad \cross \Bf} = \ointctrclockwise_{\partial S} d\Bx \cdot \Bf,
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
+} % theorem
+
+%%This follows by setting \( F = 1, G = \Bf \) in \cref{thm:surfaceintegral:100} and selecting the scalar grade.  In particular we may form the
+%%scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The first is
+%%\begin{dmath}\label{eqn:surfaceintegral:520}
+%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
+%%=
+%%\gpgradezero{ (d^2 \Bx \cdot \boldpartial + d^2 \Bx \wedge \boldpartial ) \Bf }.
+%%\end{dmath}
+%%
+%%The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only bivector and quad-vector components (the latter is zero in \R{3}), so its scalar grade selection is zero, and we are left with
+%%\begin{dmath}\label{eqn:surfaceintegral:540}
+%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
+%%=
+%%(d^2 \Bx \cdot \boldpartial) \cdot \Bf
+%%=
+%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf,
+%%\end{dmath}
+%%where we have used \cref{eqn:surfaceintegral:460} again.  This product can also be written as
+%%\begin{dmath}\label{eqn:surfaceintegral:560}
+%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf
+%%=
+%%\gpgradezero{ (d^2 \Bx \cdot \spacegrad) \Bf }
+%%=
+%%\gpgradezero{ (d^2 \Bx \spacegrad - d^2 \Bx \wedge \spacegrad) \Bf }
+%%=
+%%\gpgradezero{ d^2 \Bx \spacegrad \Bf }
+%%=
+%%\gpgradezero{ d^2 \Bx \lr{ \cancel{ \spacegrad \cdot \Bf } + \spacegrad \wedge \Bf } }
+%%=
+%%d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }.
+%%\end{dmath}
+%%
+%%\begin{dmath}\label{eqn:surfaceintegral:580}
+%%\ointclockwise_{\partial S} d\Bx \cdot \Bf
+%%=
+%%\gpgradezero{ \int_S d^2\Bx \boldpartial \Bf }
+%%=
+%%\int_S \lr{ d^2\Bx \cdot \spacegrad } \cdot \Bf
+%%=
+%%\int_S d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf },
+%%\end{dmath}
+%%as claimed.  In particular in \R{3}, we have
+%%\begin{dmath}\label{eqn:surfaceintegral:600}
+%%d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf }
+%%=
+%%dA \gpgradezero{ I \ncap I \lr{ \spacegrad \cross \Bf } }
+%%=
+%%-dA \ncap \cdot \lr{ \spacegrad \cross \Bf }.
+%%\end{dmath}
+%%
+%%Substitution into \cref{eqn:surfaceintegral:580} proves the last part of \cref{thm:surfaceintegral:500}.
+%%
+\subsubsection{Green's theorem.}
+
+\Cref{thm:surfaceintegral:500}, when stated in terms of coordinates, is another well known result
+
+\maketheorem{Green's theorem.}{thm:surfaceintegral:620}{
+Given a vector \( \Bf = \sum_i f_i \Bx^i \) in \R{N}, and a surface parameterized by \( \Bx = \Bx(u_1, u_2) \)
+\begin{equation*}
+\int_S du_1 du_2 \lr{ \PD{u_2}{f_1} - \PD{u_1}{f_2} }
+=
+\ointclockwise_{\partial S} du_1 f_1 + du_2 f_2.
+\end{equation*}
+This is
+often stated for \R{2} with a Cartesian \(x,y\) parameterization, such as \( \Bf = P \Be_1 + Q \Be_2 \).  In that case
+\begin{equation*}
+\int_S dx dy \lr{ \PD{y}{P} - \PD{x}{Q} }
+=
+\ointclockwise_{\partial S} P dx + Q dy.
+\end{equation*}
+} % theorem
+
+FIXME: Add an example (lots to pick from in any 3rd term calc text)
+
+The first equality in \cref{thm:surfaceintegral:620} holds in \R{N} for vectors expressed in terms of an arbitrary curvilinear basis.
+Only the (curvilinear) coordinates of the vector \( \Bf \) contribute to this integral, and only those that lie in the tangent space.
+The reciprocal basis vectors \( \Bx^i \) are also nowhere to be seen.  This is because they are either obliterated in dot products with \( \Bx_j \), or cancel due to mixed partial equality.
+
+To see how this occurs let's look at the
+area integrand of \cref{thm:surfaceintegral:500}
+\begin{dmath}\label{eqn:surfaceintegral:660}
+d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }
+=
+du_1 du_2\, \lr{ \Bx_1 \wedge \Bx_2 } \cdot \lr{ \sum_{ij} \lr{ \Bx^i \partial_i } \wedge \lr{ f_j \Bx^j } }
+=
+du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \lr{ \partial_i (f_j \Bx^j) }
+=
+du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j
++
+du_1 du_2\, \sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j).
+\end{dmath}
+
+With a bit of trouble, we will see that the second integrand is zero.  On the other hand, the first integrand
+simplifies
+without too much trouble
+\begin{dmath}\label{eqn:surfaceintegral:680}
+\sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j
+=
+\sum_{ij} \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot \Bx^j \partial_i f_j
+=
+\sum_{j} \Bx_1 \cdot \Bx^j \partial_2 f_j -\Bx_2 \cdot \Bx^j \partial_1 f_j
+=
+\partial_2 f_1 - \partial_1 f_2.
+\end{dmath}
+
+For the second integrand, we have
+\begin{dmath}\label{eqn:surfaceintegral:700}
+\sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j)
+=
+\sum_{j} f_j \sum_i \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot (\partial_i \Bx_j)
+=
+\sum_{j} f_j
+\lr{
+\Bx_1 \cdot (\partial_2 \Bx^j)
+-
+\Bx_2 \cdot (\partial_1 \Bx^j)
+}
+\end{dmath}
+
+We can apply the chain rule (backwards) to the portion in brackets to find
+\begin{dmath}\label{eqn:surfaceintegral:720}
+\Bx_1 \cdot (\partial_2 \Bx^j)
+-
+\Bx_2 \cdot (\partial_1 \Bx^j)
+=
+\cancel{\partial_2 \lr{ \Bx_1 \cdot \Bx^j }}
+-
+(\partial_2 \Bx_1) \cdot \Bx^j
+-
+\cancel{\partial_1 \lr{ \Bx_2 \cdot \Bx^j }}
++
+(\partial_1 \Bx_2) \cdot \Bx^j
+=
+\Bx_j \cdot \lr{ \partial_1 \Bx_2 - \partial_2 \Bx_1 }
+=
+\Bx_j \cdot \lr{ \PD{u_1}{} \PD{u_2}{\Bx} - \PD{u_2}{} \PD{u_1}{\Bx} }
+= 0.
+\end{dmath}
+
+In this reduction the derivatives of \( \Bx_i \cdot \Bx^j = \delta_{ij} \) were killed since those are constants (either zero or one).  The final step relies on the fact that we assume our vector parameterization is well behaved enought that the mixed partials are zero.
+
+Substituting these results into
+\cref{thm:surfaceintegral:500} we find
+\begin{dmath}\label{eqn:surfaceintegral:740}
+\ointclockwise_{\partial S} d\Bx \cdot \Bf
+=
+\ointclockwise_{\partial S} \lr{ du_1 \Bx_1 + du_2 \Bx_2 } \cdot \lr{ \sum_i f_i \Bx^i }
+=
+\ointclockwise_{\partial S} du_1 f_1 + du_2 f_2
+=
+\int_S du_1 du_2\, \lr{ \partial_2 f_1 - \partial_1 f_2 },
+\end{dmath}
+which completes the proof.
+
+%}
+   \subsubsection{Volume integral.}
+%
+%
+%{
+\label{chap:volumeintegral}
+
+%\subsubsection{Volume integral.}
+A three parameter curve, and the corresponding differentials with respect to those parameters, is sketched in
+\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
+
+\imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
+
+Given parameters \( u_1, u_2, u_3 \), we can denote the differentials along each of the parameterization directions as
+\begin{dmath}\label{eqn:volumeintegral:100}
+\begin{aligned}
+d\Bx_1 &= \PD{u_1}{\Bx} du_1 = \Bx_1 du_1 \\
+d\Bx_2 &= \PD{u_2}{\Bx} du_2 = \Bx_2 du_2 \\
+d\Bx_3 &= \PD{u_3}{\Bx} du_3 = \Bx_3 du_3.
+\end{aligned}
+\end{dmath}
+
+The trivector valued volume element for this parameterization is
+\begin{equation}\label{eqn:volumeintegral:120}
+d^3 \Bx
+=
+d\Bx_1 \wedge
+d\Bx_1 \wedge
+d\Bx_1
+=
+d^3 u\, (\Bx_1 \wedge \Bx_2 \wedge \Bx_3),
+\end{equation}
+where \( d^3 u = du_1 du_2 du_3 \).
+The vector derivative, the projection of the gradient onto the volume at the point of integration (also called the tangent space), now has three components
+\begin{dmath}\label{eqn:volumeintegral:200}
+\boldpartial
+=
+\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
+=
+\Bx^1 \PD{u_1}{}
++
+\Bx^2 \PD{u_2}{}
++
+\Bx^3 \PD{u_3}{}
+\equiv
+\Bx^1 \partial_1
++
+\Bx^2 \partial_2
++
+\Bx^3 \partial_3.
+\end{dmath}
+
+The volume integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
+
+\makedefinition{Multivector volume integral.}{dfn:volumeintegral:100}{
+Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), we define the volume integral as
+\begin{equation*}
+\int_V F d^3\Bx \lrboldpartial G
+\equiv
+\int_V \lr{ F d^3\Bx \lboldpartial} G
++
+\int_V F d^3\Bx \lr{ \rboldpartial G },
+\end{equation*}
+where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \Bx_2 \wedge \Bx_3, d^3 u = du_1 du_2 du_3 \) varies over the volume, and \( \lrboldpartial \) acts on \( F, G \), but not the volume element \( d^2 \Bx \).
+} % definition
+
+The volume integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
+
+\maketheorem{Multivector volume integral.}{thm:volumeintegral:100}{
+Given an connected volume \( V \) parameterized by three parameters for which \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple, and multivector functions \( F, G \), a volume integral can be reduced to a surface integral as follows
+\begin{equation*}
+\int_V F d^3\Bx \lrboldpartial G
+= \ointctrclockwise_{\partial V} F d^2\Bx G,
+\end{equation*}
+where \( \partial V \) is the boundary of the volume \( V \), and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume.
+In \R{3} with \( d^3 \Bx = I dV \), \( d^2 \Bx = I \ncap dA \), this can be written
+\begin{equation*}
+\int_V dV F \lrboldpartial G
+= \int_{\partial V} dA F \ncap G,
+\end{equation*}
+} % theorem
+To see why this works, and define \( d^2 \Bx \) more precisely, we would first like to reduce the product of the volume element and the vector derivative
+\begin{dmath}\label{eqn:volumeintegral:300}
+d^3\Bx \boldpartial
+=
+d^3 u\, \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \lr{ \Bx^1 \partial_1 + \Bx^2 \partial_2 + \Bx^3 \partial_3 }.
+\end{dmath}
+
+Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this multivector product has only a vector grade.  That is
+\begin{dmath}\label{eqn:volumeintegral:320}
+\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^i
+=
+\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \cdot \Bx^i
++
+\cancel{ \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \wedge \Bx^i },
+\end{dmath}
+for all \( \Bx^i \).  These products reduces to
+\begin{dmath}\label{eqn:volumeintegral:1621}
+\begin{aligned}
+\lr{ \Bx_2 \wedge \Bx_3 \wedge \Bx_1 } \Bx^1 &= \Bx_2 \wedge \Bx_3 \\
+\lr{ \Bx_3 \wedge \Bx_1 \wedge \Bx_2 } \Bx^2 &= \Bx_3 \wedge \Bx_1 \\
+\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^3 &= \Bx_1 \wedge \Bx_2.
+\end{aligned}
+\end{dmath}
+
+Inserting \cref{eqn:volumeintegral:1621}
+into the volume integral, we find
+\begin{dmath}\label{eqn:volumeintegral:380}
+\int_V F d^3\Bx \boldpartial G
+=
+\int_V \lr{ F d^3\Bx \lboldpartial} G
++
+\int_V F d^3\Bx \lr{ \rboldpartial G }
+=
+\int_V d^3 u\, \lr{
+   (\partial_1 F) \Bx_2 \wedge \Bx_3 G
+   +
+   (\partial_2 F) \Bx_3 \wedge \Bx_1 G
+   +
+   (\partial_3 F) \Bx_1 \wedge \Bx_2 G
+}
++
+\int_V d^3 u\, \lr{
+   F \Bx_2 \wedge \Bx_3 (\partial_1 G)
+   +
+   F \Bx_3 \wedge \Bx_1 (\partial_2 G)
+   +
+   F \Bx_1 \wedge \Bx_2 (\partial_3 G)
+}
+=
+\int_V d^3 u\, \lr{
+   \partial_1 (F \Bx_2 \wedge \Bx_3 G)
+   +
+   \partial_2 (F \Bx_3 \wedge \Bx_1 G)
+   +
+   \partial_3 (F \Bx_1 \wedge \Bx_2 G)
+}
+-
+\int_V d^3 u\, \lr{
+   F (\partial_1 (\Bx_2 \wedge \Bx_3)) G
+   +
+   F (\partial_2 (\Bx_3 \wedge \Bx_1)) G
+   +
+   F (\partial_3 (\Bx_1 \wedge \Bx_2)) G
+}
+=
+\int_V d^3 u\, \lr{
+   \partial_1 (F \Bx_2 \wedge \Bx_3 G)
+   +
+   \partial_2 (F \Bx_3 \wedge \Bx_1 G)
+   +
+   \partial_3 (F \Bx_1 \wedge \Bx_2 G)
+}
+-
+\int_V d^3 u\, F
+\lr{
+   \partial_1 (\Bx_2 \wedge \Bx_3)
+   +
+   \partial_2 (\Bx_3 \wedge \Bx_1)
+   +
+   \partial_3 (\Bx_1 \wedge \Bx_2)
+}
+G
+.
+\end{dmath}
+
+The sum within the second integral is
+\begin{dmath}\label{eqn:volumeintegral:1111}
+\begin{aligned}
+\sum_{i = 1}^3 \partial_i \lr{ I_k \cdot \Bx^i }
+&=
+\partial_3 \lr{ (\Bx_1 \wedge \Bx_2 \wedge \Bx_3) \cdot \Bx^3 }
++
+\partial_1 \lr{ (\Bx_2 \wedge \Bx_3 \wedge \Bx_1) \cdot \Bx^1 }
++
+\partial_2 \lr{ (\Bx_3 \wedge \Bx_1 \wedge \Bx_2) \cdot \Bx^2 } \\
+&=
+\partial_3 \lr{ \Bx_1 \wedge \Bx_2 }
++
+\partial_1 \lr{ \Bx_2 \wedge \Bx_3 }
++
+\partial_2 \lr{ \Bx_3 \wedge \Bx_1 } \\
+&=
+         (\partial_3 \Bx_1) \wedge \Bx_2 + \Bx_1 \wedge (\partial_3 \Bx_2) \\
+&\quad + (\partial_1 \Bx_2) \wedge \Bx_3 + \Bx_2 \wedge (\partial_1 \Bx_3) \\
+&\quad + (\partial_2 \Bx_3) \wedge \Bx_1 + \Bx_3 \wedge (\partial_2 \Bx_1) \\
+&=
+\Bx_2 \wedge \lr{ - \partial_3 \Bx_1 + \partial_1 \Bx_3 }
++
+\Bx_3 \wedge \lr{ - \partial_1 \Bx_2 + \partial_2 \Bx_1 }
++
+\Bx_1 \wedge \lr{ - \partial_2 \Bx_3 + \partial_3 \Bx_2 } \\
+&=
+\Bx_2 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_3 \partial_1} + \frac{\partial^2 \Bx}{\partial_1 \partial_3} }
++
+\Bx_3 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_1 \partial_2} + \frac{\partial^2 \Bx}{\partial_2 \partial_1} }
++
+\Bx_1 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_2 \partial_3} + \frac{\partial^2 \Bx}{\partial_3 \partial_2} },
+\end{aligned}
+\end{dmath}
+which is zero by equality of mixed partials.
+This leaves three perfect differentials, which can integrated separately, giving
+\begin{dmath}\label{eqn:volumeintegral:400}
+\int_V F d^3\Bx \boldpartial G
+=
+\int du_2 du_3
+\evalbar{ \lr{ F \Bx_2 \wedge \Bx_3 G } }{\Delta u_1}
++
+\int du_3 du_1
+\evalbar{ \lr{ F \Bx_3 \wedge \Bx_1 G } }{\Delta u_2}
++
+\int du_1 du_2
+\evalbar{ \lr{ F \Bx_1 \wedge \Bx_2 G } }{\Delta u_3}
+=
+\int
+\evalbar{ \lr{ F d\Bx_2 \wedge d\Bx_3 G } }{\Delta u_1}
++
+\int
+\evalbar{ \lr{ F d\Bx_3 \wedge d\Bx_1 G } }{\Delta u_2}
++
+\int
+\evalbar{ \lr{ F d\Bx_1 \wedge d\Bx_2 G } }{\Delta u_3}.
+\end{dmath}
+
+This proves the theorem from an algebraic point of view.
+With the aid of a geometrical model, such as that of \cref{fig:differentialVolume:differentialVolumeFig}, if
+assuming that \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple).
+it is possible to convince oneself that the two parameter integrands describe an integral over a counterclockwise oriented surface (
+\imageTwoFigures{../figures/GAelectrodynamics/differentialVolumeFig1}{../figures/GAelectrodynamics/differentialVolumeFig2}{Differential surface of a volume.}{fig:differentialVolume:differentialVolumeFig}{scale=0.05}
+
+We obtain the RHS of \cref{thm:volumeintegral:100} if we
+introduce a mnemonic for the bounding oriented surface of the volume
+\begin{dmath}\label{eqn:volumeintegral:1641}
+d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 + d\Bx_2 \wedge d\Bx_3 + d\Bx_3 \wedge d\Bx_1,
+\end{dmath}
+where it is implied that each component of this area element and anything that it is multiplied with is evaluated on the boundaries of the integration volume (for the parameter omitted) as detailed explicitly in
+\cref{eqn:volumeintegral:400}.
+
+\subsubsection{Three parameter Stokes' theorem.}
+
+Three special cases of \cref{thm:volumeintegral:100} can be obtained by integrating scalar, vector or bivector functions over the volume, as follows
+
+\maketheorem{Volume integral of scalar function (Stokes').}{thm:volumeintegral:420}{
+Given a scalar function \( f(\Bx) \) its volume integral is given by
+\begin{equation*}
+\int_V d^3 \Bx \cdot \boldpartial f =
+\int_V d^3 \Bx \cdot \spacegrad f = \ointctrclockwise_{\partial V} d^2\Bx f.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_V dV \spacegrad f = \int_{\partial V} dA \ncap f
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
+} % theorem
+
+\maketheorem{Volume integral of vector function (Stokes').}{thm:volumeintegral:1661}{
+Given a vector function \( \Bf(\Bx) \) the volume
+integral of the (bivector) curl is related to a surface integral by
+\begin{equation*}
+\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge \Bf } =
+\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge \Bf } = \ointctrclockwise_{\partial V} d^2\Bx \cdot \Bf.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_V dV \spacegrad \cross \Bf = \int_{\partial V} dA \ncap \cross \Bf,
+\end{equation*}
+or with a duality transformation \( \Bf = I B \), where \( B \) is a bivector
+\begin{equation*}
+\int_V dV \spacegrad \cdot B = \int_{\partial V} dA \ncap \cdot \Bf,
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
+} % theorem
+
+\maketheorem{Volume integral of bivector function (Stokes', divergence).}{thm:volumeintegral:1681}{
+Given a bivector function \( B(\Bx) \), the volume
+integral of the (trivector) curl is related to a surface integral by
+\begin{equation*}
+\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge B } =
+\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge B } = \ointctrclockwise_{\partial V} d^2\Bx \cdot B.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_V dV \spacegrad \wedge B = \int_{\partial V} dA \ncap \wedge B,
+\end{equation*}
+or, making a duality transformation \( B(\Bx) = I \Bf(\Bx) \), where \( \Bf \) is a vector, by
+\begin{equation*}
+\int_V dV \spacegrad \cdot \Bf = \int_{\partial V} dA \ncap \cdot \Bf,
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
+} % theorem
+
+\subsubsection{Divergence theorem.}
+
+Observe that for \R{3} we there are dot product relations in each of
+\cref{thm:volumeintegral:420},
+\cref{thm:volumeintegral:1661} and
+\cref{thm:volumeintegral:1681} which can be summarized as
+\maketheorem{Divergence theorem.}{thm:volumeintegral:2661}{
+Given an \R{3} multivector \( M \) containing only grades 0,1, or 2
+\begin{equation*}
+\int_V dV \spacegrad \cdot M = \int_{\partial V} dA \ncap \cdot M,
+\end{equation*}
+where \( \ncap \) is the outwards normal to the surface bounding \( V \).
+} % theorem
+
+%}
+%\EndNoBibArticle
+   \subsection{Multivector Fourier transform and phasors.}
+%
+%
+%{
+\label{fourier}
+It will often be convient to utilize time harmonic (frequency domain) representations.
+%of \cref{eqn:greensFunctionOverview:200}.
+This can be achieved by utilizing Fourier transform pairs or with a phasor representation.
+
+We may define Fourier transform pairs of multivector fields and sources in the conventional fashion
+
+\makedefinition{Multivector Fourier transform pairs}{dfn:greensFunctionOverview:280}{
+The Fourier transform pair for a multivector valued function \( f(\Bx, t) \) will be written as
+\begin{equation*}
+\begin{aligned}
+f(\Bx, t) &= \int f_\omega(\Bx) e^{j \omega t} d\omega \\
+f_\omega(\Bx) &= \inv{2 \pi} \int f(\Bx, t) e^{-j \omega t} dt,
+\end{aligned}
+\end{equation*}
+where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
+} % definition
+
+In these transform pairs, the imaginary \( j \) need not be represented by any geometrical imaginary such as \( \Be_{12} \).
+In particular, we need not assume that the represention of \( j \) is the
+\R{3} pseudoscalar \( I \), despite the fact that \( I \) does commute with all \R{3} multivectors.
+We wish to have the freedom to
+assume that non-geometric real and imaginary operations can be performed without picking or leaving out any specific grade pseudoscalar components of the multivector fields or sources, so we won't impose any a-priori restrictions on the representations of \( j \).
+In particular, this provides the freedom to utilize phasor (fixed frequency) representions of our multivector functions.
+%Introduction of yet another imaginary quantity in a geometric algebra context where we have so many to pick it somewhat unfortunate, but it allows us to apply Fourier transform techniques without worry about the non-commutative effects that might have to be considered should we choose to use a geometric imaginary to represent the frequency dependency.
+We will use the engineering convention for our
+phasor representations, where assuming a complex exponential time dependence of the following form is assumed
+
+\makedefinition{Multivector phasor representation.}{dfn:greensFunctionOverview:300}{
+The phasor representation \( f(\Bx) \) of a multivector valued (real) function \( f(\Bx, t) \) is defined implicitly as
+\begin{equation*}
+f(\Bx, t) = \Real\lr{ f(\Bx) e^{j \omega t} },
+\end{equation*}
+where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
+} % definition
+
+The complex valued multivector \( f(\Bx) \) is still generated from the real Euclidean basis for \R{3}, so
+there will be
+no reason to introduce complex inner products spaces into the mix.
+
+The reader must take care when reading any literature that utilizes Fourier transforms or phasor representation, since the conventions vary.
+In particular the physics representation of a phasor typically uses the opposite sign convention
+\( f(\Bx, t) = \Real\lr{ f(\Bx) e^{-i \omega t }} \), which toggles the sign of all the imaginaries in derived results.
+%}
+   \subsection{Green's functions.}
+%
+%
+%{
+\label{chap:GreensFunctions}
+
+\subsubsection{Motivation.}
+
+%We will now introduce Green's functions, which provide a general method of solving many of the linear differential equations that will be encountered in electromagnetism.
+
+\input{greensIntro.tex}
+
+\paragraph{Time domain problems in electromagnetism}
+ 
+Examples of the PDEs that we can apply Green's function techniques to include
+
+\begin{subequations}
+\label{eqn:greensFunctionOverview:200}
+\begin{equation}\label{eqn:greensFunctionOverview:220}
+\stgrad F(\Bx, t) = J(\Bx, t)
+\end{equation}
+\begin{equation}\label{eqn:greensFunctionOverview:162}
+\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } F(\Bx, t) =
+\conjstgrad
+\stgrad F(\Bx, t) =
+B(\Bx, t).
+\end{equation}
+\end{subequations}
+
+The reader is no doubt familiar with the wave equation (\cref{eqn:greensFunctionOverview:162}), where \( F \) is the waving function, and \( B \) is the forcing function.
+Scalar and vector valued wave equations are
+encountered in scalar and vector forms in conventional electromagnetism.
+We will see multivector variations of the wave equation, so it should be assumed that \( F \) and \( B \) are multivector valued.
+
+\Cref{eqn:greensFunctionOverview:220} is actually the geometric algebra form of Maxwell's equation (singular),
+where \( F \) is a multivector with grades 1 and 2, and \( J \) is a multivector containing all the charge and current density contributions.
+We will call the operator in \cref{eqn:greensFunctionOverview:220} the spacetime gradient\footnote{A slightly different operator is also called the spacetime gradient in STA (Space Time Algebra) \citep{doran2003gap}, which employs a non-Euclidean basis to generate a four dimensional relativistic geometric algebra.
+Our spacetime gradient is related to the STA spacetime gradient by a constant factor.}.
+
+
+Armed with Fourier transform or phasor representations, the frequency domain representations of
+\cref{eqn:greensFunctionOverview:200} are found to be
+
+\begin{subequations}
+\label{eqn:greensFunctionOverview:320}
+\begin{equation}\label{eqn:greensFunctionOverview:240}
+\lr{ \spacegrad + j k } F(\Bx) = J(\Bx)
+\end{equation}
+\begin{equation}\label{eqn:greensFunctionOverview:260}
+\lr{ \spacegrad^2 + k^2 } F(\Bx)
+=
+\lr{ \spacegrad - j k } \lr{ \spacegrad + j k } F(\Bx)
+= B(\Bx),
+\end{equation}
+\end{subequations}
+
+where \( k = \omega/c \), and any explicit frequency dependence in our transform pairs has been suppressed.
+We will call these equations the first and second order Helmholtz equations respectively.
+The first order equation applies a multivector differential operator to a multivector field, which must equal the multivector forcing function (the sources).
+
+For statics problems (\( k = 0 \)), we may work with real fields and sources, dispensing with any need to take real parts.
+
+%}
+      \subsubsection{Green's function solutions.}
+%
+%
+%{
+\paragraph{Unbounded.}
+
+The operators in \cref{eqn:greensFunctionOverview:200}, and \cref{eqn:greensFunctionOverview:320} all have a similar linear structure.
+Abstracting that structure, all these problems have the form
+\begin{dmath}\label{eqn:greensFunctionSolutions:340}
+\LL F(\Bx) = J(\Bx),
+\end{dmath}
+where \( \LL \) is an operator formed from a linear combination of linear operators \( 1, \spacegrad, \spacegrad^2, \partial_t, \partial_{tt} \).
+
+Given the linear structure of the PDE that we wish to solve, it makes sense to assume that the solutions also have a linear structure.
+The most general such solution we can assume has the form
+
+\begin{dmath}\label{eqn:greensFunctionSolutions:360}
+F(\Bx, t) = \int G(\Bx, \Bx' ; t, t') J(\Bx', t') dV' dt' + F_0(\Bx, t),
+\end{dmath}
+where \( F_0(\Bx, t) \) is any solution to the equivalent homogeneous equation \( \LL F_0 = 0 \), and \( G(\Bx, \Bx' ; t, t') \) is the Green's function (to be determined) associated with \cref{eqn:greensFunctionSolutions:340}.
+Operating on the presumed solution
+\cref{eqn:greensFunctionSolutions:360} with \( \LL \) yields
+\begin{dmath}\label{eqn:greensFunctionSolutions:380}
+J(\Bx, t) = \LL F(\Bx, t) = \LL\lr{
+\int G(\Bx, \Bx' ; t, t') J(\Bx', t') dV' dt' + F_0(\Bx, t) }
+=
+\int \lr{ \LL G(\Bx, \Bx'; t, t') } J(\Bx', t') dV' dt',
+\end{dmath}
+which shows that we require the Green's function to have delta function semantics satisfying
+\begin{dmath}\label{eqn:greensFunctionSolutions:400}
+\LL G(\Bx, \Bx' ; t, t') = \delta(\Bx - \Bx') \delta(t - t').
+\end{dmath}
+
+The scalar valued Green's functions for the Laplacian and the (2nd order) Helmholtz equations are well known.
+The Green's functions for the spacetime gradient and the 1st order Helmholtz equation (which is just the gradient when \( k = 0 \)) are multivector valued and will be derived here.
+
+\paragraph{Green's theorem.}
+
+When the presumed solution is a superposition of only states in a bounded region
+then life gets a bit more interesting.  For instance, consider a problem for which the differential operator is a function of space only, with a presumed solution such as
+\begin{dmath}\label{eqn:greensFunctionSolutions:200}
+F(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
+\end{dmath}
+then life gets a bit more interesting.
+This sort of problem requires different treatment for operators that are first and second order in the gradient.
+
+For the second order problems, we require Green's theorem, which must be generalized slightly for use with multivector fields.
+
+The basic idea is that we can relate the Laplacian's of the Green's function and the field
+\( F(\Bx') \lr{ (\spacegrad')^2 G(\Bx, \Bx') } = G(\Bx, \Bx') \lr{ (\spacegrad')^2 F(\Bx')} + \cdots \).
+That relationship can be expressed as the integral of an antisymmetric sandwich of the two functions
+
+\maketheorem{Green's theorem}{thm:gradientGreensFunctionEuclidean:220}{
+Given a multivector function \( F \) and a scalar function \( G \)
+\begin{equation*}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV = \int_{\partial V} \lr{ F \ncap \cdot \spacegrad G - G \ncap \cdot \spacegrad F },
+\end{equation*}
+where \( \partial V \) is the boundary of the volume \( V \).
+} % theorem
+
+A straightforward, but perhaps inelligant way of proving this theorem is to expand the antisymmetric product in coordinates
+\begin{dmath}\label{eqn:greensFunctionSolutions:260}
+F \spacegrad^2 G - G \spacegrad^2 F
+=
+\sum_k F \partial_k \partial_k G - G \partial_k \partial_k F
+=
+\sum_k \partial_k \lr{
+F \partial_k G - G \partial_k F
+}
+-
+(\partial_k F)(\partial_k G) + (\partial_k G)(\partial_k F).
+\end{dmath}
+
+Since \( G \) is a scalar, the last two terms cancel, and we can integrate
+\begin{dmath}\label{eqn:greensFunctionSolutions:280}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_V \partial_k \lr{ F \partial_k G - G \partial_k F }.
+\end{dmath}
+
+Each integral above involves one component of the gradient.
+From
+%the fundamental theorem of geometric calculus
+\cref{thm:fundamentalTheoremOfCalculus:1}
+we know that
+\begin{dmath}\label{eqn:greensFunctionSolutions:300}
+\int_V \spacegrad Q dV = \int_{\partial V} \ncap Q dA,
+\end{dmath}
+for any multivector \( Q \).
+Equating components gives
+\begin{dmath}\label{eqn:greensFunctionSolutions:460}
+\int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
+\end{dmath}
+which can be substituted into \cref{eqn:greensFunctionSolutions:280} to find
+\begin{dmath}\label{eqn:greensFunctionSolutions:480}
+\int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
+=
+\sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F } dA
+=
+\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA,
+\end{dmath}
+which proves the theorem.
+
+\paragraph{Bounded solutions to first order problems.}
+
+For first order problems we will need an intermediate result similar to Green's theorem.
+
+\makelemma{Normal relations for a gradient sandwich.}{lemma:greensFunctionOverview:420}{
+Given multivector functions \( F(\Bx'), G(\Bx, \Bx') \), and a gradient \( \spacegrad' \) acting bidirectionally on functions of \( \Bx' \), we have
+\begin{equation*}
+- \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } F(\Bx') dV'
+=
+\int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx') } dV'
+-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{equation*}
+} % lemma
+
+This follows directly from \cref{thm:fundamentalTheoremOfCalculus:1}
+\begin{dmath}\label{eqn:greensFunctionSolutions:440}
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'
+=
+\int_V G(\Bx, \Bx') \lrspacegrad' F(\Bx') dV'
+=
+\int_V \lr{ G(\Bx, \Bx') \lspacegrad' } F(\Bx') dV'
++
+\int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx') } dV',
+\end{dmath}
+which can be rearranged to prove \cref{lemma:greensFunctionOverview:420}.
+
+%}
+      \subsubsection{Helmholtz equation.}
+%
+%
+%{
+\paragraph{Unbounded superposition solutions for the Helmholtz equation.}
+
+The specialization of \cref{eqn:greensFunctionSolutions:400} to the Helmholtz equation \cref{eqn:greensFunctionOverview:260} is
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:420}
+\lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx') = \delta(\Bx - \Bx').
+\end{dmath}
+
+While it is possible \citep{schwinger1998classical} to derive the Green's function using Fourier transform techniques, we will state the result instead, which is well known
+
+\maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
+The advancing (causal), and the receding (acausal) Green's functions satisfying
+\cref{eqn:greensFunctionHelmholtz:420} are respectively
+\begin{equation*}
+\begin{aligned}
+G_{\textrm{adv}}(\Bx, \Bx') &= -\frac{e^{-j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}} \\
+G_{\textrm{rec}}(\Bx, \Bx') &= -\frac{e^{j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}}.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+We will use the advancing (causal) Green's function, and refer to this function as \( G(\Bx, \Bx') \) without any subscript.
+Because it may not be obvious that these
+Green's function representations are valid in a multivector context, a demonstration of this fact can be found in \cref{chap:helmholtzGreens}.
+
+Observe that as a special case, the Helmholtz Green's function reduces to the Green's function for the Laplacian when \( k = 0 \)
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:80}
+G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
+\end{dmath}
+
+\paragraph{Bounded superposition solutions for the Helmholtz equation.}
+
+For our application of
+\cref{thm:gradientGreensFunctionEuclidean:3} to the Helmholtz problem, we
+are actually interested in a antisymmetric sandwich of the Helmholtz operator by the function \( F \) and the scalar (Green's) function \( G \), but
+that reduces to an asymmetric sandwich of our functions around the Laplacian
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:240}
+F \lr{ \spacegrad^2 + k^2 } G - G \lr{ \spacegrad^2 + k^2 } F
+=
+F \spacegrad^2 G + \cancel{F k^2 G} - G \spacegrad^2 F - \cancel{G k^2 F}
+=
+F \spacegrad^2 G - G \spacegrad^2 F,
+\end{dmath}
+so
+\begin{dmath}\label{eqn:greensFunctionHelmholtz:380}
+\int_V F(\Bx') \lr{ (\spacegrad')^2 + k^2 } G(\Bx, \Bx')
+=
+\int_V G(\Bx, \Bx') \lr{ (\spacegrad')^2 + k^2} F(\Bx') dV'
++
+\int_{\partial V} \lr{ F(\Bx') (\ncap' \cdot \spacegrad') G(\Bx, \Bx') - G(\Bx, \Bx') (\ncap' \cdot \spacegrad') F(\Bx') } dA'.
+\end{dmath}
+
+This shows that if we assume the Green's function satisfies
+the delta function condition
+\cref{eqn:greensFunctionHelmholtz:420}
+, then the general solution of
+\cref{eqn:greensFunctionOverview:260} is
+formed from a bounded superposition of sources is
+\boxedEquation{eqn:gradientGreensFunctionEuclidean:400}{
+\begin{aligned}
+F(\Bx) &=
+\int_V G(\Bx, \Bx') B( \Bx' ) dV' \\
+&+
+\int_{\partial V} \lr{
+ G(\Bx, \Bx') (\ncap' \cdot \spacegrad') F(\Bx')
+-F(\Bx') (\ncap' \cdot \spacegrad') G(\Bx, \Bx')
+} dA'.
+\end{aligned}
+}
+
+We are also free to add in any specific solution \( F_0(\Bx) \) that satisfies the
+homogeneous Helmholtz equation.
+There is also freedom to add any solution of the homogeneous Helmholtz equation to the Green's function itself, so it is not unique.
+For a bounded superposition we generally desire that the solution \( F \) and its normal derivative, or the Green's function \( G \) (and it's normal derivative) or an appropriate combination of the two are zero on the boundary, so that the surface integral is killed.
+
+%}
+      \subsubsection{First order Helmholtz equation.}
+%
+%
+%{
+
+The specialization of \cref{eqn:greensFunctionSolutions:400} to the first order Helmholtz equation \cref{eqn:greensFunctionOverview:240} is
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:700}
+\lr{ \spacegrad + j k } G(\Bx, \Bx')  = \delta(\Bx - \Bx').
+\end{dmath}
+
+This Green's function is multivector valued
+
+\maketheorem{Green's function for the first order Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:720}{
+The Green's function satisfying
+\begin{equation*}
+\lr{ \rspacegrad + j k } G(\Bx, \Bx') = G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } = \delta(\Bx - \Bx'),
+\end{equation*}
+is
+\begin{equation*}
+G(\Bx, \Bx') = \frac{e^{-j k r}}{4 \pi r} \lr{ j k \lr{ 1 + \rcap } + \frac{\rcap}{r} },
+\end{equation*}
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
+} % theorem
+
+A special but important case is the \( k = 0 \) condition, which provides the
+Green's function for the gradient, which is vector valued
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:900}
+G(\Bx, \Bx' ; k = 0) = \inv{4 \pi} \frac{\rcap}{r^2}.
+\end{equation}
+
+If we denote the (advanced) Green's function for the 2nd order Helmholtz operator
+\cref{thm:gradientGreensFunctionEuclidean:3}
+as \( \phi(\Bx, \Bx') \), we must have
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:740}
+\lr{ \rspacegrad + j k } G(\Bx, \Bx') = \delta(\Bx - \Bx') =
+\lr{ \rspacegrad + j k } \lr{ \rspacegrad - j k } \phi(\Bx, \Bx'),
+\end{equation}
+we see that the Green's function is given by
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:760}
+G(\Bx, \Bx')
+=
+\lr{ \rspacegrad - j k } \phi(\Bx, \Bx').
+\end{dmath}
+
+This can be computed directly
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:780}
+G(\Bx, \Bx')
+=
+\lr{ \rspacegrad - j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} }
+=
+\lr{ \rcap \PD{r}{} -j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} }
+=
+\frac{-e^{-j k r}}{4 \pi}
+\lr{
+\rcap \lr{ -\frac{j k}{r} - \inv{ r^2 } } - \frac{j k}{r}
+}
+=
+\frac{e^{-j k r}}{4 \pi}
+\lr{
+j k \lr{ 1 + \rcap } + \frac{\rcap}{r}
+},
+\end{dmath}
+as claimed.
+Observe that since \( \phi \) is scalar valued, we can also rewrite
+\cref{eqn:greensFunctionFirstOrderHelmholtz:760} in terms of a right acting operator
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:800}
+G(\Bx, \Bx')
+=
+\phi(\Bx, \Bx')
+\lr{ \lspacegrad - j k }
+=
+\phi(\Bx, \Bx')
+\lr{ -\lspacegrad' - j k },
+\end{dmath}
+so
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:820}
+G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } =
+\phi(\Bx, \Bx') \lr{ (\lspacegrad')^2 + k^2 }
+=
+\delta(\Bx - \Bx').
+\end{equation}
+
+This is relavant for bounded superposition states, which we will discuss next now that the proof of
+\cref{thm:gradientGreensFunctionEuclidean:720} is complete.
+In particular addition of
+\( \int_V G(\Bx, \Bx') j k F(\Bx') dV' \) to both sides of \cref{lemma:greensFunctionOverview:420} gives
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:860}
+\begin{aligned}
+\int_V \lr{ G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } } F(\Bx') dV'
+&=
+\int_V G(\Bx, \Bx') \lr{ \lr{ \rspacegrad' + j k } F(\Bx') } dV' \\
+&-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{aligned}
+\end{dmath}
+
+Utilizing \cref{thm:gradientGreensFunctionEuclidean:720}, and substituting \( J(\Bx') \)
+from \cref{eqn:greensFunctionOverview:240},
+we find that one solution to the first order Helmholtz equation is
+\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:880}
+F(\Bx)
+=
+\int_V G(\Bx, \Bx') J(\Bx') dV'
+-
+\int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{dmath}
+
+We are free to
+add any specific solution \( F_0 \) that satisfies the homogeneous equation \( \lr{ \spacegrad + j k } F_0 = 0 \).
+%}
+      \subsubsection{Spacetime gradient.}
+%
+%
+%{
+
+We want to find the Green's function that solves spacetime gradient equations of the form \cref{eqn:greensFunctionOverview:220}.
+For the wave equation operator, it is helpful to introduce a d'Lambertian operator, defined as follows.
+
+\makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:120}{
+Let
+\begin{equation*}
+\dLambertian =
+\conjstgrad
+\stgrad
+=
+\spacegrad^2 - \inv{c^2} \PDSq{t}{}.
+\end{equation*}
+} % definition
+
+We will be able to derive the Green's function for the spacetime gradient from the Green's function for the d'Lambertian.  The Green's function for the spacetime gradient is multivector valued and given by the following.
+\maketheorem{Green's function for the spacetime gradient.}{thm:greensFunctionSpacetimeGradient:120}{
+The Green's function for the spacetime gradient, satisfying
+\begin{equation*}
+\stgrad G(\Bx - \Bx', t - t') = \delta(\Bx - \Bx') \delta(t - t'),
+\end{equation*}
+is
+\begin{equation*}
+G(\Bx - \Bx', t - t')
+=
+\inv{4\pi} \lr{
+- \frac{\rcap}{r^2} \PD{r}{}
++ \frac{\rcap}{r}
++ \inv{c r} \PD{t}{}
+}
+\delta( -r/c + t - t' ),
+\end{equation*}
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
+} % theorem
+
+With the help of \cref{eqn:derivativeOfDeltaFunction:140}
+it is possible to further evaluate the delta function derivatives, however, we will defer doing so until we are ready to apply this Green's
+function in a convolution integral to solve Maxwell's equation.
+
+To prove this result, let \( \phi(\Bx - \Bx', t - t') \) be the retarded time (causal)
+Green's function for the wave equation, satisfying
+\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:40}
+\dLambertian
+\phi(\Bx - \Bx', t - t')
+=
+\stgrad
+\conjstgrad
+\phi(\Bx - \Bx', t - t')
+= \delta(\Bx - \Bx') \delta(t - t').
+\end{dmath}
+
+This function has the value
+\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:60}
+\phi(\Br, t - t')
+=
+-\inv{4 \pi r} \delta( -r/c + t - t' ),
+\end{dmath}
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \).  Derivations of this Green's function, and it's acausal advanced time friend, can be found in
+\citep{schwinger1998classical}, \citep{jackson1975cew}, and use the usual Fourier transform and contour integration tricks.
+
+Comparing \cref{eqn:greensFunctionSpacetimeGradient:40} to the defining statement of \cref{thm:greensFunctionSpacetimeGradient:120}, we see that the spacetime gradient Green's function is given by
+\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:80}
+G(\Bx - \Bx', t - t')
+=
+\conjstgrad \phi(\Br, t - t')
+=
+\lr{ \rcap \PD{r}{} - \inv{c} \PD{t}{} } \phi(\Br, t - t'),
+\end{dmath}
+where \( \rcap = \Br/r \).  Evaluating the derivatives gives
+\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:100}
+G(\Br, t - t')
+=
+-\inv{4\pi} \lr{ \rcap \PD{r}{} - \inv{c} \PD{t}{} } \frac{ \delta( -r/c + t - t' ) }{r}
+=
+-\inv{4\pi} \lr{
+\frac{\rcap}{r} \PD{r}{} \delta( -r/c + t - t' )
+- \frac{\rcap}{r^2} \delta( -r/c + t - t' )
+- \inv{c r} \PD{t}{} \delta( -r/c + t - t' )
+},
+\end{dmath}
+which completes the proof after some sign cancellation and minor rearrangement.
+%}
+   \subsection{Helmholtz theorem.}
+%
+%
+In conventional electromagnetism Maxwell's equations are posed in terms of separate divergence and curl equations.  It is therefore desirable to show that the divergence and curl of a function and it's normal characteristics on the boundary of an integraion volume determine that function uniquely.  This is known as the Helmholtz theorem
+\maketheorem{Helmholtz first theorem.}{thm:helmholtzDerviationMultivectorStatement:1}{
+A vector \( \BM \) is uniquely determined by its
+divergence
+\begin{equation*}
+\spacegrad \cdot \BM = s,
+\end{equation*}
+and curl
+\begin{equation*}
+\spacegrad \cross \BM = \BC,
+\end{equation*}
+and its value
+over the boundary.
+} % theorem
+
+%It could be argued that Helmholtz's theorem is irrelavent when using the GA formalism, since we consolidate the separate divergence and curl equations into one gradient operator.
+%We include a proof here regardless, since it can be performed in a compact and interesting fashion using
+%%the fundamental theorem of geometric calculus
+%\cref{thm:fundamentalTheoremOfCalculus:1}.
+%
+%
+%{
+The conventional proof of Helmholtz's theorem uses the Green's function for the (second order) Helmholtz operator.
+Armed with a vector valued Green's function for the gradient, a first order proof is also possible.
+As illustrations of the geometric integration theory developed in this chapter, both
+strategies will be applied here to this problem.
+
+In either case, we start by forming an even grade multivector (gradient) equation containing both the dot and cross product contributions
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:60}
+\spacegrad \BM
+= \spacegrad \cdot \BM + I \spacegrad \cross \BM
+= s + I \BC.
+\end{equation}
+
+\paragraph{First order proof.}
+
+For the first order case, we
+perform a grade one selection of \cref{lemma:greensFunctionOverview:420}, setting
+\( F = \BM \) where \( G \) is the Green's function for the gradient given by
+\cref{eqn:greensFunctionFirstOrderHelmholtz:900}.  The proof follows directly
+
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:820}
+M(\Bx)
+=
+- \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } \BM(\Bx') dV'
+=
+\int_V \gpgradeone{G(\Bx, \Bx') \lr{ \rspacegrad' \BM(\Bx') }} dV'
+-
+\int_{\partial V} \gpgradeone{ G(\Bx, \Bx') \ncap' \BM(\Bx') } dA'
+=
+\int_V
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \lr{ s(\Bx') + I \BC(\Bx') }} dV'
+-
+\int_{\partial V}
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'
+=
+\int_V
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\lr{ (\Bx - \Bx') s(\Bx') - (\Bx - \Bx') \cross \BC(\Bx') } dV'
+-
+\int_{\partial V}
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'.
+\end{dmath}
+If \( \BM \) is well behaved enough that the boundary integral vanishes on an infinite surface, we see that \( \BM \) is completely specified by the divergence and the curl.
+In general, the divergence and the curl, must also be supplemented by the the value of vector valued function on the boundary.
+
+Observe that the boundary integral has a particularly simple form for a spherical surface or radius \( R \) centered on \( \Bx' \).
+Switching to spherical coordinates \( \Br = \Bx' - \Bx = R\, \rcap(\theta, \phi) \) where \( \rcap = (\Bx' - \Bx)/\Norm{\Bx' - \Bx} \) is the outwards normal, we have
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:840}
+-
+\int_{\partial V}
+\inv{4 \pi \Norm{\Bx - \Bx'}^3 }
+\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'
+=
+\int_{\partial V}
+\frac{\BM(\Bx')}{4 \pi \Norm{\Bx - \Bx'}^2 } dA'
+= \inv{4\pi} \int_{\theta = 0}^\pi \int_{\phi = 0}^{2 \pi} \BM(R, \theta, \phi) \sin\theta d\theta d\phi.
+\end{dmath}
+This is an average of \( \BM \) over the surface of the radius-\(R\) sphere surrounding the point \( \Bx \) where the field \( \BM \) is evaluated.
+
+\paragraph{Second order proof.}
+
+%Observe that the Laplacian of \( \BM \) is vector valued
+%
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:760}
+%\spacegrad^2 \BM = \spacegrad s + I \spacegrad \BC.
+%\end{dmath}
+%
+%This means that \( \spacegrad \BC \) must be a bivector \( \spacegrad \BC = \spacegrad \wedge \BC \), or that \( \BC \) has zero divergence
+%
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:780}
+%\spacegrad \cdot \BC = 0.
+%\end{dmath}
+
+Again, we use \cref{eqn:helmholtzDerviationMultivectorSolution:60}
+to discover the relation between the vector \( \BM \) and its divergence and curl.
+The vector \( \BM \) can be expressed at the point of interest as a convolution with the delta function at all other points in space
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:80}
+\BM(\Bx) = \int_V dV' \delta(\Bx - \Bx') \BM(\Bx').
+\end{dmath}
+
+The Laplacian representation of the delta function in \R{3} is
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:100}
+\delta(\Bx - \Bx') = -\inv{4\pi} \spacegrad^2 \inv{\Norm{\Bx - \Bx'}},
+\end{dmath}
+so \( \BM \) can be represented as the following convolution
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:120}
+\BM(\Bx) = -\inv{4\pi} \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx').
+\end{dmath}
+
+%As noted in \cref{eqn:helmholtzDerviationMultivector:460} the Laplacian of a vector can be factored as
+%
+%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:140}
+%\spacegrad^2 \Ba
+%=
+%\spacegrad (\spacegrad \cdot \Ba)
+%-
+%\spacegrad \cross (\spacegrad \cross \Ba).
+%\end{dmath}
+%
+%Note that the last term can be written in cross product notation using \( \Bc \cdot (\Ba \wedge \Bb) = -\Bc \cross (\Ba \cross \Bb) \) if desired.
+
+Using this relation and proceeding with a few applications of the chain rule, plus the fact that \( \spacegrad 1/\Norm{\Bx - \Bx'} = -\spacegrad' 1/\Norm{\Bx - \Bx'} \), we find
+%
+%I previously posted a Geometric Algebra attack on the Helmholtz theorem.  Here is
+%
+%Here's a third way of deriving the Helmholtz theorem inversion relation.  This is a refinement of the traditional vector algebra solution that led to \cref{eqn:helmholtzDerviationMultivector:200}, that uses a factorization of the Laplacian directly, deferring any expansion in terms of dot and cross (or wedge) products until the very end.
+%
+%Starting from the first line of \cref{eqn:helmholtzDerviationMultivector:160}, we have
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:720}
+-4 \pi \BM(\Bx)
+= \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')
+= \gpgradeone{\int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')}
+= -\gpgradeone{\int_V dV' \spacegrad \lr{ \spacegrad' \inv{\Norm{\Bx - \Bx'}}} \BM(\Bx')}
+= -\gpgradeone{\spacegrad \int_V dV' \lr{
+\spacegrad' \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+-\frac{\spacegrad' \BM(\Bx')}{\Norm{\Bx - \Bx'}}
+} }
+=
+-\gpgradeone{\spacegrad \int_{\partial V} dA'
+\ncap \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+ }
++\gpgradeone{\spacegrad \int_V dV'
+\frac{s(\Bx') + I\BC(\Bx')}{\Norm{\Bx - \Bx'}}
+ }
+=
+-\gpgradeone{\spacegrad \int_{\partial V} dA'
+\ncap \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+ }
++\spacegrad \int_V dV'
+\frac{s(\Bx')}{\Norm{\Bx - \Bx'}}
++\spacegrad \cdot \int_V dV'
+\frac{I\BC(\Bx')}{\Norm{\Bx - \Bx'}}.
+\end{dmath}
+
+By inserting a no-op grade selection operation in the second step, the trivector terms that would show up in subsequent steps are automatically filtered out.
+%the troublesome trivector term that shows up in my first purely Geometric Algebra
+%attempt is eliminated.
+This leaves us with a boundary term dependent on the surface and the normal and tangential components of \( \BM \).
+Added to that is a pair of volume integrals that provide the unique dependence of \( \BM \) on its divergence and curl.
+When the surface is taken to infinity, which requires \( \Norm{\BM}/\Norm{\Bx - \Bx'} \rightarrow 0 \), then the dependence of \( \BM \) on its divergence and curl is unique.
+
+In order to express final result in traditional vector algebra form, a couple transformations are required.
+The first is that
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:800}
+\gpgradeone{ \Ba I \Bb } = I^2 \Ba \cross \Bb = -\Ba \cross \Bb.
+\end{equation}
+
+For the grade selection in the boundary integral, note that
+\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:740}
+\gpgradeone{ \spacegrad \ncap \BX }
+=
+\gpgradeone{ \spacegrad (\ncap \cdot \BX) }
++
+\gpgradeone{ \spacegrad (\ncap \wedge \BX) }
+=
+\spacegrad (\ncap \cdot \BX)
++
+\gpgradeone{ \spacegrad I (\ncap \cross \BX) }
+=
+\spacegrad (\ncap \cdot \BX)
+-
+\spacegrad \cross (\ncap \cross \BX).
+\end{dmath}
+
+These give
+\boxedEquation{eqn:helmholtzDerviationMultivectorSolution:721}{
+\begin{aligned}
+\BM(\Bx)
+&=
+\spacegrad \inv{4\pi} \int_{\partial V} dA' \ncap \cdot \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+-
+\spacegrad \cross \inv{4\pi} \int_{\partial V} dA' \ncap \cross \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}} \\
+&-\spacegrad \inv{4\pi} \int_V dV'
+\frac{s(\Bx')}{\Norm{\Bx - \Bx'}}
++\spacegrad \cross \inv{4\pi} \int_V dV'
+\frac{\BC(\Bx')}{\Norm{\Bx - \Bx'}}.
+\end{aligned}
+}
+%}
+
+%XX
 \EndArticle
