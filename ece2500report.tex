@@ -1234,9 +1234,8 @@ In the book many many examples, figures, and Mathematica calculations are used t
 This includes calculations of curvilinear coordinates, area and volume elements, and the vector derivative
 for polar, spherical and a toroidal coordinate systems.
 
-\chapter{REWRITE/PRUNE marker.}
 \subsection{Integration theory.}
-We wish to generalize the concepts of line, surface and volume integrals to hypervolumes and multivector functions, and define a hypervolume integral as
+The generalization of line, surface and volume integrals to hypervolumes and multivector functions can now be stated.
 
 \makedefinition{Multivector integral.}{dfn:fundamentalTheoremOfCalculus:240}{
 Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
@@ -1274,7 +1273,6 @@ with \( \boldpartial \) acting on \( F \) and \( G \), but not the volume elemen
 } % definition
 
 The vector derivative
-% (and gradient)
 may not commute with \( F, G \) nor the volume element \( d^k \Bx \), so we are forced to use some notation to indicate what the vector derivative (or gradient) acts on.
 In conventional right acting cases, where there is no ambiguity, arrows will usually be omitted, but braces may also be used to indicate the scope of derivative operators.
 This bidirectional notation will also be used for the gradient, especially for volume integrals in \R{3} where the vector derivative is identitical to the gradient.
@@ -1288,12 +1286,6 @@ F d^k \Bx \dot{\boldpartial} \dot{G}.
 \end{dmath}
 The dot notation has the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
 However, in this book, where primed operators such as \( \spacegrad' \) are used to indicate that derivatives are taken with respect to primed \( \Bx' \) variables, a mix of dots and ticks would have been confusing.
-%Over arrows also have the advantage of being visually conspicuous.
-
-\subsubsection{Fundamental theorem.}
-
-The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
-This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
 
 \maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
 Given
@@ -1322,26 +1314,14 @@ should be taken to mean the evaluation of the \( F G \) multivector product over
 \end{equation*}
 } % theorem
 
-The geometry of the hypersurface element \( d^{k-1} \Bx \) will be made more clear when we
-consider the specific cases of \( k = 1, 2, 3 \), representing generalized line, surface, and volume integrals respectively.
-Instead of terrorizing the reader with a general proof
-\cref{thm:fundamentalTheoremOfCalculus:1},
-which requires some unpleasant index gymnastics,
-this book
-will separately state and prove the fundamental theorem of calculus
-for each of the \( k = 1, 2, 3 \) cases that are of interest for problems in \R{2} and \R{3}.
-For the interested reader, a sketch of the general proof
-of \cref{thm:fundamentalTheoremOfCalculus:1}
-is available in \cref{chap:gagcProof}.
+The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
+This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
 
-Before moving on to the line, surface, and volume integral cases, we will state and prove the
-general Stokes' theorem in its geometric algebra form.
+The book includes a proof of 
+\cref{thm:fundamentalTheoremOfCalculus:1} in the appendix, however, to make the material more accessible, this theorem is stated and proven separately for each of the
+line, surface, and volume integral cases respectively.
 
-%}
-%\EndArticle
-   \subsubsection{Stokes' theorem.}
-%
-%
+\subsubsection{Stokes' theorem.}
 An important consequence of the fundamental theorem of geometric calculus is the
 geometric algebra generalization of Stokes' theorem.
 The Stokes' theorem that we know from conventional vector calculus relates
@@ -1356,119 +1336,15 @@ Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
 \end{equation*}
 }
 
-We will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.
-
-We can prove Stokes' theorem
-from \cref{thm:fundamentalTheoremOfCalculus:1}
-by setting \( F = 1 \), and requiring that \( G \)
-is an s-blade, with grade \( s < k \).
-The proof follows by selecting the \( k-(s+1) \) grade, the lowest grade of \( d^k \Bx (\boldpartial \wedge G) \), from both sides of \cref{thm:fundamentalTheoremOfCalculus:1}.
-
-For the grade selection of the hypervolume integral we have
-\begin{dmath}\label{eqn:stokesTheoremTheStatement:100}
-\gpgrade{ \int_V d^k \Bx \boldpartial G }{k-(s+1)}
-=
-\gpgrade{
-\int_V d^k \Bx (\boldpartial \cdot G )
-+
-\int_V d^k \Bx (\boldpartial \wedge G )
-}{k-(s-1)},
-\end{dmath}
-however, the lowest grade of \( d^k \Bx (\boldpartial \cdot G ) \) is \( k -(s-1) = k - s + 1 > k - (s+1) \), so the divergence integral is zero.  As \( d^{k-1} \Bx \) is a \( k - 1 \) blade
-\begin{dmath}\label{eqn:stokesTheoremTheStatement:110}
-\int_V d^k \Bx \cdot (\boldpartial \wedge G )
-= \int_{\partial V} \gpgrade{d^{k-1} \Bx G}{k-(s+1)}
-= \int_{\partial V} d^{k-1} \Bx \cdot G,
-\end{dmath}
-proving the theorem.
-   \subsubsection{Line integral.}
-%
-%
-%{
-%\subsection{Line integral.}
-\label{chap:lineintegral}
-
-A single parameter curve, and the corresponding differential with respect to that parameter, is plotted in
-\cref{fig:oneParameterDifferential:oneParameterDifferentialFig1}.
-%, for a parameterization over \( [a, b] \in [0,1]\otimes[0,1] \).
-
-\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.2}
-
-The differential with respect to the parameter \( a \) is
-\begin{equation}\label{eqn:lineintegral:20}
-d\Bx_a = \PD{a}{\Bx} da = \Bx_a da.
-\end{equation}
-
-The vector derivative has just one component
-\begin{dmath}\label{eqn:lineintegral:40}
-\boldpartial
-=
-\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
-=
-\Bx^a \PD{a}{}
-\equiv
-\Bx^a \partial_a.
-\end{dmath}
-
-The line integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
-
-\makedefinition{Multivector line integral.}{dfn:lineintegral:100}{
-Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), we define the line integral as
-\begin{equation*}
-\int_C F d^1\Bx \lrboldpartial G
-\equiv
-\int_C \lr{ F d^1\Bx \lboldpartial} G
-+
-\int_C F d^1\Bx \lr{ \rboldpartial G },
-\end{equation*}
-where the one parameter differential form \( d^1 \Bx = da\, \Bx_a \) varies over the curve.
-} % definition
-
-The line integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
+We will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.  Special cases include line, area and volume integrals.
 
 \maketheorem{Multivector line integral.}{thm:lineintegral:100}{
-Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral
+Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral is related to the boundary by
 \begin{equation*}
 \int_C F d^1\Bx \boldpartial G
 = \evalbar{F G}{\Delta a}.
 \end{equation*}
 } % theorem
-
-The proof follows by expansion.
-For
-the (single variable) parameterization \( a \) above
-\begin{dmath}\label{eqn:lineintegral:120}
-\int_C F d^1\Bx \lrboldpartial G
-=
-\int_C \lr{ F d^1\Bx \lboldpartial} G
-+
-\int_C F d^1\Bx \lr{ \rboldpartial G }
-=
-\int_C \PD{a}{F} da \Bx_a \Bx^a G
-+
-\int_C F da \Bx_a \Bx^a \PD{a}{G}
-=
-\int_C da \PD{a}{F} G
-+
-\int_C da F \PD{a}{G}
-=
-\int_C da \PD{a}{} \lr{ F G }
-=
-F(a_1) G(a_1) -
-F(a_0) G(a_0),
-\end{dmath}
-where the boundaries of the parameterization have been assumed to be
-%\( C\lcolon a \in [a_0, a_1] \).
-\( C: a \in [a_0, a_1] \).
-We have a perfect cancellation of the reciprocal frame \( \Bx^a \) with the vector \( \Bx_a \) that lies along the curve, since \( \Bx^a \Bx_a = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve.
-
-For a single parameter subspace
-the reciprocal frame vector \( \Bx^a \)
-is trivial to calculate, as it is just the inverse of \( \Bx_a \), that is \( \Bx^a = \Bx_a/\Norm{\Bx_a}^2 \).
-Observe that we did not actually have to calculate it, but instead only require that the vector is invertible.
-
-An important (and familiar) special case of \cref{thm:lineintegral:100} is the fundamental theorem of calculus for line integrals, which can be obtained by using a
-single scalar function \( f \)
 
 \maketheorem{Line integral of a scalar function (Stokes').}{thm:lineintegral:180}{
 Given a scalar function \( f \), its line integral is given by
@@ -1478,94 +1354,6 @@ Given a scalar function \( f \), its line integral is given by
 \end{equation*}
 } % theorem
 
-Writing out \cref{thm:lineintegral:100} with \( F = 1, G = f(\Bx(a)) \), we have
-\begin{dmath}\label{eqn:lineintegral:140}
-\int_C d^1\Bx \boldpartial f = \evalbar{f}{\Delta a}.
-\end{dmath}
-
-This is a multivector equation with scalar and bivector grades on the left hand side, but only scalar grades on the right.  Equating grades yields two equations
-
-\begin{subequations}
-\label{eqn:lineintegral:180}
-\begin{dmath}\label{eqn:lineintegral:160}
-\int_C d^1\Bx \cdot \boldpartial f = \evalbar{f}{\Delta a}
-\end{dmath}
-\begin{dmath}\label{eqn:lineintegral:200}
-\int_C d^1\Bx \wedge \boldpartial f = 0
-\end{dmath}
-\end{subequations}
-
-Because \( d^1\Bx \cdot \boldpartial = d^1\Bx \cdot \spacegrad \), we can replace the vector derivative with the gradient in \cref{eqn:lineintegral:160}, which yields the conventional line integral result, proving the theorem.
-
-%}
-%\EndNoBibArticle
-   \subsubsection{Surface integral.}
-%
-%
-%{
-%\subsection{Surface integral.}
-%\label{chap:surfaceintegral}
-
-A two parameter curve, and the corresponding differentials with respect to those parameters, is plotted in
-\cref{fig:twoParameterDifferential:twoParameterDifferentialFig1}.
-
-\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFig1}{Two parameter manifold differentials.}{fig:twoParameterDifferential:twoParameterDifferentialFig1}{0.4}
-
-Given parameters \( a, b \), the differentials along each of the parameterization directions are
-\begin{dmath}\label{eqn:surfaceintegral:100}
-\begin{aligned}
-d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
-d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
-\end{aligned}
-\end{dmath}
-
-The bivector valued surface area element for this parameterization is
-\begin{equation}\label{eqn:surfaceintegral:120}
-d^2 \Bx
-=
-d\Bx_a \wedge
-d\Bx_b
-=
-da db (\Bx_a \wedge \Bx_b).
-\end{equation}
-
-The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
-\begin{dmath}\label{eqn:surfaceintegral:200}
-\boldpartial
-=
-\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
-=
-\Bx^a \PD{a}{}
-+
-\Bx^b \PD{b}{}
-\equiv
-\Bx^a \partial_a
-+
-\Bx^b \partial_b.
-\end{dmath}
-
-The surface integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
-
-\makedefinition{Multivector surface integral.}{dfn:surfaceintegral:100}{
-Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), we define the surface integral as
-\begin{equation*}
-\int_S F d^2\Bx \boldpartial G
-\equiv
-\int_S \lr{ F d^2\Bx \lboldpartial} G
-+
-\int_S F d^2\Bx \lr{ \rboldpartial G },
-\end{equation*}
-where the two parameter differential form \( d^2 \Bx = da db\, \Bx_a \wedge \Bx_b \) varies over the surface.
-} % definition
-
-%%As mentioned in a line integral context,
-%%multivectors may not commute with the vector derivative or the differential, so we allow the vector derivative to act bidirectionally using the chain rule.
-%%The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
-%%Should we wish to only integrate single functions, we can set either of the other to \( 1 \), yielding integrals of the form
-%%\( \int_S F d^2\Bx \lboldpartial, \) or \( \int_S d^2\Bx \boldpartial G \).
-
-The surface integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
-
 \maketheorem{Multivector surface integral.}{thm:surfaceintegral:100}{
 Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), the surface integral
 \begin{equation*}
@@ -1574,113 +1362,6 @@ Given an connected surface \( S \) parameterized by two parameters, and multivec
 \end{equation*}
 where \( \partial S \) is the boundary of the surface \( S \).
 } % theorem
-In \R{2} with \( d^2 \Bx = i dA, i = \Be_{12} \), this may be written
-\begin{dmath}\label{eqn:surfaceintegral:760}
-\int_S F i \spacegrad G\, dA
-= \ointclockwise_{\partial S} F d\Bx G.
-\end{dmath}
-As \( i \) does not commute with all \R{2} multivectors, unless \( F = 1 \) we cannot generally pull \( i \) out of the integral.
-In \R{3}, with \( d^2 \Bx = I \ncap dA \), we may use a scalar area element, but cannot generally replace the vector derivative with the gradient.
-%\begin{dmath}\label{eqn:surfaceintegral:780}
-%I \int_S F \ncap \boldpartial G\, dA
-%= \ointclockwise_{\partial S} F d\Bx G.
-%\end{dmath}
-
-To see why this works, we would first like to reduce the product of the area element and the vector derivative
-\begin{dmath}\label{eqn:surfaceintegral:300}
-d^2\Bx \boldpartial
-=
-da db\, \lr{ \Bx_a \wedge \Bx_b } \lr{ \Bx^a \partial_a + \Bx^b \partial_b }.
-\end{dmath}
-
-Since \( \Bx^a \in \Span \setlr{ \Bx_a, \Bx_b } \), this multivector product has only a vector grade.  That is
-\begin{dmath}\label{eqn:surfaceintegral:320}
-\lr{ \Bx_a \wedge \Bx_b } \Bx^a
-=
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^a
-+
-\cancel{ \lr{ \Bx_a \wedge \Bx_b } \wedge \Bx^a }
-=
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^a
-=
-\Bx_a \lr{ \Bx_b \cdot \Bx^a } -
-\Bx_b \lr{ \Bx_a \cdot \Bx^a }
-=
--\Bx_b.
-\end{dmath}
-
-Similarly
-\begin{dmath}\label{eqn:surfaceintegral:340}
-\lr{ \Bx_a \wedge \Bx_b } \Bx^b
-=
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^b
-+
-\cancel{ \lr{ \Bx_a \wedge \Bx_b } \wedge \Bx^b }
-=
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^b
-=
-\Bx_a \lr{ \Bx_b \cdot \Bx^b } -
-\Bx_b \lr{ \Bx_a \cdot \Bx^b }
-=
-\Bx_a,
-\end{dmath}
-so
-\begin{dmath}\label{eqn:surfaceintegral:360}
-d^2\Bx \boldpartial
-=
-\Bx_a \partial_b
--\Bx_b \partial_a.
-\end{dmath}
-
-Inserting this into the surface integral, we find
-\begin{dmath}\label{eqn:surfaceintegral:380}
-\int_S F d^2\Bx \boldpartial G
-=
-\int_S \lr{ F d^2\Bx \lboldpartial} G
-+
-\int_S F d^2\Bx \lr{ \rboldpartial G }
-=
-\int_S da db\, \lr{ \partial_b F \Bx_a - \partial_a F \Bx_b } G
-+
-\int_S da db\, F \lr{ \Bx_a \partial_b G - \Bx_b \partial_a G }
-=
-\int_S da db\, \lr{ \PD{b}{F} \PD{a}{\Bx} - \PD{a}{F} \PD{b}{\Bx} } G
-+
-\int_S da db\, F \lr{ \PD{a}{\Bx} \PD{b}{G} - \PD{b}{\Bx} \PD{a}{G} }
-=
-\int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }
--
-\int_S da db\, F \lr{ \PD{b}{} \PD{a}{\Bx} - \PD{a}{} \PD{b}{\Bx} } G
-=
-\int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }.
-\end{dmath}
-
-This leaves two perfect differentials, which can both be integrated separately.  That gives
-\begin{dmath}\label{eqn:surfaceintegral:400}
-\int_S F d^2\Bx \boldpartial G
-=
-\int_{\Delta a} da\, \evalbar{\lr{ F \PD{a}{\Bx} G }}{\Delta b} - \int_{\Delta b} db\, \evalbar{\lr{ F \PD{b}{\Bx} G }}{\Delta a}
-=
-\int_{\Delta a} \evalbar{\lr{ F d\Bx_a G }}{\Delta b} - \int_{\Delta b} \evalbar{\lr{ F d\Bx_b G }}{\Delta a}.
-\end{dmath}
-
-Suppose we are integrating over the unit parameter volume space \( [a, b] \in [0,1] \otimes [0,1] \) as illustrated in
-\cref{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}.
-\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialBoundaryFig2}{Contour for two parameter surface boundary.}{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}{0.4}
-
-Comparing to the figure we see that we've ended up with a clockwise line integral around the boundary of the surface.
-For a given subset of the surface, the bivector area element can be chosen small enough that it lies in the tangent space
-to the surface at the point of integration.
-In that case, a larger bounding loop can be concepualized as the sum of a number of smaller ones, as sketched
-in \cref{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2},
-in which case the
-contributions of the interior loop segments cancel out.
-
-\imageFigure{../figures/gabook/loopIntegralInfinitesimalSumFig2}{Sum of infinitesimal loops.}{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2}{0.35}
-
-\subsubsection{Two parameter Stokes' theorem.}
-
-Two special cases of \cref{thm:surfaceintegral:100} when scalar and vector functions are integrated over a surface.  For scalar functions we have
 
 \maketheorem{Surface integral of scalar function (Stokes').}{thm:surfaceintegral:420}{
 Given a scalar function \( f(\Bx) \) its surface integrals is given by
@@ -1695,54 +1376,6 @@ In \R{3} this can be written as
 where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
 } % theorem
 
-To show the first part, we can split the (multivector) surface integral into vector and trivector grades
-\begin{dmath}\label{eqn:surfaceintegral:440}
-\int_S d^2\Bx \boldpartial f
-=
-\int_S d^2\Bx \cdot \boldpartial f
-+
-\int_S d^2\Bx \wedge \boldpartial f.
-\end{dmath}
-
-Since \( \Bx^a, \Bx^b \) both lie in the span of \( \setlr{ \Bx_a, \Bx_b } \),
-\( d^2\Bx \wedge \boldpartial = 0 \), killing the second integral in \cref{eqn:surfaceintegral:440}.
-If the gradient is decomposed into its projection along the tangent
-space (the vector derivative) and its perpendicular components, only the vector derivative components of the
-gradient contribute to its dot product with the area element.  That is
-\begin{dmath}\label{eqn:surfaceintegral:460}
-d^2 \Bx \cdot \spacegrad
-=
-d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b + \cdots }
-=
-d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b }
-=
-d^2 \Bx \cdot \boldpartial.
-\end{dmath}
-
-This means that for a scalar function
-\begin{dmath}\label{eqn:surfaceintegral:480}
-\int_S d^2\Bx \boldpartial f
-=
-\int_S d^2\Bx \cdot \spacegrad f.
-\end{dmath}
-
-The second part of the theorem follows by grade selection, and application of a duality transformation for the area element
-\begin{dmath}\label{eqn:surfaceintegral:500}
-d^2 \Bx \cdot \spacegrad f
-=
-\gpgradeone{ d^2 \Bx \spacegrad f }
-=
-dA \gpgradeone{ I \ncap \spacegrad f }
-=
-dA \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f} }
-=
--dA \ncap \cross \spacegrad f.
-\end{dmath}
-
-back substitution of \cref{eqn:surfaceintegral:500} completes the proof of \cref{thm:surfaceintegral:420}.
-
-For vector functions we have
-
 \maketheorem{Surface integral of a vector function (Stokes').}{thm:surfaceintegral:500}{
 Given a vector function \( \Bf(\Bx) \) the surface integral is given by
 \begin{equation*}
@@ -1754,61 +1387,6 @@ In \R{3} this can be written as
 \end{equation*}
 where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
 } % theorem
-
-%%This follows by setting \( F = 1, G = \Bf \) in \cref{thm:surfaceintegral:100} and selecting the scalar grade.  In particular we may form the
-%%scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The first is
-%%\begin{dmath}\label{eqn:surfaceintegral:520}
-%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
-%%=
-%%\gpgradezero{ (d^2 \Bx \cdot \boldpartial + d^2 \Bx \wedge \boldpartial ) \Bf }.
-%%\end{dmath}
-%%
-%%The \( d^2 \Bx \wedge \boldpartial \) product with \( \Bf \) has only bivector and quad-vector components (the latter is zero in \R{3}), so its scalar grade selection is zero, and we are left with
-%%\begin{dmath}\label{eqn:surfaceintegral:540}
-%%\gpgradezero{ d^2 \Bx \boldpartial \Bf }
-%%=
-%%(d^2 \Bx \cdot \boldpartial) \cdot \Bf
-%%=
-%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf,
-%%\end{dmath}
-%%where we have used \cref{eqn:surfaceintegral:460} again.  This product can also be written as
-%%\begin{dmath}\label{eqn:surfaceintegral:560}
-%%(d^2 \Bx \cdot \spacegrad) \cdot \Bf
-%%=
-%%\gpgradezero{ (d^2 \Bx \cdot \spacegrad) \Bf }
-%%=
-%%\gpgradezero{ (d^2 \Bx \spacegrad - d^2 \Bx \wedge \spacegrad) \Bf }
-%%=
-%%\gpgradezero{ d^2 \Bx \spacegrad \Bf }
-%%=
-%%\gpgradezero{ d^2 \Bx \lr{ \cancel{ \spacegrad \cdot \Bf } + \spacegrad \wedge \Bf } }
-%%=
-%%d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }.
-%%\end{dmath}
-%%
-%%\begin{dmath}\label{eqn:surfaceintegral:580}
-%%\ointclockwise_{\partial S} d\Bx \cdot \Bf
-%%=
-%%\gpgradezero{ \int_S d^2\Bx \boldpartial \Bf }
-%%=
-%%\int_S \lr{ d^2\Bx \cdot \spacegrad } \cdot \Bf
-%%=
-%%\int_S d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf },
-%%\end{dmath}
-%%as claimed.  In particular in \R{3}, we have
-%%\begin{dmath}\label{eqn:surfaceintegral:600}
-%%d^2\Bx \cdot \lr{ \spacegrad \wedge \Bf }
-%%=
-%%dA \gpgradezero{ I \ncap I \lr{ \spacegrad \cross \Bf } }
-%%=
-%%-dA \ncap \cdot \lr{ \spacegrad \cross \Bf }.
-%%\end{dmath}
-%%
-%%Substitution into \cref{eqn:surfaceintegral:580} proves the last part of \cref{thm:surfaceintegral:500}.
-%%
-\subsubsection{Green's theorem.}
-
-\Cref{thm:surfaceintegral:500}, when stated in terms of coordinates, is another well known result
 
 \maketheorem{Green's theorem.}{thm:surfaceintegral:620}{
 Given a vector \( \Bf = \sum_i f_i \Bx^i \) in \R{N}, and a surface parameterized by \( \Bx = \Bx(u_1, u_2) \)
@@ -1826,156 +1404,6 @@ often stated for \R{2} with a Cartesian \(x,y\) parameterization, such as \( \Bf
 \end{equation*}
 } % theorem
 
-FIXME: Add an example (lots to pick from in any 3rd term calc text)
-
-The first equality in \cref{thm:surfaceintegral:620} holds in \R{N} for vectors expressed in terms of an arbitrary curvilinear basis.
-Only the (curvilinear) coordinates of the vector \( \Bf \) contribute to this integral, and only those that lie in the tangent space.
-The reciprocal basis vectors \( \Bx^i \) are also nowhere to be seen.  This is because they are either obliterated in dot products with \( \Bx_j \), or cancel due to mixed partial equality.
-
-To see how this occurs let's look at the
-area integrand of \cref{thm:surfaceintegral:500}
-\begin{dmath}\label{eqn:surfaceintegral:660}
-d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }
-=
-du_1 du_2\, \lr{ \Bx_1 \wedge \Bx_2 } \cdot \lr{ \sum_{ij} \lr{ \Bx^i \partial_i } \wedge \lr{ f_j \Bx^j } }
-=
-du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \lr{ \partial_i (f_j \Bx^j) }
-=
-du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j
-+
-du_1 du_2\, \sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j).
-\end{dmath}
-
-With a bit of trouble, we will see that the second integrand is zero.  On the other hand, the first integrand
-simplifies
-without too much trouble
-\begin{dmath}\label{eqn:surfaceintegral:680}
-\sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j
-=
-\sum_{ij} \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot \Bx^j \partial_i f_j
-=
-\sum_{j} \Bx_1 \cdot \Bx^j \partial_2 f_j -\Bx_2 \cdot \Bx^j \partial_1 f_j
-=
-\partial_2 f_1 - \partial_1 f_2.
-\end{dmath}
-
-For the second integrand, we have
-\begin{dmath}\label{eqn:surfaceintegral:700}
-\sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j)
-=
-\sum_{j} f_j \sum_i \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot (\partial_i \Bx_j)
-=
-\sum_{j} f_j
-\lr{
-\Bx_1 \cdot (\partial_2 \Bx^j)
--
-\Bx_2 \cdot (\partial_1 \Bx^j)
-}
-\end{dmath}
-
-We can apply the chain rule (backwards) to the portion in brackets to find
-\begin{dmath}\label{eqn:surfaceintegral:720}
-\Bx_1 \cdot (\partial_2 \Bx^j)
--
-\Bx_2 \cdot (\partial_1 \Bx^j)
-=
-\cancel{\partial_2 \lr{ \Bx_1 \cdot \Bx^j }}
--
-(\partial_2 \Bx_1) \cdot \Bx^j
--
-\cancel{\partial_1 \lr{ \Bx_2 \cdot \Bx^j }}
-+
-(\partial_1 \Bx_2) \cdot \Bx^j
-=
-\Bx_j \cdot \lr{ \partial_1 \Bx_2 - \partial_2 \Bx_1 }
-=
-\Bx_j \cdot \lr{ \PD{u_1}{} \PD{u_2}{\Bx} - \PD{u_2}{} \PD{u_1}{\Bx} }
-= 0.
-\end{dmath}
-
-In this reduction the derivatives of \( \Bx_i \cdot \Bx^j = \delta_{ij} \) were killed since those are constants (either zero or one).  The final step relies on the fact that we assume our vector parameterization is well behaved enought that the mixed partials are zero.
-
-Substituting these results into
-\cref{thm:surfaceintegral:500} we find
-\begin{dmath}\label{eqn:surfaceintegral:740}
-\ointclockwise_{\partial S} d\Bx \cdot \Bf
-=
-\ointclockwise_{\partial S} \lr{ du_1 \Bx_1 + du_2 \Bx_2 } \cdot \lr{ \sum_i f_i \Bx^i }
-=
-\ointclockwise_{\partial S} du_1 f_1 + du_2 f_2
-=
-\int_S du_1 du_2\, \lr{ \partial_2 f_1 - \partial_1 f_2 },
-\end{dmath}
-which completes the proof.
-
-%}
-   \subsubsection{Volume integral.}
-%
-%
-%{
-\label{chap:volumeintegral}
-
-%\subsubsection{Volume integral.}
-A three parameter curve, and the corresponding differentials with respect to those parameters, is sketched in
-\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
-
-\imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
-
-Given parameters \( u_1, u_2, u_3 \), we can denote the differentials along each of the parameterization directions as
-\begin{dmath}\label{eqn:volumeintegral:100}
-\begin{aligned}
-d\Bx_1 &= \PD{u_1}{\Bx} du_1 = \Bx_1 du_1 \\
-d\Bx_2 &= \PD{u_2}{\Bx} du_2 = \Bx_2 du_2 \\
-d\Bx_3 &= \PD{u_3}{\Bx} du_3 = \Bx_3 du_3.
-\end{aligned}
-\end{dmath}
-
-The trivector valued volume element for this parameterization is
-\begin{equation}\label{eqn:volumeintegral:120}
-d^3 \Bx
-=
-d\Bx_1 \wedge
-d\Bx_1 \wedge
-d\Bx_1
-=
-d^3 u\, (\Bx_1 \wedge \Bx_2 \wedge \Bx_3),
-\end{equation}
-where \( d^3 u = du_1 du_2 du_3 \).
-The vector derivative, the projection of the gradient onto the volume at the point of integration (also called the tangent space), now has three components
-\begin{dmath}\label{eqn:volumeintegral:200}
-\boldpartial
-=
-\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
-=
-\Bx^1 \PD{u_1}{}
-+
-\Bx^2 \PD{u_2}{}
-+
-\Bx^3 \PD{u_3}{}
-\equiv
-\Bx^1 \partial_1
-+
-\Bx^2 \partial_2
-+
-\Bx^3 \partial_3.
-\end{dmath}
-
-The volume integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
-
-\makedefinition{Multivector volume integral.}{dfn:volumeintegral:100}{
-Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), we define the volume integral as
-\begin{equation*}
-\int_V F d^3\Bx \lrboldpartial G
-\equiv
-\int_V \lr{ F d^3\Bx \lboldpartial} G
-+
-\int_V F d^3\Bx \lr{ \rboldpartial G },
-\end{equation*}
-where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \Bx_2 \wedge \Bx_3, d^3 u = du_1 du_2 du_3 \) varies over the volume, and \( \lrboldpartial \) acts on \( F, G \), but not the volume element \( d^2 \Bx \).
-} % definition
-
-The volume integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
-
 \maketheorem{Multivector volume integral.}{thm:volumeintegral:100}{
 Given an connected volume \( V \) parameterized by three parameters for which \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple, and multivector functions \( F, G \), a volume integral can be reduced to a surface integral as follows
 \begin{equation*}
@@ -1988,179 +1416,6 @@ In \R{3} with \( d^3 \Bx = I dV \), \( d^2 \Bx = I \ncap dA \), this can be writ
 \int_V dV F \lrboldpartial G
 = \int_{\partial V} dA F \ncap G,
 \end{equation*}
-} % theorem
-To see why this works, and define \( d^2 \Bx \) more precisely, we would first like to reduce the product of the volume element and the vector derivative
-\begin{dmath}\label{eqn:volumeintegral:300}
-d^3\Bx \boldpartial
-=
-d^3 u\, \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \lr{ \Bx^1 \partial_1 + \Bx^2 \partial_2 + \Bx^3 \partial_3 }.
-\end{dmath}
-
-Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this multivector product has only a vector grade.  That is
-\begin{dmath}\label{eqn:volumeintegral:320}
-\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^i
-=
-\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \cdot \Bx^i
-+
-\cancel{ \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \wedge \Bx^i },
-\end{dmath}
-for all \( \Bx^i \).  These products reduces to
-\begin{dmath}\label{eqn:volumeintegral:1621}
-\begin{aligned}
-\lr{ \Bx_2 \wedge \Bx_3 \wedge \Bx_1 } \Bx^1 &= \Bx_2 \wedge \Bx_3 \\
-\lr{ \Bx_3 \wedge \Bx_1 \wedge \Bx_2 } \Bx^2 &= \Bx_3 \wedge \Bx_1 \\
-\lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^3 &= \Bx_1 \wedge \Bx_2.
-\end{aligned}
-\end{dmath}
-
-Inserting \cref{eqn:volumeintegral:1621}
-into the volume integral, we find
-\begin{dmath}\label{eqn:volumeintegral:380}
-\int_V F d^3\Bx \boldpartial G
-=
-\int_V \lr{ F d^3\Bx \lboldpartial} G
-+
-\int_V F d^3\Bx \lr{ \rboldpartial G }
-=
-\int_V d^3 u\, \lr{
-   (\partial_1 F) \Bx_2 \wedge \Bx_3 G
-   +
-   (\partial_2 F) \Bx_3 \wedge \Bx_1 G
-   +
-   (\partial_3 F) \Bx_1 \wedge \Bx_2 G
-}
-+
-\int_V d^3 u\, \lr{
-   F \Bx_2 \wedge \Bx_3 (\partial_1 G)
-   +
-   F \Bx_3 \wedge \Bx_1 (\partial_2 G)
-   +
-   F \Bx_1 \wedge \Bx_2 (\partial_3 G)
-}
-=
-\int_V d^3 u\, \lr{
-   \partial_1 (F \Bx_2 \wedge \Bx_3 G)
-   +
-   \partial_2 (F \Bx_3 \wedge \Bx_1 G)
-   +
-   \partial_3 (F \Bx_1 \wedge \Bx_2 G)
-}
--
-\int_V d^3 u\, \lr{
-   F (\partial_1 (\Bx_2 \wedge \Bx_3)) G
-   +
-   F (\partial_2 (\Bx_3 \wedge \Bx_1)) G
-   +
-   F (\partial_3 (\Bx_1 \wedge \Bx_2)) G
-}
-=
-\int_V d^3 u\, \lr{
-   \partial_1 (F \Bx_2 \wedge \Bx_3 G)
-   +
-   \partial_2 (F \Bx_3 \wedge \Bx_1 G)
-   +
-   \partial_3 (F \Bx_1 \wedge \Bx_2 G)
-}
--
-\int_V d^3 u\, F
-\lr{
-   \partial_1 (\Bx_2 \wedge \Bx_3)
-   +
-   \partial_2 (\Bx_3 \wedge \Bx_1)
-   +
-   \partial_3 (\Bx_1 \wedge \Bx_2)
-}
-G
-.
-\end{dmath}
-
-The sum within the second integral is
-\begin{dmath}\label{eqn:volumeintegral:1111}
-\begin{aligned}
-\sum_{i = 1}^3 \partial_i \lr{ I_k \cdot \Bx^i }
-&=
-\partial_3 \lr{ (\Bx_1 \wedge \Bx_2 \wedge \Bx_3) \cdot \Bx^3 }
-+
-\partial_1 \lr{ (\Bx_2 \wedge \Bx_3 \wedge \Bx_1) \cdot \Bx^1 }
-+
-\partial_2 \lr{ (\Bx_3 \wedge \Bx_1 \wedge \Bx_2) \cdot \Bx^2 } \\
-&=
-\partial_3 \lr{ \Bx_1 \wedge \Bx_2 }
-+
-\partial_1 \lr{ \Bx_2 \wedge \Bx_3 }
-+
-\partial_2 \lr{ \Bx_3 \wedge \Bx_1 } \\
-&=
-         (\partial_3 \Bx_1) \wedge \Bx_2 + \Bx_1 \wedge (\partial_3 \Bx_2) \\
-&\quad + (\partial_1 \Bx_2) \wedge \Bx_3 + \Bx_2 \wedge (\partial_1 \Bx_3) \\
-&\quad + (\partial_2 \Bx_3) \wedge \Bx_1 + \Bx_3 \wedge (\partial_2 \Bx_1) \\
-&=
-\Bx_2 \wedge \lr{ - \partial_3 \Bx_1 + \partial_1 \Bx_3 }
-+
-\Bx_3 \wedge \lr{ - \partial_1 \Bx_2 + \partial_2 \Bx_1 }
-+
-\Bx_1 \wedge \lr{ - \partial_2 \Bx_3 + \partial_3 \Bx_2 } \\
-&=
-\Bx_2 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_3 \partial_1} + \frac{\partial^2 \Bx}{\partial_1 \partial_3} }
-+
-\Bx_3 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_1 \partial_2} + \frac{\partial^2 \Bx}{\partial_2 \partial_1} }
-+
-\Bx_1 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_2 \partial_3} + \frac{\partial^2 \Bx}{\partial_3 \partial_2} },
-\end{aligned}
-\end{dmath}
-which is zero by equality of mixed partials.
-This leaves three perfect differentials, which can integrated separately, giving
-\begin{dmath}\label{eqn:volumeintegral:400}
-\int_V F d^3\Bx \boldpartial G
-=
-\int du_2 du_3
-\evalbar{ \lr{ F \Bx_2 \wedge \Bx_3 G } }{\Delta u_1}
-+
-\int du_3 du_1
-\evalbar{ \lr{ F \Bx_3 \wedge \Bx_1 G } }{\Delta u_2}
-+
-\int du_1 du_2
-\evalbar{ \lr{ F \Bx_1 \wedge \Bx_2 G } }{\Delta u_3}
-=
-\int
-\evalbar{ \lr{ F d\Bx_2 \wedge d\Bx_3 G } }{\Delta u_1}
-+
-\int
-\evalbar{ \lr{ F d\Bx_3 \wedge d\Bx_1 G } }{\Delta u_2}
-+
-\int
-\evalbar{ \lr{ F d\Bx_1 \wedge d\Bx_2 G } }{\Delta u_3}.
-\end{dmath}
-
-This proves the theorem from an algebraic point of view.
-With the aid of a geometrical model, such as that of \cref{fig:differentialVolume:differentialVolumeFig}, if
-assuming that \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple).
-it is possible to convince oneself that the two parameter integrands describe an integral over a counterclockwise oriented surface (
-\imageTwoFigures{../figures/GAelectrodynamics/differentialVolumeFig1}{../figures/GAelectrodynamics/differentialVolumeFig2}{Differential surface of a volume.}{fig:differentialVolume:differentialVolumeFig}{scale=0.05}
-
-We obtain the RHS of \cref{thm:volumeintegral:100} if we
-introduce a mnemonic for the bounding oriented surface of the volume
-\begin{dmath}\label{eqn:volumeintegral:1641}
-d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 + d\Bx_2 \wedge d\Bx_3 + d\Bx_3 \wedge d\Bx_1,
-\end{dmath}
-where it is implied that each component of this area element and anything that it is multiplied with is evaluated on the boundaries of the integration volume (for the parameter omitted) as detailed explicitly in
-\cref{eqn:volumeintegral:400}.
-
-\subsubsection{Three parameter Stokes' theorem.}
-
-Three special cases of \cref{thm:volumeintegral:100} can be obtained by integrating scalar, vector or bivector functions over the volume, as follows
-
-\maketheorem{Volume integral of scalar function (Stokes').}{thm:volumeintegral:420}{
-Given a scalar function \( f(\Bx) \) its volume integral is given by
-\begin{equation*}
-\int_V d^3 \Bx \cdot \boldpartial f =
-\int_V d^3 \Bx \cdot \spacegrad f = \ointctrclockwise_{\partial V} d^2\Bx f.
-\end{equation*}
-In \R{3} this can be written as
-\begin{equation*}
-\int_V dV \spacegrad f = \int_{\partial V} dA \ncap f
-\end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
 } % theorem
 
 \maketheorem{Volume integral of vector function (Stokes').}{thm:volumeintegral:1661}{
@@ -2199,12 +1454,6 @@ or, making a duality transformation \( B(\Bx) = I \Bf(\Bx) \), where \( \Bf \) i
 where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
 } % theorem
 
-\subsubsection{Divergence theorem.}
-
-Observe that for \R{3} we there are dot product relations in each of
-\cref{thm:volumeintegral:420},
-\cref{thm:volumeintegral:1661} and
-\cref{thm:volumeintegral:1681} which can be summarized as
 \maketheorem{Divergence theorem.}{thm:volumeintegral:2661}{
 Given an \R{3} multivector \( M \) containing only grades 0,1, or 2
 \begin{equation*}
@@ -2213,8 +1462,8 @@ Given an \R{3} multivector \( M \) containing only grades 0,1, or 2
 where \( \ncap \) is the outwards normal to the surface bounding \( V \).
 } % theorem
 
-%}
-%\EndNoBibArticle
+\chapter{REWRITE/PRUNE marker.}
+
    \subsection{Multivector Fourier transform and phasors.}
 %
 %
@@ -2939,5 +2188,4 @@ These give
 }
 %}
 
-%XX
 \EndArticle
