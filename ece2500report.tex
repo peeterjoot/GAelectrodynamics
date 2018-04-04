@@ -220,85 +220,17 @@ Maxwell's equation in this form will be the starting place for all the subsequen
 As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
 Instead of entering the fight, it will be written it out in full in this book.}.
 
-To prove \cref{dfn:isotropicMaxwells:680} we
-first insert the
-isotropic
-constituency relationships from \cref{eqn:freespace:300} into
-\cref{eqn:freespace:3399}, so that we are working with two field variables instead of four
-\begin{dmath}\label{eqn:isotropicMaxwells:500}
-\begin{aligned}
-\spacegrad \cdot \BE &= \inv{\epsilon} \rho \\
-\spacegrad \cross \BE &= - \BM - \mu \PD{t}{\BH} \\
-\spacegrad \cdot \BH &= \inv{\mu} \rho_\txtm \\
-\spacegrad \cross \BH &= \BJ + \epsilon \PD{t}{\BE}
-\end{aligned}
-\end{dmath}
-Inserting \( \Ba = \spacegrad \) into \cref{eqn:SimpleProducts2:1640} the vector product of the gradient with another vector
-\begin{dmath}\label{eqn:isotropicMaxwells:520}
-\spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb.
-\end{dmath}
-The respective dot and cross products for \( \BE \) and \( \BH \) in
-\cref{eqn:isotropicMaxwells:500}
-can be grouped using \cref{eqn:isotropicMaxwells:520} into multivector gradient equations
-\begin{dmath}\label{eqn:isotropicMaxwells:540}
-\begin{aligned}
-\spacegrad \BE &= \inv{\epsilon} \rho + I \lr{ - \BM - \mu \PD{t}{\BH} } \\
-\spacegrad \BH &= \inv{\mu} \rho_\txtm + I \lr{ \BJ + \epsilon \PD{t}{\BE} }.
-\end{aligned}
-\end{dmath}
-Multiplying the gradient equation for the magnetic field by \( \eta I \) so that both equations have the same dimensions, and so that the electric field appears in both equations as \( \BE \) and not \( I \BE \), we find
-\begin{dmath}\label{eqn:isotropicMaxwells:560}
-\begin{aligned}
-\spacegrad \BE        + \inv{c} \PD{t}{} (I \eta \BH) &= \inv{\epsilon}\rho - I \BM  \\
-\spacegrad I \eta \BH + \inv{c} \PD{t}{\BE}           &= I c \rho_\txtm - \eta \BJ,
-\end{aligned}
-\end{dmath}
-where \( \mu/\eta = \eta \epsilon = 1/c \) was used to simplify things slightly, and all the field contributions have been moved to the left hand side.
-The first multivector equation has only scalar and bivector grades, whereas the second has only vector and trivector grades.  This means that if we add these equations, we can recover each by grade selection, and no information is lost.  That sum is
+See the book for a proof of \cref{dfn:isotropicMaxwells:680}.  The workhorse of the proof is the identity \( \spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb \) which allows Maxwell's equations into two gradient equations, one for each of \( \spacegrad \BE \), and \( \spacegrad \BH \), which can then be further grouped to complete the proof.
+There is a lot of information packed into this single equation.  Expanded in full it is
 \begin{dmath}\label{eqn:isotropicMaxwells:580}
 \stgrad \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{dmath}
-Application of \cref{dfn:isotropicMaxwells:640} and \cref{dfn:isotropicMaxwells:660} to
-\cref{eqn:isotropicMaxwells:580} proves the theorem, verifying the
-assertion that Maxwell's equations can be consolidated into a single multivector equation.
-There is a lot of information packed into this single equation.
-Where possible, we want to work with the multivector form of Maxwell's equation, either in the
-compact form of \cref{dfn:isotropicMaxwells:680} or the explicit form of \cref{eqn:isotropicMaxwells:580},
-and not decompose Maxwell's equation into the conventional representation by grade selection operations.
 
-\subsubsection{Problems.}
-\makeproblem{Dot and cross product relation to vector product.}{problem:isotropicMaxwells:700}{
-Using coordinate expansion, convince yourself of the validity of \cref{eqn:isotropicMaxwells:520}.
-} % problem
-\makeproblem{Extracting the conventional Maxwell's equations.}{problem:isotropicMaxwells:720}{
-Apply grade 0,1,2, and 3 selection operations to \cref{eqn:isotropicMaxwells:580}.  Determine the multiplicative (scalar or trivector) constants required to obtain \cref{eqn:isotropicMaxwells:500} from the equations that result from such grade selection operations.
-} % problem
-
-\chapter{REWRITE MARKER}
-      \section{Wave equation and continuity.}
-%
-% Copyright © 2018 Peeter Joot.  All Rights Reserved.
-% Licenced as described in the file LICENSE under the root directory of this GIT repository.
-%
-%{
-\label{chap:continuity}
+\subsection{Wave equation and continuity.}
 Some would argue that the conventional form \cref{eqn:freespace:3100} of Maxwell's equations have built in redundancy since continuity equations on the charge and current densities couple some of these equations.
 We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
 This amounts to a statement that the multivector current \( J \) is not completely unconstrained.
 
-%It's helpful to introduce a d'Lambertian operator.  The sign convention that we will use for this operator is given by the following.
-%\index{\(\dLambertian\)}
-%\makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:190}{
-%Let
-%\begin{equation*}
-%\dLambertian =
-%\conjstgrad
-%\stgrad
-%=
-%\spacegrad^2 - \inv{c^2} \PDSq{t}{}.
-%\end{equation*}
-%} % definition
-%
 \maketheorem{Electromagnetic wave equation and continuity conditions.}{thm:continuity:600}{
 The electromagnetic field is a solution to the non-homogeneous wave equation
 \begin{equation*}
@@ -333,15 +265,8 @@ as well as a pair of continuity equations coupling the respective charge and cur
 \end{equation*}
 } % theorem
 
-To prove, we operate on \cref{dfn:isotropicMaxwells:680} with \( \spacegrad - (1/c) \partial_t \), one of the factors, along with the
-spacetime gradient, of the
-d'Alembertian (wave equation) operator, which gives
-\begin{dmath}\label{eqn:continuity:110}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
-F = \conjstgrad J.
-\end{dmath}
-Since the left hand side has only grades 1 and 2, \cref{eqn:continuity:110} splits naturally into two equations, one for grades 1,2 and one for grades 0,3
+The proof is in the book, but basically just requires operating on Maxwell's equation with \( \conjstgrad \), which yields two equations
+equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
@@ -350,124 +275,8 @@ F &= \gpgrade{ \conjstgrad J }{1,2} \\
                                            0 &= \gpgrade{ \conjstgrad J }{0,3}.
 \end{aligned}
 \end{dmath}
-Unpacking these further, we find that there is information
-carried in the requirement that the grade 0,3 selection of \cref{eqn:continuity:130} is zero.
-In particular, grade 0 selection gives
-\begin{dmath}\label{eqn:continuity:40}
-0
-=
-\gpgradezero{ ( \spacegrad - (1/c) \partial_t ) J }
-=
-\gpgradezero{
-\Biglr{ \spacegrad - \inv{c} \PD{t}{} }
-\biglr{
-   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
-}
-}
-=
--\eta
-\lr{ \spacegrad \cdot \BJ + \PD{t}{\rho} }
-,
-\end{dmath}
-which demonstrates the continuity condition on the electric sources.
-Similarly, grade three selection gives
-\begin{dmath}\label{eqn:continuity:60}
-0
-=
-\gpgradethree{  (\spacegrad - (1/c) \partial_t ) J }
-=
-\gpgradethree{
-\Biglr{ \spacegrad - \inv{c} \PD{t}{} }
-\lr{
-   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
-}
-}
-=
--I \lr{
-   \spacegrad \cdot \BM + \PD{t}{\rho_\txtm}
-},
-\end{dmath}
-which demonstrates the continuity condition on the (fictitious) magnetic sources if included in the current.
-
-For the non-homogeneous wave equation of \cref{thm:continuity:600}, the current derivatives may be expanded explicitly.
-For the wave equation for the electric field, this is
-\begin{dmath}\label{eqn:continuity:150}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
-\dLambertian \BE
-=
-\gpgradeone{\conjstgrad J}
-=
-\gpgradeone{
-   \conjstgrad
-   \lr{
-      \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
-   }
-}
-=
-\inv{\epsilon} \spacegrad \rho -I \lr{ \spacegrad \wedge \BM } + \inv{c} \eta \PD{t}{\BJ}
-= \gpgrade{\conjstgrad J}{1} = \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM,
-\end{dmath}
-as claimed.
-The forced magnetic field equation is
-\begin{dmath}\label{eqn:continuity:170}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
-\dLambertian \BH
-=
-\inv{\eta I}
-\gpgradetwo{\conjstgrad J}
-=
-\inv{\eta I}
-\gpgradetwo{
-   \conjstgrad
-   \lr{
-      \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
-   }
-}
-=
-\inv{\eta I}
-\lr{
-   -\spacegrad \wedge \BJ + I c \spacegrad \rho_\txtm + \frac{I}{c} \PD{t}{\BM}
-}
-=
-\inv{I}
-\lr{
-   -I \lr{ \spacegrad \cross \BJ} + I \inv{\mu} \spacegrad \rho_\txtm + I \epsilon \PD{t}{\BM}
-}
-= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
-\end{dmath}
-completing the proof.
-
-%}
-      \section{Plane waves.}
-%
-% Copyright © 2018 Peeter Joot.  All Rights Reserved.
-% Licenced as described in the file LICENSE under the root directory of this GIT repository.
-%
-%{
-%%%\input{../latex/blogpost.tex}
-%%%\renewcommand{\basename}{planewavesMultivector}
-%%%%\renewcommand{\dirname}{notes/phy1520/}
-%%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%%%%\newcommand{\dateintitle}{}
-%%%%\newcommand{\keywords}{}
-%%%
-%%%\input{../latex/peeter_prologue_print2.tex}
-%%%
-%%%\usepackage{peeters_layout_exercise}
-%%%\usepackage{peeters_braket}
-%%%\usepackage{peeters_figures}
-%%%\usepackage{siunitx}
-%%%%\usepackage{mhchem} % \ce{}
-%%%%\usepackage{macros_bm} % \bcM
-%%%%\usepackage{macros_qed} % \qedmarker
-%%%%\usepackage{txfonts} % \ointclockwise
-%%%
-%%%\beginArtNoToc
-%%%
-%%%\generatetitle{Multivector plane wave representation}
-%\chapter{Multivector plane wave representation}
-\label{chap:planewavesMultivector}
-
+The grade 0,3 selection of \cref{eqn:continuity:130} provides the continuity equations.
+\subsection{Plane waves.}
 With all sources zero,
 the free space Maxwell's equation as given by \cref{dfn:isotropicMaxwells:680} for the
 electromagnetic field strength reduces to just
@@ -494,8 +303,7 @@ e^{ -j \Bk \cdot \Bx }.
 \end{equation*}
 } % definition
 
-We will now show that solutions of the electromagnetic field wave equation have the form
-
+In the book, we show that solutions of the electromagnetic field wave equation have the form
 \maketheorem{Plane wave solutions to Maxwell's equation.}{thm:planewavesMultivector:620}{
 Single frequency plane wave solutions of Maxwell's equation have the form
 \begin{equation*}
@@ -529,217 +337,17 @@ showing that the field phasor \( F(\Bk) = \BE(\Bk) + I \eta \BH(\Bk) \) splits n
 where the directions \( \kcap, \BE, \BH \) form a right handed triple.
 } % theorem
 
-We wish to act on \( F(\Bk) e^{-j \Bk \cdot \Bx + j \omega t } \) with the spacetime gradient \( \spacegrad + (1/c)\partial_t \), but
-must take care of order when applying the gradient to a non-scalar valued function.  In particular, if \( A \) is a multivector, then
-\begin{dmath}\label{eqn:planewavesMultivector:660}
-\spacegrad A e^{-j \Bk \cdot \Bx}
-=
-\sum_{m = 1}^3 \Be_m \partial_m
-A e^{-j \Bk \cdot \Bx}
-=
-\sum_{m = 1}^3 \Be_m
-A
-\lr{ -j k_m }
-e^{-j \Bk \cdot \Bx}
-=
--j \Bk A.
-\end{dmath}
-Therefore, insertion of the presumed phasor solution of the field from
-\cref{dfn:planewavesMultivector:680} into
-\cref{eqn:planewavesMultivector:300} gives
+A full proof and discussion is in the book.  The key step is that after insertion of the presumed phasor relationship, we find that
 \begin{dmath}\label{eqn:planewavesMultivector:60}
 0
 =
--j \lr{ \Bk - \frac{\omega}{c} } F(\Bk).
+-j \lr{ \Bk - \frac{\omega}{c} } F(\Bk),
 \end{dmath}
+which can be satisfied by insisting that \( F \) has a \( \Bk + \omega/c \) factor and that \( \Norm{\Bk} = \omega/c \).  The observation that 
+\( \kcap, \BE, \BH \) form a right handed triple, is expressed geometrically by \( I = \kcap \Ecap \Hcap \), from which we can also find \( \kcap = \Ecap \cross \Hcap \).
 
-If \( F(\Bk) \) has a left multivector factor
-\begin{dmath}\label{eqn:planewavesMultivector:80}
-F(\Bk) =
-\lr{ \Bk + \frac{\omega}{c} } \tilde{F},
-\end{dmath}
-where \( \tilde{F} \) is a multivector to be determined, then
-\begin{dmath}\label{eqn:planewavesMultivector:100}
-\lr{ \Bk - \frac{\omega}{c} }
-F(\Bk)
-=
-\lr{ \Bk - \frac{\omega}{c} }
-\lr{ \Bk + \frac{\omega}{c} } \tilde{F}
-=
-\lr{ \Bk^2 - \lr{\frac{\omega}{c}}^2 } \tilde{F},
-\end{dmath}
-which is zero if
-if \( \Norm{\Bk} = \ifrac{\omega}{c} \).
-Let \( \Norm{\Bk} \tilde{F} = F_0 + F_1 + F_2 + F_3 \), where
-\( F_0, F_1, F_2, \) and \( F_3 \) respectively have grades 0,1,2,3, so that
-\begin{dmath}\label{eqn:planewavesMultivector:120}
-F(\Bk)
-= \lr{ 1 + \kcap } \lr{ F_0 + F_1 + F_2 + F_3 }
-=
-F_0 + F_1 + F_2 + F_3
-+
-\kcap F_0 + \kcap F_1 + \kcap F_2 + \kcap F_3
-=
-F_0 + F_1 + F_2 + F_3
-+
-\kcap F_0 + \kcap \cdot F_1 + \kcap \cdot F_2 + \kcap \cdot F_3
-+
-\kcap \wedge F_1 + \kcap \wedge F_2
-=
-\lr{
-   F_0 + \kcap \cdot F_1
-}
-+
-\lr{
-   F_1 + \kcap F_0 + \kcap \cdot F_2
-}
-+
-\lr{
-   F_2 + \kcap \cdot F_3 + \kcap \wedge F_1
-}
-+
-\lr{
-   F_3 + \kcap \wedge F_2
-}.
-\end{dmath}
-Since the field \( F \) has only vector and bivector grades, the grades zero and three components of the expansion above must be zero, or
-\begin{dmath}\label{eqn:planewavesMultivector:140}
-\begin{aligned}
-   F_0 &= - \kcap \cdot F_1 \\
-   F_3 &= - \kcap \wedge F_2,
-\end{aligned}
-\end{dmath}
-so
-\begin{dmath}\label{eqn:planewavesMultivector:160}
-F(\Bk)
-=
-\lr{ 1 + \kcap } \lr{
-   F_1 - \kcap \cdot F_1 +
-   F_2 - \kcap \wedge F_2
-}
-=
-\lr{ 1 + \kcap } \lr{
-   F_1 - \kcap F_1 + \kcap \wedge F_1 +
-   F_2 - \kcap F_2 + \kcap \cdot F_2
-}.
-\end{dmath}
-The multivector \( 1 + \kcap \) has the projective property of gobbling any leading factors of \( \kcap \)
-\begin{dmath}\label{eqn:planewavesMultivector:180}
-(1 + \kcap)\kcap
-= \kcap + 1
-= 1 + \kcap,
-\end{dmath}
-so for \( F_i \in F_1, F_2 \)
-\begin{equation}\label{eqn:planewavesMultivector:200}
-(1 + \kcap) ( F_i - \kcap F_i )
-=
-(1 + \kcap) ( F_i - F_i )
-= 0,
-\end{equation}
-leaving
-\begin{dmath}\label{eqn:planewavesMultivector:220}
-F(\Bk)
-=
-\lr{ 1 + \kcap } \lr{
-   \kcap \cdot F_2 +
-   \kcap \wedge F_1
-}.
-\end{dmath}
-
-For \( \kcap \cdot F_2 \) to be non-zero \( F_2 \) must be a bivector that lies in a plane containing \( \kcap \), and
-\( \kcap \cdot F_2 \) is a vector in that plane that is perpendicular to \( \kcap \).
-On the other hand \( \kcap \wedge F_1 \) is non-zero only if \( F_1 \) has a non-zero component that does not lie in along the \( \kcap \) direction, but \( \kcap \wedge F_1 \), like \( F_2 \) describes a plane that containing \( \kcap \).
-This means that having both bivector and vector free variables \( F_2 \) and \( F_1 \) provide more degrees of freedom than required.
-For example, if \( \BE \) is any vector, and \( F_2 = \kcap \wedge \BE \), then
-\begin{dmath}\label{eqn:planewavesMultivector:240}
-\lr{ 1 + \kcap }
-   \kcap \cdot F_2
-=
-\lr{ 1 + \kcap }
-   \kcap \cdot \lr{ \kcap \wedge \BE }
-=
-\lr{ 1 + \kcap }
-\lr{
-   \BE
--
-\kcap \lr{ \kcap \cdot \BE }
-}
-=
-\lr{ 1 + \kcap }
-\kcap \lr{ \kcap \wedge \BE }
-=
-\lr{ 1 + \kcap }
-\kcap \wedge \BE,
-\end{dmath}
-which has the form \( \lr{ 1 + \kcap } \lr{ \kcap \wedge F_1 } \), so the electromagnetic field strength phasor may be generally written
-\begin{dmath}\label{eqn:planewavesMultivector:280}
-F(\Bk)
-=
-\lr{ 1 + \kcap }
-\kcap \wedge \BE \, e^{-j \Bk \cdot \Bx}
-,
-\end{dmath}
-%\end{boxed}
-Expanding the multivector factor \( \lr{ 1 + \kcap } \kcap \wedge \BE \) we find
-\begin{dmath}\label{eqn:planewavesMultivector:720}
-\lr{ 1 + \kcap }
-\kcap \wedge \BE
-=
-\kcap \cdot \lr{ \kcap \wedge \BE }
-+\cancel{\kcap \wedge \lr{ \kcap \wedge \BE }}
-+
-\kcap \wedge \BE
-=
-\BE - \kcap \lr{ \kcap \wedge \BE }
-+
-\kcap \wedge \BE.
-\end{dmath}
-The vector grade has the component of \( \BE \) along the propagation direction removed (i.e. it is the rejection), so there is no loss of generality should a
-\( \BE \cdot \Bk = 0 \) constraint be imposed.  Such as constraint let's us write the bivector as a vector product \( \kcap \wedge \BE = \kcap \BE \), and then use the projective property \cref{eqn:planewavesMultivector:180} to gobble the leading \( \kcap \) factor, leaving
-\begin{equation}\label{eqn:planewavesMultivector:700}
-F(\Bk)
-=
-\lr{ 1 + \kcap }
-\BE \, e^{-j \Bk \cdot \Bx}
-=
-\lr{ \BE + I \kcap \cross \BE }
-\, e^{-j \Bk \cdot \Bx}.
-\end{equation}
-
-It is also noteworthy that
-the directions \( \kcap, \Ecap, \Hcap \) form a right handed triple, which can be seen by computing their product
-\begin{dmath}\label{eqn:planewavesMultivector:740}
-(\kcap \Ecap) \Hcap
-=
-(-\Ecap \kcap) (-I \kcap \Ecap)
-=
-+I \Ecap^2 \kcap^2
-=
-I.
-\end{dmath}
-These vectors must all be mutually orthonormal for their product to be a pseudoscalar multiple.
-Should there be doubt, explicit dot products may be computed with ease using grade selection operations
-\begin{equation}\label{eqn:planewavesMultivector:760}
-\begin{aligned}
-\kcap \cdot \Hcap &= \gpgradezero{ \kcap (-I \kcap \Ecap) } = -\gpgradezero{ I \Ecap } = 0 \\
-\Ecap \cdot \Hcap &= \gpgradezero{ \Ecap (-I \kcap \Ecap) } = -\gpgradezero{ I \kcap } = 0,
-\end{aligned}
-\end{equation}
-where the zeros follow by noting that \( I \Ecap, I \kcap \) are both bivectors.
-The conventional representation of the right handed triple relationship between the propagation direction and fields is stated as a cross product,
-not as a
-pseudoscalar relationship as in
-\cref{eqn:planewavesMultivector:740}. These are easily seen to be equivalent
-\begin{dmath}\label{eqn:planewavesMultivector:340}
-\kcap
-= I \Hcap \Ecap
-= I (\Hcap \wedge \Ecap)
-= I^2 (\Hcap \cross \Ecap)
-= \Ecap \cross \Hcap.
-\end{dmath}
-
-%}
 %\EndNoBibArticle
+\chapter{REWRITE MARKER}
       \section{Statics.}
          \subsection{Inverting the Maxwell statics equation.}
 %
