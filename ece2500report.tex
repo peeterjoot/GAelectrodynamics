@@ -346,16 +346,9 @@ A full proof and discussion is in the book.  The key step is that after insertio
 which can be satisfied by insisting that \( F \) has a \( \Bk + \omega/c \) factor and that \( \Norm{\Bk} = \omega/c \).  The observation that 
 \( \kcap, \BE, \BH \) form a right handed triple, is expressed geometrically by \( I = \kcap \Ecap \Hcap \), from which we can also find \( \kcap = \Ecap \cross \Hcap \).
 
-%\EndNoBibArticle
-\chapter{REWRITE MARKER}
-      \section{Statics.}
-         \subsection{Inverting the Maxwell statics equation.}
-%
-% Copyright © 2017 Peeter Joot.  All Rights Reserved.
-% Licenced as described in the file LICENSE under the root directory of this GIT repository.
-%
-%{
-Similar to electrostatics and magnetostatics, we can restrict attention to time invariant fields (\( \partial_t F = 0\)) and time invariant sources (\(\partial_t J = 0\)), but consider both electric and magnetic sources.  In that case Maxwell's equation is reduced to an invertible first order gradient equation
+\subsection{Statics solution.}
+If we restrict attention to time invariant fields (\( \partial_t F = 0\)) and time invariant sources (\(\partial_t J = 0\)), 
+Maxwell's equation is reduced to an invertible first order gradient equation
 \begin{dmath}\label{eqn:statics:20}
 \spacegrad F(\Bx) = J(\Bx),
 \end{dmath}
@@ -395,70 +388,8 @@ The explicit expansion in electric and magnetic fields and charge and current de
 
 We see that the solution incorporates both a {\color{DarkOliveGreen}Coulomb's law} contribution and a {\color{Maroon}Biot-Savart law} contribution, as well as their magnetic source analogues if applicable.
 
-To prove \cref{thm:statics:100},
-we utilize the Green's function for the (first order) gradient
-\cref{eqn:greensFunctionFirstOrderHelmholtz:900},
-%\cref{eqn:electrostatics_invertingGradient:260},
-finding immediately
-\begin{dmath}\label{eqn:statics:40}
-F(\Bx)
-= \int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')
-= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
-= \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
-\end{dmath}
-Here a no-op grade selection has been inserted to simplify subsequent manipulation\footnote{If this grade selection filter is omitted, it is possible to show that the scalar and pseudoscalar contributions to the \( (\Bx -\Bx') J \) product are zero on the boundary of the Green's integration volume. \citep{jancewicz1988multivectors:appendixI}}.
-We are also free to add any grade 1,2 solution of the homogeneous gradient equation, which provides the multivector form of the solution.
-
-To unpack the multivector result, let \( \Bs = \Bx -\Bx' \), and expand the grade 1,2 selection
-\begin{dmath}\label{eqn:statics:60}
-\gpgrade{\Bs J}{1,2}
-=
-\eta \gpgrade{\Bs (c \rho - \BJ)}{1,2}
-+
-\gpgrade{\Bs I(c \rho_m - \BM)}{1,2}
-=
-\eta c \Bs \rho - \eta (\Bs \wedge \BJ)
-+
-c I \Bs \rho_m
--
-I (\Bs \wedge \BM)
-=
-\inv{\epsilon} \Bs \rho
-+ \eta I (\BJ \cross \Bs)
-+ \Bs c \rho_m I
-+ \Bs \cross \BM,
-\end{dmath}
-so the field is
-\begin{dmath}\label{eqn:statics:80}
-\begin{aligned}
-F(\Bx)
-&=
-\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
-\lr{
-\inv{\epsilon} \Bs \rho
-+ \Bs \cross \BM
-} \\
-&\quad + I
-\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
-\lr{
-\Bs c \rho_m
-+ \eta \BJ \cross \Bs
-}.
-\end{aligned}
-\end{dmath}
-Comparing this expansion to the field components
-\( F = \BE + \eta I \BH \), we complete the proof.
-
-%\makeproblem{}{problem:statics:81}{
-%Fill in any steps left out of the derivations of \cref{eqn:statics:60} and \cref{eqn:statics:100}.
-%} % problem
-%}
-         \subsection{Enclosed charge.}
-%
-% Copyright © 2018 Peeter Joot.  All Rights Reserved.
-% Licenced as described in the file LICENSE under the root directory of this GIT repository.
-%
-%{
+The proof is not much more than a convolution with the (vector valued) Green's function for the (first order) gradient \cref{eqn:greensFunctionFirstOrderHelmholtz:900}.
+\subsection{Statics: Enclosed charge.}
 In conventional electrostatics we obtain a relation between the normal electric field component and the enclosed charge by integrating the electric field divergence.
 The geometric algebra generalization of this relates the product of the normal and the electromagnetic field strength related to the enclosed multivector current
 \maketheorem{Enclosed multivector current.}{thm:enclosedCurrent:60}{
@@ -477,78 +408,9 @@ This is a multivector equation, carrying inforamation for each grade in the mult
 \end{equation*}
 } % theorem
 
-To prove \cref{thm:enclosedCurrent:60}
-simply evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}
-\begin{equation}\label{eqn:enclosedCurrent:20}
-\int_V dV \spacegrad F = \int_{\partial V} dA \ncap F,
-\end{equation}
-and note that
-\begin{dmath}\label{eqn:enclosedCurrent:60}
-\int_V dV \spacegrad F = \int_V dV J.
-\end{dmath}
-This is a multivector relationship, containing a substantial amount of information, which can be
-extracted by
-expanding \( \ncap F \)
-\begin{dmath}\label{eqn:enclosedCurrent:40}
-\ncap F
-=
-\ncap \lr{ \BE + I \eta \BH }
-=
-\ncap \cdot \BE + I (\ncap \cross \BE) + I \eta \lr{ \ncap \cdot \BH + I \ncap \cross \BH }
-=
-\ncap \cdot \BE - \eta ( \ncap \cross \BH ) + I (\ncap \cross \BE) + I \eta (\ncap \cdot \BH).
-\end{dmath}
-Inserting this into
-\cref{thm:enclosedCurrent:60}, and equating grades, we find
-\begin{dmath}\label{eqn:enclosedCurrent:80}
-\begin{aligned}
-\int_{\partial V} dA \ncap \cdot \BE &= \int_V dV \inv{\epsilon}\rho \\
-- \int_{\partial V} dA \eta ( \ncap \cross \BH ) &= - \int_V dV \eta \BJ \\
- I \int_{\partial V} dA (\ncap \cross \BE) &= - I \int_V dV \BM \\
- I \int_{\partial V} dA \eta (\ncap \cdot \BH) &=  I \int_V dV c \rho_\txtm,
-\end{aligned}
-\end{dmath}
-
-which completes the proof after cancelling common factors and some minor adjustments of the multiplicative constants.
-Of course \cref{eqn:enclosedCurrent:80}
-could have obtained directly from Maxwell's equations in their conventional form \cref{eqn:freespace:3399}.
-However, had we integrated the conventional Maxwell's equations, it would not have been obvious that the crazy mix of
-fields, sources, dot and cross products in \cref{eqn:enclosedCurrent:60} had a hidden structure as simple as
-\( \int_{\partial V} dA \ncap F = \int_V dV J \).
-%}
-         \subsection{Enclosed current.}
-%
-% Copyright � 2018 Peeter Joot.  All Rights Reserved.
-% Licenced as described in the file LICENSE under the root directory of this GIT repository.
-%
-%{
-%\input{../latex/blogpost.tex}
-%\renewcommand{\basename}{amperes}
-%%\renewcommand{\dirname}{notes/phy1520/}
-%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%%\newcommand{\dateintitle}{}
-%%\newcommand{\keywords}{}
-%
-%\input{../latex/peeter_prologue_print2.tex}
-%
-%\usepackage{peeters_layout_exercise}
-%\usepackage{peeters_braket}
-%\usepackage{peeters_figures}
-%\usepackage{siunitx}
-%%\usepackage{mhchem} % \ce{}
-%%\usepackage{macros_bm} % \bcM
-%%\usepackage{macros_qed} % \qedmarker
-%\usepackage{txfonts} % \ointclockwise
-%
-%\beginArtNoToc
-%
-%\generatetitle{Generalizing Ampere's law using geometric algebra.}
-%%\chapter{Field flux.}
-\label{chap:amperes}
-
-%Ampere's law is a relationship for static configurations between the line integral of the magnetic field to the enclosed current, the flux of the current density through a surface
-In this section we will present the generalization of Ampere's law to line integrals of the total electromagnetic field strength.
-
+To prove \cref{thm:enclosedCurrent:60} one evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}.  The rest of the proof follows by grade selection.  For full details on both see the book.
+\subsection{Statics: Enclosed current.}
+Ampere's law may be generalized to line integrals of the total electromagnetic field strength.
 \maketheorem{Line integral of the field.}{thm:amperes:280}{
 The line integral of the electromagnetic field strength is
 \begin{equation*}
@@ -589,133 +451,17 @@ is Ampere's law
 and the first is the dual of Ampere's law for (fictious) magnetic current density\footnote{Even without the fictitious magnetic sources, neither the name nor applications of the two cross product line integrals with the normal derivatives are familiar to the author.}.
 In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.  This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
 
-To prove
-\cref{thm:amperes:280}
-we compute the surface integral of the current \( J = \spacegrad F \)
-\begin{dmath}\label{eqn:amperes:240}
-\int_A d^2 \Bx\, J
-=
-\int_A d^2 \Bx \spacegrad F.
-\end{dmath}
-As we are working in \R{3} not \R{2}, the gradient may not be replaced by the vector derivative in \cref{eqn:amperes:240}.  Instead we
-must split the gradient into its vector derivative component, the projection of the gradient onto the tangent plane of the integration surface, and its normal component
-\begin{dmath}\label{eqn:amperes:160}
-\spacegrad = \boldpartial + \ncap (\ncap \cdot \spacegrad).
-\end{dmath}
-The surface integral form \cref{eqn:surfaceintegral:300}
-of the fundamental theorem of geometric calculus may be
-applied to the vector derivative portion of the field integral
-\begin{dmath}\label{eqn:amperes:100}
-\int_A d^2 \Bx \spacegrad F
-=
-\int_A d^2 \Bx\, \boldpartial F
-+
-\int_A d^2 \Bx\, \ncap \lr{ \ncap \cdot \spacegrad } F,
-\end{dmath}
-so
-\begin{dmath}\label{eqn:amperes:120}
-\ointclockwise_{\partial A} d\Bx\, F
-=
-\int_A d^2 \Bx \lr{ J - \ncap \lr{ \ncap \cdot \spacegrad } F }
-=
-\int_A dA \lr{ I \ncap J - \lr{ \ncap \cdot \spacegrad } I F }
-=
-\int_A dA \lr{ I \ncap J - I \PD{n}{F} },
-\end{dmath}
-where the surface area bivector has been written in its dual form \( d^2 \Bx = I \ncap dA \) in terms of a scalar area element, and the directional derivative has been written in scalar form with respect to a parameter \( n \) that represents the length along the normal direction.  This proves the first part of
-\cref{thm:amperes:280}.
+The proof and additional details can be found in the book.
 
-Observe that the \( d\Bx\, F \) product has all possible grades
-\begin{dmath}\label{eqn:amperes:180}
-d\Bx\, F
-=
-d\Bx \lr{ \BE + I \eta \BH }
-=
-d\Bx \cdot \BE + I \eta d\Bx \cdot \BH
-+
-d\Bx \wedge \BE + I \eta d\Bx \wedge \BH
-=
-d\Bx \cdot \BE
-- \eta (d\Bx \cross \BH)
-+ I (d\Bx \cross \BE )
-+ I \eta (d\Bx \cdot \BH),
-\end{dmath}
-as does the \( I \ncap J \) product (in general)
-\begin{dmath}\label{eqn:amperes:200}
-I \ncap J
-=
-I \ncap
-\lr{
-   \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
-}
-=
-\ncap I \frac{\rho}{\epsilon} - \eta \ncap I \BJ - \ncap c \rho_\txtm + \ncap \BM
-=
-% 0
-\ncap \cdot \BM
-% 1
-+ \eta (\ncap \cross \BJ)
-- \ncap c \rho_\txtm
-% 2
-+ I (\ncap \cross \BM)
-+ \ncap I \frac{\rho}{\epsilon}
-% 3
-- \eta I (\ncap \cdot \BJ).
-\end{dmath}
-On the other hand \( I F = I \BE - \eta \BH \) has only grades 1,2, like \( F \) itself.  This allows the line integrals to be split by grade selection into components with and without a normal derivative
-\begin{dmath}\label{eqn:amperes:140}
-\begin{aligned}
-\ointclockwise_{\partial A} \gpgrade{d\Bx\, F}{0,3}
-&=
-\int_A dA\, \gpgrade{ I \ncap J }{0,3} \\
-\ointclockwise_{\partial A} \gpgrade{d\Bx\, F}{1,2}
-&=
-\int_A dA \lr{ \gpgrade{ I \ncap J }{1,2} - \lr{ \ncap \cdot \spacegrad } I F }.
-\end{aligned}
-\end{dmath}
-The first of \cref{eqn:amperes:140} contains Ampere's law and its dual as one multivector equation, which can be seen more readily by explicit expansion in the constituent fields and sources using \cref{eqn:amperes:180}, \cref{eqn:amperes:200}
-\begin{dmath}\label{eqn:amperes:220}
-\begin{aligned}
-\ointclockwise_{\partial A}
-\lr{
-   d\Bx \cdot \BE + I \eta (d\Bx \cdot \BH)
-}
-&=
-\int_A dA
-\lr{
-   \ncap \cdot \BM - \eta I (\ncap \cdot \BJ)
-} \\
-\ointclockwise_{\partial A}
-\lr{
-   - \eta (d\Bx \cross \BH)
-   + I (d\Bx \cross \BE )
-}
-&=
-\int_A dA
-\lr{
-   % 1
-     \eta (\ncap \cross \BJ)
-   - \ncap c \rho_\txtm
-   % 2
-   + I (\ncap \cross \BM)
-   + \ncap I \frac{\rho}{\epsilon}
-   -\PD{n}{} \lr{ I \BE - \eta \BH }
-}.
-\end{aligned}
-\end{dmath}
-
-Further grade selection operations, and minor adjustments of the leading constants completes the proof.
-
-It is also worth pointing out that for pure magnetostatics problems where \( J = \eta \BJ, F = I \eta \BH \), that Ampere's law can be written in a trivector form
+It is worth pointing out that for pure magnetostatics problems where \( J = \eta \BJ, F = I \eta \BH \), that Ampere's law can be written in a trivector form
 \begin{equation}\label{eqn:amperes:260}
 \ointclockwise_{\partial A} d\Bx \wedge F = I \int_A dA\, \ncap \cdot J = I \eta \int_A dA\, \ncap \cdot \BJ.
 \end{equation}
 This encodes the fact that the magnetic field component of the total electromagnetic field strength is most naturally expressed in
 geometric algebra as a bivector.
-% \( I \eta \BH \), and not just the vector \( \BH \).
 
 %}
-%\EndArticle
+\chapter{REWRITE MARKER}
          \subsection{Example field calculations.}
             Having seen a number of theoretical applications of the geometric algebra framework, let's now see how some of our new tools can be used to calculate the fields for specific static electromagnetism charge and current configurations.
          \subsubsection{Line segment.}
@@ -1265,6 +1011,7 @@ F
 The bivector nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
 
 %}
+%\EndNoBibArticle
 %\EndNoBibArticle
       \section{Dynamics.}
          \subsection{Inverting Maxwell's equation.}
