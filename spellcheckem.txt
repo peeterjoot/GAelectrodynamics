@@ -41,7 +41,6 @@ generalizedWedge.tex
 generalizedWedgeProblems.tex
 gradient.tex
 greensFunctionFirstOrderHelmholtz.tex
-greensFunctionGradient.tex
 greensFunctionHelmholtz.tex
 greensFunctionOverview.tex
 greensFunctionSolutions.tex
@@ -79,7 +78,6 @@ r4nonzerobivectorwedgewithself.tex
 reciprocal.tex
 reciprocal_R2.tex
 reciprocal_R3.tex
-reciprocal_general.tex
 reflection.tex
 reverse.tex
 reverseDefined.tex

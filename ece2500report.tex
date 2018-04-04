@@ -129,34 +129,18 @@ In the book it is presumed that the reader is familiar with Maxwell's equations,
 \spacegrad \cdot \BB &= \rho_\txtm.
 \end{aligned}
 \end{dmath}
-with fields
-\begin{itemize}
-	\item \( \BE(\Bx, t) \) : Electric field intensity [\si{V/m}] (Volts/meter)
-	\item \( \BH(\Bx, t) \) : Magnetic field intensity [\si{A/m}] (Amperes/meter),
-	\item \( \BD(\Bx, t) \) : Electric flux density (or displacement vector) [\si{C/m}] (Coulombs/meter)
-	\item \( \BB(\Bx, t) \) : Magnetic flux density [\si{W/m^2}] (Webers/square meter),
-\end{itemize}
-charge densities
-\begin{itemize}
-	\item \( \rho(\Bx, t) \) : Electric charge density [\si{C/m^3}] (Coulombs/cubic meter)
-   \item \( \rho_\txtm(\Bx, t) \) : Magnetic charge density [\si{W/m^3}] (Webers/cubic meter),
-\end{itemize}
-and current densities
-\begin{itemize}
-	\item \( \BJ(\Bx, t) \) : Electric current density [\si{A/m^2}] (Amperes/square meter),
-   \item \( \BM(\Bx, t) \) : Magnetic current density [\si{V/m^2}] (Volts/square meter).
-\end{itemize}
+where \( \BE, \BH, \BD, \BB \) are the conventional electric and magnetic field intensities and flux densities,
+\( \rho, \rho_\txtm \) are the electric and (fictitious-)magnetic charge densities, 
+and \( \BJ, \BM \) are the electric and (fictitious-)magnetic current densities.
 Much of the book presumes isotropic constitutive relationships between the electric and magnetic fields
-\begin{subequations}
+\begin{dmath}
 \label{eqn:freespace:300}
-\begin{dmath}\label{eqn:freespace:320}
-\BB = \mu \BH
+\begin{aligned}
+\BB &= \mu \BH \\
+\BD &= \epsilon \BE,
+\end{aligned}
 \end{dmath}
-\begin{dmath}\label{eqn:freespace:340}
-\BD = \epsilon \BE,
-\end{dmath}
-\end{subequations}
-where \( \epsilon = \epsilon_r \epsilon_0 \) is the permittivity of the medium [\si{F/m}] (Farads/meter), and \( \mu = \mu_r \mu_0 \) is the permeability of the medium [\si{H/m}] (Henries/meter).
+where \( \epsilon = \epsilon_r \epsilon_0 \) is the permittivity of the medium, and \( \mu = \mu_r \mu_0 \) is the permeability of the medium.
 \subsection{Maxwell's equation.}
 For isotropic media and constitutive relationships \cref{eqn:freespace:300} we may define
 a multivector field that includes both electric and magnetic components
@@ -1101,7 +1085,6 @@ F &= -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF }.
 } % theorem
 Noting that \( \rcap (\rcap \wedge \BA) \) is the rejection of the radial component of \( \BA \) (i.e. is a vector not a multivector) allows the far-field solution to easily be split into electric and magnetic field components if desired.  These are detailed in the book, along with the proof of \cref{thm:potentialSection_farfield:1}.  Also included in the book is an example calculation of \( F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \) for the dipole vector potential.
 
-\chapter{REWRITE}
 \subsection{Dielectric and magnetic media.}
 The majority of the electromagnetic theory covered in the book focused on fields with the 
 isotropic constitutive relationships \cref{eqn:freespace:300}.  For more general consitutive relationships the geometric algebra form of Maxwell's equations requires a pair of 
