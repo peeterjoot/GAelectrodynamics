@@ -10,16 +10,33 @@
 %\newcommand{\dateintitle}{}
 %\newcommand{\keywords}{}
 
+% too many alphabets fix:
+% https://tex.stackexchange.com/a/243541/15
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
 \input{../latex/peeter_prologue_print2.tex}
 
 \usepackage{peeters_layout_exercise}
 \usepackage{peeters_braket}
 \usepackage{peeters_figures}
-%\usepackage{siunitx}
+
+%\newcommand{\dLambertian}[0]{\square}
+\newcommand{\dLambertian}[0]{\Box}
+
+\newcommand{\dispdot}[2][.2ex]{\dot{\raisebox{0pt}[\dimexpr\height+#1][\depth]{$#2$}}}% \dispdot[<displace>]{<stuff>}
+\newcommand{\dotBJ}[0]{\dispdot{\mathbf{J}}}
+
+\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+
+\usepackage{siunitx}
 %\usepackage{mhchem} % \ce{}
-%\usepackage{macros_bm} % \bcM
+\usepackage{macros_bm} % \bcM
+\usepackage{macros_cal}
 %\usepackage{macros_qed} % \qedmarker
 \usepackage{txfonts} % \ointclockwise
+\usepackage{enumerate}
 
 \beginArtNoToc
 
@@ -85,8 +102,8 @@ Much of the geometric algebra literature for electrodynamics is presented with a
 The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to an electrical engineering audience.
 In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism.
 The end product of this project was a fairly small self contained book, titled ``Geometric Algebra for Electrical Engineers''.
-This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (75 pages), and some appendices.
-This report summarizes results from this book, omitting most derivations, and attempts to provide an overview that may be used as a road map for the book for further exploration.
+This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (82 pages), and some appendices.
+This report summarizes some results from this book, omitting most derivations, and attempts to provide an overview that may be used as a road map for the book for further exploration.
 Many of the fundamental results of electromagnetism are derived directly from
 \cref{eqn:ece2500report:40}, the multivector Maxwell's equation, in a streamlined and compact fashion.
 This includes some new results, and many of the existing non-relativistic results from the geometric algebra literature.
@@ -102,6 +119,4543 @@ The book produced in this project provides the prerequisite material for such ex
 \section{Geometric Algebra.}
 \section{Geometric Calculus.}
 \section{Electromagnetism.}
+\subsection{Conventional Maxwell's equations.}
+In the book it is presumed that the reader is familiar with Maxwell's equations, and that no attempt to motivate them is required.  We start with Maxwell's equations with the antenna theory extensions (fictious magnetic sources)
+\begin{subequations}
+\label{eqn:freespace:3399}
+\begin{dmath}\label{eqn:freespace:3100}
+%\spacegrad \cross \BE = - \PD{t}{\BB}
+\spacegrad \cross \BE = - \BM - \PD{t}{\BB}
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:3120}
+%\spacegrad \cross \BB = \mu_0 \lr{ \BJ + \epsilon_0 \PD{t}{\BE} }
+\spacegrad \cross \BH = \BJ + \PD{t}{\BD}
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:3140}
+%\spacegrad \cdot \BE = \frac{\rho}{\epsilon_0}
+\spacegrad \cdot \BD = \rho
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:3160}
+%\spacegrad \cdot \BB = 0.
+\spacegrad \cdot \BB = \rho_\txtm.
+\end{dmath}
+\end{subequations}
+with fields
+\begin{itemize}
+	\item \( \BE(\Bx, t) \) : Electric field intensity [\si{V/m}] (Volts/meter)
+	\item \( \BH(\Bx, t) \) : Magnetic field intensity [\si{A/m}] (Amperes/meter),
+	\item \( \BD(\Bx, t) \) : Electric flux density (or displacement vector) [\si{C/m}] (Coulombs/meter)
+	\item \( \BB(\Bx, t) \) : Magnetic flux density [\si{W/m^2}] (Webers/square meter),
+\end{itemize}
+charge densities
+\begin{itemize}
+	\item \( \rho(\Bx, t) \) : Electric charge density [\si{C/m^3}] (Coulombs/cubic meter)
+   \item \( \rho_\txtm(\Bx, t) \) : Magnetic charge density [\si{W/m^3}] (Webers/cubic meter),
+\end{itemize}
+and current densities
+\begin{itemize}
+	\item \( \BJ(\Bx, t) \) : Electric current density [\si{A/m^2}] (Amperes/square meter),
+   \item \( \BM(\Bx, t) \) : Magnetic current density [\si{V/m^2}] (Volts/square meter).
+\end{itemize}
+Much of the book presumes isotropic constitutive relationships between the electric and magnetic fields
+\begin{subequations}
+\label{eqn:freespace:300}
+\begin{dmath}\label{eqn:freespace:320}
+\BB = \mu \BH
+\end{dmath}
+\begin{dmath}\label{eqn:freespace:340}
+\BD = \epsilon \BE,
+\end{dmath}
+\end{subequations}
+where \( \epsilon = \epsilon_r \epsilon_0 \) is the permittivity of the medium [\si{F/m}] (Farads/meter), and \( \mu = \mu_r \mu_0 \) is the permeability of the medium [\si{H/m}] (Henries/meter).
+\subsection{Maxwell's equation.}
+For isotropic media and constitutive relationships \cref{eqn:freespace:300} we may define 
+a multivector field that includes both electric and magnetic components
+\makedefinition{Electromagnetic field strength.}{dfn:isotropicMaxwells:640}{
+The \textit{electromagnetic field strength} ([\si{V/m}] (Volts/meter)) is defined as
+\begin{equation*}
+F = \BE + I \eta \BH \quad(= \BE + I c \BB),
+\end{equation*}
+where
+\begin{itemize}
+\item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media.
+\item \( c = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.  When \( \epsilon = \epsilon_0, \mu = \mu_0 \), \( c \) is the speed of light.
+\end{itemize}
+\( F \) is called the \textit{F}araday by some authors.
+} % definition
+
+The factors of \( \eta \) (or \( c \)) that multiply the magnetic fields are for dimensional consistency, since \( [\sqrt{\epsilon} \BE] = [\sqrt{\mu} \BH] = [\BB/\sqrt{\mu}]\).
+The justification for imposing a dual (or complex) structure on the electromagnetic field strength can be found in the historical development of
+Maxwell's equations, but we will also see such a structure arise naturally in short order.
+
+No information is lost by imposing the complex structure of
+\cref{dfn:isotropicMaxwells:640}, since we can always obtain the
+electric field vector \( \BE \) and the magnetic field bivector \( I \BH \) by grade selection
+from the electromagnetic field strength when desired
+\begin{dmath}\label{eqn:isotropicMaxwells:620}
+\begin{aligned}
+\BE &= \gpgradeone{ F } \\
+I \BH &= \inv{\eta} \gpgradetwo{ F }.
+\end{aligned}
+\end{dmath}
+
+We will also
+define a multivector current containing all charge densites and current densities
+\makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
+The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
+\begin{equation*}
+J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\end{equation*}
+} % definition
+When the fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).  With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
+
+Given the multivector field and current, it is now possible to state Maxwell's equation (singular) in its geometric algebra form
+\maketheorem{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
+Maxwell's equation is a multivector equation relating the change in the electromagnetic field strength to charge and current densities and is written as
+\begin{equation*}
+\stgrad F = J.
+\end{equation*}
+} % theorem
+Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
+As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
+Instead of entering the fight, it will be written it out in full in this book.}.
+
+To prove \cref{dfn:isotropicMaxwells:680} we
+first insert the
+isotropic
+constituency relationships from \cref{eqn:freespace:300} into
+\cref{eqn:freespace:3399}, so that we are working with two field variables instead of four
+\begin{dmath}\label{eqn:isotropicMaxwells:500}
+\begin{aligned}
+\spacegrad \cdot \BE &= \inv{\epsilon} \rho \\
+\spacegrad \cross \BE &= - \BM - \mu \PD{t}{\BH} \\
+\spacegrad \cdot \BH &= \inv{\mu} \rho_\txtm \\
+\spacegrad \cross \BH &= \BJ + \epsilon \PD{t}{\BE}
+\end{aligned}
+\end{dmath}
+Inserting \( \Ba = \spacegrad \) into \cref{eqn:SimpleProducts2:1640} the vector product of the gradient with another vector
+\begin{dmath}\label{eqn:isotropicMaxwells:520}
+\spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb.
+\end{dmath}
+The respective dot and cross products for \( \BE \) and \( \BH \) in
+\cref{eqn:isotropicMaxwells:500}
+can be grouped using \cref{eqn:isotropicMaxwells:520} into multivector gradient equations
+\begin{dmath}\label{eqn:isotropicMaxwells:540}
+\begin{aligned}
+\spacegrad \BE &= \inv{\epsilon} \rho + I \lr{ - \BM - \mu \PD{t}{\BH} } \\
+\spacegrad \BH &= \inv{\mu} \rho_\txtm + I \lr{ \BJ + \epsilon \PD{t}{\BE} }.
+\end{aligned}
+\end{dmath}
+Multiplying the gradient equation for the magnetic field by \( \eta I \) so that both equations have the same dimensions, and so that the electric field appears in both equations as \( \BE \) and not \( I \BE \), we find
+\begin{dmath}\label{eqn:isotropicMaxwells:560}
+\begin{aligned}
+\spacegrad \BE        + \inv{c} \PD{t}{} (I \eta \BH) &= \inv{\epsilon}\rho - I \BM  \\
+\spacegrad I \eta \BH + \inv{c} \PD{t}{\BE}           &= I c \rho_\txtm - \eta \BJ,
+\end{aligned}
+\end{dmath}
+where \( \mu/\eta = \eta \epsilon = 1/c \) was used to simplify things slightly, and all the field contributions have been moved to the left hand side.
+The first multivector equation has only scalar and bivector grades, whereas the second has only vector and trivector grades.  This means that if we add these equations, we can recover each by grade selection, and no information is lost.  That sum is
+\begin{dmath}\label{eqn:isotropicMaxwells:580}
+\stgrad \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
+\end{dmath}
+Application of \cref{dfn:isotropicMaxwells:640} and \cref{dfn:isotropicMaxwells:660} to
+\cref{eqn:isotropicMaxwells:580} proves the theorem, verifying the
+assertion that Maxwell's equations can be consolidated into a single multivector equation.
+There is a lot of information packed into this single equation.
+Where possible, we want to work with the multivector form of Maxwell's equation, either in the
+compact form of \cref{dfn:isotropicMaxwells:680} or the explicit form of \cref{eqn:isotropicMaxwells:580},
+and not decompose Maxwell's equation into the conventional representation by grade selection operations.
+
+\subsubsection{Problems.}
+\makeproblem{Dot and cross product relation to vector product.}{problem:isotropicMaxwells:700}{
+Using coordinate expansion, convince yourself of the validity of \cref{eqn:isotropicMaxwells:520}.
+} % problem
+\makeproblem{Extracting the conventional Maxwell's equations.}{problem:isotropicMaxwells:720}{
+Apply grade 0,1,2, and 3 selection operations to \cref{eqn:isotropicMaxwells:580}.  Determine the multiplicative (scalar or trivector) constants required to obtain \cref{eqn:isotropicMaxwells:500} from the equations that result from such grade selection operations.
+} % problem
+
+\chapter{REWRITE MARKER}
+      \section{Wave equation and continuity.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\label{chap:continuity}
+Some would argue that the conventional form \cref{eqn:freespace:3100} of Maxwell's equations have built in redundancy since continuity equations on the charge and current densities couple some of these equations.
+We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
+This amounts to a statement that the multivector current \( J \) is not completely unconstrained.
+
+%It's helpful to introduce a d'Lambertian operator.  The sign convention that we will use for this operator is given by the following.
+%\index{\(\dLambertian\)}
+%\makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:190}{
+%Let
+%\begin{equation*}
+%\dLambertian =
+%\conjstgrad
+%\stgrad
+%=
+%\spacegrad^2 - \inv{c^2} \PDSq{t}{}.
+%\end{equation*}
+%} % definition
+%
+\maketheorem{Electromagnetic wave equation and continuity conditions.}{thm:continuity:600}{
+The electromagnetic field is a solution to the non-homogeneous wave equation
+\begin{equation*}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+F =
+\conjstgrad J.
+\end{equation*}
+In source free conditions, this reduces to a homogeneous wave equation, with group velocity \( c \), the speed of the wave in the media.
+When expanded explicitly in terms of electric and magnetic fields, and charge and current densities, this single equation resolves to a
+non-homogeneous wave equation for each of the electric and magnetic fields
+\begin{equation*}
+\begin{aligned}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BE
+%&= \gpgrade{\conjstgrad J}{1}
+&= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+\BH
+%&= \inv{I \eta} \gpgrade{\conjstgrad J}{2}
+&= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
+\end{aligned}
+\end{equation*}
+as well as a pair of continuity equations coupling the respective charge and current densities
+\begin{equation*}
+\begin{aligned}
+\spacegrad \cdot \BJ + \PD{t}{\rho} &= 0 \\
+\spacegrad \cdot \BM + \PD{t}{\rho_\txtm} &= 0.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove, we operate on \cref{dfn:isotropicMaxwells:680} with \( \spacegrad - (1/c) \partial_t \), one of the factors, along with the
+spacetime gradient, of the
+d'Alembertian (wave equation) operator, which gives
+\begin{dmath}\label{eqn:continuity:110}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+F = \conjstgrad J.
+\end{dmath}
+Since the left hand side has only grades 1 and 2, \cref{eqn:continuity:110} splits naturally into two equations, one for grades 1,2 and one for grades 0,3
+\begin{dmath}\label{eqn:continuity:130}
+\begin{aligned}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
+\dLambertian
+F &= \gpgrade{ \conjstgrad J }{1,2} \\
+                                           0 &= \gpgrade{ \conjstgrad J }{0,3}.
+\end{aligned}
+\end{dmath}
+Unpacking these further, we find that there is information
+carried in the requirement that the grade 0,3 selection of \cref{eqn:continuity:130} is zero.
+In particular, grade 0 selection gives
+\begin{dmath}\label{eqn:continuity:40}
+0
+=
+\gpgradezero{ ( \spacegrad - (1/c) \partial_t ) J }
+=
+\gpgradezero{
+\Biglr{ \spacegrad - \inv{c} \PD{t}{} }
+\biglr{
+   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
+}
+}
+=
+-\eta
+\lr{ \spacegrad \cdot \BJ + \PD{t}{\rho} }
+,
+\end{dmath}
+which demonstrates the continuity condition on the electric sources.
+Similarly, grade three selection gives
+\begin{dmath}\label{eqn:continuity:60}
+0
+=
+\gpgradethree{  (\spacegrad - (1/c) \partial_t ) J }
+=
+\gpgradethree{
+\Biglr{ \spacegrad - \inv{c} \PD{t}{} }
+\lr{
+   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
+}
+}
+=
+-I \lr{
+   \spacegrad \cdot \BM + \PD{t}{\rho_\txtm}
+},
+\end{dmath}
+which demonstrates the continuity condition on the (fictitious) magnetic sources if included in the current.
+
+For the non-homogeneous wave equation of \cref{thm:continuity:600}, the current derivatives may be expanded explicitly.
+For the wave equation for the electric field, this is
+\begin{dmath}\label{eqn:continuity:150}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
+\dLambertian \BE
+=
+\gpgradeone{\conjstgrad J}
+=
+\gpgradeone{
+   \conjstgrad
+   \lr{
+      \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
+   }
+}
+=
+\inv{\epsilon} \spacegrad \rho -I \lr{ \spacegrad \wedge \BM } + \inv{c} \eta \PD{t}{\BJ}
+= \gpgrade{\conjstgrad J}{1} = \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM,
+\end{dmath}
+as claimed.
+The forced magnetic field equation is
+\begin{dmath}\label{eqn:continuity:170}
+%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
+\dLambertian \BH
+=
+\inv{\eta I}
+\gpgradetwo{\conjstgrad J}
+=
+\inv{\eta I}
+\gpgradetwo{
+   \conjstgrad
+   \lr{
+      \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
+   }
+}
+=
+\inv{\eta I}
+\lr{
+   -\spacegrad \wedge \BJ + I c \spacegrad \rho_\txtm + \frac{I}{c} \PD{t}{\BM}
+}
+=
+\inv{I}
+\lr{
+   -I \lr{ \spacegrad \cross \BJ} + I \inv{\mu} \spacegrad \rho_\txtm + I \epsilon \PD{t}{\BM}
+}
+= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
+\end{dmath}
+completing the proof.
+
+%}
+      \section{Plane waves.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%%%\input{../latex/blogpost.tex}
+%%%\renewcommand{\basename}{planewavesMultivector}
+%%%%\renewcommand{\dirname}{notes/phy1520/}
+%%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%%\newcommand{\dateintitle}{}
+%%%%\newcommand{\keywords}{}
+%%%
+%%%\input{../latex/peeter_prologue_print2.tex}
+%%%
+%%%\usepackage{peeters_layout_exercise}
+%%%\usepackage{peeters_braket}
+%%%\usepackage{peeters_figures}
+%%%\usepackage{siunitx}
+%%%%\usepackage{mhchem} % \ce{}
+%%%%\usepackage{macros_bm} % \bcM
+%%%%\usepackage{macros_qed} % \qedmarker
+%%%%\usepackage{txfonts} % \ointclockwise
+%%%
+%%%\beginArtNoToc
+%%%
+%%%\generatetitle{Multivector plane wave representation}
+%\chapter{Multivector plane wave representation}
+\label{chap:planewavesMultivector}
+
+With all sources zero,
+the free space Maxwell's equation as given by \cref{dfn:isotropicMaxwells:680} for the
+electromagnetic field strength reduces to just
+\begin{dmath}\label{eqn:planewavesMultivector:300}
+\stgrad F(\Bx, t) = 0.
+\end{dmath}
+
+Utilizing a phasor representation of the form \cref{dfn:greensFunctionOverview:300},
+we will define the
+phasor representation of the field as
+\makedefinition{Plane wave.}{dfn:planewavesMultivector:680}{
+We represent the
+electromagnetic field strength
+plane wave solution of Maxwell's equation in phasor form as
+\begin{equation*}
+F(\Bx, t) = \Real \lr{ F(\Bk) e^{ j \omega t }  },
+\end{equation*}
+where the complex valued multivector \( F(\Bk) \) also has a presumed exponential dependence
+\begin{equation*}
+F(\Bk)
+=
+\tilde{F}
+e^{ -j \Bk \cdot \Bx }.
+\end{equation*}
+} % definition
+
+We will now show that solutions of the electromagnetic field wave equation have the form
+
+\maketheorem{Plane wave solutions to Maxwell's equation.}{thm:planewavesMultivector:620}{
+Single frequency plane wave solutions of Maxwell's equation have the form
+\begin{equation*}
+F(\Bx, t)
+=
+\Real \lr{
+\lr{ 1 + \kcap }
+\kcap \wedge \BE\,
+e^{-j \Bk \cdot \Bx + j \omega t}
+}
+,
+\end{equation*}
+where \( \Norm{\Bk} = \omega/c \), \( \kcap = \Bk/\Norm{\Bk} \) is the unit vector pointing along the propagation direction, and \( \BE \) is any complex-valued vector variable.  When a \( \BE \cdot \Bk = 0 \) constraint is imposed on the vector variable \( \BE \), that variable can be interpreted as the electric field, and the solution reduces to
+\begin{equation*}
+F(\Bx, t)
+=
+\Real \lr{
+\lr{ 1 + \kcap }
+\BE\,
+e^{-j \Bk \cdot \Bx + j \omega t}
+}
+,
+\end{equation*}
+showing that the field phasor \( F(\Bk) = \BE(\Bk) + I \eta \BH(\Bk) \) splits naturally into electric and magnetic components
+\begin{equation*}
+\begin{aligned}
+\BE(\Bk) &= \BE e^{-j \Bk \cdot \Bx} \\
+\eta \BH(\Bk) &= \kcap \cross \BE \, e^{-j \Bk \cdot \Bx},
+\end{aligned}
+\end{equation*}
+where the directions \( \kcap, \BE, \BH \) form a right handed triple.
+} % theorem
+
+We wish to act on \( F(\Bk) e^{-j \Bk \cdot \Bx + j \omega t } \) with the spacetime gradient \( \spacegrad + (1/c)\partial_t \), but
+must take care of order when applying the gradient to a non-scalar valued function.  In particular, if \( A \) is a multivector, then
+\begin{dmath}\label{eqn:planewavesMultivector:660}
+\spacegrad A e^{-j \Bk \cdot \Bx}
+=
+\sum_{m = 1}^3 \Be_m \partial_m
+A e^{-j \Bk \cdot \Bx}
+=
+\sum_{m = 1}^3 \Be_m
+A
+\lr{ -j k_m }
+e^{-j \Bk \cdot \Bx}
+=
+-j \Bk A.
+\end{dmath}
+Therefore, insertion of the presumed phasor solution of the field from
+\cref{dfn:planewavesMultivector:680} into
+\cref{eqn:planewavesMultivector:300} gives
+\begin{dmath}\label{eqn:planewavesMultivector:60}
+0
+=
+-j \lr{ \Bk - \frac{\omega}{c} } F(\Bk).
+\end{dmath}
+
+If \( F(\Bk) \) has a left multivector factor
+\begin{dmath}\label{eqn:planewavesMultivector:80}
+F(\Bk) =
+\lr{ \Bk + \frac{\omega}{c} } \tilde{F},
+\end{dmath}
+where \( \tilde{F} \) is a multivector to be determined, then
+\begin{dmath}\label{eqn:planewavesMultivector:100}
+\lr{ \Bk - \frac{\omega}{c} }
+F(\Bk)
+=
+\lr{ \Bk - \frac{\omega}{c} }
+\lr{ \Bk + \frac{\omega}{c} } \tilde{F}
+=
+\lr{ \Bk^2 - \lr{\frac{\omega}{c}}^2 } \tilde{F},
+\end{dmath}
+which is zero if
+if \( \Norm{\Bk} = \ifrac{\omega}{c} \).
+Let \( \Norm{\Bk} \tilde{F} = F_0 + F_1 + F_2 + F_3 \), where
+\( F_0, F_1, F_2, \) and \( F_3 \) respectively have grades 0,1,2,3, so that
+\begin{dmath}\label{eqn:planewavesMultivector:120}
+F(\Bk)
+= \lr{ 1 + \kcap } \lr{ F_0 + F_1 + F_2 + F_3 }
+=
+F_0 + F_1 + F_2 + F_3
++
+\kcap F_0 + \kcap F_1 + \kcap F_2 + \kcap F_3
+=
+F_0 + F_1 + F_2 + F_3
++
+\kcap F_0 + \kcap \cdot F_1 + \kcap \cdot F_2 + \kcap \cdot F_3
++
+\kcap \wedge F_1 + \kcap \wedge F_2
+=
+\lr{
+   F_0 + \kcap \cdot F_1
+}
++
+\lr{
+   F_1 + \kcap F_0 + \kcap \cdot F_2
+}
++
+\lr{
+   F_2 + \kcap \cdot F_3 + \kcap \wedge F_1
+}
++
+\lr{
+   F_3 + \kcap \wedge F_2
+}.
+\end{dmath}
+Since the field \( F \) has only vector and bivector grades, the grades zero and three components of the expansion above must be zero, or
+\begin{dmath}\label{eqn:planewavesMultivector:140}
+\begin{aligned}
+   F_0 &= - \kcap \cdot F_1 \\
+   F_3 &= - \kcap \wedge F_2,
+\end{aligned}
+\end{dmath}
+so
+\begin{dmath}\label{eqn:planewavesMultivector:160}
+F(\Bk)
+=
+\lr{ 1 + \kcap } \lr{
+   F_1 - \kcap \cdot F_1 +
+   F_2 - \kcap \wedge F_2
+}
+=
+\lr{ 1 + \kcap } \lr{
+   F_1 - \kcap F_1 + \kcap \wedge F_1 +
+   F_2 - \kcap F_2 + \kcap \cdot F_2
+}.
+\end{dmath}
+The multivector \( 1 + \kcap \) has the projective property of gobbling any leading factors of \( \kcap \)
+\begin{dmath}\label{eqn:planewavesMultivector:180}
+(1 + \kcap)\kcap
+= \kcap + 1
+= 1 + \kcap,
+\end{dmath}
+so for \( F_i \in F_1, F_2 \)
+\begin{equation}\label{eqn:planewavesMultivector:200}
+(1 + \kcap) ( F_i - \kcap F_i )
+=
+(1 + \kcap) ( F_i - F_i )
+= 0,
+\end{equation}
+leaving
+\begin{dmath}\label{eqn:planewavesMultivector:220}
+F(\Bk)
+=
+\lr{ 1 + \kcap } \lr{
+   \kcap \cdot F_2 +
+   \kcap \wedge F_1
+}.
+\end{dmath}
+
+For \( \kcap \cdot F_2 \) to be non-zero \( F_2 \) must be a bivector that lies in a plane containing \( \kcap \), and
+\( \kcap \cdot F_2 \) is a vector in that plane that is perpendicular to \( \kcap \).
+On the other hand \( \kcap \wedge F_1 \) is non-zero only if \( F_1 \) has a non-zero component that does not lie in along the \( \kcap \) direction, but \( \kcap \wedge F_1 \), like \( F_2 \) describes a plane that containing \( \kcap \).
+This means that having both bivector and vector free variables \( F_2 \) and \( F_1 \) provide more degrees of freedom than required.
+For example, if \( \BE \) is any vector, and \( F_2 = \kcap \wedge \BE \), then
+\begin{dmath}\label{eqn:planewavesMultivector:240}
+\lr{ 1 + \kcap }
+   \kcap \cdot F_2
+=
+\lr{ 1 + \kcap }
+   \kcap \cdot \lr{ \kcap \wedge \BE }
+=
+\lr{ 1 + \kcap }
+\lr{
+   \BE
+-
+\kcap \lr{ \kcap \cdot \BE }
+}
+=
+\lr{ 1 + \kcap }
+\kcap \lr{ \kcap \wedge \BE }
+=
+\lr{ 1 + \kcap }
+\kcap \wedge \BE,
+\end{dmath}
+which has the form \( \lr{ 1 + \kcap } \lr{ \kcap \wedge F_1 } \), so the electromagnetic field strength phasor may be generally written
+\begin{dmath}\label{eqn:planewavesMultivector:280}
+F(\Bk)
+=
+\lr{ 1 + \kcap }
+\kcap \wedge \BE \, e^{-j \Bk \cdot \Bx}
+,
+\end{dmath}
+%\end{boxed}
+Expanding the multivector factor \( \lr{ 1 + \kcap } \kcap \wedge \BE \) we find
+\begin{dmath}\label{eqn:planewavesMultivector:720}
+\lr{ 1 + \kcap }
+\kcap \wedge \BE
+=
+\kcap \cdot \lr{ \kcap \wedge \BE }
++\cancel{\kcap \wedge \lr{ \kcap \wedge \BE }}
++
+\kcap \wedge \BE
+=
+\BE - \kcap \lr{ \kcap \wedge \BE }
++
+\kcap \wedge \BE.
+\end{dmath}
+The vector grade has the component of \( \BE \) along the propagation direction removed (i.e. it is the rejection), so there is no loss of generality should a
+\( \BE \cdot \Bk = 0 \) constraint be imposed.  Such as constraint let's us write the bivector as a vector product \( \kcap \wedge \BE = \kcap \BE \), and then use the projective property \cref{eqn:planewavesMultivector:180} to gobble the leading \( \kcap \) factor, leaving
+\begin{equation}\label{eqn:planewavesMultivector:700}
+F(\Bk)
+=
+\lr{ 1 + \kcap }
+\BE \, e^{-j \Bk \cdot \Bx}
+=
+\lr{ \BE + I \kcap \cross \BE }
+\, e^{-j \Bk \cdot \Bx}.
+\end{equation}
+
+It is also noteworthy that
+the directions \( \kcap, \Ecap, \Hcap \) form a right handed triple, which can be seen by computing their product
+\begin{dmath}\label{eqn:planewavesMultivector:740}
+(\kcap \Ecap) \Hcap
+=
+(-\Ecap \kcap) (-I \kcap \Ecap)
+=
++I \Ecap^2 \kcap^2
+=
+I.
+\end{dmath}
+These vectors must all be mutually orthonormal for their product to be a pseudoscalar multiple.
+Should there be doubt, explicit dot products may be computed with ease using grade selection operations
+\begin{equation}\label{eqn:planewavesMultivector:760}
+\begin{aligned}
+\kcap \cdot \Hcap &= \gpgradezero{ \kcap (-I \kcap \Ecap) } = -\gpgradezero{ I \Ecap } = 0 \\
+\Ecap \cdot \Hcap &= \gpgradezero{ \Ecap (-I \kcap \Ecap) } = -\gpgradezero{ I \kcap } = 0,
+\end{aligned}
+\end{equation}
+where the zeros follow by noting that \( I \Ecap, I \kcap \) are both bivectors.
+The conventional representation of the right handed triple relationship between the propagation direction and fields is stated as a cross product,
+not as a
+pseudoscalar relationship as in
+\cref{eqn:planewavesMultivector:740}. These are easily seen to be equivalent
+\begin{dmath}\label{eqn:planewavesMultivector:340}
+\kcap
+= I \Hcap \Ecap
+= I (\Hcap \wedge \Ecap)
+= I^2 (\Hcap \cross \Ecap)
+= \Ecap \cross \Hcap.
+\end{dmath}
+
+%}
+%\EndNoBibArticle
+      \section{Statics.}
+         \subsection{Inverting the Maxwell statics equation.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+Similar to electrostatics and magnetostatics, we can restrict attention to time invariant fields (\( \partial_t F = 0\)) and time invariant sources (\(\partial_t J = 0\)), but consider both electric and magnetic sources.  In that case Maxwell's equation is reduced to an invertible first order gradient equation
+\begin{dmath}\label{eqn:statics:20}
+\spacegrad F(\Bx) = J(\Bx),
+\end{dmath}
+
+\maketheorem{Maxwell's statics solution.}{thm:statics:100}{
+The solution to the Maxwell statics equation is given by
+\begin{equation*}
+F(\Bx)
+= \inv{4\pi} \int_V dV' \frac{\gpgrade{(\Bx - \Bx') J(\Bx')}{1,2}}{\Norm{\Bx - \Bx'}^3} + F_0,
+\end{equation*}
+where \( F_0 \) is any function for which \( \spacegrad F_0 = 0 \).
+The explicit expansion in electric and magnetic fields and charge and current densities is given by
+\begin{equation*}
+\begin{aligned}
+\BE(\Bx)
+&=
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+{\color{DarkOliveGreen}
+   \inv{\epsilon}(\Bx - \Bx') \rho(\Bx')
+}
+   +
+   (\Bx - \Bx') \cross \BM(\Bx')
+} \\
+\BH(\Bx)
+&=
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+{\color{Maroon}
+  \BJ(\Bx') \cross (\Bx - \Bx')
+}
++ \inv{\mu} (\Bx - \Bx') \rho_m(\Bx')
+}.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+We see that the solution incorporates both a {\color{DarkOliveGreen}Coulomb's law} contribution and a {\color{Maroon}Biot-Savart law} contribution, as well as their magnetic source analogues if applicable.
+
+To prove \cref{thm:statics:100},
+we utilize the Green's function for the (first order) gradient
+\cref{eqn:greensFunctionFirstOrderHelmholtz:900},
+%\cref{eqn:electrostatics_invertingGradient:260},
+finding immediately
+\begin{dmath}\label{eqn:statics:40}
+F(\Bx)
+= \int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')
+= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
+= \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
+\end{dmath}
+Here a no-op grade selection has been inserted to simplify subsequent manipulation\footnote{If this grade selection filter is omitted, it is possible to show that the scalar and pseudoscalar contributions to the \( (\Bx -\Bx') J \) product are zero on the boundary of the Green's integration volume. \citep{jancewicz1988multivectors:appendixI}}.
+We are also free to add any grade 1,2 solution of the homogeneous gradient equation, which provides the multivector form of the solution.
+
+To unpack the multivector result, let \( \Bs = \Bx -\Bx' \), and expand the grade 1,2 selection
+\begin{dmath}\label{eqn:statics:60}
+\gpgrade{\Bs J}{1,2}
+=
+\eta \gpgrade{\Bs (c \rho - \BJ)}{1,2}
++
+\gpgrade{\Bs I(c \rho_m - \BM)}{1,2}
+=
+\eta c \Bs \rho - \eta (\Bs \wedge \BJ)
++
+c I \Bs \rho_m
+-
+I (\Bs \wedge \BM)
+=
+\inv{\epsilon} \Bs \rho
++ \eta I (\BJ \cross \Bs)
++ \Bs c \rho_m I
++ \Bs \cross \BM,
+\end{dmath}
+so the field is
+\begin{dmath}\label{eqn:statics:80}
+\begin{aligned}
+F(\Bx)
+&=
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+\inv{\epsilon} \Bs \rho
++ \Bs \cross \BM
+} \\
+&\quad + I
+\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
+\lr{
+\Bs c \rho_m
++ \eta \BJ \cross \Bs
+}.
+\end{aligned}
+\end{dmath}
+Comparing this expansion to the field components
+\( F = \BE + \eta I \BH \), we complete the proof.
+
+%\makeproblem{}{problem:statics:81}{
+%Fill in any steps left out of the derivations of \cref{eqn:statics:60} and \cref{eqn:statics:100}.
+%} % problem
+%}
+         \subsection{Enclosed charge.}
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+In conventional electrostatics we obtain a relation between the normal electric field component and the enclosed charge by integrating the electric field divergence.
+The geometric algebra generalization of this relates the product of the normal and the electromagnetic field strength related to the enclosed multivector current
+\maketheorem{Enclosed multivector current.}{thm:enclosedCurrent:60}{
+The total multivector current in the volume is related to the surface integral of \( \ncap F \) over the boundary of the volume by
+\begin{equation*}
+\int_{\partial V} dA \ncap F = \int_V dV J.
+\end{equation*}
+This is a multivector equation, carrying inforamation for each grade in the multivector current, and after explicit expansion is equivalent to
+\begin{equation*}
+\begin{aligned}
+\int_{\partial V} dA\, \ncap \cdot \BE        &=  \inv{\epsilon} \int_V dV\, \rho \\
+\int_{\partial V} dA\, \ncap \cross \BH       &=                 \int_V dV\, \BJ \\
+\int_{\partial V} dA\, \ncap \cross \BE       &=               - \int_V dV\, \BM \\
+\int_{\partial V} dA\, \ncap \cdot \BH        &=  \inv{\mu} \int_V dV\, \rho_\txtm.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:enclosedCurrent:60}
+simply evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}
+\begin{equation}\label{eqn:enclosedCurrent:20}
+\int_V dV \spacegrad F = \int_{\partial V} dA \ncap F,
+\end{equation}
+and note that
+\begin{dmath}\label{eqn:enclosedCurrent:60}
+\int_V dV \spacegrad F = \int_V dV J.
+\end{dmath}
+This is a multivector relationship, containing a substantial amount of information, which can be
+extracted by
+expanding \( \ncap F \)
+\begin{dmath}\label{eqn:enclosedCurrent:40}
+\ncap F
+=
+\ncap \lr{ \BE + I \eta \BH }
+=
+\ncap \cdot \BE + I (\ncap \cross \BE) + I \eta \lr{ \ncap \cdot \BH + I \ncap \cross \BH }
+=
+\ncap \cdot \BE - \eta ( \ncap \cross \BH ) + I (\ncap \cross \BE) + I \eta (\ncap \cdot \BH).
+\end{dmath}
+Inserting this into
+\cref{thm:enclosedCurrent:60}, and equating grades, we find
+\begin{dmath}\label{eqn:enclosedCurrent:80}
+\begin{aligned}
+\int_{\partial V} dA \ncap \cdot \BE &= \int_V dV \inv{\epsilon}\rho \\
+- \int_{\partial V} dA \eta ( \ncap \cross \BH ) &= - \int_V dV \eta \BJ \\
+ I \int_{\partial V} dA (\ncap \cross \BE) &= - I \int_V dV \BM \\
+ I \int_{\partial V} dA \eta (\ncap \cdot \BH) &=  I \int_V dV c \rho_\txtm,
+\end{aligned}
+\end{dmath}
+
+which completes the proof after cancelling common factors and some minor adjustments of the multiplicative constants.
+Of course \cref{eqn:enclosedCurrent:80}
+could have obtained directly from Maxwell's equations in their conventional form \cref{eqn:freespace:3399}.
+However, had we integrated the conventional Maxwell's equations, it would not have been obvious that the crazy mix of
+fields, sources, dot and cross products in \cref{eqn:enclosedCurrent:60} had a hidden structure as simple as
+\( \int_{\partial V} dA \ncap F = \int_V dV J \).
+%}
+         \subsection{Enclosed current.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{amperes}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+%
+%\beginArtNoToc
+%
+%\generatetitle{Generalizing Ampere's law using geometric algebra.}
+%%\chapter{Field flux.}
+\label{chap:amperes}
+
+%Ampere's law is a relationship for static configurations between the line integral of the magnetic field to the enclosed current, the flux of the current density through a surface
+In this section we will present the generalization of Ampere's law to line integrals of the total electromagnetic field strength.
+
+\maketheorem{Line integral of the field.}{thm:amperes:280}{
+The line integral of the electromagnetic field strength is
+\begin{equation*}
+\ointclockwise_{\partial A} d\Bx\, F
+=
+I \int_A dA \lr{ \ncap J - \PD{n}{F} },
+\end{equation*}
+where \( \PDi{n}{F} = \lr{ \ncap \cdot \spacegrad } F \).
+Expressed in terms of the conventional consistent fields and sources, this multivector relationship expands to four equations, one for each grade
+\begin{equation*}
+\begin{aligned}
+\ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA\, \ncap \cdot \BM \\
+\ointclockwise_{\partial A} d\Bx \cross \BH
+&=
+\int_A dA
+\lr{
+   - \ncap \cross \BJ
+   + \frac{ \ncap \rho_\txtm }{\mu}
+   - \PD{n}{\BH}
+} \\
+\ointclockwise_{\partial A} d\Bx \cross \BE &=
+\int_A dA
+\lr{
+     \ncap \cross \BM
+   + \frac{\ncap \rho}{\epsilon}
+   - \PD{n}{\BE}
+} \\
+\ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA\, \ncap \cdot \BJ.
+\end{aligned}
+\end{equation*}
+} % theorem
+The last of the scalar equations in
+\cref{thm:amperes:280}
+is Ampere's law
+\begin{equation}\label{eqn:amperes:20}
+\ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ = I_{\textrm{enc}},
+\end{equation}
+and the first is the dual of Ampere's law for (fictious) magnetic current density\footnote{Even without the fictitious magnetic sources, neither the name nor applications of the two cross product line integrals with the normal derivatives are familiar to the author.}.
+In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.  This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
+
+To prove
+\cref{thm:amperes:280}
+we compute the surface integral of the current \( J = \spacegrad F \)
+\begin{dmath}\label{eqn:amperes:240}
+\int_A d^2 \Bx\, J
+=
+\int_A d^2 \Bx \spacegrad F.
+\end{dmath}
+As we are working in \R{3} not \R{2}, the gradient may not be replaced by the vector derivative in \cref{eqn:amperes:240}.  Instead we
+must split the gradient into its vector derivative component, the projection of the gradient onto the tangent plane of the integration surface, and its normal component
+\begin{dmath}\label{eqn:amperes:160}
+\spacegrad = \boldpartial + \ncap (\ncap \cdot \spacegrad).
+\end{dmath}
+The surface integral form \cref{eqn:surfaceintegral:300}
+of the fundamental theorem of geometric calculus may be
+applied to the vector derivative portion of the field integral
+\begin{dmath}\label{eqn:amperes:100}
+\int_A d^2 \Bx \spacegrad F
+=
+\int_A d^2 \Bx\, \boldpartial F
++
+\int_A d^2 \Bx\, \ncap \lr{ \ncap \cdot \spacegrad } F,
+\end{dmath}
+so
+\begin{dmath}\label{eqn:amperes:120}
+\ointclockwise_{\partial A} d\Bx\, F
+=
+\int_A d^2 \Bx \lr{ J - \ncap \lr{ \ncap \cdot \spacegrad } F }
+=
+\int_A dA \lr{ I \ncap J - \lr{ \ncap \cdot \spacegrad } I F }
+=
+\int_A dA \lr{ I \ncap J - I \PD{n}{F} },
+\end{dmath}
+where the surface area bivector has been written in its dual form \( d^2 \Bx = I \ncap dA \) in terms of a scalar area element, and the directional derivative has been written in scalar form with respect to a parameter \( n \) that represents the length along the normal direction.  This proves the first part of
+\cref{thm:amperes:280}.
+
+Observe that the \( d\Bx\, F \) product has all possible grades
+\begin{dmath}\label{eqn:amperes:180}
+d\Bx\, F
+=
+d\Bx \lr{ \BE + I \eta \BH }
+=
+d\Bx \cdot \BE + I \eta d\Bx \cdot \BH
++
+d\Bx \wedge \BE + I \eta d\Bx \wedge \BH
+=
+d\Bx \cdot \BE
+- \eta (d\Bx \cross \BH)
++ I (d\Bx \cross \BE )
++ I \eta (d\Bx \cdot \BH),
+\end{dmath}
+as does the \( I \ncap J \) product (in general)
+\begin{dmath}\label{eqn:amperes:200}
+I \ncap J
+=
+I \ncap
+\lr{
+   \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
+}
+=
+\ncap I \frac{\rho}{\epsilon} - \eta \ncap I \BJ - \ncap c \rho_\txtm + \ncap \BM
+=
+% 0
+\ncap \cdot \BM
+% 1
++ \eta (\ncap \cross \BJ)
+- \ncap c \rho_\txtm
+% 2
++ I (\ncap \cross \BM)
++ \ncap I \frac{\rho}{\epsilon}
+% 3
+- \eta I (\ncap \cdot \BJ).
+\end{dmath}
+On the other hand \( I F = I \BE - \eta \BH \) has only grades 1,2, like \( F \) itself.  This allows the line integrals to be split by grade selection into components with and without a normal derivative
+\begin{dmath}\label{eqn:amperes:140}
+\begin{aligned}
+\ointclockwise_{\partial A} \gpgrade{d\Bx\, F}{0,3}
+&=
+\int_A dA\, \gpgrade{ I \ncap J }{0,3} \\
+\ointclockwise_{\partial A} \gpgrade{d\Bx\, F}{1,2}
+&=
+\int_A dA \lr{ \gpgrade{ I \ncap J }{1,2} - \lr{ \ncap \cdot \spacegrad } I F }.
+\end{aligned}
+\end{dmath}
+The first of \cref{eqn:amperes:140} contains Ampere's law and its dual as one multivector equation, which can be seen more readily by explicit expansion in the constituent fields and sources using \cref{eqn:amperes:180}, \cref{eqn:amperes:200}
+\begin{dmath}\label{eqn:amperes:220}
+\begin{aligned}
+\ointclockwise_{\partial A}
+\lr{
+   d\Bx \cdot \BE + I \eta (d\Bx \cdot \BH)
+}
+&=
+\int_A dA
+\lr{
+   \ncap \cdot \BM - \eta I (\ncap \cdot \BJ)
+} \\
+\ointclockwise_{\partial A}
+\lr{
+   - \eta (d\Bx \cross \BH)
+   + I (d\Bx \cross \BE )
+}
+&=
+\int_A dA
+\lr{
+   % 1
+     \eta (\ncap \cross \BJ)
+   - \ncap c \rho_\txtm
+   % 2
+   + I (\ncap \cross \BM)
+   + \ncap I \frac{\rho}{\epsilon}
+   -\PD{n}{} \lr{ I \BE - \eta \BH }
+}.
+\end{aligned}
+\end{dmath}
+
+Further grade selection operations, and minor adjustments of the leading constants completes the proof.
+
+It is also worth pointing out that for pure magnetostatics problems where \( J = \eta \BJ, F = I \eta \BH \), that Ampere's law can be written in a trivector form
+\begin{equation}\label{eqn:amperes:260}
+\ointclockwise_{\partial A} d\Bx \wedge F = I \int_A dA\, \ncap \cdot J = I \eta \int_A dA\, \ncap \cdot \BJ.
+\end{equation}
+This encodes the fact that the magnetic field component of the total electromagnetic field strength is most naturally expressed in
+geometric algebra as a bivector.
+% \( I \eta \BH \), and not just the vector \( \BH \).
+
+%}
+%\EndArticle
+         \subsection{Example field calculations.}
+            Having seen a number of theoretical applications of the geometric algebra framework, let's now see how some of our new tools can be used to calculate the fields for specific static electromagnetism charge and current configurations.
+         \subsubsection{Line segment.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%\makeexample{Line charge.}{example:linecharge:linecharge}{
+\index{line charge}
+In this example the (electric) field is calculated at a point on the z-axis, due to a finite line charge density of \( \lambda \) along a segment \( [a,b] \) of the x-axis.
+This is illustrated in \cref{fig:linecharge:linechargeFig1}.
+\imageFigure{../figures/GAelectrodynamics/linechargeFig1}{Line charge density.}{fig:linecharge:linechargeFig1}{0.3}
+
+Introducing a unit imaginary \( i = \Be_{13} \) for the rotation from the x-axis to the z-axis, the field point observation point is
+\begin{dmath}\label{eqn:linecharge:120}
+\Bx = r \Be_1 e^{i \theta}.
+\end{dmath}
+
+The charge element point is \( \Bx' = x \Be_1 \), so the difference can now be written with \( \Be_1 \) factored to the left or to the right
+\begin{equation}\label{eqn:linecharge:20}
+\Bx - \Bx'
+= \Be_1\lr{ r e^{i\theta} - x }
+= \lr{ r e^{-i\theta} - x } \Be_1.
+\end{equation}
+
+This allows the squared vector length to be calculated as a product of complex conjugates
+\begin{dmath}\label{eqn:linecharge:40}
+\lr{ \Bx - \Bx' }^2
+= \lr{ r e^{-i\theta} - x } \Be_1 \Be_1\lr{ r e^{i\theta} - x }
+= \lr{ r e^{-i\theta} - x } \lr{ r e^{i\theta} - x }
+= r^2 + x^2 - r x \lr{ e^{i\theta} + e^{-i\theta} }
+= r^2 + x^2 - 2 r x \cos\theta.
+\end{dmath}
+
+The total (electric) field is therefore
+\begin{dmath}\label{eqn:linecharge:60}
+F
+= \frac{\lambda}{4 \pi \epsilon_0} \int_a^b dx \frac{ r \Be_1 e^{i\theta} - x \Be_1 }{ \lr{ r^2 + x^2 - 2 x r \cos\theta }^{3/2} }
+= \frac{\lambda \Be_1}{4 \pi \epsilon_0 r} \int_{a/r}^{b/r} du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }.
+\end{dmath}
+
+This integral can be evaluated by table lookup or using tools like Mathematica.
+For \( \theta = \pi/2 \)
+\begin{dmath}\label{eqn:linecharge:80}
+\int
+du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }
+= \frac{1 + i u}{\sqrt{1 + u^2}},
+\end{dmath}
+and for other angles \( \theta \neq n \pi/2 \)
+\begin{dmath}\label{eqn:linecharge:100}
+\int
+du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }
+= \frac{(1 -u e^{-i\theta}) \sqrt{1 + u^2 - 2 u \cos\theta}}{(1 + u^2) \sin(2\theta)}.
+\end{dmath}
+
+\index{complex plane}
+The interesting takeaway is not the form of the solution, but the fact that GA allows an introduction of a ``complex plane'' for many problems that have polar representations in a plane.
+When such a complex plane is introduced,
+existing Computer Algebra Systems (CAS), like Mathematica, can be utilized for the grunt work of the evaluation.
+
+Observe that the numerator factors like \( \Be_1 (1 + i u) \) and \( \Be_1(1 - u e^{-i\theta}) \)
+compactly describe the direction of the vector field at the observation point.
+Either of these can be expanded explicitly in sines and cosines if desired
+\begin{dmath}\label{eqn:linecharge:140}
+\begin{aligned}
+\Be_1 (1 + i u) &= \Be_1 + u \Be_3 \\
+\Be_1(1 - u e^{-i\theta}) &= \Be_1(1 - u \cos\theta) + u \Be_3 \sin\theta.
+\end{aligned}
+\end{dmath}
+%} % example
+         \subsubsection{Infinite line current.}
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+
+Given a static line charge density and current density along the z-axis
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:120}
+\begin{aligned}
+\rho(\Bx) &= \lambda \delta(x) \delta(y) \\
+\BJ(\Bx) &= \Bv \rho(\Bx) = v \lambda \Be_3 \delta(x) \delta(y),
+\end{aligned}
+\end{dmath}
+the total multivector current is
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:140}
+J
+= \eta ( c \rho - \BJ )
+= \eta ( c - v \Be_3 ) \lambda \delta(x) \delta(y)
+= \frac{\lambda}{\epsilon} \lr{ 1 - \frac{v}{c} \Be_3 } \delta(x) \delta(y).
+\end{dmath}
+
+We can find the field for this current using
+%\cref{eqn:statics:80}.
+\cref{thm:statics:100}.
+To do so, let the field observation point be \( \Bx = \Bx_\perp + z \Be_3 \), so the total field is
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:160}
+F(\Bx)
+= \frac{\lambda}{4\pi \epsilon} \int_V dx'dy'dz' \frac{\gpgrade{(\Bx - \Bx') (1 - (v/c) \Be_3 )}{1,2}}{\Norm{\Bx - \Bx'}^3} \delta(x') \delta(y')
+= \frac{\lambda}{4\pi \epsilon} \int_{-\infty}^\infty dz' \frac{\gpgrade{(\Bx_\perp + (z - z') \Be_3) (1 - (v/c) \Be_3 )}{1,2}}{\lr{\Bx_\perp^2 + (z-z')^2}^{3/2}}
+=
+\frac{\lambda \lr{ \Bx_\perp - (v/c) \Bx_\perp \Be_3}}{4\pi \epsilon} \int_{-\infty}^\infty \frac{dz'}{\lr{\Bx_\perp^2 + (z-z')^2}^{3/2}}
++
+\frac{\lambda \Be_3}{4\pi \epsilon} \int_{-\infty}^\infty \frac{(z - z') dz'}{\lr{\Bx_\perp^2 + (z-z')^2}^{3/2}}.
+\end{dmath}
+
+The first integral is \( 2/\Bx_\perp^2 \), whereas the second is zero (odd function, over even interval).
+Using cylindrical coordinates \( \Bx = R \rhocap + z \Be_3 \), and since
+\( \Bx_\perp \cdot \Be_3 = 0 \), the wedge can be replaced with the vector product \( \Bx_\perp \Be_3 = R \rhocap \Be_3 \), leaving
+\begin{equation}\label{eqn:statics_infiniteLineCharge:180}
+F(\Bx)
+=
+\frac{\lambda}{2\pi \epsilon R} \rhocap \lr{ 1 - \Bv/c} = \BE \lr{ 1 - \Bv/c }
+= \BE + I \lr{ \frac{\Bv}{c} \cross \BE },
+\end{equation}
+where \( \Bv = v \Be_3 \).
+The vector component of this is the electric field, which is therefore directed radially, whereas the (dual) magnetic field \( \eta I \BH \)
+is a set of oriented planes spanning the radial and z-axis directions.
+We can also see that there is a constant proportionality factor that relates the electric and magnetic field components, namely
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:200}
+I \eta \BH = -\BE \Bv/c,
+\end{dmath}
+or
+\begin{dmath}\label{eqn:statics_infiniteLineCharge:220}
+\BH = \Bv \cross \BD.
+\end{dmath}
+
+\makeproblem{Linear magnetic density and currents.}{problem:statics:240}{
+Given magnetic charge density \( \rho_m = \lambda_m \delta(x) \delta(y) \), and current density \( \BM = v \Be_3 \rho_m = \Bv \rho_m \), show that the field is given by
+\begin{equation*}
+F(\Bx) = \frac{\lambda_m c}{4 \pi R} I \rhocap \lr{ 1 - \frac{\Bv}{c} },
+\end{equation*}
+or with \( \BB = \lambda_m \rhocap/(4 \pi R) \),
+\begin{equation*}
+F = \BB \cross \Bv + c I \BB.
+\end{equation*}
+} % problem
+
+%}
+         \subsubsection{Infinite planar current.}
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+A variation on the above example puts a uniform charge density \( \rho(\Bx) = \sigma \delta(z) \) in a plane, along with an associated current density \( \BJ(\Bx) = v \Be_1 e^{i\theta} \rho(\Bx), \quad i = \Be_{12} \).  Letting \( \Bv = v \Be_1 e^{i\theta} \), the multivector current is
+\begin{dmath}\label{eqn:statics_infinitePlane:240}
+J(\Bx) = \sigma \eta \lr{ c - \Bv } \delta(z),
+\end{dmath}
+so the field off the plane is
+\begin{dmath}\label{eqn:statics_infinitePlane:260}
+F(\Bx)
+=
+\frac{\sigma}{4 \pi \epsilon } \iiint \frac{dz' dA'}{ \Norm{ \Bx - \Bx' }^3 }
+\gpgrade{ (\Bx - \Bx') (1 - \Bv/c) }{1,2} \delta(z').
+\end{dmath}
+
+If \( \Bx_\parallel = (\Bx \wedge \Be_3) \Be_3 \), and \( \Bx'_\parallel = (\Bx' \wedge \Be_3) \Be_3 \), are the components of the vectors \( \Bx, \Bx' \) in the x-y plane, then integration over \( z' \) and a change of variables \( \Bx'_\parallel - \Bx_\parallel = r' \Be_1 e^{i \theta'} \) yields
+\begin{dmath}\label{eqn:statics_infinitePlane:280}
+F(\Bx)
+=
+\frac{\sigma}{4 \pi \epsilon } \iint \frac{r' dr' d\theta'}{ ( z^2 + {r'}^2 )^{3/2} }
+\gpgrade{ \lr{ z \Be_3 - r' \Be_1 e^{i\theta'} } (1 - \Bv/c) }{1,2}.
+\end{dmath}
+
+The \( e^{i\theta'} \) integrands are killed, so for \( z \ne 0 \), the field is
+\begin{dmath}\label{eqn:statics_infinitePlane:300}
+F(\Bx)
+=
+\frac{\sigma z}{4 \pi \epsilon \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2}.
+\end{dmath}
+
+Since \( \Bv \in \Span \setlr{ \Be_1, \Be_2 } \) the product \( \Be_3 \Bv \) is a bivector and the grade selection can be dropped, leaving
+\begin{dmath}\label{eqn:statics_infinitePlane:320}
+F(\Bx)
+=
+\frac{\sigma \sgn(z)}{4 \pi \epsilon } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
+\end{dmath}
+
+This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic field components are once again related by \cref{eqn:statics_infiniteLineCharge:220}.
+
+\makeproblem{Planar magnetic density and currents.}{problem:statics:241}{
+Given magnetic charge density \( \rho_m = \sigma_m \delta(z) \), and current density \( \BM = \Bv \rho_m, \Bv = v \Be_1 e^{i\theta}, i = \Be_{12}\), show that the field is given by
+\begin{equation*}
+F(\Bx) = \frac{\sigma_m c \sgn(z)}{4 \pi } i \lr{ 1 - \frac{\Bv}{c} }.
+\end{equation*}
+} % problem
+
+%}
+         \subsubsection{Arc line charge.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%\makeexample{Circular line charge.}{example:circularlinecharge:circularlinecharge}{
+\index{line charge}
+In this example we will examine the (electric) field due to a line charge density of \( \lambda \) along a circular arc segment \( \phi' \in [a,b] \), of radius \( r \) in the x-y plane.
+The field will be evaluated at the
+spherical coordinate point \( (R, \theta, \phi) \), as illustrated in \cref{fig:circularlinecharge:circularlinechargeFig1}.
+
+%\imageFigure{../figures/GAelectrodynamics/circularlinechargeFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/lineChargeArcFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.5}
+
+\index{spherical coordinates}
+Using the GA spherical parameterization of \cref{eqn:curvilinearspherical:40}, and \cref{eqn:curvilinearspherical:60}, the
+%To setup this problem, first consider a GA factorization of the spherical radial point.
+%Let
+%\( i = \Be_{12} \), so that
+%
+%\begin{dmath}\label{eqn:circularlinecharge:20}
+%\Bx
+%= R \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta }
+%= R \Be_1 \sin\theta ( \cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta
+%= R \Be_1 \sin\theta e^{i \phi} + \Be_3 \cos\theta
+%= R \Be_3 \lr{ \cos\theta + \Be_{31} e^{i \phi} \sin\theta }.
+%\end{dmath}
+%
+%Let the bivector for the rotational plane between \( R \Be_3 \rightarrow \Bx \) be represented by
+%
+%\begin{dmath}\label{eqn:circularlinecharge:40}
+%j = \Be_{31} e^{i \phi}.
+%\end{dmath}
+%
+%The bivector \( j \) is a function of the azimuthal angle \( \phi \), but encodes all the geometry of the rotation.
+observation point now has the simple representation
+\begin{dmath}\label{eqn:circularlinecharge:60}
+\Bx = R \Be_3 e^{j \theta },
+\end{dmath}
+and is the product of a polar directed vector with a complex exponential whos argument is the polar rotation angle.
+The bivector \( j \) is a function of the azimuthal angle \( \phi \), and encodes all the geometry of the rotation.
+To sum the contributions of the charge elements we need the distance between the charge element and the observation point.
+That vector difference is
+\begin{dmath}\label{eqn:circularlinecharge:80}
+\Bx - \Bx'
+=
+R \Be_3 e^{j \theta } - r \Be_1 e^{i \phi'}.
+\end{dmath}
+
+Compare this to the tuple representation
+\begin{dmath}\label{eqn:circularlinecharge:100}
+\Bx - \Bx'
+= ( R \sin\theta \cos\phi - r \cos\phi', R \sin\theta \sin\phi - r \cos\phi', \cos\theta ),
+\end{dmath}
+for which the prospect of working with is considerably less attractive.
+The squared length of \cref{eqn:circularlinecharge:80} is
+\begin{dmath}\label{eqn:circularlinecharge:120}
+(\Bx - \Bx')^2
+=
+R^2 + r^2 - 2 R r \lr{\Be_3 e^{j \theta} } \cdot \lr{ \Be_1 e^{i \phi'} }.
+\end{dmath}
+
+The dot product of unit vectors in \cref{eqn:circularlinecharge:120} can be reduced using scalar grade selection
+\begin{dmath}\label{eqn:circularlinecharge:140}
+\lr{\Be_3 e^{j \theta }} \cdot \lr{ \Be_1 e^{i \phi'} }
+=
+\gpgradezero{
+\lr{ \Be_1 \sin\theta e^{i \phi} } \lr{ \Be_1 e^{i \phi'}}
+}
+=
+\sin\theta
+\gpgradezero{
+e^{-i \phi} e^{i \phi'}
+}
+=
+\sin\theta \cos( \phi' - \phi ),
+\end{dmath}
+so
+\begin{dmath}\label{eqn:circularlinecharge:160}
+\Norm{ \Bx - \Bx' }
+=
+\sqrt{
+R^2 + r^2 - 2 R r \sin\theta \cos( \phi' - \phi )
+}.
+\end{dmath}
+
+The electric field is
+\begin{dmath}\label{eqn:circularlinecharge:180}
+F = \frac{1}{4 \pi \epsilon_0} \int_a^b \lambda r d\phi' \frac{ R \Be_3 e^{j \theta } - r \Be_1 e^{i \phi'} }{\lr{ R^2 + r^2 - 2 R r \sin\theta \cos( \phi' - \phi ) }^{3/2} }.
+\end{dmath}
+
+Non-dimensionalizing \cref{eqn:circularlinecharge:180} with \( u = r/R \), a change of variables \( \alpha = \phi' - \phi \), and noting that \( i \phicap = \Be_1 e^{i \phi} \), the field is
+\begin{dmath}\label{eqn:circularlinecharge:200}
+F
+= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \Be_3 e^{j \theta } - u \Be_1 e^{i\phi} e^{i \alpha} }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
+= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \rcap + \phicap u i e^{i \alpha } }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} },
+\end{dmath}
+or
+\begin{dmath}\label{eqn:circularlinecharge:220}
+\begin{aligned}
+F
+&= \rcap \lr{ \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} } } \\
+&+ \phicap \lr{
+\frac{\lambda r u i}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} \frac{ e^{i \alpha } d\alpha }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
+}.
+\end{aligned}
+\end{dmath}
+
+Without CAS support for GA, this pair of integrals has to be evaluated separately.
+The first integral
+scales the radial component of the electric field.
+The second integral scales and rotates \( \phicap \) within the azimuthal plane, producing an electric field component in a \( \phicap' = \phicap e^{i \Phi} \) direction.
+
+%} % example
+         \subsubsection{Field of a ring current.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+Let's now compute the field due to a static charge and current density on a ring of radius \( R \) as illustrated in
+\cref{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/chargeAndCurrentOnRingFig1}{Field due to a circular distribution.}{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}{0.3}
+
+A static charge distribution on a ring at \( z = 0 \) has the form
+\begin{dmath}\label{eqn:ringField:20}
+\rho(\Bx) = \lambda \delta(z) \delta(r - R).
+\end{dmath}
+
+As always the current distribution is of the form \( \BJ = \Bv \rho \), and in this case the velocity is azimuthal \( \Bv = \Be_2 e^{i\phi}, i = \Be_{12} \).
+The total multivector current is
+\begin{dmath}\label{eqn:ringField:40}
+J = \inv{\epsilon} \lambda \delta(z) \delta(r - R) \lr{ 1 - \frac{\Bv}{c} }.
+\end{dmath}
+
+Let the point that we observe the field, and the integration variables be
+\begin{dmath}\label{eqn:ringField:60}
+\begin{aligned}
+\Bx &= z \Be_3 + r \rhocap \\
+\Bx' &= z' \Be_3 + r' \rhocap'.
+\end{aligned}
+\end{dmath}
+
+The field is
+\begin{dmath}\label{eqn:ringField:80}
+F(\Bx)
+= \frac{\lambda}{4 \pi \epsilon} \iiint dz' r' dr' d\phi' \delta(z') \delta(r' - R) \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} }
+= \frac{\lambda}{4 \pi \epsilon} \int R d\phi' \frac{\gpgrade{ \lr{ z \Be_3 + r \rhocap - R \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ z^2 + (r \rhocap - R \rhocap')^2}^{3/2} }.
+\end{dmath}
+
+Without loss of generality, we can align the axes so that \( \rhocap = \Be_1 \), and
+introduce dimensionless variables
+\begin{dmath}\label{eqn:ringField:100}
+\begin{aligned}
+\tilde{z} &= z/R \\
+\tilde{r} &= r/R,
+\end{aligned}
+\end{dmath}
+which gives
+\begin{dmath}\label{eqn:ringField:120}
+F
+= \frac{\lambda}{4 \pi \epsilon R} \int_0^{2\pi} d\phi' \frac{\gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ \tilde{z}^2 + (\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2}^{3/2} }.
+\end{dmath}
+
+In the denominator, the vector square expands as
+\begin{dmath}\label{eqn:ringField:140}
+(\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2
+=
+(\tilde{r} - e^{-i\phi'}) \Be_1^2 (\tilde{r} - e^{i\phi'})
+=
+\tilde{r}^2 + 1 - 2 \tilde{r} \cos(\phi'),
+\end{dmath}
+and the grade selection in the numerator is
+\begin{dmath}\label{eqn:ringField:160}
+\begin{aligned}
+\gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'}}}{1,2}
+&=
+\tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} \\
+&-\frac{v}{c}\lr{ \tilde{z} \Be_{31} e^{i\phi'} + \tilde{r} i \cos(\phi') + i }.
+\end{aligned}
+\end{dmath}
+
+Any of the exponential integrals terms
+are of the form
+\begin{dmath}\label{eqn:ringField:180}
+\int_0^{2\pi} d\phi' e^{i\phi'} f(\cos(\phi')) = \int_0^{2\pi} d\phi' \cos(\phi') f(\cos(\phi')),
+\end{dmath}
+since
+the \( i \sin\phi' f(\cos(\phi') \) contributions are odd functions around \( \phi' = \pi \).
+
+For general \( z, r \) the integrals above require numeric evaluation or special functions.
+Let
+\begin{subequations}
+\label{eqn:ringField:260}
+\begin{dmath}\label{eqn:ringField:200}
+A
+%= A(\tilde{z}, \tilde{r})
+= \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}}
+=
+\frac{4 E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)}{\sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)}
+\end{dmath}
+\begin{dmath}\label{eqn:ringField:280}
+B
+%= B(\tilde{z}, \tilde{r})
+= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}}
+=
+\frac{2 \left(\left(\tilde{z}^2+\tilde{r}^2+1\right) E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)-\left(\tilde{z}^2+(\tilde{r}+1)^2\right) K\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)\right)}{\tilde{r} \sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)},
+\end{dmath}
+\end{subequations}
+
+where
+\( K(m), E(m) \)
+are complete elliptic integrals of the first and second kind respectively.
+As seen in \cref{fig:ringFieldAB}, these functions are similar,
+both tailing off quickly with \( z, \rho \), with largest values the ring.
+\imageTwoFigures
+{../figures/GAelectrodynamics/ringFieldAFig1}
+{../figures/GAelectrodynamics/ringFieldBFig1}
+{(a) \(A(\tilde{z}, \tilde{\rho})\).  (b) \(B(\tilde{z}, \tilde{\rho})\).}{fig:ringFieldAB}{scale=0.3}
+
+Finally, restoring generality by making the
+transformation \( \Be_1 \rightarrow \Be_1 e^{i \phi} = \rhocap, \Be_2 \rightarrow \Be_2 e^{i\phi} = \phicap \), the field is
+now fully determined
+\begin{dmath}\label{eqn:ringField:220}
+F
+=
+\frac{\lambda}{4 \pi \epsilon R}
+\lr{
+\lr{ \tilde{z} \Be_3 + \tilde{r} \rhocap -\frac{v i}{c} } A
+- \lr{
+\rhocap + \frac{v}{c} \lr{ \tilde{z} \Be_{3} \rhocap + \tilde{r} i } } B
+}.
+\end{dmath}
+
+The field directions are nicely parameterized as multivector expresssions, with the relative weightings in different directions scaled by the position dependent integral coefficients of \cref{eqn:ringField:260}.
+The multivector field can be separated into its respective electric and magnetic components by inspection
+\begin{dmath}\label{eqn:ringField:240}
+\begin{aligned}
+\BE &=
+\gpgradeone{F}
+=
+\frac{\lambda}{4 \pi R \epsilon} \lr{ \tilde{z} A \Be_3 + \rhocap( \tilde{r} A - B) } \\
+\BH &=
+\inv{\eta_0} \gpgradeone{-I F}
+=
+\frac{\lambda v}{4 \pi R } \lr{ -\Be_3 \lr{ A + \tilde{r} B } - \phicap \tilde{z} A },
+\end{aligned}
+\end{dmath}
+which, as expected, shows that the static charge distribution \( \rho \propto \lambda \) only contributes to the electric field, and the static current distribution \( \BJ \propto v \lambda \) only contributes to the magnetic field.
+See
+\cref{fig:ringFieldE:ringFieldEFig1}, \cref{fig:ringFieldH:ringFieldHFig1}
+for plots of the electric and magnetic field directional variation near \( \tilde{z} = 0 \), and \cref{fig:ringFieldH:ringFieldHFig2} for larger \( z \) where the azimuthal component of the field dominates.
+\imageFigure{../figures/GAelectrodynamics/ringFieldEFig1}{Electric field direction for circular charge density distribution near \( z = 0 \).}{fig:ringFieldE:ringFieldEFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/ringFieldHFig1}{Magnetic field direction for circular current density distribution near \( z = 0 \).}{fig:ringFieldH:ringFieldHFig1}{0.3}
+\imageFigure{../figures/GAelectrodynamics/ringFieldHFig2}{Magnetic field for larger \( z \).}{fig:ringFieldH:ringFieldHFig2}{0.3}
+
+\makeproblem{Magnetic sources on a ring.}{problem:ringField:300}{
+Given a constant (magnitude) multivector current on a ring \( J = I \lambda_m \delta(z) \delta(r - R) ( c - v \Be_2 e^{i\phi}), i = \Be_{12} \), show that the field is
+\begin{equation*}
+F = \frac{\lambda_m c}{4 \pi R} \lr{
+\lr{ \tilde{z} i + \tilde{r} \phicap \Be_{3} + \frac{v}{c} \Be_3 } A
++
+\lr{ \Be_{3}\phicap + \frac{v}{c} \lr{ \tilde{z} \rhocap - \tilde{r} \Be_3 } } B
+}.
+\end{equation*}
+} % problem
+
+%}
+         \subsubsection{Ampere's law.  Two current sources.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{ampereExample}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+%
+%\beginArtNoToc
+%
+%\generatetitle{Ampere's law example.  Two currents.}
+%%\chapter{Ampere's law example}
+\label{chap:ampereExample}
+
+Let's try using Ampere's law as stated in \cref{thm:amperes:280} two compute the field at a point in the blue region
+illustrated in
+\cref{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}.
+This represents a pair of z-axis electric currents of magnitude \( I_1, I_2 \) flowing through the \( z = 0 \) points \( \Bp_1, \Bp_2 \) on the x-y plane.
+
+\imageFigure{../figures/GAelectrodynamics/amperesLawBetweenTwoCurrentsFig1}{Magnetic field between two current sources.}{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}{0.3}
+
+Solving the system with superpostion, let's consider first one source flowing through \( \Bp = (p_x, p_y, 0) \) with current \( \BJ = \Be_3 I_\txte \delta( x - p_x) \delta( y - p_y ) \), and evaluate the field due to this source at the point \( \Br \).
+With
+only magnetic sources in the multivector current, Ampere's law takes the form
+\begin{dmath}\label{eqn:ampereExample:20}
+\ointctrclockwise_{\partial A} d\Bx F = -I \int_A dA \Be_3 (-\eta \BJ) = I \eta I_\txte.
+\end{dmath}
+The field \( F \) must be a bivector satisfying \( d\Bx \cdot F = 0 \).  The circle is parameterized by
+\begin{dmath}\label{eqn:ampereExample:40}
+\Br = \Bp + R \Be_1 e^{i\phi},
+\end{dmath}
+so
+\begin{dmath}\label{eqn:ampereExample:60}
+d\Bx = R \Be_2 e^{i\phi} d\phi = R \phicap d\phi.
+\end{dmath}
+With the line element having only a \( \phicap \) component, \( F \) must be a bivector proportional to \( \Be_3 \rcap \).
+Let \( F = F_0 \Be_{31} e^{i\phi} \), where \( F_0 \) is a scalar, so that \( d\Br F \) is a constant multiple of the unit pseudoscalar
+\begin{dmath}\label{eqn:ampereExample:80}
+\int_0^{2\pi} d\Br F
+=
+R F_0 \int_0^{2\pi} \Be_2 e^{i\phi} d\phi \Be_{31} e^{i\phi}
+=
+R F_0 \int_0^{2\pi} \Be_{231} e^{-i\phi} e^{i\phi} d\phi
+=
+2 \pi I R F_0,
+\end{dmath}
+so
+\begin{dmath}\label{eqn:ampereExample:100}
+F_0 =
+\inv{I 2 \pi R} I I_\txte
+=
+ \frac{I_\txte}{2 \pi R}.
+\end{dmath}
+The field strength relative to the point \( \Bp \) is
+\begin{dmath}\label{eqn:ampereExample:120}
+F
+=
+ \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap
+=
+ \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap.
+\end{dmath}
+
+Switching to an origin relative coordinate system, removing the \( z = 0 \) restriction for \( \Br \) and \( \Bp_k \), and summing over both currents, the total field at any point \( \Br \) strictly between the currents is
+\begin{dmath}\label{eqn:ampereExample:140}
+F
+=
+\sum_{k = 1,2}
+ \frac{\eta I_k}{2 \pi} \Be_3 \inv{\Be_3 \lr{ \Be_3 \wedge \lr{ \Br - \Bp_k}}}
+=
+\sum_{k = 1,2}
+ \frac{\eta I_k}{2 \pi} \inv{ \Be_3 \wedge \lr{ \Br - \Bp_k} }.
+\end{dmath}
+The bivector nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
+
+%}
+%\EndNoBibArticle
+      \section{Dynamics.}
+         \subsection{Inverting Maxwell's equation.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%%%\input{../latex/blogpost.tex}
+%%%\renewcommand{\basename}{jefimenkosEquations}
+%%%%\renewcommand{\dirname}{notes/phy1520/}
+%%%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%%%\newcommand{\dateintitle}{}
+%%%%\newcommand{\keywords}{}
+%%%
+%%%\input{../latex/peeter_prologue_print2.tex}
+%%%
+%%%\usepackage{peeters_layout_exercise}
+%%%\usepackage{peeters_braket}
+%%%\usepackage{peeters_figures}
+%%%\usepackage{siunitx}
+%%%%\usepackage{mhchem} % \ce{}
+%%%%\usepackage{macros_bm} % \bcM
+%%%%\usepackage{macros_qed} % \qedmarker
+%%%%\usepackage{txfonts} % \ointclockwise
+%%%
+%%%\newcommand{\dotBJ}[0]{\mathbf{\dot{J}}}
+%%%
+%%%\beginArtNoToc
+%%%
+%%%\generatetitle{Inverting Maxwell's equation}
+%%%%\chapter{Inverting Maxwell's equation}
+\label{chap:jefimenkosEquations}
+
+Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}.  That solution is
+
+\maketheorem{Jefimenkos solution.}{thm:jefimenkosEquations:120}{
+The solution of Maxwell's equation is given by
+\begin{equation*}
+F(\Bx, t)
+=
+F_0(\Bx, t)
++
+\inv{4 \pi}
+\int dV'
+\lr{
+   \frac{\rcap}{r^2} J(\Bx', t_r)
+   +
+   \inv{c r} \lr{ 1 + \rcap } \dispdot{J}(\Bx', t_r)
+},
+\end{equation*}
+where \( F_0(\Bx, t) \) is any specific solution of the homogenoous equation \( \lr{ \spacegrad + (1/c) \partial_t } F_0 = 0 \),
+time derivatives are denoted by overdots, and all times are evaluated at the retarded time \( t_r = t - r/c \).
+When expanded in terms of the electric and magnetic fields (ignoring magnetic sources), the non-homoegenous portion of this solution is known as the
+Jefimenkos' equations \citep{griffiths1999introduction}.
+\begin{dmath}\label{eqn:jefimenkosEquations:100}
+\begin{aligned}
+\BE &=
+\inv{4 \pi}
+\int dV'
+\lr{
+\frac{\rcap}{\epsilon r} \lr{
+\frac{\rho(\Bx', t_r)}{r} + \frac{\dispdot{\rho}(\Bx', t_r) }{c} }
+   - \frac{\eta }{ c r } \dotBJ(\Bx', t_r)
+} \\
+\BH &=
+\inv{4 \pi}
+\int dV'
+\lr{
+   \frac{1}{c r} \dotBJ(\Bx', t_r)
++
+   \frac{1}{r^2} \BJ(\Bx', t_r)
+} \cross \rcap,
+\end{aligned}
+\end{dmath}
+%which checks against Griffiths.
+} % theorem
+
+The full solution is
+\begin{dmath}\label{eqn:jefimenkosEquations:20}
+F(\Bx, t)
+= F_0(\Bx, t)
++ \int dV' dt' G(\Bx - \Bx', t - t') J(\Bx', t')
+= F_0(\Bx, t)
++
+\inv{4\pi}
+\int dV' dt'
+\lr{
+   \lr{
+   - \frac{\rcap}{r^2} \PD{r}{}
+   + \frac{\rcap}{r}
+   + \inv{c r} \PD{t}{}
+   }
+   \delta( -r/c + t - t' )
+}
+J(\Bx', t')
+\end{dmath}
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
+With the help of \cref{eqn:derivativeOfDeltaFunction:140}, the derivatives in the Green's function \cref{eqn:jefimenkosEquations:20} can be evaluated, and
+the convolution reduces to
+\begin{dmath}\label{eqn:jefimenkosEquations:40}
+\int dt' G(\Bx - \Bx', t - t') J(\Bx', t')
+=
+\inv{4 \pi}
+\evalbar{
+\lr{
+\frac{\rcap}{r^2} J(\Bx', t_r)
+-
+\frac{\rcap}{r} \lr{ -\inv{c} } \frac{d}{dt_r} J(\Bx', t_r)
++
+\inv{c r} \frac{d}{dt_r} J(\Bx', t_r)
+}
+}{t_r = t - r/c}.
+\end{dmath}
+
+There have been lots of opportuntites to mess up with signs and factors of \( c \), so let's expand this out explicitly for a non-magnetic current source \( J = \rho/\epsilon - \eta \BJ \).
+%, and check the results against Jefimenko's equations found in
+%\citep{griffiths1999introduction}.
+Neglect the contribution of the homogeneous solution \( F_0 \), and utilizing our freedom to
+insert a no-op grade 1,2 selection operation, that
+removes any scalar and pseudoscalar terms that are neccessarily killed over the full integration range, we find
+\begin{dmath}\label{eqn:jefimenkosEquations:80}
+F =
+\inv{4 \pi}
+\int dV'
+\gpgrade{
+   \frac{\rcap}{r^2}
+\lr{ \frac{\rho}{\epsilon} - \eta \BJ }
+   +
+   \inv{c r} \lr{ 1 + \rcap } \lr{ \frac{\dispdot{\rho}}{\epsilon} - \eta \dotBJ }
+}{1,2}
+=
+\inv{4 \pi}
+\int dV'
+\lr{
+   \frac{\rcap}{\epsilon r^2} \rho
+   - \eta \frac{\rcap}{r^2} \wedge \BJ
+   - \frac{\eta}{ c r } \dotBJ
+   + \inv{c r} \rcap \frac{\dispdot{\rho}}{\epsilon}
+   - \frac{\eta}{c r} \rcap \wedge \dotBJ
+}
+=
+\inv{4 \pi}
+\int dV'
+\lr{
+   \frac{\rcap}{\epsilon r^2} \rho
+   + \frac{\rcap \dispdot{\rho}}{\epsilon c r}
+   - \frac{\eta \dotBJ}{ c r }
+   - I \frac{\eta }{c r} \rcap \cross \dotBJ
+   - I \frac{\eta}{r^2} \rcap \cross \BJ
+}.
+\end{dmath}
+
+As \( F = \BE + I \eta \BH \), the respective electric and magnetic fields by inspection.  After re-inserting the space and time parameters that we suppressed temporarily, the proof is complete.
+
+The disadvantages of separating the field and current components into their constituent components is also made painfully obvious by the complexity of the conventional statement of the solution compared to the equivalent multivector form.
+
+%}
+%%%\EndArticle
+      \section{Energy and momentum.}
+         \subsection{Field energy and momentum density and the energy momentum tensor.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+It is assumed here that the conventional definitions of the field energy and momentum density are known to the reader, as well as the
+conservation equations relating their space and time derivatives.  For reference, the conventional definitions of those densities follow.
+\index{energy density}
+\index{momentum density}
+\index{Poynting vector}
+\index{energy flux}
+\makedefinition{(Conventional) Energy and momentum density and Poynting vector.}{dfn:poyntingF:1220}{
+The quantities \( \calE \) and \( \bcP \) defined as
+%\label{eqn:poyntingF:20}
+\begin{equation*}
+\begin{aligned}
+\calE &
+%=
+%\inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH }
+= \inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 } \\
+\bcP c &= \inv{c} \BE \cross \BH,
+\end{aligned}
+\end{equation*}
+are known respectively as the field energy and momentum densities.
+\( \BS = c^2 \bcP = \BE \cross \BH \) is called the Poynting vector.
+} % definition
+We will derive the conservation relationships that justify calling \( \calE, \bcP \) the energy and momentum densities, and will also show that the
+Poynting vector represents the energy flux through a surface per unit time.
+
+In geometric algebra, it is arguably more natural to write the Poynting vector as a bivector-vector dot product such as
+\begin{dmath}\label{eqn:poyntingF:1100}
+\BS = \inv{\eta} \lr{ I \eta \BH } \cdot \BE,
+\end{dmath}
+since this involves only components of the total electromagnetic field strength \( F = \BE + I \eta \BH \).
+However, we can do better, representing both \( \calE \) and \( \BS \) in terms of \( F \) directly.  The key to doing so is making use of the fact that
+the energy and momentum densities are themselves components of a larger symmetric rank-2 energy momentum tensor, which can in turn be represented
+compactly in geometric algebra.
+\index{energy momentum tensor}
+\index{Maxwell stress tensor}
+\makedefinition{(Conventional) energy momentum and Maxwell stress tensors.}{dfn:poyntingF:1180}{
+The rank-2 symmetric tensor \( \Theta^{\mu\nu} \), with components
+%\label{eqn:poyntingF:840}
+\begin{equation*}
+\begin{aligned}
+\Theta^{00} &= \frac{\epsilon}{2} \lr{ \BE^2 + \eta^2 \BH^2 } \\
+\Theta^{0i} &= \inv{c} \lr{ \BE \cross \BH } \cdot \Be_i \\
+\Theta^{ij} &= -\epsilon \lr{ E_i E_j + \eta^2 H_i H_j - \inv{2} \delta_{ij} \lr{ \BE^2 + \eta^2 \BH^2 } },
+\end{aligned}
+\end{equation*}
+is called the energy momentum tensor.
+The spatial index subset of this tensor is known as the Maxwell stress tensor, and is often
+represented in dyadic notation
+\begin{equation*}
+\lr{ \Ba \cdot \lrT } \cdot \Bb
+=
+\sum_{i,j} a_i T_{ij} b_j,
+\end{equation*}
+or
+\begin{equation*}
+\Ba \cdot \lrT \equiv \sum_{i,j} a_i T_{ij} \Be_j
+\end{equation*}
+where \( T_{ij} = -\Theta^{ij} \).
+} % definition
+Here we use the usual convention of Greek indices such as \( \mu,\nu \) for ranging over both time (0) and spatial \( \setlr{1,2,3} \) indexes, and
+and Latin letters such as \( i, j \)
+for the ``spatial'' indexes
+\( \setlr{1,2,3} \).
+The names and notation for the tensors vary considerably\footnote{\( \Theta^{\mu\nu} \) in
+\cref{dfn:poyntingF:1180}
+is called the symmetric
+stress tensor by some authors \citep{jackson1975cew},
+and the energy momentum tensor by others, and is sometimes written \( T^{\mu\nu} \) (\citep{landau1980classical}, \citep{doran2003gap}).
+The sign conventions and notation for the spatial components \( \Theta^{ij} \) vary as well, but all authors appear to call this subset the Maxwell stress tensor.
+The Maxwell stress tensor may be written as \( \sigma_{ij} (=-\Theta^{ij}) \) \citep{landau1980classical}, or as
+\( T_{ij} (=-\Theta^{ij}) \)
+(\citep{griffiths1999introduction}, \citep{jackson1975cew}.)
+}.
+
+%(cut)
+%linear multivector function
+%%formed from products of the electrodynamic field \( F \) with its reverse \( F^\dagger \),
+%that contains both the energy and momentum densties.
+
+In geometric algebra the energy momentum tensor, and the Maxwell stress tensor may be represented as linear grade 0,1 multivector valued functions of a grade 0,1 multivector.
+\makedefinition{energy momentum and Maxwell stress tensors.}{dfn:poyntingF:1200}{
+We define the \textit{energy momentum tensor} as
+\begin{equation*}
+T(a) = \inv{2} \epsilon F a F^\dagger,
+\end{equation*}
+where \( a \) is a 0,1 multivector parameter.
+We introduce a shorthand notation for grade one selection with vector valued parameters
+\begin{equation*}
+\BT(\Ba) = \gpgradeone{T(\Ba)},
+\end{equation*}
+and call this the \textit{Maxwell stress tensor}.
+} % definition
+
+\maketheorem{Expansion of the energy momentum tensor.}{thm:poyntingF:1240}{
+Given a scalar parameter \( \alpha \), and a vector parameter \( \Ba = \sum_k a_k \Be_k \), the energy momentum tensor of
+\cref{dfn:poyntingF:1200} is a grade 0,1 multivector, and may be expanded in terms of \( \calE, \BS \) and \( \BT(\Ba) \) as
+%\label{eqn:poyntingF:1120}
+\begin{equation*}
+T(\alpha + \Ba)
+=
+\alpha \lr{
+   \calE + \frac{\BS}{c}
+}
+-
+\Ba \cdot \frac{\BS}{c}
++ \BT(\Ba),
+\end{equation*}
+where \( \BT(\Be_i) \cdot \Be_j = -\Theta^{ij} \), or \( \BT(\Ba) = \Ba \cdot \lrT \).
+} % theorem
+
+\Cref{thm:poyntingF:1240} relates the geometric algebra definition of the energy momentum tensor to the quantities found in the conventional
+electromagnetism literature.
+Because \( T \) is a linear function of its parameter, we may prove this in parts, starting with \( \alpha = 1, \Ba = 0 \), which gives
+\begin{dmath}\label{eqn:poyntingF:80}
+T(1)
+=
+\inv{2} \epsilon F F^\dagger
+=
+\inv{2} \epsilon \lr{ \BE + I \eta \BH } \lr{ \BE - I \eta \BH }
+=
+\inv{2} \epsilon \lr{ \BE^2 + \eta^2 \BH^2 }
++
+\inv{2} I \epsilon \eta \lr{ \BH \BE - \BE \BH }
+=
+\inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 }
++
+\frac{I}{c} \BH \wedge \BE
+=
+\inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 }
+%\inv{2} \lr{ \BD \cdot \BE + \BH \cdot \BB }
++
+\frac{1}{c} \BE \cross \BH
+=
+\calE + \frac{\BS}{c}.
+\end{dmath}
+An immediate take away from this expansion is that we
+may dispense with any requirement to refer to electric or magnetic field components in isolation and can express the energy and momentum densities (and Poynting) vector in terms of only the total electromagnetic field strength
+\begin{dmath}\label{eqn:poyntingF:40}
+\begin{aligned}
+\calE &= \inv{2} \epsilon \gpgradezero{ F F^\dagger } \\
+\bcP c &= \inv{2} \epsilon \gpgradeone{ F F^\dagger } \\
+\BS &= \inv{2 \eta} \gpgradeone{ F F^\dagger }.
+\end{aligned}
+\end{dmath}
+The power of this simple construction will be illustrated later when we compute the field energy and momentum densities for a number of Maxwell equation solutions in their geometric algebra form.
+
+An expansion of \( T(\Be_k) \) is harder to do algebraically than \cref{eqn:poyntingF:80}, but doing so will demonstrate that \( T(a) \) is a 0,1 grade multivector parameter for any grade 0,1 parameter\footnote{Such an expansion is a worthwhile problem to develop GA manipulation skills.  The reader is encouraged to try this independently first, and to refer to
+\cref{chap:stressTensorAlgebraically}
+for hints if required.}.
+Cheating a bit, here are the results of a
+brute force expansion of \( T(a) \) using a
+Mathematica
+GA computer algebra package
+
+\begin{subequations}
+\label{eqn:poyntingF:800}
+\begin{equation}\label{eqn:poyntingF:1020}
+\begin{aligned}
+T(1)
+&= \frac{\epsilon}{2} \lr{E_1^2 + E_2^2 + E_3^2} + \frac{\epsilon \eta^2}{2} \lr{H_1^2 + H_2^2 + H_3^2} \\
+&+ \Be_1 \eta \epsilon \lr{E_2 H_3 - E_3 H_2} \\
+&+ \Be_2 \eta \epsilon \lr{E_3 H_1 - E_1 H_3} \\
+&+ \Be_3 \eta\epsilon \lr{E_1 H_2 - E_2 H_1}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:poyntingF:1040}
+\begin{aligned}
+T(\Be_1)
+&= \eta \epsilon \lr{E_3 H_2 - E_2 H_3} \\
+& + \frac{1}{2} \Be_1 \epsilon \lr{E_1^2 - E_2^2 - E_3^2} + \frac{\epsilon \eta^2}{2} \lr{ H_1^2 -  H_2^2 -  H_3^2} \\
+& + \Be_2 \epsilon \lr{E_1 E_2 + \eta^2 H_1 H_2} \\
+& + \Be_3 \epsilon \lr{E_1 E_3 + \eta^2 H_1 H_3}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:poyntingF:1060}
+\begin{aligned}
+T(\Be_2)
+&= \eta \epsilon \lr{E_1 H_3 - E_3 H_1} \\
+& + \Be_1 \epsilon \lr{E_1 E_2 + \eta^2 H_1 H_2} \\
+& + \frac{1}{2} \Be_2 \epsilon \lr{-E_1^2 + E_2^2 - E_3^2 } + \frac{\epsilon \eta^2}{2} \lr{-H_1^2 +  H_2^2 -  H_3^2} \\
+& + \Be_3 \epsilon \lr{E_2 E_3 + \eta^2 H_2 H_3}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:poyntingF:1080}
+\begin{aligned}
+T(\Be_3)
+&= \eta \epsilon \lr{E_2 H_1 - E_1 H_2} \\
+& + \Be_1 \epsilon \lr{E_1 E_3 + \eta^2 H_1 H_3} \\
+& + \Be_2 \epsilon \lr{E_2 E_3 + \eta^2 H_2 H_3} \\
+& + \frac{1}{2} \Be_3 \epsilon \lr{-E_1^2 - E_2^2 + E_3^2 } + \frac{\epsilon \eta^2}{2} \lr{ -H_1^2 -  H_2^2 + H_3^2}
+\end{aligned}
+\end{equation}
+\end{subequations}
+
+Comparison to \cref{dfn:poyntingF:1180} shows that multivector energy momentum tensor is related to the conventional tensor representation by
+\begin{dmath}\label{eqn:poyntingF:820}
+\begin{aligned}
+&\gpgradezero{ T(1) }
+%= \calE
+=
+{\Theta_0}^0 = \Theta^{00} \\
+&\gpgradeone{ T(1) } \cdot \Be_i
+%= \frac{\BS}{c} \cdot \Be_i
+= {\Theta_0}^i = \Theta^{0i} \\
+&\gpgradezero{ T(\Be_i) }
+%= -\frac{\BS}{c} \cdot \Be_i
+= {\Theta_i}^0 = -\Theta^{i0} \\
+&\BT(\Be_i) \cdot \Be_j = {\Theta_i}^j = -\Theta^{ij} = T_{ij}.
+\end{aligned}
+\end{dmath}
+
+The only thing left to show is that how \( \BT(\Ba) \) is equivalent to the dyadic notation found in
+(\citep{griffiths1999introduction}, \citep{jackson1975cew}).
+\begin{dmath}\label{eqn:poyntingF:1140}
+\BT(\Ba)
+=
+\sum_i a_i \BT(\Be_i)
+=
+\sum_{i,j} a_i \lr{ \BT(\Be_i) \cdot \Be_j } \Be_j
+=
+\sum_{i,j} a_i T_{ij} \Be_j
+=
+\Ba \cdot \lrT.
+\end{dmath}
+%so that
+%\begin{dmath}\label{eqn:poyntingF:1160}
+%\lr{ \Ba \cdot \lrT } \cdot \Bb
+%=
+%\sum_{i,j} a_i T_{ij} b_j.
+%\end{dmath}
+The dyadic notation is really just a clumsy way of expressing the fact that \( \BT(\Ba) \) is a linear vector valued function of a vector, which naturally
+has a matrix representation.
+%With the Maxwell stress tensor parameterized by a vector, we don't really have any need for this dyadic notation, but it is worth mentioning to
+%understand how the two formalisms are related.
+
+         \subsection{Poynting's theorem (prerequisites.)}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\subsubsection{Poynting theorem prerequistes.}
+Poynting's theorem is a set of conservation relationships between relating space and time change of energy density and momentum density, or more generally between related components of the energy momentum tensor.
+The most powerful way of stating Poynting's theorem using geometric algebra requires a few new concepts, differential operator valued linear functions, and the adjoint.
+
+\makedefinition{Differential operator valued multivector functions.}{dfn:poyntingTheoremRewrite:1180}{
+Given a multivector valued linear functions of the form \( f(x) = A x B \), where \( A, B, x \) are multivectors, and a linear operator \( D \) such as \( \spacegrad, \partial_t \), or \( \spacegrad + (1/c) \partial_t \), the operator valued linear function \( f(D) \) is defined as
+\begin{equation*}
+f(D)
+= A \lroverarrow{D} B
+= (A \loverarrow{D}) B + A (\roverarrow{D} B),
+\end{equation*}
+where \( \lroverarrow{D} \) indicates that \( D \) is acting bidirectionally to the left and to the right.
+} % definition
+
+Perhaps counterintuitively, using operator valued parameters for the energy momentum tensor \( T \) or the Maxwell stress tensor \( \BT \) will be particularly effective to express the derivatives of the tensor.  There are a few cases of interest, all related to evaluation of the tensor with a parameter value of the spacetime gradient.
+\maketheorem{Energy momentum tensor operator parameters.}{thm:poyntingTheoremRewrite:1200}{
+\begin{equation*}
+\begin{aligned}
+T((1/c)\partial_t) &= \inv{c} \PD{t}{T(1)} = \inv{c} \PD{t}{} \lr{ \calE + \frac{\BS}{c} } \\
+\gpgradezero{T(\spacegrad)} &= - \spacegrad \cdot \frac{\BS}{c} \\
+\gpgradeone{T(\spacegrad)} &= \BT(\spacegrad) = \sum_{k = 1}^3 \lr{ \spacegrad \cdot \BT(\Be_k) } \Be_k.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+We will proceed to prove each of the results of
+\cref{thm:poyntingTheoremRewrite:1200} in sequence, starting with the time partial, which is a scalar operator
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1220}
+T(\partial_t)
+=
+\frac{\epsilon}{2}
+ F \lroverarrow{\partial_t} F^\dagger
+=
+\frac{\epsilon}{2}
+\lr{
+ (\partial_t F) F^\dagger
++
+ F (\partial_t F^\dagger)
+}
+=
+\frac{\epsilon}{2}
+\partial_t
+ F F^\dagger
+=
+\partial_t T(1).
+\end{dmath}
+
+To evaluate the tensor at the gradient we have to take care of order.  This is easiest in a scalar selection where we may cyclically permute any multivector factors
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1240}
+\gpgradezero{T(\spacegrad)}
+=
+\frac{\epsilon}{2}
+\gpgradezero{
+ F \lrspacegrad F^\dagger
+}
+=
+\frac{\epsilon}{2}
+\gpgradezero{
+ \spacegrad F^\dagger F
+}
+=
+\frac{\epsilon}{2} \spacegrad \gpgradeone{ F^\dagger F },
+\end{dmath}
+but
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1260}
+F^\dagger F
+=
+\lr{ \BE - I \eta \BH } \lr{ \BE + I \eta \BH }
+=
+\BE^2 + \eta^2 \BH^2 + I \eta \lr{ \BE \BH - \BH \BE }
+=
+\BE^2 + \eta^2 \BH^2 - 2 \eta \BE \cross \BH.
+\end{dmath}
+Plugging \cref{eqn:poyntingTheoremRewrite:1260} into \cref{eqn:poyntingTheoremRewrite:1240} proves the result.
+
+Finally, we want to evaluate the Maxwell stress tensor of the gradient
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:260}
+\BT(\spacegrad)
+=
+\sum_{k = 1}^3 \Be_k \lr{ \BT(\spacegrad) } \cdot \Be_k
+=
+\sum_{k,m = 1}^3 \Be_k \partial_m \lr{ \BT(\Be_m) \cdot \Be_k }
+=
+\sum_{k,m = 1}^3 \Be_k \partial_m \lr{ \BT(\Be_k) \cdot \Be_m }
+=
+\sum_{k = 1}^3 \Be_k \lr{ \spacegrad \cdot \BT(\Be_k) },
+\end{dmath}
+as claimed.
+
+Will want to integrate \( \BT(\spacegrad) \) over a volume, which is essentially a divergence operation.
+\maketheorem{Divergence integral for the Maxwell stress tensor.}{thm:poyntingTheoremRewrite:1281}{
+\begin{equation*}
+\int_V dV \BT(\spacegrad)
+=
+\int_{\partial V} dA \BT(\ncap).
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:poyntingTheoremRewrite:1281}, we make use of the symmetric property of the Maxwell stress tensor
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:320}
+\int_V dV \BT(\spacegrad)
+=
+\sum_k \int_V dV \Be_k \spacegrad \cdot \BT(\Be_k)
+=
+\sum_k \int_{\partial V} dA \Be_k \ncap \cdot \BT(\Be_k)
+=
+\sum_{k,m} \int_{\partial V} dA \Be_k n_m {\BT(\Be_k) \cdot \Be_m}
+=
+\sum_{k,m} \int_{\partial V} dA \Be_k n_m {\BT(\Be_m) \cdot \Be_k}
+=
+\sum_{k} \int_{\partial V} dA \Be_k {\BT(\ncap) \cdot \Be_k}
+=
+\int_{\partial V} dA \BT(\ncap),
+\end{dmath}
+as claimed.
+
+Finally, before stating Poynting's theorem, we want to introduce the concept of an adjoint.
+
+\makedefinition{Adjoint.}{dfn:poyntingTheorem:1120}{
+The adjoint \( \overbar{A}(x) \) of a linear operator \( A(x) \) is defined implicitly by the scalar selection
+\begin{equation*}
+\gpgradezero{ y \overbar{A}(x) } =
+\gpgradezero{ x A(y) }.
+\end{equation*}
+} % definition
+The adjoint of the energy momentum tensor is particularly easy to calculate.
+\maketheorem{Adjoint of the energy momentum tensor.}{thm:poyntingTheorem:1140}{
+The \textit{adjoint of the energy momentum tensor} is
+\begin{equation*}
+\overbar{T}(x) =
+\frac{\epsilon}{2} F^\dagger x F.
+\end{equation*}
+The adjoint \( \overbar{T} \) and \( T \) satisfy the following relationships
+\begin{equation*}
+\begin{aligned}
+\gpgradezero{\overbar{T}(1)} &= \gpgradezero{T(1)} = \calE \\
+\gpgradeone{\overbar{T}(1)} &= -\gpgradeone{T(1)} = -\frac{\BS}{c} \\
+\gpgradezero{\overbar{T}(\Ba)} &= -\gpgradezero{T(\Ba)} = \Ba \cdot \frac{\BS}{c} \\
+\gpgradeone{\overbar{T}(\Ba)} &= \gpgradeone{T(\Ba)} = \BT(\Ba).
+\end{aligned}
+\end{equation*}
+} % theorem
+
+Using
+the cyclic scalar selection permutation property \(\gpgradezero{ABC} = \gpgradezero{CAB}\) we form
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1160}
+\gpgradezero{ x T(y) }
+=
+\frac{\epsilon}{2} \gpgradezero{ x F y F^\dagger }
+=
+\frac{\epsilon}{2} \gpgradezero{ y F^\dagger x F }.
+\end{dmath}
+Referring back to \cref{dfn:poyntingTheorem:1120} we see that the adjoint must have the stated form.
+Proving the grade selection relationships of \cref{eqn:poyntingTheoremRewrite:1160} has been left as
+an exersize for the reader.  A brute force symbolic algebra proof using Mathematica is also available in \cref{path:GAelectrodynamics:stressEnergyTensorValues.nb}.
+%We can now state the adjoint form of \cref{thm:poyntingTheorem:1040}.
+
+As in \cref{thm:poyntingTheoremRewrite:1200},
+the adjoint may also be evaluated with differential operator parameters.
+
+\maketheorem{Adjoint energy momentum tensor operator parameters.}{thm:poyntingTheoremRewrite:1280}{
+\begin{equation*}
+\begin{aligned}
+\gpgradezero{\overbar{T}((1/c)\partial_t)} &= \inv{c} \PD{t}{T(1)} = \inv{c} \PD{t}{\calE} \\
+\gpgradeone{\overbar{T}((1/c)\partial_t)} &= -\inv{c^2} \PD{t}{\BS} \\
+\gpgradezero{\overbar{T}(\spacegrad)} &= \spacegrad \cdot \frac{\BS}{c} \\
+\gpgradeone{\overbar{T}(\spacegrad)} &= \BT(\spacegrad).
+\end{aligned}
+\end{equation*}
+} % theorem
+
+The proofs of \cref{thm:poyntingTheoremRewrite:1280} are all fairly simple
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1280}
+\overbar{T}((1/c)\partial_t)
+=
+\inv{c} \frac{\epsilon}{2} \PD{t}{} \lr{ F^\dagger F }
+=
+\inv{c} \PD{t}{} \lr{ \calE - \frac{\BS}{c} }.
+\end{dmath}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1300}
+\gpgradezero{ \overbar{T}(\spacegrad) }
+=
+\gpgradezero{ 1 \overbar{T}(\spacegrad) }
+=
+\gpgradezero{ \spacegrad T(1) }
+=
+\spacegrad \cdot \gpgradeone{ T(1) }
+=
+\spacegrad \cdot \frac{\BS}{c}.
+\end{dmath}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1320}
+\gpgradeone{ \overbar{T}(\spacegrad) }
+=
+\sum_k \Be_k \lr{ \Be_k \cdot \gpgradeone{ \overbar{T}(\spacegrad) } }
+=
+\sum_k \Be_k \gpgradezero{ \Be_k \overbar{T}(\spacegrad) }
+=
+\sum_k \Be_k \gpgradezero{ \spacegrad T(\Be_k) }
+=
+\sum_k \Be_k \spacegrad \cdot \gpgradeone{ T(\Be_k) }
+=
+\sum_k \Be_k \spacegrad \cdot \BT(\Be_k)
+=
+\BT(\spacegrad).
+\end{dmath}
+
+\subsection{Poynting theorem.}
+
+All the prerequisites for stating Poynting's theorem are now finally complete.
+\maketheorem{Poynting's theorem (differential form.)}{thm:poyntingTheorem:1180}{
+The adjoint energy momentum tensor of the spacetime gradient satisfies the following multivector equation
+\begin{equation*}
+\overbar{T}(\spacegrad + (1/c)\partial_t) = \frac{\epsilon}{2} \lr{ F^\dagger J + J^\dagger F }.
+\end{equation*}
+Note that the multivector \( F^\dagger J + J^\dagger F \) can only have scalar and vector grades, since it equals its reverse.
+This equation can be put into a form that is more obviously a conservation law by stating it as a set of
+scalar grade identities
+\begin{equation*}
+\spacegrad \cdot \gpgradeone{ T(a) } + \inv{c} \PD{t}{} \gpgradezero{ T(a) }
+=
+\frac{\epsilon}{2} \gpgradezero{ a( F^\dagger J + J \dagger F) }.
+\end{equation*}
+These may be written as respective
+scalar and vector grades equations
+%%which expands to the multivector equation
+%\begin{equation*}
+%\inv{c} \PD{t}{} \lr{ \calE - \frac{\BS}{c} }
+%+ \spacegrad \cdot \frac{\BS}{c}
+%+ \BT(\spacegrad)
+%=
+%-\inv{c} \lr{ \BE \cdot \BJ + \BH \cdot \BM }
+%+
+%\rho \BE + \epsilon \BE \cross \BM
+%+
+%\rho_\txtm \BH + \mu \BJ \cross \BH,
+%\end{equation*}
+%or as separate scalar and vector equations
+\begin{equation*}
+\begin{aligned}
+\inv{c} \PD{t}{\calE} + \spacegrad \cdot \frac{\BS}{c} &= -\inv{c} \lr{ \BE \cdot \BJ + \BH \cdot \BM } \\
+-\inv{c^2} \PD{t}{\BS} + \BT(\spacegrad) &= \rho \BE + \epsilon \BE \cross \BM + \rho_\txtm \BH + \mu \BJ \cross \BH.
+\end{aligned}
+\end{equation*}
+Conventionally, only the scalar grade relating the time rate of change of the energy density to the flux of the Poynting vector, is called Poynting's theorem.
+} % theorem
+
+The conservation relationship of \cref{thm:poyntingTheorem:1180} follows from
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1340}
+F^\dagger \lr{ \lrspacegrad + \inv{c}\lroverarrow{\partial_t} } F
+=
+\lr{ \lr{ \spacegrad + \inv{c} \partial_t } F }^\dagger F
++
+F^\dagger \lr{ \lr{ \spacegrad + \inv{c} \partial_t } F }
+=
+J^\dagger F + F^\dagger J.
+\end{dmath}
+The scalar form of
+\cref{thm:poyntingTheorem:1180}
+follows from
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1360}
+\gpgradezero{ a \overbar{T}(\spacegrad + (1/c) \partial_t) }
+=
+\gpgradezero{ (\spacegrad + (1/c) \partial_t) T(a) }
+=
+\spacegrad \cdot \gpgradeone{ T(a) } + \inv{c} \PD{t}{} \gpgradezero{ T(a) }.
+\end{dmath}
+
+We may use the scalar form of the theorem to extract the scalar grade, by setting \( a = 1 \), for which the right hand side
+can be reduced to a single term
+since scalars are reversion invariant
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1000}
+\gpgradezero{ F^\dagger J }
+=
+\gpgradezero{ F^\dagger J }^\dagger
+=
+\gpgradezero{ J^\dagger F },
+\end{equation}
+so
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:960}
+\spacegrad \cdot \gpgradeone{ T(1) }
++ \inv{c} \PD{t}{} \gpgradezero{ T(1) }
+=
+\spacegrad \cdot \frac{\BS}{c} + \inv{c} \PD{t}{\calE}
+=
+\frac{\epsilon}{2} \gpgradezero{ F^\dagger J + J^\dagger F }
+=
+\epsilon
+\gpgradezero{ F^\dagger J }
+=
+\epsilon
+\gpgradezero{
+   \lr{ \BE -I \eta \BH }\lr{
+      \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_m - \BM }
+   }
+}
+=
+\epsilon
+\lr{
+   -\eta \BE \cdot \BJ -\eta \BH \cdot \BM
+}
+=
+- \inv{c} \BE \cdot \BJ - \inv{c} \BH \cdot \BM,
+\end{dmath}
+which proves the claimed explicit expansion of the scalar grade selection of Poynting's theorem.
+
+The left hand side of the vector grade selection follows by linearity using \cref{thm:poyntingTheoremRewrite:1280}
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1380}
+\gpgradeone{ \overbar{T}(\spacegrad + (1/c)\partial_t) }
+=
+\gpgradeone{ \overbar{T}(\spacegrad) + \overbar{T}((1/c)\partial_t) }
+=
+\BT(\spacegrad) - \inv{c^2} \PD{t}{\BS}.
+\end{dmath}
+The right hand side is a bit messier to simplify.
+Let's do this in pieces by superposition, first considering just electric sources
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:80}
+\frac{\epsilon}{2} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
+=
+\frac{\epsilon \eta}{2}
+\gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH)(c \rho - \BJ)  + (c \rho - \BJ)( \BE + I \eta \BH )} }
+=
+\frac{1}{2c } \Be_k \cdot
+\gpgradeone{ (\BE - I \eta \BH)(c \rho - \BJ)  + (c \rho - \BJ)( \BE + I \eta \BH ) }
+=
+\inv{c} \Be_k \cdot \lr{ c \rho \BE + I \eta \BH \wedge \BJ }
+=
+\inv{c} \Be_k \cdot \lr{ c \rho \BE - \eta \BH \cross \BJ }
+=
+\Be_k \cdot \lr{ \rho \BE + \mu \BJ \cross \BH },
+\end{dmath}
+and then magnetic sources
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:180}
+\frac{\epsilon}{2 } \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
+=
+\frac{\epsilon }{2} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH) I (c \rho_\txtm - \BM)  - I (c \rho_\txtm - \BM)( \BE + I \eta \BH )} }
+=
+\frac{\epsilon }{2} \Be_k \cdot \gpgradeone{ (I \BE + \eta \BH)(c \rho_\txtm - \BM)  + (c \rho_\txtm - \BM)( -I \BE + \eta \BH )}
+=
+\epsilon \Be_k \cdot \lr{ \eta c \rho_\txtm \BH - I \BE \wedge \BM }
+=
+\Be_k \cdot \lr{ \rho_\txtm \BH + \epsilon \BE \cross \BM }.
+\end{dmath}
+Jointly,
+\cref{eqn:poyntingTheoremRewrite:1380}, \cref{eqn:poyntingTheoremRewrite:80}, \cref{eqn:poyntingTheoremRewrite:180} complete the proof.
+
+The integral form of \cref{thm:poyntingTheorem:1180} submits nicely to physical interpretation.
+\maketheorem{Poynting's theorem (integral form.)}{thm:poyntingTheoremRewrite:1420}{
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1400}
+\begin{aligned}
+&\PD{t}{}
+\int_V \calE dV
+=
+-\int_{\partial V} dA \ncap \cdot \BS
+-
+\int_V dV \lr{
+   \BJ \cdot \BE
+   +
+   \BM \cdot \BH
+} \\
+&
+\int_V dV \lr{ \rho \BE + \BJ \cross \BB }
++ \int_V dV \lr{ \rho_\txtm \BH - \epsilon \BM \cross \BE }
+=
+-
+\PD{t}{ }
+\int_V dV \bcP
++
+\int_{\partial V} dA \BT(\ncap).
+\end{aligned}
+\end{dmath}
+} % theorem
+
+Proof of \cref{thm:poyntingTheoremRewrite:1420} requires only the divergence theorem, \cref{thm:poyntingTheoremRewrite:1281}, and
+\cref{dfn:poyntingF:1220}.
+
+The scalar integral in \cref{thm:poyntingTheoremRewrite:1420}
+relates the rate of change of total energy in a volume to the flux of the Poynting through the surface bounding the volume.
+If the energy in the volume increases(decreases), then in a current free region, there must be Poynting flux into(out-of) the volume.
+The direction of the Poynting vector is the direction that the energy is leaving the volume, but only the projection of the Poynting vector along the normal direction contributes to this energy loss.
+
+The right hand side of the vector integral in \cref{thm:poyntingTheoremRewrite:1420} is a continuous representation of the Lorentz force
+(or dual Lorentz force for magnetic charges),
+the mechanical force on the charges in the volume.  This can be seen by setting \( \BJ = \rho \Bv \) (or \( \BM = \rho_\txtm \BM \))
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1420}
+\int_V dV \lr{ \rho \BE + \BJ \cross \BB }
+=
+\int_V dV \rho \lr{ \BE + \Bv \cross \BB }
+=
+\int_V dq \lr{ \BE + \Bv \cross \BB }.
+\end{dmath}
+
+As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\textrm{em}} = \int_V dV \bcP \), we can identify the sum of the Maxwell stress tensor's normal component over the bounding integral as time rate of change of the mechanical and electromagnetic momentum
+\boxedEquation{eqn:poyntingTheoremRewrite:1440}{
+\frac{d\Bp_{\textrm{mech}}}{dt} + \frac{d\Bp_{\textrm{em}}}{dt} = \int_{\partial V} dA \BT(\ncap).
+}
+
+%}
+         \subsection{Examples: Some static fields.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+We've found solutions for a number of static charge and current distributions.
+
+\begin{enumerate}[(a)]
+\item For constant electric sources along the z-axis
+(\cref{eqn:statics_infiniteLineCharge:180})
+, with current \( \BJ \) moving with velocity \( \Bv = v \Be_3 \), the field had the form \( F = E \rhocap \lr{ 1 - \Bv/c } \).
+\item For constant magnetic sources along the z-axis
+(\cref{problem:statics:240})
+, with current \( \BM \) moving with velocity \( \Bv = v \Be_3 \), the field had the form \( F = \eta H I \rhocap \lr{ 1 - \Bv/c } \).
+\item For constant electric sources in the x-y plane
+(\cref{eqn:statics_infinitePlane:320})
+, with current \( \BJ \) moving with velocity \( \Bv = v \Be_1 e^{i\theta}, i = \Be_{12} \), the field had the form \( F = E \Be_3 \lr{ 1 - \Bv/c } \).
+\item For constant magnetic sources in the x-y plane
+(\cref{problem:statics:241})
+, with current \( \BM \) moving with velocity \( \Bv = v \Be_1 e^{i\theta}, i = \Be_{12} \), the field had the form \( F = \eta H i \lr{ 1 - \Bv/c } \).
+\end{enumerate}
+
+In all cases the field has the form \( F = A ( 1 - \Bv/c ) \), where \( A \) is either a vector or a bivector that anticommutes with the current velocity \( \Bv \), so the energy momentum tensor \( T(1) \) has the form
+\begin{dmath}\label{eqn:poyntingStaticExamples:860}
+T(1)
+= \frac{\epsilon}{2} A ( 1 - \Bv/c )^2 A^\dagger
+= \frac{\epsilon}{2} A A^\dagger ( 1 + \Bv/c )^2
+= \frac{\epsilon}{2} A A^\dagger \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} }.
+\end{dmath}
+
+For the electric sources this is
+\begin{dmath}\label{eqn:poyntingStaticExamples:880}
+\calE + \frac{\BS}{c} = \frac{\epsilon}{2} E^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} },
+\end{dmath}
+or
+\begin{dmath}\label{eqn:poyntingStaticExamples:900}
+\begin{aligned}
+\calE &= \frac{\epsilon}{2} E^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 } \\
+\BS &= \epsilon E^2 \Bv.
+\end{aligned}
+\end{dmath}
+
+For the magnetic sources this is
+\begin{dmath}\label{eqn:poyntingStaticExamples:920}
+\calH + \frac{\BS}{c} = \frac{\mu}{2} H^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} },
+\end{dmath}
+or
+\begin{dmath}\label{eqn:poyntingStaticExamples:940}
+\begin{aligned}
+\calH &= \frac{\mu}{2} H^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 } \\
+\BS &= \mu H^2 \Bv.
+\end{aligned}
+\end{dmath}
+
+There are three terms in the multivector \( (1 -\Bv/c)^2 = 1 + \lr{ \ifrac{\Bv}{c} }^2 + 2 \ifrac{\Bv}{c} \).  For electric sources,
+the first scalar term is due to the charge distribution, and provides the electric field contribution to the energy density.
+The second scalar term is due to the current distribution, and provides the magnetic field contribution to the energy density.
+The final vector term, proportional to the current velocity contributes to the Poynting vector, showing that the field momentum travels along the direction of the current in these static configurations.
+
+Calculation of the \( T(\Be_k) \) tensor components is generally more involved.
+Let's do this calculation for each of the fields above in turn to illustrate.
+
+\paragraph{(a):}
+
+To calculate \( T(\Be_3) \) we can reduce the following products
+\begin{dmath}\label{eqn:poyntingStaticExamples:960}
+F \Be_3 F^\dagger
+=
+E^2 \rhocap \lr{ 1 - \Bv/c} \Be_3 \lr{1 - \Bv/c} \rhocap
+=
+-E^2 \Be_3 \rhocap \lr{1 - \Bv/c}^2 \rhocap
+=
+-E^2 \Be_3 \rhocap \lr{1 + \Bv^2/c^2 - 2 \Bv/c} \rhocap
+=
+-E^2 \Be_3 \rhocap^2 \lr{1 + \Bv^2/c^2 + 2 \Bv/c}
+=
+-E^2 \Be_3 \lr{1 + \Bv^2/c^2 + 2 \Bv/c}.
+\end{dmath}
+
+Since
+\begin{dmath}\label{eqn:poyntingStaticExamples:980}
+T(\Be_k)
+= - \frac{\BS}{c} \cdot \Be_k + \BT(\Be_k).
+\end{dmath}
+
+This means that \( \BS \cdot \Be_3 = \epsilon E^2 v \), as already found.  The vector component of this tensor element is
+\begin{dmath}\label{eqn:poyntingStaticExamples:1000}
+\BT(\Be_3) =
+- \frac{\epsilon}{2} E^2 \Be_3 \lr{1 + \Bv^2/c^2 }.
+\end{dmath}
+
+This component of the stress tensor is aligned along the same axis as the velocity.
+Calculation of the other stress tensor components is easiest in cylindrical coordinates.  Along the radial direction
+\begin{dmath}\label{eqn:poyntingStaticExamples:1020}
+\begin{aligned}
+\rhocap \lr{ 1 - \Bv/c } \rhocap \lr{1 - \Bv/c} \rhocap
+&=
+\rhocap^2 \lr{ 1 + \Bv/c} \lr{1 - \Bv/c} \rhocap \\
+&= \lr{1 - \Bv^2/c^2} \rhocap,
+\end{aligned}
+\end{dmath}
+and along the azimuthal direction
+\begin{dmath}\label{eqn:poyntingStaticExamples:1100}
+\begin{aligned}
+\rhocap \lr{ 1 - \Bv/c } \thetacap \lr{1 - \Bv/c} \rhocap
+&=
+\rhocap \thetacap \lr{1 + \Bv/c} \lr{1 - \Bv/c} \rhocap \\
+&=
+-\thetacap \rhocap^2 \lr{1 - \Bv^2/c^2} \\
+&=
+-\thetacap \lr{1 - \Bv^2/c^2}.
+\end{aligned}
+\end{dmath}
+
+Since \( T(\Ba) \) is a linear operator for any vector parameters \( \Ba \), it cannot have any grade zero component along any directions \( \Be \cdot \Be_3 = 0 \).
+No grade zero component of \( T(\Be_1), T(\Be_2) \) implies that the Poynting vector is zero along the \( \Be_1 \) and \( \Be_2 \) directions respectively, as we saw above in
+\cref{eqn:poyntingStaticExamples:900}.
+%\begin{dmath}\label{eqn:poyntingStaticExamples:1120}
+%\rhocap \rhocap \rhocap = \rhocap
+%\rhocap \thetacap \rhocap = -\thetacap
+%\end{dmath}
+%
+%The reflections above can be computed explicitly
+%
+%\begin{dmath}\label{eqn:poyntingStaticExamples:1040}
+%\rhocap \Be_1 \rhocap
+%= \Be_1 e^{i \theta} \Be_1 \Be_1 e^{i \theta}
+%= \Be_1 e^{2 i \theta},
+%\end{dmath}
+%
+%and
+%\begin{dmath}\label{eqn:poyntingStaticExamples:1060}
+%\rhocap \Be_2 \rhocap
+%= \Be_1 e^{i \theta} \Be_2 \Be_1 e^{i \theta}
+%= \Be_{121} e^{2 i \theta}
+%= -\Be_{2} e^{2 i \theta}.
+%\end{dmath}
+
+In summary
+\begin{dmath}\label{eqn:poyntingStaticExamples:1080}
+\begin{aligned}
+\BT(\rhocap) &= \frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \rhocap \\
+\BT(\thetacap) &= -\frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \thetacap \\
+%\BT(\Be_1) &= \frac{\epsilon}{2} E^2 (1 -\Bv^2/c^2) \Be_1 e^{2 i \theta} \\
+%\BT(\Be_2) &= -\frac{\epsilon}{2} E^2 (1 -\Bv^2/c^2) \Be_2 e^{2 i \theta} \\
+\BT(\Be_3) &= -\frac{\epsilon}{2} E^2 \lr{1 + \Bv^2/c^2 } \Be_3.
+\end{aligned}
+\end{dmath}
+
+For this field that \( \BT(\rhocap) \) is entirely radial, whereas \( \BT(\thetacap) \) is entirely azimuthal.
+
+In terms of an arbitrary vector in cylindrical coordinates
+\begin{dmath}\label{eqn:poyntingStaticExamples:1200}
+\Ba = a_\rho \rhocap + a_\theta \thetacap + a_z \Be_3,
+\end{dmath}
+the grade one component of the tensor is
+\begin{dmath}\label{eqn:poyntingStaticExamples:1140}
+\BT(\Ba) =
+\frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \lr{ a_\rho \rhocap - a_\theta \thetacap }
+-\frac{\epsilon}{2} E^2 \lr{1 +\Bv^2/c^2} a_z \Be_3.
+\end{dmath}
+
+\paragraph{(b):}
+
+For \( F = \eta H I \rhocap \lr{ 1 - \Bv/c } \), and \( \Bv = v \Be_3 \) we have
+\begin{dmath}\label{eqn:poyntingStaticExamples:1160}
+F \Ba F^\dagger
+=
+\eta^2 H^2 I \rhocap \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \rhocap (-I)
+=
+\eta^2 H^2 \rhocap \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \rhocap.
+\end{dmath}
+
+We can write the tensor components immediately, since
+\cref{eqn:poyntingStaticExamples:1160}
+has exactly the same structure as the tensor components computed in part (a) above.  That is
+\begin{dmath}\label{eqn:poyntingStaticExamples:1180}
+\BT(\Ba) =
+\frac{\mu}{2} H^2 \lr{1 -\Bv^2/c^2} \lr{ a_\rho \rhocap - a_\theta \thetacap }
+-\frac{\mu}{2} H^2 \lr{1 +\Bv^2/c^2} a_z \Be_3.
+\end{dmath}
+
+\paragraph{(c):}
+
+For \( F = E \Be_3 \lr{ 1 - \Bv/c } \), and \( \Bv = v \rhocap \), we have
+\begin{dmath}\label{eqn:poyntingStaticExamples:1220}
+F \Ba F^\dagger
+=
+E^2 \Be_3 \lr{ 1 - (v/c) \rhocap } \Ba \lr{ 1 - (v/c) \rhocap } \Be_3,
+\end{dmath}
+so we need the following grade selections
+\begin{equation}\label{eqn:poyntingStaticExamples:1260}
+\begin{aligned}
+\gpgradeone{ \Be_3 \lr{ 1 - (v/c) \rhocap } \rhocap \lr{ 1 - (v/c) \rhocap } \Be_3 }
+&=
+\gpgradeone{ \Be_3 \rhocap \lr{ 1 - (v/c) \rhocap }^2 \Be_3 } \\
+&=
+\gpgradeone{ \Be_3 \rhocap \lr{ 1 + (v^2/c^2) - 2 (v/c) \rhocap } \Be_3 } \\
+&=
+\lr{ 1 + (v^2/c^2) } \Be_3 \rhocap \Be_3 \\
+&=
+-\lr{ 1 + (v^2/c^2) } \rhocap \\
+\gpgradeone{ \Be_3 \lr{ 1 - (v/c) \rhocap } \thetacap \lr{ 1 - (v/c) \rhocap } \Be_3 }
+&=
+\gpgradeone{ \Be_3 \thetacap \lr{ 1 + (v/c) \rhocap } \lr{ 1 - (v/c) \rhocap } \Be_3 } \\
+&=
+\gpgradeone{ \Be_3 \thetacap \lr{ 1 - (v^2/c^2) } \Be_3 } \\
+&=
+-\lr{ 1 - (v^2/c^2) } \thetacap \\
+\gpgradeone{ \Be_3 \lr{ 1 - (v/c) \rhocap } \Be_3 \lr{ 1 - (v/c) \rhocap } \Be_3 }
+&=
+\gpgradeone{ \lr{ 1 + (v/c) \rhocap } \lr{ 1 - (v/c) \rhocap } \Be_3 } \\
+&=
+\lr{ 1 - (v^2/c^2) } \Be_3.
+\end{aligned}
+\end{equation}
+
+So the Maxwell stress tensor components of interest are
+\begin{dmath}\label{eqn:poyntingStaticExamples:1320}
+\BT(\Ba)
+=
+-\frac{\epsilon}{2} E^2 \lr{ 1 + (\Bv^2/c^2) } a_\rho \rhocap
++
+\frac{\epsilon}{2} E^2 \lr{ 1 - (\Bv^2/c^2) } \lr{ a_z \Be_3 - a_\theta \thetacap }.
+\end{dmath}
+
+\paragraph{(d):}
+
+For \( F = \eta H i \lr{ 1 - \Bv/c }, i = \Be_{12} \), and \( \Bv = v \rhocap \), we can use a duality transformation for the unit bivector \( i \)
+\begin{dmath}\label{eqn:poyntingStaticExamples:1340}
+F = \eta H I \Be_3 \lr{ 1 - \Bv/c },
+\end{dmath}
+so
+\begin{dmath}\label{eqn:poyntingStaticExamples:1360}
+F \Ba F^\dagger = \eta^2 H^2 \Be_3 \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \Be_3.
+\end{dmath}
+
+\Cref{eqn:poyntingStaticExamples:1360} has the structure found in part (c) above, so
+\begin{dmath}\label{eqn:poyntingStaticExamples:1380}
+\BT(\Ba)
+=
+-\frac{\mu}{2} H^2 \lr{ 1 + (\Bv^2/c^2) } a_\rho \rhocap
++
+\frac{\mu}{2} H^2 \lr{ 1 - (\Bv^2/c^2) } \lr{ a_z \Be_3 - a_\theta \thetacap }.
+\end{dmath}
+         \subsection{Complex energy and power.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\index{complex power}
+
+\maketheorem{Complex power representation.}{thm:poyntingFComplexPower:300}{
+Given a time domain representation of a phasor based field \( F = F(\omega) \)
+\begin{equation*}
+F(t)
+= \Real\lr{ F e^{j \omega t} },
+\end{equation*}
+the energy momentum tensor multivector \( T(1) \) has the representation
+\begin{equation*}
+T(1) = \calE + \frac{\BS}{c}
+\frac{\epsilon}{4} \Real \lr{ F^\conj F^\dagger + F F^\dagger e^{2 j \omega t} }.
+\end{equation*}
+With the usual definition of the complex Poynting vector
+%\label{eqn:poyntingFComplexPower:240}
+\begin{equation*}
+\calS = \inv{2} \BE \cross \BH^\conj = \inv{2} \lr{ I \BH^\conj } \cdot \BE,
+\end{equation*}
+the energy and momentum components of \( T(1) \), for real \( \mu, \epsilon \) are
+%\label{eqn:poyntingFComplexPower:260}
+\begin{equation*}
+\begin{aligned}
+\calE &=
+\inv{4} \lr{
+\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 }
++
+\inv{4} \Real
+\lr{
+   \lr{ \epsilon \BE^2 + \mu \BH^2}
+   e^{2 j \omega t }
+} \\
+\BS &= \Real \calS
++
+\inv{2} \Real
+\lr{
+\lr{ \BE \cross \BH }
+   e^{2 j \omega t }
+}.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:poyntingFComplexPower:300} we start by expanding the real part operation explicitly
+\begin{dmath}\label{eqn:poyntingFComplexPower:20}
+F(t)
+= \Real\lr{ F e^{j \omega t} }
+= \inv{2} \lr{ F e^{j \omega t} + F^\conj e^{-j\omega t} }.
+\end{dmath}
+The energy momentum multivector for the field is therefore
+\begin{dmath}\label{eqn:poyntingFComplexPower:40}
+\inv{2} \epsilon F(t) {F(t)}^\dagger
+=
+\frac{\epsilon}{8}
+\lr{
+F e^{j \omega t} + F^\conj e^{-j\omega t}
+}
+\lr{
+F^\dagger e^{j \omega t} + \lr{F^\conj}^\dagger e^{-j\omega t}
+}
+=
+\frac{\epsilon}{8}
+\lr{
+F F^\dagger e^{2 j \omega t}
++
+\lr{ F F^\dagger e^{2 j \omega t} }^\conj
++
+F^\conj F^\dagger + \lr{ F^\conj F^\dagger }^\conj
+},
+\end{dmath}
+so we have
+\begin{dmath}\label{eqn:poyntingFComplexPower:60}
+%\boxedEquation{eqn:poyntingFComplexPower:60}{
+\calE + \frac{\BS}{c}
+=
+\inv{2} \epsilon F(t) {F(t)}^\dagger
+=
+\frac{\epsilon}{4} \Real \lr{ F^\conj F^\dagger + F F^\dagger e^{2 j \omega t} },
+%}
+\end{dmath}
+which proves the first part of the theorem.
+
+Next, we'd like to expand \( T(1) \)
+% e eta = sqrt( e^2 mu/e ) = sqrt( e mu ) = 1/c
+% e eta^2 = e mu/e = mu
+\begin{dmath}\label{eqn:poyntingFComplexPower:80}
+\inv{4} \epsilon F^\conj F^\dagger
+=
+\inv{4} \epsilon \lr{ \BE^\conj + I \eta \BH^\conj } \lr{ \BE - I \eta \BH }
+=
+\inv{4} \lr{ \BE^\conj \epsilon \BE + \epsilon \eta^2 \BH^\conj \BH
++ I \epsilon \eta \lr{ \BH^\conj \BE - \BE^\conj \BH }
+}
+=
+\inv{4} \lr{
+\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2
++ \frac{I}{c} \lr{ \BH^\conj \BE - \BE^\conj \BH }
+}.
+\end{dmath}
+The scalar terms are already real, but the real part of the vector term is
+\begin{dmath}\label{eqn:poyntingFComplexPower:200}
+\frac{I}{4 c} \Real \lr{ \BH^\conj \BE - \BE^\conj \BH }
+=
+\frac{I}{8 c} \lr{
+\BH^\conj \BE - \BE^\conj \BH
++ \BH \BE^\conj - \BE \BH^\conj
+}
+=
+\frac{I}{8 c} \lr{
+2 \BH^\conj \wedge \BE
++ 2 \BH \wedge \BE^\conj
+}
+=
+\frac{1}{4 c} \lr{
+\BE \cross \BH^\conj
++ \BE^\conj \cross \BH
+}
+=
+\frac{1}{2 c} \Real \lr{
+\BE \cross \BH^\conj
+}.
+\end{dmath}
+
+The \( \epsilon F F^\dagger \) factor of \( e^{2 j \omega t} \) above was expanded in \cref{eqn:poyntingF:80}, so the energy momentum multivector is
+\begin{dmath}\label{eqn:poyntingFComplexPower:220}
+\begin{aligned}
+\calE + \frac{\BS}{c}
+&=
+\inv{4} \lr{
+\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 }
++
+\frac{1}{2 c} \Real \lr{
+\BE \cross \BH^\conj
+} \\
+&+
+\Real
+\lr{
+   \lr{
+     \inv{4} \lr{ \epsilon \BE^2 + \mu \BH^2 }
+   + \frac{1}{2 c} \BE \cross \BH
+   }
+   e^{2 j \omega t }
+}.
+\end{aligned}
+\end{dmath}
+Expressing \cref{eqn:poyntingFComplexPower:220} in terms
+of the complex Poynting vector \( \calS \), completes the proof.
+
+Observe that
+averaging over one period \( T \) kills any sinusoidal contributions, so the steady state energy and Poynting vectors are just
+\begin{dmath}\label{eqn:poyntingFComplexPower:280}
+\begin{aligned}
+\inv{T} \int_\tau^{\tau+T} \calE(t) dt &=
+\inv{4} \lr{
+\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 } \\
+\inv{T} \int_\tau^{\tau+T} \BS(t) dt &= \Real \calS.
+\end{aligned}
+\end{dmath}
+
+%Much of the preceding discussion shows how to determine the conventional energy and Poynting vector expressions in terms of separate electric and magnetic fields.
+%While this demonstrate that the GA approach yields equivalent results, what we really want to do is to
+%avoid separate electric and magnetic fields, using
+%\cref{eqn:poyntingFComplexPower:60} to describe the energy and momentum of the field in terms of the composite field \( F \) directly.
+%When using \( F \) instead of the component fields,
+%scalar and vector grade selection can be used to decouple the energy and momentum terms when desired.
+      \section{Lorentz force.}
+         \subsection{Statement.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+We now wish to express the Lorentz force equation \cref{eqn:freespace:200} in its geometric algebra form.  
+A few definitions are helpful.
+
+\makedefinition{Energy momentum multivector.}{dfn:lorentzForce:300}{
+For a particle with energy \( \calE \) and momentum \( \Bp \), we define the \textit{energy momentum multivector} as
+\begin{equation*}
+T = \calE + c \Bp.
+\end{equation*}
+} % definition
+
+\makedefinition{Multivector charge.}{dfn:lorentzForce:280}{
+We may define a \textit{multivector charge} that includes both the magnitude and velocity (relative to the speed of light) of the charged particle.
+\begin{equation*}
+Q = \int_V J dV,
+\end{equation*}
+where \( \BJ = \rho_\txte \Bv_\txte, \BM = \rho_\txtm \Bv_\txtm \).
+For electric charges this is
+\begin{equation*}
+Q = q_\txte \lr{ 1 + \Bv_\txte/c },
+\end{equation*}
+and for magnetic charges
+\begin{equation*}
+Q = I q_\txtm \lr{ 1 + \Bv_\txtm/c },
+\end{equation*}
+where \( q_\txte = \int_V \rho_\txte dV, q_\txtm = \int_V \rho_\txtm dV \).
+} % definition
+
+With a multivector charge defined, the Lorentz force equation can be stated in terms of the total electromagnetic field strength
+\maketheorem{Lorentz force and power.}{thm:lorentzForce:300}{
+The respective power and force experienced by particles with electric (and/or magnetic) charges is described by
+\cref{dfn:lorentzForce:280} is
+\begin{equation*}
+\inv{c} \frac{dT}{dt} = \gpgrade{ F Q^\dagger }{0,1} = \inv{2} \lr{ F^\dagger Q + F Q^\dagger }.
+\end{equation*}
+where \( \gpgradezero{dT/dt} = \ifrac{d\calE}{dt} \) is the power and \( \gpgradeone{dT/dt} = c \ifrac{d\Bp}{dt} \) is the force on the particle, and
+\( Q^\dagger \) is the electric or magnetic charge/velocity multivector of \cref{dfn:lorentzForce:280}.
+The conventional representation of the Lorentz force/power equations
+\begin{equation*}
+\begin{aligned}
+\gpgradeone{ F Q^\dagger } &= \ddt{\Bp} = q \lr{ \BE + \Bv \cross \BB } \\
+c \gpgradezero{ F Q^\dagger } &= \ddt{\calE} = q \BE \cdot \Bv.
+\end{aligned}
+\end{equation*}
+%given by \cref{eqn:freespace:180}
+may be recovered by grade selection operations.
+For magnetic particles, such a grade selection gives
+\begin{equation*}
+\begin{aligned}
+\gpgradeone{ F Q^\dagger } &= \frac{d\Bp}{dt} = q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE } \\
+c \gpgradezero{ F Q^\dagger } &= \frac{d\calE}{dt} = \inv{\eta} q_\txtm \BB \cdot \frac{\Bv_\txtm}{c}.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove
+\cref{thm:lorentzForce:300},
+we can expand the multivector product
+\( F q \lr{ 1 + \ifrac{\Bv}{c} } \) into its constituent grades
+\begin{dmath}\label{eqn:lorentzForce:40}
+q F \lr{ 1 + \frac{\Bv}{c} }
+=
+q
+\lr{ \BE + I c \BB }
+\lr{ 1 + \frac{\Bv}{c} }
+=
+q \BE
++ q I \BB \Bv
++ \frac{q}{c} \BE \Bv
++ q c I \BB
+=
+  \frac{q}{c} \BE \cdot \Bv
++ q \lr{ \BE + \Bv \cross \BB }
++ q \lr{ c I \BB + \inv{c} \BE \wedge \Bv }
++ q (I \BB) \wedge \Bv.
+\end{dmath}
+
+We see the (c-scaled) particle power relationship
+\cref{eqn:freespace:220}
+in the grade zero component and the Lorentz force \cref{eqn:freespace:220} in the grade 1 component.
+A substitution \( q \rightarrow -I q_\txtm, \Bv \rightarrow \Bv_\txtm \), and subsequent grade 0,1 selection gives
+\begin{dmath}\label{eqn:lorentzForce:320}
+\gpgrade{
+-I q_\txtm F \lr{ 1 + \frac{\Bv_\txtm}{c} }
+}{0,1}
+=
+- I q_\txtm \lr{ c I \BB + \inv{c} \BE \wedge \Bv_\txtm }
+- I q_\txtm I \BB \cdot \Bv_\txtm
+=
+q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE }
++
+q_\txtm \BB \cdot \Bv_\txtm.
+\end{dmath}
+The grade one component of this multivector has the
+required form for the dual Lorentz force equation
+from \cref{thm:poyntingTheoremRewrite:1420}.
+%, as determined from the conservation relationships for the energy momentum tensor in
+%\cref{eqn:poyntingLorentzForce:140}.
+Scaling the grade zero component by \( c \) completes the proof.
+
+%As the electric and magnetic field contributions to the force are subsumed by the total electromagnetic field strength \( F \), \cref{thm:lorentzForce:300} puts the electric and magnetic fields on equal footing.
+         \subsection{Constant magnetic field.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+
+The Lorentz force equation that determines the dynamics of a charged particle in an external field \( F \) has been restated as a multivector differential equation, but how to solve such an equation is probably not obvious.
+Given a constant external magnetic field bivector \( F = I c \BB \), the Lorentz force equation is reduced to
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:60}
+m \frac{d\Bv}{dt} = q F \cdot \frac{\Bv}{c},
+\end{dmath}
+or
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:80}
+\begin{aligned}
+\Omega &= -\frac{q F}{m c} \\
+\frac{d\Bv}{dt} &= \Bv \cdot \Omega,
+\end{aligned}
+\end{dmath}
+where \( \Omega \) is a bivector containing all the constant factors.
+
+This can be solved by introducing a multivector integration factor \( R \) and its reverse \( R^\dagger \) on the left and right respectively
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:100}
+R \frac{d\Bv}{dt} R^\dagger
+= R \Bv \cdot \Omega R^\dagger
+= \inv{2} R \lr{ \Bv \Omega - \Omega \Bv} R^\dagger
+= \inv{2} R \Bv \Omega R^\dagger - \inv{2} R \Omega \Bv R^\dagger,
+\end{dmath}
+or
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:120}
+0 =
+R \frac{d\Bv}{dt} R^\dagger
++ \inv{2} R \Omega \Bv R^\dagger
+- \inv{2} R \Bv \Omega R^\dagger.
+\end{dmath}
+
+Let
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:140}
+\dot{R} = R \Omega/2.
+\end{dmath}
+
+Since \( \Omega \) is a bivector \( \dot{R}^\dagger = -\Omega R^\dagger/2 \), so by chain rule
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:160}
+0
+=
+\frac{d}{dt} \lr{
+R \Bv R^\dagger
+}.
+\end{dmath}
+
+The integrating factor has solution
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:180}
+R = e^{\Omega t/2},
+\end{dmath}
+a ``complex exponential'', so the solution of \cref{eqn:lorentzForce_constantMagnetic:60} is
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:200}
+\Bv(t) = e^{-\Omega t/2} \Bv(0) e^{\Omega t/2}.
+\end{dmath}
+
+The velocity of the charged particle traces out a helical path.
+Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.
+If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
+\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:220}
+\begin{aligned}
+\Bv(0)_\parallel &= \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1}
+                  = (\Bv(0) \wedge \Bcap) \cdot \Bcap \\
+\Bv(0)_\perp &= \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1}
+              = (\Bv(0) \cdot \Bcap) \Bcap \\
+\Bv(t) &=
+\Bv(0)_\parallel e^{\Omega t} + \Bv(0)_\perp \\
+       &=
+\Bv(0)_\parallel \cos( q B t/ m )
++
+\Bv(0)_\parallel \cross \Bcap \sin( q B t/ m )
++ \Bv(0)_\perp,
+\end{aligned}
+\end{dmath}
+where \( \BB = B \Bcap \).
+
+A multivector integration factor method for solving the Lorentz force equation in constant external electric and magnetic fields can be found in \citep{hestenes1999nfc}.  Other examples, solved using a relativistic formulation of GA, can be found in \citep{doran2003gap},
+\citep{hestenes1974properdynamics}, and
+\citep{hestenes1974propermechanics}.
+
+\subsubsection{Problems.}
+\makeproblem{Constant magnetic field.}{problem:lorentzForce_constantMagnetic:240}{
+In \cref{eqn:lorentzForce_constantMagnetic:220}, each of
+\( \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \), \( \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1} \), and
+\( \Bv(0)_\parallel e^{\Omega t} + \Bv(0)_\perp \), was expanded by setting \( \hat{\Omega} = I \Bcap \).  Perform those calculations.
+} % problem
+      \section{Polarization.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{polarizationRewrite}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_cal} % \calE
+%%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%\beginArtNoToc
+%
+%\generatetitle{Polarization}
+%\chapter{Polarization}
+\label{chap:polarizationRewrite}
+
+%\section{Polarization.}
+\subsection{Phasor representation.}
+            %\input{polarization.tex}
+\index{plane wave}
+\index{polarization}
+In a discussion of polarization, it is convenient to align the propagation direction along a fixed direction, usually the z-axis.
+%%\begin{dmath}\label{eqn:frequencydomainPlaneWaves:200}
+%\boxedEquation
+%{eqn:frequencydomainPlaneWaves:200}
+%{
+%F = (1 + \kcap) \BE_0 e^{-j \Bk \cdot \Bx},
+%}
+%%\end{dmath}
+Setting \( \kcap = \Be_3, \beta z = \Bk \cdot \Bx \)
+in a
+plane wave representation from
+\cref{thm:planewavesMultivector:620}
+%\cref{eqn:frequencydomainPlaneWaves:200} the plane wave representation of
+the field is
+\begin{dmath}\label{eqn:polarization:20}
+\begin{aligned}
+F(\Bx, \omega) &= (1 + \Be_3) \BE e^{-j \beta z} \\
+F(\Bx, t) &= \Real\lr{ F(\Bx, \omega) e^{j \omega t} },
+\end{aligned}
+\end{dmath}
+where \( \BE \cdot \Be_3 = 0 \)
+, (i.e. \( \BE \) is an electric field, and not just a free parameter).
+
+Here the imaginary \( j \) has no intrinsic geometrical interpretation, \( \BE = \BE_\txtr + j \BE_\txti \) is allowed to have complex values, and all components of \( \BE \) is perpendicular to the propagation direction (\( \BE_\txtr \cdot \Be_3 = \BE_\txti \cdot \Be_3 = 0 \)).  Stated explicitly, this means that the electric field phasor may have real or complex components in either of the transverse plane basis directions, as in
+\begin{dmath}\label{eqn:polarization:640}
+\BE =
+\lr{ \alpha_1 + j \beta_1 } \Be_1 +
+\lr{ \alpha_2 + j \beta_2 } \Be_2.
+\end{dmath}
+The total time domain field for this general phasor field is easily found to be
+\begin{dmath}\label{eqn:polarization_circular:160}
+F(\Bx, t) = (1 + \Be_3) \lr{
+\lr{ \alpha_1 \Be_1 + \alpha_2 \Be_2 } \cos\lr{ \omega t - \beta z }
+-\lr{ \beta_1 \Be_1 + \beta_2 \Be_2 } \sin\lr{ \omega t - \beta z }
+}.
+\end{dmath}
+
+Different combinations of \( \alpha_1, \alpha_2, \beta_1, \beta_2 \) lead to linear, circular, or elliptically polarized plane wave states to be discussed shortly.
+Before doing so, we want to find natural multivector representations of \cref{eqn:polarization_circular:160}.
+Such representations are possible using
+either the pseudoscalar for the transverse plane \( \Be_{12} \), or the \R{3} pseudoscalar \( I \).
+
+\subsection{Transverse plane pseudoscalar.}
+\subsubsection{Statement.}
+
+In this section the pseudoscalar of the transverse plane, written \( i = \Be_{12} \), is used as an imaginary.
+
+\makedefinition{Phase angle.}{dfn:polarizationRewrite:660}{
+Define the total phase as
+\begin{equation*}
+\phi(z,t) = \omega t - \beta z.
+\end{equation*}
+} % definition
+
+We seek a representation of the field utilizing complex exponentials of the phase, instead of signs and cosines.  It will be helpful to define the coordinates of the Jones vector to state that reprepresentation.
+
+\index{Jones vector}
+\makedefinition{Jones vectors.}{dfn:polarizationRewrite:680}{
+The coordinates of the Jones vector, conventionally defined as a tuple of complex values \((c_1, c_2)\), are
+\begin{equation*}
+\begin{aligned}
+c_1 &= \alpha_1 + i \beta_1 \\
+c_2 &= \alpha_2 + i \beta_2.
+\end{aligned}
+\end{equation*}
+In this definition we have used \( i = \Be_{12} \), the pseudoscalar of the transverse plane, as the imaginary.
+} % definition
+We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stated above.
+
+\maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:700}{
+The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
+\begin{equation*}
+F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{i\phi} + \alpha_\txtL e^{-i\phi} },
+\end{equation*}
+where
+\begin{equation*}
+\begin{aligned}
+\alpha_\txtR &= \inv{2}\lr{ c_1 + i c_2 } \\
+\alpha_\txtL &= \inv{2}\lr{ c_1 - i c_2 }^\dagger,
+\end{aligned}
+\end{equation*}
+where \( c_1, c_2 \) are the 0,2 grade multivector representation of the Jones vector coordinates from \cref{dfn:polarizationRewrite:680}.
+} % definition
+
+To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) out of \cref{eqn:polarization_circular:160} and then substitute complex exponentials for the sine and cosine
+\begin{dmath}\label{eqn:polarizationRewrite:700}
+\begin{aligned}
+\biglr{ \alpha_1 \Be_1 &+ \alpha_2 \Be_2 } \cos\lr{ \phi }
+-\biglr{ \beta_1 \Be_1 + \beta_2 \Be_2 } \sin\lr{ \phi } \\
+&=
+\Be_1 \lr{
+ \lr{ \alpha_1  + \alpha_2 i } \cos\lr{ \phi }
+-\lr{ \beta_1  + \beta_2 i } \sin\lr{ \phi }
+} \\
+&=
+\frac{\Be_1}{2} \lr{
+ \lr{ \alpha_1  + \alpha_2 i } \lr{ e^{i\phi} + e^{-i\phi} }
++\lr{ \beta_1  + \beta_2 i } i \lr{ e^{i\phi} - e^{-i\phi} }
+} \\
+&=
+\frac{\Be_1}{2} \lr{
+ \lr{ \alpha_1 + i \beta_1  + i (\alpha_2 + i \beta_2) } e^{i\phi}
++
+ \lr{ (\alpha_1 + i \beta_1 )^\dagger + i( \alpha_2 + i \beta_2 )^\dagger } e^{-i\phi}
+} \\
+&=
+\frac{\Be_1}{2} \lr{
+ \lr{ c_1 + i c_2 } e^{i\phi}
++
+ \lr{ c_1 - i c_2 }^\dagger e^{-i\phi}
+},
+\end{aligned}
+\end{dmath}
+which completes the proof.
+
+\subsubsection{Linear polarization.}
+
+Linear polarization is described by
+\begin{dmath}\label{eqn:polarization_linearPolarization:280}
+\begin{aligned}
+\alpha_\txtR &= \inv{2}\Norm{\BE} e^{i(\psi + \theta)} \\
+\alpha_\txtL &= \inv{2}\Norm{\BE} e^{i(\psi - \theta)},
+\end{aligned}
+\end{dmath}
+so the field is
+\begin{dmath}\label{eqn:polarization_linearPolarization:300}
+F = \lr{ 1 + \Be_3 } \Norm{\BE} \Be_1 e^{i\psi} \cos( \omega t - \beta z + \theta ).
+\end{dmath}
+Here \( \theta \) is an arbitrary initial phase.
+The electric field \( \BE \) traces out all the points along the line spanning the points between \( \pm \Be_1 e^{i\psi} \Norm{\BE} \), whereas the magnetic field \( \BH \) traces
+out all the points along \( \pm \Be_2 e^{i\psi} \Norm{\BE}/\eta \) as illustrated (with \( \eta = 1 \)) in
+\cref{fig:linearPolarization:linearPolarizationFig1}.
+\imageFigure{../figures/GAelectrodynamics/linearPolarizationFig1}{Linear polarization.}{fig:linearPolarization:linearPolarizationFig1}{0.3}
+
+\subsubsection{Circular polarization.}
+\index{circular polarization}
+\index{left circular polarization}
+\index{right circular polarization}
+
+A field for which the change in phase
+results in the electric field tracing out a (clockwise,counterclockwise) circle
+\begin{dmath}\label{eqn:polarization_circular:180}
+\begin{aligned}
+\BE_\txtR &= \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{  \Be_{12} \phi } \\
+\BE_\txtL &= \Norm{\BE} \lr{ \Be_1 \cos\phi - \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{ -\Be_{12} \phi },
+\end{aligned}
+\end{dmath}
+is referred to as having
+(right,left) circular polarization, so the choice
+\(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) results
+in a right polarized wave
+\begin{dmath}\label{eqn:polarizationRewrite:720}
+F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{i(\omega t - k z)},
+\end{dmath}
+and
+\(\alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \) results
+in a left polarized wave
+\begin{dmath}\label{eqn:polarizationRewrite:740}
+F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{-i(\omega t - k z)},
+\end{dmath}
+There are different conventions for the polarization orientation, and here the IEEE antenna convention discussed in \citep{balanis1989advanced} are used.
+
+\subsubsection{Elliptical parameterization.}
+An elliptical polarized electric field can be parameterized as
+\begin{dmath}\label{eqn:polarization_elliptical:340}
+\BE
+=
+E_a \Be_1 \cos\phi + E_b \Be_2 \sin\phi,
+\end{dmath}
+which corresponds to
+%a Jones vector \( (E_a, -i E_b) \), or
+circular polarization coefficients with values
+\begin{dmath}\label{eqn:polarization_elliptical:400}
+\begin{aligned}
+\alpha_\txtR &= \inv{2}\lr{ E_a - E_b } \\
+\alpha_\txtL &= \inv{2}\lr{ E_a + E_b }.
+\end{aligned}
+\end{dmath}
+
+Therefore an elliptically polarized field can be represented as
+\begin{dmath}\label{eqn:polarization_elliptical:420}
+F = \inv{2} (1 + \Be_3) \Be_1 \lr{ (E_a + E_b) e^{i\phi} + (E_a - E_b) e^{-i\phi} }.
+\end{dmath}
+
+An interesting variation of the elliptical polarization uses a hyperbolic parameterization.
+If \( a, b \) are the semi-major/minor axes of the ellipse (i.e. \( a > b \)),
+and \( \Ba = a \Be_1 e^{i\psi} \) is the vectoral representation of the semi-major axis (not necessarily placed along \( \Be_1 \)),
+and \( e = \sqrt{1 - (b/a)^2} \) is the eccentricity of the ellipse,
+then it can be shown (\citep{hestenes1999nfc})
+that an elliptic parameterization can be written
+in the compact form
+\begin{dmath}\label{eqn:polarization_elliptical:360}
+\Br(\phi)
+=
+e \Ba \cosh( \tanh^{-1}(b/a) + i \phi).
+\end{dmath}
+
+When the bivector imaginary \( i = \Be_{12} \) is used then
+this parameterization is real and has only vector grades, so the electromagnetic field for a general elliptic wave has the form
+\begin{dmath}\label{eqn:polarization_elliptical:380}
+\begin{aligned}
+F &= e E_a \lr{ 1 + \Be_3 } \Be_1 e^{ i \psi } \cosh\lr{ m + i \phi} \\
+m &= \tanh^{-1}\lr{ E_b/E_a } \\
+e &= \sqrt{1 - {(E_b/E_a)}^2 },
+\end{aligned}
+\end{dmath}
+where \( E_a(E_b) \) are the magnitudes of the electric field components lying along the semi-major(minor) axes, and the propagation direction \( \Be_3 \) is normal to both the major and minor axis directions.
+An elliptic electric field polarization is illustrated in \cref{fig:ellipticalPolarization:ellipticalPolarizationFig1}, where the vectors representing the major and minor axes are \( \BE_a = E_a \Be_1 e^{i\psi}, \BE_b = E_b \Be_1 e^{i\psi} \).
+Observe that setting \( E_b = 0 \) results in the linearly polarized field of \cref{eqn:polarization_linearPolarization:300}.
+\imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
+
+\subsubsection{Energy and momentum.}
+
+Each of the polarizations considered above (linear, circular, elliptical) have the same general form
+\begin{dmath}\label{eqn:polarizationRewrite:760}
+F = \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f(\phi),
+\end{dmath}
+where \( f(\phi) \) is a complex valued function (i.e. grade 0,2).  The structure of \cref{eqn:polarizationRewrite:760} could be more general than considered so far.  For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).  Independent of the form of \( f \), we may compute the energy, momentum and Maxwell stress tensor for the plane wave given by \cref{eqn:polarizationRewrite:760}.
+
+\maketheorem{Energy momentum tensor components for a plane wave.}{thm:polarizationRewrite:780}{
+The energy momentum tensor components for the plane wave given by \cref{eqn:polarizationRewrite:760} are
+\begin{equation*}
+\begin{aligned}
+T(1) &= -T(\Be_3) = \epsilon \lr{ 1 + \Be_3 } f f^\dagger = \calE + \frac{\BS}{c} \\
+T(\Be_1) &= T(\Be_2) = 0.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+Only the propagation direction of a plane wave, regardless of its polarization (or even whether or not there are Gaussian or other damping factors), carries any energy or momentum, and only the propagation direction component of the Maxwell stress tensor \( \BT(\Ba) \) is non-zero.
+
+To prove \cref{thm:polarizationRewrite:780}, we may compute \( T(a) \) separately for each of \( a = 1,\Be_1, \Be_2, \Be_3 \).  Key to all of these computations is the fact that \( \Be_3 \) commutes with scalars and \( i \), and \( \Be_1, \Be_2 \) both anticommute with \( i \), and more generally \(
+\begin{bmatrix}
+\Be_1 \\
+\Be_2
+\end{bmatrix}
+(a + i b) = (a - i b)
+\begin{bmatrix}
+\Be_1 \\
+\Be_2
+\end{bmatrix}
+\).  For \( T(1) \) we need the product of the field and its reverse
+\begin{dmath}\label{eqn:polarizationRewrite:780}
+F F^\dagger
+=
+\lr{ 1 + \Be_3 } \cancel{\Be_1 e^{i\psi}} \
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{ f f^\dagger
+}
+{
+scalar
+}
+\cancel{ e^{-i\psi} \Be_1} \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 }^2 f f^\dagger
+= 2 \lr{ 1 + \Be_3 } f f^\dagger,
+\end{dmath}
+so \( T(1) = \epsilon \lr{ 1 + \Be_3 } f f^\dagger \).  For \( T(\Be_3) \) we have
+\begin{dmath}\label{eqn:polarizationRewrite:800}
+F \Be_3 F^\dagger
+=
+\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_3 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+-\lr{ 1 + \Be_3 } \Be_3 \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+-\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+-2 \lr{ 1 + \Be_3 } f f^\dagger,
+\end{dmath}
+so \( T(\Be_3) = -T(1) \).
+For \( T(\Be_1) \), we have
+\begin{dmath}\label{eqn:polarizationRewrite:820}
+F \Be_1 F^\dagger
+=
+\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_1 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f^2 e^{i\psi} \Be_1^2 \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 } \Be_1 f^2 e^{2 i\psi} \lr{ 1 + \Be_3 }
+=
+\lr{ 1 + \Be_3 } \Be_1 \lr{ 1 + \Be_3 } f^2 e^{2 i\psi}
+=
+\lr{ 1 + \Be_3 } \lr{ 1 - \Be_3 } \Be_1 f^2 e^{2 i\psi}
+=
+\lr{ 1 - \Be_3^2 } \Be_1 f^2 e^{2 i\psi}
+=
+0.
+\end{dmath}
+Clearly \( F \Be_2 F^\dagger = 0 \) as well, so \( T(\Be_1) = T(\Be_2) = 0 \), completing the proof.
+
+Using \cref{thm:polarizationRewrite:780} the energy momentum vector for the linearly polarized wave of \cref{eqn:polarization_linearPolarization:300} is
+\begin{dmath}\label{eqn:polarizationRewrite:840}
+T(1) = \frac{\epsilon}{2} \lr{ 1 + \Be_3 } \Norm{\BE}^2 \cos^2( \phi + \theta ),
+\end{dmath}
+and for the circularly polarized wave of \cref{eqn:polarizationRewrite:720}, or
+\cref{eqn:polarizationRewrite:740} is
+\begin{dmath}\label{eqn:polarizationRewrite:860}
+T(1) = \frac{\epsilon}{2} (1 + \Be_3) \Norm{\BE}^2.
+\end{dmath}
+A circularly polarized wave carries maximum energy and momentum, whereas the energy and momentum of a linearly polarized wave
+oscillates with the phase angle.
+
+For the elliptically polarized wave of \cref{eqn:polarization_elliptical:380} we have
+\( f(\phi) = e E_a \cosh\lr{ m + i \phi} \).  The absolute value of \( f \) is
+\begin{dmath}\label{eqn:polarizationRewrite:880}
+f f^\dagger
+= e^2 E_a^2 \cosh\lr{ m + i \phi} \lr{\cosh\lr{ m + i \phi}}^\dagger
+= e^2 E_a^2 \lr{ \cosh(2m) + \cos(2 \phi) }
+= e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }
+\end{dmath}
+The simplification above made use of the identity \( (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2 \).  The energy momentum for an elliptically polarized wave is therefore
+\begin{dmath}\label{eqn:polarizationRewrite:900}
+T(1)
+= \frac{\epsilon}{2} \lr{ 1 + \Be_3 } e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }.
+\end{dmath}
+As expected, the phase dependent portion of the energy momentum tensor vanishes as the wave function approaches circular polarization.
+
+\subsection{Pseudoscalar imaginary.}
+
+In this section we use the \R{3} pseudoscalar as an imaginary.
+As before, we seek a representation of the field utilizing complex exponentials of the phase, instead of signs and cosines, and as before the we wish to define Jones vector coordinates as a go-between.
+
+\index{Jones vector}
+\makedefinition{Jones vectors.}{dfn:polarizationRewrite:920}{
+The coordinates of the Jones vector, conventionally defined as a tuple of complex values \((c_1, c_2)\), are
+\begin{equation*}
+\begin{aligned}
+c_1 &= \alpha_1 + I \beta_1 \\
+c_2 &= \alpha_2 + I \beta_2.
+\end{aligned}
+\end{equation*}
+In this definition we have used the \R{3} pseudoscalar \( I \) as the imaginary.
+} % definition
+We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stated above.
+
+\maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:940}{
+The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
+\begin{equation*}
+F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{-I\phi} + \alpha_\txtL e^{I\phi} },
+\end{equation*}
+where
+\begin{equation*}
+\begin{aligned}
+\alpha_\txtR &= \inv{2}\lr{ c_1 + I c_2 }^\dagger \\
+\alpha_\txtL &= \inv{2}\lr{ c_1 - I c_2 },
+\end{aligned}
+\end{equation*}
+where \( c_1, c_2 \) are the 0,2 grade multivector representation of the Jones vector coordinates from \cref{dfn:polarizationRewrite:920}.
+} % definition
+
+Notice that the signs of the exponentials have flipped for the left and right handed circular polarizations.  It may not obvious that the electric and magnetic fields in this representation have the desired transverse properties.  To see why that is still the case, and to understand the conjugation in the complex exponentials, consider the right circular polarization case with \( \alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \)
+\begin{dmath}\label{eqn:polarizationRewrite:940}
+F
+= \lr{ 1 + \Be_3 } \Be_1 \Norm{\BE} e^{-I\phi}
+= \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi - \Be_{23} \sin\phi }
+= \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_{32} \sin\phi },
+\end{dmath}
+but since \( \lr{ 1 + \Be_3 } \Be_3 = 1 + \Be_3 \), we have
+\begin{dmath}\label{eqn:polarizationRewrite:960}
+F
+= \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_{2} \sin\phi },
+\end{dmath}
+which has the claimed right circular polarization.
+
+To prove \cref{thm:polarizationRewrite:940} itself, the sine and cosine in \cref{eqn:polarization_circular:160} can be expanded in complex exponentials
+\begin{dmath}\label{eqn:polarizationRewrite:980}
+\begin{aligned}
+2 &\lr{ \alpha_1 \Be_1 + \alpha_2 \Be_2 } \cos \phi
+-
+2 \lr{ \beta_1 \Be_1 + \beta_2 \Be_2 } \sin \phi \\
+&\quad=
+\lr{ \alpha_1 \Be_1 + \alpha_2 \Be_2 }
+\lr{ e^{I \phi} + e^{-I\phi} }
++
+\lr{ \beta_1 \Be_1 + \beta_2 \Be_2 } I
+\lr{ e^{I \phi} - e^{-I\phi} } \\
+&\quad =
+\lr{ \alpha_1 \Be_1 - I \alpha_2 (I \Be_2) }
+\lr{ e^{I \phi} + e^{-I\phi} }
++
+\lr{ \beta_1 \Be_1 - I \beta_2 (I \Be_2) } I
+\lr{ e^{I \phi} - e^{-I\phi} }.
+\end{aligned}
+\end{dmath}
+Since the leading \( 1 + \Be_3 \) gobbles any \( \Be_3 \) factors, its action on the dual of \( \Be_2 \) is
+\begin{dmath}\label{eqn:polarizationRewrite:1000}
+\lr{ 1 + \Be_3 } I \Be_2
+=
+\lr{ 1 + \Be_3 } \Be_{31}
+=
+\lr{ 1 + \Be_3 } \Be_{1}.
+\end{dmath}
+This allows us to unconditionally factor out \( \Be_1 \) from
+\cref{eqn:polarizationRewrite:980}, so the field is
+\begin{dmath}\label{eqn:polarizationRewrite:1020}
+F
+= \inv{2}\lr{ 1 + \Be_3 } \Be_1
+\lr{
+   \lr{ \alpha_1  - I \alpha_2  } \lr{ e^{I \phi} + e^{-I\phi} }
+   +
+   \lr{ \beta_1  - I \beta_2  } I \lr{ e^{I \phi} - e^{-I\phi} }
+}
+= \inv{2}\lr{ 1 + \Be_3 } \Be_1
+\lr{
+   \lr{
+      \alpha_1 + I \beta_1
+    - I \lr{ \alpha_2 + I \beta_2 }
+   } e^{I \phi}
+   +
+   \lr{
+      \alpha_1 - I \beta_1
+      -I \lr{ \alpha_2 - I \beta_2 }
+   } e^{-I\phi}
+}
+= \inv{2}
+\lr{ 1 + \Be_3 } \Be_1
+\lr{
+   \lr{ c_1 - I c_2 } e^{I \phi}
+   +
+   \lr{
+      c_1^\dagger -I c_2^\dagger
+   } e^{-I\phi}
+}
+=
+\lr{ 1 + \Be_3 } \Be_1
+\lr{
+   \alpha_\txtR e^{-I\phi}
++
+   \alpha_\txtL e^{-I\phi}
+},
+\end{dmath}
+which completes the proof.
+
+Observe that there are some advantages to the pseudoscalar plane wave form, especially for computing energy momentum tensor components since \( I \) commutes with all grades.  For example, we can see practically by inspection that
+\begin{equation}\label{eqn:polarization_pseudoscalarImaginary:620}
+T(1) = \calE + \frac{\BS}{v} =
+\epsilon \lr{ 1 + \Be_3 } \lr{ \Abs{\alpha_\txtR}^2 + \Abs{\alpha_\txtL}^2 },
+\end{equation}
+where the absolute value is computed using the reverse as the conjugation operation \( \Abs{z}^2 = z z^\dagger \).
+
+%}
+%\EndArticle
+      \section{Transverse fields in a waveguide.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%original ideas from gabookII/electrodynamics/transverseField.tex:
+We now wish to consider more general solutions to the source free Maxwell's equation than the plane wave solutions derived in \cref{chap:planewavesMultivector}.
+One way of tackling this problem is to assume the solution exists, but ask how the field components that lie strictly along the propagation direction are related to the transverse components of the field.
+Without loss of generality, it can be assumed that the propagation direction is along the z-axis.
+
+\maketheorem{Transverse and propagation field components.}{thm:transverseField:288}{
+If \( \Be_3 \) is the
+propagation direction, the components of a field \( F \) in the propagation direction and in the transverse plane are respectively
+\begin{equation*}
+\begin{aligned}
+F_z &= \inv{2} \lr{ F + \Be_3 F \Be_3 } \\
+F_t &= \inv{2} \lr{ F - \Be_3 F \Be_3 },
+\end{aligned}
+\end{equation*}
+where \( F = F_z + F_t \).
+} % theorem
+
+To determine the components of the field that lie in the propagation direction and transverse planes, we state the field in the propagation direction, building it from the electric and magnetic field projections along the z-axis
+\begin{dmath}\label{eqn:transverseField:108}
+F_z
+=
+\lr{ \BE \cdot \Be_3 }
+ \Be_3
++ I \eta \lr{ \BH \cdot \Be_3 } \Be_3
+=
+\inv{2}
+\lr{ \BE \Be_3 + \Be_3 \BE }
+ \Be_3
++ \inv{2} I \eta \lr{ \BH \Be_3 + \Be_3 \BH } \Be_3
+=
+\inv{2}
+\lr{ \BE + \Be_3 \BE \Be_3 }
++ \inv{2} I \eta \lr{ \BH + \Be_3 \BH \Be_3 }
+=
+\inv{2} \lr{ F + \Be_3 F \Be_3 }.
+\end{dmath}
+The difference \( F - F_z \) is the transverse component
+\begin{dmath}\label{eqn:transverseField:308}
+F_t
+= F - F_z
+=
+F -
+\inv{2} \lr{ F + \Be_3 F \Be_3 }
+=
+\inv{2} \lr{ F - \Be_3 F \Be_3 },
+\end{dmath}
+as claimed.
+
+We wish to split the gradient into transverse and propagation direction components.
+
+\makedefinition{Transverse and propagation direction gradients.}{dfn:transverseField:328}{
+Define the \textit{propagation direction gradient} as \( \Be_3 \partial_z \), and
+\textit{transverse gradient} by
+\begin{equation*}
+\spacegrad_t = \spacegrad - \Be_3 \partial_z.
+\end{equation*}
+} % definition
+
+Given this definition, we seek to show that
+
+\maketheorem{Transverse and propagation field solutions.}{thm:transverseField:348}{
+Given a field propagating along the z-axis (either forward or backwards), with angular frequency \( \omega \), represented by the real part of
+\begin{equation*}
+F(x, y, z, t) = F(x, y) e^{j \omega t \mp j k z},
+\end{equation*}
+the field components that solve the source free Maxwell's equation are related by
+\begin{equation*}
+\begin{aligned}
+F_t &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_z \\
+F_z &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_t.
+\end{aligned}
+\end{equation*}
+Written out explicitly, the transverse field component expands as
+\begin{equation*}
+\begin{aligned}
+\BE_t &=
+\frac{j}{{\frac{\omega}{c}}^2 - k^2}
+\lr{
+   \pm k \spacegrad_t E_z
+   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
+}
+\\
+\eta \BH_t &=
+\frac{j}{{\frac{\omega}{c}}^2 - k^2}
+\lr{
+   \pm k \eta \spacegrad_t H_z
+   -
+   \frac{\omega}{c}
+   \Be_3 \cross \spacegrad_t E_z
+}.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove we first insert the assumed phasor representation into Maxwell's equation, which gives
+\begin{equation}\label{eqn:transverseField:summaryMax2}
+\lr{\spacegrad_t + j \lr{ \frac{\omega}{c} \mp k \Be_3 } } F(x,y) = 0.
+\end{equation}
+
+Dropping the \( x, y \) dependence for now (i.e.  \( F(x, y) \rightarrow F \), we find a relation between the transverse gradient of \( F \) and the propagation direction gradient of \( F \)
+
+\begin{dmath}\label{eqn:transverseField:148}
+\spacegrad_t F = - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F.
+\end{dmath}
+From this we now seek to determine the relationships between \( F_t \) and \( F_z \).
+
+Since \( \spacegrad_t \) has no \( \xcap, \ycap \) components, \( \Be_3 \) anticommutes with the transverse gradient
+\begin{dmath}\label{eqn:transverseField:168}
+\Be_3 \spacegrad_t = - \spacegrad_t \Be_3,
+\end{dmath}
+but commutes with \( 1 \mp \Be_3 \).
+%In \cref{eqn:transverseField:168} it is implied that the action of \( \spacegrad_t \) is on everything to its right.
+This means that
+\begin{dmath}\label{eqn:transverseField:188}
+\inv{2} \lr{ \spacegrad_t F \pm \Be_3 \lr{ \spacegrad_t F } \Be_3 }
+=
+\inv{2} \lr{ \spacegrad_t F \mp \spacegrad_t \Be_3 F \Be_3 }
+=
+\spacegrad_t
+\inv{2} \lr{ F \mp \Be_3 F \Be_3 },
+\end{dmath}
+or
+\begin{dmath}\label{eqn:transverseField:208}
+\begin{aligned}
+\inv{2} \lr{ \spacegrad_t F + \Be_3 \lr{ \spacegrad_t F } \Be_3 } &= \spacegrad_t F_t \\
+\inv{2} \lr{ \spacegrad_t F - \Be_3 \lr{ \spacegrad_t F } \Be_3 } &= \spacegrad_t F_z,
+\end{aligned}
+\end{dmath}
+so Maxwell's equation \cref{eqn:transverseField:148} becomes
+\begin{dmath}\label{eqn:transverseField:228}
+\begin{aligned}
+\spacegrad_t F_t &= - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F_z \\
+\spacegrad_t F_z &= - j \lr{ \frac{\omega}{c} \mp k \Be_3 } F_t.
+\end{aligned}
+\end{dmath}
+
+Provided \( \omega^2 \ne (k c)^2 \), these can be inverted.
+Such an inversion allows an application of the transverse gradient to whichever one
+of \( F_z, F_t \) is known, to compute the other, as stated in
+\cref{thm:transverseField:348}.
+
+The relation for \( F_t \) in
+\cref{thm:transverseField:348}
+is usually stated in terms of the electric and magnetic fields.
+To perform that expansion, we must first evaluate the multivector inverse explicitly
+\begin{dmath}\label{eqn:transverseField:348}
+\begin{aligned}
+F_z &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } \spacegrad_t F_t \\
+F_t &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } \spacegrad_t F_z.
+\end{aligned}
+\end{dmath}
+so that we are in position to expand most of the terms in the numerator
+\begin{dmath}\label{eqn:transverseField:268}
+\lr{ \frac{\omega}{c} \pm k \Be_3 } \spacegrad_t F_z
+=
+-\lr{ \Be_3 \frac{\omega}{c} \pm k } \spacegrad_t \Be_3 F_z
+=
+\lr{ \pm k - \Be_3 \frac{\omega}{c} } \spacegrad_t \lr{ E_z + I \eta H_z }
+=
+\lr{
+   \pm k \spacegrad_t E_z
+   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
+}
++ I \lr{
+   \pm k \eta \spacegrad_t H_z
+   -
+   \frac{\omega}{c}
+   \Be_3 \cross \spacegrad_t E_z
+},
+\end{dmath}
+from which the transverse electric and magnetic fields stated in
+\cref{thm:transverseField:348} can be read off.
+A similar expansion for \( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \) is also possible.
+
+%There is considerably more complexity required to express the transverse field in terms of separate electric and magnetic components
+%compared to the equivalent total transverse field expression of...
+
+\makeproblem{Transverse electric and magnetic field components.}{problem:transverseField:1}{
+Fill in the missing details in the steps of \cref{eqn:transverseField:268}.
+} % problem
+
+\makeproblem{Propagation direction components.}{problem:transverseField:2}{
+Perform an expansion like \cref{eqn:transverseField:268} to find
+\( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \).
+} % problem
+      \section{Multivector potential.}
+         \subsection{Definition.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{gaugeTransformation}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%%\newcommand{\dLambertian}[0]{\Box}
+%\newcommand{\dLambertian}[0]{\square}
+%
+%\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+%\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+%
+%\beginArtNoToc
+%
+%\generatetitle{Multivector potentials.}
+%%\chapter{Multivector potentials.}
+\label{chap:gaugeTransformation}
+
+Conventional electromagnetism utilizes scalar and vector potentials, so it is reasonable to expect that
+the desired multivector representation of the potential is a grade 0,1 multivector.
+A potential representation with grades 2,3 works for (fictitous) magnetic sources, so we may generally
+allow a multivector potential to have any grades.  Such a potential is related to the field as follows.
+
+\makedefinition{Multivector potential.}{thm:generalPotential:80}{
+The electromagnetic field strength \( F \) for a \textit{multivector potential} \( A \) is
+\begin{equation*}
+F = \gpgrade{\conjstgrad A}{1,2}.
+\end{equation*}
+} % definition
+
+Before unpacking \( \conjstgrad A \), we want to label the
+different grades of the multivector potential, and do so in a way that is consisent with the conventional
+potential representation of the electric and magnetic fields.
+\makedefinition{Multivector potential representation.}{dfn:unpackStaticPotential:80}{
+Let
+%\label{eqn:gaugeTransformation:1111}
+\begin{equation*}
+A =
+      - \phi
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF },
+\end{equation*}
+where
+\begin{enumerate}
+\item \( \phi \) is the scalar potential \si{V} (Volts).
+\item \( \BA \) is the vector potential \si{W/m} (Webers/meter).
+\item \( \phi_m \) is the scalar potential for (fictitious) magnetic sources \si{A} (Amperes).
+\item \( \BF \) is the vector potential for (fictitious) magnetic sources \si{C} (Coulombs).
+\end{enumerate}
+} % definition
+This specific breakdown of \( A \) into scalar and vector potentials, and dual (pseudoscalar and bivector) potentials has been chosen to match SI conventions, specifically those of \citep{balanis2005antenna} (which includes fictitious magnetic sources.)
+
+We can now express the fields in terms of the potentials.
+
+\maketheorem{Fields and the potential wave equations.}{thm:generalPotential:40}{
+In terms of the potential components, the electric field vector and the magnetic field bivector are
+\begin{equation*}
+\begin{aligned}
+\BE &=
+\gpgrade{\conjstgrad A}{1}
+=
+   - \spacegrad \phi
+   - \PD{t}{\BA}
+   - \inv{\epsilon} \spacegrad \cross \BF \\
+I \eta \BH &=
+\gpgrade{\conjstgrad A}{2}
+=
+   I \eta
+   \lr{
+      - \spacegrad \phi_\txtm
+      - \PD{t}{\BF}
+      + \inv{\mu} \spacegrad \cross \BA
+   }
+.
+\end{aligned}
+\end{equation*}
+The potentials are related to the sources by
+\begin{equation*}
+\begin{aligned}
+\dLambertian
+\phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+\dLambertian
+\BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+\dLambertian
+\BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
+\dLambertian
+\phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:generalPotential:40} we start by expanding \( (\spacegrad - (1/c)\partial_t) A \) using
+\cref{dfn:unpackStaticPotential:80} and then group by grade to find
+\begin{dmath}\label{eqn:gaugeTransformation:1111}
+\begin{aligned}
+\conjstgrad A
+&=
+\conjstgrad \lr{  - \phi
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF } } \\
+&=
+- \spacegrad \phi + c \spacegrad \cdot \BA + c \spacegrad \wedge \BA + \inv{c} \PD{t}{\phi} - \PD{t}{\BA} \\
+&\quad + I \eta
+\lr{
+- \spacegrad \phi_\txtm + c \spacegrad \cdot \BF + c \spacegrad \wedge \BF + \inv{c} \PD{t}{\phi_\txtm} - \PD{t}{\BF}
+} \\
+&=
+c \spacegrad \cdot \BA
++ \inv{c} \PD{t}{\phi}
+\\
+&
++
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+   - \spacegrad \phi
+   - \PD{t}{\BA}
+   - \inv{\epsilon} \spacegrad \cross \BF
+}
+{
+\(\BE\)
+}
++
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+   I \eta
+   \lr{
+      - \spacegrad \phi_\txtm
+      - \PD{t}{\BF}
+      + \inv{\mu} \spacegrad \cross \BA
+   }
+}
+{\(I \eta \BH\)
+} \\
+&
++ I \eta\lr{
+  c \spacegrad \cdot \BF
++ \inv{c} \PD{t}{\phi_\txtm}
+},
+\end{aligned}
+\end{dmath}
+which shows the claimed field split.
+
+In terms of the potentials Maxwell's equation \( \stgrad F = J \) is
+\begin{dmath}\label{eqn:gaugeTransformation:20}
+\stgrad \gpgrade{\conjstgrad A}{1,2} = J,
+\end{dmath}
+or
+\begin{dmath}\label{eqn:gaugeTransformation:40}
+\dLambertian A = J + \stgrad \gpgrade{\conjstgrad A}{0,3}.
+\end{dmath}
+This is almost a wave equation.
+Inserting \cref{eqn:gaugeTransformation:1111} into \cref{eqn:gaugeTransformation:40} and selecting each grade gives four almost-wave equations
+\begin{equation*}
+\begin{aligned}
+-
+\dLambertian
+\phi &= \frac{\rho}{\epsilon} + \inv{c} \PD{t}{} \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+c
+\dLambertian
+\BA &= -\eta \BJ + \spacegrad \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+\eta c I
+\dLambertian
+\BF &= - I \BM + \spacegrad \cdot \lr{ I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} } } \\
+-I \eta
+\dLambertian
+\phi_\txtm &= I c \rho_\txtm + \inv{c} \PD{t}{} I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} }
+\end{aligned}
+\end{equation*}
+Using \( \eta = \mu c, \eta c \epsilon = 1 \), and
+\( \spacegrad \cdot (I \psi) = I \spacegrad \psi \) for scalar \(\psi\), a bit
+of rearrangement completes the proof.
+
+\subsection{Gauge transformations.}
+Clearly it is desirable if potentials can be found for which \( \spacegrad \cdot \BA + (1/c^2) \partial_t \phi = \spacegrad \cdot \BF + (1/c^2) \partial_t \phi_\txtm = 0 \).
+Finding such potentials relies on the fact that the potential representation is not unique.
+In particular,
+we have the freedom to add any spacetime gradient of any scalar or pseudoscalar potential without changing the field.
+\index{gauge transformation}
+\maketheorem{Gauge invariance.}{thm:gaugeTransformation:60}{
+The spacetime gradient of a grade 0,3 multivector \( \Psi \) may be added to a multivector potential
+\begin{equation*}
+A' = A + \stgrad \Psi,
+\end{equation*}
+without changing the field.
+That is
+\begin{equation*}
+F
+= \gpgrade{\conjstgrad A}{1,2}
+= \gpgrade{\conjstgrad A'}{1,2}.
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:gaugeTransformation:60} let
+\begin{dmath}\label{eqn:gaugeTransformation:100}
+A' = A + \stgrad (\psi + I \phi),
+\end{dmath}
+where \( \psi \) and \( \phi \) are scalar functions.
+The field for potential \( A' \) is
+\begin{dmath}\label{eqn:gaugeTransformation:120}
+F'
+= \gpgrade{\conjstgrad A'}{1,2}
+= \gpgrade{\conjstgrad \lr{A + \stgrad (\psi + I \phi)} }{1,2}
+= \gpgrade{\conjstgrad A}{1,2} + \gpgrade{ \conjstgrad \stgrad (\psi + I \phi)} {1,2}
+= F + \gpgrade{ \dLambertian (\psi + I \phi)} {1,2},
+\end{dmath}
+which is just \( F \) since
+since the d'Lambertian operator \( \dLambertian \) is a scalar operator and \( \psi + I \phi \) has no vector nor bivector grades.
+
+We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgrad A \) are zero, or a transformation that kills those grades is made.
+\index{Lorenz gauge}
+\maketheorem{Lorentz gauge transformation.}{thm:gaugeTransformation:140}{
+Given any multivector potential \( A \) solution of Maxwell's equation, the transformation
+\begin{equation*}
+A' = A - \stgrad \Psi,
+\end{equation*}
+where
+\begin{equation*}
+\dLambertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
+\end{equation*}
+allows Maxwell's equation to be written in wave equation form
+\begin{equation*}
+\dLambertian A' = J.
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:gaugeTransformation:140}, let
+\begin{dmath}\label{eqn:gaugeTransformation:200}
+A = A' + \stgrad \Psi,
+\end{dmath}
+so Maxwell's equation becomes
+\begin{dmath}\label{eqn:gaugeTransformation:220}
+J
+= \stgrad \gpgrade{ \conjstgrad A }{1,2}
+= \dLambertian A - \stgrad \gpgrade{ \conjstgrad A }{0,3}
+= \dLambertian A' + \dLambertian \stgrad \Psi - \stgrad \gpgrade{ \conjstgrad A }{0,3}
+= \dLambertian A' + \stgrad \lr{ \dLambertian \Psi - \gpgrade{ \conjstgrad A }{0,3} }.
+\end{dmath}
+Requiring
+\begin{dmath}\label{eqn:gaugeTransformation:240}
+\dLambertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
+\end{dmath}
+completes the proof.
+Observe that \( \Psi \) has only grades 0,3 as required of a gauge function.
+
+Such a transformation completely decouples Maxwell's equation, providing one scalar wave equation for each grade of \( \dLambertian A' = J \), relating each grade of the potential \(A'\) to exactly one grade of the source multivector current \( J \).
+We are free to immediately solve for \( A' \) using the (causal) Green's function for the d'Lambertian
+\begin{dmath}\label{eqn:gaugeTransformation:160}
+A'(\Bx, t)
+= -\int dV' dt' \frac{\delta(\Abs{\Bx - \Bx'} - c(t - t')}{4 \pi \Norm{\Bx - \Bx'} } J(\Bx', t')
+= -\inv{4\pi} \int dV' \frac{J(\Bx', t - \inv{c} \Norm{\Bx - \Bx'})}{\Norm{\Bx - \Bx'}},
+\end{dmath}
+which is the sum of all the current contributions relative to the point \( \Bx \) at the retarded time \( t_\txtr = t - (1/c) \Norm{\Bx - \Bx'}\).
+The field follows immediately by differentiation and grade selection
+\begin{dmath}\label{eqn:gaugeTransformation:180}
+F = \gpgrade{ \conjstgrad A' }{1,2}.
+\end{dmath}
+
+Again, using the Green's function for the d'Lambertian, the explicit form of the gauge function \( \Psi \) is
+\begin{dmath}\label{eqn:gaugeTransformation:260}
+\Psi = -\inv{4\pi} \int dV' \frac{\gpgrade{ \conjstgrad A(\Bx', t_\txtr) }{0,3}}{\Norm{\Bx - \Bx'}},
+\end{dmath}
+however, we don't actually need to compute this.
+Instead, we only have to know we are free to construct a field from any solution \( A' \) of \( \dLambertian A' = J \) using \cref{eqn:gaugeTransformation:180}.
+
+%}
+%\EndArticle
+         \subsection{Far field.}
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\index{far field}
+
+\maketheorem{Far field magnetic vector potential.}{thm:potentialSection_farfield:1}{
+Given a vector potential with a radial spherical wave representation
+%\label{eqn:potentialSection_farfield:2400}
+\begin{equation*}
+\BA = \frac{e^{-j k r}}{r} \bcA( \theta, \phi ),
+\end{equation*}
+the far field (\(r \gg 1 \)) electromagnetic field is
+%\label{eqn:potentialSection_farfield:2520}{
+\begin{equation*}
+F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA}.
+\end{equation*}
+If \( \BA_\perp = \rcap \lr{ \rcap \wedge \BA} \) represents the
+non-radial component of the potential, the respective electric and magnetic field components are
+%\begin{dmath}\label{eqn:potentialSection_farfield:2560}
+\begin{equation*}
+\begin{aligned}
+\BE &= -j \omega \BA_\perp \\
+\BH &= \inv{\eta} \rcap \cross \BE.
+\end{aligned}
+\end{equation*}
+%\end{dmath}
+} % theorem
+
+To prove \cref{thm:potentialSection_farfield:1}, we will utilize a 
+spherical representation of the gradient
+\begin{dmath}\label{eqn:potentialSection_farfield:2420}
+\begin{aligned}
+\spacegrad &= \rcap \partial_r + \spacegrad_\perp \\
+\spacegrad_\perp &= \frac{\thetacap}{r} \partial_\theta + \frac{\phicap}{r\sin\theta} \partial_\phi.
+\end{aligned}
+\end{dmath}
+
+The gradient of the vector potential is
+\begin{dmath}\label{eqn:potentialSection_farfield:2440}
+\spacegrad \BA
+=
+\biglr{ \rcap \partial_r + \spacegrad_\perp } \frac{e^{-j k r}}{r} \bcA
+=
+\rcap \lr{ -j k - \inv{r} } \frac{e^{-j k r}}{r} \bcA
++
+\frac{e^{-j k r}}{r}
+\spacegrad_\perp
+\bcA
+= - \lr{ j k + \inv{r} } \rcap \BA + O(1/r^2)
+\approx
+- j k \rcap \BA.
+\end{dmath}
+
+Here, all the \( O(1/r^2) \) terms, including the action of the non-radial component of the gradient on the \( 1/r \) potential, have been neglected.
+From \cref{eqn:potentialSection_farfield:2440} the far field divergence and the (bivector) curl of \( \BA \) are
+\begin{dmath}\label{eqn:potentialSection_farfield:2460}
+\begin{aligned}
+\spacegrad \cdot \BA &= - j k \rcap \cdot \BA \\
+\spacegrad \wedge \BA &= - j k \rcap \wedge \BA.
+\end{aligned}
+\end{dmath}
+
+Finally, the far field gradient of the divergence of \( \BA \) is
+\begin{dmath}\label{eqn:potentialSection_farfield:2480}
+\spacegrad \lr{ \spacegrad \cdot \BA }
+=
+\biglr{ \rcap \partial_r + \spacegrad_\perp } \lr{ - j k \rcap \cdot \BA }
+\approx
+-j k \rcap \partial_r \lr{ \rcap \cdot \BA }
+=
+-j k \rcap \lr{ -j k - \inv{r} } \lr{ \rcap \cdot \BA }
+\approx
+-k^2 \rcap \lr{ \rcap \cdot \BA },
+\end{dmath}
+again neglecting any \( O(1/r^2) \) terms.  The field is
+\begin{dmath}\label{eqn:potentialSection_farfield:2500}
+F
+=
+- j \omega \BA  -j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \wedge \BA
+=
+- j \omega \BA  +j \omega \rcap \lr{ \rcap \cdot \BA } - j k c \rcap \wedge \BA
+=
+- j \omega \lr{ \BA - \rcap \lr{ \rcap \cdot \BA }} - j \omega \rcap \wedge \BA
+=
+-j \omega \rcap \lr{ \rcap \wedge \BA} - j \omega \rcap \wedge \BA
+=
+-j \omega \lr{ \rcap + 1 } \lr{ \rcap \wedge \BA},
+\end{dmath}
+which completes the first part of the proof.  Extraction of the electric and magnetic fields can be done by inspection and is left to the reader to prove.
+
+One interpretation of this is that the (bivector) magnetic field is represented by the plane perpendicular to the direction of propagation, and the electric field by a vector in that plane.
+
+\maketheorem{Far field electric vector potential.}{thm:potentialSection_farfield:2}{
+Given a vector potential with a radial spherical wave representation
+%\label{eqn:potentialSection_farfield:2400}
+\begin{equation*}
+\BF = \frac{e^{-j k r}}{r} \bcF( \theta, \phi ),
+\end{equation*}
+the far field (\(r \gg 1 \)) electromagnetic field is
+%\label{eqn:potentialSection_farfield:2520}
+\begin{equation*}
+F = -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF }.
+\end{equation*}
+If \( \BF_\perp = \rcap \lr{ \rcap \wedge \BF} \) represents the
+non-radial component of the potential, the respective electric and magnetic field components are
+%\begin{dmath}\label{eqn:potentialSection_farfield:2560}
+\begin{equation*}
+\begin{aligned}
+\BE &= j \omega \eta \rcap \cross \BF \\
+\BH &= -j \omega \BF_\perp.
+\end{aligned}
+\end{equation*}
+%\end{dmath}
+} % theorem
+
+The proof of \cref{thm:potentialSection_farfield:2} is left to the reader.
+
+\makeexample{Vertical dipole potential.}{example:potentialSection:1}{
+We will calculate the far field along the propagation direction vector \( \kcap \) in the z-y plane
+\begin{dmath}\label{eqn:potentialSection_farfield:2620}
+\begin{aligned}
+\kcap &= \Be_3 e^{i \theta} \\
+i &= \Be_{32},
+\end{aligned}
+\end{dmath}
+for the infinitesimal dipole potential
+\begin{dmath}\label{eqn:potentialSection_farfield:2640}
+\BA = \frac{\Be_3 \mu I_0 l}{4 \pi r} e^{-j k r},
+\end{dmath}
+as illustrated in \cref{fig:vectorPotential:vectorPotentialFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/vectorPotentialFig1}{Vertical infinitesimal dipole and selected propagation direction.}{fig:vectorPotential:vectorPotentialFig1}{0.3}
+
+The wedge of \( \kcap \) with \( \BA \) is proportional to
+\begin{dmath}\label{eqn:potentialSection_farfield:2660}
+\kcap \wedge \Be_3
+=
+\gpgradetwo{
+\kcap \Be_3
+}
+=
+\gpgradetwo{
+\Be_3 e^{i \theta}
+\Be_3
+}
+=
+\gpgradetwo{
+\Be_3^2 e^{-i \theta}
+}
+=
+-i \sin\theta,
+\end{dmath}
+so from \cref{eqn:potentialSection_farfield:2520} the field is
+\begin{dmath}\label{eqn:potentialSection_farfield:2680}
+F = j \omega \lr{ 1 + \Be_3 e^{i\theta} } i \sin\theta \frac{\mu I_0 l}{4 \pi r} e^{-j k r}.
+\end{dmath}
+
+The electric and magnetic fields can be found from the respective vector and bivector grades of \cref{eqn:potentialSection_farfield:2680}
+\begin{dmath}\label{eqn:potentialSection_farfield:2700}
+\BE
+=
+\frac{j \omega \mu I_0 l}{4 \pi r} e^{-j k r} \Be_3 e^{i\theta} i \sin\theta
+=
+\frac{j \omega \mu I_0 l}{4 \pi r} e^{-j k r} \Be_2 e^{i\theta} \sin\theta
+=
+\frac{j k \eta I_0 l \sin\theta}{4 \pi r} e^{-j k r} \lr{ \Be_2 \cos\theta - \Be_3 \sin\theta },
+\end{dmath}
+and
+\begin{dmath}\label{eqn:potentialSection_farfield:2720}
+\BH
+=
+\inv{I \eta}
+j \omega i \sin\theta_0 \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
+=
+\inv{\eta} \Be_{321} \Be_{32}
+j \omega \sin\theta_0 \frac{\mu I_0 l}{4 \pi r} e^{-j k r}
+=
+-\Be_1 \frac{ j k \sin\theta_0 I_0 l}{4 \pi r} e^{-j k r}.
+\end{dmath}
+
+The multivector electrodynamic field expression
+\cref{eqn:potentialSection_farfield:2680} for
+\( F \) is more algebraically compact than the separate electric and magnetic field expressions, but this comes with the complexity of dealing with different types of imaginaries.
+There are two explicit unit imaginaries in \cref{eqn:potentialSection_farfield:2680}, the scalar imaginary \( j \) used to encode the time harmonic nature of the field, and \( i = \Be_{32} \) used to represent the plane that the far field propagation direction vector lay in.
+Additionally, when the magnetic field component was extracted, the pseudoscalar \( I = \Be_{123} \) entered into the mix.
+Care is required to keep these all separate, especially since \( I, j \) commute with all grades, but \( i \) does not.
+} % example
+
+%}
+      \section{Dielectric and magnetic media.}
+%
+% Copyright � 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{dielectric}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%\newcommand{\dLambertian}[0]{\square}
+%
+%\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+%\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+%
+%\beginArtNoToc
+%
+%\generatetitle{Maxwell's equation in media}
+%\chapter{Maxwell's equation in media}
+\label{chap:dielectric}
+
+\subsection{Statement.}
+
+Without imposing the constitutive relationships \cref{eqn:freespace:300} the geometric algebra form of Maxwell's equations requires
+a pair of equations, multivector fields, and multivector sources, instead of one of each.
+\maketheorem{Maxwell's equations in media.}{thm:dielectric:20}{
+Maxwell's equations in media are
+\begin{equation*}
+\begin{aligned}
+\gpgrade{ \stgrad F }{0,1} &= J_\txte \\
+\gpgrade{ \stgrad G }{2,3} &= I J_\txtm,
+\end{aligned}
+\end{equation*}
+where \( c \) is the group velocity of \( F, G \) in the medium,
+the fields are grade 1,2 multivectors
+\begin{equation*}
+\begin{aligned}
+F &= \BD + \frac{I}{c}\BH \\
+G &= \BE + I c \BB,
+\end{aligned}
+\end{equation*}
+and the sources are grade 0,1 multivectors
+\begin{equation*}
+\begin{aligned}
+J_\txte &= \rho - \inv{c}\BJ \\
+J_\txtm &= c \rho_\txtm - \BM.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove \cref{thm:dielectric:20} we may simply expand the spacetime gradients and grade selection operations,
+and compare to
+\cref{eqn:freespace:3399}, the conventional representation of Maxwell's equations.  For \( F \) we have
+\begin{dmath}\label{eqn:dielectric:80}
+\rho - \frac{\BJ}{c}
+=
+\gpgrade{
+\stgrad F
+}{0,1}
+=
+\gpgrade{
+\stgrad \lr{ \BD + \frac{I}{c}\BH }
+}{0,1}
+=
+\gpgrade{
+\spacegrad \cdot \BD
++
+\spacegrad \wedge \BD
++
+\frac{I}{c} \spacegrad \cdot \BH
++
+\frac{I}{c} \spacegrad \wedge \BH
++
+\inv{c} \PD{t}{\BD}
++ I
+\inv{c^2} \PD{t}{\BH}
+}{0,1}
+=
+\spacegrad \cdot \BD
++
+\inv{c} \PD{t}{\BD}
+-\frac{1}{c} \spacegrad \cross \BH,
+\end{dmath}
+and for \( G \)
+\begin{dmath}\label{eqn:dielectric:100}
+I\lr{ c \rho_\txtm - \BM }
+=
+\gpgrade{ \stgrad G }{2,3}
+=
+\gpgrade{
+   \stgrad \lr{\BE + I c \BB }
+}{2,3}
+=
+\gpgrade{
+   \spacegrad \cdot \BE
+   +\spacegrad \wedge \BE
+   + I c \spacegrad \cdot \BB
+   + I c \spacegrad \wedge \BB
+   + \inv{c} \PD{t}{\BE}
+   + I \PD{t}{\BB}
+}{2,3}
+=
+    \spacegrad \wedge \BE
+   + I c \spacegrad \cdot \BB
+   + I \PD{t}{\BB}
+=
+I \lr{
+    \spacegrad \cross \BE
+   + c \spacegrad \cdot \BB
+   + \PD{t}{\BB}
+}.
+\end{dmath}
+Applying further grade selection operations, rescaling (cancelling all factors of \( c \) and \( I \)), and a bit of rearranging, gives
+\begin{dmath}\label{eqn:dielectric:120}
+\begin{aligned}
+\spacegrad \cdot \BD &= \rho \\
+\spacegrad \cross \BH &= \BJ + \PD{t}{\BD} \\
+\spacegrad \cdot \BB &= \rho_\txtm \\
+\spacegrad \cross \BE &= -\BM -\PD{t}{\BB},
+\end{aligned}
+\end{dmath}
+which are Maxwell's equations, completing the proof.
+
+\makeproblem{Maxwell's equations in media.}{problem:dielectric:140}{
+The proof above is somewhat unfriendly, as it works backwards from the answer.  No
+motivation was given for why the particular multivector fields were chosen, nor
+why grade selection operations were required.
+To obtain some insight on why this works, prove
+\cref{thm:dielectric:20}
+from
+\cref{eqn:freespace:300} directly as follows:
+\begin{enumerate}
+\item Eliminate cross products using \( \spacegrad \cross \Bf = I (\spacegrad \wedge \Bf) \).
+\item Introduce a scalar constant \( c \) with dimensions of velocity and redimensionalize any time derivatives \( \PDi{t}{\Bf} = (1/c) \PDi{t}{(c \Bf)} \), so that \( [(1/c)\PDi{t}{}] = [\spacegrad] \).
+\item If required, multiply each of Maxwell's equations by a factor of \( I \), to obtain a scalar and vector equation for \( \BD, \BH \), and a bivector and pseudoscalar equation for \( \BE, \BB \).
+\item Sum the pairs of equations to form a multivector equation for each of \( \BD, \BH \) and \( \BE, \BB \).
+\item Factor the terms in each equation into a product of the spacetime gradient and the respective fields \( F, G \), and show the result may be simplified by grade selection.
+\end{enumerate}
+} % problem
+
+%\makeanswer{problem:dielectric:160}{
+%To prove \cref{thm:dielectric:20} we start by eliminating the cross products from
+%and grouping the fields
+%\begin{dmath}\label{eqn:dielectric:20}
+%\begin{aligned}
+%\PD{t}{\BD} +I \spacegrad \wedge \BH &= -\BJ  \\
+%\spacegrad \cdot \BD &= \rho \\
+%I \PD{t}{\BB} + \spacegrad \wedge \BE &= -I \BM  \\
+%I \spacegrad \cdot \BB &= I \rho_\txtm.
+%\end{aligned}
+%\end{dmath}
+%There are time and divergence operations that we may assume should be grouped into a single spacetime gradient.  Let \( c \) be a constant with dimensions of velocity (to be determined), and then redimensionalize
+%\begin{dmath}\label{eqn:dielectric:40}
+%\begin{aligned}
+%\inv{c} \PD{t}{\BD} +I \spacegrad \wedge \frac{\BH}{c} &= -\frac{\BJ}{c} \\
+%\spacegrad \cdot \BD &= \rho \\
+%\inv{c} \PD{t}{c I \BB} + \spacegrad \wedge \BE &= -I \BM  \\
+%I \spacegrad \cdot (c \BB) &= I c \rho_\txtm.
+%\end{aligned}
+%\end{dmath}
+%The dimensions of the pair of equations in \( (\BD,\BH) \) and \( \BE, \BB \) are now consistent.  The grades of these equations are respectively vector, scalar, bivector, and pseudoscalar, so the scalar-vector and bivector-pseudoscalar equations may be added without any loss of information.
+%\begin{dmath}\label{eqn:dielectric:60}
+%\begin{aligned}
+%\spacegrad \cdot \BD + \inv{c} \PD{t}{\BD} + I \spacegrad \wedge \frac{\BH}{c} &= \rho -\frac{\BJ}{c} \\
+%I \spacegrad \cdot (c \BB) + \inv{c} \PD{t}{c I \BB} + \spacegrad \wedge \BE &= I\lr{ c \rho_\txtm - \BM }.
+%\end{aligned}
+%\end{dmath}
+%The right hand sides are the \( J_\txte, I J_\txtm \) sources defined above.  Let's expand the grade selections of
+%} % answer
+
+\subsection{Alternative form.}
+
+\maketheorem{Grade selection free equations.}{thm:dielectric:200}{
+Given multivector solutions \( F', G' \) to
+\begin{equation*}
+\begin{aligned}
+J_\txte &= \stgrad F' \\
+I J_\txtm &= \stgrad G',
+\end{aligned}
+\end{equation*}
+these can be related to solutions \( F, G \) of Maxwell's equations given by \cref{thm:dielectric:20} by
+\begin{equation*}
+\begin{aligned}
+F &= \gpgrade{F'}{1,2} \\
+G &= \gpgrade{G'}{1,2},
+\end{aligned}
+\end{equation*}
+if
+\begin{equation*}
+\begin{aligned}
+\gpgrade{\stgrad \gpgradezero{F'}}{0,1} &= 0 \\
+\gpgrade{\stgrad \gpgradethree{G'}}{2,3} &= 0.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+To prove we select the grade 0,1 and grade 2,3 components from space time gradient equations of
+\cref{thm:dielectric:200}.  For the electric sources, this gives
+\begin{dmath}\label{eqn:dielectric:260}
+J_\txte
+= \gpgrade{\stgrad F'}{0,1}
+= \gpgrade{\stgrad \gpgrade{F'}{1,2}}{0,1}
++ \gpgrade{\stgrad \gpgradezero{F'}}{0,1}
++ \gpgrade{\stgrad \gpgradethree{F'}}{0,1},
+\end{dmath}
+however \( \stgrad \gpgrade{F'}{3} \) has only grade 2,3 components, leaving just
+\begin{dmath}\label{eqn:dielectric:280}
+J_\txte
+= \gpgrade{\stgrad \gpgrade{F'}{1,2}}{0,1}
++ \gpgrade{\stgrad \gpgradezero{F'}}{0,1},
+\end{dmath}
+as claimed.  For the magnetic sources, we have
+\begin{dmath}\label{eqn:dielectric:300}
+I J_\txtm
+= \gpgrade{\stgrad G'}{2,3}
+= \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
++ \gpgrade{\stgrad \gpgradezero{G'}}{2,3}
++ \gpgrade{\stgrad \gpgradethree{G'}}{2,3},
+\end{dmath}
+however \( \stgrad \gpgrade{G'}{0} \) has only grade 0,1 components, leaving just
+\begin{dmath}\label{eqn:dielectric:320}
+I J_\txtm
+= \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
++ \gpgrade{\stgrad \gpgradezero{G'}}{2,3},
+\end{dmath}
+completing the proof.
+
+\Cref{thm:dielectric:200} is probably a more effect geometric algebra form for solution of Maxwell's equations in matter, as the grade selection free spacetime gradients can be solved for \( F', G' \) directly using Green's function convolution.  However, we have an open question of how to impose a zero scalar grade constraint on \( F' \) and a zero pseudoscalar grade constraint on \( G' \).
+
+\paragraph{Question:} Is the solution as simple as grade selection of the convolution?
+
+\begin{dmath}\label{eqn:dielectric:200}
+\begin{aligned}
+F &= \int dt' dV' \gpgrade{G(\Bx - \Bx', t - t') J_\txte}{1,2} \\
+G &= \int dt' dV' \gpgrade{G(\Bx - \Bx', t - t') I J_\txtm}{1,2},
+\end{aligned}
+\end{dmath}
+where \( G(\Bx - \Bx', t - t') \),
+is the Green's function for the space time gradient \cref{thm:greensFunctionSpacetimeGradient:120},
+not to be confused with \( G = \BE + I c \BB \),
+
+\subsection{Gauge like transformations.}
+
+Because of the grade selection operations in \cref{thm:dielectric:20}, we cannot simply solve for \( F, G \) using the Green's function
+for the spacetime gradient.  However, we may make a gauge-like transformation of the fields.  Additional exploration is required to determine if such transformations can be utilized to solve \cref{thm:dielectric:20}.
+\maketheorem{Multivector transformation of the fields.}{thm:dielectric:180}{
+If \( F, G \) are solutions to \cref{thm:dielectric:20}, then so are
+\begin{equation*}
+\begin{aligned}
+F' &= F + \gpgrade{ \conjstgrad \Psi_{2,3} }{1,2} \\
+G' &= G + \gpgrade{ \conjstgrad \Psi_{0,1} }{1,2},
+\end{aligned}
+\end{equation*}
+where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) is any multivector with grades 0,1.
+} % theorem
+
+To prove \cref{thm:dielectric:180} we need to show that
+\begin{dmath}\label{eqn:dielectric:160}
+\begin{aligned}
+\gpgrade{\stgrad F'}{0,1} &= \gpgrade{\stgrad F}{0,1} \\
+\gpgrade{\stgrad G'}{2,3} &= \gpgrade{\stgrad G}{2,3}.
+\end{aligned}
+\end{dmath}
+Let's start with \( F \)
+\begin{dmath}\label{eqn:dielectric:140}
+\begin{aligned}
+\gpgrade{\stgrad F'}{0,1}
+&=
+\gpgrade{\stgrad F}{0,1}
++
+\gpgrade{\stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{1,2} }{0,1} \\
+&=
+\gpgrade{\stgrad F}{0,1}
++
+\gpgrade{ \dLambertian \Psi_{2,3} }{0,1} \\
+&\quad -
+\gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} }{0,1}.
+\end{aligned}
+\end{dmath}
+The second term is killed since \( \Psi_{2,3} \) has no grade 0,1 components by definition, so neither does \( \dLambertian \Psi_{2,3} \).
+To see that the last term is zero, note that \( \conjstgrad \Psi_{2,3} \) can have only grades 1,2,3, so \( \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) is a trivector.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) has only grades 2,3, which are obliterated by the final grade 0,1 selection operation, leaving just \( \gpgrade{\stgrad F}{0,1} \).
+For \( G \) we have
+\begin{dmath}\label{eqn:dielectric:180}
+\begin{aligned}
+\gpgrade{\stgrad G'}{2,3}
+&=
+\gpgrade{\stgrad G}{2,3}
++
+\gpgrade{\stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{1,2} }{2,3} \\
+&=
+\gpgrade{\stgrad G}{2,3}
++
+\gpgrade{ \dLambertian \Psi_{0,1} }{2,3} \\
+&\quad -
+\gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} }{2,3}.
+\end{aligned}
+\end{dmath}
+As before the d'Lambertian term is killed as it has no grades 2,3.
+To see that the last term is zero, note that \( \conjstgrad \Psi_{0,1} \) can have only grades 0,1,2, so \( \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) is a scalar.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) has only grades 0,1, which are obliterated by the final grade 2,3 selection operation, leaving \( \gpgrade{\stgrad G}{2,3} \), completing the proof.
+
+An additional variation of \cref{thm:dielectric:180} is also possible.
+
+\maketheorem{Multivector transformation of the fields.}{thm:dielectric:220}{
+If \( F, G \) are solutions to \cref{thm:dielectric:20}, then so are
+\begin{equation*}
+\begin{aligned}
+F' &= F + \conjstgrad \Psi_{2,3} \\
+G' &= G + \conjstgrad \Psi_{0,1}
+\end{aligned}
+\end{equation*}
+where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) is any multivector with grades 0,1.
+} % theorem
+
+\Cref{thm:dielectric:220} can be proven by direct substitution.  For \( F \)
+\begin{dmath}\label{eqn:dielectric:220}
+\gpgrade{ \stgrad \lr{ F + \conjstgrad \Psi_{2,3} } }{0,1}
+=
+\gpgrade{ \stgrad F + \dLambertian \Psi_{2,3} }{0,1}
+=
+\gpgrade{ \stgrad F },
+\end{dmath}
+and for \( G\)
+\begin{dmath}\label{eqn:dielectric:240}
+\gpgrade{ \stgrad \lr{ G + \conjstgrad \Psi_{0,1} } }{2,3}
+=
+\gpgrade{ \stgrad G + \dLambertian \Psi_{0,1} }{2,3}
+=
+\gpgrade{ \stgrad G },
+\end{dmath}
+which completes the proof.
+
+%}
+%\EndNoBibArticle
+         \subsection{Boundary value conditions.}
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\index{boundary values}
+\maketheorem{Boundary value relations.}{thm:boundarySurfaceSources:480}{
+The difference in the normal and tangential components of the electromagnetic field spanning a surface on which there are
+a surface current or surface charge or current densities \( J_\txte = J_{\textrm{es}} \delta(n), J_\txtm = J_{\textrm{ms}} \delta(n) \)
+can be related to those surface sources as follows
+%\label{eqn:boundarySurfaceSources:420}
+\begin{equation*}
+\begin{aligned}
+\gpgrade{\ncap (F_2 - F_1) }{0,1} &= J_{\textrm{es}} \\
+\gpgrade{\ncap (G_2 - G_1) }{2,3} &= I J_{\textrm{ms}},
+\end{aligned}
+\end{equation*}
+where \( F_k = \BD_k + I \BH_k/c, G_k = \BE_k + I c \BB_k, k = 1,2 \) are the fields in the
+where \( \ncap = \ncap_2 = -\ncap_1 \) is the outwards facing normal in the second medium.
+In terms of the conventional constituent fields, these may be written
+%\label{eqn:boundarySurfaceSources:460}
+\begin{equation*}
+\begin{aligned}
+\ncap \cdot \lr{ \BD_2 - \BD_1 } &= \rho_\txts \\
+\ncap \cross \lr{ \BH_2 - \BH_1 } &= \BJ_\txts \\
+\ncap \cdot \lr{ \BB_2 - \BB_1 } &= \rho_{\textrm{ms}} \\
+\ncap \cross \lr{ \BE_2 - \BE_1 } &= -\BM_\txts.
+\end{aligned}
+\end{equation*}
+} % theorem
+
+\Cref{fig:ps3Problem1Pillbox:ps3Problem1PillboxFig1} illustrates a surface where we seek to find the fields above the surface (region 2), and below the surface (region 1).
+These fields will be determined by integrating Maxwell's equation over the pillbox configuration, allowing the height \( n \) of that pillbox above or below the surface to tend to zero,
+and the area of the pillbox top to also tend to zero.
+
+%\imageFigure{../figures/ece1228-electromagnetic-theory/ps3Problem1PillboxFig1}{Pillbox integration volume.}{fig:ps3Problem1Pillbox:ps3Problem1PillboxFig1}{0.2}
+\imageFigure{../figures/GAelectrodynamics/pillboxIntegrationVolumeFig1}{Pillbox integration volume.}{fig:ps3Problem1Pillbox:ps3Problem1PillboxFig1}{0.3}
+
+We will work with \cref{thm:dielectric:20}, Maxwell's equations in media, in their frequency domain form
+\begin{dmath}\label{eqn:boundarySurfaceSources:480}
+\begin{aligned}
+\gpgrade{ \spacegrad F }{0,1} + j k \BD &= J_{\textrm{es}} \delta(n) \\
+\gpgrade{ \spacegrad G }{2,3} + j k I c \BB &= I J_{\textrm{ms}} \delta(n),
+\end{aligned}
+\end{dmath}
+and integrate these over the pillbox volume in the figure.  That is
+\begin{dmath}\label{eqn:boundarySurfaceSources:500}
+\begin{aligned}
+\int dV \gpgrade{ \spacegrad F }{0,1} + j k \int dV \BD &= \int dn dA J_{\textrm{es}} \delta(n) \\
+\int dV \gpgrade{ \spacegrad G }{2,3} + j k I c \int dV \BB &= I \int dn dA J_{\textrm{ms}} \delta(n).
+\end{aligned}
+\end{dmath}
+The gradient integrals can be evaluated with \cref{thm:volumeintegral:100}.  Evaluating the delta functions picks leaves an area integral on the surface.  Additionally, we assume that we are making the pillbox volume small enough that we can employ the mean value theorem for the \( \BD, \BB \) integrals
+\begin{dmath}\label{eqn:boundarySurfaceSources:520}
+\begin{aligned}
+\int_{\partial V} dA \gpgrade{ \ncap F }{0,1} + j k \Delta A \lr{ n_1 \tilde{\BD}_1 + n_2 \tilde{\BD}_2 } &= \Delta A J_{\textrm{es}} \\
+\int_{\partial V} dA \gpgrade{ \ncap G }{2,3} + j k I c \Delta A \lr{ n_1 \tilde{\BB}_1 + n_2 \tilde{\BB}_2} &= I \Delta A J_{\textrm{ms}}.
+\end{aligned}
+\end{dmath}
+We now let \( n_1, n_2 \) tend to zero, which kills off the \( \BD, \BB \) contributions, and also kills off the side wall contributions in the first pillbox surface integral.  This leaves
+\begin{dmath}\label{eqn:boundarySurfaceSources:540}
+\begin{aligned}
+\gpgrade{ \ncap_2 F_2 }{0,1} + \gpgrade{ \ncap_1 F_1 }{0,1} &= J_{\textrm{es}} \\
+\gpgrade{ \ncap_2 G_2 }{2,3} + \gpgrade{ \ncap_1 G_1 }{2,3} &= J_{\textrm{ms}}.
+\end{aligned}
+\end{dmath}
+Inserting \( \ncap = \ncap_2 = -\ncap_1 \) completes the first part of the proof.
+
+Expanding the grade selection operations, we find
+\begin{dmath}\label{eqn:boundarySurfaceSources:440}
+\begin{aligned}
+\ncap \cdot (\BD_2 - \BD_1) &= \rho_s \\
+I \ncap \wedge \lr{ \BH_2/c - \BH_1/c } &= - \BJ_s/c \\
+\ncap \wedge (\BE_2 - \BE_1) &= -I \BM_s \\
+I c \ncap \cdot (\BB_2 - \BB_1) &= I c \rho_{ms},
+\end{aligned}
+\end{dmath}
+and expansion of the wedge's as cross's using \cref{eqn:SimpleProducts2:1620} completes the proof.
+%It is somewhat remarkable that the
+%crazy jumble of dot products, cross products and field components in the conventional statement of the boundary conditions, follows directly from the evaluation of the product of the normal with the multivector fields.
+
+In the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then the field and current relationship has a particularily simple form \citep{chappell2014geometric}
+\begin{dmath}\label{eqn:boundarySurfaceSources:421}
+\ncap (F_2 - F_1) = J_s.
+\end{dmath}
+
+\makeproblem{Uniform media with currents and densities.}{problem:boundarySurfaceSources:1}{
+Prove that \cref{eqn:boundarySurfaceSources:421} holds when \( \epsilon_1 = \epsilon_2, \mu_1 = \mu_2 \).
+} % problem
+%}
+%   \section{Radiation and scattering}
+%TODO.
+   %   \subsection{Problem solutions}
+   %      \shipoutAnswer
 
 %}
 \EndArticle

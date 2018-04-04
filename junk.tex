@@ -10,15 +10,29 @@
 %\newcommand{\dateintitle}{}
 %\newcommand{\keywords}{}
 
+% too many alphabets fix:
+% https://tex.stackexchange.com/a/243541/15
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+\newcommand{\dLambertian}[0]{\Box}
+
+\newcommand{\e}[0]{{(\mathrm{e})}}
+\newcommand{\m}[0]{{(\mathrm{m})}}
+
+\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+
 \input{../latex/peeter_prologue_print2.tex}
 
 \usepackage{peeters_layout_exercise}
 \usepackage{peeters_braket}
 \usepackage{peeters_figures}
-%\usepackage{siunitx}
-%\usepackage{macros_qed}
+\usepackage{siunitx}
+\usepackage{macros_qed}
 %\usepackage{mhchem} % \ce{}
 \usepackage{macros_bm} % \bcM
+\usepackage{macros_cal}
 \usepackage{txfonts} % \ointclockwise
 
 \newcommand{\boldTextAndIndex}[1]{%
