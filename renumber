@@ -394,8 +394,8 @@ perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
 #../latex/bin/lgrep volumeintegral.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl volumeintegral.tex
 
-#../latex/bin/lgrep ece2500report.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl ece2500report.tex
+../latex/bin/lgrep ece2500report.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl ece2500report.tex
 
 #../latex/bin/lgrep quaternion2maxwellWithGA.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl quaternion2maxwellWithGA.tex
