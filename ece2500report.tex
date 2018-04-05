@@ -132,8 +132,8 @@ backref
 \usepackage{peeters_braket}
 \usepackage{peeters_figures}
 
-%\newcommand{\dLambertian}[0]{\square}
-\newcommand{\dLambertian}[0]{\Box}
+%\newcommand{\dAlembertian}[0]{\square}
+\newcommand{\dAlembertian}[0]{\Box}
 
 \newcommand{\dispdot}[2][.2ex]{\dot{\raisebox{0pt}[\dimexpr\height+#1][\depth]{$#2$}}}% \dispdot[<displace>]{<stuff>}
 \newcommand{\dotBJ}[0]{\dispdot{\mathbf{J}}}
@@ -624,7 +624,7 @@ For the wave equation operator, it is helpful to introduce a d'Lambertian operat
 \makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:120}{
 Let
 \begin{equation*}
-\dLambertian =
+\dAlembertian =
 \conjstgrad
 \stgrad
 =
@@ -632,7 +632,7 @@ Let
 \end{equation*}
 } % definition
 
-The d'Lambertian operator may be factored in geometric algebra as \( \dLambertian = \conjstgrad \stgrad \).
+The d'Lambertian operator may be factored in geometric algebra as \( \dAlembertian = \conjstgrad \stgrad \).
 The operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
 Instead of entering the fight, it will be written it out in full in this book.}.
 
@@ -749,7 +749,7 @@ This amounts to a statement that the multivector current \( J \) is not complete
 The electromagnetic field is a solution to the non-homogeneous wave equation
 \begin{equation*}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 F =
 \conjstgrad J.
 \end{equation*}
@@ -759,12 +759,12 @@ non-homogeneous wave equation for each of the electric and magnetic fields
 \begin{equation*}
 \begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 \BE
 %&= \gpgrade{\conjstgrad J}{1}
 &= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 \BH
 %&= \inv{I \eta} \gpgrade{\conjstgrad J}{2}
 &= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
@@ -784,7 +784,7 @@ equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 F &= \gpgrade{ \conjstgrad J }{1,2} \\
                                            0 &= \gpgrade{ \conjstgrad J }{0,3}.
 \end{aligned}
@@ -1395,7 +1395,7 @@ Additional discussion and diagrams can be found in the book.
 %\imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
 \end{itemize}
 
-Each of the polarizations considered above (linear, circular, elliptical) have the same general form
+Each polarization considered above (linear, circular, elliptical) have the same general form
 \begin{dmath}\label{eqn:polarizationRewrite:760}
 F = \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f(\phi),
 \end{dmath}
@@ -1555,13 +1555,13 @@ I \eta \BH &=
 The potentials are related to the sources by
 \begin{equation*}
 \begin{aligned}
-\dLambertian
+\dAlembertian
 \phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dLambertian
+\dAlembertian
 \BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dLambertian
+\dAlembertian
 \BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
-\dLambertian
+\dAlembertian
 \phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
 \end{aligned}
 \end{equation*}
@@ -1592,11 +1592,11 @@ A' = A - \stgrad \Psi,
 \end{equation*}
 where
 \begin{equation*}
-\dLambertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
+\dAlembertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
 \end{equation*}
 allows Maxwell's equation to be written in wave equation form
 \begin{equation*}
-\dLambertian A' = J.
+\dAlembertian A' = J.
 \end{equation*}
 } % theorem
 

@@ -21,8 +21,8 @@
 %\usepackage{macros_qed} % \qedmarker
 %%\usepackage{txfonts} % \ointclockwise
 %
-%%\newcommand{\dLambertian}[0]{\Box}
-%\newcommand{\dLambertian}[0]{\square}
+%%\newcommand{\dAlembertian}[0]{\Box}
+%\newcommand{\dAlembertian}[0]{\square}
 %
 %\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
 %\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
@@ -35,7 +35,7 @@
 
 Conventional electromagnetism utilizes scalar and vector potentials, so it is reasonable to expect that
 the desired multivector representation of the potential is a grade 0,1 multivector.
-A potential representation with grades 2,3 works for (fictitous) magnetic sources, so we may generally
+A potential representation with grades 2,3 works for (fictitious) magnetic sources, so we may generally
 allow a multivector potential to have any grades.  Such a potential is related to the field as follows.
 
 \makedefinition{Multivector potential.}{thm:generalPotential:80}{
@@ -46,7 +46,7 @@ F = \gpgrade{\conjstgrad A}{1,2}.
 } % definition
 
 Before unpacking \( \conjstgrad A \), we want to label the
-different grades of the multivector potential, and do so in a way that is consisent with the conventional
+different grades of the multivector potential, and do so in a way that is consistent with the conventional
 potential representation of the electric and magnetic fields.
 \makedefinition{Multivector potential representation.}{dfn:unpackStaticPotential:80}{
 Let
@@ -94,13 +94,13 @@ I \eta \BH &=
 The potentials are related to the sources by
 \begin{equation*}
 \begin{aligned}
-\dLambertian
+\dAlembertian
 \phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dLambertian
+\dAlembertian
 \BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dLambertian
+\dAlembertian
 \BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
-\dLambertian
+\dAlembertian
 \phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
 \end{aligned}
 \end{equation*}
@@ -163,23 +163,23 @@ In terms of the potentials Maxwell's equation \( \stgrad F = J \) is
 \end{dmath}
 or
 \begin{dmath}\label{eqn:gaugeTransformation:40}
-\dLambertian A = J + \stgrad \gpgrade{\conjstgrad A}{0,3}.
+\dAlembertian A = J + \stgrad \gpgrade{\conjstgrad A}{0,3}.
 \end{dmath}
 This is almost a wave equation.
 Inserting \cref{eqn:gaugeTransformation:1111} into \cref{eqn:gaugeTransformation:40} and selecting each grade gives four almost-wave equations
 \begin{equation*}
 \begin{aligned}
 -
-\dLambertian
+\dAlembertian
 \phi &= \frac{\rho}{\epsilon} + \inv{c} \PD{t}{} \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
 c
-\dLambertian
+\dAlembertian
 \BA &= -\eta \BJ + \spacegrad \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
 \eta c I
-\dLambertian
+\dAlembertian
 \BF &= - I \BM + \spacegrad \cdot \lr{ I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} } } \\
 -I \eta
-\dLambertian
+\dAlembertian
 \phi_\txtm &= I c \rho_\txtm + \inv{c} \PD{t}{} I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} }
 \end{aligned}
 \end{equation*}
@@ -218,10 +218,10 @@ F'
 = \gpgrade{\conjstgrad A'}{1,2}
 = \gpgrade{\conjstgrad \lr{A + \stgrad (\psi + I \phi)} }{1,2}
 = \gpgrade{\conjstgrad A}{1,2} + \gpgrade{ \conjstgrad \stgrad (\psi + I \phi)} {1,2}
-= F + \gpgrade{ \dLambertian (\psi + I \phi)} {1,2},
+= F + \gpgrade{ \dAlembertian (\psi + I \phi)} {1,2},
 \end{dmath}
 which is just \( F \) since
-since the d'Lambertian operator \( \dLambertian \) is a scalar operator and \( \psi + I \phi \) has no vector nor bivector grades.
+since the d'Lambertian operator \( \dAlembertian \) is a scalar operator and \( \psi + I \phi \) has no vector nor bivector grades.
 
 We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgrad A \) are zero, or a transformation that kills those grades is made.
 \index{Lorenz gauge}
@@ -232,11 +232,11 @@ A' = A - \stgrad \Psi,
 \end{equation*}
 where
 \begin{equation*}
-\dLambertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
+\dAlembertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
 \end{equation*}
 allows Maxwell's equation to be written in wave equation form
 \begin{equation*}
-\dLambertian A' = J.
+\dAlembertian A' = J.
 \end{equation*}
 } % theorem
 
@@ -248,18 +248,18 @@ so Maxwell's equation becomes
 \begin{dmath}\label{eqn:gaugeTransformation:220}
 J
 = \stgrad \gpgrade{ \conjstgrad A }{1,2}
-= \dLambertian A - \stgrad \gpgrade{ \conjstgrad A }{0,3}
-= \dLambertian A' + \dLambertian \stgrad \Psi - \stgrad \gpgrade{ \conjstgrad A }{0,3}
-= \dLambertian A' + \stgrad \lr{ \dLambertian \Psi - \gpgrade{ \conjstgrad A }{0,3} }.
+= \dAlembertian A - \stgrad \gpgrade{ \conjstgrad A }{0,3}
+= \dAlembertian A' + \dAlembertian \stgrad \Psi - \stgrad \gpgrade{ \conjstgrad A }{0,3}
+= \dAlembertian A' + \stgrad \lr{ \dAlembertian \Psi - \gpgrade{ \conjstgrad A }{0,3} }.
 \end{dmath}
 Requiring
 \begin{dmath}\label{eqn:gaugeTransformation:240}
-\dLambertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
+\dAlembertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
 \end{dmath}
 completes the proof.
 Observe that \( \Psi \) has only grades 0,3 as required of a gauge function.
 
-Such a transformation completely decouples Maxwell's equation, providing one scalar wave equation for each grade of \( \dLambertian A' = J \), relating each grade of the potential \(A'\) to exactly one grade of the source multivector current \( J \).
+Such a transformation completely decouples Maxwell's equation, providing one scalar wave equation for each grade of \( \dAlembertian A' = J \), relating each grade of the potential \(A'\) to exactly one grade of the source multivector current \( J \).
 We are free to immediately solve for \( A' \) using the (causal) Green's function for the d'Lambertian
 \begin{dmath}\label{eqn:gaugeTransformation:160}
 A'(\Bx, t)
@@ -277,7 +277,7 @@ Again, using the Green's function for the d'Lambertian, the explicit form of the
 \Psi = -\inv{4\pi} \int dV' \frac{\gpgrade{ \conjstgrad A(\Bx', t_\txtr) }{0,3}}{\Norm{\Bx - \Bx'}},
 \end{dmath}
 however, we don't actually need to compute this.
-Instead, we only have to know we are free to construct a field from any solution \( A' \) of \( \dLambertian A' = J \) using \cref{eqn:gaugeTransformation:180}.
+Instead, we only have to know we are free to construct a field from any solution \( A' \) of \( \dAlembertian A' = J \) using \cref{eqn:gaugeTransformation:180}.
 
 %}
 %\EndArticle

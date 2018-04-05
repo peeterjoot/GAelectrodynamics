@@ -5,15 +5,15 @@
 %{
 \label{chap:continuity}
 Some would argue that the conventional form \cref{eqn:freespace:3100} of Maxwell's equations have built in redundancy since continuity equations on the charge and current densities couple some of these equations.
-We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
+We will take an opposing view, and show that such continuity equations are necessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
 This amounts to a statement that the multivector current \( J \) is not completely unconstrained.
 
 %It's helpful to introduce a d'Lambertian operator.  The sign convention that we will use for this operator is given by the following.
-%\index{\(\dLambertian\)}
+%\index{\(\dAlembertian\)}
 %\makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:190}{
 %Let
 %\begin{equation*}
-%\dLambertian =
+%\dAlembertian =
 %\conjstgrad
 %\stgrad
 %=
@@ -25,7 +25,7 @@ This amounts to a statement that the multivector current \( J \) is not complete
 The electromagnetic field is a solution to the non-homogeneous wave equation
 \begin{equation*}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 F =
 \conjstgrad J.
 \end{equation*}
@@ -35,12 +35,12 @@ non-homogeneous wave equation for each of the electric and magnetic fields
 \begin{equation*}
 \begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 \BE
 %&= \gpgrade{\conjstgrad J}{1}
 &= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 \BH
 %&= \inv{I \eta} \gpgrade{\conjstgrad J}{2}
 &= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
@@ -57,17 +57,17 @@ as well as a pair of continuity equations coupling the respective charge and cur
 
 To prove, we operate on \cref{dfn:isotropicMaxwells:680} with \( \spacegrad - (1/c) \partial_t \), one of the factors, along with the
 spacetime gradient, of the
-d'Alembertian (wave equation) operator, which gives
+d'Lambertian (wave equation) operator, which gives
 \begin{dmath}\label{eqn:continuity:110}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 F = \conjstgrad J.
 \end{dmath}
 Since the left hand side has only grades 1 and 2, \cref{eqn:continuity:110} splits naturally into two equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dLambertian
+\dAlembertian
 F &= \gpgrade{ \conjstgrad J }{1,2} \\
                                            0 &= \gpgrade{ \conjstgrad J }{0,3}.
 \end{aligned}
@@ -115,7 +115,7 @@ For the non-homogeneous wave equation of \cref{thm:continuity:600}, the current 
 For the wave equation for the electric field, this is
 \begin{dmath}\label{eqn:continuity:150}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
-\dLambertian \BE
+\dAlembertian \BE
 =
 \gpgradeone{\conjstgrad J}
 =
@@ -133,7 +133,7 @@ as claimed.
 The forced magnetic field equation is
 \begin{dmath}\label{eqn:continuity:170}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
-\dLambertian \BH
+\dAlembertian \BH
 =
 \inv{\eta I}
 \gpgradetwo{\conjstgrad J}

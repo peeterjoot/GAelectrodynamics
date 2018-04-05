@@ -1,5 +1,8 @@
 THISDIR := GAelectrodynamics
 THISBOOK := GAelectrodynamics
+#BASEVER := 5e8fb49ccd326da795eff23e7bdbbe4792a328e1
+export BOOKSUBVER := 1
+export REVCOUNTSTART := 482
 
 include ../latex/make.bookvars
 

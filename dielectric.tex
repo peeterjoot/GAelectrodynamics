@@ -21,7 +21,7 @@
 %\usepackage{macros_qed} % \qedmarker
 %%\usepackage{txfonts} % \ointclockwise
 %
-%\newcommand{\dLambertian}[0]{\square}
+%\newcommand{\dAlembertian}[0]{\square}
 %
 %\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
 %\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
@@ -285,12 +285,12 @@ Let's start with \( F \)
 &=
 \gpgrade{\stgrad F}{0,1}
 +
-\gpgrade{ \dLambertian \Psi_{2,3} }{0,1} \\
+\gpgrade{ \dAlembertian \Psi_{2,3} }{0,1} \\
 &\quad -
 \gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} }{0,1}.
 \end{aligned}
 \end{dmath}
-The second term is killed since \( \Psi_{2,3} \) has no grade 0,1 components by definition, so neither does \( \dLambertian \Psi_{2,3} \).
+The second term is killed since \( \Psi_{2,3} \) has no grade 0,1 components by definition, so neither does \( \dAlembertian \Psi_{2,3} \).
 To see that the last term is zero, note that \( \conjstgrad \Psi_{2,3} \) can have only grades 1,2,3, so \( \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) is a trivector.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) has only grades 2,3, which are obliterated by the final grade 0,1 selection operation, leaving just \( \gpgrade{\stgrad F}{0,1} \).
 For \( G \) we have
 \begin{dmath}\label{eqn:dielectric:180}
@@ -303,7 +303,7 @@ For \( G \) we have
 &=
 \gpgrade{\stgrad G}{2,3}
 +
-\gpgrade{ \dLambertian \Psi_{0,1} }{2,3} \\
+\gpgrade{ \dAlembertian \Psi_{0,1} }{2,3} \\
 &\quad -
 \gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} }{2,3}.
 \end{aligned}
@@ -328,7 +328,7 @@ where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) i
 \begin{dmath}\label{eqn:dielectric:220}
 \gpgrade{ \stgrad \lr{ F + \conjstgrad \Psi_{2,3} } }{0,1}
 =
-\gpgrade{ \stgrad F + \dLambertian \Psi_{2,3} }{0,1}
+\gpgrade{ \stgrad F + \dAlembertian \Psi_{2,3} }{0,1}
 =
 \gpgrade{ \stgrad F },
 \end{dmath}
@@ -336,7 +336,7 @@ and for \( G\)
 \begin{dmath}\label{eqn:dielectric:240}
 \gpgrade{ \stgrad \lr{ G + \conjstgrad \Psi_{0,1} } }{2,3}
 =
-\gpgrade{ \stgrad G + \dLambertian \Psi_{0,1} }{2,3}
+\gpgrade{ \stgrad G + \dAlembertian \Psi_{0,1} }{2,3}
 =
 \gpgrade{ \stgrad G },
 \end{dmath}
