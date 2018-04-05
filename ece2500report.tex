@@ -222,17 +222,24 @@ This includes some new results, and many of the existing non-relativistic result
 As a
 conceptual bridge, the book includes many examples of how to extract
 familiar conventional results from simpler multivector representations.
-Also included are some sample calculations exploiting unique capabilities that geometric algebra provides.  In particular, vectors in a plane may be manipulated much like complex numbers, which has a number of advantages over working with coordinates explicitly.
+Also included in the book are some sample calculations exploiting unique capabilities that geometric algebra provides.
+In particular, vectors in a plane may be manipulated much like complex numbers, which has a number of advantages over working with coordinates explicitly.
 
 It is my belief that systematically working through all of the introductory and advanced topics in electromagnetism using geometric algebra
 would provide significant insight, as well as a new set of powerful tools and procedures of practical value to the electrical engineer or physics practitioner.
 The book produced in this project provides the prerequisite material for such exploration, and some first steps along the path of such an expedition.
 
 \section{Chapter I: Geometric Algebra.}
+This chapter of the book attempted a self contained introduction to geometric algebra, with all the prerequisites required for geometric calculus and the subsequent applications to electromagnetism.
+Due to space constraints in this report, no attempt to summarize that introduction will be made here.
+
 \section{Chapter II: Geometric Calculus.}
 
-There were two goals of this chapter.  The first was to present the theory of multivector integration along curves and surfaces, and the second was to derive all the Green's functions required for electromagnetism.
+There were two goals of this chapter.
+The first was to present the theory of multivector integration along curves and surfaces, and the second was to derive all the Green's functions required for electromagnetism.
 The multivector integration theory incorporates all of vector calculus as well as the more abstract theory of differential forms or integration on manifolds, but also generalizes both.
+The key ideas of this chapter will be summarized below.
+The book contains derivations, many examples, figures, Mathematica listings, and detailed explaination of many of the ideas summarized here.
 
 \subsection{Reciprocal frames.}
 In order to work with the
@@ -246,27 +253,35 @@ Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where t
 where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector, and \( {\delta_i}^j \) is the Kronecker delta.
 } % definition
 
-Note that any orthonormal basis is also its reciprocal basis.  As also done in tensor and relativistic theory, we use mixed index (upper and lower) variables when working with curvilinear coordinates.  Summation (Einstein) convention was not used in the text, and all sums that could be implied by appropriately mixed indexes quantities are marked with an explicit summation symbol.
+Note that any orthonormal basis is also its reciprocal basis.
+As also done in tensor and relativistic theory, we use mixed index (upper and lower) variables when working with curvilinear coordinates.
+Summation (Einstein) convention was not used in the text, and all sums that could be implied by appropriately mixed indexes quantities are marked with an explicit summation symbol.
 
-A vector may be expressed in terms of either the curvilinear or reciprocal basis 
+A vector may be expressed in terms of either the curvilinear or reciprocal basis
 \begin{equation}\label{eqn:ece2500report:n}
-\Ba 
-= \sum_i \lr{ \Ba \cdot \Bx^i } \Bx_i,
-= \sum_i \lr{ \Ba \cdot \Bx_i } \Bx^i
+\Ba
+= \sum_i \lr{ \Ba \cdot \Bx^i } \Bx_i
+= \sum_i \lr{ \Ba \cdot \Bx_i } \Bx^i,
 \end{equation}
-showing that reciprocal frame can be used to compute the coordinates of a vector in the curvilinear basis and the curvilinear basis can be used to compute the coordinates with respect to the reciprocal basis.  
-Because we never use coordinates \( a_i = \Ba \cdot \Bx_i, a^i = \Ba \cdot \Bx^i \) isolated from the associated basis, we have no need of the covariant nor contravariant tensor nomenclature.  The text contains a number of examples of reciprocal frames, methods of computation, Mathematica examples, and other related concepts including computation of coordinates of higher grade blades with respect to curvilinear coordinates.
+showing that reciprocal frame can be used to compute the coordinates of a vector in the curvilinear basis and the curvilinear basis can be used to compute the coordinates with respect to the reciprocal basis.
+Because we never use coordinates \( a_i = \Ba \cdot \Bx_i, a^i = \Ba \cdot \Bx^i \) isolated from the associated basis, we have no need of the covariant nor contravariant tensor nomenclature.
+The text contains a number of examples of reciprocal frames, methods of computation, Mathematica examples, and other related concepts including computation of coordinates of higher grade blades with respect to curvilinear coordinates.
 
 \subsection{Curvilinear coordinates and hypervolume elements.}
-Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.  In the book we use one, two or three parameter bases.  For a vector parameterization \( \Bx(u_1, u_2, u_3) \) we define the curvilinear basis elements \( \Bx_i = \PDi{\Bx}{u_i} \), and associated vector valued differentials \( d\Bx_i = \Bx_i du_i \).  Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are formed by wedging the two vector differentials for a two parameter manifold, 
+Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
+In the book we use one, two or three parameter bases.
+For a vector parameterization \( \Bx(u_1, u_2, u_3) \) we define the curvilinear basis elements \( \Bx_i = \PDi{\Bx}{u_i} \), and associated vector valued differentials \( d\Bx_i = \Bx_i du_i \).
+Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are formed by wedging the two vector differentials for a two parameter manifold,
 whereas trivector valued volume elements  \( d^3 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 \)
-are formed by wedging all three of the differentials for the parameterized space.  Such hypervolume elements have an orientation, as changing the order of any two differentials toggles the sign.  As the book is concerned primarily with Euclidean spaces, the absolute values of such area and volume differentials are \( \sqrt{-\lr{ d^2 \Bx}^2}, \sqrt{-\lr{ d^3 \Bx}^3 } \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
+are formed by wedging all three of the differentials for the parameterized space.
+Such hypervolume elements have an orientation, as changing the order of any two differentials toggles the sign.
+As the book is concerned primarily with Euclidean spaces, the absolute values of such area and volume differentials are \( \sqrt{-\lr{ d^2 \Bx}^2}, \sqrt{-\lr{ d^3 \Bx}^3 } \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
 
 The book contains examples, figures, Mathematica calculations, and discussion that elaborates and explains these concepts in detail.
 
 \subsection{Gradient and vector derivative.}
 
-The final tool required to formulate multivector integration theory is the vector derivative, the projection of the gradient onto the integration manifold.  
+The final tool required to formulate multivector integration theory is the vector derivative, the projection of the gradient onto the integration manifold.
 
 \maketheorem{Reciprocal frame vectors}{thm:curvilinearGradient:1}{
 Given a curvilinear basis with elements \( \Bx_i = \PDi{u_i}{\Bx} \), the reciprocal frame vectors are given by
@@ -299,7 +314,7 @@ and curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the vector derivati
 \end{dmath*}
 } % theorem
 
-In general the gradient contains the vector derivative and we can write \( \spacegrad = \boldpartial + \spacegrad_\perp \), but 
+In general the gradient contains the vector derivative and we can write \( \spacegrad = \boldpartial + \spacegrad_\perp \), but
  when the dimension of the subspace (number of parameters) equals the dimension of the underlying vector space, the vector derivative and gradient are identical.
 We may think of the vector derivative as the projection of the gradient onto the tangent space at the point of evaluation.
 
@@ -368,7 +383,8 @@ a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with hypervolume element \
 \begin{equation*}
 \int_V F d^k \Bx \lrboldpartial G = \oint_{\partial V} F d^{k-1} \Bx G,
 \end{equation*}
-where \( \partial V \) represents the boundary of the volume, and \( d^{k-1} \Bx \) is the hypersurface element.  The hypersurface element and boundary integral is defined for \( k > 1 \) as
+where \( \partial V \) represents the boundary of the volume, and \( d^{k-1} \Bx \) is the hypersurface element.
+The hypersurface element and boundary integral is defined for \( k > 1 \) as
 \begin{equation*}
 \oint_{\partial V} F d^{k-1} \Bx G
 \equiv
@@ -390,7 +406,7 @@ should be taken to mean the evaluation of the \( F G \) multivector product over
 The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
 This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
 
-The book includes a proof of 
+The book includes a proof of
 \cref{thm:fundamentalTheoremOfCalculus:1} in the appendix, however, to make the material more accessible, this theorem is stated and proven separately for each of the
 line, surface, and volume integral cases respectively.
 
@@ -409,7 +425,8 @@ Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
 \end{equation*}
 }
 
-We will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.  Special cases include line, area and volume integrals.
+We will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.
+Special cases include line, area and volume integrals.
 
 \maketheorem{Multivector line integral.}{thm:lineintegral:100}{
 Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral is related to the boundary by
@@ -469,7 +486,8 @@ Given a vector \( \Bf = \sum_i f_i \Bx^i \) in \R{N}, and a surface parameterize
 \ointclockwise_{\partial S} du_1 f_1 + du_2 f_2.
 \end{equation*}
 This is
-often stated for \R{2} with a Cartesian \(x,y\) parameterization, such as \( \Bf = P \Be_1 + Q \Be_2 \).  In that case
+often stated for \R{2} with a Cartesian \(x,y\) parameterization, such as \( \Bf = P \Be_1 + Q \Be_2 \).
+In that case
 \begin{equation*}
 \int_S dx dy \lr{ \PD{y}{P} - \PD{x}{Q} }
 =
@@ -536,7 +554,8 @@ where \( \ncap \) is the outwards normal to the surface bounding \( V \).
 } % theorem
 
 \subsection{Multivector Fourier transform and phasors.}
-The book makes use of time harmonic (frequency domain) representations when convienient.  Provided we utilize a scalar (non-geometric) imaginary, a standard Fourier transform generalizes to multivectors without trouble.
+The book makes use of time harmonic (frequency domain) representations when convienient.
+Provided we utilize a scalar (non-geometric) imaginary, a standard Fourier transform generalizes to multivectors without trouble.
 
 \makedefinition{Multivector Fourier transform pairs}{dfn:greensFunctionOverview:280}{
 The Fourier transform pair for a multivector valued function \( f(\Bx, t) \) will be written as
@@ -564,7 +583,8 @@ The complex valued multivector \( f(\Bx) \) is still generated from the real Euc
 no reason to introduce complex inner products spaces into the mix.
 
 \subsection{Multivector Green's functions.}
-An attempt to motivate the concept of a Green's function is provided in the book, omitted here.  Also detailed in the book are the sign conventions chosen for our Green's functions, which vary in the literature and discussion of bounded vs unbounded integration volumes and some theorems related to bounded applications of Green's functions (Green's theorem, and a related identity for the (first order) gradient.)
+An attempt to motivate the concept of a Green's function is provided in the book, omitted here.
+Also detailed in the book are the sign conventions chosen for our Green's functions, which vary in the literature and discussion of bounded vs unbounded integration volumes and some theorems related to bounded applications of Green's functions (Green's theorem, and a related identity for the (first order) gradient.)
 
 \maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
 The advancing (causal), and the receding (acausal) Green's functions satisfying
@@ -587,7 +607,8 @@ Observe that as a special case, the Helmholtz Green's function reduces to the Gr
 G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
 \end{dmath}
 
-The Helmholtz operator can be factored in geometric algebra as \( \spacegrad^2 + k^2 = \lr{ \spacegrad \pm j k }\lr{ \spacegrad \mp j k } \).  We will call these factors first order Helmholtz operators, and derive their (multivector valued) Green's functions
+The Helmholtz operator can be factored in geometric algebra as \( \spacegrad^2 + k^2 = \lr{ \spacegrad \pm j k }\lr{ \spacegrad \mp j k } \).
+We will call these factors first order Helmholtz operators, and derive their (multivector valued) Green's functions
 
 \maketheorem{Green's function for the first order Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:720}{
 The Green's function satisfying
@@ -601,7 +622,8 @@ G(\Bx, \Bx') = \frac{e^{-j k r}}{4 \pi r} \lr{ j k \lr{ 1 + \rcap } + \frac{\rca
 where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
 } % theorem
 
-This theorem is proven in the book from the Green's function for the (second order) Helmholtz operator.  The solution of the 
+This theorem is proven in the book from the Green's function for the (second order) Helmholtz operator.
+The solution of the
 the first order Helmholtz system \( \lr{ \spacegrad + j k } F = J \) follows immediately
 \begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:880}
 F(\Bx)
@@ -613,7 +635,7 @@ F(\Bx)
 \end{dmath}
 where \( F_0 \) is a solution to the homogeneous first order Helmholtz equation \( \lr{ \spacegrad + j k } F_0 = 0 \).
 
-A special but important case of \cref{thm:gradientGreensFunctionEuclidean:720} 
+A special but important case of \cref{thm:gradientGreensFunctionEuclidean:720}
 is the \( k = 0 \) condition, which provides the
 Green's function for the gradient, which is vector valued
 \begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:900}
@@ -658,10 +680,12 @@ where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
 Like the Green's function for the first order Helmholtz operator, the Green's function for the spacetime gradient is also multivector.
 
 \subsection{Helmholtz theorem.}
-In the book first and second order proofs of Helmholtz theorem are provided, both using geometric algebra techniques.  Disussion of those derivations is omitted here for brevity.
+In the book first and second order proofs of Helmholtz theorem are provided, both using geometric algebra techniques.
+Disussion of those derivations is omitted here for brevity.
 \section{Chapter III: Electromagnetism.}
 \subsection{Conventional Maxwell's equations.}
-In the book it is presumed that the reader is familiar with Maxwell's equations, and that no attempt to motivate them is required.  We start with Maxwell's equations with the antenna theory extensions (fictious magnetic sources)
+In the book it is presumed that the reader is familiar with Maxwell's equations, and that no attempt to motivate them is required.
+We start with Maxwell's equations with the antenna theory extensions (fictious magnetic sources)
 \begin{dmath}\label{eqn:ece2500report:2540}
 \begin{aligned}
 \spacegrad \cross \BE &= - \BM - \PD{t}{\BB} \\
@@ -671,7 +695,7 @@ In the book it is presumed that the reader is familiar with Maxwell's equations,
 \end{aligned}
 \end{dmath}
 where \( \BE, \BH, \BD, \BB \) are the conventional electric and magnetic field intensities and flux densities,
-\( \rho, \rho_\txtm \) are the electric and (fictitious-)magnetic charge densities, 
+\( \rho, \rho_\txtm \) are the electric and (fictitious-)magnetic charge densities,
 and \( \BJ, \BM \) are the electric and (fictitious-)magnetic current densities.
 Much of the book presumes isotropic constitutive relationships between the electric and magnetic fields
 \begin{dmath}
@@ -693,7 +717,8 @@ F = \BE + I \eta \BH \quad(= \BE + I c \BB),
 where
 \begin{itemize}
 \item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media.
-\item \( c = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.  When \( \epsilon = \epsilon_0, \mu = \mu_0 \), \( c \) is the speed of light.
+\item \( c = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.
+When \( \epsilon = \epsilon_0, \mu = \mu_0 \), \( c \) is the speed of light.
 \end{itemize}
 \( F \) is called the \textit{F}araday by some authors.
 } % definition
@@ -721,7 +746,8 @@ The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
 J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{equation*}
 } % definition
-When the fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).  With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
+When the fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).
+With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
 
 Given the multivector field and current, it is now possible to state Maxwell's equation (singular) in its geometric algebra form
 \maketheorem{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
@@ -732,14 +758,16 @@ Maxwell's equation is a multivector equation relating the change in the electrom
 } % theorem
 Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
 
-See the book for a proof of \cref{dfn:isotropicMaxwells:680}.  The workhorse of the proof is the identity \( \spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb \) which allows Maxwell's equations into two gradient equations, one for each of \( \spacegrad \BE \), and \( \spacegrad \BH \), which can then be further grouped to complete the proof.
-There is a lot of information packed into this single equation.  Expanded in full it is
+See the book for a proof of \cref{dfn:isotropicMaxwells:680}.
+The workhorse of the proof is the identity \( \spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb \) which allows Maxwell's equations into two gradient equations, one for each of \( \spacegrad \BE \), and \( \spacegrad \BH \), which can then be further grouped to complete the proof.
+There is a lot of information packed into this single equation.
+Expanded in full it is
 \begin{dmath}\label{eqn:isotropicMaxwells:580}
 \stgrad \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{dmath}
 
 \subsection{Wave equation and continuity.}
-Some would argue that the conventional form 
+Some would argue that the conventional form
 \cref{eqn:ece2500report:2540}
 of Maxwell's equations have built in redundancy since continuity equations on the charge and current densities couple some of these equations.
 We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
@@ -830,7 +858,8 @@ e^{-j \Bk \cdot \Bx + j \omega t}
 }
 ,
 \end{equation*}
-where \( \Norm{\Bk} = \omega/c \), \( \kcap = \Bk/\Norm{\Bk} \) is the unit vector pointing along the propagation direction, and \( \BE \) is any complex-valued vector variable.  When a \( \BE \cdot \Bk = 0 \) constraint is imposed on the vector variable \( \BE \), that variable can be interpreted as the electric field, and the solution reduces to
+where \( \Norm{\Bk} = \omega/c \), \( \kcap = \Bk/\Norm{\Bk} \) is the unit vector pointing along the propagation direction, and \( \BE \) is any complex-valued vector variable.
+When a \( \BE \cdot \Bk = 0 \) constraint is imposed on the vector variable \( \BE \), that variable can be interpreted as the electric field, and the solution reduces to
 \begin{equation*}
 F(\Bx, t)
 =
@@ -851,13 +880,15 @@ showing that the field phasor \( F(\Bk) = \BE(\Bk) + I \eta \BH(\Bk) \) splits n
 where the directions \( \kcap, \BE, \BH \) form a right handed triple.
 } % theorem
 
-A full proof and discussion is in the book.  The key step is that after insertion of the presumed phasor relationship, we find that
+A full proof and discussion is in the book.
+The key step is that after insertion of the presumed phasor relationship, we find that
 \begin{dmath}\label{eqn:planewavesMultivector:60}
 0
 =
 -j \lr{ \Bk - \frac{\omega}{c} } F(\Bk),
 \end{dmath}
-which can be satisfied by insisting that \( F \) has a \( \Bk + \omega/c \) factor and that \( \Norm{\Bk} = \omega/c \).  The observation that
+which can be satisfied by insisting that \( F \) has a \( \Bk + \omega/c \) factor and that \( \Norm{\Bk} = \omega/c \).
+The observation that
 \( \kcap, \BE, \BH \) form a right handed triple, is expressed geometrically by \( I = \kcap \Ecap \Hcap \), from which we can also find \( \kcap = \Ecap \cross \Hcap \).
 
 \subsection{Statics solution.}
@@ -922,7 +953,9 @@ This is a multivector equation, carrying inforamation for each grade in the mult
 \end{equation*}
 } % theorem
 
-To prove \cref{thm:enclosedCurrent:60} one evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}.  The rest of the proof follows by grade selection.  For full details on both see the book.
+To prove \cref{thm:enclosedCurrent:60} one evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}.
+The rest of the proof follows by grade selection.
+For full details on both see the book.
 \subsection{Statics: Enclosed current.}
 Ampere's law may be generalized to line integrals of the total electromagnetic field strength.
 \maketheorem{Line integral of the field.}{thm:amperes:280}{
@@ -963,7 +996,8 @@ is Ampere's law
 \ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ = I_{\textrm{enc}},
 \end{equation}
 and the first is the dual of Ampere's law for (fictious) magnetic current density\footnote{Even without the fictitious magnetic sources, neither the name nor applications of the two cross product line integrals with the normal derivatives are familiar to the author.}.
-In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.  This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
+In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.
+This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
 
 The proof and additional details can be found in the book.
 
@@ -977,22 +1011,32 @@ geometric algebra as a bivector.
 \subsection{Statics: Example field calculations.}
 A number of worked examples were calculated to illustrate geometric algebra techniques.
 \begin{itemize}
-\item A finite line charge with line charge density \( \lambda \).  With \( i = \Be_1 \Be_3 \), the (electric) field was found to be \(
-F = \ifrac{\lambda \Be_1}{(4 \pi \epsilon r)} \int_{a/r}^{b/r} du \lr{ e^{i\theta} - u }\lr{ 1 + u^2 - 2 u \cos\theta }^{-3/2} \).  The scalar portion of the integral is strictly a scale factor for the component of the field that lies along the x-axis, whereas the ``complex exponential'' factor of the integrand represents a rotational term along the direction \( \Be_1 e^{i\theta} = \Be_1 \cos\theta + \Be_3 \sin\theta \).  In problems like this, with only two degrees of freedom, there will often be a complex like representation possible using geometric algebra.
+\item A finite line charge with line charge density \( \lambda \).
+With \( i = \Be_1 \Be_3 \), the (electric) field was found to be \(
+F = \ifrac{\lambda \Be_1}{(4 \pi \epsilon r)} \int_{a/r}^{b/r} du \lr{ e^{i\theta} - u }\lr{ 1 + u^2 - 2 u \cos\theta }^{-3/2} \).
+The scalar portion of the integral is strictly a scale factor for the component of the field that lies along the x-axis, whereas the ``complex exponential'' factor of the integrand represents a rotational term along the direction \( \Be_1 e^{i\theta} = \Be_1 \cos\theta + \Be_3 \sin\theta \).
+In problems like this, with only two degrees of freedom, there will often be a complex like representation possible using geometric algebra.
 %This is illustrated in \cref{fig:linecharge:linechargeFig1}.
 %\imageFigure{../figures/GAelectrodynamics/linechargeFig1}{Line charge density.}{fig:linecharge:linechargeFig1}{0.3}
-\item The field for infinite static charge and current densities lying along the z-axis \( \rho(\Bx) = \lambda \delta(x) \delta(y), \BJ(\Bx) = \Bv \rho(\Bx) \) was found to be \( F = \ifrac{\lambda}{(2\pi \epsilon R)} \rhocap \lr{ 1 - \Bv/c}\).  The field splits naturally into electric (vector) and magnetic (bivector) grades as \( F = \BE \lr{ 1 - \Bv/c } = \BE + I \lr{ \ifrac{\Bv}{c} \cross \BE } \).
+\item The field for infinite static charge and current densities lying along the z-axis \( \rho(\Bx) = \lambda \delta(x) \delta(y), \BJ(\Bx) = \Bv \rho(\Bx) \) was found to be \( F = \ifrac{\lambda}{(2\pi \epsilon R)} \rhocap \lr{ 1 - \Bv/c}\).
+The field splits naturally into electric (vector) and magnetic (bivector) grades as \( F = \BE \lr{ 1 - \Bv/c } = \BE + I \lr{ \ifrac{\Bv}{c} \cross \BE } \).
 \item As a problem, the reader was asked to compute the field for
-the magnetic charge density \( \rho_m = \lambda_m \delta(x) \delta(y) \), and current density \( \BM = v \Be_3 \rho_m = \Bv \rho_m \).  That field is
+the magnetic charge density \( \rho_m = \lambda_m \delta(x) \delta(y) \), and current density \( \BM = v \Be_3 \rho_m = \Bv \rho_m \).
+That field is
 \( F = \ifrac{\lambda_m c}{(4 \pi R)} I \rhocap \lr{ 1 - \ifrac{\Bv}{c} } \), which may be split into electric and magnetic components as
 \( F = \BB \cross \Bv + c I \BB \), where \( \BB = \lambda_m \rhocap/(4 \pi R) \).
 \item The field for a uniform infinite planar charge density \( \rho(\Bx) = \sigma \delta(z) \) and associated current density \( \BJ(\Bx) = \Bv \rho(\Bx) \), where \( \Bv = v \Be_1 e^{i\theta}, \quad i = \Be_{12} \) was found to be
-\( F = \ifrac{\sigma \sgn(z)}{(4 \pi \epsilon)} \Be_3 \lr{ 1 - \frac{\Bv}{c}} \).  As should be expected by superposition, the field splits neatly into electric field (vector) and magnetic field (bivector) components associated with the respective pure electrostatic and magnetostatics problems.
+\( F = \ifrac{\sigma \sgn(z)}{(4 \pi \epsilon)} \Be_3 \lr{ 1 - \frac{\Bv}{c}} \).
+As should be expected by superposition, the field splits neatly into electric field (vector) and magnetic field (bivector) components associated with the respective pure electrostatic and magnetostatics problems.
 \item As a problem the reader is asked to show that the field for an infinite planar
 magnetic charge density \( \rho_m = \sigma_m \delta(z) \), and current density \( \BM = \Bv \rho_m, \Bv = v \Be_1 e^{i\theta}, i = \Be_{12}\) is \( F = \ifrac{\sigma_m c \sgn(z)}{(4 \pi)} i \lr{ 1 - \ifrac{\Bv}{c} } \).
-\item The field for a line charge density \( \lambda \) along a circular arc segment \( \phi' \in [a,b] \), of radius \( r \) in the x-y plane was found to be \( F = \ifrac{\lambda r}{(4 \pi \epsilon_0 R^2)} \int_{a-\phi}^{b-\phi} d\alpha \lr{ \rcap + \phicap u i e^{i \alpha } } \lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{-3/2} \), where \( i = \Be_{12} \).  This problem is often given as an example or problem in electrostatics, but usually for circular charge distribution, and an observation point on the z-axis where symmetries kill off all but the z-axis component of the field.  The freedom to represent rotational terms as complex exponentials in geometric algebra allows the more general problem to be calculated without much additional difficulty.  The resulting integrals can be evaluated easily with any existing numerical integration software as the vector factors \( \rcap, \phicap \) may be pulled out of the integrals, leaving strict scalar or complex valued integrands.
+\item The field for a line charge density \( \lambda \) along a circular arc segment \( \phi' \in [a,b] \), of radius \( r \) in the x-y plane was found to be \( F = \ifrac{\lambda r}{(4 \pi \epsilon_0 R^2)} \int_{a-\phi}^{b-\phi} d\alpha \lr{ \rcap + \phicap u i e^{i \alpha } } \lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{-3/2} \), where \( i = \Be_{12} \).
+This problem is often given as an example or problem in electrostatics, but usually for circular charge distribution, and an observation point on the z-axis where symmetries kill off all but the z-axis component of the field.
+The freedom to represent rotational terms as complex exponentials in geometric algebra allows the more general problem to be calculated without much additional difficulty.
+The resulting integrals can be evaluated easily with any existing numerical integration software as the vector factors \( \rcap, \phicap \) may be pulled out of the integrals, leaving strict scalar or complex valued integrands.
 %\imageFigure{../figures/GAelectrodynamics/lineChargeArcFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.5}
-\item To illustrate the algebraic flexibility available, the circular ring charge problem is tackled in cylindrical coordinates instead of spherical (as previous).  For a static charge line density \( \lambda \) on a ring at \( z = 0 \), and an azimuthal current density \( \BJ = \Bv \rho \), we find a closed form solution for the field is found \( F = \ifrac{\lambda}{(4 \pi \epsilon R)}
+\item To illustrate the algebraic flexibility available, the circular ring charge problem is tackled in cylindrical coordinates instead of spherical (as previous).
+For a static charge line density \( \lambda \) on a ring at \( z = 0 \), and an azimuthal current density \( \BJ = \Bv \rho \), we find a closed form solution for the field is found \( F = \ifrac{\lambda}{(4 \pi \epsilon R)}
 \lr{
 \lr{ \tilde{z} \Be_3 + \tilde{r} \rhocap -\ifrac{v i}{c} } A
 - \lr{
@@ -1003,7 +1047,8 @@ elliptic integrals \( A, B \), which are detailed in the book along with the der
 %\imageFigure{../figures/GAelectrodynamics/chargeAndCurrentOnRingFig1}{Field due to a circular distribution.}{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}{0.3}
 %}
 \item The final worked statics problem in the book is a use of Ampere's law, to compute the magnetic field for a
-pair of z-axis oriented electric currents of magnitude \( I_1, I_2 \) flowing through the \( z = 0 \) points \( \Bp_1, \Bp_2 \) on the x-y plane.  The geometry and derivation is detailed in the book, but we use the multivector line integral form of Ampere's law \( \ointctrclockwise_{\partial A} d\Bx F = -I \int_A dA \Be_3 (-\eta \BJ) = I \eta I_\txte \), and superposition to compute the field
+pair of z-axis oriented electric currents of magnitude \( I_1, I_2 \) flowing through the \( z = 0 \) points \( \Bp_1, \Bp_2 \) on the x-y plane.
+The geometry and derivation is detailed in the book, but we use the multivector line integral form of Ampere's law \( \ointctrclockwise_{\partial A} d\Bx F = -I \int_A dA \Be_3 (-\eta \BJ) = I \eta I_\txte \), and superposition to compute the field
 \( F = \sum_{k = 1,2} \ifrac{\eta I_k}{(2 \pi)} \ifrac{1}{(\Be_3 \wedge \lr{ \Br - \Bp_k})} \).
 The bivector (magnetic) nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
 %\cref{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}.
@@ -1052,7 +1097,8 @@ Jefimenkos' equations
 \end{dmath}
 %which checks against Griffiths.
 } % theorem
-This is found fairly easily using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}, and the details can be found in the book.  Unlike the conventional approach (\citep{griffiths1999introduction}), we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
+This is found fairly easily using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}, and the details can be found in the book.
+Unlike the conventional approach (\citep{griffiths1999introduction}), we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
 
 \subsection{Energy and momentum.}
 In the energy and momentum section of the book, the geometric algebra formulation of the field energy density, Poynting vector, Maxwell stress tensor, and more generally, the energy momentum tensor are fully detailed.
@@ -1141,7 +1187,8 @@ where \( \BT(\Be_i) \cdot \Be_j = -\Theta^{ij} \), or \( \BT(\Ba) = \Ba \cdot \l
 } % theorem
 
 \Cref{thm:poyntingF:1240} relates the geometric algebra definition of the energy momentum tensor to the quantities found in the conventional
-electromagnetism literature.  In the book, the conventional indexed representation is detailed more completely for comparision purposes.
+electromagnetism literature.
+In the book, the conventional indexed representation is detailed more completely for comparision purposes.
 
 Associated with the energy momentum tensor are a number of conservation relationships, which are most compactly stated utilizing the adjoint of the energy momenutum tensor.
 \makedefinition{Adjoint.}{dfn:poyntingTheorem:1120}{
@@ -1220,10 +1267,12 @@ As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\t
 \end{equation}
 The rate of change of mechanical momentum density \( \ifrac{d\Bp_{\textrm{mech}}}{dt} \) is, in fact, the continuous equivalent of the Lorentz force, which is found to be a direct consequence of conservation relationships associated with Maxwell's equation.
 
-There were many details left out above.  Please refer to the text for more information.
+There were many details left out above.
+Please refer to the text for more information.
 
 \subsubsection{Example energy momentum calculations.}
-To illustrate the ideas above, the energy momentum tensor components for all of the static fields computed previously are determined.  For brievity, these are omitted from this report, but it should be noted that we see that geometric algebra allows for a particularly compact coordinate free representation of the energy momentum tensor components.
+To illustrate the ideas above, the energy momentum tensor components for all of the static fields computed previously are determined.
+For brievity, these are omitted from this report, but it should be noted that we see that geometric algebra allows for a particularly compact coordinate free representation of the energy momentum tensor components.
 \subsubsection{Complex power.}
 The geometric algebra forms of the \( T(1) \) (field energy density and Poynting vector) are found to be
 \maketheorem{Complex power representation.}{thm:poyntingFComplexPower:300}{
@@ -1299,15 +1348,18 @@ As another example of geometric algebra in action, the Lorentz force equation fo
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:60}
 m \frac{d\Bv}{dt} = q F \cdot \frac{\Bv}{c},
 \end{dmath}
-is solved in a fashion unique to this algebra.  With
+is solved in a fashion unique to this algebra.
+With
 \( \Omega = -\ifrac{q F}{m c} \), the Lorentz force equation is reduced to \( \ifrac{d\Bv}{dt} = \Bv \cdot \Omega \), which may be solved
-using a multivector integration factor.  The solution is shown to be
+using a multivector integration factor.
+The solution is shown to be
 \begin{dmath}\label{eqn:lorentzForce_constantMagnetic:200}
 \Bv(t) = e^{-\Omega t/2} \Bv(0) e^{\Omega t/2}.
 \end{dmath}
 Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path, so the velocity of the charged particle traces out a helical path.
 
-A multivector integration factor method for solving the Lorentz force equation in constant mixed external electric and magnetic fields can be found in \citep{hestenes1999nfc}.  More general examples are considered in the literature cited in the book.
+A multivector integration factor method for solving the Lorentz force equation in constant mixed external electric and magnetic fields can be found in \citep{hestenes1999nfc}.
+More general examples are considered in the literature cited in the book.
 
 \subsection{Polarization}
 Following the usual convention, the geometric algebra treatment of polarization in the book
@@ -1320,7 +1372,8 @@ F(\Bx, t) &= \Real\lr{ F(\Bx, \omega) e^{j \omega t} },
 \end{aligned}
 \end{dmath}
 where \( \BE \cdot \Be_3 = 0 \).
-Here the imaginary \( j \) has no intrinsic geometrical interpretation, but we are able to dispense with it and use geometric imaginaries instead.  This is done by first assuming the electric field is given by \( \BE = \lr{ \alpha_1 + j \beta_1 } \Be_1 + \lr{ \alpha_2 + j \beta_2 } \Be_2 \), so that the
+Here the imaginary \( j \) has no intrinsic geometrical interpretation, but we are able to dispense with it and use geometric imaginaries instead.
+This is done by first assuming the electric field is given by \( \BE = \lr{ \alpha_1 + j \beta_1 } \Be_1 + \lr{ \alpha_2 + j \beta_2 } \Be_2 \), so that the
 time domain representation of the field is given by
 \begin{dmath}\label{eqn:polarization_circular:160}
 F(\Bx, t) = (1 + \Be_3) \lr{
@@ -1329,7 +1382,8 @@ F(\Bx, t) = (1 + \Be_3) \lr{
 }.
 \end{dmath}
 
-Two geometric representations are possible.  The first uses the pseudoscalar for the transverse plane \( \Be_{12} \), denoted \( i \) here, and the other uses the \R{3} pseudoscalar as the imaginary.
+Two geometric representations are possible.
+The first uses the pseudoscalar for the transverse plane \( \Be_{12} \), denoted \( i \) here, and the other uses the \R{3} pseudoscalar as the imaginary.
 \subsubsection{Transverse plane imaginary.}
 \maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:700}{
 The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
@@ -1369,7 +1423,8 @@ results in the electric field tracing out a (clockwise,counterclockwise) circle
 \end{aligned}
 \end{dmath}
 Right and left circular polarization in this representation are given by
-\(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) and \(\alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \) respectively.  The right(left) polarized fields are just
+\(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) and \(\alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \) respectively.
+The right(left) polarized fields are just
 \( F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{\pm i(\omega t - k z)} \).
 \item An ellipically polzarized field is given by
 \( \alpha_\txtR = \inv{2}\lr{ E_a - E_b },
@@ -1377,7 +1432,8 @@ Right and left circular polarization in this representation are given by
 \begin{dmath}\label{eqn:ece2500report:2580}
 F = \inv{2} (1 + \Be_3) \Be_1 \lr{ (E_a + E_b) e^{i\phi} + (E_a - E_b) e^{-i\phi} }
 \end{dmath}
-A hyperbolic hyperbolic parameterization of the elliptically polarized wave is also discussed in the book.  In particular,
+A hyperbolic hyperbolic parameterization of the elliptically polarized wave is also discussed in the book.
+In particular,
 \begin{dmath}\label{eqn:polarization_elliptical:380}
 \begin{aligned}
 F &= e E_a \lr{ 1 + \Be_3 } \Be_1 e^{ i \psi } \cosh\lr{ m + i \phi} \\
@@ -1399,7 +1455,10 @@ Each polarization considered above (linear, circular, elliptical) have the same 
 \begin{dmath}\label{eqn:polarizationRewrite:760}
 F = \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f(\phi),
 \end{dmath}
-where \( f(\phi) \) is a complex valued function (i.e. grade 0,2).  The structure of \cref{eqn:polarizationRewrite:760} could be more general than considered so far.  For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).  The simple complex structure that encodes all the phase dependence allows the
+where \( f(\phi) \) is a complex valued function (i.e. grade 0,2).
+The structure of \cref{eqn:polarizationRewrite:760} could be more general than considered so far.
+For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).
+The simple complex structure that encodes all the phase dependence allows the
 energy, momentum and Maxwell stress tensor to be computed easily.
 \maketheorem{Energy momentum tensor components for a plane wave.}{thm:polarizationRewrite:780}{
 The energy momentum tensor components for the plane wave given by \cref{eqn:polarizationRewrite:760} are
@@ -1451,7 +1510,8 @@ c_2 &= \alpha_2 + I \beta_2,
 defined here as 0,3 complex numbers, using \( I \) as the imaginary.
 } % definition
 
-There appear to be some advantages to pseudoscalar description of polarization, especially for computing energy momentum tensor components since \( I \) commutes with all grades.  For example, we can see practically by inspection that
+There appear to be some advantages to pseudoscalar description of polarization, especially for computing energy momentum tensor components since \( I \) commutes with all grades.
+For example, we can see practically by inspection that
 \begin{equation}\label{eqn:polarization_pseudoscalarImaginary:620}
 T(1) = \calE + \frac{\BS}{v} =
 \epsilon \lr{ 1 + \Be_3 } \lr{ \Abs{\alpha_\txtR}^2 + \Abs{\alpha_\txtL}^2 },
@@ -1503,7 +1563,8 @@ Written out explicitly, the transverse field component expands as
 \end{equation*}
 } % theorem
 
-Details and proof are in the book.  This and many other examples in the book show that we pay a significant additional cost to work with separate electric and magnetic field components compared to working with the complete electromagnetic field multivector \( F \) in its entirety.
+Details and proof are in the book.
+This and many other examples in the book show that we pay a significant additional cost to work with separate electric and magnetic field components compared to working with the complete electromagnetic field multivector \( F \) in its entirety.
 
 \subsection{Multivector potential.}
 Conventional electromagnetism utilizes scalar and vector potentials, which may be generalized to a multivector potential containing their sums.
@@ -1622,11 +1683,14 @@ F &= -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF }.
 \end{aligned}
 \end{equation*}
 } % theorem
-Noting that \( \rcap (\rcap \wedge \BA) \) is the rejection of the radial component of \( \BA \) (i.e. is a vector not a multivector) allows the far-field solution to easily be split into electric and magnetic field components if desired.  These are detailed in the book, along with the proof of \cref{thm:potentialSection_farfield:1}.  Also included in the book is an example calculation of \( F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \) for the dipole vector potential.
+Noting that \( \rcap (\rcap \wedge \BA) \) is the rejection of the radial component of \( \BA \) (i.e. is a vector not a multivector) allows the far-field solution to easily be split into electric and magnetic field components if desired.
+These are detailed in the book, along with the proof of \cref{thm:potentialSection_farfield:1}.
+Also included in the book is an example calculation of \( F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \) for the dipole vector potential.
 
 \subsection{Dielectric and magnetic media.}
-The majority of the electromagnetic theory covered in the book focused on fields with the 
-isotropic constitutive relationships \cref{eqn:freespace:300}.  For more general consitutive relationships the geometric algebra form of Maxwell's equations requires a pair of 
+The majority of the electromagnetic theory covered in the book focused on fields with the
+isotropic constitutive relationships \cref{eqn:freespace:300}.
+For more general consitutive relationships the geometric algebra form of Maxwell's equations requires a pair of
 multivector equations, fields and sources as follows.
 \maketheorem{Maxwell's equations in media.}{thm:dielectric:20}{
 Maxwell's equations in media are
@@ -1653,7 +1717,7 @@ J_\txtm &= c \rho_\txtm - \BM.
 \end{equation*}
 } % theorem
 
-Along with some discussion of solution of these more complicated equations, gauge-like transformations of the fields are discussed.  
+Along with some discussion of solution of these more complicated equations, gauge-like transformations of the fields are discussed.
 More work is required to fully flesh out this topic, especially given that \( F, G \) may be directly coupled, allowing neither field to be solved for independently.
 
 \subsection{Boundary value conditions.}
@@ -1685,7 +1749,8 @@ In terms of the conventional constituent fields, these may be written
 } % theorem
 
 A simple proof is possible by integrating the pair of Maxwell's equations over the pillbox configuration, allowing the height \( n \) of that pillbox above or below the surface to tend to zero,
-and the area of the pillbox top to also tend to zero, using \cref{thm:volumeintegral:100} to transform the multivector integrals to boundary integrals.  Figures and the full proof are available in the book.
+and the area of the pillbox top to also tend to zero, using \cref{thm:volumeintegral:100} to transform the multivector integrals to boundary integrals.
+Figures and the full proof are available in the book.
 
 Note that in the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then the field and current relationship has a particularily simple form \citep{chappell2014geometric}
 \begin{dmath}\label{eqn:boundarySurfaceSources:421}
@@ -1694,6 +1759,24 @@ Note that in the special case where there are surface charge and current densiti
 
 \section{Conclusions.}
 
-TODO.
+Encountering Maxwell's equation in its geometric algebra form \cref{eqn:quaternion2maxwellWithGA:20} leaves the student with more questions than answers.
+It is a compact representation, but so are the tensor and differential forms representations of Maxwell's equations.
+The student needs to know how to work with the representation if it is to be useful.
+Study of application of conventional electromagnetism can exploit a large set of well developed tools, and it is not obvious how many of these apply to the GA form of Maxwell's equations.
+Individually, there are answers available to many of the questions that are generated attempting to apply the theory, but they are scattered and in many cases not easily accessible.
+
+The product of this project was an attempt to collect all the prerequisite concepts for the application of geometric algebra to electromagnetism, and provide a conceptual map that shows how to obtain familiar conventional results from the equivalent geometric algebra formalism.
+Chapter III of the book illustrates many cases where electromagnetism is considerably simpler when computations are performed with an electromagnetic field \( F = \BE + I \eta \BH \) uniformly incorporating both the electric and magnetic fields.
+Compared to the tensor formalism of high energy physics and field theory, where \( F_{\mu\nu} \) also merges the electric and magnetic fields into a single entity, it is trivial to extract the constituent fields from the geometric algebra representation, and many examples of how to do so are supplied in the book.
+This provides the student with a powerful theoretical framework, without sacrificing the ability to use any familiar conventional tools when desired.
+In many cases, geometric algebra provides compact and interesting ways to obtain the familiar identities and relationships, and also connects ideas that are not neccesarily obviously related in the conventional formalism.
+
+In many ways this work only scratches the surface.
+Many more worked examples, problems, figures and computer algebra listings should be added.
+In depth applications of derived geometric algebra relationships to problems customarily tackled with separate electric and magnetic field equations should also be incorporated.
+There are also theoretical holes, topics covered in any conventional introductory electromagnetism text, that are missing.
+Examples include the Fresnel relationships for transmission and reflection at an interface, in depth treatment of waveguides, dipole radiation and motion of charged particles, bound charges, and meta materials to name a few.
+Many of these topics can probably be handled in a coordinate free fashion using geometric algebra.
+Despite all the work that is required to help bridge the gap between formalism and application, making applied electromagnetism using geometric algebra truly accessible, it is the belief of the author that this project has made some a good first steps down this path.
 
 \EndArticle
