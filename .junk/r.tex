@@ -1,0 +1,197 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+\newcommand{\authorname}{Peeter Joot}
+\newcommand{\email}{peeter.joot@mail.utoronto.ca, 920798560}
+\newcommand{\basename}{FIXMEbasenameUndefined}
+\newcommand{\dirname}{notes/FIXMEdirnameUndefined/}
+\renewcommand{\basename}{ece2500report}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+% too many alphabets fix:
+% https://tex.stackexchange.com/a/243541/15
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+%\input{../latex/peeter_prologue_print2.tex}
+\newcommand{\onlineurl}{http://peeterjoot.com/archives/math2018/\basename.pdf}
+\newcommand{\sourcepath}{\dirname\basename.tex}
+\newcommand{\generatetitle}[1]{\chapter{#1}}
+
+% this has a different implementation in various thisbook.sty's:
+\newcommand{\underlineAndIndex}[1]{\underline{#1}}
+\newcommand{\paragraphAndIndex}[1]{\paragraph{#1}}
+
+\newcommand{\vcsinfo}{%
+\section*{}
+\noindent{\color{DarkOliveGreen}{\rule{\linewidth}{0.1mm}}}
+\paragraph{Document version}
+%\paragraph{\color{Maroon}{Document version}}
+{
+\small
+\begin{itemize}
+\item Available online at:\\
+\href{\onlineurl}{\onlineurl}
+\item Git Repository: \input{./.revinfo/gitRepo.tex}
+\item Source: \sourcepath
+\item last commit: \input{./.revinfo/gitCommitString.tex}
+\item commit date: \input{./.revinfo/gitCommitDate.tex}
+\end{itemize}
+}
+}
+
+%\PassOptionsToPackage{dvipsnames,svgnames}{xcolor}
+\PassOptionsToPackage{square,numbers}{natbib}
+\documentclass[10pt]{scrreprt}
+
+\usepackage[left=2cm,right=2cm]{geometry}
+\usepackage[svgnames]{xcolor}
+%\usepackage[english]{cleveref}
+\usepackage{peeters_layout}
+%\usepackage{peeters_layout_exercise}
+
+\usepackage{natbib}
+
+\usepackage[
+colorlinks=true,
+bookmarks=false,
+pdfauthor={\authorname, \email},
+backref
+]{hyperref}
+
+% http://tex.stackexchange.com/questions/75773/how-to-reference-problems-by-the-text-label-in-an-exercise-envioronment
+\usepackage[english]{cleveref}
+\crefname{Exercise}{exercise}{exercises}
+\Crefname{Exercise}{Exercise}{Exercises}
+
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+
+\usepackage{tikz}
+
+\RequirePackage{titlesec}
+\RequirePackage{ifthen}
+
+% http://stackoverflow.com/questions/4932910/date-in-the-tabular-environment
+\makeatletter
+\let\insertdate\@date
+\makeatother
+
+\titleformat{\chapter}[display]
+{\bfseries\Large}
+{\color{DarkSlateGrey}\filleft \authorname
+\ifthenelse{\isundefined{\studentnumber}}{}{\\ \studentnumber}
+\ifthenelse{\isundefined{\email}}{}{\\ \email}
+\ifthenelse{\isundefined{\dateintitle}}{}{\\ \insertdate}
+%\ifthenelse{\isundefined{\coursename}}{}{\\ \coursename} % put in title instead.
+}
+{4ex}
+{\color{DarkOliveGreen}{\titlerule}\color{Maroon}
+\vspace{2ex}%
+\filright}
+[\vspace{2ex}%
+\color{DarkOliveGreen}\titlerule
+]
+
+\newcommand{\beginArtWithToc}[0]{\begin{document}\tableofcontents}
+\newcommand{\beginArtNoToc}[0]{\begin{document}}
+\newcommand{\EndNoBibArticle}[0]{\end{document}}
+\newcommand{\EndArticle}[0]{\bibliography{Bibliography}\bibliographystyle{plainnat}\end{document}}
+
+%
+%\newcommand{\citep}[1]{\cite{#1}}
+
+\colorSectionsForArticle
+
+% FIXME: this doesn't work anymore, now that peeters_layout_exercise.sty is pulled out.
+%% (a), (b), (c), ... numbering in ex (exercise pulled in by peeters_layout)
+%\renewcommand{\QuestionNB}{\alph{Question}.\ }
+%\renewcommand{\theQuestion}{\alph{Question}}
+
+% have \cref fixup in book_layout.sty.  Use this macro instead:
+\newcommand{\eqnref}[1]{eq. (\ref{#1})}
+\newcommand{\Eqnref}[1]{Eq. (\ref{#1})}
+
+%
+% example:
+%\statmechchapcite{nonIntegralBinomialSeries}
+\newcommand{\quantumsolidschapcite}[1]{\citep{phy487:#1}}
+%\newcommand{\statmechchapcite}[1]{\citep{phy452:#1}}
+%\newcommand{\statmechchapcite}[1]{\cref{chap:#1}}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+
+%\newcommand{\dAlembertian}[0]{\square}
+\newcommand{\dAlembertian}[0]{\Box}
+
+\newcommand{\dispdot}[2][.2ex]{\dot{\raisebox{0pt}[\dimexpr\height+#1][\depth]{$#2$}}}% \dispdot[<displace>]{<stuff>}
+\newcommand{\dotBJ}[0]{\dispdot{\mathbf{J}}}
+
+\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
+\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+\usepackage{macros_bm} % \bcM
+\usepackage{macros_cal}
+%\usepackage{macros_qed} % \qedmarker
+\usepackage{txfonts} % \ointclockwise
+\usepackage{enumerate}
+\usepackage{mmacells}
+
+\beginArtNoToc
+
+\generatetitle{I wrote a book: Geometric Algebra for Electrical Engineers}
+
+\section{The book.}
+
+Here's a first public draft of my book: "Geometric Algebra for Electrical Engineers".  I've supplied limited distribution copies of some of the early drafts and have had some good review comments of the chapter I (introduction to geometric algebra), and chapter II (multivector calculus) material, but none on the electromagnetism content.  In defense of the reviewers, the initial version of the electromagnetism chapter, while it had a lot of raw content was pretty rough.  It's been cleaned up significantly and is now hopefully reader friendly.
+
+\section{Why I wrote this book.}
+I have been working on a part time M.Eng degree for a number of years.  I wasn't happy with the ECE electromagnetics offerings in recent years, which have been inconsistently offered or unsatisfactory (example: the microwave circuits course which was mind numbing, almost entirely about Smith charts).  I had to go elsewhere to obtain the M.Eng degree requirements.  That elsewhere was a project course.
+
+I proposed a project to an electromagnetism project with the following goals
+\begin{enumerate}
+\item Perform a literature review of applications of geometric algebra to the study of electromagnetism.
+\item Identify the subset of the literature that had direct relevance to electrical engineering.
+\item Create a complete, and as compact as possible, introduction to the prerequisites required for a graduate or advanced undergraduate electrical engineering student to be able to apply geometric algebra to problems in electromagnetism.  With those prerequisites in place, work through the fundamentals of electromagnetism in a geometric algebra context.
+\end{enumerate}
+
+In retrospect, doing this project was a mistake.  I could have done this work outside of an academic context without paying so much (in both time and money).  Somewhere along the way I lost track of the fact that I enrolled on the M.Eng to learn (it provided a way to take grad physics courses on a part time schedule), and got side tracked by degree requirements.  Basically I fell victim to a "I may as well graduate" sentiment that would have been better to ignore.  All that coupled with the fact that I did not actually get any feedback from my "supervisor", who did not even read my work (at least so far after one year), made this project-course very frustrating.  On the bright side, I really like what I produced, even if I had to do so in isolation.
+
+\section{Why geometric algebra?}
+Geometric algebra generalizes vectors, providing algebraic representations of not just directed line segments, but also points, plane segments, volumes, and higher degree geometric objects (hypervolumes.).  The geometric algebra representation of planes, volumes and hypervolumes requires a vector dot product, a vector multiplication operation, and a generalized addition operation.  The dot product provides the length of a vector and a test for whether or not any two vectors are perpendicular.  The vector multiplication operation is used to construct directed plane segments (bivectors), and directed volumes (trivectors), which are built from the respective products of two or three mutually perpendicular vectors.  The addition operation allows for sums of scalars, vectors, or any products of vectors.  Such a sum is called a multivector.
+
+The power to add scalars, vectors, and products of vectors can be exploited to simplify much of electromagnetism.  In particular, Maxwell's equations for isotropic media can be merged into a single multivector equation
+\begin{equation}\label{eqn:quaternion2maxwellWithGA:20}
+\stgrad \lr{ \BE + I c \BB } = \eta\lr{ c \rho - \BJ },
+\end{equation}
+where \( \spacegrad \) is the gradient, \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) is the group velocity of the medium, \( \eta = \sqrt{\mu/\epsilon} \), \( \BE, \BB \) are the electric and magnetic fields, and
+\( \rho \) and \( \BJ \) are the charge and current densities.
+We will write this as
+\begin{equation}\label{eqn:ece2500report:40}
+\stgrad F = J,
+\end{equation}
+where \( F = \BE + I c \BB \) is the combined (multivector) electromagnetic field, and \( J = \eta\lr{ c \rho - \BJ } \) is the multivector current.
+
+Encountering Maxwell's equation in its geometric algebra form leaves the student with more questions than answers.  Yes, it is a compact representation, but so are the tensor and differential forms (or even the quaternionic) representations of Maxwell's equations.  The student needs to know how to work with the representation if it is to be useful.  Study of application of conventional electromagnetism can exploit a large set of well developed tools, and it is not obvious how many of these apply to the GA form of Maxwell's equations.  Individually, there are answers available to many of the questions that are generated attempting to apply the theory, but they are scattered and in many cases not easily accessible.
+
+Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias, or assumes high levels of mathematical or physics sophistication.  The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to other dumb engineering undergraduates like myself.  In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism.  The end product of this project was a fairly small self contained book, titled "Geometric Algebra for Electrical Engineers".  This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (82 pages), and some appendices.  Many of the fundamental results of electromagnetism are derived directly from the multivector Maxwell's equation, in a streamlined and compact fashion.  This includes some new results, and many of the existing non-relativistic results from the geometric algebra literature.  As a conceptual bridge, the book includes many examples of how to extract familiar conventional results from simpler multivector representations.  Also included in the book are some sample calculations exploiting unique capabilities that geometric algebra provides.  In particular, vectors in a plane may be manipulated much like complex numbers, which has a number of advantages over working with coordinates explicitly.
+
+\section{Followup.}
+In many ways this work only scratches the surface.  Many more worked examples, problems, figures and computer algebra listings should be added.  In depth applications of derived geometric algebra relationships to problems customarily tackled with separate electric and magnetic field equations should also be incorporated.  There are also theoretical holes, topics covered in any conventional introductory electromagnetism text, that are missing.  Examples include the Fresnel relationships for transmission and reflection at an interface, in depth treatment of waveguides, dipole radiation and motion of charged particles, bound charges, and meta materials to name a few.  Many of these topics can probably be handled in a coordinate free fashion using geometric algebra.  Despite all the work that is required to help bridge the gap between formalism and application, making applied electromagnetism using geometric algebra truly accessible, it is my belief this book makes some good first steps down this path.
+
+The choice that I made to completely avoid the geometric algebra space-time-algebra (STA) is somewhat unfortunate.  It is exceedingly elegant, especially in a relativisitic context.  Despite that, I think that this was still a good choice from a pedagogical point of view, as most of the prerequisites for an STA based study will have been taken care of as a side effect, making that study much more accessible.
+
+\EndNoBibArticle
