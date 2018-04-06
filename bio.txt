@@ -1,0 +1,3 @@
+Peeter Joot is a math and physics enthusiast with a '97 B.A.Sc. from UofT Engineering Science (computer engineering stream).  He is currently working on a part time ECE electromagnetics M.Eng at UofT, and enriched his knowledge by taking most of the interesting 4th year undergrad physics courses as a non-degree student.
+
+Peeter's day job is computer programming.  He has over 20 years of low level systems programming experience with operating system and hardware exploitation and abstraction, concurrency, large scale software refactoring.  He currently works for LzLabs, and is discovering the joys of PL/I, COBOL, VSAM, CICS, Assembly, JCL and other arcane mainframe lore guarenteed to scare off most programmers of his generation.

@@ -2,6 +2,8 @@ THISDIR := GAelectrodynamics
 THISBOOK := GAelectrodynamics
 #BASEVER := 5e8fb49ccd326da795eff23e7bdbbe4792a328e1
 export BOOKSUBVER := 1
+export BOOKMAJVER := 0
+# This isn't a good way to version.  It depends on the local git reflog history count.
 export REVCOUNTSTART := 482
 
 include ../latex/make.bookvars
@@ -62,6 +64,9 @@ spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CH
 dropbox:
 	cp GAelectrodynamics.pdf ~/Dropbox/ECE2500Y/GAelectrodynamics.V$(VER).pdf
 	git log --decorate > ~/Dropbox/ECE2500Y/Changelog.txt
+
+dist:
+	cp GAelectrodynamics.pdf GAelectrodynamics.V$(VER).pdf
 
 alex:
 	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.V$(VER).pdf
