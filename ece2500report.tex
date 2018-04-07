@@ -140,6 +140,8 @@ backref
 
 \newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
 \newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
+\newcommand{\stgradi}[0]{\lr{ \spacegrad + (1/c) \PDi{t}{}}}
+\newcommand{\conjstgradi}[0]{\lr{ \spacegrad - (1/c) \PDi{t}{}}}
 
 \usepackage{siunitx}
 %\usepackage{mhchem} % \ce{}
@@ -157,7 +159,7 @@ backref
 \section{Motivation.}
 This is the report for an ECE2500 M.Eng project course.
 
-\subsubsection{Goals.}
+\subsection{Goals.}
 This project had a few goals
 \begin{enumerate}
 \item Perform a literature review of applications of geometric algebra
@@ -166,7 +168,10 @@ to the study of electromagnetism.
 \item Create a complete, and as compact as possible, introduction of the prerequisites required
 for a graduate or advanced undergraduate electrical engineering student to be able to apply
 geometric algebra to problems in electromagnetism.
+%\item Develop some computer algebra methods for geometric algebra manipulation.
 \end{enumerate}
+
+\subsection{What is geometric algebra?}
 
 Geometric algebra
 generalizes vectors, providing algebraic representations of not just directed line segments, but also points, plane segments, volumes, and higher degree geometric objects (hypervolumes.)
@@ -209,12 +214,16 @@ The field energy density and Poynting vectors have a simple multivector form exp
 Calculations of radiation pressure can be performed using only the normal component of what is known as the energy momentum tensor in the conventional representation, which has a particularly compact multivector
 representation.
 
+It is my belief that systematically working through all of the introductory and advanced topics in electromagnetism using geometric algebra would provide significant insight, as well as a new set of powerful tools and procedures of practical value to the electrical engineer or physics practitioner.
+
+\subsection{Results.}
+
 Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias, or assumes high levels of mathematical or physics sophistication.
 The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to an electrical engineering audience.
 In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism.
 The end product of this project was a fairly small self contained book, titled ``Geometric Algebra for Electrical Engineers''.
 This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (82 pages), and some appendices.
-This report summarizes some results from this book, omitting most derivations, and attempts to provide an overview that may be used as a road map for the book for further exploration.
+
 Many of the fundamental results of electromagnetism are derived directly from
 \cref{eqn:ece2500report:40}, the multivector Maxwell's equation, in a streamlined and compact fashion.
 This includes some new results, and many of the existing non-relativistic results from the geometric algebra literature.
@@ -224,9 +233,12 @@ familiar conventional results from simpler multivector representations.
 Also included in the book are some sample calculations exploiting unique capabilities that geometric algebra provides.
 In particular, vectors in a plane may be manipulated much like complex numbers, which has a number of advantages over working with coordinates explicitly.
 
-It is my belief that systematically working through all of the introductory and advanced topics in electromagnetism using geometric algebra
-would provide significant insight, as well as a new set of powerful tools and procedures of practical value to the electrical engineer or physics practitioner.
 The book produced in this project provides the prerequisite material for such exploration, and some first steps along the path of such an expedition.
+
+\section{This report.}
+
+This report summarizes some results from the book, omitting all figures, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, details from worked examples, and (most) explainations and derivations.
+This report attempts to provide an overview that may be used as a road map for the book for further exploration, but unfortunately due to space constraints cannot actually explain the material in any meaningful way.
 
 \section{Chapter I: Geometric Algebra.}
 This chapter of the book attempted a self contained introduction to geometric algebra, with all the prerequisites required for geometric calculus and the subsequent applications to electromagnetism.
@@ -254,7 +266,7 @@ where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a supers
 
 Note that any orthonormal basis is also its reciprocal basis.
 As also done in tensor and relativistic theory, we use mixed index (upper and lower) variables when working with curvilinear coordinates.
-Summation (Einstein) convention was not used in the text, and all sums that could be implied by appropriately mixed indexes quantities are marked with an explicit summation symbol.
+Summation (Einstein) convention was not used in the book, and all sums that could be implied by appropriately mixed indexes quantities are marked with an explicit summation symbol.
 
 A vector may be expressed in terms of either the curvilinear or reciprocal basis
 \begin{equation}\label{eqn:ece2500report:n}
@@ -264,12 +276,12 @@ A vector may be expressed in terms of either the curvilinear or reciprocal basis
 \end{equation}
 showing that reciprocal frame can be used to compute the coordinates of a vector in the curvilinear basis and the curvilinear basis can be used to compute the coordinates with respect to the reciprocal basis.
 Because we never use coordinates \( a_i = \Ba \cdot \Bx_i, a^i = \Ba \cdot \Bx^i \) isolated from the associated basis, we have no need of the covariant nor contravariant tensor nomenclature.
-The text contains a number of examples of reciprocal frames, methods of computation, Mathematica examples, and other related concepts including computation of coordinates of higher grade blades with respect to curvilinear coordinates.
+The book contains a number of examples of reciprocal frames, methods of computation, Mathematica examples, and other related concepts including computation of coordinates of higher grade blades with respect to curvilinear coordinates.
 
 \subsection{Curvilinear coordinates and hypervolume elements.}
 Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
 In the book we use one, two or three parameter bases.
-For a vector parameterization \( \Bx(u_1, u_2, u_3) \) we define the curvilinear basis elements \( \Bx_i = \PDi{\Bx}{u_i} \), and associated vector valued differentials \( d\Bx_i = \Bx_i du_i \).
+For a vector parameterization \( \Bx(u_1, u_2, u_3) \) we define the curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), and associated vector valued differentials \( d\Bx_i = \Bx_i du_i \).
 Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are formed by wedging the two vector differentials for a two parameter manifold,
 whereas trivector valued volume elements  \( d^3 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 \)
 are formed by wedging all three of the differentials for the parameterized space.
@@ -342,7 +354,7 @@ and a k-volume integral with the vector derivative acting bidirectionally on \( 
 +
 \int_V F d^k\Bx \lr{ \rboldpartial G }.
 \end{equation*}
-The explicit meaning of these directionally acting derivative operations is given by the chain rule coordinate expansion
+The explicit meaning of these directionally acting derivative operations is given by the following chain rule coordinate expansion
 \begin{dmath*}
 F d^k \Bx \lrboldpartial G
 =
@@ -372,7 +384,7 @@ Some authors use the Hestenes dot notation, with overdots or primes to indicatat
 F d^k \Bx \dot{\boldpartial} \dot{G}.
 \end{dmath}
 The dot notation has the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
-However, in this book, where primed operators such as \( \spacegrad' \) are used to indicate that derivatives are taken with respect to primed \( \Bx' \) variables, a mix of dots and ticks would have been confusing.
+However, in the book, where primed operators such as \( \spacegrad' \) are used to indicate that derivatives are taken with respect to primed \( \Bx' \) variables, a mix of dots and ticks would have been confusing.
 
 \maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
 Given
@@ -406,7 +418,7 @@ The fundamental theorem of geometric calculus is a generalization of many conven
 This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
 
 The book includes a proof of
-\cref{thm:fundamentalTheoremOfCalculus:1} in the appendix, however, to make the material more accessible, this theorem is stated and proven separately for each of the
+\cref{thm:fundamentalTheoremOfCalculus:1} in the appendix, however, to make the material more accessible, this theorem is stated and proven separately in the book for each of the
 line, surface, and volume integral cases respectively.
 
 \subsubsection{Stokes' theorem.}
@@ -424,8 +436,7 @@ Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
 \end{equation*}
 }
 
-We will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.
-Special cases include line, area and volume integrals.
+In the book we will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.  In this report we state those results for the special cases of line, area and volume integrals.
 
 \maketheorem{Multivector line integral.}{thm:lineintegral:100}{
 Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral is related to the boundary by
@@ -438,13 +449,13 @@ Given an connected curve \( C \) parameterized by a single parameter, and multiv
 \maketheorem{Line integral of a scalar function (Stokes').}{thm:lineintegral:180}{
 Given a scalar function \( f \), its line integral is given by
 \begin{equation*}
-\int_C d^1\Bx \cdot \lrboldpartial f =
+\int_C d^1\Bx \cdot \boldpartial f =
 \int_C d^1\Bx \cdot \spacegrad f = \evalbar{f}{\Delta a}.
 \end{equation*}
 } % theorem
 
 \maketheorem{Multivector surface integral.}{thm:surfaceintegral:100}{
-Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), the surface integral
+Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), the surface integral is related to the boundary by
 \begin{equation*}
 \int_S F d^2\Bx \boldpartial G
 = \ointclockwise_{\partial S} F d\Bx G,
@@ -501,7 +512,7 @@ Given an connected volume \( V \) parameterized by three parameters for which \(
 = \ointctrclockwise_{\partial V} F d^2\Bx G,
 \end{equation*}
 where \( \partial V \) is the boundary of the volume \( V \), and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume.
-In \R{3} with \( d^3 \Bx = I dV \), \( d^2 \Bx = I \ncap dA \), this can be written
+In \R{3} with \( d^3 \Bx = I dV \), \( d^2 \Bx = I \ncap dA \), this integral can be written using a scalar volume element
 \begin{equation*}
 \int_V dV F \lrboldpartial G
 = \int_{\partial V} dA F \ncap G,
@@ -521,7 +532,7 @@ In \R{3} this can be written as
 \end{equation*}
 or with a duality transformation \( \Bf = I B \), where \( B \) is a bivector
 \begin{equation*}
-\int_V dV \spacegrad \cdot B = \int_{\partial V} dA \ncap \cdot \Bf,
+\int_V dV \spacegrad \cdot B = \int_{\partial V} dA \ncap \cdot B,
 \end{equation*}
 where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
 } % theorem
@@ -552,16 +563,18 @@ Given an \R{3} multivector \( M \) containing only grades 0,1, or 2
 where \( \ncap \) is the outwards normal to the surface bounding \( V \).
 } % theorem
 
+Note \cref{thm:volumeintegral:2661} does not apply to any multivectors \( M \) with pseudoscalar components.
+
 \subsection{Multivector Fourier transform and phasors.}
 The book makes use of time harmonic (frequency domain) representations when convienient.
 Provided we utilize a scalar (non-geometric) imaginary, a standard Fourier transform generalizes to multivectors without trouble.
 
 \makedefinition{Multivector Fourier transform pairs}{dfn:greensFunctionOverview:280}{
-The Fourier transform pair for a multivector valued function \( f(\Bx, t) \) will be written as
+The Fourier transform pair for a multivector valued function \( F(\Bx, t) \) will be written as
 \begin{equation*}
 \begin{aligned}
-f(\Bx, t) &= \int f_\omega(\Bx) e^{j \omega t} d\omega \\
-f_\omega(\Bx) &= \inv{2 \pi} \int f(\Bx, t) e^{-j \omega t} dt,
+F(\Bx, t) &= \int F_\omega(\Bx) e^{j \omega t} d\omega \\
+F_\omega(\Bx) &= \inv{2 \pi} \int F(\Bx, t) e^{-j \omega t} dt,
 \end{aligned}
 \end{equation*}
 where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
@@ -571,14 +584,14 @@ The book uses the engineering convention for
 phasors, with a positive sign on the angular frequency complex exponentials.
 
 \makedefinition{Multivector phasor representation.}{dfn:greensFunctionOverview:300}{
-The phasor representation \( f(\Bx) \) of a multivector valued (real) function \( f(\Bx, t) \) is defined implicitly as
+The phasor representation \( F(\Bx) \) of a multivector valued (real) function \( F(\Bx, t) \) is defined implicitly as
 \begin{equation*}
-f(\Bx, t) = \Real\lr{ f(\Bx) e^{j \omega t} },
+F(\Bx, t) = \Real\lr{ F(\Bx) e^{j \omega t} },
 \end{equation*}
 where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
 } % definition
 
-The complex valued multivector \( f(\Bx) \) is still generated from the real Euclidean basis for \R{3}, so there will be
+The complex valued multivector \( F(\Bx) \) is still generated from the real Euclidean basis for \R{3}, so there will be
 no reason to introduce complex inner products spaces into the mix.
 
 \subsection{Multivector Green's functions.}
@@ -607,8 +620,7 @@ G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
 \end{dmath}
 
 The Helmholtz operator can be factored in geometric algebra as \( \spacegrad^2 + k^2 = \lr{ \spacegrad \pm j k }\lr{ \spacegrad \mp j k } \).
-We will call these factors first order Helmholtz operators, and derive their (multivector valued) Green's functions
-
+We will call these factors first order Helmholtz operators, and derive their (multivector valued) Green's functions, which are as follows.
 \maketheorem{Green's function for the first order Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:720}{
 The Green's function satisfying
 \begin{equation*}
@@ -641,7 +653,7 @@ Green's function for the gradient, which is vector valued
 G(\Bx, \Bx' ; k = 0) = \inv{4 \pi} \frac{\rcap}{r^2}.
 \end{equation}
 
-For the wave equation operator, it is helpful to introduce a d'Lambertian operator, defined as follows.
+For the wave equation operator, it is helpful to introduce a d'Lambertian operator.  Because the sign of this operator varies in the literature, we must state our choice explicitly.
 \makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:120}{
 Let
 \begin{equation*}
@@ -653,9 +665,9 @@ Let
 \end{equation*}
 } % definition
 
-The d'Lambertian operator may be factored in geometric algebra as \( \dAlembertian = \conjstgrad \stgrad \).
+The d'Lambertian operator may be factored in geometric algebra as \( \dAlembertian = \conjstgradi \stgradi \).
 The operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
-Instead of entering the fight, it will be written it out in full in this book.}.
+Instead of entering the fight, it will be written it out in full in the book.}.
 
 In the book, the Green's function for the spacetime gradient is derived from the from the Green's function for the d'Lambertian, also well known.
 \maketheorem{Green's function for the spacetime gradient.}{thm:greensFunctionSpacetimeGradient:120}{
@@ -755,7 +767,7 @@ Maxwell's equation is a multivector equation relating the change in the electrom
 \stgrad F = J.
 \end{equation*}
 } % theorem
-Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
+Maxwell's equation in this form will be the starting place for all the subsequent analysis in the book.
 
 See the book for a proof of \cref{dfn:isotropicMaxwells:680}.
 The workhorse of the proof is the identity \( \spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb \) which allows Maxwell's equations into two gradient equations, one for each of \( \spacegrad \BE \), and \( \spacegrad \BH \), which can then be further grouped to complete the proof.
@@ -1267,7 +1279,7 @@ As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\t
 The rate of change of mechanical momentum density \( \ifrac{d\Bp_{\textrm{mech}}}{dt} \) is, in fact, the continuous equivalent of the Lorentz force, which is found to be a direct consequence of conservation relationships associated with Maxwell's equation.
 
 There were many details left out above.
-Please refer to the text for more information.
+Please refer to the book for more information.
 
 \subsubsection{Example energy momentum calculations.}
 To illustrate the ideas above, the energy momentum tensor components for all of the static fields computed previously are determined.
@@ -1518,7 +1530,7 @@ T(1) = \calE + \frac{\BS}{v} =
 where the absolute value is computed using the reverse as the conjugation operation \( \Abs{z}^2 = z z^\dagger \).
 
 \subsection{Transverse fields in a waveguide.}
-One topic from waveguide theory is considered in the text.
+One topic from waveguide theory is considered in the book.
 \maketheorem{Transverse and propagation field solutions.}{thm:transverseField:348}{
 Given a field propagating along the z-axis (either forward or backwards), with angular frequency \( \omega \), represented by the real part of
 \begin{equation*}

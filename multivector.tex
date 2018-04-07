@@ -71,7 +71,7 @@ A bivector, or 2-vector, is a sum of products of pairs of normal vectors.
 Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
 a general bivector can be expressed as
 \begin{equation*}
-\sum_{1 \le i \ne j \le N} B_{ij} \Be_i \Be_j,
+\sum_{1 \le i < j \le N} B_{ij} \Be_i \Be_j,
 \end{equation*}
 where \( B_{ij} \) is a scalar.
 The vector basis \( V \) is said to be a generator of a bivector space.
@@ -142,7 +142,7 @@ Again, assuming a vector product
 A trivector, or 3-vector, is a sum of products of triplets of mutually normal vectors.
 Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), a trivector is any value
 \begin{equation*}
-\sum_{1 \le i \ne j \ne k \le N} T_{ijk} \Be_i \Be_j \Be_k,
+\sum_{1 \le i < j < k \le N} T_{ijk} \Be_i \Be_j \Be_k,
 \end{equation*}
 where \( \T_{ijk} \) is a scalar.
 The vector space \( V \) is said to generate a trivector space.
@@ -173,7 +173,7 @@ A k-vector is a sum of products of \( k \) mutually normal vectors.
 Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
 a general k-vector can be expressed as
 \begin{equation*}
-\sum_{1 \le i \ne j \cdots \ne m \le N} K_{i j \cdots m} \Be_{i} \Be_{j} \cdots \Be_{m},
+\sum_{1 \le i < j \cdots < m \le N} K_{i j \cdots m} \Be_{i} \Be_{j} \cdots \Be_{m},
 \end{equation*}
 where \( K_{i j \cdots m} \) is a scalar, indexed by \( k \) indexes \( i, j, \cdots, m \).
 

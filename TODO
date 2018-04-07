@@ -1,8 +1,3 @@
--
-   don't hardcode:
-
-   \newcommand{\myVersion}{version V0.1.2\xspace}
-
 - Pillbox figure.  Perhaps make a first figure that doesn't have the integration volume, but does have the
   regions, and an illustration of each of fields (vector+bivector) in each region.
 
@@ -12,48 +7,11 @@
 
 - Have places that it would make sense to use label boxes.  I'd forgotten all about those.
 
-- removed solution for electrostatics
-
-      \boxedEquation{eqn:electrostatics_poissonEquationSolution:601}{
-      \phi(\Bx) = \inv{4 \pi \epsilon} \int dV' \frac{ \rho(\Bx') }{\Norm{\Bx - \Bx'}}.
-      }
-
-      \boxedEquation{eqn:magnetostatics_vectorPotential:560}{
-      \BA(\Bx) = \frac{\mu}{4\pi} \int dV' \frac{ \BJ(\Bx') }{\Norm{\Bx - \Bx'}}.
-      }
-
-   and related context.
-
-      -      \chapter{REWRITE and reincorporate above.}
-      -      \section{Electrostatics.}
-      -         \subsection{Electric potential.}
-      -            \input{electrostatics_electricPotential.tex}
-      -         \subsection{Poisson equation solution.}
-      -            \input{electrostatics_poissonEquationSolution.tex}
-      -         \subsection{Problems.}
-      -            \input{electrostaticsProblems.tex}
-      -      \section{Magnetostatics.}
-      -         \subsection{Vector potential.}
-      -            \input{magnetostatics_vectorPotential.tex}
-
-   Did I have anything like that in the multivector potential solution ... I don't think I did.
-   Look through the multivector potential section for anything on solutions.
-
 - before a \makedefinition, theorem, ... should I end any sentance?  I think so, and don't in many places.
 
 - expect that the boundary condition analysis really belongs with the dielectric media treatment, and that additional insight will be gained by doing so.
 
-- colored
-
-   {thm:statics:100}
-
-   and the text that followed.  I don't like the contrast of the color selection:
-
-      MidnightBlue,BrickRed
-      Green,BrickRed
-
-   Fell back to:
-
+- colors: manually colored equations.  used:
       DarkOliveGreen,Maroon
 
       (general color scheme used elsewhere.)  Something that looks darker in equations might be nice.
