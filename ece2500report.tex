@@ -237,7 +237,7 @@ The book produced in this project provides the prerequisite material for such ex
 
 \section{This report.}
 
-This report summarizes some results from the book, omitting all figures, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, details from worked examples, and (most) explainations and derivations.
+This report summarizes some results from the book, omitting all figures, citations, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, details from worked examples, and (most) explainations and derivations.
 This report attempts to provide an overview that may be used as a road map for the book for further exploration, but unfortunately due to space constraints cannot actually explain the material in any meaningful way.
 
 \section{Chapter I: Geometric Algebra.}
@@ -692,7 +692,7 @@ Like the Green's function for the first order Helmholtz operator, the Green's fu
 
 \subsection{Helmholtz theorem.}
 In the book first and second order proofs of Helmholtz theorem are provided, both using geometric algebra techniques.
-Disussion of those derivations is omitted here for brevity.
+Disussion of those derivations are omitted here for brevity.
 \section{Chapter III: Electromagnetism.}
 \subsection{Conventional Maxwell's equations.}
 In the book it is presumed that the reader is familiar with Maxwell's equations, and that no attempt to motivate them is required.
@@ -716,7 +716,7 @@ Much of the book presumes isotropic constitutive relationships between the elect
 \BD &= \epsilon \BE,
 \end{aligned}
 \end{dmath}
-where \( \epsilon = \epsilon_r \epsilon_0 \) is the permittivity of the medium, and \( \mu = \mu_r \mu_0 \) is the permeability of the medium.
+where \( \epsilon = \epsilon_r \epsilon_0 \) is the permittivity of the medium, and \( \mu = \mu_r \mu_0 \) is the permeability of the medium.  There is some limited discussion of the geometric algebra form of Maxwell's equations for more general media at the end of the book.
 \subsection{Maxwell's equation.}
 For isotropic media and constitutive relationships \cref{eqn:freespace:300} we may define
 a multivector field that includes both electric and magnetic components
@@ -741,23 +741,19 @@ Maxwell's equations, but we will also see such a structure arise naturally in sh
 No information is lost by imposing the complex structure of
 \cref{dfn:isotropicMaxwells:640}, since we can always obtain the
 electric field vector \( \BE \) and the magnetic field bivector \( I \BH \) by grade selection
-from the electromagnetic field strength when desired
-\begin{dmath}\label{eqn:isotropicMaxwells:620}
-\begin{aligned}
-\BE &= \gpgradeone{ F } \\
-I \BH &= \inv{\eta} \gpgradetwo{ F }.
-\end{aligned}
-\end{dmath}
+from the electromagnetic field strength when desired using \(
+\BE = \gpgradeone{ F },
+I \BH = (1/\eta) \gpgradetwo{ F } \).
 
 We will also
-define a multivector current containing all charge densites and current densities
+define a multivector current containing all charge densites and current densities as follows.
 \makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
 The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
 \begin{equation*}
 J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
 \end{equation*}
 } % definition
-When the fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).
+When fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).
 With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
 
 Given the multivector field and current, it is now possible to state Maxwell's equation (singular) in its geometric algebra form
@@ -818,7 +814,7 @@ as well as a pair of continuity equations coupling the respective charge and cur
 \end{equation*}
 } % theorem
 
-The proof is in the book, but basically just requires operating on Maxwell's equation with \( \conjstgrad \), which yields two equations
+The proof is in the book, but basically just requires operating on Maxwell's equation with \( \conjstgradi \), which yields two equations
 equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
@@ -856,7 +852,7 @@ e^{ -j \Bk \cdot \Bx }.
 \end{equation*}
 } % definition
 
-In the book, we show that solutions of the electromagnetic field wave equation have the form
+In the book, we show that solutions of the electromagnetic field wave equation have the following form.
 \maketheorem{Plane wave solutions to Maxwell's equation.}{thm:planewavesMultivector:620}{
 Single frequency plane wave solutions of Maxwell's equation have the form
 \begin{equation*}
@@ -947,7 +943,7 @@ We see that the solution incorporates both a {\color{DarkOliveGreen}Coulomb's la
 The proof is essentially a convolution with the (vector valued) Green's function for the (first order) gradient \cref{eqn:greensFunctionFirstOrderHelmholtz:900}.
 \subsection{Statics: Enclosed charge.}
 In conventional electrostatics we obtain a relation between the normal electric field component and the enclosed charge by integrating the electric field divergence.
-The geometric algebra generalization of this relates the product of the normal and the electromagnetic field strength related to the enclosed multivector current
+The geometric algebra generalization of this relates the product of the normal and the electromagnetic field strength related to the enclosed multivector current as follows.
 \maketheorem{Enclosed multivector current.}{thm:enclosedCurrent:60}{
 The total multivector current in the volume is related to the surface integral of \( \ncap F \) over the boundary of the volume by
 \begin{equation*}
@@ -1000,16 +996,15 @@ Expressed in terms of the conventional consistent fields and sources, this multi
 \end{aligned}
 \end{equation*}
 } % theorem
-The last of the scalar equations in
+Flipping the direction of integration in the the last of the scalar equations in
 \cref{thm:amperes:280}
-is Ampere's law
+provides the conventional form of Ampere's law
 \begin{equation}\label{eqn:amperes:20}
-\ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ = I_{\textrm{enc}},
+\ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ = I_{\textrm{enc}}.
 \end{equation}
-and the first is the dual of Ampere's law for (fictious) magnetic current density\footnote{Even without the fictitious magnetic sources, neither the name nor applications of the two cross product line integrals with the normal derivatives are familiar to the author.}.
-In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.
-This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
-
+%and the first is the dual of Ampere's law for (fictious) magnetic current density\footnote{Even without the fictitious magnetic sources, neither the name nor applications of the two cross product line integrals with the normal derivatives are familiar to the author.}.
+%In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.
+%This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
 The proof and additional details can be found in the book.
 
 It is worth pointing out that for pure magnetostatics problems where \( J = \eta \BJ, F = I \eta \BH \), that Ampere's law can be written in a trivector form
@@ -1023,38 +1018,33 @@ geometric algebra as a bivector.
 A number of worked examples were calculated to illustrate geometric algebra techniques.
 \begin{itemize}
 \item A finite line charge with line charge density \( \lambda \).
-With \( i = \Be_1 \Be_3 \), the (electric) field was found to be \(
-F = \ifrac{\lambda \Be_1}{(4 \pi \epsilon r)} \int_{a/r}^{b/r} du \lr{ e^{i\theta} - u }\lr{ 1 + u^2 - 2 u \cos\theta }^{-3/2} \).
+With \( i = \Be_1 \Be_3 \), the (electric) field is found to have the form \( F = (\lambda/r) \int du \lr{ e^{i\theta} - u } f(u) \), where
+\( f(u) \) is a scalar function (specified in the book.)
 The scalar portion of the integral is strictly a scale factor for the component of the field that lies along the x-axis, whereas the ``complex exponential'' factor of the integrand represents a rotational term along the direction \( \Be_1 e^{i\theta} = \Be_1 \cos\theta + \Be_3 \sin\theta \).
 In problems like this, with only two degrees of freedom, there will often be a complex like representation possible using geometric algebra.
 %This is illustrated in \cref{fig:linecharge:linechargeFig1}.
 %\imageFigure{../figures/GAelectrodynamics/linechargeFig1}{Line charge density.}{fig:linecharge:linechargeFig1}{0.3}
-\item The field for infinite static charge and current densities lying along the z-axis \( \rho(\Bx) = \lambda \delta(x) \delta(y), \BJ(\Bx) = \Bv \rho(\Bx) \) was found to be \( F = \ifrac{\lambda}{(2\pi \epsilon R)} \rhocap \lr{ 1 - \Bv/c}\).
+\item The field for infinite static charge and current densities lying along the z-axis \( \rho(\Bx) = \lambda \delta(x) \delta(y), \BJ(\Bx) = \Bv \rho(\Bx) \) is found to be \( F = \lambda \rhocap \lr{ 1 - \Bv/c}/(2 \pi \epsilon R)\).
 The field splits naturally into electric (vector) and magnetic (bivector) grades as \( F = \BE \lr{ 1 - \Bv/c } = \BE + I \lr{ \ifrac{\Bv}{c} \cross \BE } \).
 \item As a problem, the reader was asked to compute the field for
 the magnetic charge density \( \rho_m = \lambda_m \delta(x) \delta(y) \), and current density \( \BM = v \Be_3 \rho_m = \Bv \rho_m \).
 That field is
 \( F = \ifrac{\lambda_m c}{(4 \pi R)} I \rhocap \lr{ 1 - \ifrac{\Bv}{c} } \), which may be split into electric and magnetic components as
 \( F = \BB \cross \Bv + c I \BB \), where \( \BB = \lambda_m \rhocap/(4 \pi R) \).
-\item The field for a uniform infinite planar charge density \( \rho(\Bx) = \sigma \delta(z) \) and associated current density \( \BJ(\Bx) = \Bv \rho(\Bx) \), where \( \Bv = v \Be_1 e^{i\theta}, \quad i = \Be_{12} \) was found to be
-\( F = \ifrac{\sigma \sgn(z)}{(4 \pi \epsilon)} \Be_3 \lr{ 1 - \frac{\Bv}{c}} \).
+\item The field for a uniform infinite planar charge density \( \rho(\Bx) = \sigma \delta(z) \) and associated current density \( \BJ(\Bx) = \Bv \rho(\Bx) \), where \( \Bv = v \Be_1 e^{i\theta}, \quad i = \Be_{12} \) is found to be
+\( F = \ifrac{\sigma \sgn(z)}{(4 \pi \epsilon)} \Be_3 \lr{ 1 - \ifrac{\Bv}{c}} \).
 As should be expected by superposition, the field splits neatly into electric field (vector) and magnetic field (bivector) components associated with the respective pure electrostatic and magnetostatics problems.
 \item As a problem the reader is asked to show that the field for an infinite planar
 magnetic charge density \( \rho_m = \sigma_m \delta(z) \), and current density \( \BM = \Bv \rho_m, \Bv = v \Be_1 e^{i\theta}, i = \Be_{12}\) is \( F = \ifrac{\sigma_m c \sgn(z)}{(4 \pi)} i \lr{ 1 - \ifrac{\Bv}{c} } \).
-\item The field for a line charge density \( \lambda \) along a circular arc segment \( \phi' \in [a,b] \), of radius \( r \) in the x-y plane was found to be \( F = \ifrac{\lambda r}{(4 \pi \epsilon_0 R^2)} \int_{a-\phi}^{b-\phi} d\alpha \lr{ \rcap + \phicap u i e^{i \alpha } } \lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{-3/2} \), where \( i = \Be_{12} \).
+\item The field for a line charge density \( \lambda \) along a circular arc segment \( \phi' \in [a,b] \), of radius \( r \) in the x-y plane is found to be \( F = \ifrac{\lambda r}{(4 \pi \epsilon_0 R^2)} \int_{a-\phi}^{b-\phi} d\alpha \lr{ \rcap + \phicap u i e^{i \alpha } } \lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{-3/2} \), where \( i = \Be_{12} \).
 This problem is often given as an example or problem in electrostatics, but usually for circular charge distribution, and an observation point on the z-axis where symmetries kill off all but the z-axis component of the field.
 The freedom to represent rotational terms as complex exponentials in geometric algebra allows the more general problem to be calculated without much additional difficulty.
 The resulting integrals can be evaluated easily with any existing numerical integration software as the vector factors \( \rcap, \phicap \) may be pulled out of the integrals, leaving strict scalar or complex valued integrands.
 %\imageFigure{../figures/GAelectrodynamics/lineChargeArcFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.5}
 \item To illustrate the algebraic flexibility available, the circular ring charge problem is tackled in cylindrical coordinates instead of spherical (as previous).
-For a static charge line density \( \lambda \) on a ring at \( z = 0 \), and an azimuthal current density \( \BJ = \Bv \rho \), we find a closed form solution for the field is found \( F = \ifrac{\lambda}{(4 \pi \epsilon R)}
-\lr{
-\lr{ \tilde{z} \Be_3 + \tilde{r} \rhocap -\ifrac{v i}{c} } A
-- \lr{
-\rhocap + \ifrac{v}{c} \lr{ \tilde{z} \Be_{3} \rhocap + \tilde{r} i } } B
-} \), where \( \tilde{z} = z/R, \tilde{r} = r/z \).
+For a static charge line density \( \lambda \) on a ring at \( z = 0 \), and an azimuthal current density \( \BJ = \Bv \rho \), we find a closed form solution for the field is found.
 The symmetry of the ring configuration allows for a closed form solution (numerical integration not required) of the field, but comes with the cost of requiring
-elliptic integrals \( A, B \), which are detailed in the book along with the derivation and plots of the resulting fields.
+elliptic integrals, which are detailed in the book along with the derivation and plots of the resulting fields.
 %\imageFigure{../figures/GAelectrodynamics/chargeAndCurrentOnRingFig1}{Field due to a circular distribution.}{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}{0.3}
 %}
 \item The final worked statics problem in the book is a use of Ampere's law, to compute the magnetic field for a
@@ -1109,7 +1099,8 @@ Jefimenkos' equations
 %which checks against Griffiths.
 } % theorem
 This is found fairly easily using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}, and the details can be found in the book.
-Unlike the conventional approach (\citep{griffiths1999introduction}), we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
+%(\citep{griffiths1999introduction})
+Unlike the conventional approach, we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
 
 \subsection{Energy and momentum.}
 In the energy and momentum section of the book, the geometric algebra formulation of the field energy density, Poynting vector, Maxwell stress tensor, and more generally, the energy momentum tensor are fully detailed.
@@ -1274,7 +1265,7 @@ or in an integral form
 
 As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\textrm{em}} = \int_V dV \bcP \), we can identify the sum of the Maxwell stress tensor's normal component over the bounding integral as time rate of change of the mechanical and electromagnetic momentum
 \begin{equation}\label{eqn:ece2500report:2560}
-\frac{d\Bp_{\textrm{mech}}}{dt} + \frac{d\Bp_{\textrm{em}}}{dt} = \int_{\partial V} dA \BT(\ncap).
+\frac{d}{dt} \Bp_{\textrm{mech}} + \frac{d}{dt} \Bp_{\textrm{em}} = \int_{\partial V} dA \BT(\ncap).
 \end{equation}
 The rate of change of mechanical momentum density \( \ifrac{d\Bp_{\textrm{mech}}}{dt} \) is, in fact, the continuous equivalent of the Lorentz force, which is found to be a direct consequence of conservation relationships associated with Maxwell's equation.
 
@@ -1369,7 +1360,7 @@ The solution is shown to be
 \end{dmath}
 Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path, so the velocity of the charged particle traces out a helical path.
 
-A multivector integration factor method for solving the Lorentz force equation in constant mixed external electric and magnetic fields can be found in \citep{hestenes1999nfc}.
+%A multivector integration factor method for solving the Lorentz force equation in constant mixed external electric and magnetic fields can be found in \citep{hestenes1999nfc}.
 More general examples are considered in the literature cited in the book.
 
 \subsection{Polarization}
@@ -1424,7 +1415,9 @@ Linear polarization at an angle \( \psi\) from the x-axis in the transverse plan
 \( \alpha_\txtR = \inv{2}\Norm{\BE} e^{i(\psi + \theta)},
 \alpha_\txtL = \inv{2}\Norm{\BE} e^{i(\psi - \theta)} \), for which the field is \( F = \lr{ 1 + \Be_3 } \Norm{\BE} \Be_1 e^{i \psi} \cos(\phi + \theta) \),
 where \( \theta \) is an initial phase angle.
-\item Following the IEEE antenna convention discussed in \citep{balanis1989advanced}, we define right(left) circular polarization as the
+\item 
+% discussed in \citep{balanis1989advanced}
+Following the IEEE antenna convention, we define right(left) circular polarization as the
 a change in phase that
 results in the electric field tracing out a (clockwise,counterclockwise) circle
 \begin{dmath}\label{eqn:polarization_circular:180}
@@ -1486,8 +1479,8 @@ Only the propagation direction of a plane wave, regardless of its polarization (
 Using \cref{thm:polarizationRewrite:780} the energy momentum vector may be computed for each of the polarizations considered above.
 \begin{itemize}
 \item
-For the linearly polarization \( T(1) = \frac{\epsilon}{2} \lr{ 1 + \Be_3 } \Norm{\BE}^2 \cos^2( \phi + \theta ) \).
-\item For the circularly polarization \( T(1) = \frac{\epsilon}{2} (1 + \Be_3) \Norm{\BE}^2 \).
+For the linearly polarization \( T(1) = \ifrac{\epsilon}{2} \lr{ 1 + \Be_3 } \Norm{\BE}^2 \cos^2( \phi + \theta ) \).
+\item For the circularly polarization \( T(1) = \ifrac{\epsilon}{2} (1 + \Be_3) \Norm{\BE}^2 \).
 A circularly polarized wave carries maximum energy and momentum, whereas the energy and momentum of a linearly polarized wave
 oscillates with the phase angle.
 \item For the elliptical polarization \(
@@ -1586,7 +1579,10 @@ F = \gpgrade{\conjstgrad A}{1,2}.
 \end{equation*}
 } % definition
 
-The grades of the multivector potentials may be chosen to match SI conventions, and those of \citep{balanis2005antenna} (which includes fictitious magnetic sources) are used in the book as follows.
+The grades of the multivector potentials may be chosen to match SI conventions (as specified in Balanis' ``Antenna Theory'',
+which includes fictitious magnetic sources),
+% and those of \citep{balanis2005antenna} (
+%) are used in the book as follows.
 \maketheorem{Fields and the potential wave equations.}{thm:generalPotential:40}{
 Given
 %\label{eqn:gaugeTransformation:1111}
@@ -1656,7 +1652,7 @@ F
 \end{equation*}
 } % theorem
 
-We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgrad A \) are zero, or a transformation that kills those grades is made.
+We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgradi A \) are zero, or a transformation that kills those grades is made.
 \maketheorem{Lorentz gauge transformation.}{thm:gaugeTransformation:140}{
 Given any multivector potential \( A \) solution of Maxwell's equation, the transformation
 \begin{equation*}
@@ -1763,7 +1759,7 @@ A simple proof is possible by integrating the pair of Maxwell's equations over t
 and the area of the pillbox top to also tend to zero, using \cref{thm:volumeintegral:100} to transform the multivector integrals to boundary integrals.
 Figures and the full proof are available in the book.
 
-Note that in the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then the field and current relationship has a particularily simple form \citep{chappell2014geometric}
+Note that in the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then the field and current relationship has a particularily simple form% \citep{chappell2014geometric}
 \begin{dmath}\label{eqn:boundarySurfaceSources:421}
 \ncap (F_2 - F_1) = J_s.
 \end{dmath}
@@ -1790,4 +1786,4 @@ Examples include the Fresnel relationships for transmission and reflection at an
 Many of these topics can probably be handled in a coordinate free fashion using geometric algebra.
 Despite all the work that is required to help bridge the gap between formalism and application, making applied electromagnetism using geometric algebra truly accessible, it is the belief of the author that this project has made some a good first steps down this path.
 
-\EndArticle
+\EndNoBibArticle
