@@ -1,0 +1,29 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Poynting's theorem (integral form.)}{thm:poyntingTheoremRewrite:1420}{
+\begin{dmath}\label{eqn:poyntingTheoremRewrite:1400}
+\begin{aligned}
+&\PD{t}{}
+\int_V \calE dV
+=
+-\int_{\partial V} dA \ncap \cdot \BS
+-
+\int_V dV \lr{
+   \BJ \cdot \BE
+   +
+   \BM \cdot \BH
+} \\
+&
+\int_V dV \lr{ \rho \BE + \BJ \cross \BB }
++ \int_V dV \lr{ \rho_\txtm \BH - \epsilon \BM \cross \BE }
+=
+-
+\PD{t}{ }
+\int_V dV \bcP
++
+\int_{\partial V} dA \BT(\ncap).
+\end{aligned}
+\end{dmath}
+} % theorem

@@ -1,0 +1,55 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Fields and the potential wave equations.}{thm:generalPotential:40}{
+Given
+%\label{eqn:gaugeTransformation:1111}
+\begin{equation*}
+A =
+      - \phi
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF },
+\end{equation*}
+where
+\begin{enumerate}
+\item \( \phi \) is the scalar potential \si{V} (Volts).
+\item \( \BA \) is the vector potential \si{W/m} (Webers/meter).
+\item \( \phi_m \) is the scalar potential for (fictitious) magnetic sources \si{A} (Amperes).
+\item \( \BF \) is the vector potential for (fictitious) magnetic sources \si{C} (Coulombs),
+\end{enumerate}
+the electric field vector and the magnetic field bivector associated with a potential \( A \) are
+\begin{equation*}
+\begin{aligned}
+\BE &=
+\gpgrade{\conjstgrad A}{1}
+=
+   - \spacegrad \phi
+   - \PD{t}{\BA}
+   - \inv{\epsilon} \spacegrad \cross \BF \\
+I \eta \BH &=
+\gpgrade{\conjstgrad A}{2}
+=
+   I \eta
+   \lr{
+      - \spacegrad \phi_\txtm
+      - \PD{t}{\BF}
+      + \inv{\mu} \spacegrad \cross \BA
+   }
+.
+\end{aligned}
+\end{equation*}
+The potentials are related to the sources by
+\begin{equation*}
+\begin{aligned}
+\dAlembertian
+\phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+\dAlembertian
+\BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+\dAlembertian
+\BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
+\dAlembertian
+\phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
+\end{aligned}
+\end{equation*}
+} % theorem

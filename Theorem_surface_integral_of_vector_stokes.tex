@@ -1,0 +1,15 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Surface integral of a vector function (Stokes').}{thm:surfaceintegral:500}{
+Given a vector function \( \Bf(\Bx) \) the surface integral is given by
+\begin{equation*}
+\int_S d^2 \Bx \cdot (\spacegrad \wedge \Bf) = \ointclockwise_{\partial S} d\Bx \cdot \Bf.
+\end{equation*}
+In \R{3} this can be written as
+\begin{equation*}
+\int_S dA \ncap \cdot \lr{ \spacegrad \cross \Bf} = \ointctrclockwise_{\partial S} d\Bx \cdot \Bf,
+\end{equation*}
+where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
+} % theorem

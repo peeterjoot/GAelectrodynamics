@@ -1,0 +1,28 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Lorentz force and power.}{thm:lorentzForce:300}{
+Given an energy momentum multivector \( T = \calE + c \Bp \), and a charge associated with a small bounded multivector current density \( Q = \int_V J dV \),
+the respective power and force experienced by a particle with electric (and/or magnetic) charge is
+\begin{equation*}
+\inv{c} \frac{dT}{dt} = \gpgrade{ F Q^\dagger }{0,1} = \inv{2} \lr{ F^\dagger Q + F Q^\dagger }.
+\end{equation*}
+where \( \gpgradezero{dT/dt} = \ifrac{d\calE}{dt} \) is the power and \( \gpgradeone{dT/dt} = c \ifrac{d\Bp}{dt} \) is the force on the particle.
+The conventional representation of the Lorentz force/power equations
+\begin{equation*}
+\begin{aligned}
+\gpgradeone{ F Q^\dagger } &= \ddt{\Bp} = q \lr{ \BE + \Bv \cross \BB } \\
+c \gpgradezero{ F Q^\dagger } &= \ddt{\calE} = q \BE \cdot \Bv.
+\end{aligned}
+\end{equation*}
+%given by \cref{eqn:freespace:180}
+may be recovered by grade selection operations.
+For magnetic particles, such a grade selection gives
+\begin{equation*}
+\begin{aligned}
+\gpgradeone{ F Q^\dagger } &= \frac{d\Bp}{dt} = q_\txtm \lr{ c \BB - \inv{c} \Bv \cross \BE } \\
+c \gpgradezero{ F Q^\dagger } &= \frac{d\calE}{dt} = \inv{\eta} q_\txtm \BB \cdot \frac{\Bv}{c}.
+\end{aligned}
+\end{equation*}
+} % theorem

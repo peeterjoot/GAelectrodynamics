@@ -288,27 +288,9 @@ The book contains examples, figures, Mathematica calculations, and discussion th
 
 The final tool required to formulate multivector integration theory is the vector derivative, the projection of the gradient onto the integration manifold.
 
-\maketheorem{Reciprocal frame vectors}{thm:curvilinearGradient:1}{
-Given a curvilinear basis with elements \( \Bx_i = \PDi{u_i}{\Bx} \), the reciprocal frame vectors are given by
-\begin{dmath*}
-\Bx^i = \spacegrad u_i.
-\end{dmath*}
-} % theorem
+\input{Theorem_reciprocal_frame_vectors_gradient.tex}
 
-\maketheorem{Curvilinear representation of the gradient}{thm:curvilinearGradient:2}{
-Given an N-parameter vector parameterization
-\( \Bx = \Bx(u_1, u_2, \cdots, u_N) \)
-of \R{N},
-with curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the gradient can be expressed as
-\begin{dmath*}
-\spacegrad = \sum_i \Bx^i \PD{u_i}{}.
-\end{dmath*}
-It is often convenient to define \( \partial_i \equiv \PDi{u_i}{} \), so that the gradient can be expressed in mixed index representation
-\begin{dmath*}
-\spacegrad = \sum_i \Bx^i \partial_i.
-\end{dmath*}
-%or the same with sums over mixed indexes implied.
-} % theorem
+\input{Theorem_curvilinear_gradient.tex}
 
 \input{Definition_vector_derivative.tex}
 
@@ -340,33 +322,7 @@ F d^k \Bx \dot{\boldpartial} \dot{G}.
 The dot notation has the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
 However, in the book, where primed operators such as \( \spacegrad' \) are used to indicate that derivatives are taken with respect to primed \( \Bx' \) variables, a mix of dots and ticks would have been confusing.
 
-\maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
-Given
-multivectors \(F, G \),
-a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with hypervolume element \( d^k \Bx = d^k u I_k \), where
-\( I_k = \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k \), the hypervolume integral is related to the boundary integral by
-\begin{equation*}
-\int_V F d^k \Bx \lrboldpartial G = \oint_{\partial V} F d^{k-1} \Bx G,
-\end{equation*}
-where \( \partial V \) represents the boundary of the volume, and \( d^{k-1} \Bx \) is the hypersurface element.
-The hypersurface element and boundary integral is defined for \( k > 1 \) as
-\begin{equation*}
-\oint_{\partial V} F d^{k-1} \Bx G
-\equiv
-\sum_i \int d^{k-1} u_i \evalbar{ \lr{ F \lr{ I_k \cdot \Bx^i} G }}{\Delta u_i},
-\end{equation*}
-where \( d^{k-1} u_i \) is the product of all \( du_j \) except for \( du_i \).
-For
-\( k = 1 \) the hypersurface element and associated
-boundary ``integral''
-is really just convienent general shorthand, and
-should be taken to mean the evaluation of the \( F G \) multivector product over the range of the parameter
-\begin{equation*}
-\oint_{\partial V} F d^{0} \Bx G
-\equiv
-\evalbar{ F G }{\Delta u_1}.
-\end{equation*}
-} % theorem
+\input{Theorem_fundamental_theorem_of_gc.tex}
 
 The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
 This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
@@ -383,139 +339,29 @@ The Stokes' theorem that we know from conventional vector calculus relates
 The geometric algebra form of Stokes' theorem is equivalent to Stokes' theorem from the theory of differential forms, which relates
 hypervolume integrals of blades\footnote{Blades are isomorphic to the k-forms found in the theory of differential forms.} to the integrals over their hypersurface boundaries, a much more general result.
 
-\maketheorem{Stokes' theorem}{thm:stokesTheoremGeometricAlgebra:1740}{
-Given a \(k\) volume element \(d^k \Bx \) and an s-blade \( F, s < k \)
-\begin{equation*}
-\int_V d^k \Bx \cdot (\boldpartial \wedge F) = \int_{\partial V} d^{k-1} \Bx \cdot F.
-\end{equation*}
-}
+\input{Theorem_stokes_theorem_general.tex}
 
 In the book we will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.  In this report we state those results for the special cases of line, area and volume integrals.
 
-\maketheorem{Multivector line integral.}{thm:lineintegral:100}{
-Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), the line integral is related to the boundary by
-\begin{equation*}
-\int_C F d^1\Bx \boldpartial G
-= \evalbar{F G}{\Delta a}.
-\end{equation*}
-} % theorem
+\input{Theorem_multivector_line_integral.tex}
 
-\maketheorem{Line integral of a scalar function (Stokes').}{thm:lineintegral:180}{
-Given a scalar function \( f \), its line integral is given by
-\begin{equation*}
-\int_C d^1\Bx \cdot \boldpartial f =
-\int_C d^1\Bx \cdot \spacegrad f = \evalbar{f}{\Delta a}.
-\end{equation*}
-} % theorem
+\input{Theorem_line_integral_scalar_function.tex}
 
-\maketheorem{Multivector surface integral.}{thm:surfaceintegral:100}{
-Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), the surface integral is related to the boundary by
-\begin{equation*}
-\int_S F d^2\Bx \boldpartial G
-= \ointclockwise_{\partial S} F d\Bx G,
-\end{equation*}
-where \( \partial S \) is the boundary of the surface \( S \).
-} % theorem
+\input{Theorem_multivector_surface_integral.tex}
 
-\maketheorem{Surface integral of scalar function (Stokes').}{thm:surfaceintegral:420}{
-Given a scalar function \( f(\Bx) \) its surface integrals is given by
-\begin{equation*}
-\int_S d^2 \Bx \cdot \boldpartial f =
-\int_S d^2 \Bx \cdot \spacegrad f = \ointclockwise_{\partial S} d\Bx f.
-\end{equation*}
-In \R{3} this can be written as
-\begin{equation*}
-\int_S dA \ncap \cross \spacegrad f = \ointctrclockwise_{\partial S} d\Bx f,
-\end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
-} % theorem
+\input{Theorem_surface_integral_of_scalar_stokes.tex}
 
-\maketheorem{Surface integral of a vector function (Stokes').}{thm:surfaceintegral:500}{
-Given a vector function \( \Bf(\Bx) \) the surface integral is given by
-\begin{equation*}
-\int_S d^2 \Bx \cdot (\spacegrad \wedge \Bf) = \ointclockwise_{\partial S} d\Bx \cdot \Bf.
-\end{equation*}
-In \R{3} this can be written as
-\begin{equation*}
-\int_S dA \ncap \cdot \lr{ \spacegrad \cross \Bf} = \ointctrclockwise_{\partial S} d\Bx \cdot \Bf,
-\end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
-} % theorem
+\input{Theorem_surface_integral_of_vector_stokes.tex}
 
-\maketheorem{Green's theorem.}{thm:surfaceintegral:620}{
-Given a vector \( \Bf = \sum_i f_i \Bx^i \) in \R{N}, and a surface parameterized by \( \Bx = \Bx(u_1, u_2) \)
-\begin{equation*}
-\int_S du_1 du_2 \lr{ \PD{u_2}{f_1} - \PD{u_1}{f_2} }
-=
-\ointclockwise_{\partial S} du_1 f_1 + du_2 f_2.
-\end{equation*}
-This is
-often stated for \R{2} with a Cartesian \(x,y\) parameterization, such as \( \Bf = P \Be_1 + Q \Be_2 \).
-In that case
-\begin{equation*}
-\int_S dx dy \lr{ \PD{y}{P} - \PD{x}{Q} }
-=
-\ointclockwise_{\partial S} P dx + Q dy.
-\end{equation*}
-} % theorem
+\input{Theorem_greens.tex}
 
-\maketheorem{Multivector volume integral.}{thm:volumeintegral:100}{
-Given an connected volume \( V \) parameterized by three parameters for which \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple, and multivector functions \( F, G \), a volume integral can be reduced to a surface integral as follows
-\begin{equation*}
-\int_V F d^3\Bx \lrboldpartial G
-= \ointctrclockwise_{\partial V} F d^2\Bx G,
-\end{equation*}
-where \( \partial V \) is the boundary of the volume \( V \), and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume.
-In \R{3} with \( d^3 \Bx = I dV \), \( d^2 \Bx = I \ncap dA \), this integral can be written using a scalar volume element
-\begin{equation*}
-\int_V dV F \lrboldpartial G
-= \int_{\partial V} dA F \ncap G,
-\end{equation*}
-} % theorem
+\input{Theorem_multivector_volume_integral.tex}
 
-\maketheorem{Volume integral of vector function (Stokes').}{thm:volumeintegral:1661}{
-Given a vector function \( \Bf(\Bx) \) the volume
-integral of the (bivector) curl is related to a surface integral by
-\begin{equation*}
-\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge \Bf } =
-\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge \Bf } = \ointctrclockwise_{\partial V} d^2\Bx \cdot \Bf.
-\end{equation*}
-In \R{3} this can be written as
-\begin{equation*}
-\int_V dV \spacegrad \cross \Bf = \int_{\partial V} dA \ncap \cross \Bf,
-\end{equation*}
-or with a duality transformation \( \Bf = I B \), where \( B \) is a bivector
-\begin{equation*}
-\int_V dV \spacegrad \cdot B = \int_{\partial V} dA \ncap \cdot B,
-\end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
-} % theorem
+\input{Theorem_volume_integral_of_vector_stokes.tex}
 
-\maketheorem{Volume integral of bivector function (Stokes', divergence).}{thm:volumeintegral:1681}{
-Given a bivector function \( B(\Bx) \), the volume
-integral of the (trivector) curl is related to a surface integral by
-\begin{equation*}
-\int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge B } =
-\int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge B } = \ointctrclockwise_{\partial V} d^2\Bx \cdot B.
-\end{equation*}
-In \R{3} this can be written as
-\begin{equation*}
-\int_V dV \spacegrad \wedge B = \int_{\partial V} dA \ncap \wedge B,
-\end{equation*}
-or, making a duality transformation \( B(\Bx) = I \Bf(\Bx) \), where \( \Bf \) is a vector, by
-\begin{equation*}
-\int_V dV \spacegrad \cdot \Bf = \int_{\partial V} dA \ncap \cdot \Bf,
-\end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
-} % theorem
+\input{Theorem_volume_integral_of_bivector_stokes_divergence.tex}
 
-\maketheorem{Divergence theorem.}{thm:volumeintegral:2661}{
-Given an \R{3} multivector \( M \) containing only grades 0,1, or 2
-\begin{equation*}
-\int_V dV \spacegrad \cdot M = \int_{\partial V} dA \ncap \cdot M,
-\end{equation*}
-where \( \ncap \) is the outwards normal to the surface bounding \( V \).
-} % theorem
+\input{Theorem_divergence.tex}
 
 Note \cref{thm:volumeintegral:2661} does not apply to any multivectors \( M \) with pseudoscalar components.
 
@@ -537,20 +383,7 @@ no reason to introduce complex inner products spaces into the mix.
 An attempt to motivate the concept of a Green's function is provided in the book, omitted here.
 Also detailed in the book are the sign conventions chosen for our Green's functions, which vary in the literature and discussion of bounded vs unbounded integration volumes and some theorems related to bounded applications of Green's functions (Green's theorem, and a related identity for the (first order) gradient.)
 
-\maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
-The advancing (causal), and the receding (acausal) Green's functions satisfying
-%\cref{eqn:greensFunctionHelmholtz:420} are respectively
-\begin{equation*}
-\lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx') = \delta(\Bx - \Bx').
-\end{equation*}
-is
-\begin{equation*}
-\begin{aligned}
-G_{\textrm{adv}}(\Bx, \Bx') &= -\frac{e^{-j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}} \\
-G_{\textrm{rec}}(\Bx, \Bx') &= -\frac{e^{j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}}.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_greens_function_helmholtz.tex}
 
 We will use the advancing (causal) Green's function, and refer to this function as \( G(\Bx, \Bx') \) without any subscript.
 Observe that as a special case, the Helmholtz Green's function reduces to the Green's function for the Laplacian when \( k = 0 \)
@@ -560,17 +393,7 @@ G(\Bx, \Bx') = -\inv{ 4 \pi \Norm{\Bx - \Bx'}}.
 
 The Helmholtz operator can be factored in geometric algebra as \( \spacegrad^2 + k^2 = \lr{ \spacegrad \pm j k }\lr{ \spacegrad \mp j k } \).
 We will call these factors first order Helmholtz operators, and derive their (multivector valued) Green's functions, which are as follows.
-\maketheorem{Green's function for the first order Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:720}{
-The Green's function satisfying
-\begin{equation*}
-\lr{ \rspacegrad + j k } G(\Bx, \Bx') = G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } = \delta(\Bx - \Bx'),
-\end{equation*}
-is
-\begin{equation*}
-G(\Bx, \Bx') = \frac{e^{-j k r}}{4 \pi r} \lr{ j k \lr{ 1 + \rcap } + \frac{\rcap}{r} },
-\end{equation*}
-where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
-} % theorem
+\input{Theorem_greens_function_helmholtz_first_order.tex}
 
 This theorem is proven in the book from the Green's function for the (second order) Helmholtz operator.
 The solution of the
@@ -600,24 +423,7 @@ The operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spac
 Instead of entering the fight, it will be written it out in full in the book.}.
 
 In the book, the Green's function for the spacetime gradient is derived from the from the Green's function for the d'Lambertian, also well known.
-\maketheorem{Green's function for the spacetime gradient.}{thm:greensFunctionSpacetimeGradient:120}{
-The Green's function for the spacetime gradient, satisfying
-\begin{equation*}
-\stgrad G(\Bx - \Bx', t - t') = \delta(\Bx - \Bx') \delta(t - t'),
-\end{equation*}
-is
-\begin{equation*}
-G(\Bx - \Bx', t - t')
-=
-\inv{4\pi} \lr{
-- \frac{\rcap}{r^2} \PD{r}{}
-+ \frac{\rcap}{r}
-+ \inv{c r} \PD{t}{}
-}
-\delta( -r/c + t - t' ),
-\end{equation*}
-where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
-} % theorem
+\input{Theorem_greens_function_spacetime_grad.tex}
 Like the Green's function for the first order Helmholtz operator, the Green's function for the spacetime gradient is also multivector.
 
 \subsection{Helmholtz theorem.}
@@ -670,12 +476,7 @@ When fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the cu
 With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
 
 Given the multivector field and current, it is now possible to state Maxwell's equation (singular) in its geometric algebra form
-\maketheorem{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
-Maxwell's equation is a multivector equation relating the change in the electromagnetic field strength to charge and current densities and is written as
-\begin{equation*}
-\stgrad F = J.
-\end{equation*}
-} % theorem
+\input{Definition_maxwells.tex}
 Maxwell's equation in this form will be the starting place for all the subsequent analysis in the book.
 
 See the book for a proof of \cref{dfn:isotropicMaxwells:680}.
@@ -693,39 +494,7 @@ of Maxwell's equations have built in redundancy since continuity equations on th
 We will take an opposing view, and show that such continuity equations are neccessary consequences of Maxwell's equation in its wave equation form, and derive those conditions.
 This amounts to a statement that the multivector current \( J \) is not completely unconstrained.
 
-\maketheorem{Electromagnetic wave equation and continuity conditions.}{thm:continuity:600}{
-The electromagnetic field is a solution to the non-homogeneous wave equation
-\begin{equation*}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dAlembertian
-F =
-\conjstgrad J.
-\end{equation*}
-In source free conditions, this reduces to a homogeneous wave equation, with group velocity \( c \), the speed of the wave in the media.
-When expanded explicitly in terms of electric and magnetic fields, and charge and current densities, this single equation resolves to a
-non-homogeneous wave equation for each of the electric and magnetic fields
-\begin{equation*}
-\begin{aligned}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dAlembertian
-\BE
-%&= \gpgrade{\conjstgrad J}{1}
-&= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dAlembertian
-\BH
-%&= \inv{I \eta} \gpgrade{\conjstgrad J}{2}
-&= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
-\end{aligned}
-\end{equation*}
-as well as a pair of continuity equations coupling the respective charge and current densities
-\begin{equation*}
-\begin{aligned}
-\spacegrad \cdot \BJ + \PD{t}{\rho} &= 0 \\
-\spacegrad \cdot \BM + \PD{t}{\rho_\txtm} &= 0.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_continuity_wave.tex}
 
 The proof is in the book, but basically just requires operating on Maxwell's equation with \( \conjstgradi \), which yields two equations
 equations, one for grades 1,2 and one for grades 0,3
@@ -752,39 +521,7 @@ phasor representation of the field as
 \input{Definition_plane_wave.tex}
 
 In the book, we show that solutions of the electromagnetic field wave equation have the following form.
-\maketheorem{Plane wave solutions to Maxwell's equation.}{thm:planewavesMultivector:620}{
-Single frequency plane wave solutions of Maxwell's equation have the form
-\begin{equation*}
-F(\Bx, t)
-=
-\Real \lr{
-\lr{ 1 + \kcap }
-\kcap \wedge \BE\,
-e^{-j \Bk \cdot \Bx + j \omega t}
-}
-,
-\end{equation*}
-where \( \Norm{\Bk} = \omega/c \), \( \kcap = \Bk/\Norm{\Bk} \) is the unit vector pointing along the propagation direction, and \( \BE \) is any complex-valued vector variable.
-When a \( \BE \cdot \Bk = 0 \) constraint is imposed on the vector variable \( \BE \), that variable can be interpreted as the electric field, and the solution reduces to
-\begin{equation*}
-F(\Bx, t)
-=
-\Real \lr{
-\lr{ 1 + \kcap }
-\BE\,
-e^{-j \Bk \cdot \Bx + j \omega t}
-}
-,
-\end{equation*}
-showing that the field phasor \( F(\Bk) = \BE(\Bk) + I \eta \BH(\Bk) \) splits naturally into electric and magnetic components
-\begin{equation*}
-\begin{aligned}
-\BE(\Bk) &= \BE e^{-j \Bk \cdot \Bx} \\
-\eta \BH(\Bk) &= \kcap \cross \BE \, e^{-j \Bk \cdot \Bx},
-\end{aligned}
-\end{equation*}
-where the directions \( \kcap, \BE, \BH \) form a right handed triple.
-} % theorem
+\input{Theorem_plane_wave_solutions.tex}
 
 A full proof and discussion is in the book.
 The key step is that after insertion of the presumed phasor relationship, we find that
@@ -804,38 +541,7 @@ Maxwell's equation is reduced to an invertible first order gradient equation
 \spacegrad F(\Bx) = J(\Bx),
 \end{dmath}
 
-\maketheorem{Maxwell's statics solution.}{thm:statics:100}{
-The solution to the Maxwell statics equation is given by
-\begin{equation*}
-F(\Bx)
-= \inv{4\pi} \int_V dV' \frac{\gpgrade{(\Bx - \Bx') J(\Bx')}{1,2}}{\Norm{\Bx - \Bx'}^3} + F_0,
-\end{equation*}
-where \( F_0 \) is any function for which \( \spacegrad F_0 = 0 \).
-The explicit expansion in electric and magnetic fields and charge and current densities is given by
-\begin{equation*}
-\begin{aligned}
-\BE(\Bx)
-&=
-\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
-\lr{
-{\color{DarkOliveGreen}
-   \inv{\epsilon}(\Bx - \Bx') \rho(\Bx')
-}
-   +
-   (\Bx - \Bx') \cross \BM(\Bx')
-} \\
-\BH(\Bx)
-&=
-\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
-\lr{
-{\color{Maroon}
-  \BJ(\Bx') \cross (\Bx - \Bx')
-}
-+ \inv{\mu} (\Bx - \Bx') \rho_m(\Bx')
-}.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_maxwell_statics_solution.tex}
 
 We see that the solution incorporates both a {\color{DarkOliveGreen}Coulomb's law} contribution and a {\color{Maroon}Biot-Savart law} contribution, as well as their magnetic source analogues if applicable.
 
@@ -843,58 +549,14 @@ The proof is essentially a convolution with the (vector valued) Green's function
 \subsection{Statics: Enclosed charge.}
 In conventional electrostatics we obtain a relation between the normal electric field component and the enclosed charge by integrating the electric field divergence.
 The geometric algebra generalization of this relates the product of the normal and the electromagnetic field strength related to the enclosed multivector current as follows.
-\maketheorem{Enclosed multivector current.}{thm:enclosedCurrent:60}{
-The total multivector current in the volume is related to the surface integral of \( \ncap F \) over the boundary of the volume by
-\begin{equation*}
-\int_{\partial V} dA \ncap F = \int_V dV J.
-\end{equation*}
-This is a multivector equation, carrying inforamation for each grade in the multivector current, and after explicit expansion is equivalent to
-\begin{equation*}
-\begin{aligned}
-\int_{\partial V} dA\, \ncap \cdot \BE        &=  \inv{\epsilon} \int_V dV\, \rho \\
-\int_{\partial V} dA\, \ncap \cross \BH       &=                 \int_V dV\, \BJ \\
-\int_{\partial V} dA\, \ncap \cross \BE       &=               - \int_V dV\, \BM \\
-\int_{\partial V} dA\, \ncap \cdot \BH        &=  \inv{\mu} \int_V dV\, \rho_\txtm.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_enclosed_multivector_current.tex}
 
 To prove \cref{thm:enclosedCurrent:60} one evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}.
 The rest of the proof follows by grade selection.
 For full details on both see the book.
 \subsection{Statics: Enclosed current.}
 Ampere's law may be generalized to line integrals of the total electromagnetic field strength.
-\maketheorem{Line integral of the field.}{thm:amperes:280}{
-The line integral of the electromagnetic field strength is
-\begin{equation*}
-\ointclockwise_{\partial A} d\Bx\, F
-=
-I \int_A dA \lr{ \ncap J - \PD{n}{F} },
-\end{equation*}
-where \( \PDi{n}{F} = \lr{ \ncap \cdot \spacegrad } F \).
-Expressed in terms of the conventional consistent fields and sources, this multivector relationship expands to four equations, one for each grade
-\begin{equation*}
-\begin{aligned}
-\ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA\, \ncap \cdot \BM \\
-\ointclockwise_{\partial A} d\Bx \cross \BH
-&=
-\int_A dA
-\lr{
-   - \ncap \cross \BJ
-   + \frac{ \ncap \rho_\txtm }{\mu}
-   - \PD{n}{\BH}
-} \\
-\ointclockwise_{\partial A} d\Bx \cross \BE &=
-\int_A dA
-\lr{
-     \ncap \cross \BM
-   + \frac{\ncap \rho}{\epsilon}
-   - \PD{n}{\BE}
-} \\
-\ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA\, \ncap \cdot \BJ.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_line_integral_of_field.tex}
 Flipping the direction of integration in the the last of the scalar equations in
 \cref{thm:amperes:280}
 provides the conventional form of Ampere's law
@@ -956,47 +618,7 @@ The bivector (magnetic) nature of a field with only electric current density sou
 \end{itemize}
 \subsection{Dynamics.}
 Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable, with solution.
-\maketheorem{Jefimenkos solution.}{thm:jefimenkosEquations:120}{
-The solution of Maxwell's equation is given by
-\begin{equation*}
-F(\Bx, t)
-=
-F_0(\Bx, t)
-+
-\inv{4 \pi}
-\int dV'
-\lr{
-   \frac{\rcap}{r^2} J(\Bx', t_r)
-   +
-   \inv{c r} \lr{ 1 + \rcap } \dispdot{J}(\Bx', t_r)
-},
-\end{equation*}
-where \( F_0(\Bx, t) \) is any specific solution of the homogenoous equation \( \lr{ \spacegrad + (1/c) \partial_t } F_0 = 0 \),
-time derivatives are denoted by overdots, and all times are evaluated at the retarded time \( t_r = t - r/c \).
-When expanded in terms of the electric and magnetic fields (ignoring magnetic sources), the non-homoegenous portion of this solution is known as the
-Jefimenkos' equations
-\begin{dmath}\label{eqn:jefimenkosEquations:100}
-\begin{aligned}
-\BE &=
-\inv{4 \pi}
-\int dV'
-\lr{
-\frac{\rcap}{\epsilon r} \lr{
-\frac{\rho(\Bx', t_r)}{r} + \frac{\dispdot{\rho}(\Bx', t_r) }{c} }
-   - \frac{\eta }{ c r } \dotBJ(\Bx', t_r)
-} \\
-\BH &=
-\inv{4 \pi}
-\int dV'
-\lr{
-   \frac{1}{c r} \dotBJ(\Bx', t_r)
-+
-   \frac{1}{r^2} \BJ(\Bx', t_r)
-} \cross \rcap,
-\end{aligned}
-\end{dmath}
-%which checks against Griffiths.
-} % theorem
+\input{Theorem_jefimenkos.tex}
 This is found fairly easily using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}, and the details can be found in the book.
 %(\citep{griffiths1999introduction})
 Unlike the conventional approach, we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
@@ -1045,22 +667,7 @@ In the energy and momentum section of the book, the geometric algebra formulatio
 In geometric algebra the energy momentum tensor, and the Maxwell stress tensor may be represented as linear grade 0,1 multivector valued functions of a grade 0,1 multivector.
 \input{Definition_energy_momentum_and_maxwell_stress.tex}
 
-\maketheorem{Expansion of the energy momentum tensor.}{thm:poyntingF:1240}{
-Given a scalar parameter \( \alpha \), and a vector parameter \( \Ba = \sum_k a_k \Be_k \), the energy momentum tensor of
-\cref{dfn:poyntingF:1200} is a grade 0,1 multivector, and may be expanded in terms of \( \calE, \BS \) and \( \BT(\Ba) \) as
-%\label{eqn:poyntingF:1120}
-\begin{equation*}
-T(\alpha + \Ba)
-=
-\alpha \lr{
-   \calE + \frac{\BS}{c}
-}
--
-\Ba \cdot \frac{\BS}{c}
-+ \BT(\Ba),
-\end{equation*}
-where \( \BT(\Be_i) \cdot \Be_j = -\Theta^{ij} \), or \( \BT(\Ba) = \Ba \cdot \lrT \).
-} % theorem
+\input{Theorem_energy_momentum_tensor_expansion.tex}
 
 \Cref{thm:poyntingF:1240} relates the geometric algebra definition of the energy momentum tensor to the quantities found in the conventional
 electromagnetism literature.
@@ -1068,68 +675,9 @@ In the book, the conventional indexed representation is detailed more completely
 
 Associated with the energy momentum tensor are a number of conservation relationships, which are most compactly stated utilizing the adjoint of the energy momenutum tensor.
 \input{Definition_adjoint.tex}
-\maketheorem{Poynting's theorem (differential form.)}{thm:poyntingTheorem:1180}{
-The adjoint energy momentum tensor of the spacetime gradient satisfies the following multivector equation
-\begin{equation*}
-\overbar{T}(\spacegrad + (1/c)\partial_t) = \frac{\epsilon}{2} \lr{ F^\dagger J + J^\dagger F }.
-\end{equation*}
-Note that the multivector \( F^\dagger J + J^\dagger F \) can only have scalar and vector grades, since it equals its reverse.
-This equation can be put into a form that is more obviously a conservation law by stating it as a set of
-scalar grade identities
-\begin{equation*}
-\spacegrad \cdot \gpgradeone{ T(a) } + \inv{c} \PD{t}{} \gpgradezero{ T(a) }
-=
-\frac{\epsilon}{2} \gpgradezero{ a( F^\dagger J + J \dagger F) }.
-\end{equation*}
-These may be written as respective
-scalar and vector grades equations
-%%which expands to the multivector equation
-%\begin{equation*}
-%\inv{c} \PD{t}{} \lr{ \calE - \frac{\BS}{c} }
-%+ \spacegrad \cdot \frac{\BS}{c}
-%+ \BT(\spacegrad)
-%=
-%-\inv{c} \lr{ \BE \cdot \BJ + \BH \cdot \BM }
-%+
-%\rho \BE + \epsilon \BE \cross \BM
-%+
-%\rho_\txtm \BH + \mu \BJ \cross \BH,
-%\end{equation*}
-%or as separate scalar and vector equations
-\begin{equation*}
-\begin{aligned}
-\inv{c} \PD{t}{\calE} + \spacegrad \cdot \frac{\BS}{c} &= -\inv{c} \lr{ \BE \cdot \BJ + \BH \cdot \BM } \\
--\inv{c^2} \PD{t}{\BS} + \BT(\spacegrad) &= \rho \BE + \epsilon \BE \cross \BM + \rho_\txtm \BH + \mu \BJ \cross \BH.
-\end{aligned}
-\end{equation*}
-Conventionally, only the scalar grade relating the time rate of change of the energy density to the flux of the Poynting vector, is called Poynting's theorem.
-} % theorem
+\input{Theorem_poynting_differential.tex}
 or in an integral form
-\maketheorem{Poynting's theorem (integral form.)}{thm:poyntingTheoremRewrite:1420}{
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1400}
-\begin{aligned}
-&\PD{t}{}
-\int_V \calE dV
-=
--\int_{\partial V} dA \ncap \cdot \BS
--
-\int_V dV \lr{
-   \BJ \cdot \BE
-   +
-   \BM \cdot \BH
-} \\
-&
-\int_V dV \lr{ \rho \BE + \BJ \cross \BB }
-+ \int_V dV \lr{ \rho_\txtm \BH - \epsilon \BM \cross \BE }
-=
--
-\PD{t}{ }
-\int_V dV \bcP
-+
-\int_{\partial V} dA \BT(\ncap).
-\end{aligned}
-\end{dmath}
-} % theorem
+\input{Theorem_poynting_integral.tex}
 
 As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\textrm{em}} = \int_V dV \bcP \), we can identify the sum of the Maxwell stress tensor's normal component over the bounding integral as time rate of change of the mechanical and electromagnetic momentum
 \begin{equation}\label{eqn:ece2500report:2560}
@@ -1145,73 +693,11 @@ To illustrate the ideas above, the energy momentum tensor components for all of 
 For brievity, these are omitted from this report, but it should be noted that we see that geometric algebra allows for a particularly compact coordinate free representation of the energy momentum tensor components.
 \subsubsection{Complex power.}
 The geometric algebra forms of the \( T(1) \) (field energy density and Poynting vector) are found to be
-\maketheorem{Complex power representation.}{thm:poyntingFComplexPower:300}{
-Given a time domain representation of a phasor based field \( F = F(\omega) \)
-\begin{equation*}
-F(t)
-= \Real\lr{ F e^{j \omega t} },
-\end{equation*}
-the energy momentum tensor multivector \( T(1) \) has the representation
-\begin{equation*}
-T(1) = \calE + \frac{\BS}{c}
-=
-\frac{\epsilon}{4} \Real \lr{ F^\conj F^\dagger + F F^\dagger e^{2 j \omega t} }.
-\end{equation*}
-With the usual definition of the complex Poynting vector
-%\label{eqn:poyntingFComplexPower:240}
-\begin{equation*}
-\calS = \inv{2} \BE \cross \BH^\conj = \inv{2} \lr{ I \BH^\conj } \cdot \BE,
-\end{equation*}
-the energy and momentum components of \( T(1) \), for real \( \mu, \epsilon \) are
-%\label{eqn:poyntingFComplexPower:260}
-\begin{equation*}
-\begin{aligned}
-\calE &=
-\inv{4} \lr{
-\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 }
-+
-\inv{4} \Real
-\lr{
-   \lr{ \epsilon \BE^2 + \mu \BH^2}
-   e^{2 j \omega t }
-} \\
-\BS &= \Real \calS
-+
-\inv{2} \Real
-\lr{
-\lr{ \BE \cross \BH }
-   e^{2 j \omega t }
-}.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_complex_power.tex}
 
 \subsection{Lorentz force.}
 The Lorentz force equation can be stated in terms of the total electromagnetic field strength and chacurrent density
-\maketheorem{Lorentz force and power.}{thm:lorentzForce:300}{
-Given an energy momentum multivector \( T = \calE + c \Bp \), and a charge associated with a small bounded multivector current density \( Q = \int_V J dV \),
-the respective power and force experienced by a particle with electric (and/or magnetic) charge is
-\begin{equation*}
-\inv{c} \frac{dT}{dt} = \gpgrade{ F Q^\dagger }{0,1} = \inv{2} \lr{ F^\dagger Q + F Q^\dagger }.
-\end{equation*}
-where \( \gpgradezero{dT/dt} = \ifrac{d\calE}{dt} \) is the power and \( \gpgradeone{dT/dt} = c \ifrac{d\Bp}{dt} \) is the force on the particle.
-The conventional representation of the Lorentz force/power equations
-\begin{equation*}
-\begin{aligned}
-\gpgradeone{ F Q^\dagger } &= \ddt{\Bp} = q \lr{ \BE + \Bv \cross \BB } \\
-c \gpgradezero{ F Q^\dagger } &= \ddt{\calE} = q \BE \cdot \Bv.
-\end{aligned}
-\end{equation*}
-%given by \cref{eqn:freespace:180}
-may be recovered by grade selection operations.
-For magnetic particles, such a grade selection gives
-\begin{equation*}
-\begin{aligned}
-\gpgradeone{ F Q^\dagger } &= \frac{d\Bp}{dt} = q_\txtm \lr{ c \BB - \inv{c} \Bv \cross \BE } \\
-c \gpgradezero{ F Q^\dagger } &= \frac{d\calE}{dt} = \inv{\eta} q_\txtm \BB \cdot \frac{\Bv}{c}.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_lorentz_force_power.tex}
 
 \subsubsection{Constant magnetic field.}
 As another example of geometric algebra in action, the Lorentz force equation for a constant external magnetic field bivector \( F = I c \BB \)
@@ -1255,27 +741,7 @@ F(\Bx, t) = (1 + \Be_3) \lr{
 Two geometric representations are possible.
 The first uses the pseudoscalar for the transverse plane \( \Be_{12} \), denoted \( i \) here, and the other uses the \R{3} pseudoscalar as the imaginary.
 \subsubsection{Transverse plane imaginary.}
-\maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:700}{
-The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
-\begin{equation*}
-F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{i\phi} + \alpha_\txtL e^{-i\phi} },
-\end{equation*}
-where
-\begin{equation*}
-\begin{aligned}
-\alpha_\txtR &= \inv{2}\lr{ c_1 + i c_2 } \\
-\alpha_\txtL &= \inv{2}\lr{ c_1 - i c_2 }^\dagger,
-\end{aligned}
-\end{equation*}
-where \( c_1, c_2 \) are the 0,2 grade multivector representations of the Jones vector coordinates
-\begin{equation*}
-\begin{aligned}
-c_1 &= \alpha_1 + i \beta_1 \\
-c_2 &= \alpha_2 + i \beta_2,
-\end{aligned}
-\end{equation*}
-and \( \phi(z,t) = \omega t - \beta z \) is the phase angle.
-} % definition
+\input{Theorem_circular_polarization_coeff.tex}
 
 \begin{itemize}
 \item
@@ -1332,15 +798,7 @@ The structure of \cref{eqn:polarizationRewrite:760} could be more general than c
 For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).
 The simple complex structure that encodes all the phase dependence allows the
 energy, momentum and Maxwell stress tensor to be computed easily.
-\maketheorem{Energy momentum tensor components for a plane wave.}{thm:polarizationRewrite:780}{
-The energy momentum tensor components for the plane wave given by \cref{eqn:polarizationRewrite:760} are
-\begin{equation*}
-\begin{aligned}
-T(1) &= -T(\Be_3) = \epsilon \lr{ 1 + \Be_3 } f f^\dagger \quad \lr{ = \calE + \frac{\BS}{c} } \\
-T(\Be_1) &= T(\Be_2) = 0.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_energy_momentum_tensor_plane_wave.tex}
 
 Only the propagation direction of a plane wave, regardless of its polarization (or even whether or not there are Gaussian or other damping factors), carries any energy or momentum, and only the propagation direction component of the Maxwell stress tensor \( \BT(\Ba) \) is non-zero.
 
@@ -1360,27 +818,7 @@ As expected, the phase dependent portion of the energy momentum tensor vanishes 
 \subsubsection{Pseudoscalar imaginary.}
 Alternatively, it is possible to encode the sines and cosines in the time domain representation of the field in terms of the \R{3} pseudoscalar.
 
-\maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:940}{
-The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
-\begin{equation*}
-F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{-I\phi} + \alpha_\txtL e^{I\phi} },
-\end{equation*}
-where
-\begin{equation*}
-\begin{aligned}
-\alpha_\txtR &= \inv{2}\lr{ c_1 + I c_2 }^\dagger \\
-\alpha_\txtL &= \inv{2}\lr{ c_1 - I c_2 },
-\end{aligned}
-\end{equation*}
-where \( c_1, c_2 \) are the 0,2 grade multivector representation of the Jones vector coordinates
-\begin{equation*}
-\begin{aligned}
-c_1 &= \alpha_1 + I \beta_1 \\
-c_2 &= \alpha_2 + I \beta_2,
-\end{aligned}
-\end{equation*}
-defined here as 0,3 complex numbers, using \( I \) as the imaginary.
-} % definition
+\input{Theorem_circular_polarization_coeff_pseudoscalar.tex}
 
 There appear to be some advantages to pseudoscalar description of polarization, especially for computing energy momentum tensor components since \( I \) commutes with all grades.
 For example, we can see practically by inspection that
@@ -1392,48 +830,7 @@ where the absolute value is computed using the reverse as the conjugation operat
 
 \subsection{Transverse fields in a waveguide.}
 One topic from waveguide theory is considered in the book.
-\maketheorem{Transverse and propagation field solutions.}{thm:transverseField:348}{
-Given a field propagating along the z-axis (either forward or backwards), with angular frequency \( \omega \), represented by the real part of
-\begin{equation*}
-F(x, y, z, t) = F(x, y) e^{j \omega t \mp j k z},
-\end{equation*}
-where \( \BE = \BE_z + \BE_t, \BH = \BH_z + \BH_t \), and \( \BA_z = (\BA \cdot \Be_3) \Be_3, \BA \in \BE, \BH \), the multivector field components in the axial and transverse ``directions''
-\( F = F_z + F_t \)
-are given by
-\begin{equation*}
-\begin{aligned}
-F_z &= \inv{2} \lr{ F + \Be_3 F \Be_3 } \\
-F_t &= \inv{2} \lr{ F - \Be_3 F \Be_3 },
-\end{aligned}
-\end{equation*}
-and related to each other by
-\begin{equation*}
-\begin{aligned}
-F_t &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_z \\
-F_z &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_t,
-\end{aligned}
-\end{equation*}
-Written out explicitly, the transverse field component expands as
-\begin{equation*}
-\begin{aligned}
-\BE_t &=
-\frac{j}{{\frac{\omega}{c}}^2 - k^2}
-\lr{
-   \pm k \spacegrad_t E_z
-   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
-}
-\\
-\eta \BH_t &=
-\frac{j}{{\frac{\omega}{c}}^2 - k^2}
-\lr{
-   \pm k \eta \spacegrad_t H_z
-   -
-   \frac{\omega}{c}
-   \Be_3 \cross \spacegrad_t E_z
-}.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_transverse_and_propagation_solutions.tex}
 
 Details and proof are in the book.
 This and many other examples in the book show that we pay a significant additional cost to work with separate electric and magnetic field components compared to working with the complete electromagnetic field multivector \( F \) in its entirety.
@@ -1446,113 +843,21 @@ The grades of the multivector potentials may be chosen to match SI conventions (
 which includes fictitious magnetic sources),
 % and those of \citep{balanis2005antenna} (
 %) are used in the book as follows.
-\maketheorem{Fields and the potential wave equations.}{thm:generalPotential:40}{
-Given
-%\label{eqn:gaugeTransformation:1111}
-\begin{equation*}
-A =
-      - \phi
-      + c \BA
-      + \eta I \lr{ -\phi_m + c \BF },
-\end{equation*}
-where
-\begin{enumerate}
-\item \( \phi \) is the scalar potential \si{V} (Volts).
-\item \( \BA \) is the vector potential \si{W/m} (Webers/meter).
-\item \( \phi_m \) is the scalar potential for (fictitious) magnetic sources \si{A} (Amperes).
-\item \( \BF \) is the vector potential for (fictitious) magnetic sources \si{C} (Coulombs),
-\end{enumerate}
-the electric field vector and the magnetic field bivector associated with a potential \( A \) are
-\begin{equation*}
-\begin{aligned}
-\BE &=
-\gpgrade{\conjstgrad A}{1}
-=
-   - \spacegrad \phi
-   - \PD{t}{\BA}
-   - \inv{\epsilon} \spacegrad \cross \BF \\
-I \eta \BH &=
-\gpgrade{\conjstgrad A}{2}
-=
-   I \eta
-   \lr{
-      - \spacegrad \phi_\txtm
-      - \PD{t}{\BF}
-      + \inv{\mu} \spacegrad \cross \BA
-   }
-.
-\end{aligned}
-\end{equation*}
-The potentials are related to the sources by
-\begin{equation*}
-\begin{aligned}
-\dAlembertian
-\phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dAlembertian
-\BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dAlembertian
-\BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
-\dAlembertian
-\phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_fields_and_potential_wave_equations.tex}
 
 Also detailed in the book is the multivector formulation of gauge transformation that allows the grade selection operation in
 \cref{thm:generalPotential:80} to be removed.
 
-\maketheorem{Gauge invariance.}{thm:gaugeTransformation:60}{
-The spacetime gradient of a grade 0,3 multivector \( \Psi \) may be added to a multivector potential
-\begin{equation*}
-A' = A + \stgrad \Psi,
-\end{equation*}
-without changing the field.
-That is
-\begin{equation*}
-F
-= \gpgrade{\conjstgrad A}{1,2}
-= \gpgrade{\conjstgrad A'}{1,2}.
-\end{equation*}
-} % theorem
+\input{Theorem_gauge_invariance.tex}
 
 We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgradi A \) are zero, or a transformation that kills those grades is made.
-\maketheorem{Lorentz gauge transformation.}{thm:gaugeTransformation:140}{
-Given any multivector potential \( A \) solution of Maxwell's equation, the transformation
-\begin{equation*}
-A' = A - \stgrad \Psi,
-\end{equation*}
-where
-\begin{equation*}
-\dAlembertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
-\end{equation*}
-allows Maxwell's equation to be written in wave equation form
-\begin{equation*}
-\dAlembertian A' = J.
-\end{equation*}
-} % theorem
+\input{Theorem_lorentz_gauge_transformation.tex}
 
 Please see the book for proofs and additional details, including the explcit integral solution of \( \Psi \) required for the transformation to the Lorentz gauge.
 
 \subsection{Far field.}
 The geometric algebra form for the far field associated with a vector (or dual-vector) potential has a fairly simple coordinate free form.
-\maketheorem{Far field magnetic vector potential.}{thm:potentialSection_farfield:1}{
-Given a spherical wave vector(dual-vector) potentials with representations
-%\label{eqn:potentialSection_farfield:2400}
-\begin{equation*}
-\begin{aligned}
-\BA &= \frac{e^{-j k r}}{r} \bcA( \theta, \phi ) \\
-\BF &= \frac{e^{-j k r}}{r} \bcF( \theta, \phi ),
-\end{aligned}
-\end{equation*}
-the far field (\(r \gg 1 \)) electromagnetic fields are given respectively
-%\label{eqn:potentialSection_farfield:2520}{
-\begin{equation*}
-\begin{aligned}
-F &= -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \\
-F &= -j \omega \eta I \lr{ \rcap + 1 } \lr{ \rcap \wedge \BF }.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_far_field_magnetic_vector_potential.tex}
 Noting that \( \rcap (\rcap \wedge \BA) \) is the rejection of the radial component of \( \BA \) (i.e. is a vector not a multivector) allows the far-field solution to easily be split into electric and magnetic field components if desired.
 These are detailed in the book, along with the proof of \cref{thm:potentialSection_farfield:1}.
 Also included in the book is an example calculation of \( F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \) for the dipole vector potential.
@@ -1562,30 +867,7 @@ The majority of the electromagnetic theory covered in the book focused on fields
 isotropic constitutive relationships \cref{eqn:freespace:300}.
 For more general consitutive relationships the geometric algebra form of Maxwell's equations requires a pair of
 multivector equations, fields and sources as follows.
-\maketheorem{Maxwell's equations in media.}{thm:dielectric:20}{
-Maxwell's equations in media are
-\begin{equation*}
-\begin{aligned}
-\gpgrade{ \stgrad F }{0,1} &= J_\txte \\
-\gpgrade{ \stgrad G }{2,3} &= I J_\txtm,
-\end{aligned}
-\end{equation*}
-where \( c \) is the group velocity of \( F, G \) in the medium,
-the fields are grade 1,2 multivectors
-\begin{equation*}
-\begin{aligned}
-F &= \BD + \frac{I}{c}\BH \\
-G &= \BE + I c \BB,
-\end{aligned}
-\end{equation*}
-and the sources are grade 0,1 multivectors
-\begin{equation*}
-\begin{aligned}
-J_\txte &= \rho - \inv{c}\BJ \\
-J_\txtm &= c \rho_\txtm - \BM.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_maxwells_equations_in_media.tex}
 
 Along with some discussion of solution of these more complicated equations, gauge-like transformations of the fields are discussed.
 More work is required to fully flesh out this topic, especially given that \( F, G \) may be directly coupled, allowing neither field to be solved for independently.
@@ -1593,30 +875,7 @@ More work is required to fully flesh out this topic, especially given that \( F,
 \subsection{Boundary value conditions.}
 Independent of the techniques used to find the multivector fields \( F, G \) for electromagnetism in matter, we may use \cref{thm:dielectric:20} to easily derive the boundary
 value conditions for the fields spanning a surface with surface currents or charges, or even just a discontinuity in the media.
-\maketheorem{Boundary value relations.}{thm:boundarySurfaceSources:480}{
-The difference in the normal and tangential components of the electromagnetic field spanning a surface on which there are
-a surface current or surface charge or current densities \( J_\txte = J_{\textrm{es}} \delta(n), J_\txtm = J_{\textrm{ms}} \delta(n) \)
-can be related to those surface sources as follows
-%\label{eqn:boundarySurfaceSources:420}
-\begin{equation*}
-\begin{aligned}
-\gpgrade{\ncap (F_2 - F_1) }{0,1} &= J_{\textrm{es}} \\
-\gpgrade{\ncap (G_2 - G_1) }{2,3} &= I J_{\textrm{ms}},
-\end{aligned}
-\end{equation*}
-where \( F_k = \BD_k + I \BH_k/c, G_k = \BE_k + I c \BB_k, k = 1,2 \) are the fields in the
-where \( \ncap = \ncap_2 = -\ncap_1 \) is the outwards facing normal in the second medium.
-In terms of the conventional constituent fields, these may be written
-%\label{eqn:boundarySurfaceSources:460}
-\begin{equation*}
-\begin{aligned}
-\ncap \cdot \lr{ \BD_2 - \BD_1 } &= \rho_\txts \\
-\ncap \cross \lr{ \BH_2 - \BH_1 } &= \BJ_\txts \\
-\ncap \cdot \lr{ \BB_2 - \BB_1 } &= \rho_{\textrm{ms}} \\
-\ncap \cross \lr{ \BE_2 - \BE_1 } &= -\BM_\txts.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_boundary_value_relations.tex}
 
 A simple proof is possible by integrating the pair of Maxwell's equations over the pillbox configuration, allowing the height \( n \) of that pillbox above or below the surface to tend to zero,
 and the area of the pillbox top to also tend to zero, using \cref{thm:volumeintegral:100} to transform the multivector integrals to boundary integrals.

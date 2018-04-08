@@ -1,0 +1,44 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Complex power representation.}{thm:poyntingFComplexPower:300}{
+Given a time domain representation of a phasor based field \( F = F(\omega) \)
+\begin{equation*}
+F(t)
+= \Real\lr{ F e^{j \omega t} },
+\end{equation*}
+the energy momentum tensor multivector \( T(1) \) has the representation
+\begin{equation*}
+T(1) = \calE + \frac{\BS}{c}
+=
+\frac{\epsilon}{4} \Real \lr{ F^\conj F^\dagger + F F^\dagger e^{2 j \omega t} }.
+\end{equation*}
+With the usual definition of the complex Poynting vector
+%\label{eqn:poyntingFComplexPower:240}
+\begin{equation*}
+\calS = \inv{2} \BE \cross \BH^\conj = \inv{2} \lr{ I \BH^\conj } \cdot \BE,
+\end{equation*}
+the energy and momentum components of \( T(1) \), for real \( \mu, \epsilon \) are
+%\label{eqn:poyntingFComplexPower:260}
+\begin{equation*}
+\begin{aligned}
+\calE &=
+\inv{4} \lr{
+\epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2 }
++
+\inv{4} \Real
+\lr{
+   \lr{ \epsilon \BE^2 + \mu \BH^2}
+   e^{2 j \omega t }
+} \\
+\BS &= \Real \calS
++
+\inv{2} \Real
+\lr{
+\lr{ \BE \cross \BH }
+   e^{2 j \omega t }
+}.
+\end{aligned}
+\end{equation*}
+} % theorem

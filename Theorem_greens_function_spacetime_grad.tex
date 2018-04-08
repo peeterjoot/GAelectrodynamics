@@ -1,0 +1,22 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Green's function for the spacetime gradient.}{thm:greensFunctionSpacetimeGradient:120}{
+The Green's function for the spacetime gradient, satisfying
+\begin{equation*}
+\stgrad G(\Bx - \Bx', t - t') = \delta(\Bx - \Bx') \delta(t - t'),
+\end{equation*}
+is
+\begin{equation*}
+G(\Bx - \Bx', t - t')
+=
+\inv{4\pi} \lr{
+- \frac{\rcap}{r^2} \PD{r}{}
++ \frac{\rcap}{r}
++ \inv{c r} \PD{t}{}
+}
+\delta( -r/c + t - t' ),
+\end{equation*}
+where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
+} % theorem

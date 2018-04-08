@@ -1,0 +1,35 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Line integral of the field.}{thm:amperes:280}{
+The line integral of the electromagnetic field strength is
+\begin{equation*}
+\ointclockwise_{\partial A} d\Bx\, F
+=
+I \int_A dA \lr{ \ncap J - \PD{n}{F} },
+\end{equation*}
+where \( \PDi{n}{F} = \lr{ \ncap \cdot \spacegrad } F \).
+Expressed in terms of the conventional consistent fields and sources, this multivector relationship expands to four equations, one for each grade
+\begin{equation*}
+\begin{aligned}
+\ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA\, \ncap \cdot \BM \\
+\ointclockwise_{\partial A} d\Bx \cross \BH
+&=
+\int_A dA
+\lr{
+   - \ncap \cross \BJ
+   + \frac{ \ncap \rho_\txtm }{\mu}
+   - \PD{n}{\BH}
+} \\
+\ointclockwise_{\partial A} d\Bx \cross \BE &=
+\int_A dA
+\lr{
+     \ncap \cross \BM
+   + \frac{\ncap \rho}{\epsilon}
+   - \PD{n}{\BE}
+} \\
+\ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA\, \ncap \cdot \BJ.
+\end{aligned}
+\end{equation*}
+} % theorem
