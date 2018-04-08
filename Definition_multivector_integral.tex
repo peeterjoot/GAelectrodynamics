@@ -1,0 +1,38 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\makedefinition{Multivector integral.}{dfn:fundamentalTheoremOfCalculus:240}{
+Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
+multivector functions \( F, G \), a k-volume integral with the vector derivative acting to the right on \( G \) is written as
+\begin{equation*}
+\int_V d^k\Bx \rboldpartial G,
+\end{equation*}
+a k-volume integral with the vector derivative acting to the left on \( F \) is written as
+\begin{equation*}
+\int_V F d^k\Bx \lboldpartial,
+\end{equation*}
+and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) is written as
+\begin{equation*}
+\int_V F d^k\Bx \lrboldpartial G
+\equiv
+\int_V \lr{ F d^k\Bx \lboldpartial} G
++
+\int_V F d^k\Bx \lr{ \rboldpartial G }.
+\end{equation*}
+The explicit meaning of these directionally acting derivative operations is given by the following chain rule coordinate expansion
+\begin{dmath*}
+F d^k \Bx \lrboldpartial G
+=
+F d^k \Bx \lr{ \sum_i \Bx^i {\stackrel{ \leftrightarrow }{\partial_i}} } G
+=
+(\partial_i F) d^k \Bx \sum_i \Bx^i G
++
+F d^k \Bx \sum_i \Bx^i (\partial_i G)
+\equiv
+(F d^k \Bx \lboldpartial) G
++
+F d^k \Bx (\rboldpartial G),
+\end{dmath*}
+with \( \boldpartial \) acting on \( F \) and \( G \), but not the volume element \( d^k \Bx \), which may also be a function of the implied parameterization.
+} % definition

@@ -256,13 +256,7 @@ The book contains derivations, many examples, figures, Mathematica listings, and
 In order to work with the
 curvilinear non-orthonormal bases that will be encountered in general integration theory, the concept of a reciprocal frame is required.
 
-\makedefinition{Reciprocal frame}{dfn:reciprocal:frame}{
-Given a basis for a subspace \( \setlr{ \Bx_1, \Bx_2, \cdots \Bx_n } \), where the vectors \( \Bx_i \) are not necessarily orthonormal, the reciprocal frame is defined as the set of vectors \( \setlr{ \Bx^1, \Bx^2, \cdots \Bx^n } \) satisfying
-\begin{dmath*}
-\Bx_i \cdot \Bx^j = {\delta_i}^j,
-\end{dmath*}
-where the vector \( \Bx^j \) is not the j-th power of \( \Bx \), but is a superscript index, the conventional way of denoting a reciprocal frame vector, and \( {\delta_i}^j \) is the Kronecker delta.
-} % definition
+\input{Definition_reciprocal_frame.tex}
 
 Note that any orthonormal basis is also its reciprocal basis.
 As also done in tensor and relativistic theory, we use mixed index (upper and lower) variables when working with curvilinear coordinates.
@@ -316,14 +310,7 @@ It is often convenient to define \( \partial_i \equiv \PDi{u_i}{} \), so that th
 %or the same with sums over mixed indexes implied.
 } % theorem
 
-\makedefinition{Vector derivative}{thm:gradient:100}{
-Given an k-parameter vector parameterization
-\( \Bx = \Bx(u_1, u_2, \cdots, u_k) \) of \R{N} with \( k \le N \),
-and curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the vector derivative \( \boldpartial \) is defined as
-\begin{dmath*}
-\boldpartial = \sum_{i=1}^k \Bx^i \partial_i.
-\end{dmath*}
-} % theorem
+\input{Definition_vector_derivative.tex}
 
 In general the gradient contains the vector derivative and we can write \( \spacegrad = \boldpartial + \spacegrad_\perp \), but
  when the dimension of the subspace (number of parameters) equals the dimension of the underlying vector space, the vector derivative and gradient are identical.
@@ -336,40 +323,7 @@ for polar, spherical and a toroidal coordinate systems.
 \subsection{Integration theory.}
 The generalization of line, surface and volume integrals to hypervolumes and multivector functions can now be stated.
 
-\makedefinition{Multivector integral.}{dfn:fundamentalTheoremOfCalculus:240}{
-Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
-multivector functions \( F, G \), a k-volume integral with the vector derivative acting to the right on \( G \) is written as
-\begin{equation*}
-\int_V d^k\Bx \rboldpartial G,
-\end{equation*}
-a k-volume integral with the vector derivative acting to the left on \( F \) is written as
-\begin{equation*}
-\int_V F d^k\Bx \lboldpartial,
-\end{equation*}
-and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) is written as
-\begin{equation*}
-\int_V F d^k\Bx \lrboldpartial G
-\equiv
-\int_V \lr{ F d^k\Bx \lboldpartial} G
-+
-\int_V F d^k\Bx \lr{ \rboldpartial G }.
-\end{equation*}
-The explicit meaning of these directionally acting derivative operations is given by the following chain rule coordinate expansion
-\begin{dmath*}
-F d^k \Bx \lrboldpartial G
-=
-F d^k \Bx \lr{ \sum_i \Bx^i {\stackrel{ \leftrightarrow }{\partial_i}} } G
-=
-(\partial_i F) d^k \Bx \sum_i \Bx^i G
-+
-F d^k \Bx \sum_i \Bx^i (\partial_i G)
-\equiv
-(F d^k \Bx \lboldpartial) G
-+
-F d^k \Bx (\rboldpartial G),
-\end{dmath*}
-with \( \boldpartial \) acting on \( F \) and \( G \), but not the volume element \( d^k \Bx \), which may also be a function of the implied parameterization.
-} % definition
+\input{Definition_multivector_integral.tex}
 
 The vector derivative
 may not commute with \( F, G \) nor the volume element \( d^k \Bx \), so we are forced to use some notation to indicate what the vector derivative (or gradient) acts on.
@@ -569,27 +523,12 @@ Note \cref{thm:volumeintegral:2661} does not apply to any multivectors \( M \) w
 The book makes use of time harmonic (frequency domain) representations when convienient.
 Provided we utilize a scalar (non-geometric) imaginary, a standard Fourier transform generalizes to multivectors without trouble.
 
-\makedefinition{Multivector Fourier transform pairs}{dfn:greensFunctionOverview:280}{
-The Fourier transform pair for a multivector valued function \( F(\Bx, t) \) will be written as
-\begin{equation*}
-\begin{aligned}
-F(\Bx, t) &= \int F_\omega(\Bx) e^{j \omega t} d\omega \\
-F_\omega(\Bx) &= \inv{2 \pi} \int F(\Bx, t) e^{-j \omega t} dt,
-\end{aligned}
-\end{equation*}
-where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
-} % definition
+\input{Definition_multivector_fourier.tex}
 
 The book uses the engineering convention for
 phasors, with a positive sign on the angular frequency complex exponentials.
 
-\makedefinition{Multivector phasor representation.}{dfn:greensFunctionOverview:300}{
-The phasor representation \( F(\Bx) \) of a multivector valued (real) function \( F(\Bx, t) \) is defined implicitly as
-\begin{equation*}
-F(\Bx, t) = \Real\lr{ F(\Bx) e^{j \omega t} },
-\end{equation*}
-where \( j \) is an arbitrary scalar imaginary that commutes with all multivectors.
-} % definition
+\input{Definition_multivector_phasor.tex}
 
 The complex valued multivector \( F(\Bx) \) is still generated from the real Euclidean basis for \R{3}, so there will be
 no reason to introduce complex inner products spaces into the mix.
@@ -654,16 +593,7 @@ G(\Bx, \Bx' ; k = 0) = \inv{4 \pi} \frac{\rcap}{r^2}.
 \end{equation}
 
 For the wave equation operator, it is helpful to introduce a d'Lambertian operator.  Because the sign of this operator varies in the literature, we must state our choice explicitly.
-\makedefinition{d'Lambertian (wave equation) operator.}{dfn:continuity:120}{
-Let
-\begin{equation*}
-\dAlembertian =
-\conjstgrad
-\stgrad
-=
-\spacegrad^2 - \inv{c^2} \PDSq{t}{}.
-\end{equation*}
-} % definition
+\input{Definition_wave_equation_operator.tex}
 
 The d'Lambertian operator may be factored in geometric algebra as \( \dAlembertian = \conjstgradi \stgradi \).
 The operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
@@ -720,19 +650,7 @@ where \( \epsilon = \epsilon_r \epsilon_0 \) is the permittivity of the medium, 
 \subsection{Maxwell's equation.}
 For isotropic media and constitutive relationships \cref{eqn:freespace:300} we may define
 a multivector field that includes both electric and magnetic components
-\makedefinition{Electromagnetic field strength.}{dfn:isotropicMaxwells:640}{
-The \textit{electromagnetic field strength} ([\si{V/m}] (Volts/meter)) is defined as
-\begin{equation*}
-F = \BE + I \eta \BH \quad(= \BE + I c \BB),
-\end{equation*}
-where
-\begin{itemize}
-\item \( \eta = \sqrt{\mu/\epsilon} \) (\( [\Omega] \) Ohms), is the impedance of the media.
-\item \( c = 1/\sqrt{\epsilon\mu} \) ([\si{m/s}] meters/second), is the group velocity of a wave in the media.
-When \( \epsilon = \epsilon_0, \mu = \mu_0 \), \( c \) is the speed of light.
-\end{itemize}
-\( F \) is called the \textit{F}araday by some authors.
-} % definition
+\input{Definition_electromagnetic_field_strength.tex}
 
 The factors of \( \eta \) (or \( c \)) that multiply the magnetic fields are for dimensional consistency, since \( [\sqrt{\epsilon} \BE] = [\sqrt{\mu} \BH] = [\BB/\sqrt{\mu}]\).
 The justification for imposing a dual (or complex) structure on the electromagnetic field strength can be found in the historical development of
@@ -747,12 +665,7 @@ I \BH = (1/\eta) \gpgradetwo{ F } \).
 
 We will also
 define a multivector current containing all charge densites and current densities as follows.
-\makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
-The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
-\begin{equation*}
-J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
-\end{equation*}
-} % definition
+\input{Definition_multivector_current.tex}
 When fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).
 With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
 
@@ -836,21 +749,7 @@ electromagnetic field strength reduces to just
 Utilizing a phasor representation of the form \cref{dfn:greensFunctionOverview:300},
 we will define the
 phasor representation of the field as
-\makedefinition{Plane wave.}{dfn:planewavesMultivector:680}{
-We represent the
-electromagnetic field strength
-plane wave solution of Maxwell's equation in phasor form as
-\begin{equation*}
-F(\Bx, t) = \Real \lr{ F(\Bk) e^{ j \omega t }  },
-\end{equation*}
-where the complex valued multivector \( F(\Bk) \) also has a presumed exponential dependence
-\begin{equation*}
-F(\Bk)
-=
-\tilde{F}
-e^{ -j \Bk \cdot \Bx }.
-\end{equation*}
-} % definition
+\input{Definition_plane_wave.tex}
 
 In the book, we show that solutions of the electromagnetic field wave equation have the following form.
 \maketheorem{Plane wave solutions to Maxwell's equation.}{thm:planewavesMultivector:620}{
@@ -1104,21 +1003,7 @@ Unlike the conventional approach, we are able to find the field directly without
 
 \subsection{Energy and momentum.}
 In the energy and momentum section of the book, the geometric algebra formulation of the field energy density, Poynting vector, Maxwell stress tensor, and more generally, the energy momentum tensor are fully detailed.
-\makedefinition{(Conventional) Energy and momentum density and Poynting vector.}{dfn:poyntingF:1220}{
-The quantities \( \calE \) and \( \bcP \) defined as
-%\label{eqn:poyntingF:20}
-\begin{equation*}
-\begin{aligned}
-\calE &
-%=
-%\inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH }
-= \inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 } \\
-\bcP c &= \inv{c} \BE \cross \BH,
-\end{aligned}
-\end{equation*}
-are known respectively as the field energy and momentum densities.
-\( \BS = c^2 \bcP = \BE \cross \BH \) is called the Poynting vector.
-} % definition
+\input{Definition_energy_momentum_poynting.tex}
 %\makedefinition{(Conventional) energy momentum and Maxwell stress tensors.}{dfn:poyntingF:1180}{
 %The rank-2 symmetric tensor \( \Theta^{\mu\nu} \), with components
 %%\label{eqn:poyntingF:840}
@@ -1158,18 +1043,7 @@ are known respectively as the field energy and momentum densities.
 %(\citep{griffiths1999introduction}, \citep{jackson1975cew}.)
 %}.
 In geometric algebra the energy momentum tensor, and the Maxwell stress tensor may be represented as linear grade 0,1 multivector valued functions of a grade 0,1 multivector.
-\makedefinition{Energy momentum and Maxwell stress tensors.}{dfn:poyntingF:1200}{
-We define the \textit{energy momentum tensor} as
-\begin{equation*}
-T(a) = \inv{2} \epsilon F a F^\dagger,
-\end{equation*}
-where \( a \) is a 0,1 multivector parameter.
-We introduce a shorthand notation for grade one selection with vector valued parameters
-\begin{equation*}
-\BT(\Ba) = \gpgradeone{T(\Ba)},
-\end{equation*}
-and call this the \textit{Maxwell stress tensor}.
-} % definition
+\input{Definition_energy_momentum_and_maxwell_stress.tex}
 
 \maketheorem{Expansion of the energy momentum tensor.}{thm:poyntingF:1240}{
 Given a scalar parameter \( \alpha \), and a vector parameter \( \Ba = \sum_k a_k \Be_k \), the energy momentum tensor of
@@ -1193,13 +1067,7 @@ electromagnetism literature.
 In the book, the conventional indexed representation is detailed more completely for comparision purposes.
 
 Associated with the energy momentum tensor are a number of conservation relationships, which are most compactly stated utilizing the adjoint of the energy momenutum tensor.
-\makedefinition{Adjoint.}{dfn:poyntingTheorem:1120}{
-The adjoint \( \overbar{A}(x) \) of a linear operator \( A(x) \) is defined implicitly by the scalar selection
-\begin{equation*}
-\gpgradezero{ y \overbar{A}(x) } =
-\gpgradezero{ x A(y) }.
-\end{equation*}
-} % definition
+\input{Definition_adjoint.tex}
 \maketheorem{Poynting's theorem (differential form.)}{thm:poyntingTheorem:1180}{
 The adjoint energy momentum tensor of the spacetime gradient satisfies the following multivector equation
 \begin{equation*}
@@ -1572,12 +1440,7 @@ This and many other examples in the book show that we pay a significant addition
 
 \subsection{Multivector potential.}
 Conventional electromagnetism utilizes scalar and vector potentials, which may be generalized to a multivector potential containing their sums.
-\makedefinition{Multivector potential.}{thm:generalPotential:80}{
-The electromagnetic field strength \( F \) for a \textit{multivector potential} \( A \) is
-\begin{equation*}
-F = \gpgrade{\conjstgrad A}{1,2}.
-\end{equation*}
-} % definition
+\input{multivector_potential}
 
 The grades of the multivector potentials may be chosen to match SI conventions (as specified in Balanis' ``Antenna Theory'',
 which includes fictitious magnetic sources),
