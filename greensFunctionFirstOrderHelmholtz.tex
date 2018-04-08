@@ -11,17 +11,7 @@ The specialization of \cref{eqn:greensFunctionSolutions:400} to the first order 
 
 This Green's function is multivector valued
 
-\maketheorem{Green's function for the first order Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:720}{
-The Green's function satisfying
-\begin{equation*}
-\lr{ \rspacegrad + j k } G(\Bx, \Bx') = G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } = \delta(\Bx - \Bx'),
-\end{equation*}
-is
-\begin{equation*}
-G(\Bx, \Bx') = \frac{e^{-j k r}}{4 \pi r} \lr{ j k \lr{ 1 + \rcap } + \frac{\rcap}{r} },
-\end{equation*}
-where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
-} % theorem
+\input{Theorem_greens_function_helmholtz_first_order.tex}
 
 A special but important case is the \( k = 0 \) condition, which provides the
 Green's function for the gradient, which is vector valued

@@ -322,7 +322,7 @@ F d^k \Bx \dot{\boldpartial} \dot{G}.
 The dot notation has the advantage of emphasizing that the action of the vector derivative (or gradient) is on the functions \( F, G \), and not on the hypervolume element \( d^k \Bx \).
 However, in the book, where primed operators such as \( \spacegrad' \) are used to indicate that derivatives are taken with respect to primed \( \Bx' \) variables, a mix of dots and ticks would have been confusing.
 
-\input{Theorem_fundamental_theorem_of_gc.tex}
+\input{Theorem_fundamental_theorem_of_gc_report.tex}
 
 The fundamental theorem of geometric calculus is a generalization of many conventional scalar and vector integral theorems, and relates a hypervolume integral to its boundary.
 This is a a powerful theorem, which we will use with Green's functions to solve Maxwell's equation, but also to derive the geometric algebra form of Stokes' theorem, from which most of the familiar integral calculus results follow.
@@ -343,7 +343,7 @@ hypervolume integrals of blades\footnote{Blades are isomorphic to the k-forms fo
 
 In the book we will see that most of the well known scalar and vector integral theorems can easily be derived as direct consequences of \cref{thm:stokesTheoremGeometricAlgebra:1740}, itself a special case of \cref{thm:fundamentalTheoremOfCalculus:1}.  In this report we state those results for the special cases of line, area and volume integrals.
 
-\input{Theorem_multivector_line_integral.tex}
+\input{Theorem_multivector_line_integral_report.tex}
 
 \input{Theorem_line_integral_scalar_function.tex}
 
@@ -353,7 +353,7 @@ In the book we will see that most of the well known scalar and vector integral t
 
 \input{Theorem_surface_integral_of_vector_stokes.tex}
 
-\input{Theorem_greens.tex}
+\input{Theorem_greens_report.tex}
 
 \input{Theorem_multivector_volume_integral.tex}
 
@@ -383,7 +383,7 @@ no reason to introduce complex inner products spaces into the mix.
 An attempt to motivate the concept of a Green's function is provided in the book, omitted here.
 Also detailed in the book are the sign conventions chosen for our Green's functions, which vary in the literature and discussion of bounded vs unbounded integration volumes and some theorems related to bounded applications of Green's functions (Green's theorem, and a related identity for the (first order) gradient.)
 
-\input{Theorem_greens_function_helmholtz.tex}
+\input{Theorem_greens_function_helmholtz_report.tex}
 
 We will use the advancing (causal) Green's function, and refer to this function as \( G(\Bx, \Bx') \) without any subscript.
 Observe that as a special case, the Helmholtz Green's function reduces to the Green's function for the Laplacian when \( k = 0 \)
@@ -521,7 +521,7 @@ phasor representation of the field as
 \input{Definition_plane_wave.tex}
 
 In the book, we show that solutions of the electromagnetic field wave equation have the following form.
-\input{Theorem_plane_wave_solutions.tex}
+\input{Theorem_plane_wave_solutions_report.tex}
 
 A full proof and discussion is in the book.
 The key step is that after insertion of the presumed phasor relationship, we find that
@@ -549,7 +549,7 @@ The proof is essentially a convolution with the (vector valued) Green's function
 \subsection{Statics: Enclosed charge.}
 In conventional electrostatics we obtain a relation between the normal electric field component and the enclosed charge by integrating the electric field divergence.
 The geometric algebra generalization of this relates the product of the normal and the electromagnetic field strength related to the enclosed multivector current as follows.
-\input{Theorem_enclosed_multivector_current.tex}
+\input{Theorem_enclosed_multivector_current_report.tex}
 
 To prove \cref{thm:enclosedCurrent:60} one evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}.
 The rest of the proof follows by grade selection.
@@ -618,7 +618,7 @@ The bivector (magnetic) nature of a field with only electric current density sou
 \end{itemize}
 \subsection{Dynamics.}
 Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable, with solution.
-\input{Theorem_jefimenkos.tex}
+\input{Theorem_jefimenkos_report.tex}
 This is found fairly easily using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}, and the details can be found in the book.
 %(\citep{griffiths1999introduction})
 Unlike the conventional approach, we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
@@ -697,7 +697,7 @@ The geometric algebra forms of the \( T(1) \) (field energy density and Poynting
 
 \subsection{Lorentz force.}
 The Lorentz force equation can be stated in terms of the total electromagnetic field strength and chacurrent density
-\input{Theorem_lorentz_force_power.tex}
+\input{Theorem_lorentz_force_power_report.tex}
 
 \subsubsection{Constant magnetic field.}
 As another example of geometric algebra in action, the Lorentz force equation for a constant external magnetic field bivector \( F = I c \BB \)
@@ -741,7 +741,7 @@ F(\Bx, t) = (1 + \Be_3) \lr{
 Two geometric representations are possible.
 The first uses the pseudoscalar for the transverse plane \( \Be_{12} \), denoted \( i \) here, and the other uses the \R{3} pseudoscalar as the imaginary.
 \subsubsection{Transverse plane imaginary.}
-\input{Theorem_circular_polarization_coeff.tex}
+\input{Theorem_circular_polarization_coeff_report.tex}
 
 \begin{itemize}
 \item
@@ -798,7 +798,7 @@ The structure of \cref{eqn:polarizationRewrite:760} could be more general than c
 For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).
 The simple complex structure that encodes all the phase dependence allows the
 energy, momentum and Maxwell stress tensor to be computed easily.
-\input{Theorem_energy_momentum_tensor_plane_wave.tex}
+\input{Theorem_energy_momentum_tensor_plane_wave_report.tex}
 
 Only the propagation direction of a plane wave, regardless of its polarization (or even whether or not there are Gaussian or other damping factors), carries any energy or momentum, and only the propagation direction component of the Maxwell stress tensor \( \BT(\Ba) \) is non-zero.
 
@@ -818,7 +818,7 @@ As expected, the phase dependent portion of the energy momentum tensor vanishes 
 \subsubsection{Pseudoscalar imaginary.}
 Alternatively, it is possible to encode the sines and cosines in the time domain representation of the field in terms of the \R{3} pseudoscalar.
 
-\input{Theorem_circular_polarization_coeff_pseudoscalar.tex}
+\input{Theorem_circular_polarization_coeff_pseudoscalar_report.tex}
 
 There appear to be some advantages to pseudoscalar description of polarization, especially for computing energy momentum tensor components since \( I \) commutes with all grades.
 For example, we can see practically by inspection that
@@ -830,7 +830,7 @@ where the absolute value is computed using the reverse as the conjugation operat
 
 \subsection{Transverse fields in a waveguide.}
 One topic from waveguide theory is considered in the book.
-\input{Theorem_transverse_and_propagation_solutions.tex}
+\input{Theorem_transverse_and_propagation_solutions_report.tex}
 
 Details and proof are in the book.
 This and many other examples in the book show that we pay a significant additional cost to work with separate electric and magnetic field components compared to working with the complete electromagnetic field multivector \( F \) in its entirety.
@@ -843,7 +843,7 @@ The grades of the multivector potentials may be chosen to match SI conventions (
 which includes fictitious magnetic sources),
 % and those of \citep{balanis2005antenna} (
 %) are used in the book as follows.
-\input{Theorem_fields_and_potential_wave_equations.tex}
+\input{Theorem_fields_and_potential_wave_equations_report.tex}
 
 Also detailed in the book is the multivector formulation of gauge transformation that allows the grade selection operation in
 \cref{thm:generalPotential:80} to be removed.
@@ -857,7 +857,7 @@ Please see the book for proofs and additional details, including the explcit int
 
 \subsection{Far field.}
 The geometric algebra form for the far field associated with a vector (or dual-vector) potential has a fairly simple coordinate free form.
-\input{Theorem_far_field_magnetic_vector_potential.tex}
+\input{Theorem_far_field_magnetic_vector_potential_report.tex}
 Noting that \( \rcap (\rcap \wedge \BA) \) is the rejection of the radial component of \( \BA \) (i.e. is a vector not a multivector) allows the far-field solution to easily be split into electric and magnetic field components if desired.
 These are detailed in the book, along with the proof of \cref{thm:potentialSection_farfield:1}.
 Also included in the book is an example calculation of \( F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \) for the dipole vector potential.

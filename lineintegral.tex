@@ -110,13 +110,7 @@ Observe that we did not actually have to calculate it, but instead only require 
 An important (and familiar) special case of \cref{thm:lineintegral:100} is the fundamental theorem of calculus for line integrals, which can be obtained by using a
 single scalar function \( f \)
 
-\maketheorem{Line integral of a scalar function (Stokes').}{thm:lineintegral:180}{
-Given a scalar function \( f \), its line integral is given by
-\begin{equation*}
-\int_C d^1\Bx \cdot \boldpartial f =
-\int_C d^1\Bx \cdot \spacegrad f = \evalbar{f}{\Delta a}.
-\end{equation*}
-} % theorem
+\input{Theorem_line_integral_scalar_function.tex}
 
 Writing out \cref{thm:lineintegral:100} with \( F = 1, G = f(\Bx(a)) \), we have
 \begin{dmath}\label{eqn:lineintegral:140}

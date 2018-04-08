@@ -89,14 +89,7 @@ where the two parameter differential form \( d^2 \Bx = da db\, \Bx_a \wedge \Bx_
 
 The surface integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
 
-\maketheorem{Multivector surface integral.}{thm:surfaceintegral:100}{
-Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), the surface integral is related to the boundary by
-\begin{equation*}
-\int_S F d^2\Bx \boldpartial G
-= \ointclockwise_{\partial S} F d\Bx G,
-\end{equation*}
-where \( \partial S \) is the boundary of the surface \( S \).
-} % theorem
+\input{Theorem_multivector_surface_integral.tex}
 In \R{2} with \( d^2 \Bx = i dA, i = \Be_{12} \), this may be written
 \begin{dmath}\label{eqn:surfaceintegral:760}
 \int_S F i \spacegrad G\, dA
@@ -205,18 +198,7 @@ contributions of the interior loop segments cancel out.
 
 Two special cases of \cref{thm:surfaceintegral:100} when scalar and vector functions are integrated over a surface.  For scalar functions we have
 
-\maketheorem{Surface integral of scalar function (Stokes').}{thm:surfaceintegral:420}{
-Given a scalar function \( f(\Bx) \) its surface integrals is given by
-\begin{equation*}
-\int_S d^2 \Bx \cdot \boldpartial f =
-\int_S d^2 \Bx \cdot \spacegrad f = \ointclockwise_{\partial S} d\Bx f.
-\end{equation*}
-In \R{3} this can be written as
-\begin{equation*}
-\int_S dA \ncap \cross \spacegrad f = \ointctrclockwise_{\partial S} d\Bx f,
-\end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
-} % theorem
+\input{Theorem_surface_integral_of_scalar_stokes.tex}
 
 To show the first part, we can split the (multivector) surface integral into vector and trivector grades
 \begin{dmath}\label{eqn:surfaceintegral:440}
@@ -266,17 +248,7 @@ back substitution of \cref{eqn:surfaceintegral:500} completes the proof of \cref
 
 For vector functions we have
 
-\maketheorem{Surface integral of a vector function (Stokes').}{thm:surfaceintegral:500}{
-Given a vector function \( \Bf(\Bx) \) the surface integral is given by
-\begin{equation*}
-\int_S d^2 \Bx \cdot (\spacegrad \wedge \Bf) = \ointclockwise_{\partial S} d\Bx \cdot \Bf.
-\end{equation*}
-In \R{3} this can be written as
-\begin{equation*}
-\int_S dA \ncap \cdot \lr{ \spacegrad \cross \Bf} = \ointctrclockwise_{\partial S} d\Bx \cdot \Bf,
-\end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA \).
-} % theorem
+\input{Theorem_surface_integral_of_vector_stokes.tex}
 
 %%This follows by setting \( F = 1, G = \Bf \) in \cref{thm:surfaceintegral:100} and selecting the scalar grade.  In particular we may form the
 %%scalar selection of \( d^2 \Bx \boldpartial \Bf \) in two different ways.  The first is

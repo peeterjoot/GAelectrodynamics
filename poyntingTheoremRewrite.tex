@@ -206,42 +206,7 @@ The proofs of \cref{thm:poyntingTheoremRewrite:1280} are all fairly simple
 \subsection{Poynting theorem.}
 
 All the prerequisites for stating Poynting's theorem are now finally complete.
-\maketheorem{Poynting's theorem (differential form.)}{thm:poyntingTheorem:1180}{
-The adjoint energy momentum tensor of the spacetime gradient satisfies the following multivector equation
-\begin{equation*}
-\overbar{T}(\spacegrad + (1/c)\partial_t) = \frac{\epsilon}{2} \lr{ F^\dagger J + J^\dagger F }.
-\end{equation*}
-Note that the multivector \( F^\dagger J + J^\dagger F \) can only have scalar and vector grades, since it equals its reverse.
-This equation can be put into a form that is more obviously a conservation law by stating it as a set of
-scalar grade identities
-\begin{equation*}
-\spacegrad \cdot \gpgradeone{ T(a) } + \inv{c} \PD{t}{} \gpgradezero{ T(a) }
-=
-\frac{\epsilon}{2} \gpgradezero{ a( F^\dagger J + J \dagger F) }.
-\end{equation*}
-These may be written as respective
-scalar and vector grades equations
-%%which expands to the multivector equation
-%\begin{equation*}
-%\inv{c} \PD{t}{} \lr{ \calE - \frac{\BS}{c} }
-%+ \spacegrad \cdot \frac{\BS}{c}
-%+ \BT(\spacegrad)
-%=
-%-\inv{c} \lr{ \BE \cdot \BJ + \BH \cdot \BM }
-%+
-%\rho \BE + \epsilon \BE \cross \BM
-%+
-%\rho_\txtm \BH + \mu \BJ \cross \BH,
-%\end{equation*}
-%or as separate scalar and vector equations
-\begin{equation*}
-\begin{aligned}
-\inv{c} \PD{t}{\calE} + \spacegrad \cdot \frac{\BS}{c} &= -\inv{c} \lr{ \BE \cdot \BJ + \BH \cdot \BM } \\
--\inv{c^2} \PD{t}{\BS} + \BT(\spacegrad) &= \rho \BE + \epsilon \BE \cross \BM + \rho_\txtm \BH + \mu \BJ \cross \BH.
-\end{aligned}
-\end{equation*}
-Conventionally, only the scalar grade relating the time rate of change of the energy density to the flux of the Poynting vector, is called Poynting's theorem.
-} % theorem
+\input{Theorem_poynting_differential.tex}
 
 The conservation relationship of \cref{thm:poyntingTheorem:1180} follows from
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:1340}
@@ -343,31 +308,7 @@ Jointly,
 \cref{eqn:poyntingTheoremRewrite:1380}, \cref{eqn:poyntingTheoremRewrite:80}, \cref{eqn:poyntingTheoremRewrite:180} complete the proof.
 
 The integral form of \cref{thm:poyntingTheorem:1180} submits nicely to physical interpretation.
-\maketheorem{Poynting's theorem (integral form.)}{thm:poyntingTheoremRewrite:1420}{
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1400}
-\begin{aligned}
-&\PD{t}{}
-\int_V \calE dV
-=
--\int_{\partial V} dA \ncap \cdot \BS
--
-\int_V dV \lr{
-   \BJ \cdot \BE
-   +
-   \BM \cdot \BH
-} \\
-&
-\int_V dV \lr{ \rho \BE + \BJ \cross \BB }
-+ \int_V dV \lr{ \rho_\txtm \BH - \epsilon \BM \cross \BE }
-=
--
-\PD{t}{ }
-\int_V dV \bcP
-+
-\int_{\partial V} dA \BT(\ncap).
-\end{aligned}
-\end{dmath}
-} % theorem
+\input{Theorem_poynting_integral.tex}
 
 Proof of \cref{thm:poyntingTheoremRewrite:1420} requires only the divergence theorem, \cref{thm:poyntingTheoremRewrite:1281}, and
 \cref{dfn:poyntingF:1220}.

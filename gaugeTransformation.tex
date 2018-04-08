@@ -193,19 +193,7 @@ Finding such potentials relies on the fact that the potential representation is 
 In particular,
 we have the freedom to add any spacetime gradient of any scalar or pseudoscalar potential without changing the field.
 \index{gauge transformation}
-\maketheorem{Gauge invariance.}{thm:gaugeTransformation:60}{
-The spacetime gradient of a grade 0,3 multivector \( \Psi \) may be added to a multivector potential
-\begin{equation*}
-A' = A + \stgrad \Psi,
-\end{equation*}
-without changing the field.
-That is
-\begin{equation*}
-F
-= \gpgrade{\conjstgrad A}{1,2}
-= \gpgrade{\conjstgrad A'}{1,2}.
-\end{equation*}
-} % theorem
+\input{Theorem_gauge_invariance.tex}
 
 To prove \cref{thm:gaugeTransformation:60} let
 \begin{dmath}\label{eqn:gaugeTransformation:100}
@@ -225,20 +213,7 @@ since the d'Lambertian operator \( \dAlembertian \) is a scalar operator and \( 
 
 We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgrad A \) are zero, or a transformation that kills those grades is made.
 \index{Lorenz gauge}
-\maketheorem{Lorentz gauge transformation.}{thm:gaugeTransformation:140}{
-Given any multivector potential \( A \) solution of Maxwell's equation, the transformation
-\begin{equation*}
-A' = A - \stgrad \Psi,
-\end{equation*}
-where
-\begin{equation*}
-\dAlembertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
-\end{equation*}
-allows Maxwell's equation to be written in wave equation form
-\begin{equation*}
-\dAlembertian A' = J.
-\end{equation*}
-} % theorem
+\input{Theorem_lorentz_gauge_transformation.tex}
 
 To prove \cref{thm:gaugeTransformation:140}, let
 \begin{dmath}\label{eqn:gaugeTransformation:200}

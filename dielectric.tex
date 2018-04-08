@@ -36,30 +36,7 @@
 
 Without imposing the constitutive relationships \cref{eqn:freespace:300} the geometric algebra form of Maxwell's equations requires
 a pair of equations, multivector fields, and multivector sources, instead of one of each.
-\maketheorem{Maxwell's equations in media.}{thm:dielectric:20}{
-Maxwell's equations in media are
-\begin{equation*}
-\begin{aligned}
-\gpgrade{ \stgrad F }{0,1} &= J_\txte \\
-\gpgrade{ \stgrad G }{2,3} &= I J_\txtm,
-\end{aligned}
-\end{equation*}
-where \( c \) is the group velocity of \( F, G \) in the medium,
-the fields are grade 1,2 multivectors
-\begin{equation*}
-\begin{aligned}
-F &= \BD + \frac{I}{c}\BH \\
-G &= \BE + I c \BB,
-\end{aligned}
-\end{equation*}
-and the sources are grade 0,1 multivectors
-\begin{equation*}
-\begin{aligned}
-J_\txte &= \rho - \inv{c}\BJ \\
-J_\txtm &= c \rho_\txtm - \BM.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_maxwells_equations_in_media.tex}
 
 To prove \cref{thm:dielectric:20} we may simply expand the spacetime gradients and grade selection operations,
 and compare to

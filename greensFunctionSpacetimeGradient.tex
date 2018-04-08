@@ -35,24 +35,7 @@ For the wave equation operator, it is helpful to introduce a d'Lambertian operat
 \input{Definition_wave_equation_operator.tex}
 
 We will be able to derive the Green's function for the spacetime gradient from the Green's function for the d'Lambertian.  The Green's function for the spacetime gradient is multivector valued and given by the following.
-\maketheorem{Green's function for the spacetime gradient.}{thm:greensFunctionSpacetimeGradient:120}{
-The Green's function for the spacetime gradient, satisfying
-\begin{equation*}
-\stgrad G(\Bx - \Bx', t - t') = \delta(\Bx - \Bx') \delta(t - t'),
-\end{equation*}
-is
-\begin{equation*}
-G(\Bx - \Bx', t - t')
-=
-\inv{4\pi} \lr{
-- \frac{\rcap}{r^2} \PD{r}{}
-+ \frac{\rcap}{r}
-+ \inv{c r} \PD{t}{}
-}
-\delta( -r/c + t - t' ),
-\end{equation*}
-where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
-} % theorem
+\input{Theorem_greens_function_spacetime_grad.tex}
 
 With the help of \cref{eqn:derivativeOfDeltaFunction:140}
 it is possible to further evaluate the delta function derivatives, however, we will defer doing so until we are ready to apply this Green's

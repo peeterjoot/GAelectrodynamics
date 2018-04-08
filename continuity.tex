@@ -21,39 +21,7 @@ This amounts to a statement that the multivector current \( J \) is not complete
 %\end{equation*}
 %} % definition
 %
-\maketheorem{Electromagnetic wave equation and continuity conditions.}{thm:continuity:600}{
-The electromagnetic field is a solution to the non-homogeneous wave equation
-\begin{equation*}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dAlembertian
-F =
-\conjstgrad J.
-\end{equation*}
-In source free conditions, this reduces to a homogeneous wave equation, with group velocity \( c \), the speed of the wave in the media.
-When expanded explicitly in terms of electric and magnetic fields, and charge and current densities, this single equation resolves to a
-non-homogeneous wave equation for each of the electric and magnetic fields
-\begin{equation*}
-\begin{aligned}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dAlembertian
-\BE
-%&= \gpgrade{\conjstgrad J}{1}
-&= \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM \\
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
-\dAlembertian
-\BH
-%&= \inv{I \eta} \gpgrade{\conjstgrad J}{2}
-&= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ,
-\end{aligned}
-\end{equation*}
-as well as a pair of continuity equations coupling the respective charge and current densities
-\begin{equation*}
-\begin{aligned}
-\spacegrad \cdot \BJ + \PD{t}{\rho} &= 0 \\
-\spacegrad \cdot \BM + \PD{t}{\rho_\txtm} &= 0.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_continuity_wave.tex}
 
 To prove, we operate on \cref{dfn:isotropicMaxwells:680} with \( \spacegrad - (1/c) \partial_t \), one of the factors, along with the
 spacetime gradient, of the

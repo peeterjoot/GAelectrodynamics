@@ -8,38 +8,7 @@ Similar to electrostatics and magnetostatics, we can restrict attention to time 
 \spacegrad F(\Bx) = J(\Bx),
 \end{dmath}
 
-\maketheorem{Maxwell's statics solution.}{thm:statics:100}{
-The solution to the Maxwell statics equation is given by
-\begin{equation*}
-F(\Bx)
-= \inv{4\pi} \int_V dV' \frac{\gpgrade{(\Bx - \Bx') J(\Bx')}{1,2}}{\Norm{\Bx - \Bx'}^3} + F_0,
-\end{equation*}
-where \( F_0 \) is any function for which \( \spacegrad F_0 = 0 \).
-The explicit expansion in electric and magnetic fields and charge and current densities is given by
-\begin{equation*}
-\begin{aligned}
-\BE(\Bx)
-&=
-\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
-\lr{
-{\color{DarkOliveGreen}
-   \inv{\epsilon}(\Bx - \Bx') \rho(\Bx')
-}
-   +
-   (\Bx - \Bx') \cross \BM(\Bx')
-} \\
-\BH(\Bx)
-&=
-\inv{4\pi} \int_V dV' \inv{\Norm{\Bx - \Bx'}^3}
-\lr{
-{\color{Maroon}
-  \BJ(\Bx') \cross (\Bx - \Bx')
-}
-+ \inv{\mu} (\Bx - \Bx') \rho_m(\Bx')
-}.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_maxwell_statics_solution.tex}
 
 We see that the solution incorporates both a {\color{DarkOliveGreen}Coulomb's law} contribution and a {\color{Maroon}Biot-Savart law} contribution, as well as their magnetic source analogues if applicable.
 

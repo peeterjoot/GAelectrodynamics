@@ -30,37 +30,7 @@
 %Ampere's law is a relationship for static configurations between the line integral of the magnetic field to the enclosed current, the flux of the current density through a surface
 In this section we will present the generalization of Ampere's law to line integrals of the total electromagnetic field strength.
 
-\maketheorem{Line integral of the field.}{thm:amperes:280}{
-The line integral of the electromagnetic field strength is
-\begin{equation*}
-\ointclockwise_{\partial A} d\Bx\, F
-=
-I \int_A dA \lr{ \ncap J - \PD{n}{F} },
-\end{equation*}
-where \( \PDi{n}{F} = \lr{ \ncap \cdot \spacegrad } F \).
-Expressed in terms of the conventional consistent fields and sources, this multivector relationship expands to four equations, one for each grade
-\begin{equation*}
-\begin{aligned}
-\ointclockwise_{\partial A} d\Bx \cdot \BE &=  \int_A dA\, \ncap \cdot \BM \\
-\ointclockwise_{\partial A} d\Bx \cross \BH
-&=
-\int_A dA
-\lr{
-   - \ncap \cross \BJ
-   + \frac{ \ncap \rho_\txtm }{\mu}
-   - \PD{n}{\BH}
-} \\
-\ointclockwise_{\partial A} d\Bx \cross \BE &=
-\int_A dA
-\lr{
-     \ncap \cross \BM
-   + \frac{\ncap \rho}{\epsilon}
-   - \PD{n}{\BE}
-} \\
-\ointclockwise_{\partial A} d\Bx \cdot \BH &= -\int_A dA\, \ncap \cdot \BJ.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_line_integral_of_field.tex}
 The last of the scalar equations in
 \cref{thm:amperes:280}
 is Ampere's law
