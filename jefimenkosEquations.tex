@@ -31,47 +31,7 @@
 
 Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}.  That solution is
 
-\maketheorem{Jefimenkos solution.}{thm:jefimenkosEquations:120}{
-The solution of Maxwell's equation is given by
-\begin{equation*}
-F(\Bx, t)
-=
-F_0(\Bx, t)
-+
-\inv{4 \pi}
-\int dV'
-\lr{
-   \frac{\rcap}{r^2} J(\Bx', t_r)
-   +
-   \inv{c r} \lr{ 1 + \rcap } \dispdot{J}(\Bx', t_r)
-},
-\end{equation*}
-where \( F_0(\Bx, t) \) is any specific solution of the homogeneous equation \( \lr{ \spacegrad + (1/c) \partial_t } F_0 = 0 \),
-time derivatives are denoted by overdots, and all times are evaluated at the retarded time \( t_r = t - r/c \).
-When expanded in terms of the electric and magnetic fields (ignoring magnetic sources), the non-homogeneous portion of this solution is known as the
-Jefimenkos' equations \citep{griffiths1999introduction}.
-\begin{dmath}\label{eqn:jefimenkosEquations:100}
-\begin{aligned}
-\BE &=
-\inv{4 \pi}
-\int dV'
-\lr{
-\frac{\rcap}{\epsilon r} \lr{
-\frac{\rho(\Bx', t_r)}{r} + \frac{\dispdot{\rho}(\Bx', t_r) }{c} }
-   - \frac{\eta }{ c r } \dotBJ(\Bx', t_r)
-} \\
-\BH &=
-\inv{4 \pi}
-\int dV'
-\lr{
-   \frac{1}{c r} \dotBJ(\Bx', t_r)
-+
-   \frac{1}{r^2} \BJ(\Bx', t_r)
-} \cross \rcap,
-\end{aligned}
-\end{dmath}
-%which checks against Griffiths.
-} % theorem
+\input{Theorem_jefimenkos.tex}
 
 The full solution is
 \begin{dmath}\label{eqn:jefimenkosEquations:20}

@@ -4,29 +4,7 @@
 %
 %{
 \index{far field}
-
-\maketheorem{Far field magnetic vector potential.}{thm:potentialSection_farfield:1}{
-Given a vector potential with a radial spherical wave representation
-%\label{eqn:potentialSection_farfield:2400}
-\begin{equation*}
-\BA = \frac{e^{-j k r}}{r} \bcA( \theta, \phi ),
-\end{equation*}
-the far field (\(r \gg 1 \)) electromagnetic field is
-%\label{eqn:potentialSection_farfield:2520}{
-\begin{equation*}
-F = -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA}.
-\end{equation*}
-If \( \BA_\perp = \rcap \lr{ \rcap \wedge \BA} \) represents the
-non-radial component of the potential, the respective electric and magnetic field components are
-%\begin{dmath}\label{eqn:potentialSection_farfield:2560}
-\begin{equation*}
-\begin{aligned}
-\BE &= -j \omega \BA_\perp \\
-\BH &= \inv{\eta} \rcap \cross \BE.
-\end{aligned}
-\end{equation*}
-%\end{dmath}
-} % theorem
+\input{Theorem_far_field_magnetic_vector_potential.tex}
 
 To prove \cref{thm:potentialSection_farfield:1}, we will utilize a
 spherical representation of the gradient

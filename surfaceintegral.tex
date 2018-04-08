@@ -303,23 +303,8 @@ For vector functions we have
 %%
 \subsection{Green's theorem.}
 
-\Cref{thm:surfaceintegral:500}, when stated in terms of coordinates, is another well known result
-
-\maketheorem{Green's theorem.}{thm:surfaceintegral:620}{
-Given a vector \( \Bf = \sum_i f_i \Bx^i \) in \R{N}, and a surface parameterized by \( \Bx = \Bx(u_1, u_2) \)
-\begin{equation*}
-\int_S du_1 du_2 \lr{ \PD{u_2}{f_1} - \PD{u_1}{f_2} }
-=
-\ointclockwise_{\partial S} du_1 f_1 + du_2 f_2.
-\end{equation*}
-This is
-often stated for \R{2} with a Cartesian \(x,y\) parameterization, such as \( \Bf = P \Be_1 + Q \Be_2 \).  In that case
-\begin{equation*}
-\int_S dx dy \lr{ \PD{y}{P} - \PD{x}{Q} }
-=
-\ointclockwise_{\partial S} P dx + Q dy.
-\end{equation*}
-} % theorem
+\Cref{thm:surfaceintegral:500}, when stated in terms of coordinates, is another well known result.
+\input{Theorem_greens.tex}
 
 FIXME: Add an example (lots to pick from in any 3rd term calc text)
 

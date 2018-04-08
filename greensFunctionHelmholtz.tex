@@ -14,16 +14,7 @@ While it is possible \citep{schwinger1998classical} to derive the Green's functi
 
 \index{Helmholtz!Green's function}
 \index{Green's function!Helmholtz}
-\maketheorem{Green's function for the Helmholtz operator.}{thm:gradientGreensFunctionEuclidean:3}{
-The advancing (causal), and the receding (acausal) Green's functions satisfying
-\cref{eqn:greensFunctionHelmholtz:420} are respectively
-\begin{equation*}
-\begin{aligned}
-G_{\textrm{adv}}(\Bx, \Bx') &= -\frac{e^{-j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}} \\
-G_{\textrm{rec}}(\Bx, \Bx') &= -\frac{e^{j k \Norm{ \Bx - \Bx' } }}{ 4 \pi \Norm{\Bx - \Bx'}}.
-\end{aligned}
-\end{equation*}
-} % theorem
+\input{Theorem_greens_function_helmholtz.tex}
 
 We will use the advancing (causal) Green's function, and refer to this function as \( G(\Bx, \Bx') \) without any subscript.
 Because it may not be obvious that these

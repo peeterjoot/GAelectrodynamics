@@ -68,44 +68,7 @@ where
 This specific breakdown of \( A \) into scalar and vector potentials, and dual (pseudoscalar and bivector) potentials has been chosen to match SI conventions, specifically those of \citep{balanis2005antenna} (which includes fictitious magnetic sources.)
 
 We can now express the fields in terms of the potentials.
-
-\maketheorem{Fields and the potential wave equations.}{thm:generalPotential:40}{
-In terms of the potential components, the electric field vector and the magnetic field bivector are
-\begin{equation*}
-\begin{aligned}
-\BE &=
-\gpgrade{\conjstgrad A}{1}
-=
-   - \spacegrad \phi
-   - \PD{t}{\BA}
-   - \inv{\epsilon} \spacegrad \cross \BF \\
-I \eta \BH &=
-\gpgrade{\conjstgrad A}{2}
-=
-   I \eta
-   \lr{
-      - \spacegrad \phi_\txtm
-      - \PD{t}{\BF}
-      + \inv{\mu} \spacegrad \cross \BA
-   }
-.
-\end{aligned}
-\end{equation*}
-The potentials are related to the sources by
-\begin{equation*}
-\begin{aligned}
-\dAlembertian
-\phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dAlembertian
-\BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
-\dAlembertian
-\BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
-\dAlembertian
-\phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
-\end{aligned}
-\end{equation*}
-} % theorem
-
+\input{Theorem_fields_and_potential_wave_equations.tex}
 To prove \cref{thm:generalPotential:40} we start by expanding \( (\spacegrad - (1/c)\partial_t) A \) using
 \cref{dfn:unpackStaticPotential:80} and then group by grade to find
 \begin{dmath}\label{eqn:gaugeTransformation:1111}

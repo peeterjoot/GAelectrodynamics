@@ -1,0 +1,40 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\maketheorem{Fields and the potential wave equations.}{thm:generalPotential:40}{
+In terms of the potential components, the electric field vector and the magnetic field bivector are
+\begin{equation*}
+\begin{aligned}
+\BE &=
+\gpgrade{\conjstgrad A}{1}
+=
+   - \spacegrad \phi
+   - \PD{t}{\BA}
+   - \inv{\epsilon} \spacegrad \cross \BF \\
+I \eta \BH &=
+\gpgrade{\conjstgrad A}{2}
+=
+   I \eta
+   \lr{
+      - \spacegrad \phi_\txtm
+      - \PD{t}{\BF}
+      + \inv{\mu} \spacegrad \cross \BA
+   }
+.
+\end{aligned}
+\end{equation*}
+The potentials are related to the sources by
+\begin{equation*}
+\begin{aligned}
+\dAlembertian
+\phi &= -\frac{\rho}{\epsilon} - \PD{t}{} \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+\dAlembertian
+\BA &= -\mu \BJ + \spacegrad \lr{ \spacegrad \cdot \BA + \inv{c^2} \PD{t}{\phi} } \\
+\dAlembertian
+\BF &= - \epsilon \BM + \spacegrad \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} } \\
+\dAlembertian
+\phi_\txtm &= -\frac{\rho_\txtm}{\mu} - \PD{t}{} \lr{ \spacegrad \cdot \BF + \inv{c^2} \PD{t}{\phi_\txtm} }
+\end{aligned}
+\end{equation*}
+} % theorem

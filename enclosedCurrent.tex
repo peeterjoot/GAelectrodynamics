@@ -5,22 +5,7 @@
 %{
 In conventional electrostatics we obtain a relation between the normal electric field component and the enclosed charge by integrating the electric field divergence.
 The geometric algebra generalization of this relates the product of the normal and the electromagnetic field strength related to the enclosed multivector current
-\maketheorem{Enclosed multivector current.}{thm:enclosedCurrent:60}{
-The total multivector current in the volume is related to the surface integral of \( \ncap F \) over the boundary of the volume by
-\begin{equation*}
-\int_{\partial V} dA \ncap F = \int_V dV J.
-\end{equation*}
-This is a multivector equation, carrying information for each grade in the multivector current, and after explicit expansion is equivalent to
-\begin{equation*}
-\begin{aligned}
-\int_{\partial V} dA\, \ncap \cdot \BE        &=  \inv{\epsilon} \int_V dV\, \rho \\
-\int_{\partial V} dA\, \ncap \cross \BH       &=                 \int_V dV\, \BJ \\
-\int_{\partial V} dA\, \ncap \cross \BE       &=               - \int_V dV\, \BM \\
-\int_{\partial V} dA\, \ncap \cdot \BH        &=  \inv{\mu} \int_V dV\, \rho_\txtm.
-\end{aligned}
-\end{equation*}
-} % theorem
-
+\input{Theorem_enclosed_multivector_current.tex}
 To prove \cref{thm:enclosedCurrent:60}
 simply evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}
 \begin{equation}\label{eqn:enclosedCurrent:20}

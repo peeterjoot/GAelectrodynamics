@@ -41,38 +41,7 @@ phasor representation of the field as
 
 We will now show that solutions of the electromagnetic field wave equation have the form
 
-\maketheorem{Plane wave solutions to Maxwell's equation.}{thm:planewavesMultivector:620}{
-Single frequency plane wave solutions of Maxwell's equation have the form
-\begin{equation*}
-F(\Bx, t)
-=
-\Real \lr{
-\lr{ 1 + \kcap }
-\kcap \wedge \BE\,
-e^{-j \Bk \cdot \Bx + j \omega t}
-}
-,
-\end{equation*}
-where \( \Norm{\Bk} = \omega/c \), \( \kcap = \Bk/\Norm{\Bk} \) is the unit vector pointing along the propagation direction, and \( \BE \) is any complex-valued vector variable.  When a \( \BE \cdot \Bk = 0 \) constraint is imposed on the vector variable \( \BE \), that variable can be interpreted as the electric field, and the solution reduces to
-\begin{equation*}
-F(\Bx, t)
-=
-\Real \lr{
-\lr{ 1 + \kcap }
-\BE\,
-e^{-j \Bk \cdot \Bx + j \omega t}
-}
-,
-\end{equation*}
-showing that the field phasor \( F(\Bk) = \BE(\Bk) + I \eta \BH(\Bk) \) splits naturally into electric and magnetic components
-\begin{equation*}
-\begin{aligned}
-\BE(\Bk) &= \BE e^{-j \Bk \cdot \Bx} \\
-\eta \BH(\Bk) &= \kcap \cross \BE \, e^{-j \Bk \cdot \Bx},
-\end{aligned}
-\end{equation*}
-where the directions \( \kcap, \BE, \BH \) form a right handed triple.
-} % theorem
+\input{Theorem_plane_wave_solutions.tex}
 
 We wish to act on \( F(\Bk) e^{-j \Bk \cdot \Bx + j \omega t } \) with the spacetime gradient \( \spacegrad + (1/c)\partial_t \), but
 must take care of order when applying the gradient to a non-scalar valued function.  In particular, if \( A \) is a multivector, then

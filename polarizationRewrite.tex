@@ -101,22 +101,7 @@ c_2 &= \alpha_2 + i \beta_2.
 In this definition we have used \( i = \Be_{12} \), the pseudoscalar of the transverse plane, as the imaginary.
 } % definition
 We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stated above.
-
-\maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:700}{
-The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
-\begin{equation*}
-F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{i\phi} + \alpha_\txtL e^{-i\phi} },
-\end{equation*}
-where
-\begin{equation*}
-\begin{aligned}
-\alpha_\txtR &= \inv{2}\lr{ c_1 + i c_2 } \\
-\alpha_\txtL &= \inv{2}\lr{ c_1 - i c_2 }^\dagger,
-\end{aligned}
-\end{equation*}
-where \( c_1, c_2 \) are the 0,2 grade multivector representation of the Jones vector coordinates from \cref{dfn:polarizationRewrite:680}.
-} % definition
-
+\input{Theorem_circular_polarization_coeff.tex}
 To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) out of \cref{eqn:polarization_circular:160} and then substitute complex exponentials for the sine and cosine
 \begin{dmath}\label{eqn:polarizationRewrite:700}
 \begin{aligned}
@@ -251,17 +236,7 @@ Each polarization considered above (linear, circular, elliptical) have the same 
 F = \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f(\phi),
 \end{dmath}
 where \( f(\phi) \) is a complex valued function (i.e. grade 0,2).  The structure of \cref{eqn:polarizationRewrite:760} could be more general than considered so far.  For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).  Independent of the form of \( f \), we may compute the energy, momentum and Maxwell stress tensor for the plane wave given by \cref{eqn:polarizationRewrite:760}.
-
-\maketheorem{Energy momentum tensor components for a plane wave.}{thm:polarizationRewrite:780}{
-The energy momentum tensor components for the plane wave given by \cref{eqn:polarizationRewrite:760} are
-\begin{equation*}
-\begin{aligned}
-T(1) &= -T(\Be_3) = \epsilon \lr{ 1 + \Be_3 } f f^\dagger = \calE + \frac{\BS}{c} \\
-T(\Be_1) &= T(\Be_2) = 0.
-\end{aligned}
-\end{equation*}
-} % theorem
-
+\input{Theorem_energy_momentum_tensor_plane_wave.tex}
 Only the propagation direction of a plane wave, regardless of its polarization (or even whether or not there are Gaussian or other damping factors), carries any energy or momentum, and only the propagation direction component of the Maxwell stress tensor \( \BT(\Ba) \) is non-zero.
 
 To prove \cref{thm:polarizationRewrite:780}, we may compute \( T(a) \) separately for each of \( a = 1,\Be_1, \Be_2, \Be_3 \).  Key to all of these computations is the fact that \( \Be_3 \) commutes with scalars and \( i \), and \( \Be_1, \Be_2 \) both anticommute with \( i \), and more generally \(
@@ -367,22 +342,7 @@ c_2 &= \alpha_2 + I \beta_2.
 In this definition we have used the \R{3} pseudoscalar \( I \) as the imaginary.
 } % definition
 We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stated above.
-
-\maketheorem{Circular polarization coefficients.}{thm:polarizationRewrite:940}{
-The time domain representation of the field in \cref{eqn:polarization_circular:160} can be stated in terms of the total phase as
-\begin{equation*}
-F = \lr{ 1 + \Be_3 } \Be_1 \lr{ \alpha_\txtR e^{-I\phi} + \alpha_\txtL e^{I\phi} },
-\end{equation*}
-where
-\begin{equation*}
-\begin{aligned}
-\alpha_\txtR &= \inv{2}\lr{ c_1 + I c_2 }^\dagger \\
-\alpha_\txtL &= \inv{2}\lr{ c_1 - I c_2 },
-\end{aligned}
-\end{equation*}
-where \( c_1, c_2 \) are the 0,2 grade multivector representation of the Jones vector coordinates from \cref{dfn:polarizationRewrite:920}.
-} % theorem
-
+\input{Theorem_circular_polarization_coeff_pseudoscalar.tex}
 Notice that the signs of the exponentials have flipped for the left and right handed circular polarizations.  It may not obvious that the electric and magnetic fields in this representation have the desired transverse properties.  To see why that is still the case, and to understand the conjugation in the complex exponentials, consider the right circular polarization case with \( \alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \)
 \begin{dmath}\label{eqn:polarizationRewrite:940}
 F
