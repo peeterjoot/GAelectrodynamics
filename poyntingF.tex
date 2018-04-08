@@ -9,21 +9,7 @@ conservation equations relating their space and time derivatives.  For reference
 \index{momentum density}
 \index{Poynting vector}
 \index{energy flux}
-\makedefinition{(Conventional) Energy and momentum density and Poynting vector.}{dfn:poyntingF:1220}{
-The quantities \( \calE \) and \( \bcP \) defined as
-%\label{eqn:poyntingF:20}
-\begin{equation*}
-\begin{aligned}
-\calE &
-%=
-%\inv{2} \lr{ \BD \cdot \BE + \BB \cdot \BH }
-= \inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 } \\
-\bcP c &= \inv{c} \BE \cross \BH,
-\end{aligned}
-\end{equation*}
-are known respectively as the field energy and momentum densities.
-\( \BS = c^2 \bcP = \BE \cross \BH \) is called the Poynting vector.
-} % definition
+\input{Definition_energy_momentum_poynting.tex}
 We will derive the conservation relationships that justify calling \( \calE, \bcP \) the energy and momentum densities, and will also show that the
 Poynting vector represents the energy flux through a surface per unit time.
 
@@ -82,18 +68,7 @@ The Maxwell stress tensor may be written as \( \sigma_{ij} (=-\Theta^{ij}) \) \c
 %that contains both the energy and momentum densties.
 
 In geometric algebra the energy momentum tensor, and the Maxwell stress tensor may be represented as linear grade 0,1 multivector valued functions of a grade 0,1 multivector.
-\makedefinition{Energy momentum and Maxwell stress tensors.}{dfn:poyntingF:1200}{
-We define the \textit{energy momentum tensor} as
-\begin{equation*}
-T(a) = \inv{2} \epsilon F a F^\dagger,
-\end{equation*}
-where \( a \) is a 0,1 multivector parameter.
-We introduce a shorthand notation for grade one selection with vector valued parameters
-\begin{equation*}
-\BT(\Ba) = \gpgradeone{T(\Ba)},
-\end{equation*}
-and call this the \textit{Maxwell stress tensor}.
-} % definition
+\input{Definition_energy_momentum_and_maxwell_stress.tex}
 
 \maketheorem{Expansion of the energy momentum tensor.}{thm:poyntingF:1240}{
 Given a scalar parameter \( \alpha \), and a vector parameter \( \Ba = \sum_k a_k \Be_k \), the energy momentum tensor of

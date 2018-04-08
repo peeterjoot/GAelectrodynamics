@@ -36,21 +36,11 @@ I \BH &= \inv{\eta} \gpgradetwo{ F }.
 
 We will also
 define a multivector current containing all charge densities and current densities
-\makedefinition{Multivector current.}{dfn:isotropicMaxwells:660}{
-The \textit{current} ([\si{A/m^2}] (Amperes/square meter)) is defined as
-\begin{equation*}
-J = \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }.
-\end{equation*}
-} % definition
+\input{Definition_multivector_current.tex}
 When the fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).  With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
 
 Given the multivector field and current, it is now possible to state Maxwell's equation (singular) in its geometric algebra form
-\maketheorem{Maxwell's equation.}{dfn:isotropicMaxwells:680}{
-Maxwell's equation is a multivector equation relating the change in the electromagnetic field strength to charge and current densities and is written as
-\begin{equation*}
-\stgrad F = J.
-\end{equation*}
-} % theorem
+\input{Definition_maxwells.tex}
 Maxwell's equation in this form will be the starting place for all the subsequent analysis in this book.
 As mentioned in \cref{chap:GreensFunctions}, the operator \( \spacegrad + (1/c) \partial_t \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol by a number of authors, but there is no general agreement on what to use.
 Instead of entering the fight, it will be written it out in full in this book.}.

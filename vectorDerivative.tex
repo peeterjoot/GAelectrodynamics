@@ -7,14 +7,7 @@
 Given curvilinear coordinates defined on a subspace \cref{dfn:curvilinearThree:280}, we don't have enough parameters to define the gradient.  For calculus on the k-dimensional subspace, we define the vector derivative
 
 \index{vector derivative}
-\makedefinition{Vector derivative}{dfn:gradient:100}{
-Given an k-parameter vector parameterization
-\( \Bx = \Bx(u_1, u_2, \cdots, u_k) \) of \R{N} with \( k \le N \),
-and curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), the vector derivative \( \boldpartial \) is defined as
-\begin{dmath*}
-\boldpartial = \sum_{i=1}^k \Bx^i \partial_i.
-\end{dmath*}
-} % theorem
+\input{Definition_vector_derivative.tex}
 
 When the dimension of the subspace (number of parameters) equals the dimension of the underlying vector space, the vector derivative equals the gradient.  Otherwise we can write
 \begin{dmath}\label{eqn:vectorDerivative:101}

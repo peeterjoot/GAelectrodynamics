@@ -1,0 +1,96 @@
+#!/usr/bin/perl
+
+#-----------------------------------------------------------------------------
+# POD Format Documentation.  Read "perldoc perlpod" for an example.
+# When done, check syntax with "podchecker".
+
+=head1 NAME
+
+edef - <one-line-description>
+
+=head1 SYNOPSIS
+
+edef [--help] [<options>]
+
+=head1 DESCRIPTION
+
+It looks like somebody used the perl skeleton without filling in the POD
+documentation for their particular script.  Shame on them!!!
+
+Options:
+
+=over 4
+
+=item --foo=bar
+
+Blah.
+
+=back
+
+=head1 SUPPORTED PLATFORMS
+
+ Unix (Linux verified)
+
+=head1 SUPPORT
+
+ Send email to peeter.joot@lzlabs.com
+
+=head1 AUTHORS
+
+ Peeter Joot
+
+=cut
+
+#-----------------------------------------------------------------------------
+
+use strict ;
+use warnings ;
+use Getopt::Long ;
+use Pod::Usage ;
+use POSIX qw/strftime/ ;
+
+# Suppress sourcing of users' .bashrc files in invoked shells
+delete $ENV{'ENV'} ;
+delete $ENV{'BASH_ENV'} ;
+
+# Set STDOUT and STDERR to unbuffered
+select STDERR ; $| = 1 ;
+select STDOUT ; $| = 1 ;
+
+my $myName = '' ;
+my $n;
+
+($myName = $0) =~ s@.*[/\\]@@ ;
+
+#Getopt::Long::Configure( 'pass_through' ) ;
+GetOptions (
+   'name=s'             => \$n,
+   'help'               => sub { pod2usage(-verbose => 2) ; },
+) or pod2usage(-verbose => 0) ;
+
+# Validate/handle options, and everything else...
+
+my $y = strftime( "%Y", localtime ) ;
+my $s = `head -4 ../latex/template.tex | perl -p -e "s/CCYY/$y/;"`;
+my $o = '';
+while (<>)
+{
+   $s .= $_;
+   $o .= $_;
+}
+
+die unless ( defined $n );
+
+open my $fh, ">$n.tmp" or die;
+print $fh $s;
+close $fh;
+system( "cmp -s $n.tmp $n" );
+my $rc = $? >> 8;
+if ( $rc eq 0 )
+{
+   print "\\input{$n}\n";
+}
+else
+{
+   print $o;
+}
