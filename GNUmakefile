@@ -42,6 +42,7 @@ include ../latex/make.rules
 #all :: junk.pdf
 #all :: maxwells.pdf
 maxwells.pdf :: $(shell cat spellcheckem.txt)
+ece2500report.pdf :: $(shell cat spellcheckem.txt)
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 
 report : ece2500report.pdf
