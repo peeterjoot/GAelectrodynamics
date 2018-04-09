@@ -3,154 +3,7 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-%\input{../latex/blogpost.tex}
-\newcommand{\authorname}{Peeter Joot}
-\newcommand{\email}{peeter.joot@mail.utoronto.ca, 920798560}
-\newcommand{\basename}{FIXMEbasenameUndefined}
-\newcommand{\dirname}{notes/FIXMEdirnameUndefined/}
-\renewcommand{\basename}{ece2500report}
-%\renewcommand{\dirname}{notes/phy1520/}
-\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
-%\newcommand{\dateintitle}{}
-%\newcommand{\keywords}{}
-
-% too many alphabets fix:
-% https://tex.stackexchange.com/a/243541/15
-\newcommand\hmmax{0}
-\newcommand\bmmax{0}
-
-%\input{../latex/peeter_prologue_print2.tex}
-\newcommand{\onlineurl}{http://peeterjoot.com/archives/math2018/\basename.pdf}
-\newcommand{\sourcepath}{\dirname\basename.tex}
-\newcommand{\generatetitle}[1]{\chapter{#1}}
-
-% this has a different implementation in various thisbook.sty's:
-\newcommand{\underlineAndIndex}[1]{\underline{#1}}
-\newcommand{\paragraphAndIndex}[1]{\paragraph{#1}}
-
-\newcommand{\vcsinfo}{%
-\section*{}
-\noindent{\color{DarkOliveGreen}{\rule{\linewidth}{0.1mm}}}
-\paragraph{Document version}
-%\paragraph{\color{Maroon}{Document version}}
-{
-\small
-\begin{itemize}
-\item Available online at:\\
-\href{\onlineurl}{\onlineurl}
-\item Git Repository: \input{./.revinfo/gitRepo.tex}
-\item Source: \sourcepath
-\item last commit: \input{./.revinfo/gitCommitString.tex}
-\item commit date: \input{./.revinfo/gitCommitDate.tex}
-\end{itemize}
-}
-}
-
-%\PassOptionsToPackage{dvipsnames,svgnames}{xcolor}
-\PassOptionsToPackage{square,numbers}{natbib}
-\documentclass[10pt]{scrreprt}
-
-\usepackage[left=2cm,right=2cm]{geometry}
-\usepackage[svgnames]{xcolor}
-%\usepackage[english]{cleveref}
-\usepackage{peeters_layout}
-%\usepackage{peeters_layout_exercise}
-
-\usepackage{natbib}
-
-\usepackage[
-colorlinks=true,
-bookmarks=false,
-pdfauthor={\authorname, \email},
-backref
-]{hyperref}
-
-% http://tex.stackexchange.com/questions/75773/how-to-reference-problems-by-the-text-label-in-an-exercise-envioronment
-\usepackage[english]{cleveref}
-\crefname{Exercise}{exercise}{exercises}
-\Crefname{Exercise}{Exercise}{Exercises}
-
-\crefname{theorem}{theorem}{theorems}
-\Crefname{theorem}{Theorem}{Theorems}
-
-\crefname{lemma}{lemma}{lemmas}
-\Crefname{lemma}{Lemma}{Lemmas}
-
-\usepackage{tikz}
-
-\RequirePackage{titlesec}
-\RequirePackage{ifthen}
-
-% http://stackoverflow.com/questions/4932910/date-in-the-tabular-environment
-\makeatletter
-\let\insertdate\@date
-\makeatother
-
-\titleformat{\chapter}[display]
-{\bfseries\Large}
-{\color{DarkSlateGrey}\filleft \authorname
-\ifthenelse{\isundefined{\studentnumber}}{}{\\ \studentnumber}
-\ifthenelse{\isundefined{\email}}{}{\\ \email}
-\ifthenelse{\isundefined{\dateintitle}}{}{\\ \insertdate}
-%\ifthenelse{\isundefined{\coursename}}{}{\\ \coursename} % put in title instead.
-}
-{4ex}
-{\color{DarkOliveGreen}{\titlerule}\color{Maroon}
-\vspace{2ex}%
-\filright}
-[\vspace{2ex}%
-\color{DarkOliveGreen}\titlerule
-]
-
-\newcommand{\beginArtWithToc}[0]{\begin{document}\tableofcontents}
-\newcommand{\beginArtNoToc}[0]{\begin{document}}
-\newcommand{\EndNoBibArticle}[0]{\end{document}}
-\newcommand{\EndArticle}[0]{\bibliography{Bibliography}\bibliographystyle{plainnat}\end{document}}
-
-%
-%\newcommand{\citep}[1]{\cite{#1}}
-
-\colorSectionsForArticle
-
-% FIXME: this doesn't work anymore, now that peeters_layout_exercise.sty is pulled out.
-%% (a), (b), (c), ... numbering in ex (exercise pulled in by peeters_layout)
-%\renewcommand{\QuestionNB}{\alph{Question}.\ }
-%\renewcommand{\theQuestion}{\alph{Question}}
-
-% have \cref fixup in book_layout.sty.  Use this macro instead:
-\newcommand{\eqnref}[1]{eq. (\ref{#1})}
-\newcommand{\Eqnref}[1]{Eq. (\ref{#1})}
-
-%
-% example:
-%\statmechchapcite{nonIntegralBinomialSeries}
-\newcommand{\quantumsolidschapcite}[1]{\citep{phy487:#1}}
-%\newcommand{\statmechchapcite}[1]{\citep{phy452:#1}}
-%\newcommand{\statmechchapcite}[1]{\cref{chap:#1}}
-
-\usepackage{peeters_layout_exercise}
-\usepackage{peeters_braket}
-\usepackage{peeters_figures}
-
-%\newcommand{\dAlembertian}[0]{\square}
-\newcommand{\dAlembertian}[0]{\Box}
-
-\newcommand{\dispdot}[2][.2ex]{\dot{\raisebox{0pt}[\dimexpr\height+#1][\depth]{$#2$}}}% \dispdot[<displace>]{<stuff>}
-\newcommand{\dotBJ}[0]{\dispdot{\mathbf{J}}}
-
-\newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
-\newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
-\newcommand{\stgradi}[0]{\lr{ \spacegrad + (1/c) \PDi{t}{}}}
-\newcommand{\conjstgradi}[0]{\lr{ \spacegrad - (1/c) \PDi{t}{}}}
-
-\usepackage{siunitx}
-%\usepackage{mhchem} % \ce{}
-\usepackage{macros_bm} % \bcM
-\usepackage{macros_cal}
-%\usepackage{macros_qed} % \qedmarker
-\usepackage{txfonts} % \ointclockwise
-\usepackage{enumerate}
-\usepackage{mmacells}
+\input{reportPreamble.tex}
 
 \beginArtNoToc
 
@@ -173,36 +26,39 @@ geometric algebra to problems in electromagnetism.
 
 \subsection{What is geometric algebra?}
 
-Geometric algebra
-generalizes vectors, providing algebraic representations of not just directed line segments, but also points, plane segments, volumes, and higher degree geometric objects (hypervolumes.)
+In a geometric sense, vector algebra provides a representation of directed line segments.
+Geometric algebra generalizes vector algebra and also provides an algebraic representation of points, plane segments, volumes, and higher degree geometric objects (hypervolumes.)
 The geometric algebra representation of planes, volumes and hypervolumes requires a vector dot product, a vector multiplication operation, and a generalized addition operation.
-The dot product
-provides the length of a vector and a test for whether or not any two vectors are perpendicular.
+The dot product provides the length of a vector and a test for vector perpendicularity.
 The vector multiplication operation is used to construct
 directed plane segments (bivectors),
 and directed volumes (trivectors), which are built from the respective products of two or three mutually perpendicular vectors.
-The addition operation allows for sums of scalars, vectors, or any products of vectors.  Such a sum is called a multivector.
+The geometric algebra
+sum of scalars, vectors, or products of vectors is called a multivector.
 
-The power to add scalars, vectors, and products of vectors can be exploited to simplify much of electromagnetism.
+The power to multiply and add scalars, vectors, and products of vectors can be exploited to simplify much of electromagnetism.
 In particular, Maxwell's equations for isotropic media can be merged into a single multivector equation
 \begin{dmath}\label{eqn:quaternion2maxwellWithGA:20}
-\stgrad \lr{ \BE + I c \BB } = \eta\lr{ c \rho - \BJ },
+\stgrad \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ },
 \end{dmath}
-where \( \spacegrad \) is the gradient, \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) is the group velocity of the medium, \( \eta = \sqrt{\mu/\epsilon} \), \( \BE, \BB \) are the electric and magnetic fields, and
+where \( \spacegrad \) is the gradient, \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) is the group velocity of the medium, \( \eta = \sqrt{\mu/\epsilon} \) is the impedance of the medium, \( \BE, \BH \) are the electric and magnetic fields, and
 \( \rho \) and \( \BJ \) are the charge and current densities.
 We will write this as
 \begin{dmath}\label{eqn:ece2500report:40}
 \stgrad F = J,
 \end{dmath}
 where \( F = \BE + I c \BB \) is the combined (multivector) electromagnetic field, and \( J = \eta\lr{ c \rho - \BJ } \) is the multivector current.
-As a single PDE, the complete Green's function toolbox may be thrown at
-\cref{eqn:ece2500report:40}, inverting Maxwell's equation for the electromagnetic field, given any charge and current density distribution
+The complex interdependencies of Maxwell's equations require the student to learn a variety of special techniques and tricks to find solutions.
+With Maxwell's equations reduced a single equation, we may throw the
+complete Green's function toolbox into the fight, and directly
+invert Maxwell's equation for \( F \) for any charge and current density distribution by convolving with the Green's function for the operator \( \stgradi \) as follows
 \begin{dmath}\label{eqn:ece2500report:60}
 F(\Bx, t)
 = \int dt' dV' G(\Bx, \Bx' ; t, t') J(\Bx', t').
 \end{dmath}
 Green's functions may also be applied to static and frequency domain field configurations.
-Solving for, or working with, the combined field \( F \) shows the
+
+Working with the combined field \( F \) shows the
 hidden structure behind a number of seemingly
 disparate ideas in electromagnetism.
 This project explored a number of ideas along these lines.
@@ -214,15 +70,18 @@ The field energy density and Poynting vectors have a simple multivector form exp
 Calculations of radiation pressure can be performed using only the normal component of what is known as the energy momentum tensor in the conventional representation, which has a particularly compact multivector
 representation.
 
-It is my belief that systematically working through all of the introductory and advanced topics in electromagnetism using geometric algebra would provide significant insight, as well as a new set of powerful tools and procedures of practical value to the electrical engineer or physics practitioner.
+It is my belief that systematically working through a variety of introductory and advanced topics in electromagnetism using geometric algebra would provide significant insight, and would provide the electrical engineer or physics practitioner a powerful new set of tools and procedures.
 
 \subsection{Results.}
 
-Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias, or assumes high levels of mathematical or physics sophistication.
+Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias, or assumes high levels of
+physics and
+mathematical
+sophistication.
 The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to an electrical engineering audience.
 In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism.
 The end product of this project was a fairly small self contained book, titled ``Geometric Algebra for Electrical Engineers''.
-This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (82 pages), and some appendices.
+This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (82 pages), plus some appendices.
 
 Many of the fundamental results of electromagnetism are derived directly from
 \cref{eqn:ece2500report:40}, the multivector Maxwell's equation, in a streamlined and compact fashion.
@@ -238,39 +97,46 @@ The book produced in this project provides the prerequisite material for such ex
 \section{This report.}
 
 This report summarizes some results from the book, omitting all figures, citations, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, details from worked examples, and (most) explainations and derivations.
-This report attempts to provide an overview that may be used as a road map for the book for further exploration, but unfortunately due to space constraints cannot actually explain the material in any meaningful way.
+This report attempts to provide an overview that may be used as a road map for the book for further exploration.
+While considerable work was done to make the book pedagodically complete, that is not possible in this report due to space constraints.
 
 \section{Chapter I: Geometric Algebra.}
-This chapter of the book attempted a self contained introduction to geometric algebra, with all the prerequisites required for geometric calculus and the subsequent applications to electromagnetism.
+Chapter I of the book provides a self contained introduction to geometric algebra, with all the prerequisites required for geometric calculus and the subsequent applications to electromagnetism.
 Due to space constraints in this report, no attempt to summarize that introduction will be made here.
 
 \section{Chapter II: Geometric Calculus.}
 
-There were two goals of this chapter.
-The first was to present the theory of multivector integration along curves and surfaces, and the second was to derive all the Green's functions required for electromagnetism.
+Chapter II had two goals.
+The first goal was to present the theory of multivector integration along curves and surfaces (i.e. manifold calculus), and the second goal was to derive all the multivector Green's functions required for application to problems of electromagnetism.
 The multivector integration theory incorporates all of vector calculus as well as the more abstract theory of differential forms or integration on manifolds, but also generalizes both.
 The key ideas of this chapter will be summarized below.
 The book contains derivations, many examples, figures, Mathematica listings, and detailed explaination of many of the ideas summarized here.
 
 \subsection{Reciprocal frames.}
-In order to work with the
-curvilinear non-orthonormal bases that will be encountered in general integration theory, the concept of a reciprocal frame is required.
+Most elementary texts on electromagnetism will state or derive Stokes theorem and the divergence theorem in their rectangular coordinate form.
+The fundamental theorem of geometric calculus is simplest to prove in a the more general context of curvilinear coordinates.
+This requires some additional mathematical baggage, one part of which is the reciprocal frame, a key concept to working with
+curvilinear and non-orthonormal bases.
 
 \input{Definition_reciprocal_frame.tex}
 
-Note that any orthonormal basis is also its reciprocal basis.
-As also done in tensor and relativistic theory, we use mixed index (upper and lower) variables when working with curvilinear coordinates.
-Summation (Einstein) convention was not used in the book, and all sums that could be implied by appropriately mixed indexes quantities are marked with an explicit summation symbol.
+Any orthonormal basis is also its reciprocal basis.
+Mixed index (upper and lower) variables are used when working with curvilinear coordinates.
+Summation (Einstein) convention was not used in the book, so sums over matched pairs of upper and lower indexes, are
+marked with an explicit summation symbol.  Since geometric algebra identities are often coordinate free, this is not a terrible imposition.
 
 A vector may be expressed in terms of either the curvilinear or reciprocal basis
-\begin{equation}\label{eqn:ece2500report:n}
+\begin{equation}\label{eqn:ece2500report:2600}
 \Ba
 = \sum_i \lr{ \Ba \cdot \Bx^i } \Bx_i
-= \sum_i \lr{ \Ba \cdot \Bx_i } \Bx^i,
+= \sum_i \lr{ \Ba \cdot \Bx_i } \Bx^i.
 \end{equation}
-showing that reciprocal frame can be used to compute the coordinates of a vector in the curvilinear basis and the curvilinear basis can be used to compute the coordinates with respect to the reciprocal basis.
-Because we never use coordinates \( a_i = \Ba \cdot \Bx_i, a^i = \Ba \cdot \Bx^i \) isolated from the associated basis, we have no need of the covariant nor contravariant tensor nomenclature.
-The book contains a number of examples of reciprocal frames, methods of computation, Mathematica examples, and other related concepts including computation of coordinates of higher grade blades with respect to curvilinear coordinates.
+Either basis may be used to compute coordinates \( a_i = \Ba \cdot \Bx_i, a^i = \Ba \cdot \Bx^i \).  Coordinates are never used with an implied basis,
+as is typical in both
+engineering (column representation of vectors), and
+relativisitic physics (four-vectors), so we have
+no need of the covariant nor contravariant tensor nomenclature despite using mixed index representations.
+The book contains a great deal of material to help the reader become familiar with curvilinear coordinates and reciprocal frames, including methods of computation, figures, hand calculations, and Mathematica listings.
 
 \subsection{Curvilinear coordinates and hypervolume elements.}
 Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
@@ -280,7 +146,7 @@ Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are form
 whereas trivector valued volume elements  \( d^3 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 \)
 are formed by wedging all three of the differentials for the parameterized space.
 Such hypervolume elements have an orientation, as changing the order of any two differentials toggles the sign.
-As the book is concerned primarily with Euclidean spaces, the absolute values of such area and volume differentials are \( \sqrt{-\lr{ d^2 \Bx}^2}, \sqrt{-\lr{ d^3 \Bx}^3 } \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
+As the book is concerned primarily with Euclidean spaces, the absolute values of such area and volume differentials are \( dA = \sqrt{} -( d^2 \Bx)^2, dV = \sqrt{} -( d^3 \Bx)^2 \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
 
 The book contains examples, figures, Mathematica calculations, and discussion that elaborates and explains these concepts in detail.
 
@@ -500,7 +366,6 @@ The proof is in the book, but basically just requires operating on Maxwell's equ
 equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
-%\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} }
 \dAlembertian
 F &= \gpgrade{ \conjstgrad J }{1,2} \\
                                            0 &= \gpgrade{ \conjstgrad J }{0,3}.
@@ -563,9 +428,6 @@ provides the conventional form of Ampere's law
 \begin{equation}\label{eqn:amperes:20}
 \ointctrclockwise_{\partial A} d\Bx \cdot \BH = \int_A \ncap \cdot \BJ = I_{\textrm{enc}}.
 \end{equation}
-%and the first is the dual of Ampere's law for (fictious) magnetic current density\footnote{Even without the fictitious magnetic sources, neither the name nor applications of the two cross product line integrals with the normal derivatives are familiar to the author.}.
-%In \cref{eqn:amperes:20} the flux of the electric current density equals the enclosed current flowing through an open surface.
-%This enclosed current equals the line integral of the magnetic field around the boundary of that surface.
 The proof and additional details can be found in the book.
 
 It is worth pointing out that for pure magnetostatics problems where \( J = \eta \BJ, F = I \eta \BH \), that Ampere's law can be written in a trivector form
@@ -583,8 +445,6 @@ With \( i = \Be_1 \Be_3 \), the (electric) field is found to have the form \( F 
 \( f(u) \) is a scalar function (specified in the book.)
 The scalar portion of the integral is strictly a scale factor for the component of the field that lies along the x-axis, whereas the ``complex exponential'' factor of the integrand represents a rotational term along the direction \( \Be_1 e^{i\theta} = \Be_1 \cos\theta + \Be_3 \sin\theta \).
 In problems like this, with only two degrees of freedom, there will often be a complex like representation possible using geometric algebra.
-%This is illustrated in \cref{fig:linecharge:linechargeFig1}.
-%\imageFigure{../figures/GAelectrodynamics/linechargeFig1}{Line charge density.}{fig:linecharge:linechargeFig1}{0.3}
 \item The field for infinite static charge and current densities lying along the z-axis \( \rho(\Bx) = \lambda \delta(x) \delta(y), \BJ(\Bx) = \Bv \rho(\Bx) \) is found to be \( F = \lambda \rhocap \lr{ 1 - \Bv/c}/(2 \pi \epsilon R)\).
 The field splits naturally into electric (vector) and magnetic (bivector) grades as \( F = \BE \lr{ 1 - \Bv/c } = \BE + I \lr{ \ifrac{\Bv}{c} \cross \BE } \).
 \item As a problem, the reader was asked to compute the field for
@@ -601,69 +461,25 @@ magnetic charge density \( \rho_m = \sigma_m \delta(z) \), and current density \
 This problem is often given as an example or problem in electrostatics, but usually for circular charge distribution, and an observation point on the z-axis where symmetries kill off all but the z-axis component of the field.
 The freedom to represent rotational terms as complex exponentials in geometric algebra allows the more general problem to be calculated without much additional difficulty.
 The resulting integrals can be evaluated easily with any existing numerical integration software as the vector factors \( \rcap, \phicap \) may be pulled out of the integrals, leaving strict scalar or complex valued integrands.
-%\imageFigure{../figures/GAelectrodynamics/lineChargeArcFig1}{Circular line charge.}{fig:circularlinecharge:circularlinechargeFig1}{0.5}
 \item To illustrate the algebraic flexibility available, the circular ring charge problem is tackled in cylindrical coordinates instead of spherical (as previous).
 For a static charge line density \( \lambda \) on a ring at \( z = 0 \), and an azimuthal current density \( \BJ = \Bv \rho \), we find a closed form solution for the field is found.
 The symmetry of the ring configuration allows for a closed form solution (numerical integration not required) of the field, but comes with the cost of requiring
 elliptic integrals, which are detailed in the book along with the derivation and plots of the resulting fields.
-%\imageFigure{../figures/GAelectrodynamics/chargeAndCurrentOnRingFig1}{Field due to a circular distribution.}{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}{0.3}
-%}
 \item The final worked statics problem in the book is a use of Ampere's law, to compute the magnetic field for a
 pair of z-axis oriented electric currents of magnitude \( I_1, I_2 \) flowing through the \( z = 0 \) points \( \Bp_1, \Bp_2 \) on the x-y plane.
 The geometry and derivation is detailed in the book, but we use the multivector line integral form of Ampere's law \( \ointctrclockwise_{\partial A} d\Bx F = -I \int_A dA \Be_3 (-\eta \BJ) = I \eta I_\txte \), and superposition to compute the field
 \( F = \sum_{k = 1,2} \ifrac{\eta I_k}{(2 \pi)} \ifrac{1}{(\Be_3 \wedge \lr{ \Br - \Bp_k})} \).
 The bivector (magnetic) nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
-%\cref{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}.
-%\imageFigure{../figures/GAelectrodynamics/amperesLawBetweenTwoCurrentsFig1}{Magnetic field between two current sources.}{fig:amperesLawBetweenTwoCurrents:amperesLawBetweenTwoCurrentsFig1}{0.3}
 \end{itemize}
 \subsection{Dynamics.}
 Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable, with solution.
 \input{Theorem_jefimenkos_report.tex}
 This is found fairly easily using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}, and the details can be found in the book.
-%(\citep{griffiths1999introduction})
 Unlike the conventional approach, we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
 
 \subsection{Energy and momentum.}
 In the energy and momentum section of the book, the geometric algebra formulation of the field energy density, Poynting vector, Maxwell stress tensor, and more generally, the energy momentum tensor are fully detailed.
 \input{Definition_energy_momentum_poynting.tex}
-%\makedefinition{(Conventional) energy momentum and Maxwell stress tensors.}{dfn:poyntingF:1180}{
-%The rank-2 symmetric tensor \( \Theta^{\mu\nu} \), with components
-%%\label{eqn:poyntingF:840}
-%\begin{equation*}
-%\begin{aligned}
-%\Theta^{00} &= \frac{\epsilon}{2} \lr{ \BE^2 + \eta^2 \BH^2 } \\
-%\Theta^{0i} &= \inv{c} \lr{ \BE \cross \BH } \cdot \Be_i \\
-%\Theta^{ij} &= -\epsilon \lr{ E_i E_j + \eta^2 H_i H_j - \inv{2} \delta_{ij} \lr{ \BE^2 + \eta^2 \BH^2 } },
-%\end{aligned}
-%\end{equation*}
-%is called the energy momentum tensor.
-%The spatial index subset of this tensor is known as the Maxwell stress tensor, and is often
-%represented in dyadic notation
-%\begin{equation*}
-%\lr{ \Ba \cdot \lrT } \cdot \Bb
-%=
-%\sum_{i,j} a_i T_{ij} b_j,
-%\end{equation*}
-%or
-%\begin{equation*}
-%\Ba \cdot \lrT \equiv \sum_{i,j} a_i T_{ij} \Be_j
-%\end{equation*}
-%where \( T_{ij} = -\Theta^{ij} \).
-%} % definition
-%Here we use the usual convention of Greek indices such as \( \mu,\nu \) for ranging over both time (0) and spatial \( \setlr{1,2,3} \) indexes, and
-%and Latin letters such as \( i, j \)
-%for the ``spatial'' indexes
-%\( \setlr{1,2,3} \).
-%The names and notation for the tensors vary considerably\footnote{\( \Theta^{\mu\nu} \) in
-%\cref{dfn:poyntingF:1180}
-%is called the symmetric
-%stress tensor by some authors \citep{jackson1975cew},
-%and the energy momentum tensor by others, and is sometimes written \( T^{\mu\nu} \) (\citep{landau1980classical}, \citep{doran2003gap}).
-%The sign conventions and notation for the spatial components \( \Theta^{ij} \) vary as well, but all authors appear to call this subset the Maxwell stress tensor.
-%The Maxwell stress tensor may be written as \( \sigma_{ij} (=-\Theta^{ij}) \) \citep{landau1980classical}, or as
-%\( T_{ij} (=-\Theta^{ij}) \)
-%(\citep{griffiths1999introduction}, \citep{jackson1975cew}.)
-%}.
 In geometric algebra the energy momentum tensor, and the Maxwell stress tensor may be represented as linear grade 0,1 multivector valued functions of a grade 0,1 multivector.
 \input{Definition_energy_momentum_and_maxwell_stress.tex}
 
@@ -714,7 +530,6 @@ The solution is shown to be
 \end{dmath}
 Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path, so the velocity of the charged particle traces out a helical path.
 
-%A multivector integration factor method for solving the Lorentz force equation in constant mixed external electric and magnetic fields can be found in \citep{hestenes1999nfc}.
 More general examples are considered in the literature cited in the book.
 
 \subsection{Polarization}
@@ -749,8 +564,7 @@ Linear polarization at an angle \( \psi\) from the x-axis in the transverse plan
 \( \alpha_\txtR = \inv{2}\Norm{\BE} e^{i(\psi + \theta)},
 \alpha_\txtL = \inv{2}\Norm{\BE} e^{i(\psi - \theta)} \), for which the field is \( F = \lr{ 1 + \Be_3 } \Norm{\BE} \Be_1 e^{i \psi} \cos(\phi + \theta) \),
 where \( \theta \) is an initial phase angle.
-\item 
-% discussed in \citep{balanis1989advanced}
+\item
 Following the IEEE antenna convention, we define right(left) circular polarization as the
 a change in phase that
 results in the electric field tracing out a (clockwise,counterclockwise) circle
@@ -786,7 +600,6 @@ where \( E_a(E_b) \) are the magnitudes of the electric field components lying a
 \end{bmatrix}
 e^{i\psi} \) respectively.
 Additional discussion and diagrams can be found in the book.
-%\imageFigure{../figures/GAelectrodynamics/ellipticalPolarizationFig1}{Electric field with elliptical polarization.}{fig:ellipticalPolarization:ellipticalPolarizationFig1}{0.3}
 \end{itemize}
 
 Each polarization considered above (linear, circular, elliptical) have the same general form
@@ -841,8 +654,6 @@ Conventional electromagnetism utilizes scalar and vector potentials, which may b
 
 The grades of the multivector potentials may be chosen to match SI conventions (as specified in Balanis' ``Antenna Theory'',
 which includes fictitious magnetic sources),
-% and those of \citep{balanis2005antenna} (
-%) are used in the book as follows.
 \input{Theorem_fields_and_potential_wave_equations_report.tex}
 
 Also detailed in the book is the multivector formulation of gauge transformation that allows the grade selection operation in

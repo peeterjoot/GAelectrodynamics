@@ -208,8 +208,8 @@
 #../latex/bin/lgrep potentialSection_electric.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl potentialSection_electric.tex
 
-../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
+#../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
 
 #../latex/bin/lgrep potentialSection_farfield.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl potentialSection_farfield.tex
@@ -448,5 +448,5 @@ perl -p -i ../latex/bin/latexRegex.pl ece2500report.tex
 #../latex/bin/lgrep dielectric.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl dielectric.tex
 
-../latex/bin/lgrep polarizationRewrite.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl polarizationRewrite.tex
+#../latex/bin/lgrep polarizationRewrite.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl polarizationRewrite.tex

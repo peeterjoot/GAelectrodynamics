@@ -1,3 +1,7 @@
+- I was also thinking of adding various symbols to the index, and probably putting a table of symbols somewhere for reference (perhaps with page references to the points of first use).
+
+- make pdfs for mathematica notebooks.
+
 - Pillbox figure.  Perhaps make a first figure that doesn't have the integration volume, but does have the
   regions, and an illustration of each of fields (vector+bivector) in each region.
 
@@ -9,8 +13,6 @@
 
 - before a \makedefinition, theorem, ... should I end any sentance?  I think so, and don't in many places.
 
-- expect that the boundary condition analysis really belongs with the dielectric media treatment, and that additional insight will be gained by doing so.
-
 - colors: manually colored equations.  used:
       DarkOliveGreen,Maroon
 
@@ -21,12 +23,6 @@
    Can't I solve those using the Green's function method?
 
    Instead of showing the solution works, perhaps go the other way around?
-
-- multivector potentials:
-
-   want to solve the potential equations.  Can I do a Green's function solution?
-
-   Not sure that I showed this for the (non-statics) time domain problem.
 
 - Is {eqn:isotropicMaxwells:520} the first use of \grad f = grad . f + I grad cross f?
 
