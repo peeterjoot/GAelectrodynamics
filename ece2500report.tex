@@ -47,7 +47,7 @@ We will write this as
 \begin{dmath}\label{eqn:ece2500report:40}
 \stgrad F = J,
 \end{dmath}
-where \( F = \BE + I c \BB \) is the combined (multivector) electromagnetic field, and \( J = \eta\lr{ c \rho - \BJ } \) is the multivector current.
+where \( F = \BE + I \eta \BH \) is the combined (multivector) electromagnetic field, and \( J = \eta\lr{ c \rho - \BJ } \) is the multivector current.
 The complex interdependencies of Maxwell's equations require the student to learn a variety of special techniques and tricks to find solutions.
 With Maxwell's equations reduced a single equation, we may throw the
 complete Green's function toolbox into the fight, and directly
@@ -229,13 +229,12 @@ In the book we will see that most of the well known scalar and vector integral t
 
 \input{Theorem_divergence.tex}
 
-Note \cref{thm:volumeintegral:2661} does not apply to any multivectors \( M \) with pseudoscalar components.
-
 \subsection{Multivector Fourier transform and phasors.}
 The book makes use of time harmonic (frequency domain) representations when convienient.
 Provided we utilize a scalar (non-geometric) imaginary, a standard Fourier transform generalizes to multivectors without trouble.
 
 \input{Definition_multivector_fourier.tex}
+By non-geometric, we mean that the imaginary need not have a geometric interpretation such as \( j = \Be_{12}, \Be_{123}, \cdots \).  Using a geometric representation of the imaginary requires special care as it may not commute with the multivector functions.  This is an active research topic in the literature, and was avoided in the book.
 
 The book uses the engineering convention for
 phasors, with a positive sign on the angular frequency complex exponentials.

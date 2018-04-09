@@ -3,8 +3,9 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \maketheorem{Volume integral of vector function (Stokes').}{thm:volumeintegral:1661}{
-Given a vector function \( \Bf(\Bx) \) the volume
-integral of the (bivector) curl is related to a surface integral by
+The specialization of \textit{Stokes' theorem} for a
+volume integral of a the (bivector) curl of a vector function \( \Bf(\Bx) \), relates the volume integral to a surface area
+over the boundary as follows
 \begin{equation*}
 \int_V d^3 \Bx \cdot \lr{ \boldpartial \wedge \Bf } =
 \int_V d^3 \Bx \cdot \lr{ \spacegrad \wedge \Bf } = \ointctrclockwise_{\partial V} d^2\Bx \cdot \Bf.
@@ -17,5 +18,5 @@ or with a duality transformation \( \Bf = I B \), where \( B \) is a bivector
 \begin{equation*}
 \int_V dV \spacegrad \cdot B = \int_{\partial V} dA \ncap \cdot B,
 \end{equation*}
-where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
+where \( \ncap \) is the normal specified by \( d^2 \Bx = I \ncap dA, \) and \( d^3 \Bx = I dV \).
 } % theorem
