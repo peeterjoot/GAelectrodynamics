@@ -120,7 +120,7 @@ curvilinear and non-orthonormal bases.
 
 \input{Definition_reciprocal_frame.tex}
 
-Any orthonormal basis is also its reciprocal basis.
+Any orthonormal basis is also its own reciprocal frame (or basis).
 Mixed index (upper and lower) variables are used when working with curvilinear coordinates.
 Summation (Einstein) convention was not used in the book, so sums over matched pairs of upper and lower indexes, are
 marked with an explicit summation symbol.  Since geometric algebra identities are often coordinate free, this is not a terrible imposition.
@@ -139,16 +139,21 @@ no need of the covariant nor contravariant tensor nomenclature despite using mix
 The book contains a great deal of material to help the reader become familiar with curvilinear coordinates and reciprocal frames, including methods of computation, figures, hand calculations, and Mathematica listings.
 
 \subsection{Curvilinear coordinates and hypervolume elements.}
-Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
-In the book we use one, two or three parameter bases.
-For a vector parameterization \( \Bx(u_1, u_2, u_3) \) we define the curvilinear basis elements \( \Bx_i = \PDi{u_i}{\Bx} \), and associated vector valued differentials \( d\Bx_i = \Bx_i du_i \).
-Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are formed by wedging the two vector differentials for a two parameter manifold,
-whereas trivector valued volume elements  \( d^3 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 \)
-are formed by wedging all three of the differentials for the parameterized space.
-Such hypervolume elements have an orientation, as changing the order of any two differentials toggles the sign.
-As the book is concerned primarily with Euclidean spaces, the absolute values of such area and volume differentials are \( dA = \sqrt{} -( d^2 \Bx)^2, dV = \sqrt{} -( d^3 \Bx)^2 \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
+The book provides a laymans introduction to manifold calculus in its geometric algebra form, where a manifold is, loosely speaking,
+a connected and orientable subspace defined by a vector parameterization \( \Bx = \Bx(u_1, u_2, \cdots ) \).
+Here connectivity is mentioned in passing, but is generally ignored in the book.
+Infinitesimal partitioning (i.e. triangularization) is also generally ignored in the book, although some references are provided for further study by the interested student.
 
-The book contains examples, figures, Mathematica calculations, and discussion that elaborates and explains these concepts in detail.
+Given a manifold defined by a parameterization,
+curvilinear basis elements are defined by partials with respect to the parameters \( \Bx_i = \PDi{u_i}{\Bx} \), as are the associated vector valued differentials \( d\Bx_i = \Bx_i du_i \).
+Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are formed by wedging the two vector differentials for a two parameter manifold, whereas trivector valued volume elements  \( d^3 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 \) are formed by wedging all three of the differentials for the parameterized space.
+In general, it is assumed in the book that no (hyper)volume element \( d^k \Bx = d\Bx_1 \wedge \cdots \wedge d\Bx_k \) is ever zero (and thus never changes sign).
+Such hypervolume elements have an orientation, as changing the order of any two differentials toggles the sign.
+Orientability is also ignored in the book, and it should be assumed that the theorems stated do not hold for mobius-strip like manifolds.
+For Euclidean spaces, the focus of the book, the absolute values of such area and volume differentials are \( dA = \sqrt{} -( d^2 \Bx)^2, dV = \sqrt{} -( d^3 \Bx)^2 \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
+
+The required concepts are explained in detail in the book.
+Many examples, figures, and Mathematica listings are used to facilitate that explaination.
 
 \subsection{Gradient and vector derivative.}
 
