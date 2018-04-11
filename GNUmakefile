@@ -56,26 +56,27 @@ pp : polarizationRewrite.pdf
 
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
-VER := $(shell grep Version .revinfo/lastCommitBook.tex | sed 's/Version //')
+#.revinfo/gitCommitDateAsMyTime.tex:\newcommand{\myTime}{April 2018}\newcommand{\myVersion}{version V0.117\xspace}
+VER := $(shell grep Version .revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{version //;s/.xspace.*//;')
 
 .PHONY: spellcheck
 spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
 
 # enable doublespace before making:
 dropbox:
-	cp GAelectrodynamics.pdf ~/Dropbox/ECE2500Y/GAelectrodynamics.V$(VER).pdf
+	cp GAelectrodynamics.pdf ~/Dropbox/ECE2500Y/GAelectrodynamics.$(VER).pdf
 	git log --decorate > ~/Dropbox/ECE2500Y/Changelog.txt
 
 dist:
-	cp GAelectrodynamics.pdf GAelectrodynamics.V$(VER).pdf
+	cp GAelectrodynamics.pdf GAelectrodynamics.$(VER).pdf
 
 alex:
-	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.V$(VER).pdf
-	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.V$(VER).pdf
+	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.$(VER).pdf
+	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.$(VER).pdf
 	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
 
 tag:
-	git tag GAelectrodynamics.V$(VER).pdf
+	git tag GAelectrodynamics.$(VER).pdf
 
 %.sp : %.tex
 	spellcheck $^
