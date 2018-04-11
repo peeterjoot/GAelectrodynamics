@@ -8,14 +8,14 @@ multivectors \(F, G \),
 a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with hypervolume element \( d^k \Bx = d^k u I_k \), where
 \( I_k = \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k \), the hypervolume integral is related to the boundary integral by
 \begin{equation*}
-\int_V F d^k \Bx \lrboldpartial G = \oint_{\partial V} F d^{k-1} \Bx G,
+\int_V F d^k \Bx \lrboldpartial G = \int_{\partial V} F d^{k-1} \Bx G,
 \end{equation*}
 where \( \partial V \) represents the boundary of the volume, and \( d^{k-1} \Bx \) is the hypersurface element.
 This is called the \textit{Fundamental theorem of geometric calculus}.
 
 The hypersurface element and boundary integral is defined for \( k > 1 \) as
 \begin{equation*}
-\oint_{\partial V} F d^{k-1} \Bx G
+\int_{\partial V} F d^{k-1} \Bx G
 \equiv
 \sum_i \int d^{k-1} u_i \evalbar{ \lr{ F \lr{ I_k \cdot \Bx^i} G }}{\Delta u_i},
 \end{equation*}
@@ -26,7 +26,7 @@ boundary ``integral''
 is really just convienent general shorthand, and
 should be taken to mean the evaluation of the \( F G \) multivector product over the range of the parameter
 \begin{equation*}
-\oint_{\partial V} F d^{0} \Bx G
+\int_{\partial V} F d^{0} \Bx G
 \equiv
 \evalbar{ F G }{\Delta u_1}.
 \end{equation*}
