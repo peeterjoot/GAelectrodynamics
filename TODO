@@ -1,3 +1,11 @@
+- 
+   \maketheorem{Far field representation.}{thm:potentialSection_farfield:1}{
+   ...
+   F &= -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \\
+   F &= -j \omega \eta I \lr{ 1 + \rcap } \lr{ \rcap \wedge \BF }.
+
+   dimensions of [eta \BF] should equal [c \BA], but do not here.
+
 - I was also thinking of adding various symbols to the index, and probably putting a table of symbols somewhere for reference (perhaps with page references to the points of first use).
 
 - make pdfs for mathematica notebooks.
