@@ -27,7 +27,7 @@ geometric algebra to problems in electromagnetism.
 \subsection{What is geometric algebra?}
 
 In a geometric sense, vector algebra provides a representation of directed line segments.
-Geometric algebra generalizes vector algebra and also provides an algebraic representation of points, plane segments, volumes, and higher degree geometric objects (hypervolumes.)
+Geometric algebra generalizes vector algebra also providing an algebraic representation of points, plane segments, volumes, and higher degree geometric objects (hypervolumes.)
 The geometric algebra representation of planes, volumes and hypervolumes requires a vector dot product, a vector multiplication operation, and a generalized addition operation.
 The dot product provides the length of a vector and a test for vector perpendicularity.
 The vector multiplication operation is used to construct
@@ -51,7 +51,7 @@ where \( F = \BE + I \eta \BH \) is the combined (multivector) electromagnetic f
 The complex interdependencies of Maxwell's equations require the student to learn a variety of special techniques and tricks to find solutions.
 With Maxwell's equations reduced a single equation, we may throw the
 complete Green's function toolbox into the fight, and directly
-invert Maxwell's equation for \( F \) for any charge and current density distribution by convolving with the Green's function for the operator \( \stgradi \) as follows
+invert Maxwell's equation for \( F \) for any charge and current density distribution by convolution with the Green's function for the operator \( \stgradi \) as follows
 \begin{dmath}\label{eqn:ece2500report:60}
 F(\Bx, t)
 = \int dt' dV' G(\Bx, \Bx' ; t, t') J(\Bx', t').
@@ -66,28 +66,24 @@ For example, a
 Green's function solutions for the static field configurations simultaneously yields Coulomb's and the Biot-Savart law.
 Plane, circular and elliptical waves may be expressed compactly in a multivector form, naturally expressing the mutual perpendicularity of the electric field, magnetic field and the propagation directions, as well
 as the relationships between the electric and magnetic field components.
-The field energy density and Poynting vectors have a simple multivector form expressed in terms of \( F \) alone.
+The field energy density and the Poynting vector have a simple multivector form expressed in terms of \( F \) alone.
 Calculations of radiation pressure can be performed using only the normal component of what is known as the energy momentum tensor in the conventional representation, which has a particularly compact multivector
 representation.
 
-It is my belief that systematically working through a variety of introductory and advanced topics in electromagnetism using geometric algebra would provide significant insight, and would provide the electrical engineer or physics practitioner a powerful new set of tools and procedures.
-
-\subsection{Results.}
+\subsection{Results: ``\textit{The book}''.}
 
 Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias, or assumes high levels of
-physics and
-mathematical
-sophistication.
+physics and mathematical sophistication.
 The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to an electrical engineering audience.
 In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism.
 The end product of this project was a fairly small self contained book, titled ``Geometric Algebra for Electrical Engineers''.
 This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (82 pages), plus some appendices.
+From this point on this work will be referred to as \textit{the book}.
 
-Many of the fundamental results of electromagnetism are derived directly from
+In the book, many of the fundamental results of electromagnetism are derived directly from
 \cref{eqn:ece2500report:40}, the multivector Maxwell's equation, in a streamlined and compact fashion.
-This includes some new results, and many of the existing non-relativistic results from the geometric algebra literature.
-As a
-conceptual bridge, the book includes many examples of how to extract
+This includes some new results, and many of the existing non-relativistic results from geometric algebra literature.
+As a conceptual bridge, the book includes many examples of how to extract
 familiar conventional results from simpler multivector representations.
 Also included in the book are some sample calculations exploiting unique capabilities that geometric algebra provides.
 In particular, vectors in a plane may be manipulated much like complex numbers, which has a number of advantages over working with coordinates explicitly.
@@ -96,13 +92,15 @@ The book produced in this project provides the prerequisite material for such ex
 
 \section{This report.}
 
-This report summarizes some results from the book, omitting all figures, citations, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, details from worked examples, and (most) explainations and derivations.
-This report attempts to provide an overview that may be used as a road map for the book for further exploration.
-While considerable work was done to make the book pedagodically complete, that is not possible in this report due to space constraints.
+The research focus of this project was multivector calculus, multivector Green's functions, and multivector electromagnetism.
+A great deal of work was done to try to describe all of these and all the prerequisite geometric algebra concepts in a comprehensive and logically sequenced fashion.
+This report aims to provide an overview of the work done on this project, but due to space constraints, it is not possible to
+simultaneously summarize the work and explain it all in a meaningful and self contained fashion.
+In the book, a great deal of work was spent assembling
+figures, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, worked examples, citations, explanations and derivations that supplemented the ideas presented in this summary report.  Rather painfully, almost all such detail had to be omitted from this report.
 
 \section{Chapter I: Geometric Algebra.}
-Chapter I of the book provides a self contained introduction to geometric algebra, with all the prerequisites required for geometric calculus and the subsequent applications to electromagnetism.
-Due to space constraints in this report, no attempt to summarize that introduction will be made here.
+Chapter I of the book provides a self contained introduction to geometric algebra, with all the prerequisites required for geometric calculus and the subsequent applications to electromagnetism.  Concepts included in chapter 1 include bivector, trivector, multivector, pseudoscalar, grade selection, commutation and anticommutation conditions, rotation, complex representation, duality, vector product, multivector dot product, wedge product, wedge and cross product relationships, reversion, blade, distribution rules, projection, rejection, vector inverse, reflection, and linear system solution.  As new ideas are introduced there is a continual attempt to show how geometric algebra identites map to thier equivalents in conventional vector algebra.  A number of such equivalencies are summarized in a table at the end of the chapter.
 
 \section{Chapter II: Geometric Calculus.}
 
@@ -110,11 +108,11 @@ Chapter II had two goals.
 The first goal was to present the theory of multivector integration along curves and surfaces (i.e. manifold calculus), and the second goal was to derive all the multivector Green's functions required for application to problems of electromagnetism.
 The multivector integration theory incorporates all of vector calculus as well as the more abstract theory of differential forms or integration on manifolds, but also generalizes both.
 The key ideas of this chapter will be summarized below.
-The book contains derivations, many examples, figures, Mathematica listings, and detailed explaination of many of the ideas summarized here.
+Examples, figures, Mathematica listings, derivations, and detailed explanations of the ideas summarized here are available in the book.
 
 \subsection{Reciprocal frames.}
 Most elementary texts on electromagnetism will state or derive Stokes theorem and the divergence theorem in their rectangular coordinate form.
-The fundamental theorem of geometric calculus is simplest to prove in a the more general context of curvilinear coordinates.
+The fundamental theorem of geometric calculus is simplest to prove in the context of curvilinear coordinates.
 This requires some additional mathematical baggage, one part of which is the reciprocal frame, a key concept to working with
 curvilinear and non-orthonormal bases.
 
@@ -134,12 +132,13 @@ A vector may be expressed in terms of either the curvilinear or reciprocal basis
 Either basis may be used to compute coordinates \( a_i = \Ba \cdot \Bx_i, a^i = \Ba \cdot \Bx^i \).  Coordinates are never used with an implied basis,
 as is typical in both
 engineering (column representation of vectors), and
-relativisitic physics (four-vectors), so we have
+relativistic physics (four-vectors), so we have
 no need of the covariant nor contravariant tensor nomenclature despite using mixed index representations.
-The book contains a great deal of material to help the reader become familiar with curvilinear coordinates and reciprocal frames, including methods of computation, figures, hand calculations, and Mathematica listings.
+To help the reader become familiar with curvilinear coordinates and reciprocal frames,
+figures, hand calculations, Mathematica listings, and examples are provided in the book.
 
 \subsection{Curvilinear coordinates and hypervolume elements.}
-The book provides a laymans introduction to manifold calculus in its geometric algebra form, where a manifold is, loosely speaking,
+The book provides a layman's introduction to manifold calculus in its geometric algebra form, where a manifold is, loosely speaking,
 a connected and orientable subspace defined by a vector parameterization \( \Bx = \Bx(u_1, u_2, \cdots ) \).
 Here connectivity is mentioned in passing, but is generally ignored in the book.
 Infinitesimal partitioning (i.e. triangularization) is also generally ignored in the book, although some references are provided for further study by the interested student.
@@ -149,11 +148,11 @@ curvilinear basis elements are defined by partials with respect to the parameter
 Bivector valued area elements \( d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \) are formed by wedging the two vector differentials for a two parameter manifold, whereas trivector valued volume elements  \( d^3 \Bx \equiv d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 \) are formed by wedging all three of the differentials for the parameterized space.
 In general, it is assumed in the book that no (hyper)volume element \( d^k \Bx = d\Bx_1 \wedge \cdots \wedge d\Bx_k \) is ever zero (and thus never changes sign).
 Such hypervolume elements have an orientation, as changing the order of any two differentials toggles the sign.
-Orientability is also ignored in the book, and it should be assumed that the theorems stated do not hold for mobius-strip like manifolds.
-For Euclidean spaces, the focus of the book, the absolute values of such area and volume differentials are \( dA = \sqrt{} -( d^2 \Bx)^2, dV = \sqrt{} -( d^3 \Bx)^2 \), which are the respective areas and volumes of the paralellogram and paralellopiped spanned by the vector differentials in each of the parameterization directions.
+Orientability is also ignored in the book, and it should be assumed that the theorems stated do not hold for Mobius-strip like manifolds.
+For Euclidean spaces, the focus of the book, the absolute values of such area and volume differentials are \( dA = \sqrt{} -( d^2 \Bx)^2, dV = \sqrt{} -( d^3 \Bx)^2 \), which are the respective areas and volumes of the parallelogram and parallelepiped spanned by the vector differentials in each of the parameterization directions.
 
 The required concepts are explained in detail in the book.
-Many examples, figures, and Mathematica listings are used to facilitate that explaination.
+Many examples, figures, and Mathematica listings are used to facilitate that explanation.
 
 \subsection{Gradient and vector derivative.}
 
@@ -166,7 +165,7 @@ The final tool required to formulate multivector integration theory is the vecto
 \input{Definition_vector_derivative.tex}
 
 When the dimension of the subspace (number of parameters) equals the dimension of the underlying vector space, the vector derivative and gradient are identical.
-In other situtations what is the vector derivative?  This can be answered by introducing the concept of the tangent space.
+In other situations what is the vector derivative?  This can be answered by introducing the concept of the tangent space.
 The tangent space \( T_\Bp \) is a curvilinear concept that represents the span of the differentials \( \Bx_i \) at the point of evaluation \( \Bp \).  For a curve this is the tangent line, and for a surface, this is the tangent plane.  Both are illustrated in the book.
 The projection of any vector onto a k-dimensional tangent space with basis \( \setlr{\Bx_i} \) all evaluated at the point \( \Bp \) is just \(
 \Proj_{T_\Bp} \Bf = \sum_{i = 1}^k \Bx^i (\Bx_i \cdot \Bf) \).
@@ -180,7 +179,7 @@ For the vector derivative, this is just
 which is the vector derivative.
 The vector derivative is the projection of the gradient onto the tangent space at the point of evaluation.
 
-In the book many many examples, figures, and Mathematica calculations are used to illustrate and explain the vector derivative and associated curvilinear parameterizations.
+Examples, figures, and Mathematica calculations are used in the book to illustrate and explain the vector derivative and associated curvilinear parametrizations.
 This includes calculations of curvilinear coordinates, area and volume elements, and the vector derivative
 for polar, spherical and a toroidal coordinate systems.
 
@@ -190,8 +189,8 @@ The vector derivative
 may not commute the functions it acts on nor a k-volume element \( d^k \Bx \), so we are forced to use some notation to indicate what the vector derivative (or gradient) acts on.
 \input{Definition_multivector_integral.tex}
 In conventional right acting cases, where there is no ambiguity, arrows will usually be omitted, but braces may also be used to indicate the scope of derivative operators.
-This bidirectional notation will also be used for the gradient, especially for volume integrals in \R{3} where the vector derivative is identitical to the gradient.
-Some authors use the Hestenes dot notation, with overdots or primes to indicatating the exact scope of multivector derivative operators, as in
+This bidirectional notation will also be used for the gradient, especially for volume integrals in \R{3} where the vector derivative is identical to the gradient.
+Some authors use the Hestenes dot notation, with overdots or primes to indicating the exact scope of multivector derivative operators, as in
 \begin{dmath}\label{eqn:fundamentalTheoremOfCalculus:260}
 \dot{F} d^k \Bx \dot{\boldpartial} \dot{G} =
 \dot{F} d^k \Bx \dot{\boldpartial} G
@@ -248,7 +247,7 @@ All of \cref{thm:stokesTheoremGeometricAlgebra:1740}-\cref{thm:volumeintegral:26
 \cref{thm:fundamentalTheoremOfCalculus:1}.
 
 \subsection{Multivector Fourier transform and phasors.}
-The book makes use of time harmonic (frequency domain) representations when convienient.
+The book makes use of time harmonic (frequency domain) representations when convenient.
 Provided we utilize a scalar (non-geometric) imaginary, a standard Fourier transform generalizes to multivectors.
 
 \input{Definition_multivector_fourier.tex}
@@ -305,21 +304,21 @@ For the wave equation operator, it is helpful to introduce a d'Lambertian operat
 
 The d'Lambertian operator may be factored in geometric algebra as \( \dAlembertian = \conjstgradi \stgradi \).
 The operator \( \stgradi \) will be called the \textit{spacetime gradient}\footnote{This form of spacetime gradient is given a special symbol (\(\gamma_0 \grad, \overbar{D}, \calD, \cdots\)) by a number of authors, but there is no general agreement on what to use.
-Instead of entering the fight, it will be written it out in full in the book.}.
+Instead of entering the fight, it was written out in full in the book.}.
 
-In the book, the Green's function for the spacetime gradient is derived from the from the Green's function for the d'Lambertian, also well known.
+In the book, the Green's function for the spacetime gradient is derived from the Green's function for the d'Lambertian, also well known.
 \input{Theorem_greens_function_spacetime_grad.tex}
 Like the Green's function for the first order Helmholtz operator, the Green's function for the spacetime gradient is also multivector.
 These are all the Green's functions required for the electromagnetic solutions considered in chapter 3 of the book.
 
 \subsection{Helmholtz theorem.}
 In the book first and second order proofs of Helmholtz theorem are provided, both using geometric algebra techniques.
-Disussion of those derivations are omitted here for brevity.
+Discussion of those derivations are omitted here for brevity.
 \section{Chapter III: Electromagnetism.}
 \subsection{Conventional Maxwell's equations.}
-In the book it is presumed that the reader is familiar with Maxwell's equations.
+In the book, it is presumed that the reader is familiar with Maxwell's equations.
 No attempt to motivate them was made.
-The starting point was Maxwell's equations with antenna theory extensions (fictious magnetic sources)
+The starting point was Maxwell's equations with antenna theory extensions (fictitious magnetic sources)
 \begin{dmath}\label{eqn:ece2500report:2540}
 \begin{aligned}
 \spacegrad \cross \BE &= - \BM - \PD{t}{\BB} \\
@@ -358,7 +357,7 @@ from the electromagnetic field strength when desired using \(
 \BE = \gpgradeone{ F },
 I \BH = (1/\eta) \gpgradetwo{ F } \).
 
-A multivector current containing all charge densites and current densities is defined as follows.
+A multivector current containing all charge densities and current densities is defined as follows.
 \input{Definition_multivector_current.tex}
 When fictitious magnetic source terms \((\rho_\txtm, \BM)\) are included, the current has one grade for each possible source (scalar, vector, bivector, trivector).
 With only conventional electric sources, the current is still a multivector, but contains only scalar and vector grades.
@@ -378,7 +377,7 @@ which can then be further grouped after dimensional rescaling to find
 \begin{dmath}\label{eqn:isotropicMaxwells:580}
 \stgrad \lr{ \BE + I \eta \BH } = \eta\lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM },
 \end{dmath}
-which is \cref{dfn:isotropicMaxwells:680} expanded explictly.  There is a lot of information packed into this single equation.
+which is \cref{dfn:isotropicMaxwells:680} expanded explicitly.  There is a lot of information packed into this single equation.
 All the subsequent analysis in the book utilizes the multivector form of Maxwell's equation.
 
 \subsection{Wave equation and continuity.}
@@ -386,13 +385,12 @@ It can be
 argued that the conventional form
 \cref{eqn:ece2500report:2540}
 of Maxwell's equations has a built in redundancy since continuity equations on the charge and current densities couple some of the equations.
-An opposing argument is also possible, where the continuity equations are viewed as neccessary consequences of Maxwell's equation.
+An opposing argument is also possible, where the continuity equations are viewed as necessary consequences of Maxwell's equation.
 This amounts to a statement that the multivector current \( J \) is not completely unconstrained.
 
 \input{Theorem_continuity_wave.tex}
 
-The proof is in the book, but basically just requires operating on Maxwell's equation with \( \conjstgradi \), which yields two equations
-equations, one for grades 1,2 and one for grades 0,3
+The proof is in the book, but basically just requires operating on Maxwell's equation with \( \conjstgradi \), which yields two equations, one for grades 1,2 and one for grades 0,3
 \begin{dmath}\label{eqn:continuity:130}
 \begin{aligned}
 \dAlembertian
@@ -437,7 +435,7 @@ Maxwell's equation is reduced to an invertible first order gradient equation
 
 \input{Theorem_maxwell_statics_solution.tex}
 
-The solution incorporates a {\color{DarkOliveGreen}Coulomb's law} contribution and a {\color{Maroon}Biot-Savart law} contribution, as well as magnetic analogues if applicable.
+The solution incorporates a {\color{DarkOliveGreen}Coulomb's law} contribution and a {\color{Maroon}Biot-Savart law} contribution, as well as their magnetic source analogues.
 
 The proof is essentially a convolution with the (vector valued) Green's function for the (first order) gradient \cref{eqn:greensFunctionFirstOrderHelmholtz:900}.
 \subsection{Statics: Enclosed charge.}
@@ -447,7 +445,7 @@ The geometric algebra generalization relates the product of the normal and the e
 
 The proof requires evaluation of the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}, then a grade selection.  Full details are in the book.
 The results of the grade selection
-could have obtained directly from Maxwell's equations in their conventional form.
+could have been obtained directly from Maxwell's equations in their conventional form.
 However, integration of the conventional Maxwell's equations would not have shown that this crazy mix of
 fields, sources, dot and cross products has a hidden structure as simple as
 \( \int_{\partial V} dA \ncap F = \int_V dV J \).
@@ -507,7 +505,7 @@ The geometry and derivation is detailed in the book, but we use the multivector 
 The bivector (magnetic) nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
 \end{itemize}
 \subsection{Dynamics.}
-Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable, with solution.
+Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertible, with solution.
 \input{Theorem_jefimenkos_report.tex}
 This is found fairly easily using the Green's function for the spacetime gradient \cref{thm:greensFunctionSpacetimeGradient:120}, and the details can be found in the book.
 Unlike the conventional approach, we are able to find the field directly without first having to determine the retarded time potentials, nor having to take their derivatives.
@@ -523,9 +521,9 @@ In geometric algebra the energy momentum tensor, and the Maxwell stress tensor m
 
 \Cref{thm:poyntingF:1240} relates the geometric algebra definition of the energy momentum tensor to the quantities found in the conventional
 electromagnetism literature.
-In the book, the conventional indexed representation is detailed more completely for comparision purposes.
+In the book, the conventional indexed representation is detailed more completely for comparison purposes.
 
-Associated with the energy momentum tensor are a number of conservation relationships, which are most compactly stated utilizing the adjoint of the energy momenutum tensor.
+Associated with the energy momentum tensor are a number of conservation relationships, which are most compactly stated utilizing the adjoint of the energy momentum tensor.
 \input{Definition_adjoint.tex}
 \input{Theorem_poynting_differential.tex}
 or in an integral form
@@ -535,14 +533,14 @@ As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\t
 \begin{equation}\label{eqn:ece2500report:2560}
 \frac{d}{dt} \Bp_{\textrm{mech}} + \frac{d}{dt} \Bp_{\textrm{em}} = \int_{\partial V} dA \BT(\ncap).
 \end{equation}
-The rate of change of mechanical momentum density \( \ifrac{d\Bp_{\textrm{mech}}}{dt} \) is, in fact, the continuous equivalent of the Lorentz force, which is found to be a direct consequence of conservation relationships associated with Maxwell's equation.
+The rate of change of mechanical momentum density \( \ifrac{d\Bp_{\textrm{mech}}}{dt} \) is the continuous equivalent of the Lorentz force.
+%, which is found to be a direct consequence of conservation relationships associated with Maxwell's equation.
 
-There were many details left out above.
-Please refer to the book for more information.
+Please refer to the book for additional details.
 
 \subsubsection{Example energy momentum calculations.}
 To illustrate the ideas above, the energy momentum tensor components for all of the static fields computed previously are determined.
-For brievity, these are omitted from this report, but it should be noted that we see that geometric algebra allows for a particularly compact coordinate free representation of the energy momentum tensor components.
+For brevity, these are omitted from this report, but it should be noted that we see that geometric algebra allows for a particularly compact coordinate free representation of the energy momentum tensor components.
 \subsubsection{Complex power.}
 The geometric algebra forms of the \( T(1) \) (field energy density and Poynting vector) are found to be
 \input{Theorem_complex_power.tex}
@@ -614,7 +612,7 @@ Right and left circular polarization in this representation are given by
 \(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) and \(\alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \) respectively.
 The right(left) polarized fields are just
 \( F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{\pm i(\omega t - k z)} \).
-\item An ellipically polzarized field is given by
+\item An elliptically polarized field is given by
 \( \alpha_\txtR = \inv{2}\lr{ E_a - E_b },
 \alpha_\txtL = \inv{2}\lr{ E_a + E_b } \), or
 \begin{dmath}\label{eqn:ece2500report:2580}
@@ -665,7 +663,6 @@ As expected, the phase dependent portion of the energy momentum tensor vanishes 
 
 \subsubsection{Pseudoscalar imaginary.}
 Alternatively, it is possible to encode the sines and cosines in the time domain representation of the field in terms of the \R{3} pseudoscalar.
-
 \input{Theorem_circular_polarization_coeff_pseudoscalar_report.tex}
 
 There appear to be some advantages to pseudoscalar description of polarization, especially for computing energy momentum tensor components since \( I \) commutes with all grades.
@@ -699,7 +696,7 @@ Also detailed in the book is the multivector formulation of gauge transformation
 We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstgradi A \) are zero, or a transformation that kills those grades is made.
 \input{Theorem_lorentz_gauge_transformation.tex}
 
-Please see the book for proofs and additional details, including the explcit integral solution of \( \Psi \) required for the transformation to the Lorentz gauge.
+Please see the book for proofs and additional details, including the explicit integral solution of \( \Psi \) required for the transformation to the Lorentz gauge.
 
 \subsection{Far field.}
 The geometric algebra form for the far field associated with a vector (or dual-vector) potential has a fairly simple coordinate free form.
@@ -711,7 +708,7 @@ Also included in the book is an example calculation of \( F = -j \omega \lr{ 1 +
 \subsection{Dielectric and magnetic media.}
 The majority of the electromagnetic theory covered in the book focused on fields with the
 isotropic constitutive relationships \cref{eqn:freespace:300}.
-For more general consitutive relationships the geometric algebra form of Maxwell's equations requires a pair of
+For more general constitutive relationships the geometric algebra form of Maxwell's equations requires a pair of
 multivector equations, fields and sources as follows.
 \input{Theorem_maxwells_equations_in_media.tex}
 
@@ -721,18 +718,39 @@ More work is required to fully flesh out this topic, especially given that \( F,
 \subsection{Boundary value conditions.}
 Independent of the techniques used to find the multivector fields \( F, G \) for electromagnetism in matter, we may use \cref{thm:dielectric:20} to easily derive the boundary
 value conditions for the fields spanning a surface with surface currents or charges, or even just a discontinuity in the media.
+\newpage
 \input{Theorem_boundary_value_relations.tex}
 
 A simple proof is possible by integrating the pair of Maxwell's equations over the pillbox configuration, allowing the height \( n \) of that pillbox above or below the surface to tend to zero,
 and the area of the pillbox top to also tend to zero, using \cref{thm:volumeintegral:100} to transform the multivector integrals to boundary integrals.
 Figures and the full proof are available in the book.
 
-Note that in the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then the field and current relationship has a particularily simple form% \citep{chappell2014geometric}
+Note that in the special case where there are surface charge and current densities along the interface surface, but the media is uniform (\(\epsilon_1 = \epsilon_2, \mu_1 = \mu_2\)), then the field and current relationship has a particularly simple form% \citep{chappell2014geometric}
 \begin{dmath}\label{eqn:boundarySurfaceSources:421}
 \ncap (F_2 - F_1) = J_s.
 \end{dmath}
 
 \section{Conclusions.}
+
+REWRITE... started.
+There is currently no widespread application of geometric algebra for electromagnetism.
+An student, engineer, or physicist interested in such application faces a number of hurdles.
+The first such hurdle is learning geometric algebra itself, which is not insurmountable, as there are now many resources available.
+A second hurdle is multivector calculus, for which much of the literature is opaque and inaccessible.
+A third hurdle is that most of the literature that treats electromagnetism with geometric algebra is either
+
+One reason for this is that the algebra is
+In addition to the learning curve imposed by the algebra itself,
+Vector calculus is a fundamental prerequisite for conventional
+The multivector representation of Maxwell's equation has striking compactness and simplicity.
+However, encountering this representation leaves the student with the problem of having more questions than answers.
+One such question, answered in this book, is how the Stokes', Green's and the divergence theorems generalize to multivector integrands.
+There are answers to many of these questions in the literature, but much of that literature
+is not easily accessible.
+A student needs to know how to work with the representation if it is to be useful.
+
+The use of geometric algebra for
+Electromagnetism
 
 The book produced on this project is really only a starting point, and is in no sense publication ready.
 Many more worked examples, problems, figures and computer algebra listings should be added.
@@ -740,11 +758,7 @@ In depth applications of derived geometric algebra relationships to problems cus
 There are also theoretical holes, topics covered in any conventional introductory electromagnetism text, that are missing.
 Examples include the Fresnel relationships for transmission and reflection at an interface, in depth treatment of waveguides, dipole radiation and motion of charged particles, bound charges, and meta materials to name a few.
 
-That said the book provides a great deal of information in one place, and addresses a fundamental problem for the application of geometric algebra to applied electromagnetism.
-While Maxwell's equation in its
-geometric algebra form \cref{eqn:quaternion2maxwellWithGA:20} has striking compactness and simplicity, encountering this representation
-leaves the student with more questions than answers.
-A student needs to know how to work with the representation if it is to be useful.
+Despite these limitations, the book accumulates a great deal of information in one place.
 Electromagnetism has a large set of well developed tools available, and it is not obvious how many of these apply to the GA form of Maxwell's equations.
 
 The book attempted to fill in a number of those conceptual holes, detailing how to work with the multivector Maxwell equation directly, and
@@ -754,7 +768,9 @@ much of which is not
 easily accessible.
 A conceptual map is provided that shows the connections between familiar conventional results and their (often simpler) geometric algebra equivalents.
 There is a repeated implicit argument that it is simpler and more natural to work with a electromagnetic field \( F = \BE + I \eta \BH \) incorporating both electric and magnetic fields.
-Geometric algebra provides compact and interesting ways to obtain the familiar identities and relationships, and also connects ideas that are not neccesarily obviously related in the conventional formalism.
+Geometric algebra provides compact and interesting ways to obtain the familiar identities and relationships, and also connects ideas that are not necessarily obviously related in the conventional formalism.
 The student is provided with a powerful theoretical framework, without sacrificing the ability to use any familiar conventional tools when desired.
+
+It is the belief of the author that systematically working through a larger set of topics in electromagnetism using geometric algebra would provide electrical engineers and physics practitioners many powerful new tools and procedures.
 
 \EndNoBibArticle

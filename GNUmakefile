@@ -42,7 +42,7 @@ include ../latex/make.rules
 #all :: junk.pdf
 #all :: maxwells.pdf
 maxwells.pdf :: $(shell cat spellcheckem.txt)
-ece2500report.pdf :: $(shell cat spellcheckem.txt)
+ece2500report.pdf :: $(shell cat spellcheckem.txt) reportPreamble.tex
 #maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 
 report : ece2500report.pdf
@@ -57,7 +57,7 @@ pp : polarizationRewrite.pdf
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
 #.revinfo/gitCommitDateAsMyTime.tex:\newcommand{\myTime}{April 2018}\newcommand{\myVersion}{version V0.117\xspace}
-VER := $(shell grep Version .revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{version //;s/.xspace.*//;')
+VER := $(shell grep Version .revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
 
 .PHONY: spellcheck
 spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
