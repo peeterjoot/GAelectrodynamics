@@ -43,13 +43,9 @@ include ../latex/make.rules
 #all :: maxwells.pdf
 maxwells.pdf :: $(shell cat spellcheckem.txt)
 ece2500report.pdf :: $(shell cat spellcheckem.txt) reportPreamble.tex
-#maxwells.pdf :: ../frequencydomain/frequencydomainMaxwells.tex
 
 report : ece2500report.pdf
 mx : maxwells.pdf
-pp : polarizationRewrite.pdf
-
-#greens.pdf :: gradientGreensFunctionEuclidean.tex
 
 # FIXME: this should be an automatic dependency, but currently isn't.
 #$(THISBOOK).pdf :: mmacells.sty

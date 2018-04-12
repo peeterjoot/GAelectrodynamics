@@ -72,11 +72,11 @@ The proof follows by expansion.
 For
 the (single variable) parameterization \( a \) above
 \begin{dmath}\label{eqn:lineintegral:120}
-\int_C F d^1\Bx \lrboldpartial G
+\int_C F d\Bx \lrboldpartial G
 =
-\int_C \lr{ F d^1\Bx \lboldpartial} G
+\int_C \lr{ F d\Bx \lboldpartial} G
 +
-\int_C F d^1\Bx \lr{ \rboldpartial G }
+\int_C F d\Bx \lr{ \rboldpartial G }
 =
 \int_C \PD{a}{F} da \Bx_a \Bx^a G
 +
@@ -108,7 +108,7 @@ single scalar function \( f \)
 
 Writing out \cref{thm:lineintegral:100} with \( F = 1, G = f(\Bx(a)) \), we have
 \begin{dmath}\label{eqn:lineintegral:140}
-\int_C d^1\Bx \boldpartial f = \evalbar{f}{\Delta a}.
+\int_C d\Bx \boldpartial f = \evalbar{f}{\Delta a}.
 \end{dmath}
 
 This is a multivector equation with scalar and bivector grades on the left hand side, but only scalar grades on the right.  Equating grades yields two equations
@@ -116,14 +116,14 @@ This is a multivector equation with scalar and bivector grades on the left hand 
 \begin{subequations}
 \label{eqn:lineintegral:180}
 \begin{dmath}\label{eqn:lineintegral:160}
-\int_C d^1\Bx \cdot \boldpartial f = \evalbar{f}{\Delta a}
+\int_C d\Bx \cdot \boldpartial f = \evalbar{f}{\Delta a}
 \end{dmath}
 \begin{dmath}\label{eqn:lineintegral:200}
-\int_C d^1\Bx \wedge \boldpartial f = 0
+\int_C d\Bx \wedge \boldpartial f = 0
 \end{dmath}
 \end{subequations}
 
-Because \( d^1\Bx \cdot \boldpartial = d^1\Bx \cdot \spacegrad \), we can replace the vector derivative with the gradient in \cref{eqn:lineintegral:160}, which yields the conventional line integral result, proving the theorem.
+Because \( d\Bx \cdot \boldpartial = d\Bx \cdot \spacegrad \), we can replace the vector derivative with the gradient in \cref{eqn:lineintegral:160}, which yields the conventional line integral result, proving the theorem.
 
 %}
 %\EndNoBibArticle

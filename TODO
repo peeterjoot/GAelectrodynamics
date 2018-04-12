@@ -1,3 +1,5 @@
+- the end of chapter table in chapter 1 is too big and overflows the margins.  There is some redundancy too, since there's an earlier cross vs. wedge table that has some of the same info.
+
 - In the report I made some notes about the limitations of my geometric calculus treatment.  These should be 
   incorporated into the text.  There is also an interesting point in Spivak's manifolds about triangularization
   which is of interest given MacDonald's paper on the same for blades.
@@ -29,12 +31,6 @@
       DarkOliveGreen,Maroon
 
       (general color scheme used elsewhere.)  Something that looks darker in equations might be nice.
-
-- dielectric and dimagnetic:
-
-   Can't I solve those using the Green's function method?
-
-   Instead of showing the solution works, perhaps go the other way around?
 
 - Is {eqn:isotropicMaxwells:520} the first use of \grad f = grad . f + I grad cross f?
 
