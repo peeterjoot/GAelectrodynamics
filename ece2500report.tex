@@ -97,7 +97,7 @@ A great deal of work was done to try to describe all of these and all the prereq
 This report aims to provide an overview of the work done on this project, but due to space constraints, it is not possible to
 simultaneously summarize the work and explain it all in a meaningful and self contained fashion.
 In the book, a great deal of work was spent assembling
-figures, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, worked examples, citations, explanations and derivations that supplemented the ideas presented in this summary report.  Rather painfully, almost all such detail had to be omitted from this report.
+figures, Mathematica listings\footnote{Using Mathematica modules developed in this project, and other existing Mathematica modules.}, worked examples, citations, explanations and derivations.  These supplemented the ideas presented in this summary report, but rather painfully, almost all such detail had to be omitted from this report.
 
 \section{Chapter I: Geometric Algebra.}
 Chapter I of the book provides a self contained introduction to geometric algebra, with all the prerequisites required for geometric calculus and the subsequent applications to electromagnetism.  Concepts included in chapter 1 include bivector, trivector, multivector, pseudoscalar, grade selection, commutation and anticommutation conditions, rotation, complex representation, duality, vector product, multivector dot product, wedge product, wedge and cross product relationships, reversion, blade, distribution rules, projection, rejection, vector inverse, reflection, and linear system solution.  As new ideas are introduced there is a continual attempt to show how geometric algebra identites map to thier equivalents in conventional vector algebra.  A number of such equivalencies are summarized in a table at the end of the chapter.
@@ -734,28 +734,39 @@ Note that in the special case where there are surface charge and current densiti
 
 The multivector representation of Maxwell's equation has an enticing and striking compactness and simplicity.
 However, a student, engineer, or physicist interested in application of geometric algebra to electromagnetism faces a number of obstacles.
-The first is learning geometric algebra itself, which is not insurmountable, as there are now many resources available.
+The first is learning geometric algebra itself.  This is not insurmountable, as there are now many resources available.
 A second hurdle is multivector calculus, for which much of the literature is opaque and inaccessible.
-Another obstacle, mentioned earlier, is the relativistic bias in much of the literature, along with high levels of presumed physics and mathematical softistication.
+Another obstacle, mentioned earlier, is the relativistic bias in much of the literature, and high levels of presumed physics and mathematical softistication.
 Additionally, while the multivector form of Maxwell's equation occurs frequently in the geometric algebra literature,
-many such references stop after showing that the conventional Maxwell's equations can be obtained from the multivector representation, and do not dive into the details.
+many such references stop after showing that the conventional Maxwell's equations can be obtained from the multivector representation, and do dive into no or few additional details.
 Encountering the multivector representation of Maxwell's equation can leave the student with more questions than answers.
 
-The book produced on this project attempts to systematically collect all the prerequisite material required for a study of electromagnetism using geometric algebra.
+The book produced on this project attempts to systematically collect all the prerequisite material required for a study of electromagnetism using geometric algebra.  This includes
+\begin{itemize}
+\item
 Questions of how Stokes', Green's and the divergence theorem generalize to multivector integrands are answered by showing how these theorems are special cases of a more general integration theory.
+\item
 The multivector (time and frequency domain) Green's functions that can be used to invert Maxwell's equation are both derived and applied to this inversion task.
+\item
 A number of demonstrations are provided that illustrate how geometric algebra techniques can be applied to electromagnetic problems.
+\item
 The (multivector) wave equation form of Maxwell's equation is introduced and multivector plane wave solutions for the field are found.
-A multivector form of the energy momentum tensor is defined and related to the conventional form, and the Poynting conservation laws are derived, including both the conventional Poynting theorem, and the continuum equivalent of the Lorentz force law.
+\item
+A multivector form of the energy momentum tensor is defined and related to the conventional form.  The Poynting conservation laws are derived, including both the conventional Poynting theorem, and the continuum equivalent of the Lorentz force law.
+\item
 Polarization is described with two (multivector) complex exponential representations, which are both related to the conventional polarization formalism by multivector representations of the Jones vector.
+\item
 Waveguide relationships between transverse and propagation-direction components of the field are obtained.
+\item
 Multivector potentials and gauge transformations are formulated and derived.
+\item
 The multivector form of Maxwell's equations in matter are touched on briefly, and used to derive the boundary value conditions given surface current and charge densities.
+\end{itemize}
 
 All this is really only a starting point.
 Many more worked examples, problems, figures and computer algebra listings should be added.
-In depth applications of derived geometric algebra relationships to problems customarily tackled with separate electric and magnetic field equations should also be incorporated.
-There are a number of theoretical and practical holes, where topic covered in introductory electromagnetism texts are missing.
+Problems customarily tackled with separate electric and magnetic field equations should also be incorporated, showing how geometric algebra techniques could be used to solve those problems.
+There are a number of topics covered in introductory electromagnetism texts that are missing.
 Examples include the Fresnel relationships for transmission and reflection at an interface,
 in depth treatment of waveguides,
 dipole radiation,
