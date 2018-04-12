@@ -1,3 +1,7 @@
+- In the report I made some notes about the limitations of my geometric calculus treatment.  These should be 
+  incorporated into the text.  There is also an interesting point in Spivak's manifolds about triangularization
+  which is of interest given MacDonald's paper on the same for blades.
+
 - 
    \maketheorem{Far field representation.}{thm:potentialSection_farfield:1}{
    ...

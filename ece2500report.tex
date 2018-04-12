@@ -718,7 +718,7 @@ More work is required to fully flesh out this topic, especially given that \( F,
 \subsection{Boundary value conditions.}
 Independent of the techniques used to find the multivector fields \( F, G \) for electromagnetism in matter, we may use \cref{thm:dielectric:20} to easily derive the boundary
 value conditions for the fields spanning a surface with surface currents or charges, or even just a discontinuity in the media.
-\newpage
+%\newpage
 \input{Theorem_boundary_value_relations.tex}
 
 A simple proof is possible by integrating the pair of Maxwell's equations over the pillbox configuration, allowing the height \( n \) of that pillbox above or below the surface to tend to zero,
@@ -732,45 +732,43 @@ Note that in the special case where there are surface charge and current densiti
 
 \section{Conclusions.}
 
-REWRITE... started.
-There is currently no widespread application of geometric algebra for electromagnetism.
-An student, engineer, or physicist interested in such application faces a number of hurdles.
-The first such hurdle is learning geometric algebra itself, which is not insurmountable, as there are now many resources available.
+The multivector representation of Maxwell's equation has an enticing and striking compactness and simplicity.
+However, a student, engineer, or physicist interested in application of geometric algebra to electromagnetism faces a number of obstacles.
+The first is learning geometric algebra itself, which is not insurmountable, as there are now many resources available.
 A second hurdle is multivector calculus, for which much of the literature is opaque and inaccessible.
-A third hurdle is that most of the literature that treats electromagnetism with geometric algebra is either
+Another obstacle, mentioned earlier, is the relativistic bias in much of the literature, along with high levels of presumed physics and mathematical softistication.
+Additionally, while the multivector form of Maxwell's equation occurs frequently in the geometric algebra literature,
+many such references stop after showing that the conventional Maxwell's equations can be obtained from the multivector representation, and do not dive into the details.
+Encountering the multivector representation of Maxwell's equation can leave the student with more questions than answers.
 
-One reason for this is that the algebra is
-In addition to the learning curve imposed by the algebra itself,
-Vector calculus is a fundamental prerequisite for conventional
-The multivector representation of Maxwell's equation has striking compactness and simplicity.
-However, encountering this representation leaves the student with the problem of having more questions than answers.
-One such question, answered in this book, is how the Stokes', Green's and the divergence theorems generalize to multivector integrands.
-There are answers to many of these questions in the literature, but much of that literature
-is not easily accessible.
-A student needs to know how to work with the representation if it is to be useful.
+The book produced on this project attempts to systematically collect all the prerequisite material required for a study of electromagnetism using geometric algebra.
+Questions of how Stokes', Green's and the divergence theorem generalize to multivector integrands are answered by showing how these theorems are special cases of a more general integration theory.
+The multivector (time and frequency domain) Green's functions that can be used to invert Maxwell's equation are both derived and applied to this inversion task.
+A number of demonstrations are provided that illustrate how geometric algebra techniques can be applied to electromagnetic problems.
+The (multivector) wave equation form of Maxwell's equation is introduced and multivector plane wave solutions for the field are found.
+A multivector form of the energy momentum tensor is defined and related to the conventional form, and the Poynting conservation laws are derived, including both the conventional Poynting theorem, and the continuum equivalent of the Lorentz force law.
+Polarization is described with two (multivector) complex exponential representations, which are both related to the conventional polarization formalism by multivector representations of the Jones vector.
+Waveguide relationships between transverse and propagation-direction components of the field are obtained.
+Multivector potentials and gauge transformations are formulated and derived.
+The multivector form of Maxwell's equations in matter are touched on briefly, and used to derive the boundary value conditions given surface current and charge densities.
 
-The use of geometric algebra for
-Electromagnetism
-
-The book produced on this project is really only a starting point, and is in no sense publication ready.
+All this is really only a starting point.
 Many more worked examples, problems, figures and computer algebra listings should be added.
 In depth applications of derived geometric algebra relationships to problems customarily tackled with separate electric and magnetic field equations should also be incorporated.
-There are also theoretical holes, topics covered in any conventional introductory electromagnetism text, that are missing.
-Examples include the Fresnel relationships for transmission and reflection at an interface, in depth treatment of waveguides, dipole radiation and motion of charged particles, bound charges, and meta materials to name a few.
+There are a number of theoretical and practical holes, where topic covered in introductory electromagnetism texts are missing.
+Examples include the Fresnel relationships for transmission and reflection at an interface,
+in depth treatment of waveguides,
+dipole radiation,
+motion of charged particles,
+bound charges,
+meta materials,
+Lorentz transformations and relativity,
+and more.
 
-Despite these limitations, the book accumulates a great deal of information in one place.
-Electromagnetism has a large set of well developed tools available, and it is not obvious how many of these apply to the GA form of Maxwell's equations.
-
-The book attempted to fill in a number of those conceptual holes, detailing how to work with the multivector Maxwell equation directly, and
-how many of the conventional tools we use in electromagnetism (Stokes' and divergence laws, Green's functions, ...) generalize from vector calculus to multivector calculus.
-Many of the tools required for the application of geometric algebra to electromagnetism are detailed, avoiding the requirement to try to find answers scattered in the literature,
-much of which is not
-easily accessible.
-A conceptual map is provided that shows the connections between familiar conventional results and their (often simpler) geometric algebra equivalents.
-There is a repeated implicit argument that it is simpler and more natural to work with a electromagnetic field \( F = \BE + I \eta \BH \) incorporating both electric and magnetic fields.
-Geometric algebra provides compact and interesting ways to obtain the familiar identities and relationships, and also connects ideas that are not necessarily obviously related in the conventional formalism.
+Despite limitations like those mentioned above, there is a great deal of information assembled in the book.
+The book shows how the familiar identities and relationships of electromagnetism can be obtained from the geometric algebra formalism, and how to work with the geometric algebra formalism directly.
 The student is provided with a powerful theoretical framework, without sacrificing the ability to use any familiar conventional tools when desired.
 
-It is the belief of the author that systematically working through a larger set of topics in electromagnetism using geometric algebra would provide electrical engineers and physics practitioners many powerful new tools and procedures.
+It is the belief of the author that systematically working through a larger set of topics in electromagnetism using geometric algebra would provide electrical engineers and physics practitioners many powerful new tools and procedures.  Hopefully, this book is a good first step in that direction.
 
 \EndNoBibArticle
