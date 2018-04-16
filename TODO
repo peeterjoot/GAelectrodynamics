@@ -1,3 +1,5 @@
+- re-implement \makeexample using \newtcolorbox for consistency.  They have different border widths and thicknesses.
+
 - the end of chapter table in chapter 1 is too big and overflows the margins.  There is some redundancy too, since there's an earlier cross vs. wedge table that has some of the same info.
 
 - In the report I made some notes about the limitations of my geometric calculus treatment.  These should be 
@@ -14,7 +16,7 @@
 
 - I was also thinking of adding various symbols to the index, and probably putting a table of symbols somewhere for reference (perhaps with page references to the points of first use).
 
-- make pdfs for mathematica notebooks.
+- refer to pdfs too in mathematica notebooks index.
 
 - Pillbox figure.  Perhaps make a first figure that doesn't have the integration volume, but does have the
   regions, and an illustration of each of fields (vector+bivector) in each region.
@@ -48,20 +50,6 @@
 - reciprocal frame: Alan:
 
    Better stated as a theorem. How do you know that there is a reciprocal frame? See my LAGA p. 94.
-
-- Alan suggests:
-
-   V is closed under addition
-
-as "standard usage".  If I use that then I have to change all the rest too.  Look at some other examples of standard usage.
-
-- Alan suggested that in the definition of
-
-Euclidean
-
-this word be italizized.
-
-I've done that.  Look for other theorems/definitions where this should also be done.
 
 - Stated the fundamental theorm and stokes expicitly.  Under line, surface (and volume when done), go back and reference
   those theorem statements, covering just the differences from the general statement.

@@ -19,8 +19,8 @@ we utilize the Green's function for the (first order) gradient
 finding immediately
 \begin{dmath}\label{eqn:statics:40}
 F(\Bx)
-= \int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')
-= \gpgrade{\int_V dV' G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
+= \int_V dV'\, G(\Bx, \Bx') \spacegrad' J(\Bx')
+= \gpgrade{\int_V dV'\, G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
 = \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
 \end{dmath}
 Here a no-op grade selection has been inserted to simplify subsequent manipulation\footnote{If this grade selection filter is omitted, it is possible to show that the scalar and pseudoscalar contributions to the \( (\Bx -\Bx') J \) product are zero on the boundary of the Green's integration volume. \citep{jancewicz1988multivectors:appendixI}}.

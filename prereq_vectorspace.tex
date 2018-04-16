@@ -17,17 +17,17 @@ vector-like objects, allowing them to be treated in a unified fashion, regardles
 A (real) vector space is a set \( V = \setlr{\Bx, \By, \Bz, \cdots} \), the elements of which are called vectors, which has an addition operation designated \( + \) and a scalar multiplication operation designated by juxtaposition, where the following axioms are satisfied
 for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \)
 
-\begin{tcolorbox}[tab2,tabularx={X|Y},title=Vector space axioms.,boxrule=0.5pt]
-    Addition is closed. & \( \Bx + \By \in V \) \\ \hline
-    (Scalar) multiplication is closed. & \( a \Bx \in V \) \\ \hline
+\begin{tablebox}[tabularx={X|Y}]{Vector space axioms.}
+    V is closed under addition. & \( \Bx + \By \in V \) \\ \hline
+    V is closed under (scalar) multiplication. & \( a \Bx \in V \) \\ \hline
     Addition is associative. & \( (\Bx + \By) + \Bz = \Bx + (\By + \Bz) \) \\ \hline
     Addition is commutative. & \( \By + \Bx = \Bx + \By \) \\ \hline
     There exists a zero element \( \Bzero \in V \).  & \( \Bx + \Bzero = \Bx \) \\ \hline
     For any \( \Bx \in V \) there exists a negative additive inverse \( -\Bx \in V \). & \( \Bx + (-\Bx) = \Bzero \) \\ \hline
     (Scalar) multiplication is distributive.  & \( a( \Bx + \By ) = a \Bx + a \By \), \( (a + b)\Bx = a \Bx + b\Bx \) \\ \hline
     (Scalar) multiplication is associative. & \( (a b) \Bx = a ( b \Bx ) \) \\ \hline
-    There exists a multiplicative identity \( 1 \). & \( 1 \Bx = \Bx \) \\ \hline
-\end{tcolorbox}
+    There exists a multiplicative identity \( 1 \in V \). & \( 1 \Bx = \Bx \) \\ \hline
+\end{tablebox}
 }
 
 % Fixme:
@@ -41,8 +41,8 @@ Despite the generality of this definition, the vector spaces used in GA are fair
 In particular, electrodynamic applications of GA require only two, three or four dimensional real vector spaces.
 No vector spaces with matrix, polynomial, or complex tuple elements will be required, nor will any
 infinite dimensional vector spaces.
-The only unconventional vector space of interest will be a ``space-time'' vector space containing a
-time like ``direction'', 1-3 spatial directions, and a generalized length operation that can be negative.
+%The only unconventional vector space of interest will be a ``space-time'' vector space containing a
+%time like ``direction'', 1-3 spatial directions, and a generalized length operation that can be negative.
 
 \index{\R{N}}
 \makeproblem{\R{N}}{problem:prerequisites:RN}{

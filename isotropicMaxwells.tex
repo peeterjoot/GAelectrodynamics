@@ -6,6 +6,9 @@
 We will work with a multivector representation of the fields in isotropic media satisfying the
 constituency relationships from \cref{eqn:freespace:300}, and define a multivector field that includes both electric and magnetic components
 
+\index{\(\eta\)}
+\index{\(c\)}
+\index{\(F\)}
 \makedefinition{Electromagnetic field strength.}{dfn:isotropicMaxwells:640}{
 The \textit{electromagnetic field strength} ([\si{V/m}] (Volts/meter)) is defined as
 \begin{equation*}
@@ -52,9 +55,9 @@ constituency relationships from \cref{eqn:freespace:300} into
 \cref{eqn:freespace:3399}, so that we are working with two field variables instead of four
 \begin{dmath}\label{eqn:isotropicMaxwells:500}
 \begin{aligned}
-\spacegrad \cdot \BE &= \inv{\epsilon} \rho \\
+\spacegrad \cdot \BE &= \frac{\rho}{\epsilon} \\
 \spacegrad \cross \BE &= - \BM - \mu \PD{t}{\BH} \\
-\spacegrad \cdot \BH &= \inv{\mu} \rho_\txtm \\
+\spacegrad \cdot \BH &= \frac{\rho_\txtm}{\mu} \\
 \spacegrad \cross \BH &= \BJ + \epsilon \PD{t}{\BE}
 \end{aligned}
 \end{dmath}
@@ -67,8 +70,8 @@ The dot and cross products for \( \BE \) and \( \BH \) in
 can be grouped using \cref{eqn:isotropicMaxwells:520} into multivector gradient equations
 \begin{dmath}\label{eqn:isotropicMaxwells:540}
 \begin{aligned}
-\spacegrad \BE &= \inv{\epsilon} \rho + I \lr{ - \BM - \mu \PD{t}{\BH} } \\
-\spacegrad \BH &= \inv{\mu} \rho_\txtm + I \lr{ \BJ + \epsilon \PD{t}{\BE} }.
+\spacegrad \BE &= \frac{\rho}{\epsilon} + I \lr{ - \BM - \mu \PD{t}{\BH} } \\
+\spacegrad \BH &= \frac{\rho_\txtm}{\mu} + I \lr{ \BJ + \epsilon \PD{t}{\BE} }.
 \end{aligned}
 \end{dmath}
 Multiplying the gradient equation for the magnetic field by \( \eta I \) so that both equations have the same dimensions, and so that the electric field appears in both equations as \( \BE \) and not \( I \BE \), we find

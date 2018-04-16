@@ -84,7 +84,7 @@ to discover the relation between the vector \( \BM \) and its divergence and cur
 The vector \( \BM \) can be expressed at the point of interest as a convolution with the delta function at all other points in space
 \index{convolution}
 \begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:80}
-\BM(\Bx) = \int_V dV' \delta(\Bx - \Bx') \BM(\Bx').
+\BM(\Bx) = \int_V dV'\, \delta(\Bx - \Bx') \BM(\Bx').
 \end{dmath}
 
 \index{Laplacian}
@@ -94,7 +94,7 @@ The Laplacian representation of the delta function in \R{3} is
 \end{dmath}
 so \( \BM \) can be represented as the following convolution
 \begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:120}
-\BM(\Bx) = -\inv{4\pi} \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx').
+\BM(\Bx) = -\inv{4\pi} \int_V dV'\, \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx').
 \end{dmath}
 
 %As noted in \cref{eqn:helmholtzDerviationMultivector:460} the Laplacian of a vector can be factored as
@@ -118,25 +118,25 @@ Using this relation and proceeding with a few applications of the chain rule, pl
 %Starting from the first line of \cref{eqn:helmholtzDerviationMultivector:160}, we have
 \begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:720}
 -4 \pi \BM(\Bx)
-= \int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')
-= \gpgradeone{\int_V dV' \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')}
-= -\gpgradeone{\int_V dV' \spacegrad \lr{ \spacegrad' \inv{\Norm{\Bx - \Bx'}}} \BM(\Bx')}
+= \int_V dV'\, \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')
+= \gpgradeone{\int_V dV'\, \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx')}
+= -\gpgradeone{\int_V dV'\, \spacegrad \lr{ \spacegrad' \inv{\Norm{\Bx - \Bx'}}} \BM(\Bx')}
 = -\gpgradeone{\spacegrad \int_V dV' \lr{
 \spacegrad' \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
 -\frac{\spacegrad' \BM(\Bx')}{\Norm{\Bx - \Bx'}}
 } }
 =
--\gpgradeone{\spacegrad \int_{\partial V} dA'
+-\gpgradeone{\spacegrad \int_{\partial V} dA'\,
 \ncap \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
  }
 +\gpgradeone{\spacegrad \int_V dV'
 \frac{s(\Bx') + I\BC(\Bx')}{\Norm{\Bx - \Bx'}}
  }
 =
--\gpgradeone{\spacegrad \int_{\partial V} dA'
+-\gpgradeone{\spacegrad \int_{\partial V} dA'\,
 \ncap \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
  }
-+\spacegrad \int_V dV'
++\spacegrad \int_V dV'\,
 \frac{s(\Bx')}{\Norm{\Bx - \Bx'}}
 +\spacegrad \cdot \int_V dV'
 \frac{I\BC(\Bx')}{\Norm{\Bx - \Bx'}}.
@@ -178,9 +178,9 @@ These give
 \begin{aligned}
 \BM(\Bx)
 &=
-\spacegrad \inv{4\pi} \int_{\partial V} dA' \ncap \cdot \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
+\spacegrad \inv{4\pi} \int_{\partial V} dA'\, \ncap \cdot \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}}
 -
-\spacegrad \cross \inv{4\pi} \int_{\partial V} dA' \ncap \cross \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}} \\
+\spacegrad \cross \inv{4\pi} \int_{\partial V} dA'\, \ncap \cross \frac{\BM(\Bx')}{\Norm{\Bx - \Bx'}} \\
 &-\spacegrad \inv{4\pi} \int_V dV'
 \frac{s(\Bx')}{\Norm{\Bx - \Bx'}}
 +\spacegrad \cross \inv{4\pi} \int_V dV'

@@ -18,25 +18,28 @@ We will use vector differential form of Maxwell's equations with antenna theory 
 \index{magnetic current density}
 \index{electric current density}
 
-\begin{subequations}
-\label{eqn:freespace:3399}
-\begin{dmath}\label{eqn:freespace:3100}
-%\spacegrad \cross \BE = - \PD{t}{\BB}
-\spacegrad \cross \BE = - \BM - \PD{t}{\BB}
+\index{\(\BE\)}
+\index{\(\BH\)}
+\index{\(\BB\)}
+\index{\(\BD\)}
+\index{\(\BM\)}
+\index{\(\BJ\)}
+\index{\(\rho\)}
+\index{\(\rho_\txtm\)}
+
+%\begin{subequations}
+\begin{dmath}\label{eqn:freespace:3399}
+\begin{aligned}
+%\label{eqn:freespace:3100}
+\spacegrad \cross \BE &= - \BM - \PD{t}{\BB} \\
+%\label{eqn:freespace:3120}
+\spacegrad \cross \BH &= \BJ + \PD{t}{\BD} \\
+%\label{eqn:freespace:3140}
+\spacegrad \cdot \BD &= \rho \\
+%\label{eqn:freespace:3160}
+\spacegrad \cdot \BB &= \rho_\txtm.
+\end{aligned}
 \end{dmath}
-\begin{dmath}\label{eqn:freespace:3120}
-%\spacegrad \cross \BB = \mu_0 \lr{ \BJ + \epsilon_0 \PD{t}{\BE} }
-\spacegrad \cross \BH = \BJ + \PD{t}{\BD}
-\end{dmath}
-\begin{dmath}\label{eqn:freespace:3140}
-%\spacegrad \cdot \BE = \frac{\rho}{\epsilon_0}
-\spacegrad \cdot \BD = \rho
-\end{dmath}
-\begin{dmath}\label{eqn:freespace:3160}
-%\spacegrad \cdot \BB = 0.
-\spacegrad \cdot \BB = \rho_\txtm.
-\end{dmath}
-\end{subequations}
 
 These equations relate the primary electric and magnetic fields
 
@@ -73,32 +76,40 @@ In general, the relationship between the electric and magnetic fields (constitut
 non-isotropic tensor operators, functions of all of \( \BE, \BD, \BB \) and \( \BH \).
 In this book, we will assume that the constitutive relationships between the electric and magnetic fields are independent
 
-\begin{subequations}
-\label{eqn:freespace:300}
-\begin{dmath}\label{eqn:freespace:320}
-\BB = \mu \BH
+\index{\(\mu\)}
+\index{\(\epsilon\)}
+\index{\(\mu_r\)}
+\index{\(\epsilon_r\)}
+\index{\(\mu_0\)}
+\index{\(\epsilon_0\)}
+%\begin{subequations}
+\begin{dmath}\label{eqn:freespace:300}
+\begin{aligned}
+%\label{eqn:freespace:320}
+\BB &= \mu \BH \\
+%\label{eqn:freespace:340}
+\BD &= \epsilon \BE,
+\end{aligned}
 \end{dmath}
-\begin{dmath}\label{eqn:freespace:340}
-\BD = \epsilon \BE,
-\end{dmath}
-\end{subequations}
+%\end{subequations}
 
 where \( \epsilon = \epsilon_r \epsilon_0 \) is the permittivity of the medium [\si{F/m}] (Farads/meter), and \( \mu = \mu_r \mu_0 \) is the permeability of the medium [\si{H/m}] (Henries/meter).
 The permittivity and permeability may be functions of both time and position, and model the materials that the fields are propagating through.
 In free space \( \mu_r = 1 \) and \( \epsilon_r = 1\) so these relationships are simply
+\( \BB = \mu_0 \BH, \BD = \epsilon_0 \BE \), where
 
-\begin{subequations}
-\label{eqn:freespace:301}
-\begin{equation}\label{eqn:freespace:321}
-\BB = \mu_0 \BH
-\end{equation}
-\begin{equation}\label{eqn:freespace:341}
-\BD = \epsilon_0 \BE,
-\end{equation}
-\end{subequations}
-
-where
-
+%\begin{subequations}
+%\label{eqn:freespace:301}
+%\begin{equation}\label{eqn:freespace:321}
+%\BB = \mu_0 \BH
+%\end{equation}
+%\begin{equation}\label{eqn:freespace:341}
+%\BD = \epsilon_0 \BE,
+%\end{equation}
+%\end{subequations}
+%
+%where
+%
 \begin{itemize}
 \item \( \epsilon_0 = 8.85 \times 10^{-12} \si{C^2/N/m^2}\) : Permittivity of free space (Coulombs squared/Newton/square meter)
 \item \( \mu_0 = 4 \pi \times 10^{-7} \si{N/A^2}\) : Permeability of free space (Newtons/Ampere-squared).
@@ -163,7 +174,8 @@ simultaneous measure the position and velocity of an electron.
 
 The dynamics of particle interaction with the fields are provided by the
 Lorentz force and power equations
-
+\index{\(\Bp\)}
+\index{\(\calE\)}
 \begin{subequations}
 \label{eqn:freespace:180}
 \begin{dmath}\label{eqn:freespace:200}

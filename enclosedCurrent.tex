@@ -9,11 +9,11 @@ The geometric algebra generalization of this relates the product of the normal a
 To prove \cref{thm:enclosedCurrent:60}
 simply evaluate the volume integral of the gradient of the field using \cref{thm:volumeintegral:100}
 \begin{equation}\label{eqn:enclosedCurrent:20}
-\int_V dV \spacegrad F = \int_{\partial V} dA \ncap F,
+\int_V dV\, \spacegrad F = \int_{\partial V} dA\, \ncap F,
 \end{equation}
 and note that
 \begin{dmath}\label{eqn:enclosedCurrent:60}
-\int_V dV \spacegrad F = \int_V dV J.
+\int_V dV\, \spacegrad F = \int_V dV J.
 \end{dmath}
 This is a multivector relationship, containing a substantial amount of information, which can be
 extracted by
@@ -31,10 +31,10 @@ Inserting this into
 \cref{thm:enclosedCurrent:60}, and equating grades, we find
 \begin{dmath}\label{eqn:enclosedCurrent:80}
 \begin{aligned}
-\int_{\partial V} dA \ncap \cdot \BE &= \int_V dV \inv{\epsilon}\rho \\
-- \int_{\partial V} dA \eta ( \ncap \cross \BH ) &= - \int_V dV \eta \BJ \\
- I \int_{\partial V} dA (\ncap \cross \BE) &= - I \int_V dV \BM \\
- I \int_{\partial V} dA \eta (\ncap \cdot \BH) &=  I \int_V dV c \rho_\txtm,
+\int_{\partial V} dA \,\ncap \cdot \BE &= \int_V dV \frac{\rho}{\epsilon} \\
+- \int_{\partial V} dA\, \eta ( \ncap \cross \BH ) &= - \int_V dV\, \eta \BJ \\
+ I \int_{\partial V} dA\, (\ncap \cross \BE) &= - I \int_V dV\, \BM \\
+ I \int_{\partial V} dA\, \eta (\ncap \cdot \BH) &=  I \int_V dV\, c \rho_\txtm,
 \end{aligned}
 \end{dmath}
 
@@ -43,5 +43,5 @@ Of course \cref{eqn:enclosedCurrent:80}
 could have obtained directly from Maxwell's equations in their conventional form \cref{eqn:freespace:3399}.
 However, had we integrated the conventional Maxwell's equations, it would not have been obvious that the crazy mix of
 fields, sources, dot and cross products in \cref{eqn:enclosedCurrent:60} had a hidden structure as simple as
-\( \int_{\partial V} dA \ncap F = \int_V dV J \).
+\( \int_{\partial V} dA\, \ncap F = \int_V dV\, J \).
 %}

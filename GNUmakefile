@@ -10,6 +10,7 @@ include ../latex/make.bookvars
 
 # Override my default:
 #MY_CLASSICTHESIS_FRONTBACK_FILES := $(filter-out ../classicthesis_mine/FrontBackmatter/Dedication.tex,$(MY_CLASSICTHESIS_FRONTBACK_FILES))
+MY_CLASSICTHESIS_FRONTBACK_FILES := $(filter-out ../classicthesis_mine/FrontBackmatter/Titlepage.tex,$(MY_CLASSICTHESIS_FRONTBACK_FILES))
 
 #ONCEFLAGS := -justonce
 

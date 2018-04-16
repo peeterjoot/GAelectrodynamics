@@ -54,7 +54,7 @@ complete Green's function toolbox into the fight, and directly
 invert Maxwell's equation for \( F \) for any charge and current density distribution by convolution with the Green's function for the operator \( \stgradi \) as follows
 \begin{dmath}\label{eqn:ece2500report:60}
 F(\Bx, t)
-= \int dt' dV' G(\Bx, \Bx' ; t, t') J(\Bx', t').
+= \int dt' dV' \, G(\Bx, \Bx' ; t, t') J(\Bx', t').
 \end{dmath}
 Green's functions may also be applied to static and frequency domain field configurations.
 
@@ -500,7 +500,7 @@ The symmetry of the ring configuration allows for a closed form solution (numeri
 elliptic integrals, which are detailed in the book along with the derivation and plots of the resulting fields.
 \item The final worked statics problem in the book is a use of Ampere's law, to compute the magnetic field for a
 pair of z-axis oriented electric currents of magnitude \( I_1, I_2 \) flowing through the \( \Bp_1, \Bp_2 \) on the x-y plane.
-The geometry and derivation is detailed in the book, but we use the multivector line integral form of Ampere's law \( \ointctrclockwise_{\partial A} d\Bx F = -I \int_A dA \Be_3 (-\eta \BJ) = I \eta I_\txte \), and superposition to compute the field
+The geometry and derivation is detailed in the book, but we use the multivector line integral form of Ampere's law \( \ointctrclockwise_{\partial A} d\Bx\, F = -I \int_A dA \Be_3 (-\eta \BJ) = I \eta I_\txte \), and superposition to compute the field
 \( F = \sum_{k = 1,2} \ifrac{\eta I_k}{(2 \pi)} \ifrac{1}{(\Be_3 \wedge \lr{ \Br - \Bp_k})} \).
 The bivector (magnetic) nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
 \end{itemize}
@@ -529,7 +529,7 @@ Associated with the energy momentum tensor are a number of conservation relation
 or in an integral form
 \input{Theorem_poynting_integral.tex}
 
-As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\textrm{em}} = \int_V dV \bcP \), we can identify the sum of the Maxwell stress tensor's normal component over the bounding integral as time rate of change of the mechanical and electromagnetic momentum
+As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\textrm{em}} = \int_V dV\, \bcP \), we can identify the sum of the Maxwell stress tensor's normal component over the bounding integral as time rate of change of the mechanical and electromagnetic momentum
 \begin{equation}\label{eqn:ece2500report:2560}
 \frac{d}{dt} \Bp_{\textrm{mech}} + \frac{d}{dt} \Bp_{\textrm{em}} = \int_{\partial V} dA \BT(\ncap).
 \end{equation}

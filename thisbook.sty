@@ -28,6 +28,8 @@
 \usepackage{setspace}
 %\doublespacing
 
+%-------------------------------------------------------------------------------------
+
 \newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
 
 \tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
@@ -40,7 +42,31 @@ coltitle=black,center title,freelance,frame code={
 colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,
 coltitle=black,center title}}
 
-%-----------------------------------------
+%\newcounter{colorboxtable}
+%\numberwithin{colorboxtable}{chapter}
+%
+%% layout: X||Y
+%% title:
+%% text:
+%% label.
+%\newcommand{\makecolorboxtable}[4]{%
+%\refstepcounter{colorboxtable}%
+%\label{#4}%
+%\begin{tcolorbox}[tab2,tabularx={#1},title=Table \thecolorboxtable #2,boxrule=0.5pt]%
+%#3%
+%\end{tcolorbox}%
+%}
+
+% re-implement \makeexample using \newtcolorbox for consistency.  They have different border widths and thicknesses.
+\newtcolorbox[auto counter,number within=chapter]{tablebox}[2][]{colback=Maroon!10!white,
+colframe=DarkOliveGreen,
+%fonttitle=\bfseries,
+colbacktitle=white,enhanced,
+arc=0mm,
+attach boxed title to top left={yshift=-0.75mm,xshift=4mm},
+title=\textbf{{\color{DarkOliveGreen}Table\,\thetcbcounter:} {\color{Maroon}#2}},#1}
+
+%-------------------------------------------------------------------------------------
 
 %\newcommand{\boldTextAndIndex}[1]{\textbf{#1}\index{#1}}
 %\newcommand{\boldTextAndIndex}[1]{{\color{Maroon}{#1}}\index{#1}}

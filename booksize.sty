@@ -1,0 +1,29 @@
+
+\newboolean{use-lettersize}
+%\setboolean{use-lettersize}{false}
+\setboolean{use-lettersize}{true}
+
+\newboolean{print-version}
+%\setboolean{print-version}{false}
+\setboolean{print-version}{true}
+
+\ifthenelse{\boolean{use-lettersize}}
+{
+   % http://www.artofproblemsolving.com/Wiki/index.php/LaTeX:Layout#The_Easy_Way
+   % replaces manual settings (\parindent, \parskip, \topmargin, ...)
+   %\usepackage[margin=3.0cm]{geometry}
+   % default:
+   \usepackage[left=3cm,right=4cm]{geometry}
+   %\usepackage[left=2cm,right=1.9cm,top=2.1cm,bottom=1.9cm]{geometry}
+}
+{
+   % for createspace (would need to fix a bunch to use this layout)
+   % 6x9 == 15.24 x 22.86 centimeters
+% 
+%GAelectrodynamics6by9.pdf
+   %\usepackage[paperheight=9in,paperwidth=6in,left=2cm,right=1.7cm,top=1.7cm,bottom=2cm]{geometry}
+%GAelectrodynamics6x9.2.pdf
+   \usepackage[paperheight=9in,paperwidth=6in,left=2cm,right=1.9cm,top=1.9cm,bottom=2.2cm]{geometry}
+}
+
+

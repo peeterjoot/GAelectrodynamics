@@ -18,6 +18,9 @@ where \( \lroverarrow{D} \) indicates that \( D \) is acting bidirectionally to 
 } % definition
 
 Perhaps counter intuitively, using operator valued parameters for the energy momentum tensor \( T \) or the Maxwell stress tensor \( \BT \) will be particularly effective to express the derivatives of the tensor.  There are a few cases of interest, all related to evaluation of the tensor with a parameter value of the spacetime gradient.
+\index{\(T(\partial_t)\)}
+\index{\(T(\spacegrad)\)}
+\index{\(\BT(\spacegrad)\)}
 \maketheorem{Energy momentum tensor operator parameters.}{thm:poyntingTheoremRewrite:1200}{
 \begin{equation*}
 \begin{aligned}
@@ -95,27 +98,27 @@ as claimed.
 Will want to integrate \( \BT(\spacegrad) \) over a volume, which is essentially a divergence operation.
 \maketheorem{Divergence integral for the Maxwell stress tensor.}{thm:poyntingTheoremRewrite:1281}{
 \begin{equation*}
-\int_V dV \BT(\spacegrad)
+\int_V dV\, \BT(\spacegrad)
 =
-\int_{\partial V} dA \BT(\ncap).
+\int_{\partial V} dA\, \BT(\ncap).
 \end{equation*}
 } % theorem
 
 To prove \cref{thm:poyntingTheoremRewrite:1281}, we make use of the symmetric property of the Maxwell stress tensor
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:320}
-\int_V dV \BT(\spacegrad)
+\int_V dV\, \BT(\spacegrad)
 =
-\sum_k \int_V dV \Be_k \spacegrad \cdot \BT(\Be_k)
+\sum_k \int_V dV\, \Be_k \spacegrad \cdot \BT(\Be_k)
 =
-\sum_k \int_{\partial V} dA \Be_k \ncap \cdot \BT(\Be_k)
+\sum_k \int_{\partial V} dA\, \Be_k \ncap \cdot \BT(\Be_k)
 =
-\sum_{k,m} \int_{\partial V} dA \Be_k n_m {\BT(\Be_k) \cdot \Be_m}
+\sum_{k,m} \int_{\partial V} dA\, \Be_k n_m {\BT(\Be_k) \cdot \Be_m}
 =
-\sum_{k,m} \int_{\partial V} dA \Be_k n_m {\BT(\Be_m) \cdot \Be_k}
+\sum_{k,m} \int_{\partial V} dA\, \Be_k n_m {\BT(\Be_m) \cdot \Be_k}
 =
-\sum_{k} \int_{\partial V} dA \Be_k {\BT(\ncap) \cdot \Be_k}
+\sum_{k} \int_{\partial V} dA\, \Be_k {\BT(\ncap) \cdot \Be_k}
 =
-\int_{\partial V} dA \BT(\ncap),
+\int_{\partial V} dA\, \BT(\ncap),
 \end{dmath}
 as claimed.
 
@@ -157,6 +160,7 @@ an exercise for the reader.  A brute force symbolic algebra proof using Mathemat
 As in \cref{thm:poyntingTheoremRewrite:1200},
 the adjoint may also be evaluated with differential operator parameters.
 
+\index{\(\overbar{T}(x)\)}
 \maketheorem{Adjoint energy momentum tensor operator parameters.}{thm:poyntingTheoremRewrite:1280}{
 \begin{equation*}
 \begin{aligned}
@@ -324,12 +328,14 @@ the mechanical force on the charges in the volume.  This can be seen by setting 
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:1420}
 \int_V dV \lr{ \rho \BE + \BJ \cross \BB }
 =
-\int_V dV \rho \lr{ \BE + \Bv \cross \BB }
+\int_V dV\, \rho \lr{ \BE + \Bv \cross \BB }
 =
 \int_V dq \lr{ \BE + \Bv \cross \BB }.
 \end{dmath}
 
 As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\textrm{em}} = \int_V dV \bcP \), we can identify the sum of the Maxwell stress tensor normal component over the bounding integral as time rate of change of the mechanical and electromagnetic momentum
+\index{\(\Bp_{\textrm{mech}}\)}
+\index{\(\Bp_{\textrm{em}}\)}
 \boxedEquation{eqn:poyntingTheoremRewrite:1440}{
 \frac{d\Bp_{\textrm{mech}}}{dt} + \frac{d\Bp_{\textrm{em}}}{dt} = \int_{\partial V} dA \BT(\ncap).
 }

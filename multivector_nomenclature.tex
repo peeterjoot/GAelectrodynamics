@@ -4,6 +4,8 @@
 %
 The workhorse operator of geometric algebra is called grade selection, defined as
 \index{grade selection}
+\index{\(\gpgrade{M}{k}\)}
+\index{\(\gpgradezero{M}\)}
 \makedefinition{Grade selection operator}{dfn:gradeselection:gradeselection}{
 Given a set of k-vectors \( M_k, k \in [0,N] \), and any multivector of their sum
 \begin{equation*}
@@ -22,13 +24,13 @@ Due to its importance, selection of the (scalar) zero grade is given the shortha
 The grade selection operator will be used to define a generalized dot product between multivectors, and the
 wedge product, which generalizes the cross product (and is related to the cross product in \R{3}).
 
-To illustrate grade selection by example, given a multivector \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 \), then
+To illustrate grade selection by example, given a multivector \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 + 7 \Be_1 \Be_2 \Be_4 \), then
 \begin{equation}\label{eqn:multivector_nomenclature:80}
 \begin{aligned}
 \gpgradezero{M} &= 3 \\
 \gpgrade{M}{1} &= - \Be_3 \\
 \gpgrade{M}{2} &= 2 \Be_1 \Be_2 \\
-\gpgrade{M}{3} &= 0.
+\gpgrade{M}{3} &= 7 \Be_1 \Be_2 \Be_4.
 \end{aligned}
 \end{equation}
 
@@ -78,6 +80,8 @@ as ``the pseudoscalar'' for a three dimensional space.
 
 We will see that geometric algebra allows for many quantities that have a complex imaginary nature, and that the pseudoscalars of \cref{eqn:definitions:320} and \cref{eqn:definitions:340} both square to \(-1\).
 
+\index{\(i\)}
+\index{\(I\)}
 For this reason, it is often convenient to use a imaginary notation for the \R{2} and \R{3} pseudoscalars
 \begin{dmath}\label{eqn:multivector_nomenclature:42}
 \begin{aligned}
@@ -89,9 +93,3 @@ For three dimensional problems in this book, \( i \) will often be used as the u
 The meaning of \( i \) in any such cases will always be defined explicitly.
 %For example, the bivector that describes the transverse plane for a plane wave propagating along a \( \kcap \) direction may be designated by \( i \), even if \( i \) does not lie in the x-y plane.
 
-\makeproblem{Permutations of the \R{3} pseudoscalar}{problem:SimpleProducts2:permutationspseudoscalar}{
-Show that all the cyclic permutations of the \R{3} pseudoscalar are equal
-\begin{equation*}
-I = \Be_2 \Be_3 \Be_1 = \Be_3 \Be_1 \Be_2 = \Be_1 \Be_2 \Be_3.
-\end{equation*}
-} % problem

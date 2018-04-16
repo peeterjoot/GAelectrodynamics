@@ -23,15 +23,15 @@ We will work with \cref{thm:dielectric:20}, Maxwell's equations in media, in the
 and integrate these over the pillbox volume in the figure.  That is
 \begin{dmath}\label{eqn:boundarySurfaceSources:500}
 \begin{aligned}
-\int dV \gpgrade{ \spacegrad F }{0,1} + j k \int dV \BD &= \int dn dA J_{\textrm{es}} \delta(n) \\
-\int dV \gpgrade{ \spacegrad G }{2,3} + j k I c \int dV \BB &= I \int dn dA J_{\textrm{ms}} \delta(n).
+\int dV\, \gpgrade{ \spacegrad F }{0,1} + j k \int dV\, \BD &= \int dn dA\, J_{\textrm{es}} \delta(n) \\
+\int dV\, \gpgrade{ \spacegrad G }{2,3} + j k I c \int dV\, \BB &= I \int dn dA\, J_{\textrm{ms}} \delta(n).
 \end{aligned}
 \end{dmath}
 The gradient integrals can be evaluated with \cref{thm:volumeintegral:100}.  Evaluating the delta functions picks leaves an area integral on the surface.  Additionally, we assume that we are making the pillbox volume small enough that we can employ the mean value theorem for the \( \BD, \BB \) integrals
 \begin{dmath}\label{eqn:boundarySurfaceSources:520}
 \begin{aligned}
-\int_{\partial V} dA \gpgrade{ \ncap F }{0,1} + j k \Delta A \lr{ n_1 \tilde{\BD}_1 + n_2 \tilde{\BD}_2 } &= \Delta A J_{\textrm{es}} \\
-\int_{\partial V} dA \gpgrade{ \ncap G }{2,3} + j k I c \Delta A \lr{ n_1 \tilde{\BB}_1 + n_2 \tilde{\BB}_2} &= I \Delta A J_{\textrm{ms}}.
+\int_{\partial V} dA\, \gpgrade{ \ncap F }{0,1} + j k \Delta A \lr{ n_1 \tilde{\BD}_1 + n_2 \tilde{\BD}_2 } &= \Delta A J_{\textrm{es}} \\
+\int_{\partial V} dA\, \gpgrade{ \ncap G }{2,3} + j k I c \Delta A \lr{ n_1 \tilde{\BB}_1 + n_2 \tilde{\BB}_2} &= I \Delta A J_{\textrm{ms}}.
 \end{aligned}
 \end{dmath}
 We now let \( n_1, n_2 \) tend to zero, which kills off the \( \BD, \BB \) contributions, and also kills off the side wall contributions in the first pillbox surface integral.  This leaves

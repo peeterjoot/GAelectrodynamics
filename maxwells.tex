@@ -44,14 +44,37 @@
 \newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
 
 \tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
-colback=yellow!10!white,colframe=red!75!black,colbacktitle=Salmon!40!white,
+colback=yellow!10!white,colframe=DarkOliveGreen!75!black,colbacktitle=DarkOliveGreen!40!white,
 coltitle=black,center title,freelance,frame code={
 \foreach \n in {north east,north west,south east,south west}
-{\path [fill=red!75!black] (interior.\n) circle (3mm); };},}}
+{\path [fill=DarkOliveGreen!75!black] (interior.\n) circle (3mm); };},}}
 
 \tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily,
-colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,
+colback=yellow!10!white,colframe=DarkOliveGreen!50!black,colbacktitle=DarkOliveGreen!40!white,
 coltitle=black,center title}}
+
+%\newcounter{colorboxtable}
+%\numberwithin{colorboxtable}{chapter}
+%
+%% layout: X||Y
+%% title:
+%% text:
+%% label.
+%\newcommand{\makecolorboxtable}[4]{%
+%\refstepcounter{colorboxtable}%
+%\label{#4}%
+%\begin{tcolorbox}[tab2,tabularx={#1},title=Table \thecolorboxtable #2,boxrule=0.5pt]%
+%#3%
+%\end{tcolorbox}%
+%}
+
+\newtcolorbox[auto counter,number within=chapter]{tablebox}[2][]{colback=Maroon!10!white,
+colframe=DarkOliveGreen,
+%fonttitle=\bfseries,
+arc=0mm,
+colbacktitle=white,enhanced,
+attach boxed title to top left={yshift=-0.75mm,xshift=4mm},
+title=\textbf{{\color{DarkOliveGreen}Table\,\thetcbcounter:} {\color{Maroon}#2}},#1}
 
 \newcommand{\e}[0]{{(\mathrm{e})}}
 \newcommand{\m}[0]{{(\mathrm{m})}}
@@ -151,7 +174,28 @@ coltitle=black,center title}}
 %\input{poyntingTheoremRewrite.tex}
 %\input{poyntingFComplexPower.tex}
 %\input{potentialSection_farfield.tex}
-\input{linecharge.tex}
+%\input{linecharge.tex}
+\input{2dMultiplication.tex}
+
+%\begin{tablebox}[]{hello}
+%blah
+%\end{tablebox}
+%
+%%\begin{tablebox}[]{hello}
+%%a & b \\
+%%\end{tablebox}
+%
+%\begin{tablebox}[tabularx={X||Y|Y|Y|Y}]{Multiplication table}
+%        & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
+%\( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
+%\( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\ \hline
+%\( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\ \hline
+%\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
+%\end{tablebox}
+%
+%\makeexample{Velocity and acceleration in polar coordinates.}{example:projectionAndRejection:1160}{
+%In \cref{eqn:2dRotations:1280}, and \cref{eqn:2dRotations:1300} we found the polar representation of the velocity and acceleration vectors associated with the radial parameterization \( \Br(r, \theta) = r \rcap(\theta) \).
+%}
 
 %}
 %\EndArticle

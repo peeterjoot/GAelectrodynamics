@@ -14,20 +14,19 @@
       \input{helmholtzGreens.tex}
    \section{Delta function derivatives.}
       \input{derivativeOfDeltaFunction.tex}
+\ifthenelse{\boolean{print-version}}
+{
+}
+{
 \chapter{GA electrodynamics in the literature.}
    \input{galiterature.tex}
+}
 \chapter{Energy momentum tensor for vector parameters.}
    \input{stressTensorAlgebraically.tex}
+\ifthenelse{\boolean{print-version}}
+{
+}
+{
 \chapter{Mathematica notebooks.}
    \input{mathematica.tex}
-
-%\chapter{Useful formulas and review}
-%   \input{usefulFormulas.tex}
-%\chapter{Geometric Algebra}
-%   \input{gaQuickTutorial.tex}
-%\chapter{Mathematica notebooks}
-%   \input{mathematica.tex}
-%\chapter{Matlab notebooks}
-%   \input{matlab.tex}
-%\chapter{Julia notebooks}
-%   \input{julia.tex}
+}
