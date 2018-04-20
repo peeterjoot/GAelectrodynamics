@@ -13,11 +13,11 @@ M = \sum_{i = 0}^N M_i,
 \end{equation*}
 the grade selection operator is defined as
 \begin{equation*}\label{eqn:multivector_nomenclature:40}
-\gpgrade{M}{k} \equiv M_k.
+\gpgrade{M}{k} = M_k.
 \end{equation*}
 Due to its importance, selection of the (scalar) zero grade is given the shorthand
 \begin{equation*}
-\gpgradezero{M} \equiv \gpgrade{M}{0} = M_0.
+\gpgradezero{M} = \gpgrade{M}{0} = M_0.
 \end{equation*}
 }
 
@@ -27,7 +27,7 @@ wedge product, which generalizes the cross product (and is related to the cross 
 To illustrate grade selection by example, given a multivector \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 + 7 \Be_1 \Be_2 \Be_4 \), then
 \begin{equation}\label{eqn:multivector_nomenclature:80}
 \begin{aligned}
-\gpgradezero{M} &= 3 \\
+\gpgrade{M}{0} &= \gpgradezero{M} = 3 \\
 \gpgrade{M}{1} &= - \Be_3 \\
 \gpgrade{M}{2} &= 2 \Be_1 \Be_2 \\
 \gpgrade{M}{3} &= 7 \Be_1 \Be_2 \Be_4.
@@ -55,7 +55,7 @@ For example,
 \index{unit pseudoscalar}
 \makedefinition{Pseudoscalar.}{def:multiplication:pseudoscalar}{
 %A k-vector with grade that matches the dimension of the space.
-If \( \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) is a normal basis for a k-dimensional (sub)space, then the product \( \Bx_1 \Bx_2 \cdots \Bx_k \) is called a pseudoscalar for that (sub)space.
+If \( \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) is an orthogonal basis for a k-dimensional (sub)space, then the product \( \Bx_1 \Bx_2 \cdots \Bx_k \) is called a pseudoscalar for that (sub)space.
 A pseudoscalar that squares to \( \pm 1 \) is called a unit pseudoscalar.
 }
 
@@ -65,7 +65,7 @@ In \R{2}, \( \Be_1 \Be_2 \) is a pseudoscalar, as is \( 3 \Be_2 \Be_1 \), both o
 In \R{3} the trivector \( \Be_3 \Be_1 \Be_2 \) is a pseudoscalar, as is \( - 7 \Be_3 \Be_1 \Be_2 \), and both of these can also be related by a constant factor.
 For the subspace \( \Span{ \Be_1, \Be_2 + \Be_3} \), one pseudoscalar is \( \Be_1(\Be_2 + \Be_3) \).
 
-If all the vector factors of a pseudoscalar are not just normal but orthonormal, then it is a unit pseudoscalar.
+If all the vector factors of a pseudoscalar are not just orthogonal but orthonormal, then it is a unit pseudoscalar.
 %A pseudoscalar has an implied orientation, which can be
 %associated with the handedness of the underlying basis.
 It is conventional to refer to

@@ -2,7 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-An interchange of the order of the factors of two normal factors results in a change of sign,
+An interchange of the order of the factors of two orthogonal factors results in a change of sign,
 for example \( \Be_2 \Be_1 = -\Be_1 \Be_2 \).
 This is a consequence of the contraction axiom, and can be demonstrated by squaring the vector
 \( \Be_1 + \Be_2 \) (\cref{fig:unitSum:unitSumFig1}).
@@ -28,18 +28,17 @@ or
 }
 %\end{dmath}
 
-The same computation could have been performed for any two orthonormal vectors, so we conclude that any interchange of two orthonormal vectors changes the sign.
-In general this is true of any normal vectors.
+The same computation could have been performed for any two orthogonal vectors, so we conclude that any interchange of two orthogonal vectors changes the sign.
 
 \index{anticommutation}
 \maketheorem{Anticommutation}{thm:multiplication:anticommutationNormal}{
-Let \(\Bu\), and \(\Bv\) be two normal vectors, the product of which \( \Bu \Bv \) is a bivector.
+Let \(\Bu\), and \(\Bv\) be two orthogonal vectors, the product of which \( \Bu \Bv \) is a bivector.
 Changing the order of these products toggles the sign of the bivector.
 \begin{equation*}
 \Bu \Bv = -\Bv \Bu.
 \end{equation*}
 
-This sign change on interchange is called anticommutation.
+This sign change on interchange is called anticommutation.  Conversely, if the product of two vectors is a bivector, those vectors are orthogonal.
 } % theorem
 
 \makeproblem{Permutations of the \R{3} pseudoscalar}{problem:SimpleProducts2:permutationspseudoscalar}{

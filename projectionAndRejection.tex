@@ -14,7 +14,7 @@ Given a vector \( \Bx \) and vector \( \Bu \) the projection of \( \Bx \) onto t
 \end{equation*}
 where \( \ucap = \Bu/\Norm{\Bu} \).
 The rejection of \( \Bx \) by \( \Bu \) is defined as the component of \( \Bx \) that is
-normal to \( \Bu \)
+orthogonal to \( \Bu \)
 \begin{equation*}
 \Rej{\Bu}{\Bx} = \Bx - \Proj_\Bu(\Bx).
 \end{equation*}
@@ -201,7 +201,7 @@ In terms of the vector inverse, the projection and rejection operations with res
 \end{aligned}
 }
 
-It was claimed in the definition of rejection that the rejection is normal to the projection.
+It was claimed in the definition of rejection that the rejection is othogonal to the projection.
 This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).
 This also follows naturally using the grade selection operator representation of the dot product
 \begin{dmath}\label{eqn:projectionAndRejection:720}
@@ -219,8 +219,8 @@ This also follows naturally using the grade selection operator representation of
 
 This is zero because the scalar grade of a wedge product, a bivector, is zero by definition.
 
-\makeproblem{Rejection normality}{problem:projectionAndRejection:rejectionnormality}{
-Prove, without any use of GA, that \( \Bx - \Proj_\Bu(\Bx) \) is normal to \( \Bu \), as claimed in
+\makeproblem{Rejection orthogonality.}{problem:projectionAndRejection:rejectionnormality}{
+Prove, without any use of GA, that \( \Bx - \Proj_\Bu(\Bx) \) is orthogonal to \( \Bu \), as claimed in
 \cref{dfn:projectionAndRejection:projectionandrejection}.
 } % problem
 

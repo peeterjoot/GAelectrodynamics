@@ -13,7 +13,7 @@ with the following properties
     Bilinear & \( (a \Bx + b \By) \cdot \Bz = a \Bx \cdot \Bz + b \By \cdot \Bz\quad
 \Bx \cdot (a \By + b \Bz) = a \Bx \cdot \By + b \Bx \cdot \Bz \)
 \\ \hline
-    (Optional) Positive length & \( \Bx \cdot \Bx > 0, \Bx \ne 0 \) \\ \hline
+    Positive length & \( \Bx \cdot \Bx > 0, \Bx \ne 0 \) \\ \hline
 \end{tablebox}
 } % definition
 
@@ -23,42 +23,43 @@ For example,
 given a basis \( \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_N} \), and two vectors
 \begin{dmath}\label{eqn:prereq_standardbasis:240}
 \begin{aligned}
-   \Bx &= \sum_{i = 1}^N x_i \Bx_i \\
-   \By &= \sum_{i = 1}^N y_i \Bx_i,
+   \Ba &= \sum_{i = 1}^N a_i \Bx_i \\
+   \Bb &= \sum_{i = 1}^N b_i \Bx_i,
 \end{aligned}
 \end{dmath}
 the dot product of the two is
 \begin{dmath}\label{eqn:prereq_standardbasis:260}
-\Bx \cdot \By
+\Ba \cdot \Bb
 =
-   \lr{ \sum_{i = 1}^N x_i \Bx_i } \cdot
-   \lr{ \sum_{j = 1}^N y_j \Bx_j }
+   \lr{ \sum_{i = 1}^N a_i \Bx_i } \cdot
+   \lr{ \sum_{j = 1}^N b_j \Bx_j }
 =
-   \sum_{i,j = 1}^N x_i y_j \lr{ \Bx_i \cdot \Bx_j }.
+   \sum_{i,j = 1}^N a_i b_j \lr{ \Bx_i \cdot \Bx_j }.
 \end{dmath}
 Such an expansion in coordinates can be written in matrix form as
 \begin{dmath}\label{eqn:prereq_standardbasis:280}
-\Bx \cdot \By
+\Ba \cdot \Bb
 =
-\Bx^\T G \By,
+\Ba^\T G \Bb,
 \end{dmath}
 where \( G \) is the symmetric matrix with elements \( g_{ij} = \Bx_i \cdot \Bx_j \).
-This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space.
+This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for the space, with respect to the basis \( \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_N} \).
 
-For Euclidean spaces, which are the primary focus of this book, the metric is not only diagonal, but is the identity matrix.
-Slightly more general metrics are of interest in electrodynamics.  In particular, a four dimensional (relativistic) vector space, where the metric has diagonals \( (1,-1,-1,-1) \) or \( (-1, 1,1,1) \) allows for the construction of a geometric algebra that allows Maxwell's equations to take their very simplest form.  Such a metric does not have the (Euclidean) positive definite property \( \Bx^\T G \Bx > 0, \Bx \ne 0 \).
-
+%For Euclidean spaces, which are the primary focus of this book, the metric is not only diagonal, but is the identity matrix.
+%Slightly more general metrics are of interest in electrodynamics.  In particular, a four dimensional (relativistic) vector space, where the metric has diagonals \( (1,-1,-1,-1) \) or \( (-1, 1,1,1) \) allows for the construction of a geometric algebra that allows Maxwell's equations to take their very simplest form.  Such a metric does not have the (Euclidean) positive definite property \( \Bx^\T G \Bx > 0, \Bx \ne 0 \).
+%
 \index{length}
 \makedefinition{Length}{dfn:prerequisites:norm}{
-   The squared norm of a vector \( \Bx \) is defined as
+   The squared length of a vector \( \Bx \) is
 \begin{equation*}
    \Norm{\Bx}^2 = \Bx \cdot \Bx,
 \end{equation*}
-a quantity that need not be positive.
+%a quantity that need not be positive.
 The length of a vector \( \Bx \) is defined as
 \begin{equation*}
 \Norm{\Bx} =
-\sqrt{\Abs{ \Bx \cdot \Bx }}.
+%\sqrt{\Abs{ \Bx \cdot \Bx }}.
+\sqrt{ \Bx \cdot \Bx }.
 \end{equation*}
 }
 
@@ -67,7 +68,7 @@ The length of a vector \( \Bx \) is defined as
 
 \index{unit vector}
 \makedefinition{Unit vector}{dfn:prerequisites:unitvector}{
-   A vector \( \Bx \) is called a unit vector if its absolute squared norm is one (\( \Abs{\Bx \cdot \Bx} = 1 \)).
+   A vector \( \Bx \) is called a unit vector if the dot product with itself is unity (\( \Bx \cdot \Bx = 1 \)).
 } % definition
 
 %A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
@@ -76,15 +77,15 @@ The length of a vector \( \Bx \) is defined as
 %\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
 %\end{dmath}
 %
-\index{normal}
-\makedefinition{Normal}{dfn:prerequisites:normal}{
-   Two vectors from a vector space \( V \) are normal, or orthogonal, if their dot product is zero, \( \Bx \cdot \By = 0 \,\forall \Bx, \By \in V \).
+\index{orthogonal}
+\makedefinition{Orthogonal}{dfn:prerequisites:normal}{
+   Two vectors from a vector space \( V \) are orthogonal if their dot product is zero, \( \Bx \cdot \By = 0 \,\forall \Bx, \By \in V \).
 }
 
 \index{orthonormal}
 \makedefinition{Orthonormal}{dfn:prerequisites:orthonormal}{
-   Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and normal to each other (\( \Bx \cdot \By = 0 \), \( \Abs{\Bx \cdot \Bx} = \Abs{\By \cdot \By} = 1 \)).
-
+   Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and orthogonal to each other.
+% (\( \Bx \cdot \By = 0 \), \( \Bx \cdot \Bx = \By \cdot \By = 1 \)).
    A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
 }
 
@@ -95,12 +96,8 @@ The length of a vector \( \Bx \) is defined as
 \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called a standard basis if that set is orthonormal.
 } % definition
 
-\index{Euclidean space}
-\makedefinition{Euclidean space.}{dfn:prerequisites:euclideanspace}{
-   A vector space with standard basis
-   \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called \textit{Euclidean} if all the dot product pairs between the basis elements are not only orthonormal, but positive definite.
-That is
-\begin{equation*}
-\Be_i \cdot \Be_j = \delta_{ij}.
-\end{equation*}
-} % definition
+In relativisitic geometric algebra, the positive definite property of \cref{dfn:prerequisites:dotproduct} is considered optional.
+In this case, the definition of length must be modified, and one would say the length of a vector \( \Bx \) is \( \sqrt{\Abs{\Bx \cdot \Bx}} \), and that \( \Bx \) is a unit vector if \( \Bx \cdot \Bx = \pm 1 \).
+Such relativisitic bases will not be used in this book, but it is worth knowing that the geometric algebra literature may use a weaker defition of dot product than typical.
+A vector space
+with such a weakened dot product is called Euclidean if \( \Be_i \cdot \Be_j = \delta_{ij} \) for all standard basis elements \( \Be_i, \Be_j \), whereas is it non-Euclidean if \( \Be_i \cdot \Be_i = -1 \) for at least one standard basis vector \( \Be_i \).

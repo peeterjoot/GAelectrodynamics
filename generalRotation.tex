@@ -30,7 +30,7 @@ Any vector \( \Bp \in S \) anticommutes with the wedge product \( \Ba \wedge \Bb
 \Bp (\Ba \wedge \Bb) = - (\Ba \wedge \Bb) \Bp.
 \end{equation*}
 \item
-Any vector \( \Bn \) normal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 \)) commutes with this wedge product
+Any vector \( \Bn \) orthogonal to this plane (\( \Bn \cdot \Ba = \Bn \cdot \Bb = 0 \)) commutes with this wedge product
 \begin{equation*}
 \Bn (\Ba \wedge \Bb) = (\Ba \wedge \Bb) \Bn.
 \end{equation*}
@@ -44,14 +44,14 @@ vector \( \Bp \in S \) with an exponential
 
 This sign change on interchange will be called conjugation.
 \item
-Any normal vectors \( \Bn \) commute with a such a complex exponential
+Any orthogonal vectors \( \Bn \) commute with a such a complex exponential
 \begin{equation*}
 \Bn e^{\Ba \wedge \Bb} = e^{\Ba \wedge \Bb} \Bn.
 \end{equation*}
 \end{enumerate}
 } % theorem
 
-The proof relies on the fact that a normal factorization of the wedge product is possible.
+The proof relies on the fact that a orthogonal factorization of the wedge product is possible.
 If \( \Bp \) is one of those factors, then the other is uniquely determined by the multivector equation \( \Ba \wedge \Bb = \Bp \Bq \), for which we must have \( \Bq = \inv{\Bx}(\Ba \wedge \Bb) \in S \) and \( \Bp \cdot \Bq = 0 \)
 \footnote{The identities required to show that \( \Bq \) above has no trivector grades, and to evaluate it explicitly in terms of \( \Ba, \Bb, \Bx \), will be derived later.}
 .
@@ -65,7 +65,7 @@ Then
 -(\Ba \wedge \Bb) \Bp.
 \end{dmath}
 
-Any normal \( \Bn \) must also be perpendicular to the factors \( \Bp, \Bq \), with \( \Bn \cdot \Bp = \Bn \cdot \Bq = 0 \), so
+Any orthogonal vectors \( \Bn \) must also be perpendicular to the factors \( \Bp, \Bq \), with \( \Bn \cdot \Bp = \Bn \cdot \Bq = 0 \), so
 \begin{dmath}\label{eqn:generalRotation:1800}
 \Bn (\Ba \wedge \Bb)
 = \Bn (\Bp \Bq)
@@ -90,7 +90,7 @@ e^{-i\theta} \Bp
 =
 e^{- \Ba \wedge \Bb} \Bp,
 \end{dmath}
-and for vectors \( \Bn \) normal to \( S \)
+and for vectors \( \Bn \) orthogonal to \( S \)
 \begin{dmath}\label{eqn:generalRotation:1860}
 \Bn e^{ \Ba \wedge \Bb }
 =
@@ -119,8 +119,8 @@ R_\theta(\Bx) = e^{ - i \theta/2 } \Bx e^{ i\theta/2 }.
 Here the rotation sense is that of the \( \pi/2 \) rotation from \( \pcap \) to \( \qcap \) in the subspace \( S = \Span B \).
 } % definition
 
-This statement did not make any mention of a normal direction.
-Such a normal direction is not unique for dimensions higher than 3, nor defined for two dimensions.
+This statement did not make any mention of an orthogonal direction.
+Such an orthogonal direction is not unique for dimensions higher than 3, nor defined for two dimensions.
 Instead the rotational sense is defined by the ordering of the factors in the bivector \( i \).
 
 To check that this operation has the desired semantics,
@@ -140,7 +140,7 @@ e^{ - i \theta/2 } \lr{ \Bx_\parallel + \Bx_\perp } e^{ i\theta/2 }
 \end{dmath}
 
 As desired, this rotation operation
-rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the normal components of the vector unchanged, as illustrated in \cref{fig:Rotation:RotationFig1}.
+rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the components of the vector orthogonal to the plane unchanged, as illustrated in \cref{fig:Rotation:RotationFig1}.
 This is what we can call rotation around a normal in \R{3}.
 
 \imageFigure{../figures/GAelectrodynamics/RotationFig1}{Rotation with respect to the plane of a pseudoscalar.}{fig:Rotation:RotationFig1}{0.5}

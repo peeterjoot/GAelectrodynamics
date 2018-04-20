@@ -56,7 +56,7 @@ We now wish to define a bivector, or 2-vector, as a 2 dimensional object represe
 assuming a vector product, the algebraic description of a bivector is
 
 \makedefinition{Bivector.}{dfn:multivector:60}{
-A bivector, or 2-vector, is a sum of products of pairs of normal vectors.
+A bivector, or 2-vector, is a sum of products of pairs of orthogonal vectors.
 Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
 a general bivector can be expressed as
 \begin{equation*}
@@ -70,9 +70,9 @@ The bivector provides a structure that can encode plane oriented quantities such
 A quantity like angular momentum can be represented as a magnitude times a quantity that represents the orientation of the plane of rotation.
 In conventional vector algebra we use the normal of the plane to describe this orientation, but that is problematic in higher dimensional spaces where there is no unique normal.
 Use of the normal to represent a plane is also logically problematic in two dimensional spaces, which have to be extended to three dimensions to use normal centric constructs like the cross product.
-A bivector representation of a plane can eliminate the requirement utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts (like the cross product) to be generalized to dimensions other than three when desirable.
+A bivector representation of a plane can eliminate the requirement to utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts (like the cross product) to be generalized to dimensions other than three when desirable.
 
-One of the implications of the contraction axiom \cref{eqn:multivector:120}, to be discussed in more detail a bit later, is a linear dependence between bivectors formed from normal products.  For example, given any pair of unit bivectors, where \( i \ne j \) we have
+One of the implications of the contraction axiom \cref{eqn:multivector:120}, to be discussed in more detail a bit later, is a linear dependence between bivectors formed from orthogonal products.  For example, given any pair of unit bivectors, where \( i \ne j \) we have
 \begin{dmath}\label{eqn:multivector:140}
 \Be_i \Be_j + \Be_j \Be_i = 0,
 \end{dmath}
@@ -113,7 +113,7 @@ Vector addition can be performed graphically by connecting vectors head to tail,
 which can be interpreted as taking a 3 unit area, subtracting a 2 unit area, and adding a 5 unit area.  This sum is illustrated in
 \cref{fig:bivectorAdditionInPlane:bivectorAdditionInPlaneFig1}.
 An visualization of arbitrarily oriented bivector addition can be found in
-\cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}, where \( \text{blue} + \text{red} = \text{green} \).  This visualization shows that the
+\cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}, where \( \text{red} + \text{blue} = \text{green} \).  This visualization shows that the
 moral of the story is that we will almost exclusively be adding bivectors algebraically, but can interpret the sum geometrically after the fact.
 \imageFigure{../figures/GAelectrodynamics/bivectorAdditionInPlaneFig1}{Graphical representation of bivector addition in plane.}{fig:bivectorAdditionInPlane:bivectorAdditionInPlaneFig1}{0.2}
 \imageFigure{../figures/GAelectrodynamics/AdditionOfBivectorsFig2}{Bivector addition.}{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}{0.3}
@@ -128,7 +128,7 @@ moral of the story is that we will almost exclusively be adding bivectors algebr
 Again, assuming a vector product
 
 \makedefinition{Trivector.}{dfn:multivector:80}{
-A trivector, or 3-vector, is a sum of products of triplets of mutually normal vectors.
+A trivector, or 3-vector, is a sum of products of triplets of mutually orthogonal vectors.
 Given an \( N \) dimensional vector space \( V \) with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \), a trivector is any value
 \begin{equation*}
 \sum_{1 \le i < j < k \le N} T_{ijk} \Be_i \Be_j \Be_k,
@@ -158,7 +158,7 @@ We will defer interpreting the sign of a trivector geometrically until we tackle
 \index{grade}
 \paragraph{K-vector.}
 \makedefinition{K-vector and grade.}{dfn:multivector:100}{
-A k-vector is a sum of products of \( k \) mutually normal vectors.
+A k-vector is a sum of products of \( k \) mutually orthogonal vectors.
 Given an \( N \) dimensional vector space with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
 a general k-vector can be expressed as
 \begin{equation*}
@@ -166,12 +166,14 @@ a general k-vector can be expressed as
 \end{equation*}
 where \( K_{i j \cdots m} \) is a scalar, indexed by \( k \) indexes \( i, j, \cdots, m \).
 
-The number \( k \) of normal vectors that generate a k-vector is called the grade.
+The number \( k \) of orthogonal vectors that generate a k-vector is called the grade.
 
-A 1-vector is defined as a vector, and a 0-vector is defined as a scalar.
+A 0-vector is a scalar.
 
 The vector space \( V \) is said to generate the k-vector space.
 } % definition
+
+Illustrating by example, \( 1 \) is a 0-vector with grade 0, \( \Be_1 \) is a 1-vector with grade 1, \( \Be_1 \Be_2, \Be_2 \Be_3 \), and \( \Be_3 \Be_1 \) are 2-vectors with grade 2, and \( \Be_1 \Be_2 \Be_3 \) is a 3-vector with grade 3.
 
 We will see that the highest grade for a k-vector in an N dimensional vector space is \( N \).
 
@@ -186,16 +188,16 @@ a multivector is a sum of k-vectors, \( k \in [ 1, N ] \).
 The multivector space generated by \( V \) is a set \( M = \setlr{ x, y, z, \cdots } \) of multivectors, where the following axioms are satisfied
 
 \begin{tablebox}[tabularx={X|Y}]{Multivector space axioms.}
-    Contraction. & \( \Bx^2 = \Bx \cdot \Bx, \,\forall \Bx \in V \) \\ \hline
-    \( M \) is closed under addition. & \( x + y \in M \) \\ \hline
-    \( M \) is closed under multiplication. & \( x y \in M \) \\ \hline
-    Addition is associative. & \( (x + y) + z = x + (y + z) \) \\ \hline
-    Addition is commutative. & \( y + x = x + y \) \\ \hline
-    There exists a zero element \( 0 \in M \).  & \( x + 0 = x \) \\ \hline
-    For all \( x \in M \) there exists a negative additive inverse \( -x \in M \). & \( x + (-x) = 0 \) \\ \hline
-    Multiplication is distributive.  & \( x( y + z ) = x y + x z \), \( (x + y)z = x z + y z \) \\ \hline
-    Multiplication is associative. & \( (x y) z = x ( y z ) \) \\ \hline
-    There exists a multiplicative identity \( 1 \in M \). & \( 1 x = x \) \\ \hline
+    Contraction & \( \Bx^2 = \Bx \cdot \Bx, \,\forall \Bx \in V \) \\ \hline
+    \( M \) is closed under addition & \( x + y \in M \) \\ \hline
+    \( M \) is closed under multiplication & \( x y \in M \) \\ \hline
+    Addition is associative & \( (x + y) + z = x + (y + z) \) \\ \hline
+    Addition is commutative & \( y + x = x + y \) \\ \hline
+    There exists a zero element \( 0 \in M \)  & \( x + 0 = x \) \\ \hline
+    For all \( x \in M \) there exists a negative additive inverse \( -x \in M \) & \( x + (-x) = 0 \) \\ \hline
+    Multiplication is distributive  & \( x( y + z ) = x y + x z \), \( (x + y)z = x z + y z \) \\ \hline
+    Multiplication is associative & \( (x y) z = x ( y z ) \) \\ \hline
+    There exists a multiplicative identity \( 1 \in M \) & \( 1 x = x \) \\ \hline
 \end{tablebox}
 }
 
@@ -206,7 +208,7 @@ with an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N } \),
 , such as
    \( a_0 + \sum_i a_i \Be_i + \sum_{i \ne j} a_{ij} \Be_i \Be_j + \sum_{i \ne j \ne k} a_{ijk} \Be_i \Be_j \Be_k + \cdots \), where \( a_0, a_i, a_{ij}, \cdots \) are scalars.
 
-Compared to the vector space, def'n. \ref{def:prerequisites:vectorspace}, the multivector space
+Compared to the vector space, \cref{def:prerequisites:vectorspace}, the multivector space
 
 \begin{itemize}
 \item specifies a rule providing the meaning of a squared vector (the contraction axiom).

@@ -3,7 +3,7 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \index{vector product}
-The product of two colinear vectors is a scalar, and the product of two normal vectors is a bivector.
+The product of two colinear vectors is a scalar, and the product of two orthogonal vectors is a bivector.
 The product of two general vectors is a multivector with structure to be determined.
 A powerful way to examine this structure is to compute the product of two vectors in a polar representation with respect to the plane that they span.
 Let \( \Bu \) and \( \Bv \) be an orthonormal pair of vectors in the plane of \( \Ba \) and \( \Bb \), oriented in a positive rotational sense as illustrated in
@@ -164,7 +164,9 @@ Two wedge product properties can be immediately deduced from the polar represent
 \end{enumerate}
 
 We have now had a few hints that the wedge product might be related to the cross product.  Given two vectors \( \Ba, \Bb \) both the wedge and the cross product contain a \( \Norm{\Ba} \Norm{\Bb} \sin \Delta \theta \) factor, and both the wedge and cross product are antisymmetric operators.
-The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = \Ba \cross \Bc + \Ba \cross \Bc + \cdots \).  To see whether this is the case for the wedge product, let's examine the coordinate expansion of the wedge product.  Let
+The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) = 
+\Ba \cross \Bc + \Ba \cross \Bd + 
+\Bb \cross \Bc + \Bb \cross \Bd \).  To see whether this is the case for the wedge product, let's examine the coordinate expansion of the wedge product.  Let
 \begin{dmath}\label{eqn:products:1160}
 \begin{aligned}
 \Ba &= \sum_i a_i \Be_i \\
@@ -307,7 +309,7 @@ or
 \Ba \wedge \Bb = I ( \Ba \cross \Bb ).
 }
 
-The direction of the cross product \( \Ba \cross \Bb \) is normal to the plane represented by the bivector \( \Ba \wedge \Bb \).  The magnitude of both (up to a sign) is the area of the parallelogram spanned by the two vectors.
+The direction of the cross product \( \Ba \cross \Bb \) is orthogonal to the plane represented by the bivector \( \Ba \wedge \Bb \).  The magnitude of both (up to a sign) is the area of the parallelogram spanned by the two vectors.
 
 \makeexample{Wedge and cross product relationship.}{example:products:2000}{
 To take some of the abstraction from \cref{eqn:SimpleProducts2:1620} let's consider a specific example.  Let
@@ -352,10 +354,9 @@ The relationship between the wedge and cross products allows us to express the
 This is a very important relationship.
 
 In particular, for electromagnetism, \cref{eqn:SimpleProducts2:1640} can
-be used with \( \Ba = \spacegrad \) to combine (the scalar) Gauss's law with (the vector) Maxwell-Faraday equation, and to
-combine (the scalar) Gauss's law for magnetism with (the vector) Ampere-Maxwell equation.
-Such dot plus cross product sums will yield
-a pair of multivector equations that can be further merged.  The resulting multivector equation will be
+be used with \( \Ba = \spacegrad \) to combine pairs of Maxwell's equations to form pairs of multivector gradient equations,
+which can be merged further.
+The resulting multivector equation will be
 called
 Maxwell equation (singular), and will be the starting point of all our electromagnetic analysis.
 

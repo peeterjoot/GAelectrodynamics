@@ -8,14 +8,14 @@
 The end goal of this chapter is to be able to integrate multivector functions along curves and surfaces, known collectively as manifolds.
 For our purposes, a manifold is defined by a parameterization, such as the vector valued function \( \Bx(a,b) \) where \( a, b\) are scalar parameters.  With one parameter the vector traces out a curve, with two a surface, three a volume, and so forth.
 The respective partial derivatives of such a parameterized vector define a local basis for the surface at the point at which the partials are evaluated.
-The span of such a basis is called the tangent space, and the partials that constitute it are not necessarily orthonormal, or even normal.
+The span of such a basis is called the tangent space, and the partials that constitute it are not necessarily orthonormal, or even orthogonal.
 
 Unfortunately, in order to work with the curvilinear non-orthonormal bases that will be encountered in general integration theory, some
 additional tools are required.
 
 \begin{itemize}
 \item
-We introduce a reciprocal frame which partially generalizes the notion of normal to non-orthonormal bases.
+We introduce a reciprocal frame which partially generalizes the notion of orthogonality to non-orthonormal bases.
 \item
 We will borrow the upper and lower index (tensor) notation from relativistic physics that is useful for the intrinsically non-orthonormal spaces encountered in that study, as this notation works well to define the reciprocal frame.
 \end{itemize}
@@ -83,7 +83,7 @@ We have no need of this nomenclature, since we never transform coordinates in is
 
 An example of a 2D oblique Euclidean basis and a corresponding reciprocal basis is plotted in \cref{fig:obliqueReciprocal:obliqueReciprocalFig2}.
 Also plotted are the superposition of the projections required to arrive at a given point \( (4,2) \)) along the \( \Be_1, \Be_2 \) directions or the \( \Be^1, \Be^2 \) directions.
-In this plot, neither of the reciprocal frame vectors \( \Be^i \) are normal to the corresponding basis vectors \( \Be_i \).
+In this plot, neither of the reciprocal frame vectors \( \Be^i \) are orthogonal to the corresponding basis vectors \( \Be_i \).
 When one of \( \Be_i \) is increased(decreased) in magnitude, there will be a corresponding decrease(increase) in the magnitude of \( \Be^i \), but if the orientation is remained fixed, the corresponding direction of the reciprocal frame vector stays the same.
 
 \imageFigure{../figures/GAelectrodynamics/obliqueReciprocalFig2}{Oblique and reciprocal bases.}{fig:obliqueReciprocal:obliqueReciprocalFig2}{0.5}

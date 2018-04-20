@@ -5,13 +5,13 @@
 \index{reverse}
 \input{reverseDefined.tex}
 
-A useful relation for k-vectors that are composed entirely of products of normal vectors exists.  We call such k-vectors blades
+A useful relation for k-vectors that are composed entirely of products of orthogonal vectors exists.  We call such k-vectors blades
 
 \index{blade}
 \index{grade}
 \index{\(\bigwedge^k\)}
 \makedefinition{Blade.}{def:multiplication:blade}{
-A product of \( k \) normal vectors is called a k-blade, or a blade of grade \( k \).
+A product of \( k \) orthogonal vectors is called a k-blade, or a blade of grade \( k \).
 A grade zero blade is a scalar.
 
 The notation \( F \in \bigwedge^k \) is used in the literature to indicate that \( F \) is a blade of grade \( k \).
@@ -21,7 +21,7 @@ Any k-blade is also a k-vector, but not all k-vectors are k-blades.  For example
 \begin{dmath}\label{eqn:reverse:3}
 \Be_{12} + \Be_{34},
 \end{dmath}
-is not a 2-blade, since it cannot be factored into normal products.
+is not a 2-blade, since it cannot be factored into orthogonal products.
 This will be relevant when formulating rotations since bivectors that are blades can be used to simply describe rotations or Lorentz boosts
 \footnote{A rotation in spacetime.} whereas it is not easily possible to compute an exponential of a non-blade bivector argument.
 
@@ -42,10 +42,13 @@ A_k^\dagger
 &= (-1)^{k-1} \Ba_1 \Ba_k \Ba_{k-1} \cdots \Ba_2 \\
 &= (-1)^{k-1} (-1)^{k-2} \Ba_1 \Ba_2 \Ba_k \Ba_{k-1} \cdots \Ba_3 \\
 &\qquad \vdots \\
-&= (-1)^{k-1} (-1)^{k-2} \cdots (-1)^1 \Ba_1 \Ba_2 \cdots \Ba_k,
-&= (-1)^{k(k-1)/2} \Ba_1 \Ba_2 \cdots \Ba_k. \qquad \qedmarker
+&= (-1)^{k-1} (-1)^{k-2} \cdots (-1)^1 \Ba_1 \Ba_2 \cdots \Ba_k \\
+&= (-1)^{k(k-1)/2} \Ba_1 \Ba_2 \cdots \Ba_k \\
+&= (-1)^{k(k-1)/2} A_k,
+% \qquad \qedmarker
 \end{aligned}
 \end{dmath}
+which completes the proof.
 
 A special, but important case, is the reverse of the \R{3} pseudoscalar, which is negated by reversion
 \boxedEquation{eqn:reverse:103}{
