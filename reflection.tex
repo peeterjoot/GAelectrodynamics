@@ -73,3 +73,35 @@ As an illustration, here is a sample CliffordBasic reflection computation
 the results of which are plotted in \cref{fig:reflection:reflectionFig1}.
 
 \imageFigure{../figures/GAelectrodynamics/reflectionFig1}{Reflection.}{fig:reflection:reflectionFig1}{0.3}
+
+\begin{tablelabelbox}[tabularx={X||Y|Y}]{Comparision of geometric identities.}{tab:compare:geometry}
+             & Geometric algebra & Traditional algebra
+\\ \hline
+Projection & \( (\Bx \cdot \ucap) \ucap \) & \( (\Bx \cdot \ucap ) \ucap \)
+\\ \hline
+Rejection & \( (\Bx \wedge \ucap) \ucap \) & \( (\ucap \cross \Bx ) \cross \ucap \)
+\\ \hline
+2D rotation & \( \Bx e^{i \theta}, \quad i = \Be_{12} \) & \(
+\begin{bmatrix}
+\cos\theta & \sin\theta \\
+-\sin\theta & \cos\theta \\
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+\)
+\\ \hline
+3D rotation in the plane of \( \ucap, \vcap \), where \( \ucap \cdot \vcap = 0 \)
+&
+\( e^{-\ucap \vcap \theta /2} \Bx e^{\ucap \vcap \theta/2} \)
+&
+\(
+(\Bx \cdot \ucap) (\ucap \cos\theta + \vcap \sin\theta) +
+(\Bx \cdot \vcap) (\vcap \cos\theta - \ucap \sin\theta) +
+(\ucap \cross \Bx) \cross \ucap
+\)
+\\ \hline
+Reflection & \( \ucap \Bx \ucap\) & \( (\Bx \cdot \ucap) \ucap + \ucap \cross (\ucap \cross \Bx) \)
+\\ \hline
+\end{tablelabelbox}

@@ -69,7 +69,7 @@ The vector basis \( V \) is said to be a generator of a bivector space.
 The bivector provides a structure that can encode plane oriented quantities such as torque, angular momentum, or a general plane of rotation.
 A quantity like angular momentum can be represented as a magnitude times a quantity that represents the orientation of the plane of rotation.
 In conventional vector algebra we use the normal of the plane to describe this orientation, but that is problematic in higher dimensional spaces where there is no unique normal.
-Use of the normal to represent a plane is also logically problematic in two dimensional spaces, which have to be extended to three dimensions to use normal centric constructs like the cross product.
+Use of the normal to represent a plane is unsatisfactory in two dimensional spaces, which have to be extended to three dimensions to use normal centric constructs like the cross product.
 A bivector representation of a plane can eliminate the requirement to utilize a third (normal) dimension, which may not be relevant in the problem, and can allow some concepts (like the cross product) to be generalized to dimensions other than three when desirable.
 
 One of the implications of the contraction axiom \cref{eqn:multivector:120}, to be discussed in more detail a bit later, is a linear dependence between bivectors formed from orthogonal products.  For example, given any pair of unit bivectors, where \( i \ne j \) we have
@@ -81,28 +81,29 @@ The reader can check that the set of all bivectors is a vector space per
 \cref{def:prerequisites:vectorspace}, so we will call the set of all bivectors a bivector space.
 In \R{2} a basis for the bivector space is \( \setlr{ \Be_1 \Be_2 } \), whereas in \R{3} a basis for the bivector space is
 \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 } \).  The unit bivectors for two possible \R{3} bivector space bases are illustrated in
-\cref{fig:unitBivectors:unitBivectorsFig}.
-\imageTwoFigures
+\cref{fig:unitBivectors:unitBivectorsFig}, along with their cyclic orientations.  The cyclic orientation of a bivector is the equivalent to the ``head'' vs. the ``tail'' of a vector, a graphical construct that is flipped by changing the sign.  While the magnitude of a bivector represents an area, a bivector has no intrinsic shape, and the figure shows parallelogram and circular disk representations of the same bivectors.
+\imageFourFiguresTwoLines
 {../figures/GAelectrodynamics/unitBivectorsFig1}
 {../figures/GAelectrodynamics/unitBivectorsFig2}
+{../figures/GAelectrodynamics/unitBivectorsFig3}
+{../figures/GAelectrodynamics/unitBivectorsFig4}
 {Unit bivectors for \R{3}}
 {fig:unitBivectors:unitBivectorsFig}
 {scale=0.35}
 
-We interpret the sign of a vector as an indication of the sense of the vector's ``head'' vs ``tail''.
-For a bivector, we can interpret the sign as a representation of a
-a ``top'' vs. ``bottom'', or equivalently a left or right ``handedness'', as illustrated using arrows around a plane segment in
-\cref{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}.
-\imageFigure{../figures/GAelectrodynamics/circularBivectorsIn3DFig1}{Circular representation of two bivectors.}{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}{0.3}
-For a product like \( \Be_1 \Be_2 \), the sense of the handedness follows the path \( 0 \rightarrow \Be_1 \rightarrow \Be_1 + \Be_2 \rightarrow \Be_2 \rightarrow 0 \) around the unit square in the x-y plane.
-This is illustrated for all the unit bivectors in \cref{fig:unitBivectors:unitBivectorsFig}.
-In \R{3} we can use the right hand rule to visualize such a handedness.  You could say that we are using the direction of the fingers around the normal to indicate the sign of the bivector, but without actually drawing that normal.
+%we can interpret the sign as a representation of a
+%a ``top'' vs. ``bottom'', or equivalently a left or right ``handedness'', as illustrated using arrows around a plane segment in
+%\cref{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}.
+%\imageFigure{../figures/GAelectrodynamics/circularBivectorsIn3DFig1}{Circular representation of two bivectors.}{fig:circularBivectorsIn3D:circularBivectorsIn3DFig1}{0.3}
+%For a product like \( \Be_1 \Be_2 \), the sense of the handedness follows the path \( 0 \rightarrow \Be_1 \rightarrow \Be_1 + \Be_2 \rightarrow \Be_2 \rightarrow 0 \) around the unit square in the x-y plane.
+%This is illustrated for all the unit bivectors in \cref{fig:unitBivectors:unitBivectorsFig}.
+%In \R{3} we can use the right hand rule to visualize such a handedness.  You could say that we are using the direction of the fingers around the normal to indicate the sign of the bivector, but without actually drawing that normal.
 
-Similar to the interpretation of the magnitude of a vector as the length of that vector, we interpret the magnitude of a bivector (to be defined more exactly later), as the area of the bivector.
-Other than having a boundary that surrounds a given area, a graphical bivector representation as a plane segment need not have any specific geometry, which is illustrated in
-\cref{fig:bivectorRepresentationsInPlane:bivectorRepresentationsInPlaneFig1} for a set of bivectors all representing \( \Be_1 \Be_2 \).
-\imageFigure{../figures/GAelectrodynamics/bivectorRepresentationsInPlaneFig1}{Graphical representations of \( \Be_1 \Be_2 \).}{fig:bivectorRepresentationsInPlane:bivectorRepresentationsInPlaneFig1}{0.3}
-
+%Similar to the interpretation of the magnitude of a vector as the length of that vector, we interpret the magnitude of a bivector (to be defined more exactly later), as the area of the bivector.
+%Other than having a boundary that surrounds a given area, a graphical bivector representation as a plane segment need not have any specific geometry, which is illustrated in
+%\cref{fig:bivectorRepresentationsInPlane:bivectorRepresentationsInPlaneFig1} for a set of bivectors all representing \( \Be_1 \Be_2 \).
+%\imageFigure{../figures/GAelectrodynamics/bivectorRepresentationsInPlaneFig1}{Graphical representations of \( \Be_1 \Be_2 \).}{fig:bivectorRepresentationsInPlane:bivectorRepresentationsInPlaneFig1}{0.3}
+%
 An oriented plane segment can always be represented as a bivector in any number of dimensions, however, when the generating vector space has dimension \( N \ge 4 \) not all bivectors defined by \cref{dfn:multivector:60} necessarily represent oriented plane segments.
 The restrictions required for a bivector to have an associated oriented plane segment interpretation in higher dimensional spaces will be defined later.
 
@@ -187,7 +188,7 @@ a multivector is a sum of k-vectors, \( k \in [ 1, N ] \).
 
 The multivector space generated by \( V \) is a set \( M = \setlr{ x, y, z, \cdots } \) of multivectors, where the following axioms are satisfied
 
-\begin{tablebox}[tabularx={X|Y}]{Multivector space axioms.}
+\begin{tablebox}[tabularx={X|Y}]%{Multivector space axioms.}
     Contraction & \( \Bx^2 = \Bx \cdot \Bx, \,\forall \Bx \in V \) \\ \hline
     \( M \) is closed under addition & \( x + y \in M \) \\ \hline
     \( M \) is closed under multiplication & \( x y \in M \) \\ \hline

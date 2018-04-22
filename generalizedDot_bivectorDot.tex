@@ -58,8 +58,7 @@ To complete the proof, we apply \cref{thm:generalizedDot:wedgeDotDistribution}
 (\Ba \cdot \Bd) (\Bb \cdot \Bc) - (\Bb \cdot \Bd) (\Ba \cdot \Bc).
 \end{dmath}
 
-In \R{3}, this identity also has a cross product equivalent
-
+This identity has the following \R{3} cross product equivalent.
 \maketheorem{Dot products of wedges as cross products.}{thm:generalizedDot:bivectorDotAsCrossProducts}{
 The dot product of two \R{3} wedge products can be expressed as cross products
 \begin{equation*}
@@ -83,5 +82,18 @@ I (\Ba \cross \Bb) I (\Bc \cross \Bd)
 =
 -(\Ba \cross \Bb) \cdot (\Bc \cross \Bd).
 \end{dmath}
+
+\begin{tablelabelbox}[tabularx={X||Y|Y}]{Comparison of distribution identities.}{tab:gen:distribution}
+             & Geometric algebra & Vector algebra
+\\ \hline
+vector-bivector dot product (
+triple cross product) & \( \Ba \cdot ( \Bb \wedge \Bc ) \) & \( (\Bb \cross \Bc) \cross \Ba \)
+\\ \hline
+bivector dot product (dot product of cross products) &
+\( (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd) \)
+&
+\( -(\Ba \cross \Bb) \cdot (\Bc \cross \Bd) \)
+\\ \hline
+\end{tablelabelbox}
 
 %}

@@ -119,6 +119,7 @@ multivector.tex
 multivector_nomenclature.tex
 normalFactorization.tex
 normalVectors.tex
+paulivectorspace.tex
 planewavesMultivector.tex
 polarizationRewrite.tex
 potentialSection_farfield.tex
@@ -129,6 +130,7 @@ poyntingTheoremRewrite.tex
 prereq_basisspandim.tex
 prereq_standardbasis.tex
 prereq_vectorspace.tex
+prereq_vectorspace_Rn.tex
 prerequisites.tex
 products.tex
 projectionAndRejection.tex

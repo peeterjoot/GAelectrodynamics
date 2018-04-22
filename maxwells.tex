@@ -68,13 +68,15 @@ coltitle=black,center title}}
 %\end{tcolorbox}%
 %}
 
-\newtcolorbox[auto counter,number within=chapter]{tablebox}[2][]{colback=Maroon!10!white,
+\newtcolorbox[auto counter,number within=chapter]{tablelabelbox}[3][]{colback=Maroon!10!white,
 colframe=DarkOliveGreen,
 %fonttitle=\bfseries,
 arc=0mm,
 colbacktitle=white,enhanced,
 attach boxed title to top left={yshift=-0.75mm,xshift=4mm},
+label=#3,%
 title=\textbf{{\color{DarkOliveGreen}Table\,\thetcbcounter:} {\color{Maroon}#2}},#1}
+%label=#3 type=table,
 
 \newcommand{\e}[0]{{(\mathrm{e})}}
 \newcommand{\m}[0]{{(\mathrm{m})}}
@@ -175,27 +177,8 @@ title=\textbf{{\color{DarkOliveGreen}Table\,\thetcbcounter:} {\color{Maroon}#2}}
 %\input{poyntingFComplexPower.tex}
 %\input{potentialSection_farfield.tex}
 %\input{linecharge.tex}
-\input{2dMultiplication.tex}
-
-%\begin{tablebox}[]{hello}
-%blah
-%\end{tablebox}
-%
-%%\begin{tablebox}[]{hello}
-%%a & b \\
-%%\end{tablebox}
-%
-%\begin{tablebox}[tabularx={X||Y|Y|Y|Y}]{Multiplication table}
-%        & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
-%\( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
-%\( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\ \hline
-%\( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\ \hline
-%\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
-%\end{tablebox}
-%
-%\makeexample{Velocity and acceleration in polar coordinates.}{example:projectionAndRejection:1160}{
-%In \cref{eqn:2dRotations:1280}, and \cref{eqn:2dRotations:1300} we found the polar representation of the velocity and acceleration vectors associated with the radial parameterization \( \Br(r, \theta) = r \rcap(\theta) \).
-%}
+%\input{2dMultiplication.tex}
+\input{prerequisites.tex}
 
 %}
 %\EndArticle

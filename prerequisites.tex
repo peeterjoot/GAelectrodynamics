@@ -3,24 +3,89 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 Geometric algebra (GA for short), generalizes and extends vector algebra.
-The following section contains a lighting review of some 
+The following section contains a lighting review of some
 foundational concepts, including
-vector space, basis, orthonormality, and metric.
-If you are inclined to skip this, please at least examine the
-stated dot product definition, since the conventional positive definite property is not assumed.
+scalar, vector, vector space, basis, orthonormality, and metric.
+%If you are inclined to skip this, please at least examine the
+%stated dot product definition, since the conventional positive definite property is not assumed.
 
 \subsection{Vector.}
 
-(PASTED: ... fixup per notes on paper copy).
-%, and possible orientation, as illustrated in
-%\cref{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}, where the length of the line segment represents the magnitude, and
-%the sign of the vector can be represented graphically using the relative placement of the head vs. tail of the vector.
-When vectors are negated the relative placement of the ``head'' vs. the ``tail'' are toggled as illustrated in \cref{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}.
-\imageFigure{../figures/GAelectrodynamics/VectorsWithOppositeOrientationFig1}{Vector illustration.}{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}{0.3}
-%One vector in isolation is a one dimensional object, however, when embedded in a higher order space, such as a plane or a volume, it also has an orientation in that space.
+A vector is a directed line segment, with a length, direction, and an orientation.  A number of different representations of vectors are possible.
 
-Vectors can be added graphically by connecting them head to tail in sequence, and joining the first tail point to the final head, as
-illustrated in
+\paragraph{Graphical representation.}
+
+A vector may be represented graphically as an arrow, with the head indicating the direction of the vector.
+Multiplication of vectors by positive numbers changes the length of the vector, whereas multiplication by negative numbers changes the direction of the vector and the length, as illustrated in
+\cref{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}.
+Addition of vectors is performed by connecting the arrows heads to tails as illustrated in
 \cref{fig:vectorAddition:vectorAdditionFig1}.
-\imageFigure{../figures/GAelectrodynamics/vectorAdditionFig1}{Graphical vector addition.}{fig:vectorAddition:vectorAdditionFig1}{0.3}
+\index{\bbR}
+In this book a scalar is a number, usually real, but occasionally complex valued.  The set of real numbers will be designated \bbR.
+\imageFigure{../figures/GAelectrodynamics/VectorsWithOppositeOrientationFig1}{Scalar multiples of vectors.}{fig:VectorsWithOppositeOrientation:VectorsWithOppositeOrientationFig1}{0.15}
+\imageFigure{../figures/GAelectrodynamics/vectorAdditionFig1}{Addition of vectors.}{fig:vectorAddition:vectorAdditionFig1}{0.3}
 
+\paragraph{Coordinate representation.}
+
+The length and orientation of a vector, relative to a chosen fixed point (the origin) may be specified algebraically as the coordinates of the head of the vector, as
+illustrated in \cref{fig:coordinateRepresentation:coordinateRepresentationFig1}.
+\imageFigure{../figures/GAelectrodynamics/coordinateRepresentationFig1}{Coordinate representation of vectors.}{fig:coordinateRepresentation:coordinateRepresentationFig1}{0.3}
+
+Two dimensional vectors may be represented as pairs of coordinates
+\( \lr{x,y}\), three dimensional vectors as triples of coordinates \(\lr{x,y,z}\), and more generally, \( N \) dimensional vectors may be represented as coordinate tuples \(\lr{x_1,x_2,\cdots, x_N}\).
+Given two vectors, say \( \Bx = \lr{x,y}, \By = \lr{a,b} \), the sum of the vectors is just the sum of the coordinates \( \Bx + \By = \lr{ x + a, y + b} \).
+Numeric multiplication of a vector rescales each of the coordinates, for example with \( \Bx = \lr{x,y,z} \), \( \alpha \Bx = \lr{\alpha x, \alpha y, \alpha z} \).
+
+It is often convienient to assemble such lists of coordinates in matrix form as rows or columns, providing a few equivalent vector representations as
+shown in table \ref{tab:prereq:equivalent}.
+\begin{tablelabelbox}[tabularx={X|X|X}]{Equivalent vector coordinate representations.}{tab:prereq:equivalent}
+Tuple & Row & Column \\ \hline
+\(\lr{x_1,x_2,\cdots, x_N}\) &
+\(
+\begin{bmatrix}
+x_1 &
+x_2 & \hdots &
+x_N
+\end{bmatrix}
+\)
+&
+\(
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_N
+\end{bmatrix}
+\)
+\\ \hline
+\end{tablelabelbox}
+
+In this book, the length one (unit) vector in the i'th direction will be given the symbol \( \Be_i \).
+For example, in three dimensional space with a column vector representation, the respective unit vectors along each of the \(x\), \(y\), and \(z\) directions would be designated
+\begin{equation}\label{eqn:prerequisites:20}
+\Be_1 =
+\begin{bmatrix}
+1 \\
+0 \\
+0 \\
+\end{bmatrix},\quad
+\Be_2 =
+\begin{bmatrix}
+0 \\
+1 \\
+0 \\
+\end{bmatrix},\quad
+\Be_3 =
+\begin{bmatrix}
+0 \\
+0 \\
+1 \\
+\end{bmatrix}.
+\end{equation}
+
+Such symbolic designation allows any vector to be encoded in a
+representation agnostic fashion.  For example a vector \( \Bx \) with coordinates \( x, y, z \) is
+\begin{dmath}\label{eqn:prerequisites:40}
+\Bx = x \Be_1 + y \Be_2 + z \Be_3,
+\end{dmath}
+independent of a tuple, row, column, or any other representation.

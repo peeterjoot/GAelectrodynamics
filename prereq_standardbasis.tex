@@ -6,17 +6,70 @@
 \makedefinition{Dot product.}{dfn:prerequisites:dotproduct}{
 Let \( \Bx, \By \) be vectors from a vector space \( V \).
 A dot product \( \Bx \cdot \By \) is a mapping \( V \cross V \rightarrow \bbR \)
-with the following properties
+with the following properties.
 
-\begin{tablebox}[tabularx={X|Y}]{Dot product properties.}
+\begin{tablebox}[tabularx={X|Y}]%{Dot product properties.}
     Symmetric & \( \Bx \cdot \By = \By \cdot \Bx \) \\ \hline
-    Bilinear & \( (a \Bx + b \By) \cdot \Bz = a \Bx \cdot \Bz + b \By \cdot \Bz\quad
+    Bilinear & \( (a \Bx + b \By) \cdot \Bz = a \Bx \cdot \Bz + b \By \cdot \Bz,\quad
 \Bx \cdot (a \By + b \Bz) = a \Bx \cdot \By + b \Bx \cdot \Bz \)
 \\ \hline
     Positive length & \( \Bx \cdot \Bx > 0, \Bx \ne 0 \) \\ \hline
 \end{tablebox}
 } % definition
 
+\index{length}
+\makedefinition{Length}{dfn:prerequisites:norm}{
+%   The squared length of a vector \( \Bx \) is
+%\begin{equation*}
+%   \Norm{\Bx}^2 = \Bx \cdot \Bx,
+%\end{equation*}
+%%a quantity that need not be positive.
+The length of a vector \( \Bx \in V \) is defined as
+\begin{equation*}
+\Norm{\Bx} =
+%\sqrt{\Abs{ \Bx \cdot \Bx }}.
+\sqrt{ \Bx \cdot \Bx }.
+\end{equation*}
+}
+
+%A vector space with an associated norm based length is called a normed vector space.
+%Any dot product space is also a normed vector space.
+
+\index{unit vector}
+\makedefinition{Unit vector}{dfn:prerequisites:unitvector}{
+   A vector \( \Bx \) is called a unit vector if the dot product with itself is unity (\( \Bx \cdot \Bx = 1 \)).
+} % definition
+
+%A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
+%
+%\begin{dmath}\label{eqn:prereq_standardbasis:220}
+%\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
+%\end{dmath}
+%
+\index{orthogonal}
+\makedefinition{Orthogonal}{dfn:prerequisites:normal}{
+   Two vectors \( \Bx, \By \in V \) are orthogonal if their dot product is zero, \( \Bx \cdot \By = 0 \).
+}
+
+\index{orthonormal}
+\makedefinition{Orthonormal}{dfn:prerequisites:orthonormal}{
+   Two vectors \( \Bx, \By \in V \) are orthonormal if they are both unit vectors and orthogonal to each other.
+% (\( \Bx \cdot \By = 0 \), \( \Bx \cdot \Bx = \By \cdot \By = 1 \)).
+   A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
+}
+
+\index{standard basis}
+\index{\(\Be_1, \Be_2, \cdots\)}
+\makedefinition{Standard basis.}{dfn:prerequisites:standardbasis}{
+   A basis
+\( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called a standard basis if that set is orthonormal.
+} % definition
+
+In relativisitic geometric algebra, the positive definite property of \cref{dfn:prerequisites:dotproduct} is considered optional.
+In this case, the definition of length must be modified, and one would say the length of a vector \( \Bx \) is \( \sqrt{\Abs{\Bx \cdot \Bx}} \), and that \( \Bx \) is a unit vector if \( \Bx \cdot \Bx = \pm 1 \).
+Such relativisitic bases will not be used in this book, but it is worth knowing that the geometric algebra literature may use a weaker defition of dot product than typical.
+A vector space
+with such a weakened dot product is called Euclidean if \( \Be_i \cdot \Be_j = \delta_{ij} \) for all standard basis elements \( \Be_i, \Be_j \), whereas is it non-Euclidean if \( \Be_i \cdot \Be_i = -1 \) for at least one standard basis vector \( \Be_i \).
 Because the dot product is bilinear, it is
 specified completely by the dot products of a set of basis elements for the space.
 For example,
@@ -48,56 +101,4 @@ This matrix \( G \), or its elements \( g_{ij} \) is also called the metric for 
 %For Euclidean spaces, which are the primary focus of this book, the metric is not only diagonal, but is the identity matrix.
 %Slightly more general metrics are of interest in electrodynamics.  In particular, a four dimensional (relativistic) vector space, where the metric has diagonals \( (1,-1,-1,-1) \) or \( (-1, 1,1,1) \) allows for the construction of a geometric algebra that allows Maxwell's equations to take their very simplest form.  Such a metric does not have the (Euclidean) positive definite property \( \Bx^\T G \Bx > 0, \Bx \ne 0 \).
 %
-\index{length}
-\makedefinition{Length}{dfn:prerequisites:norm}{
-   The squared length of a vector \( \Bx \) is
-\begin{equation*}
-   \Norm{\Bx}^2 = \Bx \cdot \Bx,
-\end{equation*}
-%a quantity that need not be positive.
-The length of a vector \( \Bx \) is defined as
-\begin{equation*}
-\Norm{\Bx} =
-%\sqrt{\Abs{ \Bx \cdot \Bx }}.
-\sqrt{ \Bx \cdot \Bx }.
-\end{equation*}
-}
 
-%A vector space with an associated norm based length is called a normed vector space.
-%Any dot product space is also a normed vector space.
-
-\index{unit vector}
-\makedefinition{Unit vector}{dfn:prerequisites:unitvector}{
-   A vector \( \Bx \) is called a unit vector if the dot product with itself is unity (\( \Bx \cdot \Bx = 1 \)).
-} % definition
-
-%A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
-%
-%\begin{dmath}\label{eqn:prereq_standardbasis:220}
-%\xcap = \frac{\Bx}{\sqrt{\Abs{\Norm{\Bx}^2}}}.
-%\end{dmath}
-%
-\index{orthogonal}
-\makedefinition{Orthogonal}{dfn:prerequisites:normal}{
-   Two vectors from a vector space \( V \) are orthogonal if their dot product is zero, \( \Bx \cdot \By = 0 \,\forall \Bx, \By \in V \).
-}
-
-\index{orthonormal}
-\makedefinition{Orthonormal}{dfn:prerequisites:orthonormal}{
-   Two vectors \( \Bx, \By \) are orthonormal if they are both unit vectors and orthogonal to each other.
-% (\( \Bx \cdot \By = 0 \), \( \Bx \cdot \Bx = \By \cdot \By = 1 \)).
-   A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
-}
-
-\index{standard basis}
-\index{\(\Be_1, \Be_2, \cdots\)}
-\makedefinition{Standard basis.}{dfn:prerequisites:standardbasis}{
-   A basis
-\( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called a standard basis if that set is orthonormal.
-} % definition
-
-In relativisitic geometric algebra, the positive definite property of \cref{dfn:prerequisites:dotproduct} is considered optional.
-In this case, the definition of length must be modified, and one would say the length of a vector \( \Bx \) is \( \sqrt{\Abs{\Bx \cdot \Bx}} \), and that \( \Bx \) is a unit vector if \( \Bx \cdot \Bx = \pm 1 \).
-Such relativisitic bases will not be used in this book, but it is worth knowing that the geometric algebra literature may use a weaker defition of dot product than typical.
-A vector space
-with such a weakened dot product is called Euclidean if \( \Be_i \cdot \Be_j = \delta_{ij} \) for all standard basis elements \( \Be_i, \Be_j \), whereas is it non-Euclidean if \( \Be_i \cdot \Be_i = -1 \) for at least one standard basis vector \( \Be_i \).

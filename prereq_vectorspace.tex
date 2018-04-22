@@ -15,9 +15,8 @@ vector-like objects, allowing them to be treated in a unified fashion, regardles
 \index{vector space}
 \makedefinition{Vector space.}{def:prerequisites:vectorspace}{
 A (real) vector space is a set \( V = \setlr{\Bx, \By, \Bz, \cdots} \), the elements of which are called vectors, which has an addition operation designated \( + \) and a scalar multiplication operation designated by juxtaposition, where the following axioms are satisfied
-for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \)
-
-\begin{tablebox}[tabularx={X|Y}]{Vector space axioms.}
+for all vectors \( \Bx, \By, \Bz \in V \) and scalars \( a, b \in \bbR \).
+\begin{tablebox}[tabularx={X|Y}]%{Vector space axioms.}
     V is closed under addition & \( \Bx + \By \in V \) \\ \hline
     V is closed under (scalar) multiplication & \( a \Bx \in V \) \\ \hline
     Addition is associative & \( (\Bx + \By) + \Bz = \Bx + (\By + \Bz) \) \\ \hline
@@ -43,19 +42,4 @@ No vector spaces with matrix, polynomial, or complex tuple elements will be requ
 infinite dimensional vector spaces.
 %The only unconventional vector space of interest will be a ``space-time'' vector space containing a
 %time like ``direction'', 1-3 spatial directions, and a generalized length operation that can be negative.
-
-\index{\R{N}}
-\makeproblem{\R{N}}{problem:prerequisites:RN}{
-Define \R{N} as the set of tuples \( \setlr{ (x_1, x_2, \cdots) \mid x_i \in \bbR } \).
-Show that \R{N} is a vector space when the
-addition operation is defined as
-\( \Bx + \By \equiv (x_1 + y_1, x_2 + y_2, \cdots) \)
-, and
-scalar multiplication
-is defined as
-\( a \Bx \equiv (a x_1 , a x_2 , \cdots ) \) for any
-\( \Bx = (x_1, x_2, \cdots) \in \bbR^N \),
-\( \By = (y_1, y_2, \cdots) \in \bbR^N \), and
-\( a \in \bbR \).
-} % problem
 

@@ -5,8 +5,8 @@
 
 Here is a summary that compares various GA expressions with close equivalents in traditional vector (or complex) algebra.
 
-\begin{tablebox}[tabularx={X||Y|Y}]{Comparison of traditional and geometric algebra identities.}
-Name         & Geometric algebra & Traditional algebra
+\begin{tablelabelbox}[tabularx={X||Y|Y}]{Comparison of traditional and geometric algebra identities.}{tab:gacompare:compare}
+             & Geometric algebra & Traditional algebra
 \\ \hline
 Norm squared & \( \Bx^2 \)            & \( \Bx \cdot \Bx \)
 \\ \hline
@@ -28,10 +28,10 @@ vector products & \begin{equation*}
 \end{aligned}
 \end{equation*},\quad (\( i_{ab} \ncap = \Be_{123} \)).
 \\ \hline
-wedge/cross product antisymmetry
-& \( \Ba \wedge \Bb = -\Bb \wedge \Ba \)
-& \( \Ba \cross \Bb = -\Bb \cross \Ba \)
-\\ \hline
+%wedge/cross product antisymmetry
+%& \( \Ba \wedge \Bb = -\Bb \wedge \Ba \)
+%& \( \Ba \cross \Bb = -\Bb \cross \Ba \)
+%\\ \hline
 wedge/cross filtering
 & \( \Ba \wedge (\alpha \Ba + \Bb) = \Ba \wedge \Bb \)
 & \( \Ba \cross (\alpha \Ba + \Bb) = \Ba \cross \Bb \)
@@ -56,26 +56,18 @@ b_i & b_j
 \end{vmatrix}
 \Be_i \cross \Be_j \)
 \\ \hline
-wedge/cross determinant expansion
-& \( \Ba \wedge \Bb = \begin{vmatrix}
-\Be_2 \Be_3 & \Be_3 \Be_1 & \Be_1 \Be_2 \\
-a_1 & a_2 & a_3 \\
-b_1 & b_2 & b_3 \\
-\end{vmatrix} \)
-& \( \Ba \cross \Bb = \begin{vmatrix}
-\Be_1 & \Be_2 & \Be_3 \\
-a_1 & a_2 & a_3 \\
-b_1 & b_2 & b_3 \\
-\end{vmatrix} \)
-\\ \hline
-vector-bivector dot product (
-triple cross product) & \( \Ba \cdot ( \Bb \wedge \Bc ) \) & \( (\Bb \cross \Bc) \cross \Ba \)
-\\ \hline
-bivector dot product (dot product of cross products) &
-\( (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd) \)
-&
-\( -(\Ba \cross \Bb) \cdot (\Bc \cross \Bd) \)
-\\ \hline
+%wedge/cross determinant expansion
+%& \( \Ba \wedge \Bb = \begin{vmatrix}
+%\Be_2 \Be_3 & \Be_3 \Be_1 & \Be_1 \Be_2 \\
+%a_1 & a_2 & a_3 \\
+%b_1 & b_2 & b_3 \\
+%\end{vmatrix} \)
+%& \( \Ba \cross \Bb = \begin{vmatrix}
+%\Be_1 & \Be_2 & \Be_3 \\
+%a_1 & a_2 & a_3 \\
+%b_1 & b_2 & b_3 \\
+%\end{vmatrix} \)
+%\\ \hline
 Triple wedge (triple product) &
 \( \Ba \wedge \Bb \wedge \Bc
 =
@@ -97,36 +89,9 @@ c_i & c_j & c_k \\
 \\ \hline
 Vector orthogonal to two vectors \( \Ba, \Bb \) & \( I (\Ba \wedge \Bb) \) & \( \Ba \cross \Bb \)
 \\ \hline
-Plane orthogonal to a vector \( \Bn \) & \( (I \Bn) \wedge \Bx = 0 \) & \( \Bn \cdot \Bx = 0 \)
+Plane orthogonal to a vector \( \Bn \) & \( (I \Bn) \wedge (\Bx - \Bx_0) = 0 \) & \( \Bn \cdot (\Bx - \Bx_0) = 0 \)
 \\ \hline
-Plane orthogonal to vectors \( \Ba, \Bb \) & \( (\Ba \wedge \Bb) \wedge \Bx = 0 \) & \( (\Ba \cross \Bb) \cdot \Bx = 0 \)
+Plane containing vectors \( \Ba, \Bb \) & \( \Ba \wedge \Bb \wedge (\Bx - \Bx_0) = 0 \) & \( (\Ba \cross \Bb) \cdot (\Bx - \Bx_0) = 0 \)
 \\ \hline
-Projection & \( (\Bx \cdot \ucap) \ucap \) & \( (\Bx \cdot \ucap ) \ucap \)
-\\ \hline
-Rejection & \( (\Bx \wedge \ucap) \ucap \) & \( (\ucap \cross \Bx ) \cross \ucap \)
-\\ \hline
-2D rotation & \( \Bx e^{i \theta}, \quad i = \Be_{12} \) & \(
-\begin{bmatrix}
-\cos\theta & \sin\theta \\
--\sin\theta & \cos\theta \\
-\end{bmatrix}
-\begin{bmatrix}
-x \\
-y
-\end{bmatrix}
-\)
-\\ \hline
-3D rotation in the plane of \( \ucap, \vcap \), where \( \ucap \cdot \vcap = 0 \)
-&
-\( e^{-\ucap \vcap \theta /2} \Bx e^{\ucap \vcap \theta/2} \)
-&
-\(
-(\Bx \cdot \ucap) (\ucap \cos\theta + \vcap \sin\theta) +
-(\Bx \cdot \vcap) (\vcap \cos\theta - \ucap \sin\theta) +
-(\ucap \cross \Bx) \cross \ucap
-\)
-\\ \hline
-Reflection & \( \ucap \Bx \ucap\) & \( (\Bx \cdot \ucap) \ucap + \ucap \cross (\ucap \cross \Bx) \)
-\\ \hline
-\end{tablebox}
+\end{tablelabelbox}
 

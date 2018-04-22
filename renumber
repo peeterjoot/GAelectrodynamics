@@ -247,8 +247,8 @@ perl -p -i ../latex/bin/latexRegex.pl linecharge.tex
 #../latex/bin/lgrep prereq_vectorspace.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prereq_vectorspace.tex
 
-#../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
+../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
 
 #../latex/bin/lgrep products.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl products.tex
