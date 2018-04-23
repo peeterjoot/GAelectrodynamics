@@ -241,8 +241,8 @@ perl -p -i ../latex/bin/latexRegex.pl linecharge.tex
 #../latex/bin/lgrep prereq_basisspandim.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prereq_basisspandim.tex
 
-#../latex/bin/lgrep prereq_standardbasis.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl prereq_standardbasis.tex
+../latex/bin/lgrep prereq_standardbasis.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl prereq_standardbasis.tex
 
 #../latex/bin/lgrep prereq_vectorspace.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prereq_vectorspace.tex

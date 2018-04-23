@@ -17,6 +17,8 @@ a_k \Bx_k.
 \end{equation*}
 } % definition
 
+For example, if \( \Bx_1 = \Be_1 + \Be_2, \Bx_2 = \Be_1 - \Be_2 \), then \( 2 \Bx_1 + 3 \Bx_2 = 5 \Be_1 - \Be_2 \) is a linear combination.
+
 \index{linear dependence}
 \makedefinition{Linear dependence.}{dfn:prerequisites:dependence}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
@@ -34,6 +36,8 @@ a_k \Bx_k,
 for which not all of the coefficients \( a_i, \, 1 \le i \le k \) are zero.
 } % definition
 
+For example, the vectors \( \Bx_1 = \Be_1 + \Be_2, \Bx_2 = \Be_1 - \Be_2, \Bx_3 = \Be_1 + 3 \Be_2 \) are linearly dependent since \( 2 \Bx_1 - \Bx_2 - \Bx_3 = 0 \), and the vectors \( \By_1 = \Be_1 + \Be_2 + \Be_3, \By_2 = \Be_1 + \Be_3, \By_3 = 3 \Be_1 + \Be_2 + 3 \Be_3 \) are linearly dependent since \( \By_1 + 2 \By_2 - \By_3 = 0 \).
+
 \index{linear independence}
 \makedefinition{Linear independence.}{dfn:prerequisites:independence}{
 Let \( S = \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_k } \) be a subset of a vector space \( V \).
@@ -49,6 +53,11 @@ a_2 \Bx_2
 a_k \Bx_k.
 \end{equation*}
 } % definition
+
+For example, the vectors
+\( \Bx_1 = \Be_1 + \Be_2, \Bx_2 = \Be_1 - \Be_2, \Bx_3 = 2 \Be_1 + \Be_3 \), are
+linearly independent, as are the vectors
+\( \By_1 = \Be_1 + \Be_2 + \Be_3, \By_2 = \Be_1 + \Be_3, \By_3 = \Be_2 + \Be_3 \).
 
 \index{span}
 \makedefinition{Span.}{dfn:prerequisites:span}{

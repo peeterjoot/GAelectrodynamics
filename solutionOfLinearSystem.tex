@@ -108,18 +108,18 @@ https://github.com/jlaragonvera/Geometric-Algebra.
   ClearAll[a, b, c, iab, aWedgeB, cWedgeB, aWedgeC, x, y]
   a = e[1] + e[2];
   b = e[1] + e[4];
-  c = e[1] + 2 e[2] - e[4]; 
-  
+  c = e[1] + 2 e[2] - e[4];
+
   aWedgeB = OuterProduct[a, b];
   cWedgeB = OuterProduct[c, b];
   aWedgeC = OuterProduct[a, c];
-  
+
   (* 1/aWedgeB *)
-  iab = aWedgeB / GeometricProduct[aWedgeB, aWedgeB]; 
+  iab = aWedgeB / GeometricProduct[aWedgeB, aWedgeB];
   x = GeometricProduct[iab, cWedgeB];
   y = GeometricProduct[iab, aWedgeC];
-  
-  \{\{a \(\pmb{\wedge}\) b = , aWedgeB\},\{c \(\pmb{\wedge}\) b = , cWedgeB\}, 
+
+  \{\{a \(\pmb{\wedge}\) b = , aWedgeB\},\{c \(\pmb{\wedge}\) b = , cWedgeB\},
   \{a \(\pmb{\wedge}\) c = , aWedgeC\},\{\"x = \", x\},\{\"y = \", y\}
   \} // Grid
 \end{mmaCell}

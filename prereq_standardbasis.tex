@@ -32,6 +32,8 @@ The length of a vector \( \Bx \in V \) is defined as
 \end{equation*}
 }
 
+For example, \( \Bx = \Be_1 + \Be_2 \) has length \( \Norm{\Bx} = \sqrt{2} \), and \( \Bx = x \Be_1 + y \Be_2 + z \Be_3 \) has length \( \Norm{\Bx} = \sqrt{ x^2 + y^2 + z^2 } \).
+
 %A vector space with an associated norm based length is called a normed vector space.
 %Any dot product space is also a normed vector space.
 
@@ -39,6 +41,8 @@ The length of a vector \( \Bx \in V \) is defined as
 \makedefinition{Unit vector}{dfn:prerequisites:unitvector}{
    A vector \( \Bx \) is called a unit vector if the dot product with itself is unity (\( \Bx \cdot \Bx = 1 \)).
 } % definition
+
+Examples of unit vectors include \( \Be_1, (\Be_1 + \Be_3)/\sqrt{3}, (2 \Be_1 - \Be_2 - \Be_3)/\sqrt{6}\), and any vector \( \Bx = \alpha \Be_1 + \beta \Be_2 + \gamma \Be_3 \), where \( \alpha, \beta, \gamma \) are direction cosines satisfying \( \alpha^2 + \beta^2 + \gamma^2 = 1 \).
 
 %A unit vector \( \xcap \) may be generated from any vector \( \Bx \) that has a non-zero squared norm by computing
 %
@@ -51,6 +55,23 @@ The length of a vector \( \Bx \in V \) is defined as
    Two vectors \( \Bx, \By \in V \) are orthogonal if their dot product is zero, \( \Bx \cdot \By = 0 \).
 }
 
+Examples of orthogonal vectors
+include \( \Bx, \By \) where
+\begin{dmath}\label{eqn:prereq_standardbasis:300}
+\begin{aligned}
+\Bx &= \Be_1 + \Be_2
+\By &= \Be_1 - \Be_2,
+\end{aligned}
+\end{dmath}
+and \( \Bx, \By, \Bz \) where
+\begin{dmath}\label{eqn:prereq_standardbasis:320}
+\begin{aligned}
+\Bx &= \Be_1 + \Be_2 + \Be_3 \\
+\By &= 2 \Be_1 - \Be_2 - \Be_3 \\
+\Bz &= \Be_3 - \Be_2.
+\end{aligned}
+\end{dmath}
+
 \index{orthonormal}
 \makedefinition{Orthonormal}{dfn:prerequisites:orthonormal}{
    Two vectors \( \Bx, \By \in V \) are orthonormal if they are both unit vectors and orthogonal to each other.
@@ -58,12 +79,31 @@ The length of a vector \( \Bx \in V \) is defined as
    A set of vectors \( \setlr{ \Bx, \By, \cdots, \Bz } \) is an orthonormal set if all pairs of vectors in that set are orthonormal.
 }
 
+Examples of orthonormal vectors
+include \( \Bx, \By \) where
+\begin{dmath}\label{eqn:prereq_standardbasis:340}
+\begin{aligned}
+\Bx &= \inv{\sqrt{2}}\lr{\Be_1 + \Be_2}
+\By &= \inv{\sqrt{2}}\lr{\Be_1 - \Be_2},
+\end{aligned}
+\end{dmath}
+and \( \Bx, \By, \Bz \) where
+\begin{dmath}\label{eqn:prereq_standardbasis:360}
+\begin{aligned}
+\Bx &= \inv{\sqrt{3}}\lr{\Be_1 + \Be_2 + \Be_3} \\
+\By &= \inv{\sqrt{6}}\lr{2 \Be_1 - \Be_2 - \Be_3} \\
+\Bz &= \inv{\sqrt{2}}\lr{\Be_3 - \Be_2}.
+\end{aligned}
+\end{dmath}
+
 \index{standard basis}
 \index{\(\Be_1, \Be_2, \cdots\)}
 \makedefinition{Standard basis.}{dfn:prerequisites:standardbasis}{
    A basis
 \( \setlr{ \Be_1, \Be_2, \cdots, \Be_N} \) is called a standard basis if that set is orthonormal.
 } % definition
+
+Any number of possible standard bases are possible, each differing by combinations of rotations and reflections.  For example, given a standard basis \( \setlr{ \Be_1, \Be_2, \Be_3 } \), the set \( \setlr{\Bx, \By, \Bz} \) from \cref{eqn:prereq_standardbasis:360} is also a standard basis.
 
 In relativisitic geometric algebra, the positive definite property of \cref{dfn:prerequisites:dotproduct} is considered optional.
 In this case, the definition of length must be modified, and one would say the length of a vector \( \Bx \) is \( \sqrt{\Abs{\Bx \cdot \Bx}} \), and that \( \Bx \) is a unit vector if \( \Bx \cdot \Bx = \pm 1 \).

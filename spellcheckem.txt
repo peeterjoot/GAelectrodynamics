@@ -86,6 +86,7 @@ dual.tex
 enclosedCurrent.tex
 fourier.tex
 freespace.tex
+functionvectorspace.tex
 fundamentalTheoremOfCalculus.tex
 gacomparison.tex
 gagcProof.tex
