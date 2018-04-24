@@ -1,6 +1,6 @@
 - followup for Mo's comments:
 
-   1) 
+   1)
       "where a number of disparate mathematical
    objects can all be considered vectors. A vector space is an enumeration of the properties and
    operations that are common to a set of vector-like objects,"
@@ -27,6 +27,67 @@
       "can find the velocity and acceleration by taking"
       add note:
 
+   11)
+
+> point of new 1.3 vs. 1.4 figures.
+
+The proposed 1.3 and 1.4 illustrate the same areas, with the same orientation.  Part of the point was to illustrate orientation, but the other point was to show that there is no preferred geometric representation of a bivector.  Any closed figures with the same orientation and total area are equally valid representations of a given bivector.
+
+12)
+
+> On multi-vector vs. k-vector  (your comment on page 13), indeed this was one of my upcoming questions which caused me some confusion. It seems to me that when you say multi-vector you mean a superposition of k-vectors that can have mixed Grades. For example 1+e1+ e12, +e123  is a multi-vector. But when you say k-vector even though this can also be a superposition, but all constituents have the same grade, for example e123 + 3e231 -e321. Am I correct? If so please make the distinction clear in the text and the best way to do so is to give examples.
+
+> I asked a version if this question in my email thus morning. Here is a more specific version of it.
+For example when you write bivecotor you can have superposition of bivectors but grade is 2 and only 2 (no scalar, trivector,... k-vector)
+when you write trivecotor you can have superposition of trivectors but grade is 3 and only 3.
+Similarly for k-vector.
+However when you write multivector you mean superpositions of scalar, vector, bivector, ...k-vector. That is to say that the grade depends on which term you look at.
+
+A: Your comment on multivector vs. k-vector is exactly correct.  A k-vector, say, k=2, has only grade 2 (examples: e1 e2, or e1 e3 + e2 e3), whereas a multivector may have any grade.  Any k-vector is also a multivector.  I'll add more examples to make this clearer.
+
+13)
+
+      When you say vector almost always you mean 1-vector correct?
+      Here is my jargons, see if I am correct.
+      0-vector = scalar
+      1-vector = vector (traditional vector)
+      2-vector = bivector
+      3-vector = trivector
+      ..
+      So for example your entire discussion in section 1.8 is about the product of two 1-vectors, leading to a dot product and wedge product of two 1-vector, correct?
+
+      Dot product can be defined for the product of two multivector (and hence two 1-vector), correct? However, wedge product is always between two 1-vector and has the grade 2?
+
+      in product ab, (no dot or wedge between a and b) can a and b be two multi-vectors?
+
+
+Clarify.  My answers:
+
+         Yes, a 1-vector a traditional vector.  I tend not to write 1-vector, since I don't think that adds anything.
+
+
+         > So for example your entire discussion in section 1.8 is about the product of two 1-vectors, leading to a dot product and wedge product of two 1-vector, correct?
+
+         Yes.
+
+         > Dot product can be defined for the product of two multivector (and hence two 1-vector), correct?
+
+         Correct.
+
+         > However, wedge product is always between two 1-vector and has the grade 2?
+
+         Yes.  The wedge product of two vectors (1-vectors) a, b is defined as the grade 2 selection of the product a b (which can only have grade 2).
+
+         > in product ab, (no dot or wedge between a and b) can a and b be two multi-vectors?
+
+
+         Yes.  Maxwell's equation is an example of such a product.  It has the form
+
+         (gradient + (1/c)partial_t)(E + I eta H) = J
+
+         The gradient is a vector, and the time partial is a scalar, so that sum is a multivector with grades 0 and 1.
+         The electric field is a vector, but I H is a bivector, so E + I eta H is a multivector with grades 1 and 2.
+
 
 
 - 6x9 experiment included:
@@ -35,9 +96,9 @@
 --- a/FrontBackmatter/Titlepage.tex
 +++ b/FrontBackmatter/Titlepage.tex
 @@ -16,19 +16,9 @@
- 
+
          \vfill
- 
+
 -\ifthenelse{\boolean{use-lettersize}}
 -{
          \begingroup
@@ -51,20 +112,20 @@
 -            \color{Maroon}\spacedallcaps{Electrical Engineers} \\ \bigskip
 -        \endgroup
 -}
- 
+
          \spacedlowsmallcaps{\myName}
- 
+
 make clean clobbered that.  Restore this and fix the clean rule.
 
 - re-implement \makeexample using \newtcolorbox for consistency.  They have different border widths and thicknesses.
 
 - the end of chapter table in chapter 1 is too big and overflows the margins.  There is some redundancy too, since there's an earlier cross vs. wedge table that has some of the same info.
 
-- In the report I made some notes about the limitations of my geometric calculus treatment.  These should be 
+- In the report I made some notes about the limitations of my geometric calculus treatment.  These should be
   incorporated into the text.  There is also an interesting point in Spivak's manifolds about triangularization
   which is of interest given MacDonald's paper on the same for blades.
 
-- 
+-
    \maketheorem{Far field representation.}{thm:potentialSection_farfield:1}{
    ...
    F &= -j \omega \lr{ 1 + \rcap } \lr{ \rcap \wedge \BA} \\
