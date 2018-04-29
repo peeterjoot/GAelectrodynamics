@@ -1,0 +1,96 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{reply}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{XXX}
+%\chapter{XXX}
+%\label{chap:reply}
+
+\color{Red}{
+\paragraph{Q1}:
+
+Examples: 
+
+\begin{itemize}
+\item
+$\Be_1 \Be_2 + \Be_2 \Be_3$.  This is a bivector, and is also a multivector with only a grade 2 component.
+\item
+$\Be_1 \Be_2 \Be_3$.  This is a trivector, and is also a multivector with only a grade 3 component.
+\item
+$1 + \Be_1 \Be_2$  This is not a k-vector as there is no single grade.  It is a multivector.  In this case, it is a sum of a scalar (0-vector) and a bivector (2-vector).
+\item
+$0$. This is a scalar (0-vector), and also a multivector.
+\end{itemize}
+
+A multivector is a sum of 0 or more k-vectors, where $k = 0,\cdots,N$, and 
+$N$ is the dimension of the generating vector space.
+
+I will split the definition of multivector and multivector space, which I think may help clarify this.
+
+\paragraph{Q2}:
+Yes, this is correct, however, $-\Be_2 i = -\Be_2 \Be_1 \Be_2 = + \Be_1 \Be_2^2 = \Be_1$, so this is not really that much different.  One way to look at this is that you can factor unity in terms of any vector, so in \R{2} $1 = \Be_1^2$ or $1 = \Be_2^2$, so
+
+\begin{dmath}\label{eqn:reply:n}
+\Be_1 \cos(\theta) + \Be_2 \sin(\theta)
+= \Be_2 ( \sin(\theta) + \Be_2 \Be_1 \cos(\theta))
+= \Be_2 ( \sin(\theta) - i \cos(\theta) )
+\end{dmath}
+
+\paragraph{C3}:
+
+Exactly.  I discuss two geometric representations of plane waves in chapter three.  One using \( i = \Be_1 \Be_2 \) to represent the transverse plane, and another representing the rotational aspects using the \R{3} pseudoscalar \( I = \Be_1 \Be_2 \Be_3 \).  The total multivector field ($F = \BE + I \eta \BH$) can be put into either the form
+
+\begin{dmath}\label{eqn:reply:n}
+F = \BE (1 + \Be_3) f(\beta z + I c t)
+\end{dmath}
+
+or
+
+\begin{dmath}\label{eqn:reply:n}
+F = \BE (1 + \Be_3) g(\beta z + i c t)
+\end{dmath}
+
+where \( c \) is the group velocity of the medium, and \( \Be_3 \) is the propagation direction.
+
+\paragraph{Q/C 2}:
+The circle is an error.  It should be an arc that indicates the orientation.  Here's why the two factors were chosen:
+
+\begin{dmath}\label{eqn:reply:n}
+I \Bx 
+=
+I \lr{ a \Be_1 + b \Be_2 }
+=
+\lr{ a \Be_1 \Be_2 \Be_3 \Be_1 + b \Be_1 \Be_2 \Be_3 \Be_2 }
+=
+\lr{ a \Be_2 \Be_3 - b \Be_1 \Be_3 }
+=
+\lr{ a \Be_2 - b \Be_1 } \Be_3.
+\end{dmath}
+
+The dual of the vector $\Bx$ is a bivector, which can be factored as a product of two orthogonal vectors.  In this case, those factors are $a \Be_2 - b \Be_1$ and $\Be_3$.
+
+}
+%}
+\EndArticle
+%\EndNoBibArticle

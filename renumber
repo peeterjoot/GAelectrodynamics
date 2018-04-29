@@ -450,3 +450,5 @@ perl -p -i ../latex/bin/latexRegex.pl ece2500report.tex
 
 #../latex/bin/lgrep polarizationRewrite.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl polarizationRewrite.tex
+../latex/bin/lgrep reply.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl reply.tex

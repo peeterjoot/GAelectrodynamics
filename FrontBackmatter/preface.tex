@@ -10,48 +10,58 @@
   \addcontentsline{toc}{chapter}{Preface}
 
 This book introduces the fundamentals of geometric algebra and calculus, and applies those tools to the study of electromagnetism.
+Geometric algebra extends vector algebra by
+introducing a vector multiplication operation, the vector product, incorporating aspects of both the dot and cross products.
+Products or sums of products of vectors are called multivectors, and
+are capable of representing oriented point, line, plane, and volume segments.
 
-Geometric algebra provides a structure that can represent oriented point, line, plane, and volume segments.
-Vectors, which can be thought of as a representation of oriented line segments, are generalized to multivectors.
-A full fledged, but non-commutative (i.e. order matters) multiplication operation will be defined
-for products of vectors.
-Namely, the square of a vector is the square of its length.
-This simple rule, along with a requirement that we can sum vectors and their products, essentially defines geometric algebra.
-Such sums of scalars, vectors and vector products are called multivectors.
+This book is divided into three parts.
 
-The reader will see that familiar concepts such as the dot and cross product are related to a more general vector product, and that algebraic structures such as complex numbers can be represented as multivectors.  We will be able to utilize generalized complex exponentials to do rotations in arbitrarily oriented planes in space, and will find that simple geometric algebra representations of many geometric transformations are possible.
+\begin{enumerate}[{Chapter}-1]
+\item An introduction to geometric algebra (GA).
 
-Generalizations of the divergence and Stokes' theorems are required once we choose to work with multivector functions.  There is an unfortunate learning curve required to express this generalization, but once overcome, we will be left with a single powerful multivector integration theorem that has no analogue in conventional vector calculus.  This fundamental theorem of geometric calculus incorporates
-Green's (area) theorem, the divergence theorem, Stokes' theorems, and complex residue calculus.  Multivector calculus also provides the opportunity to define a few unique and powerful Green's functions that almost trivialize solutions of Maxwell's equations.
+Topics covered include vectors, vector spaces, vector multiplication, bivectors, trivectors, multivectors, multivector spaces, dot and wedge products, mulitvector representation of complex numbers, rotation, reflection, projection and rejection, and linear system solution.
 
-Instead of working separately with electric and magnetic fields, we will work with a hybrid multivector field that includes both electric and magnetic field contributions, and with a
-multivector current that includes both charge and current densities.
-The natural representation of Maxwell's equations is a single multivector equation that is easier to solve and manipulate then the conventional mess of divergence and curl equations are familiar to the reader.
-
-The focus of this book are geometric algebras generated from 2 or 3 dimensional Euclidean vector spaces.  
-In some cases higher dimensional spaces will be used in examples and theorems.  
+The focus of this book are geometric algebras generated from 2 or 3 dimensional Euclidean vector spaces.
+In some cases higher dimensional spaces will be used in examples and theorems.
 Some, but not all, of the places requiring generalizations for mixed signature (relativistic) spaces will be pointed out.
-%geometric algebras generated an orthonormal basis \( \setlr{\Be_1, \Be_2, \cdots } \) is assumed for the remainder of this chapter.}
-%Generalizations required for non-Euclidean spaces will be discussed when (if?) spacetime vectors are introduced.
+\item Geometric calculus, Green's function solutions of differential equations, and multivector Green's functions.
 
-This book is aimed at graduate or advanced undergraduates in electrical engineering or physics.
-While all the fundamental results of electromagnetism are derived from Maxwell's equations, there will be no attempt to motivate Maxwell's equations themselves, so existing familiarity with the subject is desirable.
+A multivector generalization of vector calculus, the fundamental theorem of geometric calculus,
+is required to apply geometric algebra to electromagnetism.
+Special cases of the fundamental theorem of geometric calculus include
+the fundamental theorem of calculus,
+Green's (area) theorem, the divergence theorem, and Stokes' theorems.
+Multivector calculus also provides the opportunity to define a few unique and powerful (multivector) Green's functions of particular relevance to electromagnetism.
 
-\paragraph{These notes contain:}
-
-\begin{itemize}
-\item An introduction to Geometric Algebra (GA).
-\item Geometric calculus, and Green's function solutions of differential equations.
 \item Application of Geometric Algebra to electromagnetism.
-\end{itemize}
+
+Instead of working separately with electric and magnetic fields, we will work with a hybrid multivector field, \( F \), that includes both electric and magnetic field contributions, and with a
+multivector current, \( J \), that includes both charge and current densities.
+
+Starting with the conventional form of Maxwell's equation, the multivector Maxwell's equation (singular) is derived.
+This is a single multivector equation that is easier to solve and manipulate then the conventional mess of divergence and curl equations are familiar to the reader.
+The multivector Maxwell's equation is the starting point for the remainder of the analysis of the book, and from it the
+wave equation, plane wave solutions, and static and dynamic solutions are derived.
+The multivector form of energy density, Poynting force, and the Maxwell stress tensor, and all the associated conservation relationships are derived.
+The transverse and propagation relationships for waveguide solutions are derived in their multivector form.
+Polarization is discussed in a multivector context, and multivector potentials and gauge transformations are introduced.
+
+No attempt to motivate Maxwell's equations, nor most of the results derived from them is made in this book.
+\end{enumerate}
 
 \paragraph{Prerequisites:}
 
-It will be assumed that the reader is familiar with rotation matrices,
-complex numbers, dot and vector products and vector spaces, coordinate representation, linear transformations, determinants, Stokes, Green's and divergence theorems.
+The target audience for this book is advanced undergraduate or graduate students of electrical engineering or physics.
+Such an audience is assumed to be intimately familiar with vectors,
+vector algebra, dot and cross products, determinants, coordinate representation, linear system solution, complex numbers, matrix algebra and linear transformations.
+It is also assumed that the reader understands and can apply conventional vector calculus concepts including the divergence and curl operators, the divergence and Stokes' theorems,
+line, area and volume integrals, Greens' functions, and the Dirac delta function.
+Finally, it is assumed that the reader is intimately familiar with conventional electromagnetism, including Maxwell's and the Lorentz force equations, scalar and vector potentials, plane wave solutions, energy density and Poynting vectors, and more.
 
 \paragraph{Thanks:}
 
-I'd like to thank Steven De Keninck, and Dr. Wolfgang Lindner for their review of some of the earlier drafts of this book.  Their suggestions significantly improved the quality and readability of the text.
+I'd like to thank Steven De Keninck, Dr. Wolfgang Lindner, and Prof. Mo Mojahedi for reviewing portions of this book.
+Their suggestions significantly improved the quality of the text.
 
-Peeter Joot \quad peeterjoot@protonmail.com
+Peeter Joot \quad peeterjoot@pm.me
