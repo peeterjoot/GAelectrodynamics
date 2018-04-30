@@ -1,3 +1,9 @@
+- switched to annotated tags:
+
+   https://stackoverflow.com/a/7261049/189270
+
+   rework the versioning to be based on that.
+
 - busted link to fix for print version:
 
    ...:stressEnergyTensorValues.nb

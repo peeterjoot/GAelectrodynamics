@@ -4,7 +4,7 @@ THISBOOK := GAelectrodynamics
 export BOOKSUBVER := 1
 export BOOKMAJVER := 0
 # This isn't a good way to version.  It depends on the local git reflog history count.
-export REVCOUNTSTART := 498
+export REVCOUNTSTART := 510
 
 include ../latex/make.bookvars
 
@@ -72,8 +72,9 @@ alex:
 	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.$(VER).pdf
 	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
 
+# a for annotate (releases).
 tag:
-	git tag GAelectrodynamics.$(VER).pdf
+	git tag -a GAelectrodynamics.$(VER).pdf
 
 %.sp : %.tex
 	spellcheck $^
