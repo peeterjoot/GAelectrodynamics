@@ -6,23 +6,21 @@
 
 - followup for Mo's comments:
 
-   1)
-      "where a number of disparate mathematical
-   objects can all be considered vectors. A vector space is an enumeration of the properties and
-   operations that are common to a set of vector-like objects,"
-
-      Mo: "Cyclic argument, give some definition here of oriented line segment, or more general definition by Arfkin."
-
-   3) comment about 'Graphical representations of e1 e2' figure: also not clear.
-
    4) audit all definitions, to ensure there are examples.
 
    6) make i = e1 e2, i^2 = -1 a theorem with proof to make stand out.
+
+      handle sequencing issues.
+
    7) make I = e1 e2 e3, I^2 = -1 a theorem ...
+
+   8) figure 1.7: change from e1,e2 to u, v, with u and v orthogonal, but different lengths.
 
    9) Figure 1.11: Rotation in a plane.
 
       x e^{i theta} = e^{-i \theta} x, provided x lies in the plane of the bivector i, so you can get a rotation with the opposite sense of x e^{i theta} with e^{i theta} x.  I'll add a note to try to clarify this, but think the label in the figure should be x e^{-i theta}.
+
+   [figure adjusted, but not in this way (at least yet)].
 
    10) We can show that these unit vectors are orthogonal easily (eq 1.32)
 
@@ -94,7 +92,13 @@ Clarify.  My answers:
          The gradient is a vector, and the time partial is a scalar, so that sum is a multivector with grades 0 and 1.
          The electric field is a vector, but I H is a bivector, so E + I eta H is a multivector with grades 1 and 2.
 
+14) Is use of * for duality opertaion common?  In my opinion it only can cause confusion.  
 
+Yes, especially in differential forms.  I don’t use it in the book, but thought it worth mentioning for the reader who had seen duality in another context.  I’ll remove this from the definition, but may still mention it in the comments or a footnote following the definition.
+
+15) Definition 1.23: Dual
+
+"follow this with an example. In fact, you already have the example in the form of I e_3 e_(1= -) e_2. You just need to state it as an example. "
 
 - 6x9 experiment included:
 
