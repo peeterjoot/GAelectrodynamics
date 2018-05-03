@@ -3,7 +3,7 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
-Geometric algebra takes a vector space and adds two additional operations, a vector multiplication operation, and a generalized addition operation that extends vector addition to include addition of scalars and products of vectors.
+Geometric algebra builds upon a vector space by adding two additional operations, a vector multiplication operation, and a generalized addition operation that extends vector addition to include addition of scalars and products of vectors.
 Multiplication of vectors is indicated by juxtaposition, for example, if \( \Bx, \By, \Be_1, \Be_2, \Be_3, \cdots \) are vectors, then some vector products are
 \begin{dmath}\label{eqn:multivector:20}
 \begin{aligned}
@@ -14,30 +14,37 @@ Multiplication of vectors is indicated by juxtaposition, for example, if \( \Bx,
 \end{aligned}
 \end{dmath}
 
-Vector multiplication is constrained by a rule, called the contraction axiom, that gives a meaning to the square of a vector (a scalar equal to the squared length of the vector), and indirectly imposes a non-commutative relationship between orthogonal vector products.
+Products of vectors may be scalars, vectors, or other entities that represent higher dimensional oriented objects such as planes and volumes.
+Vector multiplication is constrained by a rule, called the contraction axiom, that gives a meaning to the square of a vector (a scalar equal to the squared length of the vector), and indirectly imposes an anti-commutative relationship between orthogonal vector products.
 %\boxedEquation{eqn:multivector:120}{
 %\Bx \Bx \equiv \Bx \cdot \Bx.
 %}
 %
 %The square of a vector, by this definition, is the squared length of the vector, and is a scalar.
-Because product of vectors and vectors may live in separate spaces,
-%If we want a closed algebraic system that includes both vectors and their products,
+The product of two vectors is not a vector, and may include a scalar component as well as an irreducible product of two orthogonal vectors called a bivector.
+With vectors and their products living in different spaces,
 geometric algebra allows scalars, vectors, or any products of vectors to be added, forming a larger closed space of more general objects.  Such a sum is called a multivector, an example of which is
 \begin{dmath}\label{eqn:multivector:40}
 1 + 2 \Be_1 + 3 \Be_1 \Be_2 + 4 \Be_1 \Be_2 \Be_3.
 \end{dmath}
 In this example, we have added a
+\begin{itemize}
+\item
 scalar (or 0-vector) \( 1 \), to a
+\item
 vector (or 1-vector) \( 2 \Be_1 \), to a
+\item
 bivector (or 2-vector) \( 3 \Be_1 \Be_2 \), to a
+\item
 trivector (or 3-vector) \( 4 \Be_1 \Be_2 \Be_3 \).
+\end{itemize}
 Geometric algebra uses vector multiplication to build up a hierarchy of geometrical objects, representing points, lines, planes, volumes and hypervolumes (in higher dimensional spaces.)  Those objects are enumerated below to give an idea where we are headed before stating the formal definition of a multivector space.
 
 \index{scalar}
 \index{0-vector}
 \paragraph{Scalar.}
-A scalar, which we will also call a 0-vector, is a zero-dimensional object with sign, and a magnitude.
-We may geometrically interpret a scalar as a (signed) point in space.
+A scalar, also called a 0-vector, is a zero-dimensional object with sign, and a magnitude.
+%We may geometrically interpret a scalar as a (signed) point in space.
 %The sign of a scalar can be represented graphically as an arrow with a head and a tail pointing into the paper (or chalkboard),
 %as illustrated in
 %\cref{fig:scalarOrientation:scalarOrientationFig1} where a crossed circle represents the tail, and a solid dot represents the head.
@@ -47,14 +54,14 @@ We may geometrically interpret a scalar as a (signed) point in space.
 \index{vector}
 \index{1-vector}
 \paragraph{Vector.}
-A vector, which we will also call a 1-vector, is a one-dimensional object with a sign, a magnitude, and a rotational attitude within the space it is embedded.
+A vector, also called a 1-vector, is a one-dimensional object with a sign, a magnitude, and a rotational attitude within the space it is embedded.
 
 \index{bivector}
 \index{2-vector}
 \paragraph{Bivector.}
 
-We now wish to define a bivector, or 2-vector, as a 2 dimensional object representing a signed plane segment with magnitude and orientation.
-A bivector may be defined algebraically in terms of a vector product to be specified more precisely.
+A bivector, also called a 2-vector, is a 2 dimensional object representing a signed plane segment with magnitude and orientation.
+A bivector may be defined algebraically in terms of a vector product to be specified more precisely shortly.
 \makedefinition{Bivector.}{dfn:multivector:60}{
 A bivector, or 2-vector, is a sum of products of pairs of orthogonal vectors.
 Given an \( N \) dimensional vector space \( V \) with an orthogonal basis \( \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_N } \),
@@ -66,11 +73,13 @@ where \( B_{ij} \) is a scalar.
 The vector space \( V \) is said to be a generator of a bivector space.
 } % definition
 
-Given orthogonal vectors \( \Bx, \By, \Bz \), examples of bivectors are \( \Bx \By, \By \Bz \) and \( 3 \Bx \By - \By \Bz \).  Given standard basis elements \( \Be_1, \Be_2, \cdots \), other bivectors include \( \Be_1 \Be_2 \), and \( \Be_1 \Be_2 + \Be_2 \Be_3 + \Be_3 \Be_1 \).
+Given orthogonal vectors \( \Bx, \By, \Bz \) and
+standard basis elements \( \Be_1, \Be_2, \cdots \), examples of bivectors are
+\( \Bx \By, \By \Bz, 3 \Bx \By - \By \Bz, \Be_1 \Be_2\), and \( \Be_1 \Be_2 + \Be_2 \Be_3 + \Be_3 \Be_1 \).
 
 The reader can check that bivectors specified by \cref{dfn:multivector:60} form a vector space according to \cref{def:prerequisites:vectorspace}.
 
-If a bivector is formed from the product of just two orthogonal vectors\footnote{Bivectors generated from \R{2}, and \R{3} vectors can always be factored into a single product of orthogonal vectors, and therefore represent a plane.  This isn't true in higher dimensional spaces.}, that bivector is said to represent the plane containing those two vectors.
+If a bivector is formed from the product of just two orthogonal vectors\footnote{Bivectors generated from \R{2}, and \R{3} vectors can always be factored into a single product of orthogonal vectors, and therefore represent a plane.  Such a factorization may not be possible in higher dimensional spaces.}, that bivector is said to represent the plane containing those two vectors.
 Bivectors that represent the same plane can be summed by simply adding the respective (signed) areas, as illustrated in
 %Bivectors bivector sum
 %\begin{dmath}\label{eqn:multivector:160}
@@ -82,7 +91,7 @@ Note that the shape of a bivector's area is not significant, only the magnitude 
 \imageFigure{../figures/GAelectrodynamics/bivectorAdditionInPlaneFig1}{Graphical representation of bivector addition in the plane.}{fig:bivectorAdditionInPlane:bivectorAdditionInPlaneFig1}{0.1}
 
 Addition of arbitrarily oriented bivectors in \R{3} or other higher dimensional spaces, requires decomposition of the bivector into a set of orthogonal planes, an operation best performed algebraically.  The sum of a set of bivectors may not represent the same plane as any of the summands, as is crudely illustrated in
-\cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}, where \( \text{red} + \text{blue} = \text{green} \).
+\cref{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}, where \( \text{red} + \text{blue} = \text{green} \), where all bivectors have a different rotational attitude in space.
 \imageFigure{../figures/GAelectrodynamics/AdditionOfBivectorsFig2}{Bivector addition.}{fig:AdditionOfBivectors:AdditionOfBivectorsFig2}{0.3}
 
 The bivector provides a structure that can encode plane oriented quantities such as torque, angular momentum, or a general plane of rotation.
@@ -93,14 +102,15 @@ A bivector representation of a plane can eliminate the requirement to utilize a 
 
 Later we will see that permutations of the orders of orthogonal vector products are not independent.
 In particular
-given a pair of orthogonal vectors \( \Bx, \By \),
+given a pair of orthogonal vectors \( \Bx, \By \), that dependence is
 %\begin{dmath}\label{eqn:multivector:140}
 \(\Bx \By + \By \Bx = 0 \),
 %\end{dmath}
 or \( \By \Bx = - \Bx \By \).  This means that \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_1 } \) is not a basis for the \R{2} bivector space (those bivectors are not linearly independent), but that either \( \setlr{ \Be_1 \Be_2 } \) or \( \setlr{ \Be_2 \Be_1 } \) is an \R{2} bivector basis.
-Similarly, for \R{3}, we may pick a set such as \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 } \) for the bivector basis\footnote{This is a ``right handed'' choice of basis, but many other choices are possible.  Examples include \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_1 \Be_3 } \), the set of all pairs of bivectors \( \Be_i \Be_j \) where \( i < j \) or a ``left handed'' bivector basis
+Similarly, for \R{3}, we may pick a set such as \( R = \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 } \) for the bivector basis\footnote{\(R\) is a ``right handed'' choice of basis, but many other choices are possible.  Examples include \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_1 \Be_3 } \), the set of all pairs of bivectors \( \Be_i \Be_j \) where \( i < j \) or a ``left handed'' bivector basis
 \( \setlr{ \Be_2 \Be_1, \Be_3 \Be_2, \Be_1 \Be_3 } \).}
-This basis is illustrated in
+If \( \Bx, \By \) are orthonormal vectors, the bivector product \( \Bx \By \) or \( \By \Bx \) will be called a unit bivector.
+The basis \( R \) is illustrated in
 \cref{fig:unitBivectors:unitBivectorsFig} with two different shaped representations of the ``unit'' bivector elements of this basis.
 In both cases, the sign of the bivector is represented graphically with an oriented arc.
 %, along with their cyclic orientations.  The cyclic orientation of a bivector is the equivalent to the ``head'' vs. the ``tail'' of a vector, a graphical construct that is flipped by changing the sign.  While the magnitude of a bivector represents an area, a bivector has no intrinsic shape, and the figure shows parallelogram and circular disk representations of the same bivectors.
@@ -131,7 +141,7 @@ In both cases, the sign of the bivector is represented graphically with an orien
 \index{3-vector}
 \paragraph{Trivector.}
 
-Again, assuming a vector product with properties to be determined, an oriented volume may be defined.
+A trivector, also called a 3-vector, is a 3 dimensional object representing a signed volume segment with magnitude and orientation.
 \makedefinition{Trivector.}{dfn:multivector:80}{
 A trivector, or 3-vector, is a sum of products of triplets of mutually orthogonal vectors.
 Given an \( N \) dimensional vector space \( V \) with an orthogonal basis \( \setlr{ \Bx_1, \Bx_2, \cdots, \Bx_N } \), a trivector is any value
@@ -142,9 +152,10 @@ where \( \T_{ijk} \) is a scalar.
 The vector space \( V \) is said to generate a trivector space.
 } % definition
 
-In \R{3}, it turns out that all trivectors are scalar multiples of \( \Be_1 \Be_2 \Be_3 \).
+For example \( \Be_1 \Be_2 \Be_3, 3 \Be_2 \Be_1 \Be_3, 5 \Be_1 \Be_2 \Be_4, - 2 \Be_1 \Be_5 \Be_3 \) are all trivectors.  However,
+in \R{3}, it turns out that all trivectors are scalar multiples of \( \Be_1 \Be_2 \Be_3 \).
 Like scalars, there is no direction to such a quantity, but like scalars trivectors may be signed.  The magnitude of a trivector may be interpreted as a volume.
-We will defer interpreting the sign of a trivector geometrically until we tackle integration theory.
+A geometric interpretation of the sign of a trivector will be deferred until integration theory is tackled.
 %%%, which requires some interpretation.
 %%%We can interpret the magnitude of a trivector as a volume, but what is a signed volume?
 %%%One answer to this question is that we can interpret the sign of the volume as the exterior or the interior of the surface on the boundry of the volume.
@@ -178,7 +189,17 @@ A 0-vector is a scalar.
 The vector space \( V \) is said to generate the k-vector space.
 } % definition
 
-Illustrating by example, \( 1 \) is a 0-vector with grade 0, \( \Be_1 \) is a 1-vector with grade 1, \( \Be_1 \Be_2, \Be_2 \Be_3 \), and \( \Be_3 \Be_1 \) are 2-vectors with grade 2, and \( \Be_1 \Be_2 \Be_3 \) is a 3-vector with grade 3.
+Illustrating with some examples
+\begin{itemize}
+\item
+ \( 1 \) is a 0-vector with grade 0
+\item
+ \( \Be_1 \) is a 1-vector with grade 1
+\item
+ \( \Be_1 \Be_2, \Be_2 \Be_3 \), and \( \Be_3 \Be_1 \) are 2-vectors with grade 2, and
+\item
+ \( \Be_1 \Be_2 \Be_3 \) is a 3-vector with grade 3.
+\end{itemize}
 
 The highest grade for a k-vector in an N dimensional vector space is \( N \).
 
@@ -203,7 +224,7 @@ Any k-vector or sum of k-vectors is also a multivector.  Examples:
 \item
 \(0, 7, -3\). These are scalars (0-vectors), and also multivectors.
 \end{itemize}
-A k-vector was a sum of orthogonal products, but a multivector may also include sum of any vector products.  Examples include
+A k-vector was a sum of orthogonal products, but a multivector may also include arbitrary sums of any vector products, not all of which have to be orthogonal.  Examples include
 \begin{itemize}
 \item
 \( \Be_1 \Be_1, \Be_1 \Be_2 \Be_1 \Be_2 \),
