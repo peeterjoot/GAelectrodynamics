@@ -2,31 +2,50 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-\Cref{eqn:2dRotations:300} and \cref{eqn:2dRotations:3} showed that multiplying a vector in a plane by a unit pseudoscalar for that plane, maps a vector (say \( \Bx \)) to a vectort \( i \Bx \) that is orthogonal to \( \Bx \).  For the x-y plane with \( i = \Be_{12} \), these can be summarized in polar form as
-\begin{equation}\label{eqn:dual:1620}
-\begin{aligned}
-\Br &= r \Be_1 e^{i\theta} \\
-\Br i &= r \Be_2 e^{i\theta} \\
-i \Br &= -r \Be_2 e^{i\theta}.
-\end{aligned}
-\end{equation}
+Pseudoscalar multiplication maps a subspace to its orthogonal complement, called the dual.
 
-Both \( i \Br \) and \( \Br i \) are perpendicular to \( \Br \) with the same magnitude.
-The direction they point depends on the orientation of the pseudoscalar chosen.  For example,
-had we used an oppositely oriented pseudoscalar \( i = \Be_2 \Be_1 \), these orthogonal vectors would each have the opposite direction.
+\index{dual}
+\index{\(M^\conj\)}
+\makedefinition{Dual}{dfn:definitions:dual}{
+Given a multivector \( M \) and a unit pseudoscalar \( I \) for the space, the dual is
+designated \( M^\conj \), and has the value \( M^\conj = M I \).
+} % definition
+
+For example, in \R{2} with \( i = \Be_{12} \), the dual of a vector \( \Bx = x \Be_1 + y \Be_2 \) is
+
+\begin{dmath}\label{eqn:dual:n}
+\Bx i =
+(x \Be_1 + y \Be_2) i = x \Be_2 - y \Be_1,
+\end{dmath}
+which is perpendicular to \( \Bx \).
+This was also observed in
+\cref{eqn:2dRotations:300} and \cref{eqn:2dRotations:3} which showed that multiplying a vector in a plane by a unit pseudoscalar for that plane, maps a vector (say \( \Bx \)) to a vector \( \Bx i \) that is orthogonal to \( \Bx \).  The direction that \( \Bx i \) points depends on the orientation of the chosen pseudoscalar.
+%For the x-y plane with \( i = \Be_{12} \), these can be summarized in polar form as
+%\begin{equation}\label{eqn:dual:1620}
+%\begin{aligned}
+%\Br &= r \Be_1 e^{i\theta} \\
+%\Br i &= r \Be_2 e^{i\theta} \\
+%i \Br &= -r \Be_2 e^{i\theta}.
+%\end{aligned}
+%\end{equation}
+%
+%Both \( i \Br \) and \( \Br i \) are perpendicular to \( \Br \) with the same magnitude.
+%The direction they point depends on the orientation of the pseudoscalar chosen.  For example,
+%had we used an oppositely oriented pseudoscalar \( i = \Be_2 \Be_1 \), these orthogonal vectors would each have the opposite direction.
+%
 
 In three dimensions, a bivector can be factored into two orthogonal vector factors, say \( B = \Ba \Bb \), and
-pseudoscalar multiplication of \( I B = \Bc \) produces a vector \( \Bc \) that is orthogonal to any such factors \( \Ba, \Bb \).
+pseudoscalar multiplication of \( B I = \Bc \) produces a vector \( \Bc \) that is orthogonal to the factors \( \Ba, \Bb \).
 For example, the unit vectors and bivectors are related in the following fashion
 \begin{equation}\label{eqn:dual:1580}
 \begin{aligned}
-\Be_2 \Be_3 &= I \Be_1 \qquad I \Be_2 \Be_3 = -\Be_1 \\
-\Be_3 \Be_1 &= I \Be_2 \qquad I \Be_3 \Be_1 = -\Be_2 \\
-\Be_1 \Be_2 &= I \Be_3 \qquad I \Be_1 \Be_2 = -\Be_3.
+\Be_2 \Be_3 &= \Be_1 I \qquad \Be_2 \Be_3 I = -\Be_1 \\
+\Be_3 \Be_1 &= \Be_2 I \qquad \Be_3 \Be_1 I = -\Be_2 \\
+\Be_1 \Be_2 &= \Be_3 I \qquad \Be_1 \Be_2 I = -\Be_3.
 \end{aligned}
 \end{equation}
 
-For example, with \( \Br = a \Be_1 + b \Be_2 \), we have
+For example, with \( \Br = a \Be_1 + b \Be_2 \), the dual is
 \begin{dmath}\label{eqn:dual:1640}
 \Br I
 =
@@ -42,24 +61,20 @@ This is illustrated in figure \cref{fig:dualityInR3:dualityInR3Fig1}.
 
 \imageFigure{../figures/GAelectrodynamics/dualityInR3Fig1}{\R{3} duality illustration.}{fig:dualityInR3:dualityInR3Fig1}{0.3}
 
-Using pseudoscalar multiplication to produce orthogonal subspaces
-is referred to as a duality transformation.
-
-\index{dual}
-\index{\(M^\conj\)}
-\makedefinition{Dual}{dfn:definitions:dual}{
-Given a multivector \( M \), the dual of a multivector \( M \) is designated \( M^\conj \) and has the value \( M^\conj = M I \), where
-\( I \) is a unit pseudoscalar for the space.
-} % definition
+%Using pseudoscalar multiplication to produce orthogonal subspaces
+%is referred to as a duality transformation.
 
 Some notes on duality
 
 \begin{itemize}
-\item If \( A \) is a non-scalar k-vector, none of the vector factors of \( A \) and \( A^\conj \) are common.
-\item In a sense that can be defined more precisely once the general dot product operator is defined, the dual to a given k-vector \( A \) represents a \((N-k)\)-vector object that is orthogonal to \( A \).
 \item The dual of any scalar is a pseudoscalar, whereas the dual of a pseudoscalar is a scalar.
-\item Some authors use different sign conventions for duality, in particular, designating the dual as \( M^\conj = M I^{-1} \).
-\item For non-Euclidean spaces, in particular ``null spaces'' where the square of vectors can be null, a different definition of duality may be required.
+\item The dual of a k-vector in a N-dimensional space is an \((N-k))))))))\)-vector.
+For example, \cref{eqn:dual:1580} showed that the dual of a 1-vector in \R{3} was a \((3-1)\)-vector, and the dual of a 2-vector is a \((3-2)\)-vector.  In \R{7}, say, the dual of a 2-vector is a 5-vector, the dual of a 3-vector is a 4-vector, and so forth.
+\item All factors of the dual \((N-k)\)-vector are orthogonal to all the factors of the k-vector.  Looking to \cref{eqn:dual:1580} for examples, we see that the dual of the bivector \( \Be_2 \Be_3 \) is \( \Be_1 \), and both factors of the bivector \( \Be_2, \Be_3 \) are orthogonal to the dual of that bivector \( \Be_1 \).
+%\item If \( A \) is a non-scalar k-vector, none of the vector factors of \( A \) and \( A^\conj \) are common.
+%\item In a sense that can be defined more precisely once the general dot product operator is defined, the dual to a given k-vector \( A \) represents a \((N-k)\)-vector object that is orthogonal to \( A \).
+\item Some authors use different sign conventions for duality, in particular, designating the dual as \( M I^{-1} \), which can have a different sign.  As one may choose pseudoscalars that differ in sign anyways, the duality convention doesn't matter too much, provided one is consistent.
+%\item For non-Euclidean spaces, in particular ``null spaces'' where the square of vectors can be null, a different definition of duality may be required.
 \end{itemize}
 
 %%%As a multivector may not have an obvious geometric interpretation, a geometric

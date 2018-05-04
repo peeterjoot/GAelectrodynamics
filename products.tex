@@ -6,37 +6,37 @@
 The product of two colinear vectors is a scalar, and the product of two orthogonal vectors is a bivector.
 The product of two general vectors is a multivector with structure to be determined.
 A powerful way to examine this structure is to compute the product of two vectors in a polar representation with respect to the plane that they span.
-Let \( \Ba \) and \( \Bb \) be two vectors on the plane formed by orthonormal vectors \( \Bu \) and \( \Bv \), where \( \Bu, \Bv \) are
-oriented in a positive rotational sense as illustrated in
+Let \( \setlr{\Bu, \Bv} \) be an orthonormal basis for the plane containing
+two vectors \( \Ba \) and \( \Bb \), where the rotational sense of \( \Bu \rightarrow \Bv \) is in the same direction as the shortest rotation that takes \( \Ba/\Norm{\Ba} \rightarrow \Bb/\Norm{\Bb} \), as 
+illustrated in
 \cref{fig:Parallelogram:ParallelogramFig1}.
 \imageFigure{../figures/GAelectrodynamics/ParallelogramFig1}{Two vectors in a plane.}{fig:Parallelogram:ParallelogramFig1}{0.3}
 
-With respect to the orthonormal vectors \( \Bu \) and \( \Bv \), a
+Let \( i_{\Bu \Bv} = \Bu \Bv \) designate the unit pseudoscalar for the plane, so that
 a polar representation of \( \Ba, \Bb \) is
 \begin{dmath}\label{eqn:products:1660}
 \begin{aligned}
-\Ba &= \Norm{\Ba} \Bu e^{ i_{ab} \theta_a } = \Norm{\Ba} e^{ -i_{ab} \theta_a } \Bu \\
-\Bb &= \Norm{\Bb} \Bu e^{ i_{ab} \theta_b } = \Norm{\Bb} e^{ -i_{ab} \theta_b } \Bu,
+\Ba &= \Norm{\Ba} \Bu e^{ i_{\Bu \Bv} \theta_a } = \Norm{\Ba} e^{ -i_{\Bu \Bv} \theta_a } \Bu \\
+\Bb &= \Norm{\Bb} \Bu e^{ i_{\Bu \Bv} \theta_b } = \Norm{\Bb} e^{ -i_{\Bu \Bv} \theta_b } \Bu,
 \end{aligned}
 \end{dmath}
-where \( i_{ab} = \Bu \Bv \) is a unit pseudoscalar for the planar subspace spanned by \( \Ba \) and \( \Bb \).
 The vector product of these two vectors is
 \begin{dmath}\label{eqn:products:1680}
 \Ba \Bb
 =
-\lr{ \Norm{\Ba} e^{ -i_{ab} \theta_a } \Bu } \lr{ \Norm{\Bb} \Bu e^{ i_{ab} \theta_b } }
+\lr{ \Norm{\Ba} e^{ -i_{\Bu \Bv} \theta_a } \Bu } \lr{ \Norm{\Bb} \Bu e^{ i_{\Bu \Bv} \theta_b } }
 =
  \Norm{\Ba} \Norm{\Bb}
-e^{ -i_{ab} \theta_a } ( \Bu \Bu ) e^{ i_{ab} \theta_b }
+e^{ -i_{\Bu \Bv} \theta_a } ( \Bu \Bu ) e^{ i_{\Bu \Bv} \theta_b }
 =
  \Norm{\Ba} \Norm{\Bb}
-e^{ i_{ab} (\theta_b - \theta_a)}.
+e^{ i_{\Bu \Bv} (\theta_b - \theta_a)}.
 =
  \Norm{\Ba} \Norm{\Bb}
 \lr{
 \cos
 (\theta_b - \theta_a)
-+ i_{ab}
++ i_{\Bu \Bv}
 \sin
 (\theta_b - \theta_a)
 }.
@@ -80,21 +80,23 @@ Given this notation, the product of two vectors can be written
 } % definition
 
 \index{grade selection}
-Scalar grade selection of a product of two vectors is an important new tool.
-There will be many circumstances where the easiest way to compute a dot product is using scalar grade selection.
+Computation of dot products using scalar grade selection will be used extensively in this book, as scalar
+grade selection of vector products will often be the easiest way to compute a dot product
 
 The split of a vector product into dot and wedge product components is also important.
 However, to utilize it, the properties of the wedge product have to be determined.
 
 \index{\(\Ba \cross \Bb\)}
-Summarizing \cref{eqn:products:1680} with our new operators, we write
+Summarizing \cref{eqn:products:1680} with our new operators, where \( i_{\Bu \Bv} = \Bu \Bv \), and \( \Bu, \Bv \) are orthonormal vectors in the plane of \( \Ba, \Bb \) with the same sense of the smallest rotation that takes \( \Ba \) to \( \Bb \), the vector, dot and wedge products are
 \boxedEquation{eqn:SimpleProducts2:1700}{
 \begin{aligned}
-\Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} (\theta_b - \theta_a) } \\
+\Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{\Bu \Bv} (\theta_b - \theta_a) } \\
 \Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos( \theta_b - \theta_a ) \\
-\Ba \wedge \Bb &= i_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a ),
+\Ba \wedge \Bb &= i_{\Bu \Bv} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a ).
 \end{aligned}
 }
+%where \( i = (\Ba \wedge \Bb)/\sqrt{-(\Ba \wedge \Bb)^2} \)
+%The rescaling of \( i \) above ensures that \( i^2 = -1 \), and is equivalent to having picked an orthonormal basis \( \setlr{\Bu, \Bv} \) for the plane.
 
 \makeexample{Products of two unit vectors.}{example:products:1860}{
 To develop some intuition about the vector product, let's consider product of two unit vectors \( \Ba, \Bb \) in the equilateral triangle of
@@ -297,14 +299,14 @@ b_1 & b_2 & b_3 \\
 \\ \hline
 Polar form &
 \( \ncap_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \) &
-\( i_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \)
+\( i \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \)
 \\ \hline
 \end{tcolorbox}
 
 All the wedge properties except the determinant expansion above are valid in any dimension.
 Comparing \cref{eqn:products:1740} to the determinant representation of the cross product, and referring to
 \cref{eqn:dual:1580}, shows that
-the \R{3} wedge product is related to the cross product by a duality transformation \( i_{ab} = I \ncap_{ab} \),
+the \R{3} wedge product is related to the cross product by a duality transformation \( i = I \ncap_{ab} \),
 or
 \boxedEquation{eqn:SimpleProducts2:1620}{
 \Ba \wedge \Bb = I ( \Ba \cross \Bb ).
