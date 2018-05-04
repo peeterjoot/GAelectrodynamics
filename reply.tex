@@ -28,8 +28,44 @@
 %\label{chap:reply}
 
 \color{Blue}{
-   \paragraph{}:
+   \paragraph{C6}:
 
+You can do it from \( \Bj = (2 \Ba \Bb - 1)/\sqrt{3} \), but you don't have the tools yet.
+Expanding \( \Bj^2 \) you get
+\begin{dmath}\label{eqn:reply:160}
+\Bj^2 = \inv{3} \lr{ 4 \Ba \Bb \Ba \Bb - 4 \Ba \Bb + 1 },
+\end{dmath}
+which might look intractible, however, by rearranging
+\begin{dmath}\label{eqn:reply:100}
+\Ba \cdot \Bb = \frac{\Ba \Bb + \Bb \Ba}{2},
+\end{dmath}
+which is a vector product form of the dot product that comes later in the chapter I, you can find both of
+\begin{dmath}\label{eqn:reply:120}
+\begin{aligned}
+\Bb \Ba &= 2 \Ba \cdot \Bb - \Ba \Bb \\
+\Ba \Bb &= 2 \Ba \cdot \Bb - \Bb \Ba
+\end{aligned}.
+\end{dmath}
+These can be used to reduce the \( \Ba \Bb \Ba \Bb \) product that you get expanding \( \Bj^2 \).  For example
+\begin{dmath}\label{eqn:reply:140}
+\Ba \Bb \Ba \Bb
+=
+\lr{ 2 \Ba \cdot \Bb - \Bb \Ba } \Ba \Bb
+=
+2 (\Ba \cdot \Bb) \Ba \Bb - \Bb \Ba^2 \Bb
+=
+2 (\Ba \cdot \Bb) \Ba \Bb - \Bb^2 \Ba^2
+=
+\Ba \Bb - 1,
+\end{dmath}
+where the last step used \( \Ba^2 = \Bb^2 = 1 \) and \( \Ba \cdot \Bb = 1/2 \).
+Inserting into \cref{eqn:reply:160} you get
+\begin{dmath}\label{eqn:reply:n}
+\Bj^2 = \inv{3}\lr{ 4 (\Ba \Bb - 1) - 4 \Ba \Bb + 1 }
+=
+\frac{-3}{3}
+= -1.
+\end{dmath}
 }
 
 %%%\color{Red}{

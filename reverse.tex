@@ -18,14 +18,12 @@ The notation \( F \in \bigwedge^k \) is used in the literature to indicate that 
 }
 
 Any k-blade is also a k-vector, but not all k-vectors are k-blades.  For example in \R{4} the bivector
-\begin{dmath}\label{eqn:reverse:3}
-\Be_{12} + \Be_{34},
-\end{dmath}
-is not a 2-blade, since it cannot be factored into orthogonal products.
+\(
+\Be_{12} + \Be_{34} \)
+is not a 2-blade, since it cannot be factored into orthogonal products, whereas any \R{3} bivector, such as
+\( \Be_{12} + \Be_{23} + \Be_{31} \) is a blade (\cref{problem:normalFactorization:1}).
 This will be relevant when formulating rotations since bivectors that are blades can be used to simply describe rotations or Lorentz boosts
 \footnote{A rotation in spacetime.} whereas it is not easily possible to compute an exponential of a non-blade bivector argument.
-
-The reverse of a blade is
 
 \maketheorem{Reverse of k-blade.}{thm:reverse:kBlade}{
 The reverse of a k-blade \( A_k = \Ba_1 \Ba_2 \cdots \Ba_k \) is given by

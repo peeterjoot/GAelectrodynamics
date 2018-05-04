@@ -1,3 +1,11 @@
+- define k-vector dot product.  multivector dot product will then just follow by superposition.  Same for the generalized wedge.
+
+- mo:
+   define the reverse of a k-vector, and then expand this to the reverse of a multivector.
+
+- re: blades and reverse.
+Mo suggested highlighting the fact that e_123^2 = -1, and e12^2 = -1 much earlier (presenting both as theorems).  Once that is done I probably won’t use that reverse formula, and will see if I even need it in the book.  I’m actually using blade for almost nothing now in the book (having switched to bivector since the distinction didn’t matter in many places).  Really the only place that it is left is chapter II where it was relevant for the generalized Stokes theorem.  Perhaps I can eliminate it entirely?
+
 - switched to annotated tags:
 
    https://stackoverflow.com/a/7261049/189270
