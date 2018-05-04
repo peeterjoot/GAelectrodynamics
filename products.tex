@@ -7,7 +7,7 @@ The product of two colinear vectors is a scalar, and the product of two orthogon
 The product of two general vectors is a multivector with structure to be determined.
 A powerful way to examine this structure is to compute the product of two vectors in a polar representation with respect to the plane that they span.
 Let \( \setlr{\Bu, \Bv} \) be an orthonormal basis for the plane containing
-two vectors \( \Ba \) and \( \Bb \), where the rotational sense of \( \Bu \rightarrow \Bv \) is in the same direction as the shortest rotation that takes \( \Ba/\Norm{\Ba} \rightarrow \Bb/\Norm{\Bb} \), as 
+two vectors \( \Ba \) and \( \Bb \), where the rotational sense of \( \Bu \rightarrow \Bv \) is in the same direction as the shortest rotation that takes \( \Ba/\Norm{\Ba} \rightarrow \Bb/\Norm{\Bb} \), as
 illustrated in
 \cref{fig:Parallelogram:ParallelogramFig1}.
 \imageFigure{../figures/GAelectrodynamics/ParallelogramFig1}{Two vectors in a plane.}{fig:Parallelogram:ParallelogramFig1}{0.3}
@@ -137,7 +137,7 @@ that \( j \) is a unit bivector (i.e. it squares to \( -1 \)), allowing us to wr
 
 Since both vector factors were unit length, this ``complex'' exponential has no leading scalar factor contribution from \( \Norm{\Ba} \Norm{\Bb} \).
 
-From the above analysis, we can also see that in this case, the product of two 0,2 multivectors was itself a 0,2 multivector.  We can see that by forming the product
+Now, let's calculate the vector product using the polar form, which gives
 \begin{dmath}\label{eqn:products:1960}
 \Ba \Bb =
 \biglr{
@@ -147,15 +147,19 @@ From the above analysis, we can also see that in this case, the product of two 0
 }
 =
 \exp\lr{ -\Be_{31} \pi/4 }
-\exp\lr{ \Be_{32} \pi/4 },
+\exp\lr{ \Be_{32} \pi/4 }.
 \end{dmath}
-so
+The product of two unit vectors, each with a component in the z-axis direction, results in a product of complex exponential rotation operators, each a
+grade \((0,2)\)-multivectors.  The product of these complex exponentials is another grade \((0,2)\)-multivector.  This is a specific example of the product of two rotation operators producing a
+rotation operator for the composition of rotations, as follows
 \begin{dmath}\label{eqn:products:1980}
 \exp\lr{ \Be_{13} \pi/4 }
 \exp\lr{ \Be_{32} \pi/4 } = \exp\lr{ j \pi/3 }.
 \end{dmath}
+The rotation operator that describes the composition of rotations has a different rotational plane, and rotates through a different rotation angle.
 
-Composition of two rotation operators has resulted in another rotation operator, but that result is in a different rotational plane, and through a different rotation angle.
+We are left with a geometric interpretation for the vector product.  The product of two vectors can be interpretted as a rotation and scaling operator.
+The product of two unit length vectors can be interpretted as a pure rotation operator.
 } % example
 
 \index{polar representation}
