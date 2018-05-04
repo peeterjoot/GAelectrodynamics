@@ -250,8 +250,8 @@ perl -p -i ../latex/bin/latexRegex.pl prereq_standardbasis.tex
 ../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
 
-#../latex/bin/lgrep products.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl products.tex
+../latex/bin/lgrep products.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl products.tex
 
 #../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl projectionAndRejection.tex

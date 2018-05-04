@@ -4,8 +4,43 @@
 %
 \index{vector product}
 The product of two colinear vectors is a scalar, and the product of two orthogonal vectors is a bivector.
-The product of two general vectors is a multivector with structure to be determined.
-A powerful way to examine this structure is to compute the product of two vectors in a polar representation with respect to the plane that they span.
+The product of two general vectors is a multivector with structure to be determined.  In the process of exploring this structures we will prove the following theorems.
+
+\index{\(\Ba \cdot \Bb\)}
+\maketheorem{Dot product as a scalar selection.}{thm:products:2080}{
+The dot product of two vectors \( \Ba, \Bb \) can be computed by scalar grade selection
+\begin{equation*}
+\Ba \cdot \Bb
+=
+\gpgradezero{ \Ba \Bb }
+.
+\end{equation*}
+} % theorem
+
+Computation of dot products using scalar grade selection will be used extensively in this book, as scalar
+grade selection of vector products will often be the easiest way to compute a dot product.
+
+\index{grade selection}
+\maketheorem{Grades of a vector product.}{thm:products:2081}{
+The product of two vectors is a multivector that has only grades 0 and 2.  That is
+%\label{eqn:products:1800}
+\begin{equation*}
+\Ba \Bb
+=
+\gpgradezero{ \Ba \Bb }
++
+\gpgradetwo{ \Ba \Bb }.
+\end{equation*}
+} % theorem
+
+We've seen special cases of both
+\cref{thm:products:2080}
+and
+\cref{thm:products:2081}
+considering colinear and orthogonal vectors.
+The more general cases will be proven in two ways, first using a polar representation of two vectors in a plane, and then using
+a coordinate expansion of the vectors.  This will also provide some insight about the bivector component of the product of two vectors.
+
 Let \( \setlr{\Bu, \Bv} \) be an orthonormal basis for the plane containing
 two vectors \( \Ba \) and \( \Bb \), where the rotational sense of \( \Bu \rightarrow \Bv \) is in the same direction as the shortest rotation that takes \( \Ba/\Norm{\Ba} \rightarrow \Bb/\Norm{\Bb} \), as
 illustrated in
@@ -42,33 +77,19 @@ e^{ i_{\Bu \Bv} (\theta_b - \theta_a)}.
 }.
 \end{dmath}
 
-We see that the product of two vectors is a multivector that has only grades 0 and 2.
-This can be expressed symbolically as
-\begin{dmath}\label{eqn:products:1800}
-\Ba \Bb
-=
-\gpgradezero{ \Ba \Bb }
-+
-\gpgradetwo{ \Ba \Bb }.
-\end{dmath}
+This completes the proof of \cref{thm:products:2081}, as we see that the
+product of two vectors is a multivector with only grades 0 and 2.
+It is also clear that
+the scalar grade of the end result of \cref{eqn:products:1680} is the \R{N}
+dot product, completing the proof of \cref{thm:products:2080}.
 
-The scalar grade of the vector product is the \R{N} dot product, but the grade 2 component of the vector product is something new that requires a name.
-%We respectively identify and define operators for these vector grade selection operations as
+The grade 2 component of the vector product is something new that requires a name, which we call the wedge product.
 
 \index{wedge product}
 \index{dot product}
-\index{\(\Ba \cdot \Bb\)}
 \index{\(\Ba \wedge \Bb\)}
-\makedefinition{Dot and wedge products of two vectors.}{dfn:products:dotandwedge}{
-Given two vectors \( \Ba, \Bb \in \bbR^{N} \) the dot product is identified as the scalar grade of their product
-\begin{equation*}
-\gpgradezero{ \Ba \Bb }
-=
-\Ba \cdot \Bb
-.
-\end{equation*}
-
-A wedge product of the vectors is defined as a grade-2 selection operation
+\makedefinition{Wedge product of two vectors.}{dfn:products:dotandwedge}{
+Given two vectors \( \Ba, \Bb \), the wedge product of the vectors is defined as a grade-2 selection operation of their vector product and written
 \begin{equation*}
 \Ba \wedge \Bb \equiv \gpgradetwo{ \Ba \Bb }.
 \end{equation*}
@@ -78,10 +99,6 @@ Given this notation, the product of two vectors can be written
 \Ba \Bb = \Ba \cdot \Bb + \Ba \wedge \Bb.
 \end{equation*}
 } % definition
-
-\index{grade selection}
-Computation of dot products using scalar grade selection will be used extensively in this book, as scalar
-grade selection of vector products will often be the easiest way to compute a dot product
 
 The split of a vector product into dot and wedge product components is also important.
 However, to utilize it, the properties of the wedge product have to be determined.
@@ -302,7 +319,7 @@ b_1 & b_2 & b_3 \\
 \)
 \\ \hline
 Polar form &
-\( \ncap_{ab} \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \) &
+\( \ncap \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \) &
 \( i \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \)
 \\ \hline
 \end{tcolorbox}
@@ -310,7 +327,7 @@ Polar form &
 All the wedge properties except the determinant expansion above are valid in any dimension.
 Comparing \cref{eqn:products:1740} to the determinant representation of the cross product, and referring to
 \cref{eqn:dual:1580}, shows that
-the \R{3} wedge product is related to the cross product by a duality transformation \( i = I \ncap_{ab} \),
+the \R{3} wedge product is related to the cross product by a duality transformation \( i = I \ncap \),
 or
 \boxedEquation{eqn:SimpleProducts2:1620}{
 \Ba \wedge \Bb = I ( \Ba \cross \Bb ).
