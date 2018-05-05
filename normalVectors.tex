@@ -2,36 +2,8 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-An interchange of the order of the factors of two orthogonal factors results in a change of sign,
-for example \( \Be_2 \Be_1 = -\Be_1 \Be_2 \).
-This is a consequence of the contraction axiom, and can be demonstrated by squaring the vector
-\( \Be_1 + \Be_2 \) (\cref{fig:unitSum:unitSumFig1}).
-
-\imageFigure{../figures/GAelectrodynamics/unitSumFig1}{\( \Be_1 + \Be_2 \).}{fig:unitSum:unitSumFig1}{0.3}
-By the contraction axiom, the square of this vector is \( 2 \), so we have
-\begin{dmath}\label{eqn:normalVectors:80}
-2 =
-(\Be_1 + \Be_2)^2
-= (\Be_1 + \Be_2)(\Be_1 + \Be_2)
-= \Be_1^2 + \Be_2^2 + \Be_2 \Be_1 + \Be_1 \Be_2.
-= 2 + \Be_2 \Be_1 + \Be_1 \Be_2.
-\end{dmath}
-
-We conclude immediately that
-\begin{dmath}\label{eqn:normalVectors:280}
-\Be_2 \Be_1 + \Be_1 \Be_2 = 0,
-\end{dmath}
-or
-%\begin{dmath}\label{eqn:normalVectors:140}
-\boxedEquation{eqn:normalVectors:140}{
-\Be_1 \Be_2 = -\Be_1 \Be_2.
-}
-%\end{dmath}
-
-The same computation could have been performed for any two orthogonal vectors, so we conclude that any interchange of two orthogonal vectors changes the sign.
-
 \index{anticommutation}
-\maketheorem{Anticommutation}{thm:multiplication:anticommutationNormal}{
+\maketheorem{Anticommutation of orthogonal vectors}{thm:multiplication:anticommutationNormal}{
 Let \(\Bu\), and \(\Bv\) be two orthogonal vectors, the product of which \( \Bu \Bv \) is a bivector.
 Changing the order of these products toggles the sign of the bivector.
 \begin{equation*}
@@ -41,3 +13,42 @@ Changing the order of these products toggles the sign of the bivector.
 This sign change on interchange is called anticommutation.  Conversely, if the product of two vectors is a bivector, those vectors are orthogonal.
 } % theorem
 
+Examples include,
+\( \Be_2 \Be_1 = -\Be_1 \Be_2 \),
+\( \Be_3 \Be_2 = -\Be_2 \Be_3 \), and
+\( \Be_1 \Be_3 = -\Be_3 \Be_1 \).  This theorem can also be applied to any pairs of orthogonal vectors in a arbitrary k-vector, for example
+\begin{dmath}\label{eqn:normalVectors:300}
+\Be_3 \Be_2 \Be_1
+= (\Be_3 \Be_2) \Be_1
+= -(\Be_2 \Be_3) \Be_1
+= -\Be_2 (\Be_3 \Be_1)
+= +\Be_2 (\Be_1 \Be_3)
+= +(\Be_2 \Be_1) \Be_3
+= -\Be_1 \Be_2 \Be_3,
+\end{dmath}
+showing that reversal of all the factors in a trivector such as \( \Be_1 \Be_2 \Be_3 \) toggles the sign.
+
+To prove \cref{thm:multiplication:anticommutationNormal} consider the 
+sum of two orthogonal vectors \( \Bu, \Bv \), as illustrated in \cref{fig:unitSum:unitSumFig1}.  Expanding the square
+of this sum, taking care to maintain the order of any vector products, we find
+\begin{dmath}\label{eqn:normalVectors:340}
+\lr{ \Bu + \Bv }^2 =
+\lr{ \Bu + \Bv }
+\lr{ \Bu + \Bv }
+=
+\Bu^2 + \Bu \Bv + \Bv \Bu + \Bv^2.
+\end{dmath}
+By the contraction axiom, the square of \( \Bu + \Bv \) is the length, or
+\begin{dmath}\label{eqn:normalVectors:320}
+\lr{ \Bu + \Bv }^2 = \Bu^2 + \Bv^2,
+\end{dmath}
+so after equating 
+\cref{eqn:normalVectors:340}
+and 
+\cref{eqn:normalVectors:320}
+we conclude that
+\begin{dmath}\label{eqn:normalVectors:n}
+\Bu \Bv + \Bv \Bu = 0.
+\end{dmath}
+Minor rearrangement completes the proof, showing that orthogonal vectors anticommute in geometric algebra.
+\imageFigure{../figures/GAelectrodynamics/unitSumFig1}{Sum of orthogonal vectors.}{fig:unitSum:unitSumFig1}{0.3}
