@@ -42,6 +42,7 @@
 %\newcommand{\rspacetimegrad}[2]{\lr{\stackrel{ \rightarrow }{#2 \spacegrad + #1 \PD{t}{}}}}
 
 \newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\center\arraybackslash}X}
 
 \tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
 colback=yellow!10!white,colframe=DarkOliveGreen!75!black,colbacktitle=DarkOliveGreen!40!white,
@@ -59,7 +60,7 @@ coltitle=black,center title}}
 %% layout: X||Y
 %% title:
 %% text:
-%% label.
+%% label=... (and other options)
 %\newcommand{\makecolorboxtable}[4]{%
 %\refstepcounter{colorboxtable}%
 %\label{#4}%
@@ -74,7 +75,7 @@ colframe=DarkOliveGreen,
 arc=0mm,
 colbacktitle=white,enhanced,
 attach boxed title to top left={yshift=-0.75mm,xshift=4mm},
-label=#3,%
+#3,%
 title=\textbf{{\color{DarkOliveGreen}Table\,\thetcbcounter:} {\color{Maroon}#2}},#1}
 %label=#3 type=table,
 
@@ -182,10 +183,11 @@ arc=0mm,%
 %\input{poyntingFComplexPower.tex}
 %\input{potentialSection_farfield.tex}
 %\input{linecharge.tex}
-%\input{2dMultiplication.tex}
 %\input{prerequisites.tex}
 %\input{FrontBackmatter/preface.tex}
-\input{dual.tex}
+%\input{dual.tex}
+\input{complex.tex}
+\input{2dMultiplication.tex}
 
 %}
 %\EndArticle

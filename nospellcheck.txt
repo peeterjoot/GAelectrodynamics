@@ -19,3 +19,10 @@ quaternion2maxwellWithGA.tex
 # orphaned.  Move to .junk/ ?
 boundary.tex
 ellipticalWaves.tex
+
+# standalone
+fundamentalMinkowski.tex
+reply.tex
+
+# part of the report:
+reportPreamble.tex

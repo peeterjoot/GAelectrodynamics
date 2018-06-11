@@ -1,0 +1,111 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\index{differential form}
+In geometric algebra, the integrand of a multivector line integral contains product of multivector(s) and a single parameter differential
+\makedefinition{Multivector line integral.}{dfn:lineintegraldef:multivectorlineintegral}{
+Given a continuous and differentiable curve described by a vector function \( \Bx(a) \), parameterized by single value \( a \) with differential
+\begin{equation*}
+d^1 \Bx \equiv d\Bx_a = \PD{a}{\Bx} da = \Bx_a da,
+\end{equation*}
+and multivector functions \( F, G \), the integral
+\begin{equation*}
+\int F d^1 \Bx G
+\end{equation*}
+is called a multivector line integral.
+} % definition
+
+An illustration of a single parameter curve and its
+differential with respect to that parameter, is given in
+\cref{fig:oneParameterDifferential:oneParameterDifferentialFig1}.
+Observe that the differential is tangent to the curve at all points.
+Possible physical realizations of the parameter describing the curve include
+time, arclength, or angle.
+
+\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.2}
+
+Suppose that \( \Bf(\Bx(a)) \) is a vector valued function defined along the curve.
+The conventional line integral from vector calculus, a dot product of a differential and the function \( \Bf \)
+may be obtained by the sum of two multivector line integrals one with \( F,G = \Bf/2,1 \), and the other with \( F,G = 1,\Bf/2 \)
+\begin{dmath}\label{eqn:lineintegraldef:20}
+\int d \Bx \frac{\Bf}{2}
++\int
+\frac{\Bf}{2}
+d \Bx
+=
+\int d \Bx \cdot \Bf.
+\end{dmath}
+Unlike the conventional dot product line integral, the multivector line integral of a vector function such as \( \int d \Bx \Bf \) is generally multivector valued, with both a scalar and a bivector component.  Let's consider some examples of multivector line integrals.
+
+\paragraph{Example: Circular path.}
+Let \( f(t) = \Ba t + \Bb t^2 \), where \( \Ba, \Bb \) are constant vectors, \( t \) is a scalar parameter, and the integration path is circular \( \Bx(t) = \Be_1 e^{i t} \), where \( i = \Be_1 \Be_2 \).
+The line integral of \( \Bf\, d\Bx \) is
+\begin{dmath}\label{eqn:lineintegraldef:40}
+\int \Bf(t)\, d\Bx
+=
+\Ba \Be_2 \int t e^{i t} dt +
+\Bb \Be_2 \int t^2 e^{i t} dt
+=
+\lr{\Ba \Be_2 \lr{ 1 - i t } + \Bb \Be_2 \lr{ 2 i + 2 t - i t^2 } } e^{i t}
+=
+\lr{ \Ba + 2 \Bb t} \Be_2 e^{i t}
++
+\lr{ \Ba t - 2 \Bb  + \Bb t^2 } \Be_1 e^{i t},
+\end{dmath}
+and the
+line integral of \( d\Bx\, \Bf \) is
+\begin{dmath}\label{eqn:lineintegraldef:60}
+\int d\Bx\, \Bf
+=
+\Be_2 \int t e^{i t} dt \Ba
++
+\Be_2 \int t^2 e^{i t} dt \Bb
+=
+\Be_2 e^{i t} \lr{ \lr{ 1 - i t } \Ba + \lr{ 2 i + 2 t - i t^2 } \Bb }
+=
+\Be_2 e^{i t}
+\lr{ \Ba + 2 \Bb t}
++
+\Be_1 e^{i t}
+\lr{ \Ba t - 2 \Bb  + \Bb t^2 }.
+\end{dmath}
+Unless the vector constants \( \Ba, \Bb \) have only components along the z-axis, \cref{eqn:lineintegraldef:40} and \cref{eqn:lineintegraldef:60} are not generally equal.
+
+\paragraph{Example: Circular bivector.}
+Given a bivector valued function \( F(t) = \Be_2 \wedge \lr{ \Be_3 e^{it} } \), where \( i = \Be_{3} \Be_1 \), and a curve
+\( \Bx(t) = \Be_3 + \Be_2 t + \Be_1 t^2/2 \), we can compute the line integral with the differential on the right
+\begin{dmath}\label{eqn:lineintegraldef:80}
+\int F\, d\Bx
+=
+\Be_{23} \int e^{i t} \lr{ \Be_2 + \Be_1 t} dt
+=
+-\Be_3 \int e^{it} dt + \Be_{123} \int t e^{-i t} dt
+=
+\Be_{1} e^{it} + \Be_{123} \lr{ 1 + i t} e^{-it}
+=
+\Be_1 e^{it} + \Be_2 t e^{-it} + \Be_{123} e^{-it},
+\end{dmath}
+or the line integral with the differential on the left
+\begin{dmath}\label{eqn:lineintegraldef:100}
+\int d\Bx\, F
+=
+\int \lr{ \Be_2 + \Be_1 t} \Be_{31} e^{it} dt
+=
+\Be_{123} \int e^{it} dt - \Be_3 \int t e^{it}
+=
+\Be_{2} e^{it} - \Be_3 \lr{ 1 - i t } e^{it}
+=
+\Be_{2} e^{it} - \Be_3 e^{it} + \Be_{1} t e^{it}.
+\end{dmath}
+In both \cref{eqn:lineintegraldef:80} and \cref{eqn:lineintegraldef:100} the end result has both vector and trivector grades.  While both integrals are equal (zero) when the angular velocity parameter \( t \) is a multiple of \( 2 \pi \), this shows that the order of the products in the integrand makes a difference once again.
+
+\paragraph{Example: Function with only scalar and pseudoscalar grades.}
+In \R{3}, given any function with only scalar and pseudoscalar grades, say \( F(t) = f(t) + I g(t) \), where \( f, g \) are both scalar functions, then the order of the products in a line integrand do not matter.  For any such function we have
+\begin{dmath}\label{eqn:lineintegraldef:120}
+\int F d\Bx = \int d\Bx F,
+\end{dmath}
+since both the scalar and pseudoscalar grades commute with any vector differential.
+
+%}

@@ -1,4 +1,24 @@
 %-----------------------------------------
+% TODO instrumentation:
+
+%\usepackage{easy-todo}
+%\usepackage[disable]{easy-todo}
+
+% this one seems to generate question marks.  Think that it's also supposed to be used with something that generates
+% an explicit todo list somewhere in the text.
+%\usepackage{todo}
+
+% doesn't work right.  boxes are doubled, two per TODO.
+%\usepackage{todonotes}
+%\setlength{\marginparwidth}{2cm}
+
+% don't see any output when using this package:
+%\usepackage{fixme}
+%\newcommand{\todo}[1]{\fxnote{#1}}
+
+\newcommand{\todo}[1]{}
+
+%-----------------------------------------
 
 %\newcommand{\dAlembertian}[0]{\square}
 \newcommand{\dAlembertian}[0]{\Box}
@@ -48,7 +68,7 @@ coltitle=black,center title}}
 %% layout: X||Y
 %% title:
 %% text:
-%% label.
+%% label=fig...,other-options
 %\newcommand{\makecolorboxtable}[4]{%
 %\refstepcounter{colorboxtable}%
 %\label{#4}%
@@ -64,7 +84,7 @@ colframe=DarkOliveGreen,%
 colbacktitle=white,enhanced,%
 arc=0mm,%
 attach boxed title to top left={yshift=-0.75mm,xshift=4mm},%
-label=#3,%
+#3,%
 title=\textbf{{\color{DarkOliveGreen}Table\,\thetcbcounter:} {\color{Maroon}#2}},#1}
 %label=#3 type=table,%
 

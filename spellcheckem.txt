@@ -7,6 +7,7 @@ Definition_adjoint.tex
 Definition_electromagnetic_field_strength.tex
 Definition_energy_momentum_and_maxwell_stress.tex
 Definition_energy_momentum_poynting.tex
+Definition_maxwells.tex
 Definition_multivector_current.tex
 Definition_multivector_fourier.tex
 Definition_multivector_integral.tex
@@ -65,6 +66,7 @@ Theorem_volume_integral_of_bivector_stokes_divergence.tex
 Theorem_volume_integral_of_vector_stokes.tex
 ampereExample.tex
 amperes.tex
+bladeAndBladeReverse.tex
 bladeDotWedgeSymmetryIdentitiesTheorem.tex
 boundarySurfaceSources.tex
 circularlinecharge.tex
@@ -86,6 +88,7 @@ enclosedCurrent.tex
 fourier.tex
 freespace.tex
 functionvectorspace.tex
+fundamentalTheorem.tex
 fundamentalTheoremOfCalculus.tex
 gacomparison.tex
 gagcProof.tex
@@ -97,6 +100,7 @@ generalizedDot_bivectorDot.tex
 generalizedDot_vectorBivector.tex
 generalizedWedge.tex
 generalizedWedgeProblems.tex
+gradeselection.tex
 gradient.tex
 greensFunctionFirstOrderHelmholtz.tex
 greensFunctionHelmholtz.tex
@@ -112,11 +116,11 @@ jefimenkosEquations.tex
 landauEasy.tex
 linecharge.tex
 lineintegral.tex
+lineintegraldef.tex
 lorentzForce.tex
 lorentzForce_constantMagnetic.tex
 maxwellsEquations.tex
 multivector.tex
-multivector_nomenclature.tex
 normalFactorization.tex
 normalVectors.tex
 paulivectorspace.tex
@@ -134,15 +138,16 @@ prereq_vectorspace_Rn.tex
 prerequisites.tex
 products.tex
 projectionAndRejection.tex
+pseudoscalar.tex
 r4nonzerobivectorwedgewithself.tex
 reciprocal.tex
 reciprocal_R2.tex
 reciprocal_R3.tex
 reflection.tex
-reverse.tex
 reverseDefined.tex
 ringField.tex
 scalarSelectionPermutation.tex
+shorthand.tex
 solutionOfLinearSystem.tex
 sphericaldot.tex
 statics.tex
@@ -161,3 +166,5 @@ volumeselection.tex
 wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
+surfaceintegraldef.tex
+volumeintegraldef.tex

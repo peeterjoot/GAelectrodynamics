@@ -1,0 +1,155 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{fundamentalMinkowski}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+% https://math.stackexchange.com/questions/2819680/the-fundamental-theorem-of-geometric-calculus-in-a-lorentzian-manifold
+\generatetitle{Fundamental theorem of calclus in a Minkowski metric}
+%\chapter{Fundamental theorem of calclus in a Minkowski metric}
+%\label{chap:fundamentalMinkowski}
+
+The fundamental theorem itself is independent of metric.
+Illustrating by example, given a two parameter surface
+\begin{dmath}\label{eqn:fundamentalMinkowski:20}
+\Bx = \Bx(a,b) \quad (=\gamma_\mu x^\mu(a, b)),
+\end{dmath}
+for which the area element is
+\begin{dmath}\label{eqn:fundamentalMinkowski:40}
+\begin{aligned}
+d^2 \Bx
+&= \lr{ \PD{a}{\Bx} \wedge \PD{b}{\Bx} } da db \\
+&= (\Bx_a \wedge \Bx_b) da db \\
+&= d\Bx_a \wedge d\Bx_b,
+\end{aligned}
+\end{dmath}
+and for which the vector derivative is (no summation convention here)
+\begin{dmath}\label{eqn:fundamentalMinkowski:60}
+\partial = \Bx^a \partial_a + \Bx^b \partial_b,
+\end{dmath}
+the integral expands as
+\begin{dmath}\label{eqn:fundamentalMinkowski:80}
+\begin{aligned}
+\int d^2 \Bx \partial F
+&=
+\int da db (\Bx_a \wedge \Bx_b) \lr{ \Bx^a \partial_a + \Bx^b \partial_b } F \\
+&=
+\int da db \lr{ -\Bx_b \partial_a F + \Bx_a \partial_b F } \\
+&=
+\int da db \lr{ -\PD{a}{} \lr{ \Bx_b F} + \PD{b}{}\lr{ \Bx_a F} }
+-\int da db \lr{ -\PD{a}{} \lr{ \Bx_b } + \PD{b}{}\lr{ \Bx_a } } F
+\\
+&=
+\int -d\Bx_b \evalbar{F}{\Delta a} +d\Bx_a \evalbar{F}{\Delta b},
+\end{aligned}
+\end{dmath}
+where the second integral was killed by equality of mixed partials (\( -\PD{a}{} \PD{b}{\Bx } + \PD{b}{} \PD{a }{\Bx} = 0 \).)
+
+The curvilinear coordinates \( \Bx_a, \Bx_b \) and the reciprocal frame vectors \( \Bx^a, \Bx^b \), do the heavy lifting in this expansion, and don't require any explicit mention of the metric.
+
+The metric can be brought into the mix here explicitly if desired, since the
+(Minkowski four-) gradient relates the curvilinear coordinates associated with the parameterization:
+\begin{dmath}\label{eqn:fundamentalMinkowski:100}
+\begin{aligned}
+\Bx^a &= \grad a = \gamma^\mu \partial_\mu a \\
+\Bx^b &= \grad b = \gamma^\mu \partial_\mu b.
+\end{aligned}
+\end{dmath}
+(summation convention here.)
+
+To prove the fundamental theorem for \( m > 2 \), which determines the form of \( d^{m-1} \Bx \), a simular procedure is required.
+The results of interest for Minkowski space are (assuming parameters \( a, b, c, d \))
+\begin{dmath}\label{eqn:fundamentalMinkowski:120}
+\begin{aligned}
+\int d^1 \Bx \partial F &= \evalbar{F}{\Delta a} \\
+\int d^2 \Bx \partial F &=
+-\int d\Bx_b \evalbar{F}{\Delta a}
++\int d\Bx_a \evalbar{F}{\Delta b} \\
+\int d^3 \Bx \partial F &=
+\int d\Bx_a \wedge d\Bx_b \evalbar{F}{\Delta c}
++\int d\Bx_b \wedge d\Bx_c \evalbar{F}{\Delta a}
++\int d\Bx_c \wedge d\Bx_a \evalbar{F}{\Delta b} \\
+\int d^4 \Bx \partial F &=
+\int d\Bx_a \wedge d\Bx_b \wedge d\Bx_c \evalbar{F}{\Delta d}
+-\int d\Bx_d \wedge d\Bx_a \wedge d\Bx_b \evalbar{F}{\Delta c}
++\int d\Bx_c \wedge d\Bx_d \wedge d\Bx_a \evalbar{F}{\Delta b}
+-\int d\Bx_b \wedge d\Bx_c \wedge d\Bx_d \evalbar{F}{\Delta a}
+\end{aligned}
+\end{dmath}
+
+To make this more concrete, consider the following specific parameterization of a spacetime surface, with a linear timelike path component, and a component that is a boost along the x-direction
+\begin{dmath}\label{eqn:fundamentalMinkowski:140}
+\Bx(a, b) = \gamma_0 a + \gamma_1 \exp\lr{ \gamma_1 \gamma_0 b }.
+\end{dmath}
+Here \( a, b \) are any two of the four possible coordinates \( ct, x, y, z \).
+
+The curvilinear coordinates with respect to parameters \( a, b \) are
+\begin{dmath}\label{eqn:fundamentalMinkowski:160}
+\begin{aligned}
+\Bx_a &= \gamma_0 \\
+\Bx_b &= - \gamma_0 \exp\lr{ \gamma_1 \gamma_0 b },
+\end{aligned}
+\end{dmath}
+so the area element is
+\begin{dmath}\label{eqn:fundamentalMinkowski:180}
+\begin{aligned}
+d^2 \Bx
+&=
+\lr{ \Bx_a \wedge \Bx_b } da db \\
+&=
+- \gpgradetwo{ \exp\lr{ \gamma_1 \gamma_0 b } } da db \\
+&=
+- \gamma_1 \gamma_0 \sinh( b ) da db.
+\end{aligned}
+\end{dmath}
+The reciprocal frame vectors are
+\begin{dmath}\label{eqn:fundamentalMinkowski:200}
+\begin{aligned}
+\Bx^a &= \Bx_b \cdot \inv{ \Bx_a \wedge \Bx_b } = - \frac{\gamma_1  \exp\lr{ \gamma_1 \gamma_0 b }}{\sinh(b)} \\
+\Bx^b &= \Bx_a \cdot \inv{ \Bx_b \wedge \Bx_a } = - \frac{\gamma_1}{\sinh(b)},
+\end{aligned}
+\end{dmath}
+which satisfy \( \Bx^a \cdot \Bx_a = \Bx^b \cdot \Bx_b = 1 \), and \( \Bx^a \cdot \Bx_b = \Bx^b \cdot \Bx_a =  0 \), which can be shown explicitly with relative ease using scalar selection operations.
+The vector derivative is
+\begin{dmath}\label{eqn:fundamentalMinkowski:220}
+\partial = - \frac{\gamma_1}{\sinh(b)} \lr{ \PD{b}{} + \exp\lr{ \gamma_1 \gamma_0 b } \PD{a}{} }.
+\end{dmath}
+
+This is enough to explicitly express the left and right hand sides of the fundamental theorem identity
+\begin{dmath}\label{eqn:fundamentalMinkowski:240}
+\int d^2 \Bx \partial F
+=
+\gamma_0 \int da db \lr{ \PD{b}{} + \exp\lr{ \gamma_1 \gamma_0 b } \PD{a}{} } F,
+\end{dmath}
+and
+\begin{dmath}\label{eqn:fundamentalMinkowski:260}
+-\int d\Bx_b \evalbar{F}{\Delta a}
++\int d\Bx_a \evalbar{F}{\Delta b}
+=
+\gamma_0 \int db \exp\lr{ \gamma_1 \gamma_0 b } \evalbar{F}{\Delta a}
++ \gamma_0 \int da \evalbar{F}{\Delta b}.
+\end{dmath}
+As expected by the theorem, these are clearly identical.
+
+%}
+\EndArticle
+%\EndNoBibArticle

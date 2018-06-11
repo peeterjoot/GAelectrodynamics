@@ -3,8 +3,8 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 
-\maketheorem{Vector Blade dot and wedge product relations.}{thm:bladeDotWedgeSymmetryIdentities:180}{
-Given a k-blade \( B \) and a vector \( \Ba \), the dot and wedge products have the following commutation relationships
+\maketheorem{K-vector dot and wedge product relations.}{thm:bladeDotWedgeSymmetryIdentities:180}{
+Given a k-vector \( B \) and a vector \( \Ba \), the dot and wedge products have the following commutation relationships
 \boxedEquation{eqn:bladeDotWedgeSymmetryIdentities:200}{
 \begin{aligned}
 B \cdot \Ba  &= (-1)^{k-1} \Ba \cdot B \\
@@ -20,7 +20,17 @@ and can be expressed as symmetric and antisymmetric sums depending on the grade 
 }
 } % theorem
 
-To prove these, split the blade into components that intersect with and are disjoint from \( \Ba \) as follows
+For example, if \( B \) and \( \Ba \) are both vectors, we recover \cref{thm:symmetricAndAntiSymmetricVectorSums:symmetricAndAnti}.  As an other example,
+if \( B \) is a 2-vector, then
+\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:480}
+\begin{aligned}
+2 ( \Ba \wedge B ) &= \Ba B + B \Ba  \\
+2 ( \Ba \cdot B ) &= \Ba B - B \Ba.
+\end{aligned}
+\end{dmath}
+Observe that the dot(wedge) of two vectors is a (anti)symmetric sum of products, whereas the wedge(dot) of a vector and a bivector is an (anti)symmetric sum.
+
+To prove \cref{thm:bladeDotWedgeSymmetryIdentities:180}, split the blade into components that intersect with and are disjoint from \( \Ba \) as follows
 \begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:240}
 B
 =
