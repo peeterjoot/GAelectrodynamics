@@ -1,56 +1,8 @@
 %
-% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-The workhorse operator of geometric algebra is called grade selection, defined as
-\index{grade selection}
-\index{\(\gpgrade{M}{k}\)}
-\index{\(\gpgradezero{M}\)}
-\makedefinition{Grade selection operator}{dfn:gradeselection:gradeselection}{
-Given a set of k-vectors \( M_k, k \in [0,N] \), and any multivector of their sum
-\begin{equation*}
-M = \sum_{i = 0}^N M_i,
-\end{equation*}
-the grade selection operator is defined as
-\begin{equation*}\label{eqn:multivector_nomenclature:40}
-\gpgrade{M}{k} = M_k.
-\end{equation*}
-Due to its importance, selection of the (scalar) zero grade is given the shorthand
-\begin{equation*}
-\gpgradezero{M} = \gpgrade{M}{0} = M_0.
-\end{equation*}
-}
-
-The grade selection operator will be used to define a generalized dot product between multivectors, and the
-wedge product, which generalizes the cross product (and is related to the cross product in \R{3}).
-
-To illustrate grade selection by example, given a multivector \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 + 7 \Be_1 \Be_2 \Be_4 \), then
-\begin{equation}\label{eqn:multivector_nomenclature:80}
-\begin{aligned}
-\gpgrade{M}{0} &= \gpgradezero{M} = 3 \\
-\gpgrade{M}{1} &= - \Be_3 \\
-\gpgrade{M}{2} &= 2 \Be_1 \Be_2 \\
-\gpgrade{M}{3} &= 7 \Be_1 \Be_2 \Be_4.
-\end{aligned}
-\end{equation}
-
-\index{\(\Be_{ij}, \Be_{ijk}, \cdots\)}
-\makedefinition{Orthonormal product shorthand.}{dfn:multivector:shorthand}{
-Given an orthonormal basis \( \setlr{ \Be_1, \Be_2, \cdots } \), a multiple indexed quantity \( \Be_{ij\cdots k} \) should be interpreted as the product (in the same order) of the basis elements with those indexes
-\begin{equation*}
-\Be_{ij\cdots k} = \Be_i \Be_j \cdots \Be_k.
-\end{equation*}
-} % definition
-
-For example,
-\begin{equation}\label{eqn:multivector_nomenclature:360}
-\begin{aligned}
-\Be_{12} &= \Be_1 \Be_2 \\
-\Be_{123} &= \Be_1 \Be_2 \Be_3 \\
-\Be_{23121} &= \Be_2 \Be_3 \Be_1 \Be_2 \Be_1.
-\end{aligned}
-\end{equation}
-
+%{
 \index{pseudoscalar}
 \index{unit pseudoscalar}
 \makedefinition{Pseudoscalar.}{def:multiplication:pseudoscalar}{
@@ -99,3 +51,4 @@ Show that all the cyclic permutations of the \R{3} pseudoscalar are equal
 I = \Be_2 \Be_3 \Be_1 = \Be_3 \Be_1 \Be_2 = \Be_1 \Be_2 \Be_3.
 \end{equation*}
 } % problem
+%}

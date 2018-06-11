@@ -1,8 +1,8 @@
 #../latex/bin/lgrep 2Dcylindrical.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2Dcylindrical.tex
 
-#../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
+../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
 
 #../latex/bin/lgrep 2dRotations.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2dRotations.tex
@@ -28,8 +28,8 @@
 #../latex/bin/lgrep analysis_cavaet.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl analysis_cavaet.tex
 
-#../latex/bin/lgrep bladeDotWedgeSymmetryIdentitiesTheorem.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl bladeDotWedgeSymmetryIdentitiesTheorem.tex
+../latex/bin/lgrep bladeDotWedgeSymmetryIdentitiesTheorem.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl bladeDotWedgeSymmetryIdentitiesTheorem.tex
 
 #../latex/bin/lgrep circularlinecharge.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl circularlinecharge.tex
@@ -37,8 +37,8 @@
 #../latex/bin/lgrep colinearVectors.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl colinearVectors.tex
 
-#../latex/bin/lgrep complex.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl complex.tex
+../latex/bin/lgrep complex.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl complex.tex
 
 #../latex/bin/lgrep curvilinearDefined.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl curvilinearDefined.tex
@@ -94,8 +94,8 @@
 #../latex/bin/lgrep generalRotation.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalRotation.tex
 
-#../latex/bin/lgrep generalizedDot.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
+../latex/bin/lgrep generalizedDot.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
 
 #../latex/bin/lgrep generalizedDot_bivectorDot.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedDot_bivectorDot.tex

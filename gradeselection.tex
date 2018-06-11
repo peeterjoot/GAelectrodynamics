@@ -1,0 +1,37 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+The workhorse operator of geometric algebra is called grade selection, defined as
+\index{grade selection}
+\index{\(\gpgrade{M}{k}\)}
+\index{\(\gpgradezero{M}\)}
+\makedefinition{Grade selection operator}{dfn:gradeselection:gradeselection}{
+Given a set of k-vectors \( M_k, k \in [0,N] \), and any multivector of their sum
+\begin{equation*}
+M = \sum_{i = 0}^N M_i,
+\end{equation*}
+the grade selection operator is defined as
+\begin{equation*}\label{eqn:multivector_nomenclature:40}
+\gpgrade{M}{k} = M_k.
+\end{equation*}
+Due to its importance, selection of the (scalar) zero grade is given the shorthand
+\begin{equation*}
+\gpgradezero{M} = \gpgrade{M}{0} = M_0.
+\end{equation*}
+}
+
+To illustrate grade selection by example, given a multivector \( M = 3 - \Be_3 + 2 \Be_1 \Be_2 + 7 \Be_1 \Be_2 \Be_4 \), then
+\begin{equation}\label{eqn:multivector_nomenclature:80}
+\begin{aligned}
+\gpgrade{M}{0} &= \gpgradezero{M} = 3 \\
+\gpgrade{M}{1} &= - \Be_3 \\
+\gpgrade{M}{2} &= 2 \Be_1 \Be_2 \\
+\gpgrade{M}{3} &= 7 \Be_1 \Be_2 \Be_4.
+\end{aligned}
+\end{equation}
+
+Grade selection is the fundamental operation of geometric algebra.  Grade selection will be used directly as a tool, and will
+also be used to define a number of other auxillary operators,
+including a 
+generalized multivector dot product, and the wedge product which is related to the \R{3} cross product by a multivector constant, and shares some properties of the cross product in other dimensions.

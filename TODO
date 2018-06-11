@@ -1,3 +1,32 @@
+- chapter 2.  have inappropriately called the perfect integrands line/area/volume 
+  integrals, when they are special cases of such.  subsection headers for proper
+  definitions have been added, but not yet filled in.  Will have to rework a bunch. 
+
+- get rid of example block:
+
+  Example 1.4: Multivector dot products.
+
+- On the possibility of removing (1.67) : Mo:
+
+   I think you should keep the definition of reverses and blade. In a book you do not have to use (later) every thing you define. 
+   Also a student may hear the term blade or reverse and may want to check the book to see what these refer to.
+   So, in my opinion, removing these terms and definitions can do more harm than having it, which only will slightly increase the length of the book.
+   Actually Eq. (1.67) is a very nice application of reverse, worth keeping. 
+
+- Manfred:
+
+      For example, in Euclidean spaces we could use either of
+
+      (1.69)
+      i = (u ^ v)/sqrt(...)
+      i = (u ^ v ^ w)/sqrt(...)
+
+   => don't use i for both bivector and trivector pseudoscalar.
+
+- didn't prove:
+
+   Conversely, if the product of two vectors is a bivector, those vectors are orthogonal.
+
 - Mo's marked up GA Chp1.pdf
 
    comments dealt with up to pg <= 36.
