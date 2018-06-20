@@ -453,3 +453,6 @@ perl -p -i ../latex/bin/latexRegex.pl normalVectors.tex
 
 #../latex/bin/lgrep reply.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl reply.tex
+
+../latex/bin/lgrep fundamentalMinkowski.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl fundamentalMinkowski.tex

@@ -1,0 +1,102 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{fundamentalMinkowski}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+% https://math.stackexchange.com/questions/2819680/the-fundamental-theorem-of-geometric-calculus-in-a-lorentzian-manifold
+\generatetitle{Fundamental theorem of calclus in a Minkowski metric}
+%\chapter{Fundamental theorem of calclus in a Minkowski metric}
+%\label{chap:fundamentalMinkowski}
+
+The fundamental theorem itself is independent of metric.
+Illustrating by example, given a two parameter surface
+\begin{dmath}\label{eqn:fundamentalMinkowski:20}
+x = x(a,b) \quad (=\gamma_\mu x^\mu(a, b)),
+\end{dmath}
+for which the area element is
+\begin{dmath}\label{eqn:fundamentalMinkowski:40}
+\begin{aligned}
+d^2 x
+&= \lr{ \PD{a}{x} \wedge \PD{b}{x} } da db \\
+&= (x_a \wedge x_b) da db \\
+&= dx_a \wedge dx_b,
+\end{aligned}
+\end{dmath}
+and for which the vector derivative is (no summation convention here)
+\begin{dmath}\label{eqn:fundamentalMinkowski:60}
+\partial = x^a \partial_a + x^b \partial_b,
+\end{dmath}
+the integral expands as
+\begin{dmath}\label{eqn:fundamentalMinkowski:80}
+\begin{aligned}
+\int d^2 x \partial F
+&=
+\int da db (x_a \wedge x_b) \lr{ x^a \partial_a + x^b \partial_b } F \\
+&=
+\int da db \lr{ -x_b \partial_a F + x_a \partial_b F } \\
+&=
+\int da db \lr{ -\PD{a}{} \lr{ x_b F} + \PD{b}{}\lr{ x_a F} }
+-\int da db \lr{ -\PD{a}{} \lr{ x_b } + \PD{b}{}\lr{ x_a } } F
+\\
+&=
+\int -dx_b \evalbar{F}{\Delta a} +dx_a \evalbar{F}{\Delta b},
+\end{aligned}
+\end{dmath}
+where the second integral was killed by equality of mixed partials (\( -\PD{a}{} \PD{b}{x } + \PD{b}{} \PD{a }{x} = 0 \).)
+
+The curvilinear coordinates \( x_a, x_b \) and the reciprocal frame vectors \( x^a, x^b \), do the heavy lifting in this expansion, and don't require any explicit mention of the metric.
+
+The metric can be brought into the mix here explicitly if desired, since the
+(Minkowski four-) gradient relates the curvilinear coordinates associated with the parameterization:
+\begin{dmath}\label{eqn:fundamentalMinkowski:100}
+\begin{aligned}
+x^a &= \grad a = \gamma^\mu \partial_\mu a \\
+x^b &= \grad b = \gamma^\mu \partial_\mu b.
+\end{aligned}
+\end{dmath}
+(summation convention here.)
+
+To prove the fundamental theorem for \( m > 2 \), which determines the form of \( d^{m-1} x \), a simular procedure is required.
+The results of interest for Minkowski space are (assuming parameters \( a, b, c, d \))
+
+\begin{dmath}\label{eqn:fundamentalMinkowski:120}
+\begin{aligned}
+\int d^1 x \partial F &= \evalbar{F}{\Delta a} \\
+\int d^2 x \partial F &=
+-\int dx_b \evalbar{F}{\Delta a}
++\int dx_a \evalbar{F}{\Delta b} \\
+\int d^3 x \partial F &=
+\int dx_a \wedge dx_b \evalbar{F}{\Delta c}
++\int dx_b \wedge dx_c \evalbar{F}{\Delta a}
++\int dx_c \wedge dx_a \evalbar{F}{\Delta b} \\
+\int d^4 x \partial F &=
+\int dx_a \wedge dx_b \wedge dx_c \evalbar{F}{\Delta d}
+-\int dx_d \wedge dx_a \wedge dx_b \evalbar{F}{\Delta c}
++\int dx_c \wedge dx_d \wedge dx_a \evalbar{F}{\Delta b}
+-\int dx_b \wedge dx_c \wedge dx_d \evalbar{F}{\Delta a}
+\end{aligned}
+\end{dmath}
+
+%}
+\EndArticle
+%\EndNoBibArticle
