@@ -42,6 +42,7 @@ include ../latex/make.rules
 #all :: ellipticalWaves.pdf
 #all :: junk.pdf
 #all :: maxwells.pdf
+integration.pdf :: $(shell cat spellcheckem.txt)
 maxwells.pdf :: $(shell cat spellcheckem.txt)
 ece2500report.pdf :: $(shell cat spellcheckem.txt) reportPreamble.tex
 

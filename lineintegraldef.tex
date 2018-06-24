@@ -1,0 +1,42 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\index{differential form}
+In geometric algebra, the integrand of a multivector line integral contains product of multivector(s) and a single parameter differential
+\makedefinition{Multivector line integral.}{dfn:lineintegraldef:multivectorlineintegral}{
+Given a continuous and differentiable curve described by a vector function \( \Bx(a) \), parameterized by single value \( a \) with differential
+\begin{equation*}
+d^1 \Bx \equiv d\Bx_a = \PD{a}{\Bx} da = \Bx_a da,
+\end{equation*}
+and multivector functions \( F, G \), the integral
+\begin{equation*}
+\int F d^1 \Bx G
+\end{equation*}
+is called a line integral.
+} % definition
+
+An illustration of a single parameter curve and its
+differential with respect to that parameter, is given in
+\cref{fig:oneParameterDifferential:oneParameterDifferentialFig1}.
+Observe that the differential is tangent to the curve at all points.
+Possible physical realizations of the parameter describing the curve include
+time, arclength, and angle.
+
+\imageFigure{../figures/GAelectrodynamics/oneParameterDifferentialFig1}{One parameter manifold.}{fig:oneParameterDifferential:oneParameterDifferentialFig1}{0.2}
+
+Suppose that \( \Bf(\Bx(a)) \) is a vector valued function defined along the curve.
+The conventional line integral from vector calculus, a dot product of a differential and the function \( \Bf \) 
+may be obtained by the sum of two multivector line integrals one with \( F,G = \Bf/2,1 \), and the other with \( F,G = 1,\Bf/2 \)
+\begin{dmath}\label{eqn:lineintegraldef:20}
+\int d^1 \Bx \frac{\Bf}{2}
++\int
+\frac{\Bf}{2}
+d^1 \Bx
+=
+\int d^1 \Bx \cdot \Bf.
+\end{dmath}
+Unlike the conventional dot product line integral, the multivector line integral of a vector function such as \( \int d^1 \Bx \Bf \) is generally multivector valued, with both a scalar and a bivector component.  Let's consider some examples of multivector line integrals.
+
+%}

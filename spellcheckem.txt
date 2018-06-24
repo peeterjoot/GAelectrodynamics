@@ -7,6 +7,7 @@ Definition_adjoint.tex
 Definition_electromagnetic_field_strength.tex
 Definition_energy_momentum_and_maxwell_stress.tex
 Definition_energy_momentum_poynting.tex
+Definition_maxwells.tex
 Definition_multivector_current.tex
 Definition_multivector_fourier.tex
 Definition_multivector_integral.tex
@@ -87,6 +88,7 @@ enclosedCurrent.tex
 fourier.tex
 freespace.tex
 functionvectorspace.tex
+fundamentalTheorem.tex
 fundamentalTheoremOfCalculus.tex
 gacomparison.tex
 gagcProof.tex
@@ -114,6 +116,7 @@ jefimenkosEquations.tex
 landauEasy.tex
 linecharge.tex
 lineintegral.tex
+lineintegraldef.tex
 lorentzForce.tex
 lorentzForce_constantMagnetic.tex
 maxwellsEquations.tex
