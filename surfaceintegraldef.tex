@@ -1,0 +1,122 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\index{area element}
+\index{differential form}
+A two parameter curve, and the corresponding differentials with respect to those parameters, is plotted in
+\cref{fig:twoParameterDifferential:twoParameterDifferentialFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFig1}{Two parameter manifold differentials.}{fig:twoParameterDifferential:twoParameterDifferentialFig1}{0.4}
+
+Given parameters \( a, b \), the differentials along each of the parameterization directions are
+\begin{dmath}\label{eqn:surfaceintegral:100}
+\begin{aligned}
+d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
+d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
+\end{aligned}
+\end{dmath}
+
+The bivector valued surface area element for this parameterization is
+\begin{equation}\label{eqn:surfaceintegral:120}
+d^2 \Bx
+=
+d\Bx_a \wedge
+d\Bx_b
+=
+da db (\Bx_a \wedge \Bx_b).
+\end{equation}
+
+\makedefinition{Multivector surface integral.}{dfn:lineintegraldef:multivectorsurfaceintegral}{
+Given a continuous and differentiable surface described by a vector function \( \Bx(a, b) \), parameterized by two scalars \( a, b \) with differential
+\begin{equation*}
+d^2 \Bx \equiv d\Bx_a \wedge d\Bx_b =
+\PD{a}{\Bx} \wedge \PD{b}{\Bx}
+da db = {\Bx_a \wedge \Bx_b } da db,
+\end{equation*}
+and multivector functions \( F, G \), the integral
+\begin{equation*}
+\int F d^2 \Bx G
+\end{equation*}
+is called an surface integral.
+} % definition
+
+Unless \( F, G \) are both scalars, such a surface integral is not generally bivector valued like the area element.
+
+In \R{3} it will often be convenient to utilize a dual representation of the area element \( d^2 \Bx = I \ncap dA \), where \( dA \) is a scalar area element, and \( \ncap \) is a normal vector to the surface.  With such an area element representation we will call \( I \int dA\, F \ncap G \) a surface integral.
+
+\paragraph{Spherical surface integral}
+
+From \cref{eqn:curvilinearspherical:300}, we know that
+\begin{dmath}\label{eqn:surfaceintegraldef:140}
+\Bx_r \Bx_\theta \Bx_\phi = I r^2 \sin\theta,
+\end{dmath}
+so
+\begin{dmath}\label{eqn:surfaceintegraldef:160}
+\Bx_\theta \wedge \Bx_\phi
+=
+\Bx_\theta \Bx_\phi
+=
+\Bx_r I r^2 \sin\theta,
+\end{dmath}
+so the (bivector-valued) area element for a spherical surface is
+\begin{dmath}\label{eqn:surfaceintegraldef:180}
+d^2 \Bx =
+I \Bx_r r^2 \sin\theta d\theta d\phi.
+\end{dmath}
+
+Suppose we integrate a vector valued function \( F(\theta, \phi) = \alpha \Bx^r + \beta \Bx^\theta + \gamma \Bx^\phi \), where \( \alpha, \beta, \gamma\) are constants, over the surface of a sphere of radius \( r \), then the surface integral (with the area element on the right) is
+\begin{dmath}\label{eqn:surfaceintegraldef:200}
+\int F d^2\Bx
+=
+\alpha I r^2 \int \Bx^r \Bx_r \sin\theta d\theta d\phi
++
+\beta I r^2 \int \Bx^\theta \Bx_r \sin\theta d\theta d\phi
++
+\gamma I r^2 \int \Bx^\phi \Bx_r \sin\theta d\theta d\phi.
+\end{dmath}
+This can be simplified using \( \rcap \thetacap \phicap = I \), and \cref{eqn:curvilinearspherical:260}, to find
+\begin{dmath}\label{eqn:surfaceintegraldef:220}
+\begin{aligned}
+\Bx^r \Bx_r &= 1 \\
+I \Bx^\theta \Bx_r &= \inv{r} I \thetacap \rcap = \inv{r} \phicap \\
+I \Bx^\phi \Bx_r &= \inv{r \sin\theta} I \phicap \rcap = -\inv{r \sin\theta} \thetacap,
+\end{aligned}
+\end{dmath}
+so
+\begin{dmath}\label{eqn:surfaceintegraldef:240}
+\int F d^2\Bx =
+\alpha I 4 \pi r^2
++
+\beta r \int \phicap \sin\theta d\theta d\phi
+-
+\gamma r \int \thetacap d\theta d\phi
+=
+\alpha I 4 \pi r^2,
+\end{dmath}
+where the integrands containing \( \thetacap, \phicap \) are killed by the integral over \( \phi \in [0, 2\pi] \).  If integrated over a subset of the spherical surface, where such perfect cancellation does not occur, this surface integral may have both vector and trivector components.
+
+\paragraph{Bivector function.}
+Given a bivector valued function \( F(a,b) = (a + b) \Be_2 \Be_1 + 2 (a \Be_1 - b \Be_2) \Be_3 \) defined over the unit square \( a,b \in [0, 1] \), and a surface \( \Bx(a,b) = a \Be_1 + b \Be_2 \), the multivector surface integral (with the area element on the right) is
+\begin{dmath}\label{eqn:surfaceintegraldef:260}
+\int F d^2 \Bx
+=
+\int_0^1\int_0^1 (a + b) \,da db
++
+2 \int_0^1\int_0^1 (a \Be_1 - b \Be_2) \Be_3 \Be_1 \Be_2\, da db
+=
+1+
+I \int_0^1 \evalrange{a^2}{0}{1} \Be_1 db
+-
+I \int_0^1 \evalrange{b^2}{0}{1} \Be_2 da
+=
+1+
+I \lr{ \Be_1 - \Be_2 }
+=
+1+
+\lr{ \Be_{1} + \Be_{2} } \Be_3.
+\end{dmath}
+In this example, the integral of a bivector valued function over a (bivector-valued) surface area element results in a multivector with a scalar and bivector grade.  In higher dimensional spaces, such an integral may also have grade-4 components.
+
+%}

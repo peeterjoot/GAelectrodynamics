@@ -460,3 +460,5 @@ perl -p -i ../latex/bin/latexRegex.pl fundamentalMinkowski.tex
 perl -p -i ../latex/bin/latexRegex.pl integration.tex
 ../latex/bin/lgrep lineintegraldef.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl lineintegraldef.tex
+../latex/bin/lgrep surfaceintegraldef.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl surfaceintegraldef.tex
