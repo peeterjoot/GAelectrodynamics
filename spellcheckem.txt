@@ -167,3 +167,4 @@ wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
 surfaceintegraldef.tex
+volumeintegraldef.tex

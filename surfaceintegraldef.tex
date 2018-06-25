@@ -5,29 +5,6 @@
 %{
 \index{area element}
 \index{differential form}
-A two parameter curve, and the corresponding differentials with respect to those parameters, is plotted in
-\cref{fig:twoParameterDifferential:twoParameterDifferentialFig1}.
-
-\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFig1}{Two parameter manifold differentials.}{fig:twoParameterDifferential:twoParameterDifferentialFig1}{0.4}
-
-Given parameters \( a, b \), the differentials along each of the parameterization directions are
-\begin{dmath}\label{eqn:surfaceintegral:100}
-\begin{aligned}
-d\Bx_a &= \PD{a}{\Bx} da = \Bx_a da \\
-d\Bx_b &= \PD{b}{\Bx} db = \Bx_b db.
-\end{aligned}
-\end{dmath}
-
-The bivector valued surface area element for this parameterization is
-\begin{equation}\label{eqn:surfaceintegral:120}
-d^2 \Bx
-=
-d\Bx_a \wedge
-d\Bx_b
-=
-da db (\Bx_a \wedge \Bx_b).
-\end{equation}
-
 \makedefinition{Multivector surface integral.}{dfn:lineintegraldef:multivectorsurfaceintegral}{
 Given a continuous and differentiable surface described by a vector function \( \Bx(a, b) \), parameterized by two scalars \( a, b \) with differential
 \begin{equation*}
@@ -39,14 +16,18 @@ and multivector functions \( F, G \), the integral
 \begin{equation*}
 \int F d^2 \Bx G
 \end{equation*}
-is called an surface integral.
+is called a multivector surface integral.
 } % definition
 
-Unless \( F, G \) are both scalars, such a surface integral is not generally bivector valued like the area element.
+%Unless \( F, G \) are both scalars, such a surface integral is not generally bivector valued like the area element.
+An example of a two parameter surface, and the corresponding differentials with respect to those parameters, is illustrated in
+\cref{fig:twoParameterDifferential:twoParameterDifferentialFig1}.
+
+\imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFig1}{Two parameter manifold differentials.}{fig:twoParameterDifferential:twoParameterDifferentialFig1}{0.4}
 
 In \R{3} it will often be convenient to utilize a dual representation of the area element \( d^2 \Bx = I \ncap dA \), where \( dA \) is a scalar area element, and \( \ncap \) is a normal vector to the surface.  With such an area element representation we will call \( I \int dA\, F \ncap G \) a surface integral.
 
-\paragraph{Spherical surface integral}
+\paragraph{Example: Spherical surface integral.}
 
 From \cref{eqn:curvilinearspherical:300}, we know that
 \begin{dmath}\label{eqn:surfaceintegraldef:140}
@@ -97,7 +78,7 @@ so
 \end{dmath}
 where the integrands containing \( \thetacap, \phicap \) are killed by the integral over \( \phi \in [0, 2\pi] \).  If integrated over a subset of the spherical surface, where such perfect cancellation does not occur, this surface integral may have both vector and trivector components.
 
-\paragraph{Bivector function.}
+\paragraph{Example: Bivector function.}
 Given a bivector valued function \( F(a,b) = (a + b) \Be_2 \Be_1 + 2 (a \Be_1 - b \Be_2) \Be_3 \) defined over the unit square \( a,b \in [0, 1] \), and a surface \( \Bx(a,b) = a \Be_1 + b \Be_2 \), the multivector surface integral (with the area element on the right) is
 \begin{dmath}\label{eqn:surfaceintegraldef:260}
 \int F d^2 \Bx

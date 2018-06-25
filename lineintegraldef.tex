@@ -14,7 +14,7 @@ and multivector functions \( F, G \), the integral
 \begin{equation*}
 \int F d^1 \Bx G
 \end{equation*}
-is called a line integral.
+is called a multivector line integral.
 } % definition
 
 An illustration of a single parameter curve and its
@@ -39,7 +39,7 @@ d \Bx
 \end{dmath}
 Unlike the conventional dot product line integral, the multivector line integral of a vector function such as \( \int d \Bx \Bf \) is generally multivector valued, with both a scalar and a bivector component.  Let's consider some examples of multivector line integrals.
 
-\paragraph{Circular path}
+\paragraph{Example: Circular path.}
 Let \( f(t) = \Ba t + \Bb t^2 \), where \( \Ba, \Bb \) are constant vectors, \( t \) is a scalar parameter, and the integration path is circular \( \Bx(t) = \Be_1 e^{i t} \), where \( i = \Be_1 \Be_2 \).
 The line integral of \( \Bf\, d\Bx \) is
 \begin{dmath}\label{eqn:lineintegraldef:40}
@@ -73,7 +73,7 @@ line integral of \( d\Bx\, \Bf \) is
 \end{dmath}
 Unless the vector constants \( \Ba, \Bb \) have only components along the z-axis, \cref{eqn:lineintegraldef:40} and \cref{eqn:lineintegraldef:60} are not generally equal.
 
-\paragraph{Circular bivector}
+\paragraph{Example: Circular bivector.}
 Given a bivector valued function \( F(t) = \Be_2 \wedge \lr{ \Be_3 e^{it} } \), where \( i = \Be_{3} \Be_1 \), and a curve
 \( \Bx(t) = \Be_3 + \Be_2 t + \Be_1 t^2/2 \), we can compute the line integral with the differential on the right
 \begin{dmath}\label{eqn:lineintegraldef:80}
@@ -101,7 +101,7 @@ or the line integral with the differential on the left
 \end{dmath}
 In both \cref{eqn:lineintegraldef:80} and \cref{eqn:lineintegraldef:100} the end result has both vector and trivector grades.  While both integrals are equal (zero) when the angular velocity parameter \( t \) is a multiple of \( 2 \pi \), this shows that the order of the products in the integrand makes a difference once again.
 
-\paragraph{Function with only scalar and pseudoscalar grades.}
+\paragraph{Example: Function with only scalar and pseudoscalar grades.}
 In \R{3}, given any function with only scalar and pseudoscalar grades, say \( F(t) = f(t) + I g(t) \), where \( f, g \) are both scalar functions, then the order of the products in a line integrand do not matter.  For any such function we have
 \begin{dmath}\label{eqn:lineintegraldef:120}
 \int F d\Bx = \int d\Bx F,

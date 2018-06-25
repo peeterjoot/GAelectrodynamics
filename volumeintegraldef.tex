@@ -1,0 +1,50 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makedefinition{Multivector volume integral.}{dfn:volumeintegraldef:multivectorvolumeintegral}{
+Given a continuous and differentiable volume described by a vector function \( \Bx(a, b,c) \), parameterized by scalars \( a, b, c \) with volume element
+\begin{equation*}
+d^3 \Bx \equiv 
+d\Bx_a 
+\wedge
+d\Bx_b
+\wedge
+d\Bx_c 
+= 
+\PD{a}{\Bx} 
+\wedge
+\PD{b}{\Bx} 
+\wedge
+\PD{c}{\Bx} 
+\,da db dc = \Bx_a \Bx_b \Bx_c \, da db dc,
+\end{equation*}
+and multivector functions \( F, G \), the integral
+\begin{equation*}
+\int F d^3 \Bx G
+\end{equation*}
+is called a multivector volume integral.
+} % definition
+
+In \R{3} the volume element is always a pseudoscalar, which commutes with all grades, so we are free to write \( \int F d^3 \Bx G = \int d^3 \Bx F G \) for any multivectors \( F, G \).  It will often be useful to make the pseudoscalar nature of the volume element explicit, writing \( d^3 \Bx = I dV \), where \( dV \) is a scalar volume element.
+
+As an example, let \( F(\Bx) = r(\Bx) + \Bs(\Bx) + I \Bt(\Bx) + I u(\Bx) \) be an arbitrary multivector function in \R{3}, where \( r, u \) are scalar functions and \( \Bs, \Bt \) are vector functions.
+Integrating over a unit cube in rectangular coordinates \( d^3 \Bx = I dx dy dz = I dV \), 
+the volume integral of such a multivector function is
+\begin{dmath}\label{eqn:volumeintegraldef:n}
+\int F d^3 \Bx
+=
+\int 
+\lr{ 
+r(\Bx) + \Bs(\Bx) + I \Bt(\Bx) + I u(\Bx) 
+} I dV
+=
+\int 
+\lr{ 
+I r(\Bx) + I \Bs(\Bx) - \Bt(\Bx) - u(\Bx) 
+} dV.
+\end{dmath}
+The result still has all grades, but each of the original grade components is mapped onto its dual space.
+
+%}

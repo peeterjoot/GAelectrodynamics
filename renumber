@@ -462,3 +462,5 @@ perl -p -i ../latex/bin/latexRegex.pl integration.tex
 perl -p -i ../latex/bin/latexRegex.pl lineintegraldef.tex
 ../latex/bin/lgrep surfaceintegraldef.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl surfaceintegraldef.tex
+../latex/bin/lgrep volumeintegraldef.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl volumeintegraldef.tex
