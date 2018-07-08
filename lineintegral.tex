@@ -27,39 +27,15 @@
 %\section{Line integral.}
 \label{chap:lineintegral}
 
-FIXME: cut.
-The vector derivative has just one component
-\begin{dmath}\label{eqn:lineintegral:40}
-\boldpartial
-=
-\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
-=
-\Bx^a \PD{a}{}
-\equiv
-\Bx^a \partial_a.
-\end{dmath}
-
-The line integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
-
-\makedefinition{Multivector line integral.}{dfn:lineintegral:100}{
-Given an connected curve \( C \) parameterized by a single parameter, and multivector functions \( F, G \), we define the line integral as
-\begin{equation*}
-\int_C F d^1\Bx \lrboldpartial G
-\equiv
-\int_C \lr{ F d^1\Bx \lboldpartial} G
-+
-\int_C F d^1\Bx \lr{ \rboldpartial G },
-\end{equation*}
-where the one parameter differential form \( d^1 \Bx = da\, \Bx_a \) varies over the curve.
-} % definition
-
 The line integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
 
 \input{Theorem_multivector_line_integral.tex}
 
+The differential form \( d\Bx = d^1 \Bx = du\, \Bx_u = du \PDi{u}{\Bx} \) varies over the curve,
+and the vector derivative is just \( \boldpartial = \Bx^u \partial_u \) (no sum).
+
 The proof follows by expansion.
 For
-the (single variable) parameterization \( a \) above
 \begin{dmath}\label{eqn:lineintegral:120}
 \int_C F d\Bx\, \lrboldpartial G
 =
@@ -67,27 +43,26 @@ the (single variable) parameterization \( a \) above
 +
 \int_C F d\Bx \lr{ \rboldpartial G }
 =
-\int_C \PD{a}{F} da\, \Bx_a \Bx^a G
+\int_C \PD{u}{F} du\, \Bx_u \Bx^u G
 +
-\int_C F da\, \Bx_a \Bx^a \PD{a}{G}
+\int_C F du\, \Bx_u \Bx^u \PD{u}{G}
 =
-\int_C da\, \PD{a}{F} G
+\int_C du\, \PD{u}{F} G
 +
-\int_C da\, F \PD{a}{G}
+\int_C du\, F \PD{u}{G}
 =
-\int_C da\, \PD{a}{} \lr{ F G }
+\int_C du\, \PD{u}{} \lr{ F G }
 =
-F(a_1) G(a_1) -
-F(a_0) G(a_0),
+F(u_1) G(u_1) -
+F(u_0) G(u_0),
 \end{dmath}
-where the boundaries of the parameterization have been assumed to be
-%\( C\lcolon a \in [a_0, a_1] \).
-\( C: a \in [a_0, a_1] \).
-We have a perfect cancellation of the reciprocal frame \( \Bx^a \) with the vector \( \Bx_a \) that lies along the curve, since \( \Bx^a \Bx_a = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve.
+%where the boundaries of the parameterization have been assumed to be
+%\( C: u \in [u_0, u_1] \).
+We have a perfect cancellation of the reciprocal frame \( \Bx^u \) with the vector \( \Bx_u \) that lies along the curve, since \( \Bx^u \Bx_u = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve.
 
 For a single parameter subspace
-the reciprocal frame vector \( \Bx^a \)
-is trivial to calculate, as it is just the inverse of \( \Bx_a \), that is \( \Bx^a = \Bx_a/\Norm{\Bx_a}^2 \).
+the reciprocal frame vector \( \Bx^u \)
+is trivial to calculate, as it is just the inverse of \( \Bx_u \), that is \( \Bx^u = \Bx_u/\Norm{\Bx_u}^2 \).
 Observe that we did not actually have to calculate it, but instead only require that the vector is invertible.
 
 An important (and familiar) special case of \cref{thm:lineintegral:100} is the fundamental theorem of calculus for line integrals, which can be obtained by using a
@@ -95,24 +70,35 @@ single scalar function \( f \)
 
 \input{Theorem_line_integral_scalar_function.tex}
 
-Writing out \cref{thm:lineintegral:100} with \( F = 1, G = f(\Bx(a)) \), we have
+\Cref{thm:lineintegral:180} is no doubt familiar in its gradient form.  Our proof starts with
+\cref{thm:lineintegral:100} setting \( F = 1, G = f(\Bx(u)) \)
 \begin{dmath}\label{eqn:lineintegral:140}
-\int_C d\Bx\, \boldpartial f = \evalbar{f}{\Delta a}.
+\int_C d\Bx\, \boldpartial f = \evalbar{f}{\Delta u},
 \end{dmath}
-
-This is a multivector equation with scalar and bivector grades on the left hand side, but only scalar grades on the right.  Equating grades yields two equations
-
+which is a multivector equation with scalar and bivector grades on the left hand side, but only scalar grades on the right.  Equating grades yields two equations
 \begin{subequations}
 \label{eqn:lineintegral:180}
 \begin{dmath}\label{eqn:lineintegral:160}
-\int_C d\Bx \cdot \boldpartial f = \evalbar{f}{\Delta a}
+\int_C d\Bx \cdot \boldpartial f = \evalbar{f}{\Delta u}
 \end{dmath}
 \begin{dmath}\label{eqn:lineintegral:200}
-\int_C d\Bx \wedge \boldpartial f = 0
+\int_C d\Bx \wedge \boldpartial f = 0.
 \end{dmath}
 \end{subequations}
-
-Because \( d\Bx \cdot \boldpartial = d\Bx \cdot \spacegrad \), we can replace the vector derivative with the gradient in \cref{eqn:lineintegral:160}, which yields the conventional line integral result, proving the theorem.
+\Cref{eqn:lineintegral:160}, the scalar grade of \cref{eqn:lineintegral:140}, proves part of \cref{thm:lineintegral:180}.
+To complete the proof, consider the specific case of \R{3} which is representitive.
+Suppose, that we have an \R{3} volume parameterization \( \Bx(u, v, w) \) sharing an edge with the curve \( C = \Bx(u,0,0) \).
+The curvilinear representation of the \R{3} gradient is
+\begin{dmath}\label{eqn:lineintegral:220}
+\spacegrad = \Bx^u \partial_u + \Bx^v \partial_v + \Bx^w \partial_w = \boldpartial + \Bx^v \partial_v + \Bx^w \partial_w,
+\end{dmath}
+Over the curve \( C \)
+\begin{dmath}\label{eqn:lineintegral:240}
+d\Bx \cdot \spacegrad
+=
+du\, \Bx_u \cdot \lr{ \boldpartial + \Bx^v \partial_v + \Bx^w \partial_w },
+\end{dmath}
+but \( \Bx_u \cdot \Bx^v = \Bx_u \cdot \Bx^w = 0 \), so \( d\Bx \cdot \spacegrad = d\Bx \cdot \boldpartial \) over the curve, completing the proof.
 
 %}
 %\EndNoBibArticle

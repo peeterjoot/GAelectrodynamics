@@ -21,44 +21,52 @@
 %\generatetitle{Fundamental theorem of geometric calculus}
 %\label{chap:fundamentalTheoremOfCalculus}
 
-We wish to generalize the concepts of line, surface and volume integrals to hypervolumes and multivector functions, and define a hypervolume integral as
+Having generalized line, surface, and volume integrals to multivector functions, we wish to state the form of the integrand that is perfectly integrable.  That statement requires bidirectional integration operators, denoted using left, right, or left-right overarrows, as follows.
 
 \index{\(\rboldpartial\)}
 \index{\(\lboldpartial\)}
 \index{\(\lrboldpartial\)}
-\makedefinition{Multivector integral.}{dfn:fundamentalTheoremOfCalculus:240}{
+%why: after:
+%Because integral operators like the vector derivative and gradient do not necessarily commute with multivector functions nor hyper-volume elements, it is useful to introduce
+
+\makedefinition{Bidirectional vector derivative operators.}{dfn:fundamentalTheoremOfCalculus:240}{
 Given a hypervolume parameterized by \( k \) parameters, k-volume volume element \( d^k \Bx \), and
-multivector functions \( F, G \), a k-volume integral with the vector derivative acting to the right on \( G \) is written as
+multivector functions \( F, G \), let
 \begin{equation*}
-\int_V d^k\Bx \rboldpartial G,
+\lroverarrow{L} = \sum_i \Bx^i \partial_i,
 \end{equation*}
-a k-volume integral with the vector derivative acting to the left on \( F \) is written as
+designate a linear differential operator (i.e. the gradient or vector derivative), where the partials act on multivector functions to the left or right (but not the reciprocal frame vectors \( \Bx^i \)).
+
+To express unidirection action of the operator only to the left or right, we use arrows to designate the scope of the derivatives, writing respectively
 \begin{equation*}
-\int_V F d^k\Bx \lboldpartial,
+\begin{aligned}
+\int_V F d^k\Bx \loverarrow{L} G &= \sum_i \int_V \lr{ \partial_i F } d^k\Bx \Bx^i G \\
+\int_V F d^k\Bx \roverarrow{L} G &= \sum_i \int_V F d^k\Bx \Bx^i \lr{ \partial_i G },
+\end{aligned}
 \end{equation*}
-and a k-volume integral with the vector derivative acting bidirectionally on \( F, G \) is written as
+and designate bidirectional action as
 \begin{equation*}
-\int_V F d^k\Bx \lrboldpartial G
+\int_V F d^k\Bx \lroverarrow{L} G
 \equiv
-\int_V \lr{ F d^k\Bx \lboldpartial} G
+\int_V \lr{ F d^k\Bx \loverarrow{L}} G
 +
-\int_V F d^k\Bx \lr{ \rboldpartial G }.
+\int_V F d^k\Bx \lr{ \roverarrow{L} G }.
 \end{equation*}
-The explicit meaning of these directional acting derivative operations is given by the chain rule coordinate expansion
-\begin{dmath*}
-F d^k \Bx \lrboldpartial G
-=
-F d^k \Bx \lr{ \sum_i \Bx^i {\stackrel{ \leftrightarrow }{\partial_i}} } G
-=
-(\partial_i F) d^k \Bx \sum_i \Bx^i G
-+
-F d^k \Bx \sum_i \Bx^i (\partial_i G)
-\equiv
-(F d^k \Bx \lboldpartial) G
-+
-F d^k \Bx (\rboldpartial G),
-\end{dmath*}
-with \( \boldpartial \) acting on \( F \) and \( G \), but not the volume element \( d^k \Bx \), which may also be a function of the implied parameterization.
+In all such cases \( L \) operates on \( F \) and \( G \), but not the volume element \( d^k \Bx \), which may also be a function of the implied parameterization.
+%%The explicit meaning of these directional acting derivative operations is given by the chain rule coordinate expansion
+%%\begin{dmath*}
+%%F d^k \Bx \lroverarrow{L} G
+%%=
+%%F d^k \Bx \lr{ \sum_i \Bx^i {\stackrel{ \leftrightarrow }{\partial_i}} } G
+%%=
+%%(\partial_i F) d^k \Bx \sum_i \Bx^i G
+%%+
+%%F d^k \Bx \sum_i \Bx^i (\partial_i G)
+%%\equiv
+%%(F d^k \Bx \loverarrow{L}) G
+%%+
+%%F d^k \Bx (\roverarrow{L} G),
+%%\end{dmath*}
 } % definition
 
 The vector derivative
