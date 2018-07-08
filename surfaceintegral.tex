@@ -27,38 +27,6 @@
 %\section{Surface integral.}
 %\label{chap:surfaceintegral}
 
-FIXME: (cut here).
-
-The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
-\begin{dmath}\label{eqn:surfaceintegral:200}
-\boldpartial
-=
-\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
-=
-\Bx^a \PD{a}{}
-+
-\Bx^b \PD{b}{}
-\equiv
-\Bx^a \partial_a
-+
-\Bx^b \partial_b.
-\end{dmath}
-
-FIXME: reference :240 now wrong:
-The surface integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
-
-\makedefinition{Multivector surface integral.}{dfn:surfaceintegral:100}{
-Given an connected surface \( S \) parameterized by two parameters, and multivector functions \( F, G \), we define the surface integral as
-\begin{equation*}
-\int_S F d^2\Bx \boldpartial G
-\equiv
-\int_S \lr{ F d^2\Bx \lboldpartial} G
-+
-\int_S F d^2\Bx \lr{ \rboldpartial G },
-\end{equation*}
-where the two parameter differential form \( d^2 \Bx = da db\, \Bx_a \wedge \Bx_b \) varies over the surface.
-} % definition
-
 %%As mentioned in a line integral context,
 %%multivectors may not commute with the vector derivative or the differential, so we allow the vector derivative to act bidirectionally using the chain rule.
 %%The scope of the action of the vector derivative when acting only to the left or right is indicated using braces above.
@@ -68,100 +36,100 @@ where the two parameter differential form \( d^2 \Bx = da db\, \Bx_a \wedge \Bx_
 The surface integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
 
 \input{Theorem_multivector_surface_integral.tex}
-In \R{2} with \( d^2 \Bx = i dA, i = \Be_{12} \), this may be written
-\begin{dmath}\label{eqn:surfaceintegral:760}
-\int_S F i \spacegrad G\, dA
-= \ointclockwise_{\partial S} F d\Bx G.
-\end{dmath}
-As \( i \) does not commute with all \R{2} multivectors, unless \( F = 1 \) we cannot generally pull \( i \) out of the integral.
-In \R{3}, with \( d^2 \Bx = I \ncap dA \), we may use a scalar area element, but cannot generally replace the vector derivative with the gradient.
-%\begin{dmath}\label{eqn:surfaceintegral:780}
-%I \int_S F \ncap \boldpartial G\, dA
-%= \ointclockwise_{\partial S} F d\Bx G.
-%\end{dmath}
-
-To see why this works, we would first like to reduce the product of the area element and the vector derivative
-\begin{dmath}\label{eqn:surfaceintegral:300}
-d^2\Bx \boldpartial
+To prove \cref{thm:surfaceintegral:100} we start by expanding the multivector product \( d^2\Bx\, \boldpartial \) in curvilinear coordinates, where we discover
+that this product has only a vector grade.
+The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
+\begin{dmath}\label{eqn:surfaceintegral:200}
+\boldpartial
 =
-da db\, \lr{ \Bx_a \wedge \Bx_b } \lr{ \Bx^a \partial_a + \Bx^b \partial_b }.
-\end{dmath}
-
-Since \( \Bx^a \in \Span \setlr{ \Bx_a, \Bx_b } \), this multivector product has only a vector grade.  That is
-\begin{dmath}\label{eqn:surfaceintegral:320}
-\lr{ \Bx_a \wedge \Bx_b } \Bx^a
+\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
 =
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^a
+\Bx^u \PD{u}{}
 +
-\cancel{ \lr{ \Bx_a \wedge \Bx_b } \wedge \Bx^a }
-=
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^a
-=
-\Bx_a \lr{ \Bx_b \cdot \Bx^a } -
-\Bx_b \lr{ \Bx_a \cdot \Bx^a }
-=
--\Bx_b.
+\Bx^v \PD{v}{}
+\equiv
+\Bx^u \partial_u
++
+\Bx^v \partial_v.
 \end{dmath}
-
+To see why the product of the area elements and the vector derivative
+\begin{dmath}\label{eqn:surfaceintegral:300}
+d^2\Bx\, \boldpartial
+=
+du dv\, \lr{ \Bx_u \wedge \Bx_v } \lr{ \Bx^u \partial_u + \Bx^v \partial_v },
+\end{dmath}
+has only a vector grade, observe that \( \Bx^u \in \Span \setlr{ \Bx_u, \Bx_v } \), so
+\begin{dmath}\label{eqn:surfaceintegral:320}
+\lr{ \Bx_u \wedge \Bx_v } \Bx^u
+=
+\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^u
++
+\cancel{ \lr{ \Bx_u \wedge \Bx_v } \wedge \Bx^u }
+=
+\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^u
+=
+\Bx_u \lr{ \Bx_v \cdot \Bx^u } -
+\Bx_v \lr{ \Bx_u \cdot \Bx^u }
+=
+-\Bx_v.
+\end{dmath}
 Similarly
 \begin{dmath}\label{eqn:surfaceintegral:340}
-\lr{ \Bx_a \wedge \Bx_b } \Bx^b
+\lr{ \Bx_u \wedge \Bx_v } \Bx^v
 =
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^b
+\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^v
 +
-\cancel{ \lr{ \Bx_a \wedge \Bx_b } \wedge \Bx^b }
+\cancel{ \lr{ \Bx_u \wedge \Bx_v } \wedge \Bx^v }
 =
-\lr{ \Bx_a \wedge \Bx_b } \cdot \Bx^b
+\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^v
 =
-\Bx_a \lr{ \Bx_b \cdot \Bx^b } -
-\Bx_b \lr{ \Bx_a \cdot \Bx^b }
+\Bx_u \lr{ \Bx_v \cdot \Bx^v } -
+\Bx_v \lr{ \Bx_u \cdot \Bx^v }
 =
-\Bx_a,
+\Bx_u.
 \end{dmath}
-so
+Not only does \cref{eqn:surfaceintegral:300} have only a vector grade, that product reduces to just
 \begin{dmath}\label{eqn:surfaceintegral:360}
-d^2\Bx \boldpartial
+d^2\Bx\, \boldpartial
 =
-\Bx_a \partial_b
--\Bx_b \partial_a.
+\Bx_u \partial_v
+-\Bx_v \partial_u.
 \end{dmath}
-
-Inserting this into the surface integral, we find
+Inserting \cref{eqn:surfaceintegral:360} into the surface integral, we find
 \begin{dmath}\label{eqn:surfaceintegral:380}
-\int_S F d^2\Bx \boldpartial G
+\int_S F d^2\Bx\, \boldpartial G
 =
-\int_S \lr{ F d^2\Bx \lboldpartial} G
+\int_S \lr{ F d^2\Bx\, \lboldpartial} G
 +
 \int_S F d^2\Bx \lr{ \rboldpartial G }
 =
-\int_S da db\, \lr{ \partial_b F \Bx_a - \partial_a F \Bx_b } G
+\int_S du dv\, \lr{ \partial_v F \Bx_u - \partial_u F \Bx_v } G
 +
-\int_S da db\, F \lr{ \Bx_a \partial_b G - \Bx_b \partial_a G }
+\int_S du dv\, F \lr{ \Bx_u \partial_v G - \Bx_v \partial_u G }
 =
-\int_S da db\, \lr{ \PD{b}{F} \PD{a}{\Bx} - \PD{a}{F} \PD{b}{\Bx} } G
+\int_S du dv\, \lr{ \PD{v}{F} \PD{u}{\Bx} - \PD{u}{F} \PD{v}{\Bx} } G
 +
-\int_S da db\, F \lr{ \PD{a}{\Bx} \PD{b}{G} - \PD{b}{\Bx} \PD{a}{G} }
+\int_S du dv\, F \lr{ \PD{u}{\Bx} \PD{v}{G} - \PD{v}{\Bx} \PD{u}{G} }
 =
-\int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }
+\int_S du dv\, \PD{v}{} \lr{ F \PD{u}{\Bx} G } - \int_S du dv\, \PD{u}{} \lr{ F \PD{v}{\Bx} G }
 -
-\int_S da db\, F \lr{ \PD{b}{} \PD{a}{\Bx} - \PD{a}{} \PD{b}{\Bx} } G
+\int_S du dv\, F \lr{ \PD{v}{} \PD{u}{\Bx} - \PD{u}{} \PD{v}{\Bx} } G
 =
-\int_S da db\, \PD{b}{} \lr{ F \PD{a}{\Bx} G } - \int_S da db\, \PD{a}{} \lr{ F \PD{b}{\Bx} G }.
+\int_S du dv\, \PD{v}{} \lr{ F \PD{u}{\Bx} G } - \int_S du dv\, \PD{u}{} \lr{ F \PD{v}{\Bx} G }.
 \end{dmath}
-
-This leaves two perfect differentials, which can both be integrated separately.  That gives
+This leaves two perfect differentials, which can both be integrated separately
 \begin{dmath}\label{eqn:surfaceintegral:400}
-\int_S F d^2\Bx \boldpartial G
+\int_S F d^2\Bx\, \boldpartial G
 =
-\int_{\Delta a} da\, \evalbar{\lr{ F \PD{a}{\Bx} G }}{\Delta b} - \int_{\Delta b} db\, \evalbar{\lr{ F \PD{b}{\Bx} G }}{\Delta a}
+\int_{\Delta u} du\, \evalbar{\lr{ F \PD{u}{\Bx} G }}{\Delta v} - \int_{\Delta v} dv\, \evalbar{\lr{ F \PD{v}{\Bx} G }}{\Delta u}
 =
-\int_{\Delta a} \evalbar{\lr{ F d\Bx_a G }}{\Delta b} - \int_{\Delta b} \evalbar{\lr{ F d\Bx_b G }}{\Delta a}.
+\int_{\Delta u} \evalbar{\lr{ F d\Bx_u G }}{\Delta v} - \int_{\Delta v} \evalbar{\lr{ F d\Bx_v G }}{\Delta u}.
 \end{dmath}
-
-Suppose we are integrating over the unit parameter volume space \( [a, b] \in [0,1] \otimes [0,1] \) as illustrated in
+\Cref{eqn:surfaceintegral:400} is an explicit algebraic expression of the boundary integral of \cref{thm:surfaceintegral:100}.
+To complete the prove, we are left with the task of geometrically interpretting this integrand.
+Suppose we are integrating over the unit parameter volume space \( [u, v] \in [0,1] \otimes [0,1] \) as illustrated in
 \cref{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}.
 \imageFigure{../figures/GAelectrodynamics/twoParameterDifferentialBoundaryFig2}{Contour for two parameter surface boundary.}{fig:twoParameterDifferentialBoundary:twoParameterDifferentialBoundaryFig2}{0.4}
-
 Comparing to the figure we see that we've ended up with a clockwise line integral around the boundary of the surface.
 For a given subset of the surface, the bivector area element can be chosen small enough that it lies in the tangent space
 to the surface at the point of integration.
@@ -174,20 +142,21 @@ contributions of the interior loop segments cancel out.
 
 \subsection{Two parameter Stokes' theorem.}
 
+\paragraph{REWRITE MARKER.}
 Two special cases of \cref{thm:surfaceintegral:100} when scalar and vector functions are integrated over a surface.  For scalar functions we have
 
 \input{Theorem_surface_integral_of_scalar_stokes.tex}
 
 To show the first part, we can split the (multivector) surface integral into vector and trivector grades
 \begin{dmath}\label{eqn:surfaceintegral:440}
-\int_S d^2\Bx \boldpartial f
+\int_S d^2\Bx\, \boldpartial f
 =
 \int_S d^2\Bx \cdot \boldpartial f
 +
 \int_S d^2\Bx \wedge \boldpartial f.
 \end{dmath}
 
-Since \( \Bx^a, \Bx^b \) both lie in the span of \( \setlr{ \Bx_a, \Bx_b } \),
+Since \( \Bx^u, \Bx^v \) both lie in the span of \( \setlr{ \Bx_u, \Bx_v } \),
 \( d^2\Bx \wedge \boldpartial = 0 \), killing the second integral in \cref{eqn:surfaceintegral:440}.
 If the gradient is decomposed into its projection along the tangent
 space (the vector derivative) and its perpendicular components, only the vector derivative components of the
@@ -195,16 +164,16 @@ gradient contribute to its dot product with the area element.  That is
 \begin{dmath}\label{eqn:surfaceintegral:460}
 d^2 \Bx \cdot \spacegrad
 =
-d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b + \cdots }
+d^2 \Bx \cdot \lr{ \Bx^u \partial_u + \Bx^v \partial_v + \cdots }
 =
-d^2 \Bx \cdot \lr{ \Bx^a \partial_a + \Bx^b \partial_b }
+d^2 \Bx \cdot \lr{ \Bx^u \partial_u + \Bx^v \partial_v }
 =
 d^2 \Bx \cdot \boldpartial.
 \end{dmath}
 
 This means that for a scalar function
 \begin{dmath}\label{eqn:surfaceintegral:480}
-\int_S d^2\Bx \boldpartial f
+\int_S d^2\Bx\, \boldpartial f
 =
 \int_S d^2\Bx \cdot \spacegrad f.
 \end{dmath}
@@ -223,6 +192,20 @@ dA\, \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f}
 \end{dmath}
 
 back substitution of \cref{eqn:surfaceintegral:500} completes the proof of \cref{thm:surfaceintegral:420}.
+
+FIXME: rehome( moved) :
+In \R{2} with \( d^2 \Bx = i dA, i = \Be_{12} \), this may be written
+\begin{dmath}\label{eqn:surfaceintegral:760}
+\int_S F i \spacegrad G\, dA
+= \ointclockwise_{\partial S} F d\Bx G.
+\end{dmath}
+As \( i \) does not commute with all \R{2} multivectors, unless \( F = 1 \) we cannot generally pull \( i \) out of the integral.
+In \R{3}, with \( d^2 \Bx = I \ncap dA \), we may use a scalar area element, but cannot generally replace the vector derivative with the gradient.
+%\begin{dmath}\label{eqn:surfaceintegral:780}
+%I \int_S F \ncap \boldpartial G\, dA
+%= \ointclockwise_{\partial S} F d\Bx G.
+%\end{dmath}
+
 
 For vector functions we have
 
