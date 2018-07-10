@@ -1,6 +1,11 @@
-- chapter 2.  have inappropriately called the perfect integrands line/area/volume 
-  integrals, when they are special cases of such.  subsection headers for proper
-  definitions have been added, but not yet filled in.  Will have to rework a bunch. 
+- chapter 2.
+
+volumeintegral.tex:82:(FIXME: Have I not spelled out the volume element and the vector derivative for three parameters before?  Check for this and remove
+
+   Have d^3 \Bx image with the fundamental theorem for volume integrals.  It should be moved from
+   volumeintegral.tex to volumeintegraldef.tex
+
+   Do the same for surfaceintegral.tex.
 
 - get rid of example block:
 
@@ -8,10 +13,10 @@
 
 - On the possibility of removing (1.67) : Mo:
 
-   I think you should keep the definition of reverses and blade. In a book you do not have to use (later) every thing you define. 
+   I think you should keep the definition of reverses and blade. In a book you do not have to use (later) every thing you define.
    Also a student may hear the term blade or reverse and may want to check the book to see what these refer to.
    So, in my opinion, removing these terms and definitions can do more harm than having it, which only will slightly increase the length of the book.
-   Actually Eq. (1.67) is a very nice application of reverse, worth keeping. 
+   Actually Eq. (1.67) is a very nice application of reverse, worth keeping.
 
 - Manfred:
 
@@ -139,7 +144,7 @@ Clarify.  My answers:
          The gradient is a vector, and the time partial is a scalar, so that sum is a multivector with grades 0 and 1.
          The electric field is a vector, but I H is a bivector, so E + I eta H is a multivector with grades 1 and 2.
 
-14) Is use of * for duality opertaion common?  In my opinion it only can cause confusion.  
+14) Is use of * for duality opertaion common?  In my opinion it only can cause confusion.
 
 Yes, especially in differential forms.  I don’t use it in the book, but thought it worth mentioning for the reader who had seen duality in another context.  I’ll remove this from the definition, but may still mention it in the comments or a footnote following the definition.
 

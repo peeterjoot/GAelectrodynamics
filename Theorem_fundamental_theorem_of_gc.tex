@@ -5,7 +5,7 @@
 \maketheorem{Fundamental theorem of geometric calculus}{thm:fundamentalTheoremOfCalculus:1}{
 Given
 multivectors \(F, G \),
-a parameterization \( \Bx = \Bx(u_1, u_2, \cdots) \), with hypervolume element \( d^k \Bx = d^k u I_k \), where
+a parameterization \( \Bx = \Bx(u_1, u_2, \cdots, u_k) \), with hypervolume element \( d^k \Bx = d^k u I_k \), where
 \( I_k = \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k \), the hypervolume integral is related to the boundary integral by
 \begin{equation*}
 \int_V F d^k \Bx \lrboldpartial G = \int_{\partial V} F d^{k-1} \Bx G,
@@ -17,7 +17,7 @@ The hypersurface element and boundary integral is defined for \( k > 1 \) as
 \begin{equation*}
 \int_{\partial V} F d^{k-1} \Bx G
 \equiv
-\sum_i \int d^{k-1} u_i \evalbar{ \lr{ F \lr{ I_k \cdot \Bx^i} G }}{\Delta u_i},
+\sum_{i=1}^{k} \int d^{k-1} u_i \evalbar{ \lr{ F \lr{ I_k \cdot \Bx^i} G }}{\Delta u_i},
 \end{equation*}
 where \( d^{k-1} u_i \) is the product of all \( du_j \) except for \( du_i \).
 For

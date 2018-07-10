@@ -31,12 +31,12 @@
 \index{volume parameterization}
 \index{volume element}
 \index{differential form}
-A three parameter curve, and the corresponding differentials with respect to those parameters, is sketched in
-\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
+The volume integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} follows.
 
-\imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
+\input{Theorem_multivector_volume_integral.tex}
+Before diving into the proof of \cref{thm:volumeintegral:100}, let's consider the geometry of the volume element briefly.
 
-Given parameters \( u_1, u_2, u_3 \), we can denote the differentials along each of the parameterization directions as
+For uniformity, let \( u = u_1, v = u_2, w = u_3 \), so that the differentials along each of the parameterization directions are
 \begin{dmath}\label{eqn:volumeintegral:100}
 \begin{aligned}
 d\Bx_1 &= \PD{u_1}{\Bx} du_1 = \Bx_1 du_1 \\
@@ -44,19 +44,24 @@ d\Bx_2 &= \PD{u_2}{\Bx} du_2 = \Bx_2 du_2 \\
 d\Bx_3 &= \PD{u_3}{\Bx} du_3 = \Bx_3 du_3.
 \end{aligned}
 \end{dmath}
-
 The trivector valued volume element for this parameterization is
 \begin{equation}\label{eqn:volumeintegral:120}
 d^3 \Bx
 =
 d\Bx_1 \wedge
-d\Bx_1 \wedge
-d\Bx_1
+d\Bx_2 \wedge
+d\Bx_3
 =
 d^3 u\, (\Bx_1 \wedge \Bx_2 \wedge \Bx_3),
 \end{equation}
 where \( d^3 u = du_1 du_2 du_3 \).
-The vector derivative, the projection of the gradient onto the volume at the point of integration (also called the tangent space), now has three components
+A volume and its corresponding differentials with respect to three parameters is sketched in
+\cref{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}.
+
+\imageFigure{../figures/gabook/normalsOnVolumeAreaElementFig11}{Three parameter volume element.}{fig:normalsOnVolumeAreaElement:normalsOnVolumeAreaElementFig11}{0.4}
+
+In \R{3} the vector derivative for a volume parameterization and the gradient are identical.  In higher dimensional spaces
+the projection of the gradient onto the volume at the point of integration (also called the tangent space), has three components
 \begin{dmath}\label{eqn:volumeintegral:200}
 \boldpartial
 =
@@ -74,32 +79,15 @@ The vector derivative, the projection of the gradient onto the volume at the poi
 +
 \Bx^3 \partial_3.
 \end{dmath}
+%(FIXME: Have I not spelled out the volume element and the vector derivative for three parameters before?  Check for this and remove redudancy.)
 
-FIXME: reference :240 now wrong:
-The volume integral specialization of \cref{dfn:fundamentalTheoremOfCalculus:240} can now be stated
-
-\makedefinition{Multivector volume integral.}{dfn:volumeintegral:100}{
-Given an connected volume \( V \) parameterized by two parameters, and multivector functions \( F, G \), we define the volume integral as
-\begin{equation*}
-\int_V F d^3\Bx \lrboldpartial G
-\equiv
-\int_V \lr{ F d^3\Bx \lboldpartial} G
-+
-\int_V F d^3\Bx \lr{ \rboldpartial G },
-\end{equation*}
-where the three parameter differential form \( d^3 \Bx = d^3 u\, \Bx_1 \wedge \Bx_2 \wedge \Bx_3, d^3 u = du_1 du_2 du_3 \) varies over the volume, and \( \lrboldpartial \) acts on \( F, G \), but not the volume element \( d^2 \Bx \).
-} % definition
-
-The volume integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
-
-\input{Theorem_multivector_volume_integral.tex}
-To see why this works, and define \( d^2 \Bx \) more precisely, we would first like to reduce the product of the volume element and the vector derivative
+With the volume element and the vector derivative spelled out explicitly, we can proceed with a proof of \cref{thm:volumeintegral:100}.  The first step, is the 
+reduction of the product of the volume element and the vector derivative, which we will see is a bivector.
 \begin{dmath}\label{eqn:volumeintegral:300}
 d^3\Bx \boldpartial
 =
 d^3 u\, \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \lr{ \Bx^1 \partial_1 + \Bx^2 \partial_2 + \Bx^3 \partial_3 }.
 \end{dmath}
-
 Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this multivector product has only a vector grade.  That is
 \begin{dmath}\label{eqn:volumeintegral:320}
 \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^i
@@ -239,7 +227,7 @@ This leaves three perfect differentials, which can integrated separately, giving
 This proves the theorem from an algebraic point of view.
 With the aid of a geometrical model, such as that of \cref{fig:differentialVolume:differentialVolumeFig}, if
 assuming that \( d\Bx_1, d\Bx_2, d\Bx_3 \) is a right handed triple).
-it is possible to convince oneself that the two parameter integrands describe an integral over a counterclockwise oriented surface (
+it is possible to convince oneself that the two parameter integrands describe an integral over a counterclockwise oriented surface.
 \imageTwoFigures{../figures/GAelectrodynamics/differentialVolumeFig1}{../figures/GAelectrodynamics/differentialVolumeFig2}{Differential surface of a volume.}{fig:differentialVolume:differentialVolumeFig}{scale=0.05}
 
 We obtain the RHS of \cref{thm:volumeintegral:100} if we
@@ -250,7 +238,7 @@ d^2 \Bx \equiv d\Bx_1 \wedge d\Bx_2 + d\Bx_2 \wedge d\Bx_3 + d\Bx_3 \wedge d\Bx_
 where it is implied that each component of this area element and anything that it is multiplied with is evaluated on the boundaries of the integration volume (for the parameter omitted) as detailed explicitly in
 \cref{eqn:volumeintegral:400}.
 
-\subsection{Three parameter Stokes' theorem.}
+\subsubsection{Three parameter Stokes' theorem.}
 
 Three special cases of \cref{thm:volumeintegral:100} can be obtained by integrating scalar, vector or bivector functions over the volume, as follows
 
@@ -271,7 +259,7 @@ where \( \ncap \) is the outwards normal specified by \( d^2 \Bx = I \ncap dA, \
 
 \input{Theorem_volume_integral_of_bivector_stokes_divergence.tex}
 
-\subsection{Divergence theorem.}
+\subsubsection{Divergence theorem.}
 
 Observe that for \R{3} we there are dot product relations in each of
 \cref{thm:volumeintegral:420},
