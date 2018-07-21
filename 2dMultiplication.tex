@@ -2,21 +2,59 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-The multiplication table for the \R{2} geometric algebra can be computed with relative ease.
-Many of the interesting products involve \( i = \Be_1 \Be_2 \), the unit pseudoscalar.
-Using \cref{eqn:normalVectors:140} the imaginary nature of the pseudoscalar, mentioned early, can now be demonstrated explicitly
-\begin{dmath}\label{eqn:2dMultiplication:220}
-   \lr{ \Be_1 \Be_2 }^2
-   =
-   (\Be_1 \Be_2)(\Be_1 \Be_2)
-   =
-   -(\Be_1 \Be_2)(\Be_2 \Be_1)
-   =
-   -\Be_1 (\Be_2^2 ) \Be_1
-   =
-   -\Be_1^2
-   = -1.
+The simplest geometric algebra is generated from the \R{2} vector space, and has just a few basis elements:
+%
+%\begin{tablelabelbox}[tabularx={X||X|X|X}]{Two dimensional geometric algebra elements.}{label=tab:2dMultiplication:5}
+%\end{tablelabelbox}
+\begin{center}
+\begin{tabular}{| l | c c c |}
+\hline
+scalar   &              & 1                 &               \\ \hline
+vector   & \( \Be_1 \)  &                   & \( \Be_2 \)   \\ \hline
+bivector &              & \( \Be_1 \Be_2 \) &               \\ \hline
+\end{tabular}
+\end{center}
+
+There can be no higher grade elements than \( \Be_1 \Be_2 \) since any repeated \( \Be_1 \) or \( \Be_2 \) factors cancel after appropriate permutation.  Examples include
+
+\begin{subequations}
+\label{eqn:2dMultiplication:280}
+\begin{dmath}\label{eqn:2dMultiplication:300}
+\Be_1 \Be_1 \Be_2 \Be_2 \Be_1
+=
+\Be_1^2 \Be_2^2 \Be_1
+=
+\Be_1,
 \end{dmath}
+\begin{dmath}\label{eqn:2dMultiplication:240}
+\Be_1 \Be_2 \Be_1
+=
+(\Be_1 \Be_2) \Be_1
+=
+-(\Be_2 \Be_1) \Be_1
+=
+-\Be_2 \Be_1^2
+=
+-\Be_2,
+\end{dmath}
+\begin{dmath}\label{eqn:2dMultiplication:260}
+\Be_2 \Be_1 \Be_2 \Be_1 \Be_2
+=
+\Be_2 (\Be_1 \Be_2 \Be_1) \Be_2
+=
+\Be_2 (-\Be_2) \Be_2
+=
+-\Be_2.
+\end{dmath}
+\end{subequations}
+
+
+
+
+\paragraph{rewrite marker.}
+
+Using \cref{eqn:normalVectors:140} the imaginary nature of the pseudoscalar, mentioned early, can now be demonstrated explicitly
+The multiplication table for the \R{2} geometric algebra can be computed with relative ease.
 
 \index{complex imaginary}
 Like the (scalar) complex imaginary, the bivector \( \Be_1 \Be_2 \) also squares to \( -1 \).
@@ -60,9 +98,8 @@ The multiplication table for the \R{2} multivector basis can now be tabulated
 %\( \Be_1 \Be_2\) & \( \Be_1 \Be_2 \) & \( -\Be_2 \) & \( \Be_1 \) & \( -1 \) \\ \hline
 %\end{tabular}
 %}
-
 \begin{tablelabelbox}[tabularx={X||Y|Y|Y|Y}]{2D Multiplication table.}{label=tab:2dMultiplication:10}
-        & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
+        & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline \hline
 \( 1 \) & \( 1 \) & \( \Be_1 \) & \( \Be_2 \) & \( \Be_1 \Be_2 \) \\ \hline
 \( \Be_1\) & \( \Be_1 \) & \( 1 \) & \( \Be_1 \Be_2 \) & \( \Be_2 \)\\ \hline
 \( \Be_2\) & \( \Be_2 \) & \( -\Be_1 \Be_2 \) & \( 1 \) & \( -\Be_1 \)\\ \hline

@@ -3,6 +3,92 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
+\index{\(i\)}
+\maketheorem{Unit bivector complex representations.}{thm:2dMultiplication:320}{
+Let \( \Bu, \Bv \) be any pair of orthonormal vectors.  Their bivector product \( i = \Bu \Bv \) has the characteristics of an imaginary number, that is
+\begin{equation*}
+i^2 = -1.
+\end{equation*}
+} % theorem
+
+Examples of bivectors that may be used as representations of the imaginary include \( \Be_3 \Bu, \Bv \Be_3, \Bu (\Bv + \Be_3)/\sqrt{2}, \cdots\), or any other unit bivector that represents a plane in \R{N}.
+For two dimensional problems, any reference to \( i \) in this book should be taken to mean \( i = \Be_1 \Be_2 \), the unit bivector for the x-y plane.
+However, the symbol \( i \) will also be overloaded (always with explicit definition) in \R{3} problems to represent
+the imaginary for other planes of interest (albiet often the x-y plane),
+
+The proof of \cref{thm:2dMultiplication:320} follows from \cref{thm:multiplication:anticommutationNormal} and the
+contraction axiom twice
+\begin{dmath}\label{eqn:2dMultiplication:220}
+   \lr{ \Bu \Bv }^2
+   =
+   (\Bu \Bv)(\Bu \Bv)
+   =
+   -(\Bu \Bv)(\Bv \Bu)
+   =
+   -\Bu (\Bv^2 ) \Bu
+   =
+   -\Bu^2
+   = -1.
+\end{dmath}
+
+Given orthonormal vectors \( \Bu, \Bv \), and a vector in the plane spanned by these vectors \( \Bx = x \Bu + y \Bv \), a complex
+representation for that plane is possible by factoring out \( \Bu \) from \( \Bx \), leaving a vector-multivector product
+\begin{dmath}\label{eqn:complex:3330}
+\Bx = \Bu( x + \Bu \Bv y )
+    = ( x + \Bv \Bu y ) \Bu.
+\end{dmath}
+While either \( \Bu \Bv \), or \( \Bv \Bu \) may be used as an imaginary, suppose we pick \( i = \Bu \Bv \) as the imaginary, in which case
+left and right factorization of \( \Bu \) from \( \Bx \) gives
+\begin{dmath}\label{eqn:complex:3350}
+\Bx = \Bu ( x + i y )
+    = ( x - i y ) \Bu.
+\end{dmath}
+Any vector in the plane may be represented as the product of a unit vector and a multivector representation of a ``complex number'' for that plane.
+Observe that there is a
+
+When utilizing a multivector representation of a complex number as an operator that multiplicatively maps vectors onto vectors, we must take care about the order of multiplication.  In particular
+\begin{dmath}\label{eqn:complex:3410}
+\Bu i
+= \Bu \Bu \Bv
+= \Bu (\Bu \Bv)
+= -\Bu (\Bv \Bu)
+= -i \Bu,
+\end{dmath}
+and
+\begin{dmath}\label{eqn:complex:3430}
+\Bv i
+= \Bv \Bu \Bv
+= (\Bv \Bu) \Bv
+= -(\Bu \Bv) \Bv
+= -i \Bv.
+\end{dmath}
+The multivector imaginary \( i \) for the plane anticommutes with any vector in the plane, so swapping the order of a vector and complex-number product requires
+
+
+
+Such a complex number acts as a multiplicative operator that maps vector in a plane to other vectors in the same plane.
+To illustrate let \( \Bx = x' \Bu + y' \Bv = \Bu z' \), \( z = x + i y \).  Their products are
+\begin{dmath}\label{eqn:complex:3370}
+\Bx z
+= \Bu z' z
+\end{dmath}
+and
+\begin{dmath}\label{eqn:complex:3390}
+z \Bx
+=
+\lr{ x + i y }
+\lr{ x' \Bu + y' \Bv }
+=
+x x' \Bu + x y' \Bv
+% i u = u v u = - v
+% i v = u v v = u
+- y x' \Bv + y y' \Bu
+=  (x' x + y' y) \Bu + ( - y' x + x' y ) \Bv.
+\end{dmath}
+Either such product maps the vector to another vector.  Unlike multiplication of pure complex numbers, order matters
+
+\paragraph{rewrite marker}
+
 \index{complex imaginary}
 \index{pseudoscalar}
 We've seen that bivectors like \( \Be_{12} \) square to minus one.
