@@ -11,11 +11,6 @@ i^2 = -1.
 \end{equation*}
 } % theorem
 
-Examples of bivectors that may be used as representations of the imaginary include \( \Be_3 \Bu, \Bv \Be_3, \Bu (\Bv + \Be_3)/\sqrt{2}, \cdots\), or any other unit bivector that represents a plane in \R{N}.
-For two dimensional problems, any reference to \( i \) in this book should be taken to mean \( i = \Be_1 \Be_2 \), the unit bivector for the x-y plane.
-However, the symbol \( i \) will also be overloaded (always with explicit definition) in \R{3} problems to represent
-the imaginary for other planes of interest (albiet often the x-y plane),
-
 The proof of \cref{thm:2dMultiplication:320} follows from \cref{thm:multiplication:anticommutationNormal} and the
 contraction axiom twice
 \begin{dmath}\label{eqn:2dMultiplication:220}
@@ -31,6 +26,25 @@ contraction axiom twice
    = -1.
 \end{dmath}
 
+For two dimensional problems, any reference to \( i \) in this book should be taken to mean \( i = \Be_1 \Be_2 \), the unit bivector for the x-y plane.
+However, the symbol \( i \) will also be overloaded (always with explicit definition) in \R{3} problems to represent the imaginary for other planes of interest (albiet often the x-y plane).
+
+Examples of bivectors that may be used as representations of the imaginary include
+\begin{itemize}
+\item \( \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 \),
+\item \( \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \Be_3 \),
+\item \( \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \lr{ \Be_2 \cos\theta - \Be_1 \sin\theta } \quad (= \Be_1 \Be_2)\),
+\item \( \Be_1 \frac{ \Be_2 + \Be_3}{\sqrt{2}} \),
+\item \( \rcap \thetacap, \thetacap \phicap, \phicap \rcap \), where \( \rcap, \thetacap, \phicap \) are the spherical coordinate unit vectors.
+\end{itemize}
+
+% FIXME: theorem or definition.
+%\maketheorem{Complex representation of plane vectors.}{thm:complex:n}{
+%} % theorem
+\makedefinition{Complex representation of a plane.}{dfn:complex:plane}{
+Let \( i = \Bu \Bv \), where \( \Bu, \Bv \) are any pair of orthonormal vectors.  A number \( z = x \pm i y \) is called a complex number for the plane spanned by \( \Bu, \Bv \).
+} % definition
+
 Given orthonormal vectors \( \Bu, \Bv \), and a vector in the plane spanned by these vectors \( \Bx = x \Bu + y \Bv \), a complex
 representation for that plane is possible by factoring out \( \Bu \) from \( \Bx \), leaving a vector-multivector product
 \begin{dmath}\label{eqn:complex:3330}
@@ -39,12 +53,12 @@ representation for that plane is possible by factoring out \( \Bu \) from \( \Bx
 \end{dmath}
 While either \( \Bu \Bv \), or \( \Bv \Bu \) may be used as an imaginary, suppose we pick \( i = \Bu \Bv \) as the imaginary, in which case
 left and right factorization of \( \Bu \) from \( \Bx \) gives
-\begin{dmath}\label{eqn:complex:3350}
+\begin{equation}\label{eqn:complex:3350}
 \Bx = \Bu ( x + i y )
     = ( x - i y ) \Bu.
-\end{dmath}
+\end{equation}
 Any vector in the plane may be represented as the product of a unit vector and a multivector representation of a ``complex number'' for that plane.
-Observe that there is a
+%Observe that there is a
 
 When utilizing a multivector representation of a complex number as an operator that multiplicatively maps vectors onto vectors, we must take care about the order of multiplication.  In particular
 \begin{dmath}\label{eqn:complex:3410}
@@ -62,9 +76,7 @@ and
 = -(\Bu \Bv) \Bv
 = -i \Bv.
 \end{dmath}
-The multivector imaginary \( i \) for the plane anticommutes with any vector in the plane, so swapping the order of a vector and complex-number product requires
-
-
+The multivector imaginary \( i \) for the plane anticommutes with any vector in the plane, so swapping the order of a vector and complex-number product requires a conjugation operation.
 
 Such a complex number acts as a multiplicative operator that maps vector in a plane to other vectors in the same plane.
 To illustrate let \( \Bx = x' \Bu + y' \Bv = \Bu z' \), \( z = x + i y \).  Their products are
