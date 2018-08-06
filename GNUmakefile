@@ -49,6 +49,7 @@ ece2500report.pdf :: $(shell cat spellcheckem.txt) reportPreamble.tex
 report : ece2500report.pdf
 mx : maxwells.pdf
 ii : integration.pdf
+g2 : ga20.pdf
 
 # FIXME: this should be an automatic dependency, but currently isn't.
 #$(THISBOOK).pdf :: mmacells.sty
