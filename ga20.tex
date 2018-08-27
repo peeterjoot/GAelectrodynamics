@@ -27,51 +27,74 @@
 %\chapter{XXX}
 %\label{chap:ga20}
 
-\chapter{Preliminaries}
+\section{Preliminaries}
 
-\makedefinition{Reverse of a k-blade.}{dfn:ga20:260}{
-Given a
-set of
-othogonal vectors
-\( \Bu_1, \Bu_2, \cdots \Bu_k \), the reverse of a k-blade
-\( \Bx = \Bu_1 \Bu_2 \cdots \Bu_k \) is a k-blade with the order of all factors reversed, and is denoted
-\( \Bx^\dagger = \Bu_k \cdots \Bu_2 \Bu_1 \).
-The reverse of a scalar (0-blade) and of a
-blade (1-blade) are themselves.
+\makedefinition{Reverse of vector products.}{dfn:ga20:260}{
+The reverse of a multivector product of \( k \) vectors
+\( M = \Bu_1 \Bu_2 \cdots \Bu_k \) is a multivector with the order of all vector factors reversed
+\( M^\dagger = \Bu_k \cdots \Bu_2 \Bu_1 \).
 } % definition
+
 Examples
 \begin{itemize}
-\item \( 3^\dagger = 3, 0^\dagger = 0, \)
-\item \( \Be_1^\dagger = \Be_1, \Be_3^\dagger = \Be_3, \)
 \item \( (\Be_1 \Be_2)^\dagger = \Be_2 \Be_1, (\Be_2 \Be_4)^\dagger = \Be_4 \Be_2, \)
 \item \( (\Be_1 \Be_2 \Be_3)^\dagger = \Be_3 \Be_2 \Be_1. \)
 \end{itemize}
 
-\makedefinition{Reverse of a k-vector.}{dfn:ga20:360}{
-The reverse of a sum of (same-k) k-blades \( f = k_1 + k_2 + \cdots \) is the sum of the reverses of each such k-blade, that is
-\( f^\dagger = k_1^\dagger + k_2^\dagger + \cdots \).
-} % definition
-Examples
-\begin{itemize}
-\item \( (\Be_1 + \Be_2 - \Be_3)^\dagger = \Be_1^\dagger + \Be_2^\dagger - \Be_3^\dagger = \Be_1 + \Be_2 - \Be_3, \)
-\item \( (\Be_1 \Be_2 + \Be_2 \Be_3)^\dagger = \Be_2 \Be_1 + \Be_3 \Be_2, (\Be_1 \Be_2 + \Be_3 \Be_4)^\dagger = \Be_2 \Be_1 + \Be_4 \Be_3, \)
-\item \( (3 \Be_1 \Be_2 + 7 \Be_3 \Be_2 \Be_4)^\dagger = 3 \Be_2 \Be_1 + 7 \Be_4 \Be_2 \Be_3.\)
-\end{itemize}
+\Cref{dfn:ga20:260} also applies indirectly to scalars and vectors.  We can show easily that scalars and vectors are unchanged under reversion operations.
 
+\maketheorem{Reverse of a scalar.}{thm:ga20:scalarReverse}{
+A scalar is its own reverse.  That is \( s^\dagger = s, \forall s \in R \).
+} % theorem
+
+To prove \cref{thm:ga20:scalarReverse}, factor \( s \) into a product of colinear vectors \( \Bx = a \Bu, \By = b \Bu \), where \( s = \Bx \By = a b \Bu^2 \).  The reverse of \( s \) is
+\begin{dmath}\label{eqn:ga20:400}
+s^\dagger = \By \Bx = b \Bu a \Bu = a b \Bu^2 = s.
+\end{dmath}
+
+\maketheorem{Reverse of a vector.}{thm:ga20:vectorReverse}{
+A vector is its own reverse.  That is \( \Bu^\dagger = \Bu, \forall \Bu \in \bbR \).
+} % theorem
+
+To prove \cref{thm:ga20:vectorReverse}, let \( \Bu, \Bv \) be a pair of vectors, where \( \Bv \) is a unit vector.  Then
+\begin{dmath}\label{eqn:ga20:420}
+\Bu^\dagger
+= \lr{ \Bu \Bv \Bv }^\dagger
+= \Bv \Bv \Bu
+= \Bu.
+\end{dmath}
+
+%\item \( 3^\dagger = 3, 0^\dagger = 0, \)
+%\item \( \Be_1^\dagger = \Be_1, \Be_3^\dagger = \Be_3, \)
+
+%\makedefinition{Reverse of a k-vector.}{dfn:ga20:360}{
+%The reverse of a sum of (same-k) k-blades \( f = k_1 + k_2 + \cdots \) is the sum of the reverses of each such k-blade, that is
+%\( f^\dagger = k_1^\dagger + k_2^\dagger + \cdots \).
+%} % definition
+%Examples
+%\begin{itemize}
+%\item \( (\Be_1 + \Be_2 - \Be_3)^\dagger = \Be_1^\dagger + \Be_2^\dagger - \Be_3^\dagger = \Be_1 + \Be_2 - \Be_3, \)
+%\item \( (\Be_1 \Be_2 + \Be_2 \Be_3)^\dagger = \Be_2 \Be_1 + \Be_3 \Be_2, (\Be_1 \Be_2 + \Be_3 \Be_4)^\dagger = \Be_2 \Be_1 + \Be_4 \Be_3, \)
+%\item \( (3 \Be_1 \Be_2 + 7 \Be_3 \Be_2 \Be_4)^\dagger = 3 \Be_2 \Be_1 + 7 \Be_4 \Be_2 \Be_3.\)
+%\end{itemize}
+%
 \makedefinition{Multivector reverse}{dfn:ga20:280}{
-The reverse of a multivector is the sum of the reverse of all its grades.  That is, given
-\( M = \sum_{k = 1}^N \gpgrade{M}{k} \), the reverse \( M^\dagger = \sum_{k = 1}^N \lr{\gpgrade{M}{k}}^\dagger \).
+The reverse of a sum is the sum of the reverse of the summands.
 } % definition
+In particular, the reverse of a multivector 
+\( M = \sum_{k = 1}^N \gpgrade{M}{k} \)
+is the sum of the reverse of the constituent grades
+\( M^\dagger = \sum_{k = 1}^N \lr{\gpgrade{M}{k}}^\dagger \).
 Examples
 \begin{itemize}
 \item \( (3 + \Be_1 \Be_2)^\dagger = 3^\dagger + (\Be_1 \Be_2)^\dagger = 3 + \Be_2 \Be_1 \)
 \item \( (\Be_2 + \Be_3 \Be_2 \Be_1)^\dagger = \Be_2^\dagger + (\Be_3 \Be_2 \Be_1)^\dagger = \Be_2 + \Be_1 \Be_2 \Be_3 \).
 \end{itemize}
 
-%\maketheorem{Reverse of a product.}{thm:ga20:n}{
+%\maketheorem{Reverse of a product.}{thm:ga20:440}{
 %} % theorem
 
-\chapter{Geometric Algebra for \R{2}}
+\section{Geometric Algebra for \R{2}}
 The geometric algebra of \R{2} is strongly associated with the algebra of complex numbers.  Here we will explore some of those connections, and use this simplest geometric algebra to develop our geometric algebra skills.
 
 \maketheorem{Basis for the \R{2} geometric algebra.}{thm:ga20:1}{
@@ -193,7 +216,7 @@ When the product \cref{eqn:ga20:40} has an odd number of factors, it can be simi
 An even grade multivector of the form \( z = x + i y \) where \( x, y \in \bbR \), \( i = \Bu \Bv \), and \( \Bu, \Bv \) are orthonormal vectors, will be called a complex number for the plane spanned by \( \Bu, \Bv \).  When \( \Bu, \Bv \) are the unit vectors \( \Be_1, \Be_2 \in \text{\R{2}} \) respectively, \( z \) will be called a complex number.
 } % definition
 
-\makedefinition{Conjugate.}{dfn:ga20:n}{
+\makedefinition{Conjugate.}{dfn:ga20:460}{
 The geometric reverse operator is used to denote conjugation.  With \( z = x + i y \), that is, \( z^\dagger = x - i y \).
 } % definition
 
