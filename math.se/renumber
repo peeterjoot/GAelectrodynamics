@@ -1,0 +1,3 @@
+
+../latex/bin/lgrep distribution.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl distribution.tex

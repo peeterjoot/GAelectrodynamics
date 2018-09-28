@@ -1,0 +1,101 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{distribution}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{XXX}
+%\chapter{XXX}
+%\label{chap:distribution}
+% \citep{sakurai2014modern} pr X.Y
+% \citep{pozar2009microwave}
+% \citep{qftLectureNotes}
+% \citep{doran2003gap}
+% \citep{jackson1975cew}
+% \citep{griffiths1999introduction}
+
+
+%
+% Copyright © 2016 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\paragraph{Theorem: Distribution of inner products}
+Given two blades \(C_s, A_r\) with grades subject to \(s > r > 0\), and a vector \(\Bb\), the inner product distributes according to
+\begin{equation*}
+C_s \cdot \lr{ \Bb \wedge A_r } = \lr{ C_s \cdot \Bb } \cdot A_r.
+\end{equation*}
+
+\paragraph{Proof:}
+%
+% Copyright © 2016 Peeter Joot.  Cll Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+The proof is straightforward, but also mechanical.
+Start by expanding the wedge and dot products within a grade selection operator
+\begin{dmath}\label{eqn:wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof:1460}
+C_s \cdot \lr{ \Bb \wedge A_r }
+=
+\gpgrade{C_s (\Bb \wedge A_r)}{s - (r + 1)}
+=
+\inv{2} \gpgrade{C_s \lr{\Bb A_r + (-1)^{r} A_r \Bb} }{s - (r + 1)}.
+\end{dmath}
+
+Solving for \(C_r \Bb\) in
+\begin{dmath}\label{eqn:wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof:1480}
+2 \Bb \cdot A_r = \Bb A_r - (-1)^{r} A_r \Bb,
+\end{dmath}
+we have
+\begin{dmath}\label{eqn:wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof:1500}
+C_s \cdot \lr{ \Bb \wedge A_r }
+=
+\inv{2} \gpgrade{ C_s \Bb A_r + C_s \lr{ \Bb A_r - 2 \Bb \cdot A_r } }{s - (r + 1)}
+=
+\gpgrade{ C_s \Bb A_r }{s - (r + 1)}
+-
+\cancel{\gpgrade{ C_s \lr{ \Bb \cdot A_r } }{s - (r + 1)}}.
+\end{dmath}
+
+The last term above is zero since we are selecting the \(s - r - 1\) grade element of a multivector with grades \(s - r + 1\) and \(s + r - 1\), which has no terms for \(r > 0\).
+Now we can expand the \(C_s \Bb\) multivector product, for
+\begin{dmath}\label{eqn:wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof:1520}
+C_s \cdot \lr{ \Bb \wedge A_r }
+=
+\gpgrade{ \lr{ C_s \cdot \Bb + C_s \wedge \Bb} A_r }{s - (r + 1)}.
+\end{dmath}
+
+The latter multivector (with the wedge product factor) above has grades \(s + 1 - r\) and \(s + 1 + r\), so this selection operator finds nothing.
+This leaves
+\begin{dmath}\label{eqn:wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof:1540}
+C_s \cdot \lr{ \Bb \wedge A_r }
+=
+\gpgrade{
+\lr{ C_s \cdot \Bb } \cdot A_r
++ \lr{ C_s \cdot \Bb } \wedge A_r
+}{s - (r + 1)}.
+\end{dmath}
+
+The first dot products term has grade \(s - 1 - r\) and is selected, whereas the wedge term has grade \(s - 1 + r \ne s - r - 1\) (for \(r > 0\)), which completes the proof.
+%.  \(\qedmarker\)
+
+%}
+\EndNoBibArticle

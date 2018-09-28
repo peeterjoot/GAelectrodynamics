@@ -1,0 +1,25 @@
+
+<b>Theorem: Distribution of inner products</b>
+Given two blades $C_s, A_r$ with grades subject to $s > r > 0$, and a vector $\mathbf{b}$, the inner product distributes according to
+$$C_s \cdot \left( { \mathbf{b} \wedge A_r } \right) = \left( { C_s \cdot \mathbf{b} } \right) \cdot A_r.$$
+
+<b>Proof:</b>
+
+The proof is straightforward, but also mechanical.
+Start by expanding the wedge and dot products within a grade selection operator
+$$C_s \cdot \left( { \mathbf{b} \wedge A_r } \right)={\left\langle{{C_s (\mathbf{b} \wedge A_r)}}\right\rangle}_{{s - (r + 1)}}=\frac{1}{{2}} {\left\langle{{C_s \left( {\mathbf{b} A_r + (-1)^{r} A_r \mathbf{b}} \right) }}\right\rangle}_{{s - (r + 1)}}.$$
+
+Solving for $C_r \mathbf{b}$ in
+$$2 \mathbf{b} \cdot A_r = \mathbf{b} A_r - (-1)^{r} A_r \mathbf{b},$$
+we have
+$$\begin{aligned}C_s \cdot \left( { \mathbf{b} \wedge A_r } \right) &= \frac{1}{{2}} {\left\langle{{ C_s \mathbf{b} A_r + C_s \left( { \mathbf{b} A_r - 2 \mathbf{b} \cdot A_r } \right) }}\right\rangle}_{{s - (r + 1)}} \\ &= {\left\langle{{ C_s \mathbf{b} A_r }}\right\rangle}_{{s - (r + 1)}} - \left\langle{{ C_s \left( { \mathbf{b} \cdot A_r } \right) }}\right\rangle}_{{s - (r + 1)} \\ &= {\left\langle{{ C_s \mathbf{b} A_r }}\right\rangle}_{{s - (r + 1)}}\end{aligned}.$$
+
+The last term above is zero since we are selecting the $s - r - 1$ grade element of a multivector with grades $s - r + 1$ and $s + r - 1$, which has no terms for $r > 0$.
+Now we can expand the $C_s \mathbf{b}$ multivector product, for
+$$C_s \cdot \left( { \mathbf{b} \wedge A_r } \right)={\left\langle{{ \left( { C_s \cdot \mathbf{b} + C_s \wedge \mathbf{b}} \right) A_r }}\right\rangle}_{{s - (r + 1)}}.$$
+
+The latter multivector (with the wedge product factor) above has grades $s + 1 - r$ and $s + 1 + r$, so this selection operator finds nothing.
+This leaves
+$$C_s \cdot \left( { \mathbf{b} \wedge A_r } \right)={\left\langle{{\left( { C_s \cdot \mathbf{b} } \right) \cdot A_r+ \left( { C_s \cdot \mathbf{b} } \right) \wedge A_r}}\right\rangle}_{{s - (r + 1)}}.$$
+
+The first dot products term has grade $s - 1 - r$ and is selected, whereas the wedge term has grade $s - 1 + r \ne s - r - 1$ (for $r > 0$), which completes the proof.
