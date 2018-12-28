@@ -1,0 +1,1 @@
+Were you ever told that you can't multiply vectors? Did the crazy combinations of signs and derivatives in Maxwell's equations scream "there must be some underlying structure!" Did you ever wonder how to express a general solution of Maxwell's equations? Here's a book that attempts to provide a systematic answer to some of these questions.

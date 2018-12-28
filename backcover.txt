@@ -1,5 +1,4 @@
 The multivector of geometric algebra extends vector algebra, providing a representation of points, directed line, plane, and volume segments.
-Maxwell's equation in its multivector form is a simpler theoretical starting point for electromagnetic analysis.  
-This book details how geometric algebra may be applied to
-electromagnetic analysis and provides all of the prerequisite concepts and theory required to do so.
+Maxwell's equation in its multivector form is a compact and simple theoretical starting point for electromagnetic analysis .
+This book details how geometric algebra may be applied to electromagnetic analysis and provides all of the prerequisite concepts and theory required to do so.
 This book is suitable for students with an advanced undergraduate electrical engineering or physics background and aims to make the subject more accessible than the available research material.
