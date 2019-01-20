@@ -3,8 +3,7 @@ THISBOOK := GAelectrodynamics
 #BASEVER := 5e8fb49ccd326da795eff23e7bdbbe4792a328e1
 export BOOKSUBVER := 1
 export BOOKMAJVER := 0
-# This isn't a good way to version.  It depends on the local git reflog history count.
-export REVCOUNTSTART := 518
+export REVISIONNUMBER := 11
 
 include ../latex/make.bookvars
 
