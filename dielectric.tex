@@ -286,7 +286,11 @@ For \( G \) we have
 \end{aligned}
 \end{dmath}
 As before the d'Lambertian term is killed as it has no grades 2,3.
-To see that the last term is zero, note that \( \conjstgrad \Psi_{0,1} \) can have only grades 0,1,2, so \( \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) is a scalar.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) has only grades 0,1, which are obliterated by the final grade 2,3 selection operation, leaving \( \gpgrade{\stgrad G}{2,3} \), completing the proof.
+To see that the last term is zero, note that \( \conjstgrad \Psi_{0,1} \) can have only grades 0,1,2, so \( \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) is a scalar.  This means that
+\begin{dmath}\label{eqn:dielectric:340}
+\stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3},
+\end{dmath}
+has only grades 0,1, which are obliterated by the final grade 2,3 selection operation, leaving \( \gpgrade{\stgrad G}{2,3} \), completing the proof.
 
 An additional variation of \cref{thm:dielectric:180} is also possible.
 

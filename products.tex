@@ -282,7 +282,8 @@ b_1 & b_2 & b_3 \\
 
 Let's summarize the wedge product properties and relations we have found so far, comparing the \R{3} wedge product to the cross product
 
-\begin{tcolorbox}[tab2,tabularx={X||Y|Y},title=Cross product and \R{3} wedge product comparison.,boxrule=0.5pt]
+%%
+\begin{tablelabelbox}[tabularx={X||Y|Y}]{Cross product and \R{3} wedge product comparison.}{label=tab:cross:compare}
 Property & Cross product & Wedge product
 \\ \hline
 Same vectors & \( \Ba \cross \Ba = 0 \) & \( \Ba \wedge \Ba = 0 \)
@@ -318,11 +319,31 @@ b_1 & b_2 & b_3 \\
 \end{vmatrix}
 \)
 \\ \hline
+Coordinate expansion
+& \(
+\Ba \wedge \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \Be_j \)
+& \(
+\Ba \cross \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \cross \Be_j \)
+\\ \hline
 Polar form &
 \( \ncap \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \) &
 \( i \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \)
 \\ \hline
-\end{tcolorbox}
+\end{tablelabelbox}
 
 All the wedge properties except the determinant expansion above are valid in any dimension.
 Comparing \cref{eqn:products:1740} to the determinant representation of the cross product, and referring to
@@ -383,6 +404,30 @@ which can be merged further.
 The resulting multivector equation will be
 called
 Maxwell equation (singular), and will be the starting point of all our electromagnetic analysis.
+
+We are used to expressing the dot and cross product components of
+\cref{eqn:SimpleProducts2:1640} separately, for example, as
+\begin{dmath}\label{eqn:products:2080}
+\begin{aligned}
+\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
+\Ba \cross \Bb &= \ncap \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta },
+\end{aligned}
+\end{dmath}
+Introducing a unit bivector \( i_{ab} \) normal to the unit normal \( \ncap \)
+\( i_{ab} \ncap = \Be_{123} \), we can assemble
+\cref{eqn:products:2080} into a cis form using
+\cref{eqn:SimpleProducts2:1640}
+\begin{dmath}\label{eqn:products:2100}
+\Ba \Bb =
+\Norm{\Ba} \Norm{\Bb} \lr{
+\cos\lr{ \Delta \theta }
++
+I \ncap
+\cos\lr{ \Delta \theta }
+}
+=
+\Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} \Delta \theta }.
+\end{dmath}
 
 \index{colinear vectors!wedge}
 \makeproblem{Wedge product of colinear vectors.}{problem:SimpleProducts2:wedgecolinear}{

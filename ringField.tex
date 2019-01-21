@@ -29,9 +29,12 @@ Let the point that we observe the field, and the integration variables be
 
 The field is
 \begin{dmath}\label{eqn:ringField:80}
+\begin{aligned}
 F(\Bx)
-= \frac{\lambda}{4 \pi \epsilon} \iiint dz' r' dr' d\phi'\, \delta(z') \, \delta(r' - R) \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} }
-= \frac{\lambda}{4 \pi \epsilon} \int R d\phi' \frac{\gpgrade{ \lr{ z \Be_3 + r \rhocap - R \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ z^2 + (r \rhocap - R \rhocap')^2}^{3/2} }.
+&= \frac{\lambda}{4 \pi \epsilon} \iiint dz' r' dr' d\phi'\, \delta(z') \, \delta(r' - R) \times \\
+&\qquad \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} } \\
+&= \frac{\lambda}{4 \pi \epsilon} \int R d\phi' \frac{\gpgrade{ \lr{ z \Be_3 + r \rhocap - R \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ z^2 + (r \rhocap - R \rhocap')^2}^{3/2} }.
+\end{aligned}
 \end{dmath}
 
 Without loss of generality, we can align the axes so that \( \rhocap = \Be_1 \), and

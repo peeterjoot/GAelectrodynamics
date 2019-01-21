@@ -106,7 +106,7 @@ In this definition we have used \( i = \Be_{12} \), the pseudoscalar of the tran
 We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stated above.
 \input{Theorem_circular_polarization_coeff.tex}
 To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) out of \cref{eqn:polarization_circular:160} and then substitute complex exponentials for the sine and cosine
-\begin{dmath}\label{eqn:polarizationRewrite:700}
+\begin{equation}\label{eqn:polarizationRewrite:700}
 \begin{aligned}
 \biglr{ \alpha_1 \Be_1 &+ \alpha_2 \Be_2 } \cos\lr{ \phi }
 -\biglr{ \beta_1 \Be_1 + \beta_2 \Be_2 } \sin\lr{ \phi } \\
@@ -116,14 +116,14 @@ To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) 
 -\lr{ \beta_1  + \beta_2 i } \sin\lr{ \phi }
 } \\
 &=
-\frac{\Be_1}{2} \lr{
- \lr{ \alpha_1  + \alpha_2 i } \lr{ e^{i\phi} + e^{-i\phi} }
-+\lr{ \beta_1  + \beta_2 i } i \lr{ e^{i\phi} - e^{-i\phi} }
+\frac{\Be_1}{2} \Biglr{
+ \lr{ \alpha_1  + \alpha_2 i } \lr{ e^{i\phi} + e^{-i\phi} } \\
+&\qquad +\lr{ \beta_1  + \beta_2 i } i \lr{ e^{i\phi} - e^{-i\phi} }
 } \\
 &=
-\frac{\Be_1}{2} \lr{
- \lr{ \alpha_1 + i \beta_1  + i (\alpha_2 + i \beta_2) } e^{i\phi}
-+
+\frac{\Be_1}{2} \Biglr{
+ \lr{ \alpha_1 + i \beta_1  + i (\alpha_2 + i \beta_2) } e^{i\phi} \\
+&\qquad +
  \lr{ (\alpha_1 + i \beta_1 )^\dagger + i( \alpha_2 + i \beta_2 )^\dagger } e^{-i\phi}
 } \\
 &=
@@ -133,7 +133,7 @@ To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) 
  \lr{ c_1 - i c_2 }^\dagger e^{-i\phi}
 },
 \end{aligned}
-\end{dmath}
+\end{equation}
 which completes the proof.
 
 \subsubsection{Linear polarization.}
@@ -314,14 +314,21 @@ A circularly polarized wave carries maximum energy and momentum, whereas the ene
 oscillates with the phase angle.
 
 For the elliptically polarized wave of \cref{eqn:polarization_elliptical:380} we have
-\( f(\phi) = e E_a \cosh\lr{ m + i \phi} \).  The absolute value of \( f \) is
+\begin{dmath}\label{eqn:polarizationRewrite:1040}
+f(\phi) = e E_a \cosh\lr{ m + i \phi}.
+\end{dmath}
+The absolute value of \( f \) is
 \begin{dmath}\label{eqn:polarizationRewrite:880}
 f f^\dagger
 = e^2 E_a^2 \cosh\lr{ m + i \phi} \lr{\cosh\lr{ m + i \phi}}^\dagger
 = e^2 E_a^2 \lr{ \cosh(2m) + \cos(2 \phi) }
 = e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }
 \end{dmath}
-The simplification above made use of the identity \( (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2 \).  The energy momentum for an elliptically polarized wave is therefore
+The simplification above made use of the identity
+\begin{dmath}\label{eqn:polarizationRewrite:1060}
+(1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2.
+\end{dmath}
+The energy momentum for an elliptically polarized wave is therefore
 \begin{dmath}\label{eqn:polarizationRewrite:900}
 T(1)
 = \frac{\epsilon}{2} \lr{ 1 + \Be_3 } e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }.

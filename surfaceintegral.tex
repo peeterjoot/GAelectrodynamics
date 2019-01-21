@@ -297,16 +297,18 @@ without too much trouble
 
 For the second integrand, we have
 \begin{dmath}\label{eqn:surfaceintegral:700}
-\sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j)
-=
-\sum_{j} f_j \sum_i \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot (\partial_i \Bx_j)
-=
+\begin{aligned}
+\sum_{ij} &f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j) \\
+&=
+\sum_{j} f_j \sum_i \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot (\partial_i \Bx_j) \\
+&=
 \sum_{j} f_j
 \lr{
 \Bx_1 \cdot (\partial_2 \Bx^j)
 -
 \Bx_2 \cdot (\partial_1 \Bx^j)
 }
+\end{aligned}
 \end{dmath}
 
 We can apply the chain rule (backwards) to the portion in brackets to find

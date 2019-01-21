@@ -8,13 +8,15 @@
 \maketheorem{Vector-trivector dot product.}{thm:vectorTrivectorDot:vectorTrivectorDot}{
 Given a vector \( \Ba \) and a blade \( \Bb \wedge \Bc \wedge \Bd \) formed by wedging three vectors, the dot product of the two can be expanded as bivectors like
 \begin{dmath}\label{eqn:vectorTrivectorDot:20}
-\Ba \cdot \lr{ \Bb \wedge \Bc \wedge \Bd}
-=
-\lr{ \Bb \wedge \Bc \wedge \Bd} \cdot \Ba
-=
+\begin{aligned}
+\Ba \cdot &\lr{ \Bb \wedge \Bc \wedge \Bd} \\
+&=
+\lr{ \Bb \wedge \Bc \wedge \Bd} \cdot \Ba \\
+&=
 ( \Ba \cdot \Bb ) (\Bc \wedge \Bd)
 -( \Ba \cdot \Bc ) (\Bb \wedge \Bd)
 +( \Ba \cdot \Bd ) (\Bb \wedge \Bc).
+\end{aligned}
 \end{dmath}
 } % theorem
 
@@ -40,19 +42,21 @@ Those are respectively
 
 Substitution back into \cref{eqn:generalizedDot_vectorBivector:681} gives
 \begin{dmath}\label{eqn:vectorTrivectorDot:80}
-\Ba \cdot \lr{ \Bb \wedge \Bc \wedge \Bd}
-= \sum_{j \ne k \ne l} a_i b_j c_k d_l
+\begin{aligned}
+\Ba \cdot &\lr{ \Bb \wedge \Bc \wedge \Bd} \\
+&= \sum_{j \ne k \ne l} a_i b_j c_k d_l
 \lr{
 \Be_i \cdot \Be_j (\Be_k \Be_l)
 -
 \Be_i \cdot \Be_k (\Be_j \Be_l)
 +
 \Be_i \cdot \Be_l (\Be_j \Be_k)
-}
-=
+} \\
+&=
 ( \Ba \cdot \Bb ) (\Bc \wedge \Bd)
 -( \Ba \cdot \Bc ) (\Bb \wedge \Bd)
 +( \Ba \cdot \Bd ) (\Bb \wedge \Bc).
+\end{aligned}
 \end{dmath}
 
 %Repeating this from the other direction gives the same result.
@@ -66,9 +70,11 @@ A vector dotted with a \( n-blade \) distributes as
 %\begin{dmath}\label{eqn:vectorTrivectorDot:100}
 %\boxedEquation{eqn:vectorTrivectorDot:100}{
 \begin{equation*}
-\Bx \cdot \lr{ \By_1 \wedge \By_2 \wedge \cdots \wedge \By_n }
-=
+\begin{aligned}
+\Bx \cdot &\lr{ \By_1 \wedge \By_2 \wedge \cdots \wedge \By_n } \\
+&=
 \sum_{i = 1}^n (-1)^i (\Bx \cdot \By_i) \lr{ \By_1 \wedge \cdots \wedge \By_{i-1} \wedge \By_{i+1} \wedge \cdots \wedge \By_n }.
+\end{aligned}
 \end{equation*}
 %}
 %\end{dmath}

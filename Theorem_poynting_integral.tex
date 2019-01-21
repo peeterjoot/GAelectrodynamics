@@ -3,7 +3,8 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \maketheorem{Poynting's theorem (integral form.)}{thm:poyntingTheoremRewrite:1420}{
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1400}
+%\begin{dmath}\label{eqn:poyntingTheoremRewrite:1400}
+\begin{equation*}
 \begin{aligned}
 &\PD{t}{}
 \int_V dV\, \calE
@@ -16,8 +17,8 @@
    \BM \cdot \BH
 } \\
 &
-\int_V dV \lr{ \rho \BE + \BJ \cross \BB }
-+ \int_V dV \lr{ \rho_\txtm \BH - \epsilon \BM \cross \BE }
+\int_V dV \lr{ \rho \BE + \BJ \cross \BB } \\
+&\qquad + \int_V dV \lr{ \rho_\txtm \BH - \epsilon \BM \cross \BE }
 =
 -
 \PD{t}{ }
@@ -25,5 +26,6 @@
 +
 \int_{\partial V} dA\, \BT(\ncap).
 \end{aligned}
-\end{dmath}
+\end{equation*}
+%\end{dmath}
 } % theorem

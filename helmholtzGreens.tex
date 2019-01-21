@@ -75,14 +75,16 @@ for points \( \Bx \ne \Bx' \), (i.e. \( r = \Norm{\Bx - \Bx'} \ne 0 \)), working
 
 Having shown that we end up with zero everywhere that \(\Bx \ne \Bx'\) we are left to consider an infinitesimal neighbourhood of the volume surrounding the point \(\Bx\) in our integral.  Following the Coulomb treatment in \S 2.2 of \citep{schwartz1987pe} we use a spherical volume element centered around \(\Bx\) of radius \(\epsilon\), and then convert a divergence to a surface area to evaluate the integral away from the problematic point.
 \begin{dmath}\label{eqn:helmholtzGreens:50}
-\int \left(\spacegrad^2 + k^2\right) G(\Bx, \Bx') f(\Bx') dV'
-=
--\inv{4\pi} \int_{\Norm{\Bx - \Bx'} < \epsilon} \left(\spacegrad^2 + k^2\right) \frac{e^{i k \Norm{\Bx - \Bx'}}}{\Norm{\Bx - \Bx'}} f(\Bx') dV'
-=
+\begin{aligned}
+\int &\left(\spacegrad^2 + k^2\right) G(\Bx, \Bx') f(\Bx') dV' \\
+&=
+-\inv{4\pi} \int_{\Norm{\Bx - \Bx'} < \epsilon} \left(\spacegrad^2 + k^2\right) \frac{e^{i k \Norm{\Bx - \Bx'}}}{\Norm{\Bx - \Bx'}} f(\Bx') dV' \\
+&=
 -\frac{1}{4\pi} \int_{\Norm{\Bx''} < \epsilon}
 f(\Bx + \Bx'')
 \left( \spacegrad^2 + k^2 \right) \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}}
 dV'',
+\end{aligned}
 \end{dmath}
 where a change of variables \(\Bx'' = \Bx' - \Bx \), as illustrated in
 \cref{fig:neighbourhood:neighbourhoodFig1},
@@ -163,19 +165,21 @@ e^{i k r} \\
 Using spherical coordinates again, with an area element
 \(dA'' = r^2 \sin\theta d\theta d\phi\), we obtain
 \begin{dmath}\label{eqn:helmholtzGreens:530}
-\int_{\Norm{\Bx''} < \epsilon} \spacegrad^2 \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} dV''
+\begin{aligned}
+\int_{\Norm{\Bx''} < \epsilon} &\spacegrad^2 \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} dV'' \\
 %=
 %\int_{\partial V} \left( \spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right) \cdot \ncap dA'',
-=
+&=
 \evalbar{
 \int_{\theta = 0}^\pi \int_{\phi=0}^{2\pi}
 \left( i k r - 1 \right)
 \frac{e^{i k r}}{r^2}
 r^2 \sin\theta d\theta d\phi
-}{r = \epsilon}
-=
+}{r = \epsilon} \\
+&=
 4 \pi
 \left( i k \epsilon - 1 \right) e^{i k \epsilon}.
+\end{aligned}
 \end{dmath}
 
 Putting everything back together we have

@@ -14,48 +14,28 @@ complex imaginary & \( \Be_{12}, \Be_{123}, \cdots \) & i
 \\ \hline
 complex number & \( x + \Be_{12} y \) & \( x + i y \)
 \\ \hline
-vector products & \begin{equation*}
-\begin{aligned}
-\Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} \Delta \theta } \\
-\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
-\Ba \wedge \Bb &= i_{ab} \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta } \\
-\end{aligned}
-\end{equation*}
-& \begin{equation*}
-\begin{aligned}
-\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
-\Ba \cross \Bb &= \ncap \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta } \\
-\end{aligned}
-\end{equation*},\quad (\( i_{ab} \ncap = \Be_{123} \)).
-\\ \hline
+%vector products & \begin{equation*}
+%\begin{aligned}
+%\Ba \Bb &= \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} \Delta \theta } \\
+%\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
+%\Ba \wedge \Bb &= i_{ab} \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta } \\
+%\end{aligned}
+%\end{equation*}
+%& \begin{equation*}
+%\begin{aligned}
+%\Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
+%\Ba \cross \Bb &= \ncap \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta } \\
+%\end{aligned}
+%\end{equation*},\quad (\( i_{ab} \ncap = \Be_{123} \)).
+%\\ \hline
 %wedge/cross product antisymmetry
 %& \( \Ba \wedge \Bb = -\Bb \wedge \Ba \)
 %& \( \Ba \cross \Bb = -\Bb \cross \Ba \)
 %\\ \hline
-wedge/cross filtering
-& \( \Ba \wedge (\alpha \Ba + \Bb) = \Ba \wedge \Bb \)
-& \( \Ba \cross (\alpha \Ba + \Bb) = \Ba \cross \Bb \)
-\\ \hline
-wedge/cross coordinate expansion
-& \(
-\Ba \wedge \Bb
-=
-\sum_{i < j}
-\begin{vmatrix}
-a_i & a_j \\
-b_i & b_j
-\end{vmatrix}
-\Be_i \Be_j \)
-& \(
-\Ba \cross \Bb
-=
-\sum_{i < j}
-\begin{vmatrix}
-a_i & a_j \\
-b_i & b_j
-\end{vmatrix}
-\Be_i \cross \Be_j \)
-\\ \hline
+%wedge/cross filtering
+%& \( \Ba \wedge (\alpha \Ba + \Bb) = \Ba \wedge \Bb \)
+%& \( \Ba \cross (\alpha \Ba + \Bb) = \Ba \cross \Bb \)
+%\\ \hline
 %wedge/cross determinant expansion
 %& \( \Ba \wedge \Bb = \begin{vmatrix}
 %\Be_2 \Be_3 & \Be_3 \Be_1 & \Be_1 \Be_2 \\
@@ -68,25 +48,25 @@ b_i & b_j
 %b_1 & b_2 & b_3 \\
 %\end{vmatrix} \)
 %\\ \hline
-Triple wedge (triple product) &
-\( \Ba \wedge \Bb \wedge \Bc
-=
-\begin{vmatrix}
-a_i & a_j & a_k \\
-b_i & b_j & b_k \\
-c_i & c_j & c_k \\
-\end{vmatrix}
-I \)
-&
-\( \Ba \cdot (\Bb \cross \Bc)
-=
-\begin{vmatrix}
-a_i & a_j & a_k \\
-b_i & b_j & b_k \\
-c_i & c_j & c_k \\
-\end{vmatrix}
-\)
-\\ \hline
+%Triple wedge (triple product) &
+%\( \Ba \wedge \Bb \wedge \Bc
+%=
+%\begin{vmatrix}
+%a_i & a_j & a_k \\
+%b_i & b_j & b_k \\
+%c_i & c_j & c_k \\
+%\end{vmatrix}
+%I \)
+%&
+%\( \Ba \cdot (\Bb \cross \Bc)
+%=
+%\begin{vmatrix}
+%a_i & a_j & a_k \\
+%b_i & b_j & b_k \\
+%c_i & c_j & c_k \\
+%\end{vmatrix}
+%\)
+%\\ \hline
 Vector orthogonal to two vectors \( \Ba, \Bb \) & \( I (\Ba \wedge \Bb) \) & \( \Ba \cross \Bb \)
 \\ \hline
 Plane orthogonal to a vector \( \Bn \) & \( (I \Bn) \wedge (\Bx - \Bx_0) = 0 \) & \( \Bn \cdot (\Bx - \Bx_0) = 0 \)

@@ -46,8 +46,9 @@ To show that the scalar grades are related to the Poynting vector as \( \gpgrade
 which is the Poynting relationship that was asserted.
 For the vector grades we have
 \begin{dmath}\label{eqn:stressTensorAlgebraically:1140}
-\gpgradeone{ F \Be_i F^\dagger }
-=
+\begin{aligned}
+&\gpgradeone{ F \Be_i F^\dagger } \\
+&=
 \gpgradeone{
 \lr{
    E_i
@@ -58,29 +59,30 @@ For the vector grades we have
 \lr{
    \BE - I \eta \BH
 }
-}
-=
+} \\
+&=
 \gpgradeone{
    E_i \BE
    + \cancel{I \eta \lr{ \BH \wedge \Be_i } \BE}
    + \lr{\BE \wedge \Be_i } \cdot \BE
    + \cancel{I \eta H_i \BE}
-}
-+ \eta
+} \\
+&\qquad + \eta
 \gpgradeone{
    - \cancel{E_i I \BH}
    + \eta \lr{ \BH \wedge \Be_i } \cdot \BH
    - \cancel{\lr{ \BE \wedge \Be_i } I \BH}
    + \eta H_i \BH
-}
-=
+} \\
+&=
    E_i \BE
    + \BE E_i - \BE^2 \Be_i
    + \eta^2 \BH H_i - \eta^2 \BH^2 \Be_i
-   + \eta^2 H_i \BH
-=
+   + \eta^2 H_i \BH \\
+&=
    2 E_i \BE - \BE^2 \Be_i
    + \eta^2 \lr{ 2 H_i \BH - \BH^2 \Be_i }.
+\end{aligned}
 \end{dmath}
 
 Assembling all the results, we have

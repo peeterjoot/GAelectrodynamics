@@ -16,11 +16,13 @@ an (trivector-valued) volume element \( d^3 \Bx = d\Bx_1 \wedge d\Bx_2 \wedge d\
 where \( \partial V \) is the boundary of the volume \( V \),
 and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume, that is
 \begin{equation*}
+\begin{aligned}
 \ointclockwise_{\partial V} F d^2 \Bx G
-=
-\int \evalbar{\lr{F d\Bx_1 \wedge d\Bx_2 G}}{\Delta w}
-+\int \evalbar{\lr{F d\Bx_2 \wedge d\Bx_3 G}}{\Delta u}
-+\int \evalbar{\lr{F d\Bx_3 \wedge d\Bx_1 G}}{\Delta v}.
+&=
+\int \evalbar{\lr{F d\Bx_1 \wedge d\Bx_2 G}}{\Delta w} \\
+&\qquad +\int \evalbar{\lr{F d\Bx_2 \wedge d\Bx_3 G}}{\Delta u} \\
+&\qquad +\int \evalbar{\lr{F d\Bx_3 \wedge d\Bx_1 G}}{\Delta v}.
+\end{aligned}
 \end{equation*}
 In \R{3} with \( d^3 \Bx = I dV \), \( d^2 \Bx = I \ncap dA \), this integral can be written using a scalar volume element, as
 \begin{equation*}

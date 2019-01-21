@@ -120,11 +120,13 @@ For first order problems we will need an intermediate result similar to Green's 
 \makelemma{Normal relations for a gradient sandwich.}{lemma:greensFunctionOverview:420}{
 Given multivector functions \( F(\Bx'), G(\Bx, \Bx') \), and a gradient \( \spacegrad' \) acting bidirectionally on functions of \( \Bx' \), we have
 \begin{equation*}
+\begin{aligned}
 - \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } F(\Bx') dV'
-=
-\int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx') } dV'
--
+&=
+\int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx') } dV' \\
+&\qquad -
 \int_{\partial V} G(\Bx, \Bx') \ncap' F(\Bx') dA'.
+\end{aligned}
 \end{equation*}
 } % lemma
 

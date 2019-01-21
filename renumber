@@ -40,8 +40,8 @@ perl -p -i ../latex/bin/latexRegex.pl bladeDotWedgeSymmetryIdentitiesTheorem.tex
 ../latex/bin/lgrep complex.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl complex.tex
 
-#../latex/bin/lgrep curvilinearDefined.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl curvilinearDefined.tex
+../latex/bin/lgrep curvilinearDefined.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl curvilinearDefined.tex
 
 #../latex/bin/lgrep curvilinearGradient.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl curvilinearGradient.tex
@@ -103,8 +103,8 @@ perl -p -i ../latex/bin/latexRegex.pl generalizedDot.tex
 #../latex/bin/lgrep generalizedDot_vectorBivector.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedDot_vectorBivector.tex
 
-#../latex/bin/lgrep generalizedWedge.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
+../latex/bin/lgrep generalizedWedge.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
 
 #../latex/bin/lgrep generalizedWedgeProblems.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedWedgeProblems.tex
@@ -250,8 +250,8 @@ perl -p -i ../latex/bin/latexRegex.pl normalVectors.tex
 #../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
 
-#../latex/bin/lgrep products.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl products.tex
+../latex/bin/lgrep products.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl products.tex
 
 #../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl projectionAndRejection.tex
@@ -445,22 +445,29 @@ perl -p -i ../latex/bin/latexRegex.pl lineintegral.tex
 #../latex/bin/lgrep gaugeTransformation.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl gaugeTransformation.tex
 
-#../latex/bin/lgrep dielectric.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl dielectric.tex
+../latex/bin/lgrep dielectric.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl dielectric.tex
 
-#../latex/bin/lgrep polarizationRewrite.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl polarizationRewrite.tex
+../latex/bin/lgrep polarizationRewrite.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl polarizationRewrite.tex
 
 #../latex/bin/lgrep reply.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl reply.tex
 
 ../latex/bin/lgrep fundamentalMinkowski.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl fundamentalMinkowski.tex
+
 ../latex/bin/lgrep integration.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl integration.tex
+
 ../latex/bin/lgrep lineintegraldef.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl lineintegraldef.tex
+
 ../latex/bin/lgrep surfaceintegraldef.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl surfaceintegraldef.tex
+
 ../latex/bin/lgrep volumeintegraldef.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl volumeintegraldef.tex
+
+../latex/bin/lgrep table5.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl table5.tex

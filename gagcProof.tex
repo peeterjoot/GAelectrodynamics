@@ -94,12 +94,13 @@ I_k \cdot \Bx^i
 and the sum is
 \begin{dmath}\label{eqn:gagcProof:440}
 \begin{aligned}
-\sum_i &\partial_i \lr{ I_k \cdot \Bx^i } \\
+&\sum_i \partial_i \lr{ I_k \cdot \Bx^i } \\
 &=
 (\partial_{i,i+1} \Bx) \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_{i-1} (-1)^{i (k-1)} \\
 &\quad+
 \Bx_{i+1} \wedge (\partial_{i,i+2} \Bx) \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_{i-1} (-1)^{i (k-1)} \\
-&\quad+ \vdots \\
+&\quad+ \\
+&\quad \vdots \\
 &\quad+
 \Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge (\partial_{i,i-1} \Bx) (-1)^{i (k-1)}.
 \end{aligned}
@@ -107,12 +108,12 @@ and the sum is
 For each \( i \ne j \) there will be one partial \( \partial_{i,j} \Bx \) and one partial \( \partial_{j,i} \Bx \) in this sum.  Consider, for example, the \( 1,2 \) case which come from the \( i = 1,2 \) terms in the sum
 \begin{dmath}\label{eqn:gagcProof:460}
 \begin{aligned}
-&\partial_1 ( \Bx_2 \wedge \Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k ) (-1)^{1(k-1)}
-+
+&\partial_1 ( \Bx_2 \wedge \Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k ) (-1)^{1(k-1)} \\
+&+
 \partial_2 ( \Bx_3 \wedge \Bx_4 \wedge \cdots \wedge \Bx_k \wedge \Bx_1) (-1)^{2(k-1)} \\
 &\quad=
-(\partial_{1,2} \Bx) \wedge \Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k ) (-1)^{1(k-1)}
-+
+(\partial_{1,2} \Bx) \wedge \Bx_3 \wedge \cdots \wedge \Bx_{k-1} \wedge \Bx_k ) (-1)^{1(k-1)} \\
+&\qquad +
 \Bx_3 \wedge \Bx_4 \wedge \cdots \wedge \Bx_k \wedge (\partial_{2,1}\Bx) (-1)^{2(k-1)}
 + \cdots
 \\

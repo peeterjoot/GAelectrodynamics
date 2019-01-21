@@ -63,17 +63,19 @@ dt'' &= - dt' \\
 
 Substitution back into \cref{eqn:derivativeOfDeltaFunction:80} gives
 \begin{dmath}\label{eqn:derivativeOfDeltaFunction:120}
-a \int_{\infty}^{-\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) (-dt'')
-=
-a \int_{-\infty}^{\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) dt''
-=
-\evalrange{a \delta(t'') f( a u + b - t'')}{-\infty}{\infty}
--
-a \int_{-\infty}^{\infty} \delta( t'' )  \frac{d}{dt''} f( a u + b - t'' ) dt''
-=
-- \evalbar{ a \frac{d}{dt''} f( a u + b - t'' ) }{t'' = 0}
-=
+\begin{aligned}
+a &\int_{\infty}^{-\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) (-dt'') \\
+&=
+a \int_{-\infty}^{\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) dt'' \\
+&=
+\evalrange{a \delta(t'') f( a u + b - t'')}{-\infty}{\infty} \\
+&\qquad -
+a \int_{-\infty}^{\infty} \delta( t'' )  \frac{d}{dt''} f( a u + b - t'' ) dt'' \\
+&=
+- \evalbar{ a \frac{d}{dt''} f( a u + b - t'' ) }{t'' = 0} \\
+&=
 \evalbar{ a \frac{d}{ds} f( s ) }{s = a u + b}.
+\end{aligned}
 \end{dmath}
 
 This shows that the action of the derivative of the delta function (with respect to a non-integration variable parameter \( u \)) is
