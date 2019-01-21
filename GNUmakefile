@@ -3,7 +3,7 @@ THISBOOK := GAelectrodynamics
 #BASEVER := 5e8fb49ccd326da795eff23e7bdbbe4792a328e1
 export BOOKSUBVER := 1
 export BOOKMAJVER := 0
-export REVISIONNUMBER := 13
+export REVISIONNUMBER := 14
 
 include ../latex/make.bookvars
 
@@ -96,3 +96,6 @@ bib:
 
 mmacells.sty: mmacells/mmacells.sty
 	cp $^ $@
+
+clean ::
+	git checkout FrontBackmatter/Titlepage.tex
