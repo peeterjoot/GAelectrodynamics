@@ -9,6 +9,37 @@
 \chapter*{Preface}%\normalsize
   \addcontentsline{toc}{chapter}{Preface}
 
+\paragraph{Why you want to read this book.}
+
+When you first learned vector algebra you learned how to add and subtract vectors, and probably asked your instructor if it was possible to multiply vectors.  Had you done so, you would have been told either ``No'', or a qualified ``No, but we can do multiplication like operations, the dot and cross products.''  This book is based on a different answer, ``Yes.''  A set of rules that define a coherent multiplication operation are provided.
+
+Were you ever bothered by the fact that the cross product was only defined in three dimensions, or had a nagging intuition that the dot and cross products were related somehow?  The dot product and cross product seem to be complimentary, with the dot product encoding a projection operation (how much of a vector lies in the direction of another), and the magnitude of the cross product providing a rejection operation (how much of a vector is perpendicular to the direction of another).  These projection and rejection operations should be perfectly well defined in 2, 4, or N dimemsions, not just 3.  In this book you will see how to generalize the cross product to N dimensions, and how this more general product (the wedge product) is useful even in the two and three dimensional problems that are of interest for physical problems (like electromagnetism.)  You will also see how the dot, cross (and wedge) products are all related to the vector multiplication operation of geometric algebra.
+
+When you studied vector calculus, did the collection of Stokes's, Green's and Divergence operations available seem too random, like there ought to be a higher level structure that described all these similar operations?  It turns out that such structure is available in the both the language of differential forms, and that of tensor calculus.  We'd like a toolbox that doesn't require expressing vectors as differentials, or resorting to coordinates.  Not only does geometric calculus provides such a toolbox, it also provides the tools required to operate on functions of vector products, which has profound applications for electromagnetism.
+
+Were you offended by the crazy mix of signs, dots and cross products in Maxwell's equations?  The geometric algebra form of Maxwells's equation resolves that crazy mix, expressing Maxwell's equations as a single equation.  The formalism of tensor algebra and differential forms also provide simpler ways of expressing Maxwell's equations, but are arguably harder to relate to the vector algebra formalism so familiar to electric engineers and physics practitioners.  In this book, you will see how to work with the geometric algebra form of Maxwell's equation, and how to relate these new techniques to familiar methods.
+
+\paragraph{Overview.}
+
+Geometric algebra generalizes vectors, providing algebraic representations of not just directed line segments, but also points, plane segments, volumes, and higher degree geometric objects (hypervolumes.). The geometric algebra representation of planes, volumes and hypervolumes requires a vector dot product, a vector multiplication operation, and a generalized addition operation. The dot product provides the length of a vector and a test for whether or not any two vectors are perpendicular. The vector multiplication operation is used to construct directed plane segments (bivectors), and directed volumes (trivectors), which are built from the respective products of two or three mutually perpendicular vectors. The addition operation allows for sums of scalars, vectors, or any products of vectors. Such a sum is called a multivector.
+
+The power to add scalars, vectors, and products of vectors can be exploited to simplify much of electromagnetism. In particular, Maxwell's equations for isotropic media can be merged into a single multivector equation
+\begin{equation}\label{eqn:quaternion2maxwellWithGA:20}
+\lr{ \spacegrad + \inv{c} \PD{t}{}} \lr{ \BE + I c \BB } = \eta\lr{ c \rho - \BJ },
+\end{equation}
+where \( \spacegrad \) is the gradient, \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the three \R{3} basis vectors, \( c = 1/\sqrt{\mu\epsilon}\) and \( \eta = \sqrt{\mu/\epsilon} \) are the group velocity and impedance of the media, \( \BE, \BB \) are the electric and magnetic fields, and \( \rho \) and \( \BJ \) are the charge and current densities. This can be written as a single equation
+\begin{equation}\label{eqn:ece2500report:40}
+\lr{ \spacegrad + \inv{c} \PD{t}{}} F = J,
+\end{equation}
+where \( F = \BE + I c \BB \) is the combined (multivector) electromagnetic field, and \( J = \eta\lr{ c \rho - \BJ } \) is the multivector current.
+
+Encountering Maxwell's equation in its geometric algebra form leaves the student with more questions than answers. Yes, it is a compact representation, but so are the tensor and differential forms (or even the quaternionic) representations of Maxwell's equations. The student needs to know how to work with the representation if it is to be useful. It should also be clear how to use the existing conventional mathematical tools of applied electromagnetism, or how to generalize those appropriately. Individually, there are answers available to many of the questions that are generated attempting to apply the theory, but they are scattered and in many cases not easily accessible.
+
+Much of the geometric algebra literature for electrodynamics is presented with a relativistic bias, or assumes high levels of mathematical or physics sophistication. The aim of this work was an attempt to make the study of electromagnetism using geometric algebra more accessible, especially to other dumb engineers\footnote{Sheldon: ``Engineering. Where the noble semiskilled laborers execute the vision of those who think and dream. Hello, Oompa-Loompas of science.''} like myself.
+%In particular, this project explored non-relativistic applications of geometric algebra to electromagnetism. The end product of this project was a fairly small self contained book, titled "Geometric Algebra for Electrical Engineers". This book includes an introduction to Euclidean geometric algebra focused on \R{2} and \R{3} (64 pages), an introduction to geometric calculus and multivector Green's functions (64 pages), applications to electromagnetism (82 pages), and some appendices. Many of the fundamental results of electromagnetism are derived directly from the multivector Maxwell's equation, in a streamlined and compact fashion. This includes some new results, and many of the existing non-relativistic results from the geometric algebra literature. As a conceptual bridge, the book includes many examples of how to extract familiar conventional results from simpler multivector representations. Also included in the book are some sample calculations exploiting unique capabilities that geometric algebra provides. In particular, vectors in a plane may be manipulated much like complex numbers, which has a number of advantages over working with coordinates explicitly.
+
+\paragraph{What's in this book.}
+
 This book introduces the fundamentals of geometric algebra and calculus, and applies those tools to the study of electromagnetism.
 Geometric algebra extends vector algebra by
 introducing a vector multiplication operation, the vector product, incorporating aspects of both the dot and cross products.
