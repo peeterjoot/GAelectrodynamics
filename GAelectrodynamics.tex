@@ -48,28 +48,17 @@
 
 \documentclass[ twoside,openright,titlepage,numbers=noenddot,headinclude,
                 footinclude=true,cleardoublepage=empty,abstractoff,
-                BCOR=5mm,
-                %paper=letter,
-                %paper=b5,
-                paper=6in:9in,
-                fontsize=11pt,
+                BCOR=5mm,paper=letter,fontsize=11pt,
                 floatperchapter,
                 ngerman,american,%
                 ]{scrreprt}
 
-%\documentclass[ twoside,openright,titlepage,numbers=noenddot,headinclude,
-%                footinclude=true,cleardoublepage=empty,abstractoff,
-%                BCOR=5mm,paper=letter,fontsize=11pt,
-%                floatperchapter,
-%                ngerman,american,%
-%                ]{scrreprt}
-%
 %********************************************************************
 % Note: Make all your adjustments in here
 %*******************************************************
 \input{classicthesis-config}
 
-\myClassicThesisOverrides
+%\myClassicThesisOverrides
 
 %********************************************************************
 % Hyphenation
@@ -86,8 +75,7 @@
 %\renewcommand*{\bibname}{new name}
 %\setbibpreamble{}
 \pagenumbering{roman}
-\pagestyle{scrheadings}
-%\pagestyle{plain}
+\pagestyle{plain}
 %********************************************************************
 % Frontmatter
 %*******************************************************
