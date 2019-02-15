@@ -1,10 +1,7 @@
 THISDIR := GAelectrodynamics
 THISBOOK := GAelectrodynamics
-#BASEVER := 5e8fb49ccd326da795eff23e7bdbbe4792a328e1
-export BOOKSUBVER := 1
-export BOOKMAJVER := 0
-export REVISIONNUMBER := 15
 
+include make.revision
 include ../latex/make.bookvars
 
 # Override my default:
@@ -55,27 +52,18 @@ ii : integration.pdf
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
 #.revinfo/gitCommitDateAsMyTime.tex:\newcommand{\myTime}{April 2018}\newcommand{\myVersion}{version V0.117\xspace}
-VER := $(shell grep Version .revinfo/gitCommitDateAsMyTime.tex | sed 's/.*{//;s/.xspace.*//;')
-
 .PHONY: spellcheck
 spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
 
 # enable doublespace before making:
 dropbox:
-	cp GAelectrodynamics.pdf ~/Dropbox/ECE2500Y/GAelectrodynamics.$(VER).pdf
+	cp $(THISBOOK).pdf ~/Dropbox/ECE2500Y/$(THISBOOK).$(VER).pdf
 	git log --decorate > ~/Dropbox/ECE2500Y/Changelog.txt
 
-dist:
-	cp GAelectrodynamics.pdf GAelectrodynamics.$(VER).pdf
-
 alex:
-	cp GAelectrodynamics.pdf ~/Dropbox/4Alex/GAelectrodynamics.$(VER).pdf
+	cp $(THISBOOK).pdf ~/Dropbox/4Alex/$(THISBOOK).$(VER).pdf
 	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.$(VER).pdf
 	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
-
-# a for annotate (releases).
-tag:
-	git tag -a GAelectrodynamics.$(VER).pdf
 
 %.sp : %.tex
 	spellcheck $^
