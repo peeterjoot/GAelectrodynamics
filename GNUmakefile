@@ -49,31 +49,34 @@ ii : integration.pdf
 # FIXME: this should be an automatic dependency, but currently isn't.
 #$(THISBOOK).pdf :: mmacells.sty
 
+#$(THISBOOK).pdf :: classicthesis.sty $(EXTERNAL_DEPENDENCIES)
 $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 
-#.revinfo/gitCommitDateAsMyTime.tex:\newcommand{\myTime}{April 2018}\newcommand{\myVersion}{version V0.117\xspace}
 .PHONY: spellcheck
 spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
 
 # enable doublespace before making:
-dropbox:
-	cp $(THISBOOK).pdf ~/Dropbox/ECE2500Y/$(THISBOOK).$(VER).pdf
-	git log --decorate > ~/Dropbox/ECE2500Y/Changelog.txt
-
-alex:
-	cp $(THISBOOK).pdf ~/Dropbox/4Alex/$(THISBOOK).$(VER).pdf
-	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.$(VER).pdf
-	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
+#dropbox:
+#	cp $(THISBOOK).pdf ~/Dropbox/ECE2500Y/$(THISBOOK).$(VER).pdf
+#	git log --decorate > ~/Dropbox/ECE2500Y/Changelog.txt
+#
+#alex:
+#	cp $(THISBOOK).pdf ~/Dropbox/4Alex/$(THISBOOK).$(VER).pdf
+#	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.$(VER).pdf
+#	git log --decorate > ~/Dropbox/4Alex/Changelog.txt
 
 %.sp : %.tex
 	spellcheck $^
 	touch $@
 
-.PHONY: copy
-copy : $(HOME)/Dropbox/$(THISDIR)/$(THISBOOK).pdf
+#classicthesis.sty: ../latex/classicthesis/classicthesis.sty
+#	cp ../latex/classicthesis/classicthesis.sty .
 
-$(HOME)/Dropbox/$(THISDIR)/$(THISBOOK).pdf : $(THISBOOK).pdf
-	cp $^ $@
+#.PHONY: copy
+#copy : $(HOME)/Dropbox/$(THISDIR)/$(THISBOOK).pdf
+#
+#$(HOME)/Dropbox/$(THISDIR)/$(THISBOOK).pdf : $(THISBOOK).pdf
+#	cp $^ $@
 
 mmacells/mmacells.sty:
 	git clone https://github.com/jkuczm/mmacells
@@ -87,3 +90,4 @@ mmacells.sty: mmacells/mmacells.sty
 
 clean ::
 	git checkout FrontBackmatter/Titlepage.tex
+	git checkout $(THISBOOK).tex
