@@ -37,65 +37,14 @@
 
 % https://tex.stackexchange.com/a/112359/15
 
-\usepackage{tcolorbox}
 \usepackage{mmacells}
-\usepackage{tabularx}
 \usepackage{array}
-\usepackage{colortbl}
-\tcbuselibrary{skins}
 
 % Mo wants double spacing for review comments
-\usepackage{setspace}
+%\usepackage{setspace}
 %\doublespacing
 
-%-------------------------------------------------------------------------------------
-
-\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
-
-\tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
-colback=yellow!10!white,colframe=red!75!black,colbacktitle=Salmon!40!white,
-coltitle=black,center title,freelance,frame code={
-\foreach \n in {north east,north west,south east,south west}
-{\path [fill=red!75!black] (interior.\n) circle (3mm); };},}}
-
-\tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily,
-colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,
-coltitle=black,center title}}
-
-%\newcounter{colorboxtable}
-%\numberwithin{colorboxtable}{chapter}
-%
-%% layout: X||Y
-%% title:
-%% text:
-%% label=fig...,other-options
-%\newcommand{\makecolorboxtable}[4]{%
-%\refstepcounter{colorboxtable}%
-%\label{#4}%
-%\begin{tcolorbox}[tab2,tabularx={#1},title=Table \thecolorboxtable #2,boxrule=0.5pt]%
-%#3%
-%\end{tcolorbox}%
-%}
-
-% re-implement \makeexample using \newtcolorbox for consistency.  They have different border widths and thicknesses.
-\newtcolorbox[auto counter,number within=chapter]{tablelabelbox}[3][]{colback=Maroon!10!white,%
-colframe=DarkOliveGreen,%
-%fonttitle=\bfseries,%
-colbacktitle=white,enhanced,%
-arc=0mm,%
-attach boxed title to top left={yshift=-0.75mm,xshift=4mm},%
-#3,%
-title=\textbf{{\color{DarkOliveGreen}Table\,\thetcbcounter:} {\color{Maroon}#2}},#1}
-%label=#3 type=table,%
-
-\newtcolorbox[]{tablebox}[1][]{colback=Maroon!10!white,%
-colframe=DarkOliveGreen,%
-arc=0mm,%
-#1}
-
-
-
-
+\usepackage{peeters_tablebox}
 
 %-------------------------------------------------------------------------------------
 
