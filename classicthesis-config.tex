@@ -46,54 +46,54 @@
 \newboolean{enable-backrefs} % enable backrefs in the bibliography
 \setboolean{enable-backrefs}{true} % true false
 
-\newboolean{redacted}
-\usepackage{redacted}
-
-\newcommand{\withproblemsets}[1]{%
-\ifthenelse{\boolean{redacted}}%
-{%
-\textcolor{Maroon}{%
-PROBLEM SET RELATED MATERIAL REDACTED IN THIS DOCUMENT.%
-%
-PLEASE FEEL FREE TO EMAIL ME FOR THE FULL VERSION IF YOU AREN'T TAKING THE COURSE.%
-}%
-%
-\input{censor1pg.tex}%
-%
-\textcolor{Maroon}{%
-END-REDACTION%
-}%
-}%
-{#1}%
-}
-
-\newcommand{\withproblemsetsParagraph}[1]{%
-\ifthenelse{\boolean{redacted}}%
-{%
-\textcolor{Maroon}{%
-PROBLEM SET RELATED MATERIAL REDACTED IN THIS DOCUMENT.%
-%
-PLEASE FEEL FREE TO EMAIL ME FOR THE FULL VERSION IF YOU AREN'T TAKING THE COURSE.%
-}%
-%
-\input{censor1p.tex}%
-%\input{censor1p.tex}%
-%\input{censor1p.tex}%
-%
-\textcolor{Maroon}{%
-END-REDACTION%
-}%
-}%
-{#1}%
-}
-
-\newcommand{\withproblemsetsMessage}[1]{%
-\ifthenelse{\boolean{redacted}}%
-{%
-#1%
-}%
-{\relax}%
-}
+%% \newboolean{redacted}
+%% \usepackage{redacted}
+%%
+%% \newcommand{\withproblemsets}[1]{%
+%% \ifthenelse{\boolean{redacted}}%
+%% {%
+%% \textcolor{Maroon}{%
+%% PROBLEM SET RELATED MATERIAL REDACTED IN THIS DOCUMENT.%
+%% %
+%% PLEASE FEEL FREE TO EMAIL ME FOR THE FULL VERSION IF YOU AREN'T TAKING THE COURSE.%
+%% }%
+%% %
+%% \input{censor1pg.tex}%
+%% %
+%% \textcolor{Maroon}{%
+%% END-REDACTION%
+%% }%
+%% }%
+%% {#1}%
+%% }
+%%
+%% \newcommand{\withproblemsetsParagraph}[1]{%
+%% \ifthenelse{\boolean{redacted}}%
+%% {%
+%% \textcolor{Maroon}{%
+%% PROBLEM SET RELATED MATERIAL REDACTED IN THIS DOCUMENT.%
+%% %
+%% PLEASE FEEL FREE TO EMAIL ME FOR THE FULL VERSION IF YOU AREN'T TAKING THE COURSE.%
+%% }%
+%% %
+%% \input{censor1p.tex}%
+%% %\input{censor1p.tex}%
+%% %\input{censor1p.tex}%
+%% %
+%% \textcolor{Maroon}{%
+%% END-REDACTION%
+%% }%
+%% }%
+%% {#1}%
+%% }
+%%
+%% \newcommand{\withproblemsetsMessage}[1]{%
+%% \ifthenelse{\boolean{redacted}}%
+%% {%
+%% #1%
+%% }%
+%% {\relax}%
+%% }
 
 % ****************************************************************************************************
 
@@ -309,6 +309,17 @@ END-REDACTION%
     }{\relax}
 \makeatother
 
+% https://tex.stackexchange.com/questions/95488/list-of-figures-and-page-numbering
+% https://tex.stackexchange.com/a/95616/15
+\makeatletter
+\newcommand{\emptypage}[1]{%
+  \cleardoublepage
+  \begingroup
+  \let\ps@plain\ps@empty
+  \pagestyle{empty}
+  #1
+  \cleardoublepage}
+\makeatletter
 
 % ****************************************************************************************************
 % 7. Last calls before the bar closes
@@ -355,6 +366,11 @@ END-REDACTION%
 %----------------------------------------------------------------------------------------
 % peeter's mods from from mylayout.sty
 %----------------------------------------------------------------------------------------
+
+% http://www.artofproblemsolving.com/Wiki/index.php/LaTeX:Layout#The_Easy_Way
+% replaces manual settings (\parindent, \parskip, \topmargin, ...)
+%\usepackage[margin=3.0cm]{geometry}
+%\usepackage[left=3cm,right=4cm]{geometry}
 
 % this boolean is now crippled by hardcoding 6x9 in:
 % 1) config.tex above:

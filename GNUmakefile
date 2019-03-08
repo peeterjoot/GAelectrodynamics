@@ -1,12 +1,14 @@
 THISDIR := GAelectrodynamics
 THISBOOK := GAelectrodynamics
 
+BIBLIOGRAPHY_PATH := classicthesis_mine
+HAVE_OWN_CONTENTS := 1
+HAVE_OWN_TITLEPAGE := 1
+MY_CLASSICTHESIS_FRONTBACK_FILES += ../latex/classicthesis_mine/FrontBackmatter/Index.tex
+MY_CLASSICTHESIS_FRONTBACK_FILES += ../latex/classicthesis_mine/FrontBackmatter/ContentsAndFigures.tex
+
 include make.revision
 include ../latex/make.bookvars
-
-# Override my default:
-#MY_CLASSICTHESIS_FRONTBACK_FILES := $(filter-out ../classicthesis_mine/FrontBackmatter/Dedication.tex,$(MY_CLASSICTHESIS_FRONTBACK_FILES))
-MY_CLASSICTHESIS_FRONTBACK_FILES := $(filter-out ../classicthesis_mine/FrontBackmatter/Titlepage.tex,$(MY_CLASSICTHESIS_FRONTBACK_FILES))
 
 #ONCEFLAGS := -justonce
 
