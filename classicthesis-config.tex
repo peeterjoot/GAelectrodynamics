@@ -39,6 +39,11 @@
 \newcommand{\hmmax}{0}
 
 % ********************************************************************
+% https://tex.stackexchange.com/a/348976/15
+\BeforeTOCHead[toc]{\cleardoublepage\pdfbookmark{\contentsname}{toc}}
+\BeforeTOCHead[lof]{\cleardoublepage\pdfbookmark{\listfigurename}{lof}}
+
+% ********************************************************************
 % Triggers for this config
 % ********************************************************************
 \usepackage{ifthen}
