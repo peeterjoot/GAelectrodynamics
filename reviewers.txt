@@ -18,6 +18,8 @@ Minor reviewers:
 
       Objected to use of scalar imaginary j, instead of e_{12}, e_{123}, or other bivector or trivector "geometric imaginary".
 
+Bruce Gould
+
 Have a copy, but no feedback:
 
    Allan Cortzen <acortzen@gmail.com>

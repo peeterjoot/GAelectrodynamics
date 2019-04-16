@@ -57,11 +57,12 @@ $(THISBOOK).pdf :: $(EXTERNAL_DEPENDENCIES)
 .PHONY: spellcheck
 spellcheck: $(patsubst %.tex,%.sp,$(filter-out $(DONT_SPELL_CHECK),$(DO_SPELL_CHECK)))
 
-# enable doublespace before making:
-#dropbox:
-#	cp $(THISBOOK).pdf ~/Dropbox/ECE2500Y/$(THISBOOK).$(VER).pdf
-#	git log --decorate > ~/Dropbox/ECE2500Y/Changelog.txt
-#
+dropbox: $(HOME)/Dropbox/Review/$(THISBOOK).$(VER).pdf
+
+$(HOME)/Dropbox/Review/$(THISBOOK).$(VER).pdf : $(THISBOOK).$(VER).pdf
+	cp $(THISBOOK).pdf ~/Dropbox/Review/$(THISBOOK).$(VER).pdf
+	git log --decorate > ~/Dropbox/Review/Changelog.txt
+
 #alex:
 #	cp $(THISBOOK).pdf ~/Dropbox/4Alex/$(THISBOOK).$(VER).pdf
 #	#cp ece2500report.pdf ~/Dropbox/4Alex/ece2500report.$(VER).pdf
