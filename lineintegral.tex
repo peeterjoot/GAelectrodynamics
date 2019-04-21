@@ -34,6 +34,7 @@ The line integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
 The differential form \( d\Bx = d^1 \Bx = du\, \Bx_u = du \PDi{u}{\Bx} \) varies over the curve,
 and the vector derivative is just \( \boldpartial = \Bx^u \partial_u \) (no sum).
 
+\begin{proof}
 The proof follows by expansion.
 For
 \begin{dmath}\label{eqn:lineintegral:120}
@@ -59,6 +60,7 @@ F(u_0) G(u_0),
 %where the boundaries of the parameterization have been assumed to be
 %\( C: u \in [u_0, u_1] \).
 We have a perfect cancellation of the reciprocal frame \( \Bx^u \) with the vector \( \Bx_u \) that lies along the curve, since \( \Bx^u \Bx_u = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve.
+\end{proof}
 
 For a single parameter subspace
 the reciprocal frame vector \( \Bx^u \)
@@ -69,7 +71,7 @@ An important (and familiar) special case of \cref{thm:lineintegral:100} is the f
 single scalar function \( f \)
 
 \input{Theorem_line_integral_scalar_function.tex}
-
+\begin{proof}
 \Cref{thm:lineintegral:180} is no doubt familiar in its gradient form.  Our proof starts with
 \cref{thm:lineintegral:100} setting \( F = 1, G = f(\Bx(u)) \)
 \begin{dmath}\label{eqn:lineintegral:140}
@@ -98,7 +100,9 @@ d\Bx \cdot \spacegrad
 =
 du\, \Bx_u \cdot \lr{ \boldpartial + \Bx^v \partial_v + \Bx^w \partial_w },
 \end{dmath}
-but \( \Bx_u \cdot \Bx^v = \Bx_u \cdot \Bx^w = 0 \), so \( d\Bx \cdot \spacegrad = d\Bx \cdot \boldpartial \) over the curve, completing the proof.
+but \( \Bx_u \cdot \Bx^v = \Bx_u \cdot \Bx^w = 0 \), so \( d\Bx \cdot \spacegrad = d\Bx \cdot \boldpartial \) over the curve.
+%, completing the proof.
+\end{proof}
 
 %}
 %\EndNoBibArticle

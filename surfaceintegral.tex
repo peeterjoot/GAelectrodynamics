@@ -36,6 +36,7 @@
 The surface integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1} is
 
 \input{Theorem_multivector_surface_integral.tex}
+\begin{proof}
 To prove \cref{thm:surfaceintegral:100} we start by expanding the multivector product \( d^2\Bx\, \boldpartial \) in curvilinear coordinates, where we discover
 that this product has only a vector grade.
 The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
@@ -146,7 +147,7 @@ In that case, a larger bounding loop can be conceptualized as the sum of a numbe
 in \cref{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2},
 in which case the
 contributions of the interior loop paths (red and blue) cancel out, leaving only the exterior loop contributions (green.)  When that subdivision is made small enough (assuming that the surface is continuous and differentiable along each of the parameterization paths) then each area element approximates the tangent space at the point of evaluation.
-
+\end{proof}
 %\imageFigure{../figures/gabook/loopIntegralInfinitesimalSumFig2}{Sum of infinitesimal loops.}{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2}{0.35}
 \mathImageFigure{../figures/GAelectrodynamics/twoParameterDifferentialBoundaryEditedFig3}{Sum of infinitesimal loops.}{fig:loopIntegralInfinitesimalSum:loopIntegralInfinitesimalSumFig2}{0.35}{twoParameterDifferentialFig.nb}
 
@@ -155,7 +156,7 @@ contributions of the interior loop paths (red and blue) cancel out, leaving only
 Two 
 special cases of \cref{thm:surfaceintegral:100}, both variations of Stokes' theorem, result by considering scalar and vector functions.  For the scalar case we have
 \input{Theorem_surface_integral_of_scalar_stokes.tex}
-
+\begin{proof}
 To show the first part, we can split the (multivector) surface integral into vector and trivector grades
 \begin{dmath}\label{eqn:surfaceintegral:440}
 \int_S d^2\Bx\, \boldpartial f
@@ -200,10 +201,11 @@ dA\, \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f}
 -dA\, \ncap \cross \spacegrad f.
 \end{dmath}
 
-back substitution of \cref{eqn:surfaceintegral:500} completes the proof of \cref{thm:surfaceintegral:420}.
+back substitution of \cref{eqn:surfaceintegral:500} completes the proof.
+\end{proof}
+% of \cref{thm:surfaceintegral:420}.
 
 For vector functions we have
-
 \input{Theorem_surface_integral_of_vector_stokes.tex}
 
 %%This follows by setting \( F = 1, G = \Bf \) in \cref{thm:surfaceintegral:100} and selecting the scalar grade.  In particular we may form the
@@ -261,9 +263,8 @@ For vector functions we have
 
 \Cref{thm:surfaceintegral:500}, when stated in terms of coordinates, is another well known result.
 \input{Theorem_greens.tex}
-
 \todo{Add an example (lots to pick from in any 3rd term calc text).}
-
+\begin{proof}
 The first equality in \cref{thm:surfaceintegral:620} holds in \R{N} for vectors expressed in terms of an arbitrary curvilinear basis.
 Only the (curvilinear) coordinates of the vector \( \Bf \) contribute to this integral, and only those that lie in the tangent space.
 The reciprocal basis vectors \( \Bx^i \) are also nowhere to be seen.  This is because they are either obliterated in dot products with \( \Bx_j \), or cancel due to mixed partial equality.
@@ -342,9 +343,9 @@ Substituting these results into
 =
 \ointclockwise_{\partial S} du_1\, f_1 + du_2\, f_2
 =
-\int_S du_1 du_2\, \lr{ \partial_2 f_1 - \partial_1 f_2 },
+\int_S du_1 du_2\, \lr{ \partial_2 f_1 - \partial_1 f_2 }.
 \end{dmath}
-which completes the proof.
+\end{proof}
 
 %}
 %%%\EndArticle

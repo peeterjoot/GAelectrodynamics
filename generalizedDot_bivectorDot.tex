@@ -17,7 +17,7 @@ Given two sets of wedge products \( \Ba \wedge \Bb \), and \( \Bc \wedge \Bd \),
 -(\Ba \cdot \Bc)( \Bb \cdot \Bd).
 \end{equation*}
 } % theorem
-
+\begin{proof}
 To prove this, select the scalar grade of the product \( (\Ba \wedge \Bb) (\Bc \wedge \Bd) \)
 \begin{dmath}\label{eqn:generalizedDot_bivectorDot:1160}
 (\Ba \wedge \Bb) (\Bc \wedge \Bd)
@@ -57,8 +57,11 @@ To complete the proof, we apply \cref{thm:generalizedDot:wedgeDotDistribution}
 =
 (\Ba \cdot \Bd) (\Bb \cdot \Bc) - (\Bb \cdot \Bd) (\Ba \cdot \Bc).
 \end{dmath}
+\end{proof}
 
-This identity has the following \R{3} cross product equivalent.
+Identity 
+\cref{eqn:generalizedDot_bivectorDot:1240}
+has the following \R{3} cross product equivalent.
 \maketheorem{Dot products of wedges as cross products.}{thm:generalizedDot:bivectorDotAsCrossProducts}{
 The dot product of two \R{3} wedge products can be expressed as cross products
 \begin{equation*}
@@ -67,7 +70,7 @@ The dot product of two \R{3} wedge products can be expressed as cross products
 -(\Ba \cross \Bb) \cdot (\Bc \cross \Bd).
 \end{equation*}
 } % theorem
-
+\begin{proof}
 This follows by scalar grade selection
 \begin{dmath}\label{eqn:generalizedDot_bivectorDot:1140}
 (\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
@@ -82,6 +85,7 @@ I (\Ba \cross \Bb) I (\Bc \cross \Bd)
 =
 -(\Ba \cross \Bb) \cdot (\Bc \cross \Bd).
 \end{dmath}
+\end{proof}
 
 \begin{tablelabelbox}[tabularx={X||Y|Y}]{Comparison of distribution identities.}{label=tab:gen:distribution}
              & Geometric algebra & Vector algebra

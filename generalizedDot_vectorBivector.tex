@@ -53,6 +53,7 @@ This can also be seen algebraically since
 A vector-bivector dot product select only the component of the vector that lie in the plane of the bivector, and rotates that component by \( \pm \pi/2 \) in that plane.
 %, plus scale that rotated vector by the magnitude of bivector.
 
+\begin{proof}
 There are (somewhat tricky) coordinate free ways to prove
 \cref{thm:generalizedDot:wedgeDotDistribution}
 , but a straightforward expansion in coordinates also does the job.
@@ -101,6 +102,7 @@ Plugging \cref{eqn:generalizedDot_vectorBivector:980} back into \cref{eqn:genera
 \lr{ \Ba \cdot \Bb } \Bc
 - \lr{ \Ba \cdot \Bc } \Bb.
 \end{dmath}
+\end{proof}
 
 The RHS of \cref{eqn:generalizedDot_vectorBivector:1060} shows that the vector-bivector dot product has the following relation to the
 \R{3} triple cross product
@@ -113,15 +115,15 @@ For vectors in \R{3}, the dot product of a vector and vector wedge product can b
 \lr{ \Bb \cross \Bc } \cross \Ba.
 \end{equation*}
 } % theorem
-
-This can be proven by invoking the well known
-identity for the triple cross product
+\begin{proof}
+The lazy proof, not related to geometric algebra at all, would be to invoke the well known
+distribution identity for the triple cross product
 (\citep{jackson1975cew})
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1100}
 \Ba \cross ( \Bb \cross \Bc ) = (\Ba \cdot \Bc) \Bb - (\Ba \cdot \Bb) \Bc.
 \end{dmath}
 
-Alternatively, it can be proven directly by applying the identity \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) to the vector-bivector product, and then selecting the vector grade
+We can prove this result directly by applying the identity \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) to the vector-bivector product, and then selecting the vector grade
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1000}
 \Ba \lr{ \Bb \wedge \Bc }
 =
@@ -149,4 +151,5 @@ and invoking \cref{dfn:generalizedDot:100} to express this grade selection as a 
 =
 \lr{ \Bb \cross \Bc } \cross \Ba.
 \end{equation}
+\end{proof}
 %}

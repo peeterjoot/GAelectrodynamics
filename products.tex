@@ -16,7 +16,7 @@ The dot product of two vectors \( \Ba, \Bb \) can be computed by scalar grade se
 .
 \end{equation*}
 } % theorem
-
+Proving \cref{thm:products:2080} will be deferred slightly.
 Computation of dot products using scalar grade selection will be used extensively in this book, as scalar
 grade selection of vector products will often be the easiest way to compute a dot product.
 
@@ -38,9 +38,9 @@ We've seen special cases of both
 and
 \cref{thm:products:2081}
 considering colinear and orthogonal vectors.
-The more general cases will be proven in two ways, first using a polar representation of two vectors in a plane, and then using
-a coordinate expansion of the vectors.  This will also provide some insight about the bivector component of the product of two vectors.
+The more general cases will be proven in two ways, first using a polar representation of two vectors in a plane, and then using a coordinate expansion of the vectors.  This will also provide some insight about the bivector component of the product of two vectors.
 
+\begin{proof}
 Let \( \setlr{\Bu, \Bv} \) be an orthonormal basis for the plane containing
 two vectors \( \Ba \) and \( \Bb \), where the rotational sense of \( \Bu \rightarrow \Bv \) is in the same direction as the shortest rotation that takes \( \Ba/\Norm{\Ba} \rightarrow \Bb/\Norm{\Bb} \), as
 illustrated in
@@ -82,6 +82,7 @@ product of two vectors is a multivector with only grades 0 and 2.
 It is also clear that
 the scalar grade of the end result of \cref{eqn:products:1680} is the \R{N}
 dot product, completing the proof of \cref{thm:products:2080}.
+\end{proof}
 
 The grade 2 component of the vector product is something new that requires a name, which we call the wedge product.
 
