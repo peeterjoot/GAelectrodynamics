@@ -189,3 +189,10 @@
 \newcommand{\e}[0]{{(\mathrm{e})}}
 \newcommand{\m}[0]{{(\mathrm{m})}}
 %--------------------------------------------------------------------
+
+% amsthm Command openbox already defined
+% https://tex.stackexchange.com/a/41553/15
+% alternatively ( https://tex.stackexchange.com/a/386742/15 )
+% \let\openbox\undefined
+\let\openbox\relax
+\usepackage{amsthm}

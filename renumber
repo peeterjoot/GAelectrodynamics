@@ -471,3 +471,5 @@ perl -p -i ../latex/bin/latexRegex.pl volumeintegraldef.tex
 
 ../latex/bin/lgrep table5.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl table5.tex
+../latex/bin/lgrep geometricproduct.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl geometricproduct.tex

@@ -9,11 +9,23 @@ Changing the order of these products toggles the sign of the bivector.
 \begin{equation*}
 \Bu \Bv = -\Bv \Bu.
 \end{equation*}
-
 This sign change on interchange is called anticommutation.  Conversely, if the product of two vectors is a bivector, those vectors are orthogonal.
 } % theorem
 
-Examples include,
+\begin{proof}
+%To prove \cref{thm:multiplication:anticommutationNormal} 
+Let \( \Bu, \Bv \) be a pair of orthogonal vectors, such as those of
+\cref{fig:unitSum:unitSumFig1}.  The squared length of the sum \( \Bu + \Bv \) can be expressed in using
+the contraction axiom, or by explicit expansion (taking care to maintain the order of products)
+\begin{align*}
+\lr{ \Bu + \Bv }^2 &= \lr{ \Bu + \Bv }\lr{ \Bu + \Bv } = \Bu^2 + \Bu \Bv + \Bv \Bu + \Bv^2 \\
+\lr{ \Bu + \Bv }^2 &= \Norm{ \Bu + \Bv }^2 = \Bu^2 + \Bv^2.
+\end{align*}
+Comparing the two expansions and rearranging completes the proof.
+\end{proof}
+\mathImageFigure{../figures/GAelectrodynamics/unitSumFig1}{Sum of orthogonal vectors.}{fig:unitSum:unitSumFig1}{0.3}{orientedAreas.nb}
+
+Some examples of anticommuting pairs include,
 \( \Be_2 \Be_1 = -\Be_1 \Be_2 \),
 \( \Be_3 \Be_2 = -\Be_2 \Be_3 \), and
 \( \Be_1 \Be_3 = -\Be_3 \Be_1 \).  This theorem can also be applied to any pairs of orthogonal vectors in a arbitrary k-vector, for example
@@ -28,27 +40,3 @@ Examples include,
 \end{dmath}
 showing that reversal of all the factors in a trivector such as \( \Be_1 \Be_2 \Be_3 \) toggles the sign.
 
-To prove \cref{thm:multiplication:anticommutationNormal} consider the
-sum of two orthogonal vectors \( \Bu, \Bv \), as illustrated in \cref{fig:unitSum:unitSumFig1}.  Expanding the square
-of this sum, taking care to maintain the order of any vector products, we find
-\begin{dmath}\label{eqn:normalVectors:340}
-\lr{ \Bu + \Bv }^2 =
-\lr{ \Bu + \Bv }
-\lr{ \Bu + \Bv }
-=
-\Bu^2 + \Bu \Bv + \Bv \Bu + \Bv^2.
-\end{dmath}
-By the contraction axiom, the square of \( \Bu + \Bv \) is the length, or
-\begin{dmath}\label{eqn:normalVectors:320}
-\lr{ \Bu + \Bv }^2 = \Bu^2 + \Bv^2,
-\end{dmath}
-so after equating
-\cref{eqn:normalVectors:340}
-and
-\cref{eqn:normalVectors:320}
-we conclude that
-\begin{dmath}\label{eqn:normalVectors:360}
-\Bu \Bv + \Bv \Bu = 0.
-\end{dmath}
-Minor rearrangement completes the proof, showing that orthogonal vectors anticommute in geometric algebra.
-\mathImageFigure{../figures/GAelectrodynamics/unitSumFig1}{Sum of orthogonal vectors.}{fig:unitSum:unitSumFig1}{0.3}{orientedAreas.nb}

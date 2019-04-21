@@ -1,0 +1,114 @@
+%
+% Copyright © 2019 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{geometricproduct}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{XXX}
+%\chapter{XXX}
+%\label{chap:geometricproduct}
+
+% this latex was used as the basis for my answer to https://math.stackexchange.com/q/3193125/359 (edited in SE.)
+% tex2blog -se -f geometricproduct > gp.txt
+
+Some authors define the geometric product in terms of the dot and wedge product, which are introduced separately.  I think that accentuates an apples vs oranges view.  Suppose instead you expand a geometric product in terms of coordinates, with \( \Ba = \sum_{i = 1}^N a_i \Be_i, \Bb = \sum_{i = 1}^N b_i \Be_i \), so that the product is
+\begin{dmath}\label{eqn:geometricproduct:180}
+\begin{aligned}
+\Ba \Bb
+= \sum_{i, j = 1}^N a_i b_j \Be_i \Be_j
+= \sum_{i = 1}^N a_i b_i \Be_i \Be_i
++ \sum_{1 \le i \ne j \le N}^N a_i b_j \Be_i \Be_j.
+\end{aligned}
+\end{dmath}
+An axiomatic presentation of geometric algebra defines the square of a vector as \( \Bx^2 = \Norm{\Bx}^2 \) (the contraction axiom.).  An immediate consequence of this axiom is that \( \Be_i \Be_i = 1\).  Another consequence of the axiom is that any two orthogonal vectors, such as \( \Be_i, \Be_j \) for \( i \ne j \) anticommute.  That is, for \( i \ne j \)
+\begin{dmath}\label{eqn:geometricproduct:200}
+\Be_i \Be_j = - \Be_j \Be_i.
+\end{dmath}
+Utilizing these consequences of the contraction axiom, only now does the geometric product split into components that have an apples vs. oranges difference in appearance
+\begin{dmath}\label{eqn:geometricproduct:220}
+\Ba \Bb
+=
+\sum_{i = 1}^N a_i b_i
++ \sum_{1 \le i \ne j \le N}^N (a_i b_j - b_i a_j) \Be_i \Be_j.
+\end{dmath}
+The first sum (the symmetric sum) is a scalar, which we recognize as the dot product \( \Ba \cdot \Bb\), and the second (the antisymmetric sum) is something else.  We call this a bivector, or identify it as the wedge product \(\Ba \wedge \Bb\).
+
+In this sense, the dot and wedge product sum representation of a geometric product, are just groupings of terms of a larger integrated product.
+
+Another way of reconciling the appearance that two unlike entities have been added it to recast the product in polar form.  To do so consider a decomposition of a geometric product in terms of constituent unit vectors
+\begin{dmath}\label{eqn:geometricproduct:20}
+\Ba \Bb = \Norm{\Ba} \Norm{\Bb} \lr{ \acap \cdot \bcap + \acap \wedge \bcap },
+\end{dmath}
+and assume that we are interested in the non-trivial case where \( \Ba \) and \( \Bb \) are not colinear (where the product reduces to just \( \Ba \Bb = \Norm{\Ba} \Norm{\Bb} \)).  It can be shown that the square of a wedge product is always non-positive, so it is reasonable to define the length of a wedge product like so
+\begin{dmath}\label{eqn:geometricproduct:40}
+\Norm{\acap \wedge \bcap} = \sqrt{-(\acap \wedge \bcap)^2}.
+\end{dmath}
+We can use this to massage the dot plus wedge unit vector sum above into
+\begin{dmath}\label{eqn:geometricproduct:60}
+\Ba \Bb = \Norm{\Ba} \Norm{\Bb} \lr{ \acap \cdot \bcap +
+\frac{\acap \wedge \bcap }{\Norm{\acap \wedge \bcap}}
+\Norm{\acap \wedge \bcap}
+}.
+\end{dmath}
+The sum has two scalar factors of interest, the dot product \( \acap \cdot \bcap \) and the length of the wedge product \( \Norm{\acap \wedge \bcap} \).  Viewed geometrically, these are the respective projections onto two perpendicular axes, as crudely sketched in \cref{fig:abproducts:abproductsFig1}.
+\imageFigure{../figures/GAelectrodynamics/abproductsFig1}{Components of unit vector products.}{fig:abproducts:abproductsFig1}{0.3}
+That is, we can make the identifications
+\begin{dmath}\label{eqn:geometricproduct:80}
+\begin{aligned}
+\acap \cdot \bcap &= \cos\theta \\
+\Norm{ \acap \cdot \bcap } &= \sin\theta.
+\end{aligned}
+\end{dmath}
+Inserting the trigonometric identification of these two scalars into the expansion of the geometric product, we now have
+\begin{dmath}\label{eqn:geometricproduct:100}
+\Ba \Bb = \Norm{\Ba} \Norm{\Bb} \lr{ \cos\theta +
+\frac{\acap \wedge \bcap }{\Norm{\acap \wedge \bcap}}
+\sin\theta
+}.
+\end{dmath}
+This has a complex structure that can be called out explicitly by making the identification
+\begin{dmath}\label{eqn:geometricproduct:120}
+\Bi \equiv
+\frac{\acap \wedge \bcap }{\Norm{\acap \wedge \bcap}},
+\end{dmath}
+where by our definition of the length of a wedge product \( \Bi^2 = -1 \).
+With such an identification, we see that the multivector factor
+of a geometric product
+has a complex exponential structure
+\begin{dmath}\label{eqn:geometricproduct:140}
+\begin{aligned}
+\Ba \Bb
+= \Norm{\Ba} \Norm{\Bb} \lr{ \cos\theta + \Bi \sin\theta }
+= \Norm{\Ba} \Norm{\Bb} e^{\Bi \theta }.
+\end{aligned}
+\end{dmath}
+
+In 3D, the wedge and the cross products are related by what is called a duality relationship, relating a bivector that describes a plane, and the normal to that plane.  Algebraically, this relationship is
+\begin{dmath}\label{eqn:geometricproduct:160}
+\Ba \wedge \Bb = I \Ba \cross \Bb,
+\end{dmath}
+where \( I = \Be_1 \Be_2 \Be_3 \) is a unit trivector (often called the 3D pseudoscalar), which also satisfies \( I^2 = -1 \).  With the usual normal notation for the cross product \( \Ba \cross \Bb = \ncap \sin\theta \) we see that \( \Bi = I \ncap \).  A rough characterization of this is that \( \Bi \) is a unit (oriented) plane that is spanned by \( \Ba, \Bb \) normal to \( \ncap \).
+
+%}
+%\EndArticle
+\EndNoBibArticle
