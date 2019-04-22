@@ -1,0 +1,32 @@
+Some possible typos and a few comments – but first let me say I think what you’re doing is great! 
+
+I’d like to see your book gradually expanded to include more topics. 
+
+--------------------------------------
+
+DONE:
+
+- Theorem 1.2, anticommutation of orthogonal vectors, has two parts: orthogonal vectors anticommute and the second part: if the product of two vectors is a bivector, the vectors are orthogonal. 
+
+  It seems to me that the second part hasn’t been proved and perhaps isn’t obvious – what do you think? 
+
+- Right below formula 1.65 on page 42 we have (using n’ for n-hat): ...normal to the unit normal n’ i_ab n’ = e_123 
+
+  I suspect that should be n’, i_ab n’ = e_123 (there should be a comma after the first n’) 
+
+- On page 33 in the second paragraph from the bottom we have .. 
+
+   is an (N – k)))))))) 
+
+  Which seems like a typo. 
+
+- In Table 1.3 on page 40, cross product and wedge product comparison, in the “coordinate expansion” row I think the wedge product and cross product formulas are in the wrong columns. 
+
+- On page 45 right after formula 1.72 we have provided u, v(, w) which should be u,v,w (and similarly for the following line) 
+   My intent here was that w only applied to the 3D pseudoscalar, but I guess that wasn't clear.  I've remove the braces.
+
+- In formula 1.66 there are two instances of cos(delat-theta); I think the second one should be sine. 
+
+- May I suggest that the proofs should have the end-of-proof symbol at the end? That way it’s easier for readers to know when they can stop thinking about the proof! 
+
+- I noticed that the “quaternion” isn’t in the index – I’d like to suggest that would be useful for some readers.
