@@ -20,7 +20,7 @@ F_t &= \inv{2} \lr{ F - \Be_3 F \Be_3 },
 \end{equation*}
 where \( F = F_z + F_t \).
 } % theorem
-
+\begin{proof}
 To determine the components of the field that lie in the propagation direction and transverse planes, we state the field in the propagation direction, building it from the electric and magnetic field projections along the z-axis
 \begin{dmath}\label{eqn:transverseField:108}
 F_z
@@ -48,9 +48,10 @@ F_t
 F -
 \inv{2} \lr{ F + \Be_3 F \Be_3 }
 =
-\inv{2} \lr{ F - \Be_3 F \Be_3 },
+\inv{2} \lr{ F - \Be_3 F \Be_3 }.
 \end{dmath}
-as claimed.
+%as claimed.
+\end{proof}
 
 We wish to split the gradient into transverse and propagation direction components.
 \index{\(\spacegrad_t\)}
@@ -66,7 +67,7 @@ Given this definition, we seek to show that
 \index{\(\BE_t, \BE_z\)}
 \index{\(\BH_t, \BH_z\)}
 \input{Theorem_transverse_and_propagation_solutions.tex}
-
+\begin{proof}
 To prove we first insert the assumed phasor representation into Maxwell's equation, which gives
 \begin{equation}\label{eqn:transverseField:summaryMax2}
 \lr{\spacegrad_t + j \lr{ \frac{\omega}{c} \mp k \Be_3 } } F(x,y) = 0.
@@ -145,7 +146,8 @@ so that we are in position to expand most of the terms in the numerator
 \end{dmath}
 from which the transverse electric and magnetic fields stated in
 \cref{thm:transverseField:348} can be read off.
-A similar expansion for \( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \) is also possible.
+\end{proof}
+A similar expansion for \( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \) is left to the reader.
 
 %There is considerably more complexity required to express the transverse field in terms of separate electric and magnetic components
 %compared to the equivalent total transverse field expression of...

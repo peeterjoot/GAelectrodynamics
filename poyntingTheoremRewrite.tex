@@ -30,7 +30,7 @@ T((1/c)\partial_t) &= \inv{c} \PD{t}{T(1)} = \inv{c} \PD{t}{} \lr{ \calE + \frac
 \end{aligned}
 \end{equation*}
 } % theorem
-
+\begin{proof}
 We will proceed to prove each of the results of
 \cref{thm:poyntingTheoremRewrite:1200} in sequence, starting with the time partial, which is a scalar operator
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:1220}
@@ -94,6 +94,7 @@ Finally, we want to evaluate the Maxwell stress tensor of the gradient
 \sum_{k = 1}^3 \Be_k \lr{ \spacegrad \cdot \BT(\Be_k) },
 \end{dmath}
 as claimed.
+\end{proof}
 
 Will want to integrate \( \BT(\spacegrad) \) over a volume, which is essentially a divergence operation.
 \maketheorem{Divergence integral for the Maxwell stress tensor.}{thm:poyntingTheoremRewrite:1281}{
@@ -103,7 +104,7 @@ Will want to integrate \( \BT(\spacegrad) \) over a volume, which is essentially
 \int_{\partial V} dA\, \BT(\ncap).
 \end{equation*}
 } % theorem
-
+\begin{proof}
 To prove \cref{thm:poyntingTheoremRewrite:1281}, we make use of the symmetric property of the Maxwell stress tensor
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:320}
 \int_V dV\, \BT(\spacegrad)
@@ -121,6 +122,7 @@ To prove \cref{thm:poyntingTheoremRewrite:1281}, we make use of the symmetric pr
 \int_{\partial V} dA\, \BT(\ncap),
 \end{dmath}
 as claimed.
+\end{proof}
 
 Finally, before stating Poynting's theorem, we want to introduce the concept of an adjoint.
 
@@ -142,7 +144,7 @@ The adjoint \( \overbar{T} \) and \( T \) satisfy the following relationships
 \end{aligned}
 \end{equation*}
 } % theorem
-
+\begin{proof}
 Using
 the cyclic scalar selection permutation property \(\gpgradezero{ABC} = \gpgradezero{CAB}\) we form
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:1160}
@@ -156,10 +158,10 @@ Referring back to \cref{dfn:poyntingTheorem:1120} we see that the adjoint must h
 Proving the grade selection relationships of \cref{eqn:poyntingTheoremRewrite:1160} has been left as
 an exercise for the reader.  A brute force symbolic algebra proof using Mathematica is also available in \itemRef{GAelectrodynamics}{stressEnergyTensorValues.nb}.
 %We can now state the adjoint form of \cref{thm:poyntingTheorem:1040}.
+\end{proof}
 
 As in \cref{thm:poyntingTheoremRewrite:1200},
 the adjoint may also be evaluated with differential operator parameters.
-
 \index{\(\overbar{T}(x)\)}
 \maketheorem{Adjoint energy-momentum tensor.}{thm:poyntingTheoremRewrite:1280}{
 \begin{equation*}
@@ -171,8 +173,8 @@ the adjoint may also be evaluated with differential operator parameters.
 \end{aligned}
 \end{equation*}
 } % theorem
-
-The proofs of \cref{thm:poyntingTheoremRewrite:1280} are all fairly simple
+\begin{proof}
+The proofs of each of the statements in \cref{thm:poyntingTheoremRewrite:1280} are all fairly simple
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:1280}
 \overbar{T}((1/c)\partial_t)
 =
@@ -206,12 +208,11 @@ The proofs of \cref{thm:poyntingTheoremRewrite:1280} are all fairly simple
 =
 \BT(\spacegrad).
 \end{dmath}
-
+\end{proof}
 \subsection{Poynting theorem.}
-
 All the prerequisites for stating Poynting's theorem are now finally complete.
 \input{Theorem_poynting_differential.tex}
-
+\begin{proof}
 The conservation relationship of \cref{thm:poyntingTheorem:1180} follows from
 \begin{dmath}\label{eqn:poyntingTheoremRewrite:1340}
 F^\dagger \lr{ \lrspacegrad + \inv{c}\lroverarrow{\partial_t} } F
@@ -310,11 +311,13 @@ and then magnetic sources
 \end{dmath}
 Jointly,
 \cref{eqn:poyntingTheoremRewrite:1380}, \cref{eqn:poyntingTheoremRewrite:80}, \cref{eqn:poyntingTheoremRewrite:180} complete the proof.
-
+\end{proof}
 The integral form of \cref{thm:poyntingTheorem:1180} submits nicely to physical interpretation.
 \input{Theorem_poynting_integral.tex}
-
-Proof of \cref{thm:poyntingTheoremRewrite:1420} requires only the divergence theorem, \cref{thm:poyntingTheoremRewrite:1281}, and
+Proof of
+\cref{thm:poyntingTheoremRewrite:1420}
+is left to the reader, but
+requires only the divergence theorem, \cref{thm:poyntingTheoremRewrite:1281}, and
 \cref{dfn:poyntingF:1220}.
 
 The scalar integral in \cref{thm:poyntingTheoremRewrite:1420}

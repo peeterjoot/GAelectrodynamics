@@ -37,7 +37,7 @@
 Without imposing the constitutive relationships \cref{eqn:freespace:300} the geometric algebra form of Maxwell's equations requires
 a pair of equations, multivector fields, and multivector sources, instead of one of each.
 \input{Theorem_maxwells_equations_in_media.tex}
-
+\begin{proof}
 To prove \cref{thm:dielectric:20} we may simply expand the spacetime gradients and grade selection operations,
 and compare to
 \cref{eqn:freespace:3399}, the conventional representation of Maxwell's equations.  For \( F \) we have
@@ -109,7 +109,9 @@ Applying further grade selection operations, rescaling (cancelling all factors o
 \spacegrad \cross \BE &= -\BM -\PD{t}{\BB},
 \end{aligned}
 \end{dmath}
-which are Maxwell's equations, completing the proof.
+which are Maxwell's equations.
+%, completing the proof.
+\end{proof}
 
 \makeproblem{Maxwell's equations in media.}{problem:dielectric:140}{
 The proof above is somewhat unfriendly, as it works backwards from the answer.  No
@@ -183,7 +185,7 @@ if
 \end{aligned}
 \end{equation*}
 } % theorem
-
+\begin{proof}
 To prove we select the grade 0,1 and grade 2,3 components from space time gradient equations of
 \cref{thm:dielectric:200}.  For the electric sources, this gives
 \begin{dmath}\label{eqn:dielectric:260}
@@ -211,9 +213,10 @@ however \( \stgrad \gpgrade{G'}{0} \) has only grade 0,1 components, leaving jus
 \begin{dmath}\label{eqn:dielectric:320}
 I J_\txtm
 = \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
-+ \gpgrade{\stgrad \gpgradezero{G'}}{2,3},
++ \gpgrade{\stgrad \gpgradezero{G'}}{2,3}.
 \end{dmath}
-completing the proof.
+%completing the proof.
+\end{proof}
 
 \Cref{thm:dielectric:200} is probably a more effect geometric algebra form for solution of Maxwell's equations in matter, as the grade selection free spacetime gradients can be solved for \( F', G' \) directly using Green's function convolution.  However, we have an open question of how to impose a zero scalar grade constraint on \( F' \) and a zero pseudoscalar grade constraint on \( G' \).
 
@@ -243,7 +246,7 @@ G' &= G + \gpgrade{ \conjstgrad \Psi_{0,1} }{1,2},
 \end{equation*}
 where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) is any multivector with grades 0,1.
 } % theorem
-
+\begin{proof}
 To prove \cref{thm:dielectric:180} we need to show that
 \begin{dmath}\label{eqn:dielectric:160}
 \begin{aligned}
@@ -291,6 +294,7 @@ To see that the last term is zero, note that \( \conjstgrad \Psi_{0,1} \) can ha
 \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3},
 \end{dmath}
 has only grades 0,1, which are obliterated by the final grade 2,3 selection operation, leaving \( \gpgrade{\stgrad G}{2,3} \), completing the proof.
+\end{proof}
 
 An additional variation of \cref{thm:dielectric:180} is also possible.
 
@@ -304,24 +308,26 @@ G' &= G + \conjstgrad \Psi_{0,1}
 \end{equation*}
 where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) is any multivector with grades 0,1.
 } % theorem
-
+\begin{proof}
 \Cref{thm:dielectric:220} can be proven by direct substitution.  For \( F \)
-\begin{dmath}\label{eqn:dielectric:220}
+\begin{align*}%\label{eqn:dielectric:220}
 \gpgrade{ \stgrad \lr{ F + \conjstgrad \Psi_{2,3} } }{0,1}
-=
-\gpgrade{ \stgrad F + \dAlembertian \Psi_{2,3} }{0,1}
-=
+&=
+\gpgrade{ \stgrad F + \dAlembertian \Psi_{2,3} }{0,1} \\
+&=
 \gpgrade{ \stgrad F },
-\end{dmath}
+\end{align*}
 and for \( G\)
-\begin{dmath}\label{eqn:dielectric:240}
+\begin{align*}%\label{eqn:dielectric:240}
 \gpgrade{ \stgrad \lr{ G + \conjstgrad \Psi_{0,1} } }{2,3}
-=
-\gpgrade{ \stgrad G + \dAlembertian \Psi_{0,1} }{2,3}
-=
-\gpgrade{ \stgrad G },
-\end{dmath}
+&=
+\gpgrade{ \stgrad G + \dAlembertian \Psi_{0,1} }{2,3} \\
+&=
+\gpgrade{ \stgrad G }.
+&&\qedhere
+\end{align*}
 which completes the proof.
+\end{proof}
 
 %}
 %\EndNoBibArticle

@@ -105,9 +105,10 @@ In this definition we have used \( i = \Be_{12} \), the pseudoscalar of the tran
 } % definition
 We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stated above.
 \input{Theorem_circular_polarization_coeff.tex}
+\begin{proof}
 To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) out of \cref{eqn:polarization_circular:160} and then substitute complex exponentials for the sine and cosine
-\begin{equation}\label{eqn:polarizationRewrite:700}
-\begin{aligned}
+%\begin{equation}\label{eqn:polarizationRewrite:700}
+\begin{align*}
 \biglr{ \alpha_1 \Be_1 &+ \alpha_2 \Be_2 } \cos\lr{ \phi }
 -\biglr{ \beta_1 \Be_1 + \beta_2 \Be_2 } \sin\lr{ \phi } \\
 &=
@@ -131,10 +132,12 @@ To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) 
  \lr{ c_1 + i c_2 } e^{i\phi}
 +
  \lr{ c_1 - i c_2 }^\dagger e^{-i\phi}
-},
-\end{aligned}
-\end{equation}
-which completes the proof.
+}.
+&& \qedhere
+\end{align*}
+%\end{equation}
+\end{proof}
+%which completes the proof.
 
 \subsubsection{Linear polarization.}
 
@@ -242,6 +245,7 @@ where \( f(\phi) \) is a complex valued function (i.e. grade 0,2).  The structur
 \input{Theorem_energy_momentum_tensor_plane_wave.tex}
 Only the propagation direction of a plane wave, regardless of its polarization (or even whether or not there are Gaussian or other damping factors), carries any energy or momentum, and only the propagation direction component of the Maxwell stress tensor \( \BT(\Ba) \) is non-zero.
 
+\begin{proof}
 To prove \cref{thm:polarizationRewrite:780}, we may compute \( T(a) \) separately for each of \( a = 1,\Be_1, \Be_2, \Be_3 \).  Key to all of these computations is the fact that \( \Be_3 \) commutes with scalars and \( i \), and \( \Be_1, \Be_2 \) both anticommute with \( i \), and more generally \(
 \begin{bmatrix}
 \Be_1 \\
@@ -299,7 +303,9 @@ F \Be_1 F^\dagger
 =
 0.
 \end{dmath}
-Clearly \( F \Be_2 F^\dagger = 0 \) as well, so \( T(\Be_1) = T(\Be_2) = 0 \), completing the proof.
+Clearly \( F \Be_2 F^\dagger = 0 \) as well, so \( T(\Be_1) = T(\Be_2) = 0 \).
+%, completing the proof.
+\end{proof}
 
 Using \cref{thm:polarizationRewrite:780} the energy momentum vector for the linearly polarized wave of \cref{eqn:polarization_linearPolarization:300} is
 \begin{dmath}\label{eqn:polarizationRewrite:840}
@@ -369,6 +375,7 @@ F
 \end{dmath}
 which has the claimed right circular polarization.
 
+\begin{proof}
 To prove \cref{thm:polarizationRewrite:940} itself, the sine and cosine in \cref{eqn:polarization_circular:160} can be expanded in complex exponentials
 \begin{dmath}\label{eqn:polarizationRewrite:980}
 \begin{aligned}
@@ -434,9 +441,10 @@ F
    \alpha_\txtR e^{-I\phi}
 +
    \alpha_\txtL e^{-I\phi}
-},
+}.
 \end{dmath}
-which completes the proof.
+\end{proof}
+%which completes the proof.
 
 Observe that there are some advantages to the pseudoscalar plane wave form, especially for computing energy momentum tensor components since \( I \) commutes with all grades.  For example, we can see practically by inspection that
 \begin{equation}\label{eqn:polarization_pseudoscalarImaginary:620}

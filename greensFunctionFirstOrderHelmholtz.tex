@@ -12,13 +12,12 @@ The specialization of \cref{eqn:greensFunctionSolutions:400} to the first order 
 This Green's function is multivector valued
 
 \input{Theorem_greens_function_helmholtz_first_order.tex}
-
 A special but important case is the \( k = 0 \) condition, which provides the
 Green's function for the gradient, which is vector valued
 \begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:900}
 G(\Bx, \Bx' ; k = 0) = \inv{4 \pi} \frac{\rcap}{r^2}.
 \end{equation}
-
+\begin{proof}
 If we denote the (advanced) Green's function for the 2nd order Helmholtz operator
 \cref{thm:gradientGreensFunctionEuclidean:3}
 as \( \phi(\Bx, \Bx') \), we must have
@@ -52,6 +51,7 @@ j k \lr{ 1 + \rcap } + \frac{\rcap}{r}
 },
 \end{dmath}
 as claimed.
+\end{proof}
 Observe that since \( \phi \) is scalar valued, we can also rewrite
 \cref{eqn:greensFunctionFirstOrderHelmholtz:760} in terms of a right acting operator
 \begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:800}

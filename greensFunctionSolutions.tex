@@ -66,7 +66,7 @@ Given a multivector function \( F \) and a scalar function \( G \)
 \end{equation*}
 where \( \partial V \) is the boundary of the volume \( V \).
 } % theorem
-
+\begin{proof}
 A straightforward, but perhaps inelegant way of proving this theorem is to expand the antisymmetric product in coordinates
 \begin{dmath}\label{eqn:greensFunctionSolutions:260}
 F \spacegrad^2 G - G \spacegrad^2 F
@@ -106,9 +106,9 @@ which can be substituted into \cref{eqn:greensFunctionSolutions:280} to find
 =
 \sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F } dA
 =
-\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA,
+\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA.
 \end{dmath}
-which proves the theorem.
+\end{proof}
 
 \subsubsection{Bounded solutions to first order problems.}
 
@@ -129,7 +129,7 @@ Given multivector functions \( F(\Bx'), G(\Bx, \Bx') \), and a gradient \( \spac
 \end{aligned}
 \end{equation*}
 } % lemma
-
+\begin{proof}
 % caused mysterious latex error in the .ind file:
 %\index{\(\lrspacegrad'\)}
 \index{\(\lroverarrow{\spacegrad}'\)}
@@ -144,5 +144,5 @@ This follows directly from \cref{thm:fundamentalTheoremOfCalculus:1}
 \int_V G(\Bx, \Bx') \lr{ \rspacegrad' F(\Bx') } dV',
 \end{dmath}
 which can be rearranged to prove \cref{lemma:greensFunctionOverview:420}.
-
+\end{proof}
 %}
