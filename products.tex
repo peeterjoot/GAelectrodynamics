@@ -321,17 +321,7 @@ b_1 & b_2 & b_3 \\
 \)
 \\ \hline
 Coordinate expansion
-& \(
-\Ba \wedge \Bb
-=
-\sum_{i < j}
-\begin{vmatrix}
-a_i & a_j \\
-b_i & b_j
-\end{vmatrix}
-\Be_i \Be_j \)
-& \(
-\Ba \cross \Bb
+& \( \Ba \cross \Bb
 =
 \sum_{i < j}
 \begin{vmatrix}
@@ -339,6 +329,15 @@ a_i & a_j \\
 b_i & b_j
 \end{vmatrix}
 \Be_i \cross \Be_j \)
+& \( \Ba \wedge \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \Be_j \)
+XX
 \\ \hline
 Polar form &
 \( \ncap \Norm{\Ba} \Norm{\Bb} \sin( \theta_b - \theta_a )  \) &
@@ -415,7 +414,7 @@ We are used to expressing the dot and cross product components of
 \end{aligned}
 \end{dmath}
 Introducing a unit bivector \( i_{ab} \) normal to the unit normal \( \ncap \)
-\( i_{ab} \ncap = \Be_{123} \), we can assemble
+(i.e. \( i_{ab} \ncap = \Be_{123} \)), we can assemble
 \cref{eqn:products:2080} into a cis form using
 \cref{eqn:SimpleProducts2:1640}
 \begin{dmath}\label{eqn:products:2100}
@@ -424,7 +423,7 @@ Introducing a unit bivector \( i_{ab} \) normal to the unit normal \( \ncap \)
 \cos\lr{ \Delta \theta }
 +
 I \ncap
-\cos\lr{ \Delta \theta }
+\sin\lr{ \Delta \theta }
 }
 =
 \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} \Delta \theta }.
