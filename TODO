@@ -1,4 +1,9 @@
-- classicthesis is GPL -- am I covered since I've made my modifications available?
+- Fix before next kdp refresh (kdp version is 0.14)
+
+   - preface : odd page numbers after the first are out of range (these are kdp errors).
+   - address the markup from my current paper version?
+   - fix the clone script dashes issue.
+   - review the fixmes below, and prioritize.
 
 - chapter 2.
 
@@ -154,36 +159,7 @@ Yes, especially in differential forms.  I don’t use it in the book, but though
 
 "follow this with an example. In fact, you already have the example in the form of I e_3 e_(1= -) e_2. You just need to state it as an example. "
 
-- 6x9 experiment included:
-
-
---- a/FrontBackmatter/Titlepage.tex
-+++ b/FrontBackmatter/Titlepage.tex
-@@ -16,19 +16,9 @@
-
-         \vfill
-
--\ifthenelse{\boolean{use-lettersize}}
--{
-         \begingroup
-             \color{Maroon}\spacedallcaps{\myTitle} \\ \bigskip
-         \endgroup
--}
--{
--        \begingroup
--            \color{Maroon}\spacedallcaps{Geometric Algebra} \\ \bigskip
--            \color{Maroon}\spacedallcaps{for} \\ \bigskip
--            \color{Maroon}\spacedallcaps{Electrical Engineers} \\ \bigskip
--        \endgroup
--}
-
-         \spacedlowsmallcaps{\myName}
-
-make clean clobbered that.  Restore this and fix the clean rule.
-
 - re-implement \makeexample using \newtcolorbox for consistency.  They have different border widths and thicknesses.
-
-- the end of chapter table in chapter 1 is too big and overflows the margins.  There is some redundancy too, since there's an earlier cross vs. wedge table that has some of the same info.
 
 - In the report I made some notes about the limitations of my geometric calculus treatment.  These should be
   incorporated into the text.  There is also an interesting point in Spivak's manifolds about triangularization
@@ -539,14 +515,6 @@ fashion (also not assuming mu = epsilon = c = 1 and using j \omega instead of -i
 
    - Also add cooresponding figures for vectors when those for bivectors are defined.
 
-- Mo wanted me to double space things for editing.
-
-   https://tex.stackexchange.com/questions/819/double-line-spacing
-
-   hook for that in thisbook.sty
-
-      -- will have to remember to set double space whenever I am building a version that I want to sent him.
-
 - hand drawn figures:
 
    Infinitesimal loop integral.
@@ -585,8 +553,6 @@ fashion (also not assuming mu = epsilon = c = 1 and using j \omega instead of -i
 - dedication.tex got cleaned out on make clean.  Rule that was in makefile doesn't appear to be right.  Revisit.
 
 - exercise headers are bigger than the section headers (partially fixed)
-
-- have inconsistent use of qedmarker.
 
 - problem on <abc>_3 relation to wedge.  generalize that to _k.
 

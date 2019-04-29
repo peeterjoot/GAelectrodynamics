@@ -6,6 +6,7 @@ HAVE_OWN_CONTENTS := 1
 HAVE_OWN_TITLEPAGE := 1
 MY_CLASSICTHESIS_FRONTBACK_FILES += ../latex/classicthesis_mine/FrontBackmatter/Index.tex
 MY_CLASSICTHESIS_FRONTBACK_FILES += ../latex/classicthesis_mine/FrontBackmatter/ContentsAndFigures.tex
+BOOKTEMPLATE := ../latex/classicthesis_mine/ClassicThesis2.tex
 
 include make.revision
 include ../latex/make.bookvars
@@ -22,6 +23,7 @@ PRIMARY_SOURCES += FrontBackmatter/preface.tex
 #GENERATED_SOURCES += matlab.tex
 GENERATED_SOURCES += mathematica.tex
 #GENERATED_SOURCES += julia.tex
+GENERATED_SOURCES += backmatter.tex
 
 EPS_FILES := $(wildcard $(FIGURES)/*.eps)
 PDFS_FROM_EPS := $(subst eps,pdf,$(EPS_FILES))
@@ -92,6 +94,11 @@ bib:
 mmacells.sty: mmacells/mmacells.sty
 	cp $^ $@
 
+# hack:
 clean ::
 	git checkout FrontBackmatter/Titlepage.tex
-	git checkout $(THISBOOK).tex
+
+backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
+	rm -f $@
+	ln -s ../latex/classicthesis_mine/backmatter2.tex backmatter.tex
+
