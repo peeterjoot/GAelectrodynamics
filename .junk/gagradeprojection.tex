@@ -1,0 +1,77 @@
+%
+% Copyright © 2019 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{gagradeprojection}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{XXX}
+%\chapter{XXX}
+%\label{chap:gagradeprojection}
+% \citep{sakurai2014modern} pr X.Y
+% \citep{pozar2009microwave}
+% \citep{qftLectureNotes}
+% \citep{doran2003gap}
+% \citep{jackson1975cew}
+% \citep{griffiths1999introduction}
+For the first decomposition, 
+since \( x \cdot B \) is a vector, \( x \wedge ( x \cdot B ) \) must be a bivector (grade 2).  The product of the bivector \( A \) with another bivector is a multivector with grades that may include 0, 2, 4, and the dot product of those two is the grade-0 selection.  That is
+\begin{equation}\label{eqn:WHAT:n}
+\begin{aligned}
+   A \cdot \lr{ x \wedge (x \cdot B) }
+   &=
+   \gpgradezero{ A \lr{ x \wedge (x \cdot B) } } \\
+   &=
+   \gpgradezero{ A \lr{ x (x \cdot B) - x \cdot (x \cdot B) } }.
+\end{aligned}
+\end{equation}
+Here we used \( x y = x \cdot y + x \wedge y \), which leaves us a with a scalar factor \( x \cdot (x\cdot B) \), that has no contribution to the grade-0 selection, which leaves us with
+\begin{equation}\label{eqn:WHAT:n}
+\begin{aligned}
+   A \cdot \lr{ x \wedge (x \cdot B) }
+   &=
+   \gpgradezero{ A x (x \cdot B) } \\
+   &=
+   \gpgradezero{ (A \cdot x) (x \cdot B) } \\
+   &=
+   \gpgradezero{ (A \cdot x) (x B - x \wedge B) } \\
+   &=
+   \gpgradezero{ (A \cdot x) x B }.
+\end{aligned}
+\end{equation}
+Here we made use of the fact that \( A x = A \cdot x + A \wedge x \), a vector and trivector, of which only the vector component contributes to the scalar selection.  Then we are free to rewrite \( x \cdot B \) in terms of \( x B \) and a trivector that also has no contritution to the scalar selection.  The final result follows from the fact that reversion of a scalar leaves it unchanged, so 
+\begin{equation}\label{eqn:WHAT:n}
+\begin{aligned}
+   \gpgradezero{ (A \cdot x) x B }
+   &=
+   \gpgradezero{ B x (x \cdot A) } \\
+   &=
+   B \cdot \lr{ x \wedge (x \cdot A) },
+\end{aligned}
+\end{equation}
+where we are able to use the very first step to write the scalar selection back in terms of dots and wedges.
+
+The result of 4.154 probably requires similar logic.
+
+%}
+\EndArticle
+%\EndNoBibArticle

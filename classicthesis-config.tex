@@ -192,6 +192,12 @@
 % 5. Setup code listings
 % ****************************************************************************************************
 \usepackage{listings}
+\let\origlstlisting=\lstlisting
+\let\endoriglstlisting=\endlstlisting
+\renewenvironment{lstlisting}
+    {\mathcode`\-=\hyphenmathcode
+     \everymath{}\mathsurround=0pt\origlstlisting}
+    {\endoriglstlisting}
 %\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % for special keywords
 \lstset{language=[LaTeX]Tex,%C++,
     keywordstyle=\color{RoyalBlue},%\bfseries,
