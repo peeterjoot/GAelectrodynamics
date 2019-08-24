@@ -477,3 +477,6 @@ perl -p -i ../latex/bin/latexRegex.pl geometricproduct.tex
 
 #../latex/bin/lgrep gagradeprojection.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl gagradeprojection.tex
+
+#../latex/bin/lgrep triint.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl triint.tex

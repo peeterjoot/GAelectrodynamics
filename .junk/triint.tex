@@ -1,0 +1,57 @@
+%
+% Copyright © 2019 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{triint}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{txfonts} % \ointclockwise
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{XXX}
+%\chapter{XXX}
+%\label{chap:triint}
+% \citep{sakurai2014modern} pr X.Y
+% \citep{pozar2009microwave}
+% \citep{qftLectureNotes}
+% \citep{doran2003gap}
+% \citep{jackson1975cew}
+% \citep{griffiths1999introduction}
+
+Given mulitvector functions \( F, G\) in \R{3}, a trivector valued volume element \( d^3 \Bx = d\Bx_1 \wedge d\Bx_2 \wedge d\Bx_3 = du dv dw\, \Bx_u \wedge \Bx_v \wedge \Bx_w \)
+\begin{equation*}
+\int_V F d^3\Bx \lrspacegrad G
+= \ointclockwise_{\partial V} F d^2 \Bx G,
+\end{equation*}
+where \( \partial V \) is the boundary of the volume \( V \),
+and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary of the volume, that is
+\begin{equation*}
+\begin{aligned}
+\ointclockwise_{\partial V} F d^2 \Bx G
+&=
+\int \evalbar{\lr{F d\Bx_1 \wedge d\Bx_2 G}}{\Delta w} \\
+&\qquad +\int \evalbar{\lr{F d\Bx_2 \wedge d\Bx_3 G}}{\Delta u} \\
+&\qquad +\int \evalbar{\lr{F d\Bx_3 \wedge d\Bx_1 G}}{\Delta v}.
+\end{aligned}
+\end{equation*}
+
+%}
+\EndArticle
+%\EndNoBibArticle
