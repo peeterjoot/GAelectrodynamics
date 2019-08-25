@@ -52,6 +52,34 @@ and \( d^2 \Bx \) is the counterclockwise oriented area element on the boundary 
 \end{aligned}
 \end{equation*}
 
+The statics solution of Maxwell's equation is a nice physical example of an 
+an oriented multivector integral.  Given a multivector electromagnitic field 
+\begin{equation}\label{eqn:triint:n}
+   F = \BE + I c \BB,
+\end{equation}
+and a multivector current
+\begin{equation}\label{eqn:triint:n}
+J = \inv{\epsilon} \lr{ \rho - \inv{c} \BJ },
+\end{equation}
+the enclosed multivector current is related to the field by
+\begin{equation}\label{eqn:triint:n}
+\int_{\partial V} d^2\, \Bx F = \int_V d^3 \Bx \, J.
+\end{equation}
+
+Of course, you can express this using scalar integrals too
+\begin{equation*}
+\int_{\partial V} dA\, \ncap F = \int_V dV\, J.
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int_{\partial V} dA\, \ncap \cdot \BD        &=  \int_V dV\, \rho \\
+\int_{\partial V} dA\, \ncap \cross \BH       &=  \int_V dV\, \BJ \\
+\int_{\partial V} dA\, \ncap \cross \BE       &= 0 \\
+\int_{\partial V} dA\, \ncap \cdot \BB        &= 0.
+\end{aligned}
+\end{equation*}
+
 %}
 \EndArticle
 %\EndNoBibArticle
