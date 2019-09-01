@@ -1,3 +1,5 @@
+- convert formsVsGA.tex to an appendix.
+
 - Fix before next kdp refresh (kdp version is 0.14)
 
    - preface : odd page numbers after the first are out of range (these are kdp errors).
