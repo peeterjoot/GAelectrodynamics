@@ -1,0 +1,133 @@
+%
+% Copyright © 2019 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{formsVsGA}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Differential forms vs geometric algebra}
+%\chapter{Differential forms vs geometric algebra}
+
+I can partially answer this question.
+
+In particular, it is possible to relate geometric calculus and differential forms by introducing a parameterization.  To consider these relations, consider a vector surface those span is controlled by two parameters
+\begin{dmath}\label{eqn:formsVsGA:20}
+\Bx = \Bx(a , b).
+\end{dmath}
+In geometric calculus we introduce differentials that span the tangent plane at the point of evaluation
+\begin{dmath}\label{eqn:formsVsGA:40}
+\begin{aligned}
+   dx_a &= \PD{a}{\Bx}\, da \\
+   dx_b &= \PD{b}{\Bx}\, db,
+\end{aligned}
+\end{dmath}
+so the area element for this parameterization is
+\begin{dmath}\label{eqn:formsVsGA:60}
+\begin{aligned}
+   d^2 \Bx &= dx_a \wedge dx_b \\
+           &= \PD{a}{\Bx} \wedge \PD{b}{\Bx}\, da db.
+\end{aligned}
+\end{dmath}
+To relate this to differential forms, introduce an
+orthonormal basis \( \Be_\mu \cdot \Be_\nu = 0, \Be_\mu^2 = \pm 1\).  In this basis, the coordinate expansion (summation implied) of the vector \( \Bx \) is
+\begin{dmath}\label{eqn:formsVsGA:80}
+   \Bx = \Be_\mu x^\mu.
+\end{dmath}
+The coordinate expansion of the geometric area element is
+\begin{dmath}\label{eqn:formsVsGA:100}
+\begin{aligned}
+   d^2 \Bx &=
+   \PD{a}{x^\mu} \PD{b}{x^\nu} \Be_\mu \wedge \Be_\nu\, da db \\
+           &=
+   \sum_{\mu < \nu}
+   \lr{
+      \PD{a}{x^\mu} \PD{b}{x^\nu} -
+      \PD{a}{x^\nu} \PD{b}{x^\mu}
+   }
+      \Be_\mu \wedge \Be_\nu\, da db \\
+           &=
+   \sum_{\mu < \nu}
+      \Be_\mu \Be_\nu
+\begin{vmatrix}
+   \PD{a}{x^\mu} & \PD{a}{x^\nu} \\
+   \PD{b}{x^\mu} & \PD{b}{x^\nu}
+\end{vmatrix}
+      \, da db \\
+           &=
+   \sum_{\mu < \nu}
+      \Be_\mu \Be_\nu
+      \PD{(a,b)}{(x^\mu, x^\nu)}
+      \, da db.
+\end{aligned}
+\end{dmath}
+Each element of this sum includes a product of a pseudoscalar, a Jacobian determinant, and a scalar two parameter differential.
+
+Now consider a two parameter differential for the same vector.  Recall that a differential (1-form) of a scalar function, again assuming two parameters, has the characteristic
+\begin{dmath}\label{eqn:formsVsGA:120}
+   df  =
+   \PD{a}{f} \, da +
+   \PD{b}{f} \, db.
+\end{dmath}
+In particular, we may compute the differentials of the coordinate functions
+\begin{dmath}\label{eqn:formsVsGA:140}
+\begin{aligned}
+   dx^\mu &= \PD{a}{x^\mu} \, da + \PD{b}{x^\mu} \, db \\
+   dx^\nu &= \PD{a}{x^\nu} \, da + \PD{b}{x^\nu} \, db,
+\end{aligned}
+\end{dmath}
+from which we can compute a 2-form
+\begin{dmath}\label{eqn:formsVsGA:160}
+\begin{aligned}
+   dx^\mu \wedge dx^\nu
+   &= \lr{ \PD{a}{x^\mu} \, da + \PD{b}{x^\mu} \, db } \wedge \lr{ \PD{a}{x^\nu} \, da + \PD{b}{x^\nu} \, db } \\
+   &= \PD{a}{x^\mu} \PD{b}{x^\nu} \, da \wedge db + \PD{b}{x^\mu} \PD{a}{x^\nu} \, db \wedge da \\
+   &=
+\begin{vmatrix}
+   \PD{a}{x^\mu} & \PD{a}{x^\nu} \\
+   \PD{b}{x^\mu} & \PD{b}{x^\nu}
+\end{vmatrix}
+   \, da \wedge db \\
+   &=
+      \PD{(a,b)}{(x^\mu, x^\nu)}
+   \, da \wedge db.
+\end{aligned}
+\end{dmath}
+We have almost the same structure as with geometric algebra, however, in differential forms, the antisymmetry of the surface area element is encoded in the 2-form \( da \wedge db \) whereas in geometric calculus the required antisymmetry is encoded in a unit bivector.
+
+Should we restrict our attention to a strictly planar subspace, the mapping between the two formalisms becomes more striking.  We now have
+\begin{dmath}\label{eqn:formsVsGA:180}
+\begin{aligned}
+   d^2 \Bx &= \Be_1 \Be_2 \PD{(a,b)}{(x^1, x^2)} \, da db \\
+   dx^1 \wedge dx^2 &= \PD{(a,b)}{(x^1, x^2)} \, da \wedge db.
+\end{aligned}
+\end{dmath}
+That is, we can relate the formalisms by the mapping
+\begin{dmath}\label{eqn:formsVsGA:200}
+   \Be_1 \Be_2 \, da db \leftrightarrow da \wedge db.
+\end{dmath}
+The \( 1-form \) has something of a vectorial nature, whereas the 2-form has a bivector nature.
+
+It kind of looks like the \( \sqrt{\pm \begin{vmatrix} g \end{vmatrix} } \) term is probably related to the Jacobian determinant for the chosen parameterization, but I'll let somebody else elaborate on that.
+
+%}
+%\EndArticle
+\EndNoBibArticle
