@@ -483,3 +483,6 @@ perl -p -i ../latex/bin/latexRegex.pl geometricproduct.tex
 
 ../latex/bin/lgrep formsVsGA.tex | tee o ; . ./o
 perl -p -i ../latex/bin/latexRegex.pl formsVsGA.tex
+
+#../latex/bin/lgrep logquestion.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl logquestion.tex
