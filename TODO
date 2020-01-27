@@ -1,3 +1,5 @@
+- steal from ece1228: parts of appendix F, G (cylindrical and spherical gradient operators and coordinates)
+
 - Fix before next kdp refresh (kdp version is 0.14)
 
    - preface : odd page numbers after the first are out of range (these are kdp errors).

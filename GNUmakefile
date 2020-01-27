@@ -14,7 +14,8 @@ include ../latex/make.bookvars
 #ONCEFLAGS := -justonce
 
 SOURCE_DIRS += working
-FIGURES := ../$(THISBOOK)-figures
+FIGURES := ../figures/$(THISBOOK)
+#FIGURES := ../$(THISBOOK)-figures
 SOURCE_DIRS += $(FIGURES)
 
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
@@ -50,6 +51,13 @@ report : ece2500report.pdf
 mx : maxwells.pdf
 ii : integration.pdf
 gp : geometricproduct.pdf
+lp : lineAndPlane.pdf
+
+eps:
+	@echo $(EPS_FILES)
+
+pdfeps:
+	@echo $(PDFS_FROM_EPS)
 
 # FIXME: this should be an automatic dependency, but currently isn't.
 #$(THISBOOK).pdf :: mmacells.sty
