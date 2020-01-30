@@ -24,8 +24,8 @@
 
 \beginArtNoToc
 
-\generatetitle{Lines and Planes in geometric algebra}
-%\chapter{Lines and Planes in geometric algebra}
+\generatetitle{Lines and planes in geometric algebra.}
+%\chapter{Lines and planes in geometric algebra.}
 %\label{chap:lineAndPlane}
 \section{Motivation.}
 I have way too many Dover books on mathematics, including \citep{widder1989advanced}, which is a nice little book, covering all basics, plus some higher level material like gamma functions, Fourier series, and Laplace transforms.  I'd borrowed this book from the Toronto Public Library in my youth.  I've been meaning to re-read it, and bought my own copy to do so (too long ago.)
@@ -234,6 +234,30 @@ I \lr{ \lr{ \Bx - \Bs } \cdot \Bn } \inv{I \Bn}
 \end{dmath}
 This would conventionally be written in terms of a unit vector \( \ncap \) as \( \lr{\lr{ \Bx - \Bs } \cdot \ncap} \ncap\).
 \section{Summary.}
+
+We can write the equation of a line, plane, (volume, ...) in a uniform fashion as
+\begin{dmath}\label{eqn:lineAndPlane:440}
+\lr{ \By - \Bx } \wedge V = 0,
+\end{dmath}
+where \( V = \Bu_1, \Bu_1 \wedge \Bu_2, \Bu_1 \wedge \Bu_2 \wedge \cdots \wedge \Bu_n \) depending on the dimenion of the desired subspace, where \( \Bu_k \) are linearly independent vectors spanning that space, and \( \Bx \) is one point in that subspace.
+
+The (directed) distance from a vector \( \Bs \) to that subspace is given by
+\begin{dmath}\label{eqn:lineAndPlane:460}
+\BD = \lr{ \Bx - \Bs } \wedge V \inv{V}.
+\end{dmath}
+For the \R{3} special case of a line, where \( V = \ucap \) is a unit vector on the line, we showed that this reduces to
+\begin{dmath}\label{eqn:lineAndPlane:480}
+\BD = \ucap \cross \lr{ \lr{ \Bx - \Bs } \cross \ucap },
+\end{dmath}
+For the \R{3} special case of a line, where \( V = I \ncap \) is a unit bivector representing the plane, we found that we could write \cref{eqn:lineAndPlane:460} as a projection onto the normal to the plane
+\begin{dmath}\label{eqn:lineAndPlane:500}
+\BD = \lr{ \lr{ \Bx - \Bs } \cdot \ncap } \ncap.
+\end{dmath}
+Again, only for \R{3} we were also able to write the equation of the plane itself in dual form as
+\begin{dmath}\label{eqn:lineAndPlane:520}
+\lr{ \By - \Bx } \cdot \ncap = 0.
+\end{dmath}
+These dual forms would also be possible for other special cases (like the equation of a volume in \R{4} and the distance from a point to that volume), but should we desire general relationships valid in all dimenions (even \R{2}), we can stick to \cref{eqn:lineAndPlane:440} and \cref{eqn:lineAndPlane:460}.
 
 %}
 \EndArticle
