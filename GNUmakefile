@@ -51,7 +51,8 @@ report : ece2500report.pdf
 mx : maxwells.pdf
 ii : integration.pdf
 gp : geometricproduct.pdf
-lp : lineAndPlane.pdf
+#lp : lineAndPlane.pdf
+lp : subspaceDistance.pdf
 
 eps:
 	@echo $(EPS_FILES)

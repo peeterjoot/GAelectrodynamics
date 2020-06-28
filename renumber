@@ -487,5 +487,8 @@
 #../latex/bin/lgrep logquestion.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl logquestion.tex
 
-../latex/bin/lgrep lineAndPlane.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl lineAndPlane.tex
+#../latex/bin/lgrep lineAndPlane.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl lineAndPlane.tex
+
+../latex/bin/lgrep subspaceDistance.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl subspaceDistance.tex

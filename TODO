@@ -1,3 +1,12 @@
+- Think that I had some review comments in dropbox to act on.
+
+- chapter 1:
+
+   - incorporate subspaceDistance.tex
+
+   - incorporate parts of lineAndPlane.tex into chapter 1 (summary portion as theorems, with extra details as problems).
+   - Add table at the end summarizing the GA vs conventional forms.
+
 - steal from ece1228: parts of appendix F, G (cylindrical and spherical gradient operators and coordinates)
 
 - Fix before next kdp refresh (kdp version is 0.14)
