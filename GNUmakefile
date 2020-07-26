@@ -60,6 +60,8 @@ eps:
 pdfeps:
 	@echo $(PDFS_FROM_EPS)
 
+eps2pdf: $(PDFS_FROM_EPS)
+
 # FIXME: this should be an automatic dependency, but currently isn't.
 #$(THISBOOK).pdf :: mmacells.sty
 
