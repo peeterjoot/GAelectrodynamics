@@ -1,0 +1,11 @@
+The power to add scalars, vectors, and products of vectors can be exploited to simplify much of electromagnetism. In particular, Maxwell's equations for isotropic media can be merged into a single multivector equation
+$$
+\left( \nabla + \frac{1}{c} \frac{\partial}{\partial t}\right)
+\left( \mathbf{E} + I c \mathbf{B} \right)
+ = \eta
+\left( c \rho - \mathbf{J} \right)
+,
+$$
+where $ \nabla $ is the gradient, $ I = \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3 $ is the ordered product of the three $\mathbb{R}^3$ basis vectors, $ c = 1/\sqrt{\mu\epsilon}$ and $ \eta = \sqrt{\mu/\epsilon} $ are the group velocity and impedance of the media, $ \mathbf{E}, \mathbf{B} $ are the electric and magnetic fields, and $ \rho $ and $ \mathbf{J} $ are the charge and current densities. This can be written as a single equation
+$$\left( \nabla + \frac{1}{c} \frac{\partial}{\partial t}\right) F = J, $$
+where $ F = \mathbf{E} + I c \mathbf{B} $ is the combined (multivector) electromagnetic field, and $ J = \eta\left( c \rho - \mathbf{J} \right) $ is the multivector current.
