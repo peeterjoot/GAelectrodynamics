@@ -47,7 +47,7 @@ Green's function of \cref{thm:gradientGreensFunctionEuclidean:3}, we require
 \lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx') = \delta^3( \Bx - \Bx' ).
 \end{dmath}
 
-Verifying this requires two steps, first considering points \( \Bx \ne \Bx' \), and then considering an infinitesimal neighbourhood around \( \Bx' \).
+Verifying this requires two steps, first considering points \( \Bx \ne \Bx' \), and then considering an infinitesimal neighborhood around \( \Bx' \).
 
 \paragraph{Case I.  \( \Bx \ne \Bx' \).}
 
@@ -71,9 +71,9 @@ for points \( \Bx \ne \Bx' \), (i.e. \( r = \Norm{\Bx - \Bx'} \ne 0 \)), working
 = 0.
 \end{dmath}
 
-\paragraph{Case II.  In the neighbourhood of \(\Norm{\Bx - \Bx'} < \epsilon\)}
+\paragraph{Case II.  In the neighborhood of \(\Norm{\Bx - \Bx'} < \epsilon\)}
 
-Having shown that we end up with zero everywhere that \(\Bx \ne \Bx'\) we are left to consider an infinitesimal neighbourhood of the volume surrounding the point \(\Bx\) in our integral.  Following the Coulomb treatment in \S 2.2 of \citep{schwartz1987pe} we use a spherical volume element centered around \(\Bx\) of radius \(\epsilon\), and then convert a divergence to a surface area to evaluate the integral away from the problematic point.
+Having shown that we end up with zero everywhere that \(\Bx \ne \Bx'\) we are left to consider an infinitesimal neighborhood of the volume surrounding the point \(\Bx\) in our integral.  Following the Coulomb treatment in \S 2.2 of \citep{schwartz1987pe} we use a spherical volume element centered around \(\Bx\) of radius \(\epsilon\), and then convert a divergence to a surface area to evaluate the integral away from the problematic point.
 \begin{dmath}\label{eqn:helmholtzGreens:50}
 \begin{aligned}
 \int &\left(\spacegrad^2 + k^2\right) G(\Bx, \Bx') f(\Bx') dV' \\
@@ -90,11 +90,11 @@ where a change of variables \(\Bx'' = \Bx' - \Bx \), as illustrated in
 \cref{fig:neighbourhood:neighbourhoodFig1},
  has been performed.
 
-\mathImageFigure{../figures/GAelectrodynamics/neighbourhoodFig1}{Neighbourhood \( \Norm{\Bx - \Bx'} < \epsilon \).}{fig:neighbourhood:neighbourhoodFig1}{0.5}{neighbourhoodFig1.nb}
+\mathImageFigure{../figures/GAelectrodynamics/neighbourhoodFig1}{Neighborhood \( \Norm{\Bx - \Bx'} < \epsilon \).}{fig:neighbourhood:neighbourhoodFig1}{0.5}{neighbourhoodFig1.nb}
 
 We
 assume that \( f(\Bx) \) is sufficiently continuous and ``well behaved'' that it can be
-pulled it out of the integral, replaced with a mean value \( f(\Bx^\conj) \) in the integration neighbourhood around \( \Bx'' = 0 \).
+pulled it out of the integral, replaced with a mean value \( f(\Bx^\conj) \) in the integration neighborhood around \( \Bx'' = 0 \).
 \begin{equation}\label{eqn:helmholtzGreens:430}
 \int \left(\spacegrad^2 + k^2\right) G(\Bx, \Bx') f(\Bx') dV'
 =
@@ -144,7 +144,7 @@ and then employ the divergence theorem
 =
 \int_{\partial V} \left( \spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right) \cdot \ncap dA'',
 \end{dmath}
-where \( \partial V \) represents the surface of the \( \Norm{\Bx''} < \epsilon \) neighbourhood, and \( \ncap \) is the unit vector directed along \( \Bx'' = \Bx' - \Bx \).
+where \( \partial V \) represents the surface of the \( \Norm{\Bx''} < \epsilon \) neighborhood, and \( \ncap \) is the unit vector directed along \( \Bx'' = \Bx' - \Bx \).
 To evaluate this surface integral we will require only the radial portion of the gradient.  With \( r = \Norm{\Bx''} \), that is
 \begin{equation}\label{eqn:helmholtzGreens:490}
 \begin{aligned}

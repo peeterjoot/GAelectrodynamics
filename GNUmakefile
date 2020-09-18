@@ -105,11 +105,10 @@ bib:
 mmacells.sty: mmacells/mmacells.sty
 	cp $^ $@
 
-# hack:
+# hack for: HAVE_OWN_TITLEPAGE
 clean ::
 	git checkout FrontBackmatter/Titlepage.tex
 
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
 	rm -f $@
 	ln -s ../latex/classicthesis_mine/backmatter2.tex backmatter.tex
-
