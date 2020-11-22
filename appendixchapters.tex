@@ -14,9 +14,7 @@
       \input{helmholtzGreens.tex}
    \section{Delta function derivatives.}
       \input{derivativeOfDeltaFunction.tex}
-\ifthenelse{\boolean{print-version}}
-{
-}
+\iftoggle{print-version}{}
 {
 \mychapter{GA electrodynamics in the literature.}
    \input{galiterature.tex}
@@ -25,9 +23,7 @@
    \input{stressTensorAlgebraically.tex}
 \mychapter{Differential forms vs geometric calculus.}
    \input{formsVsGA.tex}
-\ifthenelse{\boolean{print-version}}
-{
-}
+\iftoggle{print-version}{}
 {
 \mychapter{Mathematica notebooks.}
    \input{mathematica.tex}

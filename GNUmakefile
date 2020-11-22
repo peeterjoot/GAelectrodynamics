@@ -14,8 +14,18 @@ include ../latex/make.bookvars
 #ONCEFLAGS := -justonce
 
 SOURCE_DIRS += working
-FIGURES := ../figures/$(THISBOOK)
-#FIGURES := ../$(THISBOOK)-figures
+
+SUBFIGDIR := bw
+ifndef SUBFIGDIR
+SUBFIGDIR := color
+endif
+
+# uncomment for online pdf version:
+#PARAMS += --no-print
+PARAMS += -subfig $(SUBFIGDIR)
+
+FIGURES += ../figures/$(THISBOOK)/$(SUBFIGDIR)
+FIGURES += ../figures/$(THISBOOK)
 SOURCE_DIRS += $(FIGURES)
 
 PRIMARY_SOURCES := $(shell grep input chapters.tex | sed 's/%.*//;s/.*{//;s/}.*//;')
@@ -26,7 +36,7 @@ GENERATED_SOURCES += mathematica.tex
 #GENERATED_SOURCES += julia.tex
 GENERATED_SOURCES += backmatter.tex
 
-EPS_FILES := $(wildcard $(FIGURES)/*.eps)
+EPS_FILES := $(foreach dir,$(FIGURES),$(wildcard $(dir)/*.eps))
 PDFS_FROM_EPS := $(subst eps,pdf,$(EPS_FILES))
 #$(error PDFS_FROM_EPS $(PDFS_FROM_EPS))
 
@@ -39,6 +49,7 @@ DO_SPELL_CHECK := $(shell cat spellcheckem.txt)
 
 include ../latex/make.rules
 
+$(THISBOOK).pdf :: parameters.sty
 #all :: $(THISBOOK).pdf
 #all :: ellipticalWaves.pdf
 #all :: junk.pdf
@@ -53,6 +64,9 @@ ii : integration.pdf
 gp : geometricproduct.pdf
 #lp : lineAndPlane.pdf
 lp : subspaceDistance.pdf
+
+parameters.sty : mkparams
+	./mkparams $(PARAMS) > $@
 
 eps:
 	@echo $(EPS_FILES)
@@ -107,7 +121,7 @@ mmacells.sty: mmacells/mmacells.sty
 
 # hack for: HAVE_OWN_TITLEPAGE
 clean ::
-	git checkout FrontBackmatter/Titlepage.tex
+	git checkout FrontBackmatter/Titlepage.tex parameters.sty
 
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
 	rm -f $@
