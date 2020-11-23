@@ -21,7 +21,7 @@ SUBFIGDIR := color
 endif
 
 # uncomment for online pdf version:
-#PARAMS += --no-print
+PARAMS += --no-print
 PARAMS += -subfig $(SUBFIGDIR)
 
 FIGURES += ../figures/$(THISBOOK)/$(SUBFIGDIR)
