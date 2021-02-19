@@ -20,9 +20,17 @@ ifndef SUBFIGDIR
 SUBFIGDIR := color
 endif
 
-# uncomment for online pdf version:
+# comment this out for online pdf version (uncomment for KDP)
+#PRINT_VERSION := 1
+
+ifndef PRINT_VERSION
 PARAMS += --no-print
+endif
 PARAMS += -subfig $(SUBFIGDIR)
+DISTEXTRA := $(SUBFIGDIR)
+ifdef PRINT_VERSION
+DISTEXTRA := $(DISTEXTRA).kdp
+endif
 
 FIGURES += ../figures/$(THISBOOK)/$(SUBFIGDIR)
 FIGURES += ../figures/$(THISBOOK)
@@ -121,7 +129,8 @@ mmacells.sty: mmacells/mmacells.sty
 
 # hack for: HAVE_OWN_TITLEPAGE
 clean ::
-	git checkout FrontBackmatter/Titlepage.tex parameters.sty
+	git checkout FrontBackmatter/Titlepage.tex
+# parameters.sty
 
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
 	rm -f $@
