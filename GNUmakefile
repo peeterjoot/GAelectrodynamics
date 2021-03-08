@@ -73,9 +73,6 @@ gp : geometricproduct.pdf
 #lp : lineAndPlane.pdf
 lp : subspaceDistance.pdf
 
-parameters.sty : mkparams
-	./mkparams $(PARAMS) > $@
-
 eps:
 	@echo $(EPS_FILES)
 
@@ -130,7 +127,6 @@ mmacells.sty: mmacells/mmacells.sty
 # hack for: HAVE_OWN_TITLEPAGE
 clean ::
 	git checkout FrontBackmatter/Titlepage.tex
-# parameters.sty
 
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
 	rm -f $@

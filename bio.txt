@@ -2,4 +2,4 @@ Peeter Joot is a math and physics enthusiast with a love of geometric algebra.
 
 Peeter's education includes a B.A.Sc from UofT (1997 Engineering Science - computer engineering), 2019 UofT M.Eng (ECE electromagnetics), a lot of self-study, and non-degree study of most of the interesting 4th year UofT undergrad physics courses.
 
-Peeter's day job is software development.  He has over 20 years of experience with low level systems programming, operating system and hardware abstraction and exploitation, concurrency, and large scale refactoring.  Peeter works for LzLabs and now has fun with PL/I, COBOL, JCL, VSAM, CICS and other legacy subsystems sure to scare away most developers of his generation.
+Peeter's day job is software development.  He has over 25 years of experience with low level systems programming, operating system and hardware abstraction and exploitation, concurrency, and large scale refactoring.  Peeter works for LzLabs and now has fun with PL/I, COBOL, JCL, VSAM, CICS and other legacy subsystems sure to scare away most developers of his generation.
