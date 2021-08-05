@@ -82,7 +82,6 @@ If we can evaluate this integral, then the system can be considered solved, wher
 \begin{dmath}\label{eqn:greensIntro:420}
 x(t) = \int dt' f(t') G(t,t') + x_0(t).
 \end{dmath}
-
 The Green's function is the weighting factor that determines how much of \( f(t') \) for each time \( t' \) contributes to the motion of the system that is explicitly due to the forcing function.  Green's functions for physical problems are causal, so only forcing events in the past contribute to the current state of the system (i.e. if you were to depend on only future pushes of the swing, you would have a very bored child.)
 
 An alternate way of viewing a linear systems problem is to assume that a convolution solution of the form
@@ -93,7 +92,6 @@ For our harmonic oscillator problem that operator is
 \begin{dmath}\label{eqn:greensIntro:440}
 \LL = \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2.
 \end{dmath}
-
 We find
 \begin{dmath}\label{eqn:greensIntro:460}
 f(t)
@@ -101,14 +99,14 @@ f(t)
 \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
 x(t)
 =
+\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
 \int dt' f(t') G(t,t')
 =
 \int dt' f(t')
 \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
-G(t,t').
+G(t,t'),
 \end{dmath}
-
-We see that the Green's function, when acted on by the differential operator, must have the characteristics of a delta function
+and see that the Green's function, when acted on by the differential operator, must have the characteristics of a delta function
 \begin{dmath}\label{eqn:greensIntro:480}
 \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
 G(t,t')
@@ -121,10 +119,8 @@ the solution of distribution equations of the form
 \boxedEquation{eqn:greensIntro:500}{
 \LL G(t,t') = \delta( t - t').
 }
-
 Framing the problem this way is independent of whatever techniques (transform or other) that we may choose to use to determine the structure of the Green's function itself.  Observe that the Green's function itself is not unique.  In particular, we may add any solution of the homogeneous problem \( \LL G_0(t,t') = 0 \) to the Green's function, just as we can do so for the forced system itself.
 
 We will see that Green's functions provide a general method of solving many of the linear differential equations that will be encountered in electromagnetism.
-
 %}
 %\EndNoBibArticle
