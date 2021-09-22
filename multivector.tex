@@ -107,8 +107,8 @@ given a pair of orthogonal vectors \( \Bx, \By \), that dependence is
 \(\Bx \By + \By \Bx = 0 \),
 %\end{dmath}
 or \( \By \Bx = - \Bx \By \).  This means that \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_1 } \) is not a basis for the \R{2} bivector space (those bivectors are not linearly independent), but that either \( \setlr{ \Be_1 \Be_2 } \) or \( \setlr{ \Be_2 \Be_1 } \) is an \R{2} bivector basis.
-Similarly, for \R{3}, we may pick a set such as \( R = \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 } \) for the bivector basis\footnote{\(R\) is a ``right handed'' choice of basis, as it is related to the right handed vector basis \( \setlr{ \Be_1, \Be_2, \Be_3 } \) in a fundamental way.  Observe that the indexes \( i, j \) of each bivector \( \Be_i \Be_j \) in \( R \) are cyclical permutations of \( i,j = 1,2 \).  Examples of other bivector basis choices include \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_1 \Be_3 } \), the set of all pairs of bivectors \( \Be_i \Be_j \) where \( i < j \) or a ``left handed'' bivector basis
-\( \setlr{ \Be_2 \Be_1, \Be_3 \Be_2, \Be_1 \Be_3 } \).}
+Similarly, for \R{3}, we may pick a set such as \( R = \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 } \) for the bivector basis\footnote{\(R\) is a ``right handed'' choice of basis, as it is related to the right handed vector basis \( \setlr{ \Be_1, \Be_2, \Be_3 } \) in a fundamental way.  Observe that the indexes \( i, j \) of each bivector \( \Be_i \Be_j \) in \( R \) are cyclical permutations of \( i,j = 1,2 \).  Examples of other bivector basis choices include \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_1 \Be_3 } \), the set of all pairs of bivectors \( \Be_i \Be_j \) where \( i < j \), or a ``left handed'' bivector basis
+\( \setlr{ \Be_2 \Be_1, \Be_3 \Be_2, \Be_1 \Be_3 } \).}.
 If \( \Bx, \By \) are orthonormal vectors, the bivector product \( \Bx \By \) or \( \By \Bx \) will be called a unit bivector.
 The basis \( R \) is illustrated in
 \cref{fig:unitBivectors:unitBivectorsFig} with two different shaped representations of the ``unit'' bivector elements of this basis.
@@ -156,7 +156,7 @@ where \( \T_{ijk} \) is a scalar.
 
 For example \( \Be_1 \Be_2 \Be_3, 3 \Be_2 \Be_1 \Be_3, 5 \Be_1 \Be_2 \Be_4, - 2 \Be_1 \Be_5 \Be_3 \) are all trivectors.  However,
 in \R{3}, it turns out that all trivectors are scalar multiples of \( \Be_1 \Be_2 \Be_3 \).
-Like scalars, there is no direction to such a quantity, but like scalars trivectors may be signed.  The magnitude of a trivector may be interpreted as a volume.
+Like scalars, there is no direction to such a quantity, and like scalars trivectors may be signed.  The magnitude of a trivector may be interpreted as a volume.
 A geometric interpretation of the sign of a trivector will be deferred until integration theory is tackled.
 %%%, which requires some interpretation.
 %%%We can interpret the magnitude of a trivector as a volume, but what is a signed volume?
@@ -175,7 +175,7 @@ A geometric interpretation of the sign of a trivector will be deferred until int
 \index{k-vector}
 \index{grade}
 \paragraph{K-vector.}
-Scalars, vectors, bivectors, trivectors, or any higher dimensional analogues are all examples of a single algebraic structure composed of zero, one, two, three or ``k'' products of orthogonal vectors.  These are generally called k-vectors and defined as follows.
+Scalars, vectors, bivectors, trivectors, or any higher dimensional analogues are all examples of a single algebraic structure composed of zero, one, two, three, or ``k'' products of orthogonal vectors.  These are generally called k-vectors and defined as follows.
 \makedefinition{K-vector and grade.}{dfn:multivector:100}{
 A k-vector is a sum of products of \( k \) mutually orthogonal vectors.
 Given an \( N \) dimensional vector space with an orthonormal basis
@@ -184,7 +184,7 @@ Given an \( N \) dimensional vector space with an orthonormal basis
 \end{equation*}
 a general k-vector can be expressed as
 \begin{equation*}
-\sum_{r \ne s \cdots \ne t} K_{r s \cdots t} \Bx_{r} \Bx_{s} \cdots \Bx_{t},
+\sum_{r \ne s \ne \cdots \ne t} K_{r s \cdots t} \Bx_{r} \Bx_{s} \cdots \Bx_{t},
 \end{equation*}
 where \( K_{r s \cdots t} \) is a scalar, indexed by \( k \) indexes \( r, s, \cdots, t \).
 
