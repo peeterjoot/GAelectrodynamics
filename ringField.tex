@@ -45,19 +45,19 @@ introduce dimensionless variables
 \end{aligned}
 \end{equation}
 which gives
-\begin{dmath}\label{eqn:ringField:120}
+\begin{equation}\label{eqn:ringField:120}
 F
 = \frac{\lambda}{4 \pi \epsilon R} \int_0^{2\pi} d\phi' \frac{\gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ \tilde{z}^2 + (\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2}^{3/2} }.
-\end{dmath}
+\end{equation}
 
 In the denominator, the vector square expands as
-\begin{dmath}\label{eqn:ringField:140}
+\begin{equation}\label{eqn:ringField:140}
+\begin{aligned}
 (\tilde{r} \Be_1 - \Be_1 e^{i\phi'})^2
-=
-(\tilde{r} - e^{-i\phi'}) \Be_1^2 (\tilde{r} - e^{i\phi'})
-=
-\tilde{r}^2 + 1 - 2 \tilde{r} \cos(\phi'),
-\end{dmath}
+&= (\tilde{r} - e^{-i\phi'}) \Be_1^2 (\tilde{r} - e^{i\phi'}) \\
+&= \tilde{r}^2 + 1 - 2 \tilde{r} \cos(\phi'),
+\end{aligned}
+\end{equation}
 and the grade selection in the numerator is
 \begin{equation}\label{eqn:ringField:160}
 \begin{aligned}
@@ -78,20 +78,22 @@ since the \( i \sin\phi' f(\cos(\phi') \) contributions are odd functions around
 For general \( z, r \) the integrals above require numeric evaluation or special functions. Let
 \begin{subequations}
 \label{eqn:ringField:260}
-\begin{dmath}\label{eqn:ringField:200}
+\begin{equation}\label{eqn:ringField:200}
+\begin{aligned}
 A
-%= A(\tilde{z}, \tilde{r})
-= \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}}
-=
-\frac{4 E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)}{\sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)}
-\end{dmath}
-\begin{dmath}\label{eqn:ringField:280}
+%&= A(\tilde{z}, \tilde{r}) \\
+&= \int_0^{2\pi} d\phi' \frac{1}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}} \\
+&= \frac{4 E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)}{\sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:ringField:280}
+\begin{aligned}
 B
-%= B(\tilde{z}, \tilde{r})
-= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}}
-=
-\frac{2 \left(\left(\tilde{z}^2+\tilde{r}^2+1\right) E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)-\left(\tilde{z}^2+(\tilde{r}+1)^2\right) K\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)\right)}{\tilde{r} \sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)},
-\end{dmath}
+%&= B(\tilde{z}, \tilde{r}) \\
+&= \int_0^{2\pi} d\phi' \frac{\cos(\phi')}{\lr{ 1 + \tilde{z}^2 + \tilde{r}^2 - 2 \tilde{r} \cos(\phi') }^{3/2}} \\
+&= \frac{2 \left(\left(\tilde{z}^2+\tilde{r}^2+1\right) E\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)-\left(\tilde{z}^2+(\tilde{r}+1)^2\right) K\left(-\frac{4 \tilde{r}}{(\tilde{r}-1)^2+\tilde{z}^2}\right)\right)}{\tilde{r} \sqrt{\tilde{z}^2+(\tilde{r}-1)^2} \left(\tilde{z}^2+(\tilde{r}+1)^2\right)},
+\end{aligned}
+\end{equation}
 \end{subequations}
 
 where

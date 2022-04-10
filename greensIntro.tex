@@ -64,13 +64,15 @@ G(\omega) = -\inv{\omega^2 - j \omega - (\omega_0)^2}.
 \end{equation}
 
 We can apply the inverse transformation to find the time domain solution for the forced oscillator problem.
-\begin{dmath}\label{eqn:greensIntro:380}
+\begin{equation}\label{eqn:greensIntro:380}
+\begin{aligned}
 x(t)
-= \int d\omega G(\omega) F(\omega) e^{j \omega t}
-= \int d\omega G(\omega) \lr{ \inv{2 \pi} \int dt' f(t') e^{-j \omega t'} dt' } e^{j \omega t}
-= \int dt' f(t')
+&= \int d\omega G(\omega) F(\omega) e^{j \omega t} \\
+&= \int d\omega G(\omega) \lr{ \inv{2 \pi} \int dt' f(t') e^{-j \omega t'} dt' } e^{j \omega t} \\
+&= \int dt' f(t')
 \lr{ \inv{2 \pi} \int d\omega G(\omega) e^{j \omega (t-t')} }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 The frequency domain integral is the Green's function.
 We'll write this as

@@ -171,13 +171,15 @@ A' = A + \stgrad (\psi + I \phi),
 \end{equation}
 where \( \psi \) and \( \phi \) are scalar functions.
 The field for potential \( A' \) is
-\begin{dmath}\label{eqn:gaugeTransformation:120}
+\begin{equation}\label{eqn:gaugeTransformation:120}
+\begin{aligned}
 F'
-= \gpgrade{\conjstgrad A'}{1,2}
-= \gpgrade{\conjstgrad \lr{A + \stgrad (\psi + I \phi)} }{1,2}
-= \gpgrade{\conjstgrad A}{1,2} + \gpgrade{ \conjstgrad \stgrad (\psi + I \phi)} {1,2}
-= F + \gpgrade{ \dAlembertian (\psi + I \phi)} {1,2},
-\end{dmath}
+&= \gpgrade{\conjstgrad A'}{1,2} \\
+&= \gpgrade{\conjstgrad \lr{A + \stgrad (\psi + I \phi)} }{1,2} \\
+&= \gpgrade{\conjstgrad A}{1,2} + \gpgrade{ \conjstgrad \stgrad (\psi + I \phi)} {1,2} \\
+&= F + \gpgrade{ \dAlembertian (\psi + I \phi)} {1,2},
+\end{aligned}
+\end{equation}
 which is just \( F \) since the d'Alembertian operator \( \dAlembertian \) is a scalar operator and \( \psi + I \phi \) has no vector nor bivector grades.
 \end{proof}
 

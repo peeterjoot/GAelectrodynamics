@@ -41,36 +41,28 @@ a pair of equations, multivector fields, and multivector sources, instead of one
 To prove \cref{thm:dielectric:20} we may simply expand the spacetime gradients and grade selection operations,
 and compare to
 \cref{eqn:freespace:3399}, the conventional representation of Maxwell's equations.  For \( F \) we have
-\begin{dmath}\label{eqn:dielectric:80}
+\begin{equation}\label{eqn:dielectric:80}
+\begin{aligned}
 \rho - \frac{\BJ}{c}
-=
+&= \gpgrade{ \stgrad F }{0,1} \\
+&= \gpgrade{ \stgrad \lr{ \BD + \frac{I}{c}\BH } }{0,1} \\
+&=
 \gpgrade{
-\stgrad F
-}{0,1}
-=
-\gpgrade{
-\stgrad \lr{ \BD + \frac{I}{c}\BH }
-}{0,1}
-=
-\gpgrade{
-\spacegrad \cdot \BD
-+
-\spacegrad \wedge \BD
-+
-\frac{I}{c} \spacegrad \cdot \BH
-+
-\frac{I}{c} \spacegrad \wedge \BH
-+
-\inv{c} \PD{t}{\BD}
-+ I
-\inv{c^2} \PD{t}{\BH}
-}{0,1}
-=
-\spacegrad \cdot \BD
-+
-\inv{c} \PD{t}{\BD}
--\frac{1}{c} \spacegrad \cross \BH,
-\end{dmath}
+   \spacegrad \cdot \BD
+   +
+   \spacegrad \wedge \BD
+   +
+   \frac{I}{c} \spacegrad \cdot \BH
+   +
+   \frac{I}{c} \spacegrad \wedge \BH
+   +
+   \inv{c} \PD{t}{\BD}
+   + I
+   \inv{c^2} \PD{t}{\BH}
+}{0,1} \\
+&= \spacegrad \cdot \BD + \inv{c} \PD{t}{\BD} -\frac{1}{c} \spacegrad \cross \BH,
+\end{aligned}
+\end{equation}
 and for \( G \)
 \begin{equation}\label{eqn:dielectric:100}
 \begin{aligned}
@@ -185,33 +177,37 @@ if
 \begin{proof}
 To prove we select the grade 0,1 and grade 2,3 components from space time gradient equations of
 \cref{thm:dielectric:200}.  For the electric sources, this gives
-\begin{dmath}\label{eqn:dielectric:260}
+\begin{equation}\label{eqn:dielectric:260}
+\begin{aligned}
 J_\txte
-= \gpgrade{\stgrad F'}{0,1}
-= \gpgrade{\stgrad \gpgrade{F'}{1,2}}{0,1}
+&= \gpgrade{\stgrad F'}{0,1} \\
+&= \gpgrade{\stgrad \gpgrade{F'}{1,2}}{0,1}
 + \gpgrade{\stgrad \gpgradezero{F'}}{0,1}
 + \gpgrade{\stgrad \gpgradethree{F'}}{0,1},
-\end{dmath}
+\end{aligned}
+\end{equation}
 however \( \stgrad \gpgrade{F'}{3} \) has only grade 2,3 components, leaving just
-\begin{dmath}\label{eqn:dielectric:280}
+\begin{equation}\label{eqn:dielectric:280}
 J_\txte
 = \gpgrade{\stgrad \gpgrade{F'}{1,2}}{0,1}
 + \gpgrade{\stgrad \gpgradezero{F'}}{0,1},
-\end{dmath}
+\end{equation}
 as claimed.  For the magnetic sources, we have
-\begin{dmath}\label{eqn:dielectric:300}
+\begin{equation}\label{eqn:dielectric:300}
+\begin{aligned}
 I J_\txtm
-= \gpgrade{\stgrad G'}{2,3}
-= \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
+&= \gpgrade{\stgrad G'}{2,3} \\
+&= \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
 + \gpgrade{\stgrad \gpgradezero{G'}}{2,3}
 + \gpgrade{\stgrad \gpgradethree{G'}}{2,3},
-\end{dmath}
+\end{aligned}
+\end{equation}
 however \( \stgrad \gpgrade{G'}{0} \) has only grade 0,1 components, leaving just
-\begin{dmath}\label{eqn:dielectric:320}
+\begin{equation}\label{eqn:dielectric:320}
 I J_\txtm
 = \gpgrade{\stgrad \gpgrade{G'}{1,2}}{2,3}
 + \gpgrade{\stgrad \gpgradezero{G'}}{2,3}.
-\end{dmath}
+\end{equation}
 %completing the proof.
 \end{proof}
 

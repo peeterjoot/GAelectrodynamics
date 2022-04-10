@@ -47,7 +47,7 @@ d^2 \Bx = I \Bx_r r^2 \sin\theta d\theta d\phi.
 \end{equation}
 
 Suppose we integrate a vector valued function \( F(\theta, \phi) = \alpha \Bx^r + \beta \Bx^\theta + \gamma \Bx^\phi \), where \( \alpha, \beta, \gamma\) are constants, over the surface of a sphere of radius \( r \), then the surface integral (with the area element on the right) is
-\begin{dmath}\label{eqn:surfaceintegraldef:200}
+\begin{equation}\label{eqn:surfaceintegraldef:200}
 \int F d^2\Bx
 =
 \alpha I r^2 \int \Bx^r \Bx_r \sin\theta d\theta d\phi
@@ -55,7 +55,7 @@ Suppose we integrate a vector valued function \( F(\theta, \phi) = \alpha \Bx^r 
 \beta I r^2 \int \Bx^\theta \Bx_r \sin\theta d\theta d\phi
 +
 \gamma I r^2 \int \Bx^\phi \Bx_r \sin\theta d\theta d\phi.
-\end{dmath}
+\end{equation}
 This can be simplified using \( \rcap \thetacap \phicap = I \), and \cref{eqn:curvilinearspherical:260}, to find
 \begin{equation}\label{eqn:surfaceintegraldef:220}
 \begin{aligned}
@@ -65,16 +65,13 @@ I \Bx^\phi \Bx_r &= \inv{r \sin\theta} I \phicap \rcap = -\inv{r \sin\theta} \th
 \end{aligned}
 \end{equation}
 so
-\begin{dmath}\label{eqn:surfaceintegraldef:240}
-\int F d^2\Bx =
-\alpha I 4 \pi r^2
-+
-\beta r \int \phicap \sin\theta d\theta d\phi
--
-\gamma r \int \thetacap d\theta d\phi
-=
-\alpha I 4 \pi r^2,
-\end{dmath}
+\begin{equation}\label{eqn:surfaceintegraldef:240}
+\begin{aligned}
+\int F d^2\Bx 
+&= \alpha I 4 \pi r^2 + \beta r \int \phicap \sin\theta d\theta d\phi - \gamma r \int \thetacap d\theta d\phi \\
+&= \alpha I 4 \pi r^2,
+\end{aligned}
+\end{equation}
 where the integrands containing \( \thetacap, \phicap \) are killed by the integral over \( \phi \in [0, 2\pi] \).  If integrated over a subset of the spherical surface, where such perfect cancellation does not occur, this surface integral may have both vector and trivector components.
 
 \paragraph{Example: Bivector function.}

@@ -40,17 +40,17 @@ and is the product of a polar directed vector with a complex exponential whose a
 The bivector \( j \) is a function of the azimuthal angle \( \phi \), and encodes all the geometry of the rotation.
 To sum the contributions of the charge elements we need the distance between the charge element and the observation point.
 That vector difference is
-\begin{dmath}\label{eqn:circularlinecharge:80}
+\begin{equation}\label{eqn:circularlinecharge:80}
 \Bx - \Bx'
 =
 R \Be_3 e^{j \theta } - r \Be_1 e^{i \phi'}.
-\end{dmath}
+\end{equation}
 
 Compare this to the tuple representation
-\begin{dmath}\label{eqn:circularlinecharge:100}
+\begin{equation}\label{eqn:circularlinecharge:100}
 \Bx - \Bx'
 = ( R \sin\theta \cos\phi - r \cos\phi', R \sin\theta \sin\phi - r \cos\phi', \cos\theta ),
-\end{dmath}
+\end{equation}
 for which the prospect of working with is considerably less attractive.
 The squared length of \cref{eqn:circularlinecharge:80} is
 \begin{equation}\label{eqn:circularlinecharge:120}
@@ -91,11 +91,13 @@ F = \frac{1}{4 \pi \epsilon_0} \int_a^b \lambda r d\phi' \frac{ R \Be_3 e^{j \th
 \end{equation}
 
 Non-dimensionalizing \cref{eqn:circularlinecharge:180} with \( u = r/R \), a change of variables \( \alpha = \phi' - \phi \), and noting that \( i \phicap = \Be_1 e^{i \phi} \), the field is
-\begin{dmath}\label{eqn:circularlinecharge:200}
+\begin{equation}\label{eqn:circularlinecharge:200}
+\begin{aligned}
 F
-= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \Be_3 e^{j \theta } - u \Be_1 e^{i\phi} e^{i \alpha} }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} }
-= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \rcap + \phicap u i e^{i \alpha } }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} },
-\end{dmath}
+&= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \Be_3 e^{j \theta } - u \Be_1 e^{i\phi} e^{i \alpha} }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} } \\
+&= \frac{\lambda r}{4 \pi \epsilon_0 R^2} \int_{a-\phi}^{b-\phi} d\alpha \frac{ \rcap + \phicap u i e^{i \alpha } }{\lr{ 1 + u^2 - 2 u \sin\theta \cos \alpha }^{3/2} },
+\end{aligned}
+\end{equation}
 or
 \begin{equation}\label{eqn:circularlinecharge:220}
 \begin{aligned}

@@ -131,51 +131,42 @@ In particular, this shows that the spherical representation of the gradient is
 \end{equation}
 
 The spherical (oriented) volume element can also be computed in a compact fashion
-\begin{dmath}\label{eqn:curvilinearspherical:300}
+\begin{equation}\label{eqn:curvilinearspherical:300}
+\begin{aligned}
 \frac{d^3 \Bx}{dr d\theta d\phi}
-=
-\Bx_r \wedge \Bx_\theta \wedge \Bx_\phi
-=
-\gpgradethree{
-\Bx_r \Bx_\theta \Bx_\phi
-}
-=
-\gpgradethree{
-\Be_3 e^{j \theta}
-r \Be_1 e^{i\phi} e^{j \theta}
-r \sin\theta \Be_2 e^{i \phi}
-}
-=
-r^2 \sin\theta
-\gpgradethree{
-\Be_3 e^{j \theta}
-\Be_1 e^{i\phi} e^{j \theta}
-\Be_2 e^{i \phi}
-}
-=
-r^2 \sin\theta\, \Be_{123}
-.
-\end{dmath}
+&= \Bx_r \wedge \Bx_\theta \wedge \Bx_\phi \\
+&= \gpgradethree{ \Bx_r \Bx_\theta \Bx_\phi } \\
+&= \gpgradethree{
+   \Be_3 e^{j \theta}
+   r \Be_1 e^{i\phi} e^{j \theta}
+   r \sin\theta \Be_2 e^{i \phi}
+   } \\
+&= r^2 \sin\theta
+   \gpgradethree{
+   \Be_3 e^{j \theta}
+   \Be_1 e^{i\phi} e^{j \theta}
+   \Be_2 e^{i \phi}
+   } \\
+&= r^2 \sin\theta\, \Be_{123}.
+\end{aligned}
+\end{equation}
 
 The scalar factor is in fact the Jacobian with respect to the spherical parameterization
-\begin{dmath}\label{eqn:curvilinearspherical:320}
+\begin{equation}\label{eqn:curvilinearspherical:320}
+\begin{aligned}
 \frac{dV}{
 dr d\theta d\phi}
-=
-\frac{\partial( x_1, x_2, x_3)}{\partial(r, \theta, \phi)}
-=
-\begin{vmatrix}
+&= \frac{\partial( x_1, x_2, x_3)}{\partial(r, \theta, \phi)} \\
+&= \begin{vmatrix}
 \sin\theta \cos\phi & \sin\theta \sin\phi & \cos\theta \\
 r \cos\theta \cos\phi & r \cos\theta \sin\phi & -r \sin\theta \\
 -r \sin\theta \sin\phi & r \sin\theta \cos\phi & 0 \\
-\end{vmatrix}
-=
-r^2 \sin\theta.
-\end{dmath}
+\end{vmatrix} \\
+&= r^2 \sin\theta.
+\end{aligned}
+\end{equation}
 
-The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of the Jacobian
-\cref{eqn:curvilinearspherical:320}, are both easily verified with software
-
+The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of the Jacobian \cref{eqn:curvilinearspherical:320}, are both easily verified with software
 \begin{mmaCell}[moredefined={OuterProduct, xr, xt, xp, e1, e2, e3, jacobian, e}]{Input}
   OuterProduct[ xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
   xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],

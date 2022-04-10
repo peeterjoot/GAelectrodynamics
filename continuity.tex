@@ -43,87 +43,83 @@ F &= \gpgrade{ \conjstgrad J }{1,2} \\
 Unpacking these further, we find that there is information
 carried in the requirement that the grade 0,3 selection of \cref{eqn:continuity:130} is zero.
 In particular, grade 0 selection gives
-\begin{dmath}\label{eqn:continuity:40}
+\begin{equation}\label{eqn:continuity:40}
+\begin{aligned}
 0
-=
-\gpgradezero{ ( \spacegrad - (1/c) \partial_t ) J }
-=
+&= \gpgradezero{ ( \spacegrad - (1/c) \partial_t ) J } \\
+&=
 \gpgradezero{
-\Biglr{ \spacegrad - \inv{c} \PD{t}{} }
-\biglr{
-   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
-}
-}
-=
--\eta
-\lr{ \spacegrad \cdot \BJ + \PD{t}{\rho} }
-,
-\end{dmath}
+   \Biglr{ \spacegrad - \inv{c} \PD{t}{} }
+   \biglr{
+      \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
+   }
+} \\
+&= -\eta \lr{ \spacegrad \cdot \BJ + \PD{t}{\rho} },
+\end{aligned}
+\end{equation}
 which demonstrates the continuity condition on the electric sources.
 Similarly, grade three selection gives
-\begin{dmath}\label{eqn:continuity:60}
+\begin{equation}\label{eqn:continuity:60}
+\begin{aligned}
 0
-=
-\gpgradethree{  (\spacegrad - (1/c) \partial_t ) J }
-=
-\gpgradethree{
+&= \gpgradethree{  (\spacegrad - (1/c) \partial_t ) J } \\
+&= \gpgradethree{
 \Biglr{ \spacegrad - \inv{c} \PD{t}{} }
-\lr{
-   \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
-}
-}
-=
--I \lr{
-   \spacegrad \cdot \BM + \PD{t}{\rho_\txtm}
-},
-\end{dmath}
+   \lr{
+      \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_\txtm - \BM }
+   }
+} \\
+&= -I \lr{ \spacegrad \cdot \BM + \PD{t}{\rho_\txtm} },
+\end{aligned}
+\end{equation}
 which demonstrates the continuity condition on the (fictitious) magnetic sources if included in the current.
 
 For the non-homogeneous wave equation of \cref{thm:continuity:600}, the current derivatives may be expanded explicitly.
 For the wave equation for the electric field, this is
-\begin{dmath}\label{eqn:continuity:150}
+\begin{equation}\label{eqn:continuity:150}
+\begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BE
 \dAlembertian \BE
-=
-\gpgradeone{\conjstgrad J}
-=
-\gpgradeone{
+&= \gpgradeone{\conjstgrad J} \\
+&= \gpgradeone{
    \conjstgrad
    \lr{
       \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
    }
-}
-=
-\inv{\epsilon} \spacegrad \rho -I \lr{ \spacegrad \wedge \BM } + \inv{c} \eta \PD{t}{\BJ}
-= \gpgrade{\conjstgrad J}{1} = \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM,
-\end{dmath}
+} \\
+&= \inv{\epsilon} \spacegrad \rho -I \lr{ \spacegrad \wedge \BM } + \inv{c} \eta \PD{t}{\BJ} \\
+&= \gpgrade{\conjstgrad J}{1} = \inv{\epsilon} \spacegrad \rho + \mu \PD{t}{\BJ} + \spacegrad \cross \BM,
+\end{aligned}
+\end{equation}
 as claimed.
 The forced magnetic field equation is
-\begin{dmath}\label{eqn:continuity:170}
+\begin{equation}\label{eqn:continuity:170}
+\begin{aligned}
 %\lr{ \spacegrad^2 - \inv{c^2} \PDSq{t}{} } \BH
 \dAlembertian \BH
-=
+&=
 \inv{\eta I}
-\gpgradetwo{\conjstgrad J}
-=
+\gpgradetwo{\conjstgrad J} \\
+&=
 \inv{\eta I}
 \gpgradetwo{
    \conjstgrad
    \lr{
       \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
    }
-}
-=
+} \\
+&=
 \inv{\eta I}
 \lr{
    -\spacegrad \wedge \BJ + I c \spacegrad \rho_\txtm + \frac{I}{c} \PD{t}{\BM}
-}
-=
+} \\
+&=
 \inv{I}
 \lr{
    -I \lr{ \spacegrad \cross \BJ} + I \inv{\mu} \spacegrad \rho_\txtm + I \epsilon \PD{t}{\BM}
-}
-= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ.
-\end{dmath}
+} \\
+&= \inv{\mu} \spacegrad \rho_\txtm + \epsilon \PD{t}{\BM} - \spacegrad \cross \BJ.
+\end{aligned}
+\end{equation}
 \end{proof}
 %}

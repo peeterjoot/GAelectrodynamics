@@ -19,19 +19,21 @@ where \( \Omega \) is a bivector containing all the constant factors.
 %\paragraph{FIXME}: the sign toggle and anticommutation \( \Bv \cdot \Omega = - \Omega \cdot \Bv \) can't be justified yet.  Flip the signs and dot product orders, and rework all of this.
 
 This can be solved by introducing a multivector integration factor \( R \) and its reverse \( R^\dagger \) on the left and right respectively
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:100}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:100}
+\begin{aligned}
 R \frac{d\Bv}{dt} R^\dagger
-= R \Bv \cdot \Omega R^\dagger
-= \inv{2} R \lr{ \Bv \Omega - \Omega \Bv} R^\dagger
-= \inv{2} R \Bv \Omega R^\dagger - \inv{2} R \Omega \Bv R^\dagger,
-\end{dmath}
+&= R \Bv \cdot \Omega R^\dagger \\
+&= \inv{2} R \lr{ \Bv \Omega - \Omega \Bv} R^\dagger \\
+&= \inv{2} R \Bv \Omega R^\dagger - \inv{2} R \Omega \Bv R^\dagger,
+\end{aligned}
+\end{equation}
 or
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:120}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:120}
 0 =
 R \frac{d\Bv}{dt} R^\dagger
 + \inv{2} R \Omega \Bv R^\dagger
 - \inv{2} R \Bv \Omega R^\dagger.
-\end{dmath}
+\end{equation}
 
 Let
 \begin{equation}\label{eqn:lorentzForce_constantMagnetic:140}

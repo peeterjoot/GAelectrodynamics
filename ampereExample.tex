@@ -50,42 +50,39 @@ d\Bx = R \Be_2 e^{i\phi} d\phi = R \phicap d\phi.
 \end{equation}
 With the line element having only a \( \phicap \) component, \( F \) must be a bivector proportional to \( \Be_3 \rcap \).
 Let \( F = F_0 \Be_{31} e^{i\phi} \), where \( F_0 \) is a scalar, so that \( d\Br F \) is a constant multiple of the unit pseudoscalar
-\begin{dmath}\label{eqn:ampereExample:80}
+\begin{equation}\label{eqn:ampereExample:80}
+\begin{aligned}
 \int_0^{2\pi} d\Br F
-=
-R F_0 \int_0^{2\pi} \Be_2 e^{i\phi} d\phi \Be_{31} e^{i\phi}
-=
-R F_0 \int_0^{2\pi} \Be_{231} e^{-i\phi} e^{i\phi} d\phi
-=
-2 \pi I R F_0,
-\end{dmath}
+&= R F_0 \int_0^{2\pi} \Be_2 e^{i\phi} d\phi \Be_{31} e^{i\phi} \\
+&= R F_0 \int_0^{2\pi} \Be_{231} e^{-i\phi} e^{i\phi} d\phi \\
+&= 2 \pi I R F_0,
+\end{aligned}
+\end{equation}
 so
-\begin{dmath}\label{eqn:ampereExample:100}
-F_0 =
-\inv{I 2 \pi R} I I_\txte
-=
- \frac{I_\txte}{2 \pi R}.
-\end{dmath}
+\begin{equation}\label{eqn:ampereExample:100}
+\begin{aligned}
+F_0 
+&= \inv{I 2 \pi R} I I_\txte \\
+&= \frac{I_\txte}{2 \pi R}.
+\end{aligned}
+\end{equation}
 The field strength relative to the point \( \Bp \) is
-\begin{dmath}\label{eqn:ampereExample:120}
+\begin{equation}\label{eqn:ampereExample:120}
+\begin{aligned}
 F
-=
- \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap
-=
- \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap.
-\end{dmath}
+&= \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap \\
+&= \frac{\eta I_\txte}{2 \pi R} \Be_3 \rcap.
+\end{aligned}
+\end{equation}
 
 Switching to an origin relative coordinate system, removing the \( z = 0 \) restriction for \( \Br \) and \( \Bp_k \), and summing over both currents, the total field at any point \( \Br \) strictly between the currents is
-\begin{dmath}\label{eqn:ampereExample:140}
+\begin{equation}\label{eqn:ampereExample:140}
+\begin{aligned}
 F
-=
-\sum_{k = 1,2}
- \frac{\eta I_k}{2 \pi} \Be_3 \inv{\Be_3 \lr{ \Be_3 \wedge \lr{ \Br - \Bp_k}}}
-=
-\sum_{k = 1,2}
- \frac{\eta I_k}{2 \pi} \inv{ \Be_3 \wedge \lr{ \Br - \Bp_k} }.
-\end{dmath}
+&= \sum_{k = 1,2} \frac{\eta I_k}{2 \pi} \Be_3 \inv{\Be_3 \lr{ \Be_3 \wedge \lr{ \Br - \Bp_k}}} \\
+&= \sum_{k = 1,2} \frac{\eta I_k}{2 \pi} \inv{ \Be_3 \wedge \lr{ \Br - \Bp_k} }.
+\end{aligned}
+\end{equation}
 The bivector nature of a field with only electric current density sources is naturally represented by the wedge product \( \Be_3 \wedge \lr{ \Br - \Bp_k} \) which is a vector product of \( \Be_3 \) and the projection of \( \Br - \Bp_k \) onto the x-y plane.
-
 %}
 %\EndNoBibArticle

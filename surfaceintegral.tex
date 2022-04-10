@@ -40,11 +40,11 @@ The surface integral specialization of \cref{thm:fundamentalTheoremOfCalculus:1}
 To prove \cref{thm:surfaceintegral:100} we start by expanding the multivector product \( d^2\Bx\, \boldpartial \) in curvilinear coordinates, where we discover
 that this product has only a vector grade.
 The vector derivative, the projection of the gradient onto the surface at the point of integration (also called the tangent space), now has two components
-\begin{dmath}\label{eqn:surfaceintegral:200}
+\begin{equation}\label{eqn:surfaceintegral:200}
+\begin{aligned}
 \boldpartial
-=
-\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
-=
+&= \sum_i \Bx^i (\Bx_i \cdot \spacegrad) \\
+&=
 \Bx^u \PD{u}{}
 +
 \Bx^v \PD{v}{}
@@ -52,7 +52,8 @@ The vector derivative, the projection of the gradient onto the surface at the po
 \Bx^u \partial_u
 +
 \Bx^v \partial_v.
-\end{dmath}
+\end{aligned}
+\end{equation}
 To see why the product of the area elements and the vector derivative
 \begin{equation}\label{eqn:surfaceintegral:300}
 d^2\Bx\, \boldpartial
@@ -138,13 +139,13 @@ special cases of \cref{thm:surfaceintegral:100}, both variations of Stokes' theo
 \input{Theorem_surface_integral_of_scalar_stokes.tex}
 \begin{proof}
 To show the first part, we can split the (multivector) surface integral into vector and trivector grades
-\begin{dmath}\label{eqn:surfaceintegral:440}
+\begin{equation}\label{eqn:surfaceintegral:440}
 \int_S d^2\Bx\, \boldpartial f
 =
 \int_S d^2\Bx \cdot \boldpartial f
 +
 \int_S d^2\Bx \wedge \boldpartial f.
-\end{dmath}
+\end{equation}
 
 Since \( \Bx^u, \Bx^v \) both lie in the span of \( \setlr{ \Bx_u, \Bx_v } \),
 \( d^2\Bx \wedge \boldpartial = 0 \), killing the second integral in \cref{eqn:surfaceintegral:440}.

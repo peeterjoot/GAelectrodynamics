@@ -33,42 +33,25 @@ T((1/c)\partial_t) &= \inv{c} \PD{t}{T(1)} = \inv{c} \PD{t}{} \lr{ \calE + \frac
 \begin{proof}
 We will proceed to prove each of the results of
 \cref{thm:poyntingTheoremRewrite:1200} in sequence, starting with the time partial, which is a scalar operator
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1220}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1220}
+\begin{aligned}
 T(\partial_t)
-=
-\frac{\epsilon}{2}
- F \lroverarrow{\partial_t} F^\dagger
-=
-\frac{\epsilon}{2}
-\lr{
- (\partial_t F) F^\dagger
-+
- F (\partial_t F^\dagger)
-}
-=
-\frac{\epsilon}{2}
-\partial_t
- F F^\dagger
-=
-\partial_t T(1).
-\end{dmath}
+&= \frac{\epsilon}{2} F \lroverarrow{\partial_t} F^\dagger \\
+&= \frac{\epsilon}{2} \lr{ (\partial_t F) F^\dagger + F (\partial_t F^\dagger) } \\
+&= \frac{\epsilon}{2} \partial_t F F^\dagger \\
+&= \partial_t T(1).
+\end{aligned}
+\end{equation}
 
 To evaluate the tensor at the gradient we have to take care of order.  This is easiest in a scalar selection where we may cyclically permute any multivector factors
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1240}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1240}
+\begin{aligned}
 \gpgradezero{T(\spacegrad)}
-=
-\frac{\epsilon}{2}
-\gpgradezero{
- F \lrspacegrad F^\dagger
-}
-=
-\frac{\epsilon}{2}
-\gpgradezero{
- \spacegrad F^\dagger F
-}
-=
-\frac{\epsilon}{2} \spacegrad \gpgradeone{ F^\dagger F },
-\end{dmath}
+&= \frac{\epsilon}{2} \gpgradezero{ F \lrspacegrad F^\dagger } \\
+&= \frac{\epsilon}{2} \gpgradezero{ \spacegrad F^\dagger F } \\
+&= \frac{\epsilon}{2} \spacegrad \gpgradeone{ F^\dagger F },
+\end{aligned}
+\end{equation}
 but
 \begin{equation}\label{eqn:poyntingTheoremRewrite:1260}
 \begin{aligned}
@@ -103,21 +86,17 @@ Will want to integrate \( \BT(\spacegrad) \) over a volume, which is essentially
 } % theorem
 \begin{proof}
 To prove \cref{thm:poyntingTheoremRewrite:1281}, we make use of the symmetric property of the Maxwell stress tensor
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:320}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:320}
+\begin{aligned}
 \int_V dV\, \BT(\spacegrad)
-=
-\sum_k \int_V dV\, \Be_k \spacegrad \cdot \BT(\Be_k)
-=
-\sum_k \int_{\partial V} dA\, \Be_k \ncap \cdot \BT(\Be_k)
-=
-\sum_{k,m} \int_{\partial V} dA\, \Be_k n_m {\BT(\Be_k) \cdot \Be_m}
-=
-\sum_{k,m} \int_{\partial V} dA\, \Be_k n_m {\BT(\Be_m) \cdot \Be_k}
-=
-\sum_{k} \int_{\partial V} dA\, \Be_k {\BT(\ncap) \cdot \Be_k}
-=
-\int_{\partial V} dA\, \BT(\ncap),
-\end{dmath}
+&= \sum_k \int_V dV\, \Be_k \spacegrad \cdot \BT(\Be_k) \\
+&= \sum_k \int_{\partial V} dA\, \Be_k \ncap \cdot \BT(\Be_k) \\
+&= \sum_{k,m} \int_{\partial V} dA\, \Be_k n_m {\BT(\Be_k) \cdot \Be_m} \\
+&= \sum_{k,m} \int_{\partial V} dA\, \Be_k n_m {\BT(\Be_m) \cdot \Be_k} \\
+&= \sum_{k} \int_{\partial V} dA\, \Be_k {\BT(\ncap) \cdot \Be_k} \\
+&= \int_{\partial V} dA\, \BT(\ncap),
+\end{aligned}
+\end{equation}
 as claimed.
 \end{proof}
 
@@ -144,13 +123,13 @@ The adjoint \( \overbar{T} \) and \( T \) satisfy the following relationships
 \begin{proof}
 Using
 the cyclic scalar selection permutation property \(\gpgradezero{ABC} = \gpgradezero{CAB}\) we form
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1160}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1160}
+\begin{aligned}
 \gpgradezero{ x T(y) }
-=
-\frac{\epsilon}{2} \gpgradezero{ x F y F^\dagger }
-=
-\frac{\epsilon}{2} \gpgradezero{ y F^\dagger x F }.
-\end{dmath}
+&= \frac{\epsilon}{2} \gpgradezero{ x F y F^\dagger } \\
+&= \frac{\epsilon}{2} \gpgradezero{ y F^\dagger x F }.
+\end{aligned}
+\end{equation}
 Referring back to \cref{dfn:poyntingTheorem:1120} we see that the adjoint must have the stated form.
 Proving the grade selection relationships of \cref{eqn:poyntingTheoremRewrite:1160} has been left as
 an exercise for the reader.  A brute force symbolic algebra proof using Mathematica is also available in \itemRef{GAelectrodynamics}{stressEnergyTensorValues.nb}.
@@ -172,13 +151,13 @@ the adjoint may also be evaluated with differential operator parameters.
 } % theorem
 \begin{proof}
 The proofs of each of the statements in \cref{thm:poyntingTheoremRewrite:1280} are all fairly simple
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1280}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1280}
+\begin{aligned}
 \overbar{T}((1/c)\partial_t)
-=
-\inv{c} \frac{\epsilon}{2} \PD{t}{} \lr{ F^\dagger F }
-=
-\inv{c} \PD{t}{} \lr{ \calE - \frac{\BS}{c} }.
-\end{dmath}
+&= \inv{c} \frac{\epsilon}{2} \PD{t}{} \lr{ F^\dagger F } \\
+&= \inv{c} \PD{t}{} \lr{ \calE - \frac{\BS}{c} }.
+\end{aligned}
+\end{equation}
 \begin{equation}\label{eqn:poyntingTheoremRewrite:1300}
 \begin{aligned}
 \gpgradezero{ \overbar{T}(\spacegrad) }
@@ -205,15 +184,13 @@ All the prerequisites for stating Poynting's theorem are now finally complete.
 \input{Theorem_poynting_differential.tex}
 \begin{proof}
 The conservation relationship of \cref{thm:poyntingTheorem:1180} follows from
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1340}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1340}
+\begin{aligned}
 F^\dagger \lr{ \lrspacegrad + \inv{c}\lroverarrow{\partial_t} } F
-=
-\lr{ \lr{ \spacegrad + \inv{c} \partial_t } F }^\dagger F
-+
-F^\dagger \lr{ \lr{ \spacegrad + \inv{c} \partial_t } F }
-=
-J^\dagger F + F^\dagger J.
-\end{dmath}
+&= \lr{ \lr{ \spacegrad + \inv{c} \partial_t } F }^\dagger F + F^\dagger \lr{ \lr{ \spacegrad + \inv{c} \partial_t } F } \\
+&= J^\dagger F + F^\dagger J.
+\end{aligned}
+\end{equation}
 The scalar form of
 \cref{thm:poyntingTheorem:1180}
 follows from
@@ -236,70 +213,54 @@ since scalars are reversion invariant
 \gpgradezero{ J^\dagger F },
 \end{equation}
 so
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:960}
-\spacegrad \cdot \gpgradeone{ T(1) }
-+ \inv{c} \PD{t}{} \gpgradezero{ T(1) }
-=
-\spacegrad \cdot \frac{\BS}{c} + \inv{c} \PD{t}{\calE}
-=
-\frac{\epsilon}{2} \gpgradezero{ F^\dagger J + J^\dagger F }
-=
-\epsilon
-\gpgradezero{ F^\dagger J }
-=
-\epsilon
-\gpgradezero{
-   \lr{ \BE -I \eta \BH }\lr{
-      \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_m - \BM }
-   }
-}
-=
-\epsilon
-\lr{
-   -\eta \BE \cdot \BJ -\eta \BH \cdot \BM
-}
-=
-- \inv{c} \BE \cdot \BJ - \inv{c} \BH \cdot \BM,
-\end{dmath}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:960}
+\begin{aligned}
+\spacegrad \cdot \gpgradeone{ T(1) } + \inv{c} \PD{t}{} \gpgradezero{ T(1) }
+&= \spacegrad \cdot \frac{\BS}{c} + \inv{c} \PD{t}{\calE} \\
+&= \frac{\epsilon}{2} \gpgradezero{ F^\dagger J + J^\dagger F } \\
+&= \epsilon \gpgradezero{ F^\dagger J } \\
+&= \epsilon
+   \gpgradezero{
+      \lr{ \BE -I \eta \BH }\lr{
+         \eta \lr{ c \rho - \BJ } + I \lr{ c \rho_m - \BM }
+      }
+   } \\
+&= \epsilon \lr{ -\eta \BE \cdot \BJ -\eta \BH \cdot \BM } \\
+&= - \inv{c} \BE \cdot \BJ - \inv{c} \BH \cdot \BM,
+\end{aligned}
+\end{equation}
 which proves the claimed explicit expansion of the scalar grade selection of Poynting's theorem.
 
 The left hand side of the vector grade selection follows by linearity using \cref{thm:poyntingTheoremRewrite:1280}
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1380}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1380}
+\begin{aligned}
 \gpgradeone{ \overbar{T}(\spacegrad + (1/c)\partial_t) }
-=
-\gpgradeone{ \overbar{T}(\spacegrad) + \overbar{T}((1/c)\partial_t) }
-=
-\BT(\spacegrad) - \inv{c^2} \PD{t}{\BS}.
-\end{dmath}
+&= \gpgradeone{ \overbar{T}(\spacegrad) + \overbar{T}((1/c)\partial_t) } \\
+&= \BT(\spacegrad) - \inv{c^2} \PD{t}{\BS}.
+\end{aligned}
+\end{equation}
 The right hand side is a bit messier to simplify.
 Let's do this in pieces by superposition, first considering just electric sources
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:80}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:80}
+\begin{aligned}
 \frac{\epsilon}{2} \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
-=
-\frac{\epsilon \eta}{2}
-\gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH)(c \rho - \BJ)  + (c \rho - \BJ)( \BE + I \eta \BH )} }
-=
-\frac{1}{2c } \Be_k \cdot
-\gpgradeone{ (\BE - I \eta \BH)(c \rho - \BJ)  + (c \rho - \BJ)( \BE + I \eta \BH ) }
-=
-\inv{c} \Be_k \cdot \lr{ c \rho \BE + I \eta \BH \wedge \BJ }
-=
-\inv{c} \Be_k \cdot \lr{ c \rho \BE - \eta \BH \cross \BJ }
-=
-\Be_k \cdot \lr{ \rho \BE + \mu \BJ \cross \BH },
-\end{dmath}
+&= \frac{\epsilon \eta}{2} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH)(c \rho - \BJ)  + (c \rho - \BJ)( \BE + I \eta \BH )} } \\
+&= \frac{1}{2c } \Be_k \cdot \gpgradeone{ (\BE - I \eta \BH)(c \rho - \BJ)  + (c \rho - \BJ)( \BE + I \eta \BH ) } \\
+&= \inv{c} \Be_k \cdot \lr{ c \rho \BE + I \eta \BH \wedge \BJ } \\
+&= \inv{c} \Be_k \cdot \lr{ c \rho \BE - \eta \BH \cross \BJ } \\
+&= \Be_k \cdot \lr{ \rho \BE + \mu \BJ \cross \BH },
+\end{aligned}
+\end{equation}
 and then magnetic sources
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:180}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:180}
+\begin{aligned}
 \frac{\epsilon}{2 } \gpgradezero{ \Be_k \lr{ F^\dagger J + J^\dagger F} }
-=
-\frac{\epsilon }{2} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH) I (c \rho_\txtm - \BM)  - I (c \rho_\txtm - \BM)( \BE + I \eta \BH )} }
-=
-\frac{\epsilon }{2} \Be_k \cdot \gpgradeone{ (I \BE + \eta \BH)(c \rho_\txtm - \BM)  + (c \rho_\txtm - \BM)( -I \BE + \eta \BH )}
-=
-\epsilon \Be_k \cdot \lr{ \eta c \rho_\txtm \BH - I \BE \wedge \BM }
-=
-\Be_k \cdot \lr{ \rho_\txtm \BH + \epsilon \BE \cross \BM }.
-\end{dmath}
+&= \frac{\epsilon }{2} \gpgradezero{ \Be_k \lr{ (\BE - I \eta \BH) I (c \rho_\txtm - \BM)  - I (c \rho_\txtm - \BM)( \BE + I \eta \BH )} } \\
+&= \frac{\epsilon }{2} \Be_k \cdot \gpgradeone{ (I \BE + \eta \BH)(c \rho_\txtm - \BM)  + (c \rho_\txtm - \BM)( -I \BE + \eta \BH )} \\
+&= \epsilon \Be_k \cdot \lr{ \eta c \rho_\txtm \BH - I \BE \wedge \BM } \\
+&= \Be_k \cdot \lr{ \rho_\txtm \BH + \epsilon \BE \cross \BM }.
+\end{aligned}
+\end{equation}
 Jointly,
 \cref{eqn:poyntingTheoremRewrite:1380}, \cref{eqn:poyntingTheoremRewrite:80}, \cref{eqn:poyntingTheoremRewrite:180} complete the proof.
 \end{proof}
@@ -319,13 +280,13 @@ The direction of the Poynting vector is the direction that the energy is leaving
 The right hand side of the vector integral in \cref{thm:poyntingTheoremRewrite:1420} is a continuous representation of the Lorentz force
 (or dual Lorentz force for magnetic charges),
 the mechanical force on the charges in the volume.  This can be seen by setting \( \BJ = \rho \Bv \) (or \( \BM = \rho_\txtm \BM \))
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1420}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1420}
+\begin{aligned}
 \int_V dV \lr{ \rho \BE + \BJ \cross \BB }
-=
-\int_V dV\, \rho \lr{ \BE + \Bv \cross \BB }
-=
-\int_V dq \lr{ \BE + \Bv \cross \BB }.
-\end{dmath}
+&= \int_V dV\, \rho \lr{ \BE + \Bv \cross \BB } \\
+&= \int_V dq \lr{ \BE + \Bv \cross \BB }.
+\end{aligned}
+\end{equation}
 
 As the field in the volume is carrying the (electromagnetic) momentum \( \Bp_{\textrm{em}} = \int_V dV \bcP \), we can identify the sum of the Maxwell stress tensor normal component over the bounding integral as time rate of change of the mechanical and electromagnetic momentum
 \index{\(\Bp_{\textrm{mech}}\)}

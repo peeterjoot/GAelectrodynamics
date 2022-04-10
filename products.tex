@@ -133,12 +133,14 @@ j = \frac{\Be_{32} + \Be_{13} + \Be_{12 } }{\sqrt{3}}.
 
 The reader can check (\cref{problem:products:2000})
 that \( j \) is a unit bivector (i.e. it squares to \( -1 \)), allowing us to write
-\begin{dmath}\label{eqn:products:1940}
-\Ba \Bb =
-\inv{2} + \frac{\sqrt{3}}{2} j
-= \cos(\pi/3) + j \sin(\pi/3)
-= \exp\lr{ j \pi/3 }.
-\end{dmath}
+\begin{equation}\label{eqn:products:1940}
+\begin{aligned}
+\Ba \Bb
+&= \inv{2} + \frac{\sqrt{3}}{2} j \\
+&= \cos(\pi/3) + j \sin(\pi/3) \\
+&= \exp\lr{ j \pi/3 }.
+\end{aligned}
+\end{equation}
 
 Since both vector factors were unit length, this ``complex'' exponential has no leading scalar factor contribution from \( \Norm{\Ba} \Norm{\Bb} \).
 
@@ -194,25 +196,19 @@ The product of these vectors is
 
 Since \( \Be_i \Be_i = 1 \), we see again that the scalar component of the product is the dot product \( \sum_i a_i b_i \).
 The remaining grade 2 components are the wedge product, for which the coordinate expansion can be simplified further
-\begin{dmath}\label{eqn:products:1460}
+\begin{equation}\label{eqn:products:1460}
+\begin{aligned}
 \Ba \wedge \Bb
-=
-\sum_{i \ne j} a_i b_j \Be_i \Be_j
-=
-\sum_{i < j} a_i b_j \Be_i \Be_j
-+
-\sum_{j < i} a_i b_j \Be_i \Be_j
-=
-\sum_{i < j} a_i b_j \Be_i \Be_j
-+
-\sum_{i < j} a_j b_i \Be_j \Be_i
-%=
+&= \sum_{i \ne j} a_i b_j \Be_i \Be_j \\
+&= \sum_{i < j} a_i b_j \Be_i \Be_j + \sum_{j < i} a_i b_j \Be_i \Be_j \\
+&= \sum_{i < j} a_i b_j \Be_i \Be_j + \sum_{i < j} a_j b_i \Be_j \Be_i \\
+%&=
 %\sum_{i < j} a_i b_j \Be_i \Be_j
 %+
-%\sum_{i < j} a_j b_i (-\Be_i \Be_j)
-=
-\sum_{i < j} (a_i b_j - a_j b_i) \Be_i \Be_j.
-\end{dmath}
+%\sum_{i < j} a_j b_i (-\Be_i \Be_j) \\
+&= \sum_{i < j} (a_i b_j - a_j b_i) \Be_i \Be_j.
+\end{aligned}
+\end{equation}
 
 \index{determinant!wedge product}
 The scalar factors can be written as \( 2 x 2 \) determinants
@@ -364,8 +360,8 @@ By direct computation, we find that the wedge and the cross products are related
    +
 \cancel{ 
    (3\Be_3) \wedge (6\Be_3 )
-}
-+
+} \\
+&\quad +
 5 \Be_{12} + 6 \Be_{13}
 + 8 \Be_{21} + 12 \Be_{23}
 + 12 \Be_{31} + 15 \Be_{32} \\

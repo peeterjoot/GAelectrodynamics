@@ -17,34 +17,38 @@ we utilize the Green's function for the (first order) gradient
 \cref{eqn:greensFunctionFirstOrderHelmholtz:900},
 %\cref{eqn:electrostatics_invertingGradient:260},
 finding immediately
-\begin{dmath}\label{eqn:statics:40}
+\begin{equation}\label{eqn:statics:40}
+\begin{aligned}
 F(\Bx)
-= \int_V dV'\, G(\Bx, \Bx') \spacegrad' J(\Bx')
-= \gpgrade{\int_V dV'\, G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2}
-= \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
-\end{dmath}
+&= \int_V dV'\, G(\Bx, \Bx') \spacegrad' J(\Bx') \\
+&= \gpgrade{\int_V dV'\, G(\Bx, \Bx') \spacegrad' J(\Bx')}{1,2} \\
+&= \inv{4\pi} \int_V dV' \gpgrade{\frac{(\Bx - \Bx') J(\Bx')}{\Norm{\Bx - \Bx'}^3} }{1,2}.
+\end{aligned}
+\end{equation}
 Here a no-op grade selection has been inserted to simplify subsequent manipulation\footnote{If this grade selection filter is omitted, it is possible to show that the scalar and pseudoscalar contributions to the \( (\Bx -\Bx') J \) product are zero on the boundary of the Green's integration volume. \citep{jancewicz1988multivectors:appendixI}}.
 We are also free to add any grade 1,2 solution of the homogeneous gradient equation, which provides the multivector form of the solution.
 
 To unpack the multivector result, let \( \Bs = \Bx -\Bx' \), and expand the grade 1,2 selection
-\begin{dmath}\label{eqn:statics:60}
+\begin{equation}\label{eqn:statics:60}
+\begin{aligned}
 \gpgrade{\Bs J}{1,2}
-=
+&=
 \eta \gpgrade{\Bs (c \rho - \BJ)}{1,2}
 +
-\gpgrade{\Bs I(c \rho_m - \BM)}{1,2}
-=
+\gpgrade{\Bs I(c \rho_m - \BM)}{1,2} \\
+&=
 \eta c \Bs \rho - \eta (\Bs \wedge \BJ)
 +
 c I \Bs \rho_m
 -
-I (\Bs \wedge \BM)
-=
+I (\Bs \wedge \BM) \\
+&=
 \inv{\epsilon} \Bs \rho
 + \eta I (\BJ \cross \Bs)
 + \Bs c \rho_m I
 + \Bs \cross \BM,
-\end{dmath}
+\end{aligned}
+\end{equation}
 so the field is
 \begin{equation}\label{eqn:statics:80}
 \begin{aligned}

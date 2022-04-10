@@ -34,11 +34,11 @@ Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable using the Gr
 \input{Theorem_jefimenkos.tex}
 \begin{proof}
 The full solution is
-\begin{dmath}\label{eqn:jefimenkosEquations:20}
+\begin{equation}\label{eqn:jefimenkosEquations:20}
+\begin{aligned}
 F(\Bx, t)
-= F_0(\Bx, t)
-+ \int dV' dt' \, G(\Bx - \Bx', t - t') J(\Bx', t')
-= F_0(\Bx, t)
+&= F_0(\Bx, t) + \int dV' dt' \, G(\Bx - \Bx', t - t') J(\Bx', t') \\
+&= F_0(\Bx, t)
 +
 \inv{4\pi}
 \int dV' dt'
@@ -51,11 +51,12 @@ F(\Bx, t)
    \delta( -r/c + t - t' )
 }
 J(\Bx', t')
-\end{dmath}
+\end{aligned}
+\end{equation}
 where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
 With the help of \cref{eqn:derivativeOfDeltaFunction:140}, the derivatives in the Green's function \cref{eqn:jefimenkosEquations:20} can be evaluated, and
 the convolution reduces to
-\begin{dmath}\label{eqn:jefimenkosEquations:40}
+\begin{equation}\label{eqn:jefimenkosEquations:40}
 \int dt' G(\Bx - \Bx', t - t') J(\Bx', t')
 =
 \inv{4 \pi}
@@ -68,7 +69,7 @@ the convolution reduces to
 \inv{c r} \frac{d}{dt_r} J(\Bx', t_r)
 }
 }{t_r = t - r/c}.
-\end{dmath}
+\end{equation}
 
 There have been lots of opportunities to mess up with signs and factors of \( c \), so let's expand this out explicitly for a non-magnetic current source \( J = \rho/\epsilon - \eta \BJ \).
 %, and check the results against Jefimenko's equations found in
@@ -76,8 +77,10 @@ There have been lots of opportunities to mess up with signs and factors of \( c 
 Neglect the contribution of the homogeneous solution \( F_0 \), and utilizing our freedom to
 insert a no-op grade 1,2 selection operation, that
 removes any scalar and pseudoscalar terms that are necessarily killed over the full integration range, we find
-\begin{dmath}\label{eqn:jefimenkosEquations:80}
-F =
+\begin{equation}\label{eqn:jefimenkosEquations:80}
+\begin{aligned}
+F 
+&=
 \inv{4 \pi}
 \int dV'
 \gpgrade{
@@ -85,8 +88,8 @@ F =
 \lr{ \frac{\rho}{\epsilon} - \eta \BJ }
    +
    \inv{c r} \lr{ 1 + \rcap } \lr{ \frac{\dispdot{\rho}}{\epsilon} - \eta \dotBJ }
-}{1,2}
-=
+}{1,2} \\
+&=
 \inv{4 \pi}
 \int dV'
 \lr{
@@ -95,8 +98,8 @@ F =
    - \frac{\eta}{ c r } \dotBJ
    + \inv{c r} \rcap \frac{\dispdot{\rho}}{\epsilon}
    - \frac{\eta}{c r} \rcap \wedge \dotBJ
-}
-=
+} \\
+&=
 \inv{4 \pi}
 \int dV'
 \lr{
@@ -106,7 +109,8 @@ F =
    - I \frac{\eta }{c r} \rcap \cross \dotBJ
    - I \frac{\eta}{r^2} \rcap \cross \BJ
 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 As \( F = \BE + I \eta \BH \), the respective electric and magnetic fields by inspection.  After re-inserting the space and time parameters that we suppressed temporarily, our work is done.
 %the proof is complete.

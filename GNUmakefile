@@ -21,7 +21,7 @@ SUBFIGDIR := color
 endif
 
 # comment this out for online pdf version (uncomment for KDP)
-#PRINT_VERSION := 1
+PRINT_VERSION := 1
 
 ifndef PRINT_VERSION
 PARAMS += --no-print

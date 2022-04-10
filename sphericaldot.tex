@@ -12,76 +12,82 @@ Computing the various dot products is made easier by noting that \( \Be_3 \) and
 
 \begin{subequations}
 \label{eqn:sphericaldot:160}
-\begin{dmath}\label{eqn:sphericaldot:180}
+\begin{equation}\label{eqn:sphericaldot:180}
+\begin{aligned}
 \Bx_r \cdot \Bx_\theta
-=
+&=
 \gpgradezero{
 \Be_3 e^{j \theta} \Be_1 e^{i\phi} e^{j \theta}
-}
-=
+} \\
+&=
 \gpgradezero{
 e^{j \theta} \Be_3 e^{j \theta} \Be_1 e^{i\phi}
-}
-=
+} \\
+&=
 \gpgradezero{
 \Be_3 e^{-j \theta} e^{j \theta} \Be_1 e^{i\phi}
-}
-=
+} \\
+&=
 \gpgradezero{
 \Be_3 \Be_1 e^{i\phi}
-}
-= 0
-\end{dmath}
-\begin{dmath}\label{eqn:sphericaldot:200}
+} \\
+&= 0
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:sphericaldot:200}
+\begin{aligned}
 \Bx_r \cdot \Bx_\phi
-=
+&=
 \gpgradezero{
 \Be_3 e^{j \theta} r \sin\theta \Be_2 e^{i \phi}
-}
-=
+} \\
+&=
 r \sin\theta
 \gpgradezero{
 \Be_3 \lr{ \cos\theta + \Be_{31} \sin\theta e^{i\phi} } \Be_2 e^{i \phi}
-}
-=
+} \\
+&=
 r \sin^2\theta
 \gpgradezero{
 \Be_{1} e^{i\phi} \Be_2 e^{i \phi}
-}
-=
+} \\
+&=
 r \sin^2\theta
 \gpgradezero{
 \Be_{1} \Be_2
-}
-=
+} \\
+&=
 0
-\end{dmath}
-\begin{dmath}\label{eqn:sphericaldot:220}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:sphericaldot:220}
+\begin{aligned}
 \Bx_\theta \cdot \Bx_\phi
-=
+&=
 r \sin\theta
 \gpgradezero{
 \Be_1 e^{i\phi} e^{j \theta}
 \Be_2 e^{i \phi}
-}
-=
+} \\
+&=
 r \sin\theta
 \gpgradezero{
 \Be_2 \Be_1 e^{j \theta}
-}
-=
+} \\
+&=
 r \sin\theta
 \gpgradezero{
 \Be_2 \Be_1 \lr{ \cos\theta + \Be_{31} \sin\theta e^{i \phi} }
-}
-=
+} \\
+&=
 r \sin^2\theta
 \gpgradezero{
 \Be_{32} e^{i \phi}
-}
-=
+} \\
+&=
 0.
-\end{dmath}
+\end{aligned}
+\end{equation}
 \end{subequations}
 
 } % answer

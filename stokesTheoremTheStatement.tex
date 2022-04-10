@@ -21,7 +21,7 @@ is an s-blade, with grade \( s < k \).
 The proof follows by selecting the \( k-(s+1) \) grade, the lowest grade of \( d^k \Bx (\boldpartial \wedge G) \), from both sides of \cref{thm:fundamentalTheoremOfCalculus:1}.
 
 For the grade selection of the hypervolume integral we have
-\begin{dmath}\label{eqn:stokesTheoremTheStatement:100}
+\begin{equation}\label{eqn:stokesTheoremTheStatement:100}
 \gpgrade{ \int_V d^k \Bx \boldpartial G }{k-(s+1)}
 =
 \gpgrade{
@@ -29,11 +29,13 @@ For the grade selection of the hypervolume integral we have
 +
 \int_V d^k \Bx (\boldpartial \wedge G )
 }{k-(s-1)},
-\end{dmath}
+\end{equation}
 however, the lowest grade of \( d^k \Bx (\boldpartial \cdot G ) \) is \( k -(s-1) = k - s + 1 > k - (s+1) \), so the divergence integral is zero.  As \( d^{k-1} \Bx \) is a \( k - 1 \) blade
-\begin{dmath}\label{eqn:stokesTheoremTheStatement:110}
+\begin{equation}\label{eqn:stokesTheoremTheStatement:110}
+\begin{aligned}
 \int_V d^k \Bx \cdot (\boldpartial \wedge G )
-= \int_{\partial V} \gpgrade{d^{k-1} \Bx G}{k-(s+1)}
-= \int_{\partial V} d^{k-1} \Bx \cdot G.
-\end{dmath}
+&= \int_{\partial V} \gpgrade{d^{k-1} \Bx G}{k-(s+1)} \\
+&= \int_{\partial V} d^{k-1} \Bx \cdot G.
+\end{aligned}
+\end{equation}
 \end{proof}

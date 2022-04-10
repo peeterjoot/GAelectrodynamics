@@ -62,23 +62,21 @@ A volume and its corresponding differentials with respect to three parameters is
 
 In \R{3} the vector derivative for a volume parameterization and the gradient are identical.  In higher dimensional spaces
 the projection of the gradient onto the volume at the point of integration (also called the tangent space), has three components
-\begin{dmath}\label{eqn:volumeintegral:200}
+\begin{equation}\label{eqn:volumeintegral:200}
 \boldpartial
-=
-\sum_i \Bx^i (\Bx_i \cdot \spacegrad)
-=
-\Bx^1 \PD{u_1}{}
+&= \sum_i \Bx^i (\Bx_i \cdot \spacegrad) \\
+&= \Bx^1 \PD{u_1}{}
 +
 \Bx^2 \PD{u_2}{}
 +
-\Bx^3 \PD{u_3}{}
-\equiv
+\Bx^3 \PD{u_3}{} \\
+&\equiv
 \Bx^1 \partial_1
 +
 \Bx^2 \partial_2
 +
 \Bx^3 \partial_3.
-\end{dmath}
+\end{equation}
 \todo{Have I not spelled out the volume element and the vector derivative for three parameters before?  Check for this and remove redudancy.}
 
 With the volume element and the vector derivative spelled out explicitly, we can proceed with a proof of \cref{thm:volumeintegral:100}.  
@@ -205,9 +203,10 @@ The sum within the second integral is
 \end{equation}
 which is zero by equality of mixed partials.
 This leaves three perfect differentials, which can integrated separately, giving
-\begin{dmath}\label{eqn:volumeintegral:400}
+\begin{equation}\label{eqn:volumeintegral:400}
+\begin{aligned}
 \int_V F d^3\Bx \boldpartial G
-=
+&=
 \int du_2 du_3
 \evalbar{ \lr{ F \Bx_2 \wedge \Bx_3 G } }{\Delta u_1}
 +
@@ -215,8 +214,8 @@ This leaves three perfect differentials, which can integrated separately, giving
 \evalbar{ \lr{ F \Bx_3 \wedge \Bx_1 G } }{\Delta u_2}
 +
 \int du_1 du_2
-\evalbar{ \lr{ F \Bx_1 \wedge \Bx_2 G } }{\Delta u_3}
-=
+\evalbar{ \lr{ F \Bx_1 \wedge \Bx_2 G } }{\Delta u_3} \\
+&=
 \int
 \evalbar{ \lr{ F d\Bx_2 \wedge d\Bx_3 G } }{\Delta u_1}
 +
@@ -225,7 +224,8 @@ This leaves three perfect differentials, which can integrated separately, giving
 +
 \int
 \evalbar{ \lr{ F d\Bx_1 \wedge d\Bx_2 G } }{\Delta u_3}.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 This proves the theorem from an algebraic point of view.
 \end{proof}

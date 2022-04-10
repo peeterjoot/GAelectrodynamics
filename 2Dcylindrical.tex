@@ -84,22 +84,24 @@ and
 \end{equation}
 \paragraph{A bivector integral.}
 One of our goals is to understand the multivector generalization of Stokes' theorem and the divergence theorem, but even before that, we can evaluate some simple multivector integrals.  In particular, we can calculate the (oriented) area of a circle, given a bivector representation of the area element.
-\begin{dmath}\label{eqn:2Dcylindrical:360}
+\begin{equation}\label{eqn:2Dcylindrical:360}
+\begin{aligned}
 \int_{\rho=0}^r
 \int_{\phi=0}^{2\pi}
  d\Bx_\rho \wedge d\Bx_\phi
-=
+ &=
 \int_{\rho=0}^r
 \int_{\phi=0}^{2\pi}
 d\rho d\phi\,
-\Bx_\rho \wedge \Bx_\phi
-=
+\Bx_\rho \wedge \Bx_\phi \\
+&=
 \int_{\rho=0}^r
 \int_{\phi=0}^{2\pi}
 \rho d\rho d\phi \, \Be_{12}
 %\int_0^r \rho d\rho \int_0^{2\pi} d\phi \Be_{12}
 = \pi r^2 \Be_{12}.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 Integrating the bivector area over a circular region gives us the area of that region, but weighted by the \R{2} pseudoscalar.  This is an oriented area.
 \paragraph{Reciprocal basis.}
@@ -169,15 +171,17 @@ which is consistent with \cref{eqn:2Dcylindrical:180}, as expected.
 
 \paragraph{Gradient.}
 The polar form of the \R{2} gradient is
-\begin{dmath}\label{eqn:2Dcylindrical:600}
+\begin{equation}\label{eqn:2Dcylindrical:600}
+\begin{aligned}
 \spacegrad
-=
+&=
 \Bx^\rho \PD{\rho}{}
-+ \Bx^\phi \PD{\phi}{}
-=
++ \Bx^\phi \PD{\phi}{} \\
+&=
 \rhocap \PD{\rho}{}
 +\inv{\rho} \phicap \PD{\phi}{},
-\end{dmath}
+\end{aligned}
+\end{equation}
 where
 \begin{equation}\label{eqn:2Dcylindrical:200}
 \begin{aligned}
@@ -187,15 +191,17 @@ where
 \end{equation}
 
 Should we extend this vector space to \R{3}, the parameterization of \cref{eqn:2Dcylindrical:100} covers the subspace of the x-y plane, and for that subspace, the vector derivative is
-\begin{dmath}\label{eqn:2Dcylindrical:601}
+\begin{equation}\label{eqn:2Dcylindrical:601}
+\begin{aligned}
 \boldpartial
-=
+&=
 \Bx^\rho \PD{\rho}{}
-+ \Bx^\phi \PD{\phi}{}
-=
++ \Bx^\phi \PD{\phi}{} \\
+&=
 \rhocap \PD{\rho}{}
 +\inv{\rho} \phicap \PD{\phi}{}.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 %%Given a vector \( \Bv = \Be_1 f(\rho, \phi) + \Be_2 g(\rho, \phi) \), the cylindrical representation \( \Bv = \Bv_\rho \rhocap + \Bv_\phi \phicap \) can be found by computing the dot products
 %%

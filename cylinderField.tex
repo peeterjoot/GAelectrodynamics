@@ -20,35 +20,37 @@ Using cylindrical coordinates for the field observation point \( \Bx \) and the 
 \end{equation}
 where \( \rhocap = \Be_1 e^{i \phi} \), and \( \rhocap' = \Be_1 e^{i \phi'} \), and \( i = \Be_{12} \).
 The field is
-\begin{dmath}\label{eqn:cylinderField:60}
+\begin{equation}\label{eqn:cylinderField:60}
 F = \frac{\sigma}{4 \pi \epsilon_0}
 \int_{-\infty}^\infty dz' \int_0^\infty r' dr' \int d\phi' \frac{
    \gpgrade{ \lr{ (z-z') \Be_3 + \Delta_r }\lr{ 1 - \Bv/c }  }{1,2}
 }{ \lr{ (z -z')^2 + \Delta_r^2 }^{3/2} },
-\end{dmath}
+\end{equation}
 where \( \Delta_r = r \rhocap - r' \rhocap' \).
 The z-axis integrals are of the form
-\begin{dmath}\label{eqn:cylinderField:80}
+\begin{equation}\label{eqn:cylinderField:80}
 \int_{-\infty}^\infty dz' \frac{ (1, z-z') }{ \lr{(z-z')^2 + a^2 }^{3/2}}
 =
 \lr{ \frac{2}{a^2} \sgn(z), 0 },
-\end{dmath}
+\end{equation}
 so the field is
-\begin{dmath}\label{eqn:cylinderField:100}
+\begin{equation}\label{eqn:cylinderField:100}
+\begin{aligned}
 F
-=
+&=
 \frac{\sigma R \sgn(z)}{2 \pi \epsilon_0}
 \int_0^{2 \pi} d\phi' \frac{
    \gpgrade{ \lr{ r\rhocap - R \rhocap' } \lr{ 1 - \Bv/c } }{1,2}
 }
-{ (r\rhocap - R \rhocap')^2 }
-=
+{ (r\rhocap - R \rhocap')^2 } \\
+&=
 \frac{\sigma \sgn(z)}{2 \pi \epsilon_0}
 \int_0^{2 \pi} d\phi' \frac{
    \gpgrade{ \lr{ \tilde{r}\rhocap - \rhocap' } \lr{ 1 - \Bv/c } }{1,2}
 }
 { (\tilde{r}\rhocap - \rhocap')^2 },
-\end{dmath}
+\end{aligned}
+\end{equation}
 where \( \tilde{r} = r/R \).
 Let's consider two cases \( \Bv = v \Be_3 \), and \( \Bv(\phi') = v \phicap' = v \Be_2 e^{i\phi'} \).  This means there are three integrals of interest
 \begin{equation}\label{eqn:cylinderField:120}

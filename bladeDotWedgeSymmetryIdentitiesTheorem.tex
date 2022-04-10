@@ -32,64 +32,66 @@ Observe that the dot(wedge) of two vectors is a (anti)symmetric sum of products,
 
 \begin{proof}
 To prove \cref{thm:bladeDotWedgeSymmetryIdentities:180}, split the blade into components that intersect with and are disjoint from \( \Ba \) as follows
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:240}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:240}
 B
 =
 \inv{\Ba} \Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Bm_1 \Bm_2 \cdots \Bm_k,
-\end{dmath}
+\end{equation}
 where \( \Bn_i \) orthogonal to \( \Ba \) and each other, and where \( \Bm_i \) are all orthogonal.  The products of \( B \) with \( \Ba \) are
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:340}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:340}
+\begin{aligned}
 \Ba B
-=
-\Ba \inv{\Ba} \Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Ba \Bm_1 \Bm_2 \cdots \Bm_k
-=
-\Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Ba \Bm_1 \Bm_2 \cdots \Bm_k,
-\end{dmath}
+&= \Ba \inv{\Ba} \Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Ba \Bm_1 \Bm_2 \cdots \Bm_k \\
+&= \Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Ba \Bm_1 \Bm_2 \cdots \Bm_k,
+\end{aligned}
+\end{equation}
 and
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:360}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:360}
+\begin{aligned}
 B \Ba
-=
-\inv{\Ba} \Bn_1 \Bn_2 \cdots \Bn_{k-1} \Ba + \Bm_1 \Bm_2 \cdots \Bm_k \Ba
-=
-(-1)^{k-1} \Bn_1 \Bn_2 \cdots \Bn_{k-1} + (-1)^k \Ba \Bm_1 \Bm_2 \cdots \Bm_k
-=
-(-1)^k \lr{ - \Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Ba \Bm_1 \Bm_2 \cdots \Bm_k },
-\end{dmath}
+&= \inv{\Ba} \Bn_1 \Bn_2 \cdots \Bn_{k-1} \Ba + \Bm_1 \Bm_2 \cdots \Bm_k \Ba \\
+&= (-1)^{k-1} \Bn_1 \Bn_2 \cdots \Bn_{k-1} + (-1)^k \Ba \Bm_1 \Bm_2 \cdots \Bm_k \\
+&= (-1)^k \lr{ - \Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Ba \Bm_1 \Bm_2 \cdots \Bm_k },
+\end{aligned}
+\end{equation}
 or
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:380}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:380}
 (-1)^k B \Ba
 =
 - \Bn_1 \Bn_2 \cdots \Bn_{k-1} + \Ba \Bm_1 \Bm_2 \cdots \Bm_k.
-\end{dmath}
+\end{equation}
 
 Respective addition and subtraction of \cref{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:340} and \cref{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:380} gives
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:400}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:400}
+\begin{aligned}
 \Ba B + (-1)^k B \Ba
-= 2 \Ba \Bm_1 \Bm_2 \cdots \Bm_k
-= 2 \Ba \wedge B,
-\end{dmath}
+&= 2 \Ba \Bm_1 \Bm_2 \cdots \Bm_k \\
+&= 2 \Ba \wedge B,
+\end{aligned}
+\end{equation}
 and
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:420}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:420}
+\begin{aligned}
 \Ba B - (-1)^k B \Ba
-=
-2
-\Bn_1 \Bn_2 \cdots \Bn_{k-1}
-= 2 \Ba \cdot B,
-\end{dmath}
+&= 2 \Bn_1 \Bn_2 \cdots \Bn_{k-1} \\
+&= 2 \Ba \cdot B,
+\end{aligned}
+\end{equation}
 proving \cref{eqn:bladeDotWedgeSymmetryIdentities:220}.  Grade selection from \cref{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:380} gives
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:440}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:440}
+\begin{aligned}
 (-1)^k B \cdot \Ba
-=
-- \Bn_1 \Bn_2 \cdots \Bn_{k-1}
-= - \Ba \cdot B,
-\end{dmath}
+&= - \Bn_1 \Bn_2 \cdots \Bn_{k-1} \\
+&= - \Ba \cdot B,
+\end{aligned}
+\end{equation}
 and
-\begin{dmath}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:460}
+\begin{equation}\label{eqn:bladeDotWedgeSymmetryIdentitiesTheorem:460}
+\begin{aligned}
 (-1)^k B \wedge \Ba
-=
-\Ba \Bm_1 \Bm_2 \cdots \Bm_k
-= \Ba \wedge B,
-\end{dmath}
+&= \Ba \Bm_1 \Bm_2 \cdots \Bm_k \\
+&= \Ba \wedge B,
+\end{aligned}
+\end{equation}
 which proves \cref{eqn:bladeDotWedgeSymmetryIdentities:200}.
 \end{proof}
-

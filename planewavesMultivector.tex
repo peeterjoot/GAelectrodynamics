@@ -48,19 +48,14 @@ We will now show that solutions of the electromagnetic field wave equation have 
 \begin{proof}
 We wish to act on \( F(\Bk) e^{-j \Bk \cdot \Bx + j \omega t } \) with the spacetime gradient \( \spacegrad + (1/c)\partial_t \), but
 must take care of order when applying the gradient to a non-scalar valued function.  In particular, if \( A \) is a multivector, then
-\begin{dmath}\label{eqn:planewavesMultivector:660}
+\begin{equation}\label{eqn:planewavesMultivector:660}
+\begin{aligned}
 \spacegrad A e^{-j \Bk \cdot \Bx}
-=
-\sum_{m = 1}^3 \Be_m \partial_m
-A e^{-j \Bk \cdot \Bx}
-=
-\sum_{m = 1}^3 \Be_m
-A
-\lr{ -j k_m }
-e^{-j \Bk \cdot \Bx}
-=
--j \Bk A.
-\end{dmath}
+&= \sum_{m = 1}^3 \Be_m \partial_m A e^{-j \Bk \cdot \Bx} \\
+&= \sum_{m = 1}^3 \Be_m A \lr{ -j k_m } e^{-j \Bk \cdot \Bx} \\
+&= -j \Bk A.
+\end{aligned}
+\end{equation}
 Therefore, insertion of the presumed phasor solution of the field from
 \cref{dfn:planewavesMultivector:680} into
 \cref{eqn:planewavesMultivector:300} gives
@@ -135,11 +130,13 @@ F(\Bk)
 \end{aligned}
 \end{equation}
 The multivector \( 1 + \kcap \) has the projective property of gobbling any leading factors of \( \kcap \)
-\begin{dmath}\label{eqn:planewavesMultivector:180}
+\begin{equation}\label{eqn:planewavesMultivector:180}
+\begin{aligned}
 (1 + \kcap)\kcap
-= \kcap + 1
-= 1 + \kcap,
-\end{dmath}
+&= \kcap + 1 \\
+&= 1 + \kcap,
+\end{aligned}
+\end{equation}
 so for \( F_i \in F_1, F_2 \)
 \begin{equation}\label{eqn:planewavesMultivector:200}
 (1 + \kcap) ( F_i - \kcap F_i )
@@ -223,15 +220,14 @@ F(\Bk)
 
 It is also noteworthy that
 the directions \( \kcap, \Ecap, \Hcap \) form a right handed triple, which can be seen by computing their product
-\begin{dmath}\label{eqn:planewavesMultivector:740}
+\begin{equation}\label{eqn:planewavesMultivector:740}
+\begin{aligned}
 (\kcap \Ecap) \Hcap
-=
-(-\Ecap \kcap) (-I \kcap \Ecap)
-=
-+I \Ecap^2 \kcap^2
-=
-I.
-\end{dmath}
+&= (-\Ecap \kcap) (-I \kcap \Ecap) \\
+&= +I \Ecap^2 \kcap^2 \\
+&= I.
+\end{aligned}
+\end{equation}
 These vectors must all be mutually orthonormal for their product to be a pseudoscalar multiple.
 Should there be doubt, explicit dot products may be computed with ease using grade selection operations
 \begin{equation}\label{eqn:planewavesMultivector:760}
@@ -245,13 +241,15 @@ The conventional representation of the right handed triple relationship between 
 not as a
 pseudoscalar relationship as in
 \cref{eqn:planewavesMultivector:740}. These are easily seen to be equivalent
-\begin{dmath}\label{eqn:planewavesMultivector:340}
+\begin{equation}\label{eqn:planewavesMultivector:340}
+\begin{aligned}
 \kcap
-= I \Hcap \Ecap
-= I (\Hcap \wedge \Ecap)
-= I^2 (\Hcap \cross \Ecap)
-= \Ecap \cross \Hcap.
-\end{dmath}
+&= I \Hcap \Ecap \\
+&= I (\Hcap \wedge \Ecap) \\
+&= I^2 (\Hcap \cross \Ecap) \\
+&= \Ecap \cross \Hcap.
+\end{aligned}
+\end{equation}
 \end{proof}
 %}
 %\EndNoBibArticle
