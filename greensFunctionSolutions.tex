@@ -81,11 +81,11 @@ F \partial_k G - G \partial_k F
 \end{dmath}
 
 Since \( G \) is a scalar, the last two terms cancel, and we can integrate
-\begin{dmath}\label{eqn:greensFunctionSolutions:280}
+\begin{equation}\label{eqn:greensFunctionSolutions:280}
 \int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
 =
 \sum_k \int_V \partial_k \lr{ F \partial_k G - G \partial_k F }.
-\end{dmath}
+\end{equation}
 
 Each integral above involves one component of the gradient.
 From
@@ -101,13 +101,13 @@ Equating components gives
 \int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
 \end{dmath}
 which can be substituted into \cref{eqn:greensFunctionSolutions:280} to find
-\begin{dmath}\label{eqn:greensFunctionSolutions:480}
+\begin{equation}\label{eqn:greensFunctionSolutions:480}
+\begin{aligned}
 \int_V \lr{ F \spacegrad^2 G - G \spacegrad^2 F } dV
-=
-\sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F } dA
-=
-\int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA.
-\end{dmath}
+&= \sum_k \int_{\partial V} \ncap \cdot \Be_k \lr{ F \partial_k G - G \partial_k F } dA \\
+&= \int_{\partial V} \lr{ F (\ncap \cdot \spacegrad) G - G (\ncap \cdot \spacegrad) F } dA.
+\end{aligned}
+\end{equation}
 \end{proof}
 
 \subsubsection{Bounded solutions to first order problems.}

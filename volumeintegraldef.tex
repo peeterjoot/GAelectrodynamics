@@ -32,19 +32,12 @@ In \R{3} the volume element is always a pseudoscalar, which commutes with all gr
 As an example, let \( F(\Bx) = r(\Bx) + \Bs(\Bx) + I \Bt(\Bx) + I u(\Bx) \) be an arbitrary multivector function in \R{3}, where \( r, u \) are scalar functions and \( \Bs, \Bt \) are vector functions.
 Integrating over a unit cube in rectangular coordinates \( d^3 \Bx = I dx dy dz = I dV \),
 the volume integral of such a multivector function is
-\begin{dmath}\label{eqn:volumeintegraldef:20}
+\begin{equation}\label{eqn:volumeintegraldef:20}
+\begin{aligned}
 \int F d^3 \Bx
-=
-\int
-\lr{
-r(\Bx) + \Bs(\Bx) + I \Bt(\Bx) + I u(\Bx)
-} I dV
-=
-\int
-\lr{
-I r(\Bx) + I \Bs(\Bx) - \Bt(\Bx) - u(\Bx)
-} dV.
-\end{dmath}
+&= \int \lr{ r(\Bx) + \Bs(\Bx) + I \Bt(\Bx) + I u(\Bx) } I dV \\
+&= \int \lr{ I r(\Bx) + I \Bs(\Bx) - \Bt(\Bx) - u(\Bx) } dV.
+\end{aligned}
+\end{equation}
 The result still has all grades, but each of the original grade components is mapped onto its dual space.
-
 %}

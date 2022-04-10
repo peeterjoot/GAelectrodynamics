@@ -6,9 +6,9 @@
 Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
 %Consider a continuous subspace parameterized by a two parameter vector function \( \Bx = \Bx(u_1, u_2) \) that is differentiable with respect to either parameter
 As an example, consider a two parameter planar subspace of parameterized by the following continuous vector function
-\begin{dmath}\label{eqn:curvilinearDefined:480}
+\begin{equation}\label{eqn:curvilinearDefined:480}
 \Bx(u_1, u_2) = u_1 \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 },
-\end{dmath}
+\end{equation}
 where \( u_1 \in [0,1] \) and \( u_2 \in [0, \pi/2] \).
 This parameterization spans the first quadrant of the ellipse with semi-major axis length 1, and semi-minor axis length \( 1/2 \)
 \footnote{
@@ -20,20 +20,20 @@ with a semi-major/major axis ratio of \( 1/2 \).
 \mathImageFigure{../figures/GAelectrodynamics/ellipticalContoursFig1}{Contours for an elliptical region.}{fig:ellipticalContours:ellipticalContoursFig1}{0.3}{ellipticalContoursFigures.nb}
 
 We define a curvilinear basis associated with each point in the region by the partials
-\begin{dmath}\label{eqn:curvilinearDefined:80}
+\begin{equation}\label{eqn:curvilinearDefined:80}
 \begin{aligned}
 \Bx_{1} &= \PD{u_1}{\Bx} \\
 \Bx_{2} &= \PD{u_2}{\Bx}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 For our the function \cref{eqn:curvilinearDefined:480} our curvilinear basis elements are
-\begin{dmath}\label{eqn:curvilinearDefined:520}
+\begin{equation}\label{eqn:curvilinearDefined:520}
 \begin{aligned}
 \Bx_{1} &= \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 } \\
 \Bx_{2} &= u_1 \Be_2 \frac{\sqrt{3}}{2} \sinh\lr{ \Atanh(1/2) + \Be_{12} u_2 }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 We form vector valued differentials for each parameter
 \begin{dmath}\label{eqn:curvilinearDefined:500}

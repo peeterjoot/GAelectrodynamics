@@ -80,24 +80,14 @@ where the integrands containing \( \thetacap, \phicap \) are killed by the integ
 
 \paragraph{Example: Bivector function.}
 Given a bivector valued function \( F(a,b) = (a + b) \Be_2 \Be_1 + 2 (a \Be_1 - b \Be_2) \Be_3 \) defined over the unit square \( a,b \in [0, 1] \), and a surface \( \Bx(a,b) = a \Be_1 + b \Be_2 \), the multivector surface integral (with the area element on the right) is
-\begin{dmath}\label{eqn:surfaceintegraldef:260}
+\begin{equation}\label{eqn:surfaceintegraldef:260}
+\begin{aligned}
 \int F d^2 \Bx
-=
-\int_0^1\int_0^1 (a + b) \,da db
-+
-2 \int_0^1\int_0^1 (a \Be_1 - b \Be_2) \Be_3 \Be_1 \Be_2\, da db
-=
-1+
-I \int_0^1 \evalrange{a^2}{0}{1} \Be_1 db
--
-I \int_0^1 \evalrange{b^2}{0}{1} \Be_2 da
-=
-1+
-I \lr{ \Be_1 - \Be_2 }
-=
-1+
-\lr{ \Be_{1} + \Be_{2} } \Be_3.
-\end{dmath}
+&= \int_0^1\int_0^1 (a + b) \,da db + 2 \int_0^1\int_0^1 (a \Be_1 - b \Be_2) \Be_3 \Be_1 \Be_2\, da db \\
+&= 1+ I \int_0^1 \evalrange{a^2}{0}{1} \Be_1 db - I \int_0^1 \evalrange{b^2}{0}{1} \Be_2 da \\
+&= 1+ I \lr{ \Be_1 - \Be_2 } \\
+&= 1+ \lr{ \Be_{1} + \Be_{2} } \Be_3.
+\end{aligned}
+\end{equation}
 In this example, the integral of a bivector valued function over a (bivector-valued) surface area element results in a multivector with a scalar and bivector grade.  In higher dimensional spaces, such an integral may also have grade-4 components.
-
 %}

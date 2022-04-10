@@ -27,26 +27,25 @@ An example of projection and rejection with respect to a direction vector \( \Bu
 \mathImageFigure{../figures/GAelectrodynamics/projectionAndRejectionFig1}{Projection and rejection illustrated.}{fig:projectionAndRejection:projectionAndRejectionFig1}{0.3}{projectionAndRejectionDiagram.nb}
 
 Computation of the projective and rejective components of a vector \( \Bx \) relative to a direction \( \ucap \) requires little more than a multiplication by \( 1 = \ucap \ucap \), and some rearrangement
-\begin{dmath}\label{eqn:projectionAndRejection:680}
-\Bx =
-\Bx \ucap \ucap
-=
-\lr{ \Bx \ucap } \ucap
-=
-\Biglr{ \Bx \cdot \ucap + \Bx \wedge \ucap } \ucap
-=
-\lr{ \Bx \cdot \ucap } \ucap + \lr{ \Bx \wedge \ucap } \ucap.
-\end{dmath}
+\begin{equation}\label{eqn:projectionAndRejection:680}
+\begin{aligned}
+\Bx 
+&= \Bx \ucap \ucap \\
+&= \lr{ \Bx \ucap } \ucap \\
+&= \Biglr{ \Bx \cdot \ucap + \Bx \wedge \ucap } \ucap \\
+&= \lr{ \Bx \cdot \ucap } \ucap + \lr{ \Bx \wedge \ucap } \ucap.
+\end{aligned}
+\end{equation}
 
 The vector \( \Bx \) is split nicely into its projection and rejective components in a complementary fashion
 \begin{subequations}
 \label{eqn:projectionAndRejection:1080}
-\begin{dmath}\label{eqn:projectionAndRejection:900}
+\begin{equation}\label{eqn:projectionAndRejection:900}
 \Proj_\Bu(\Bx) = \lr{ \Bx \cdot \ucap } \ucap
-\end{dmath}
-\begin{dmath}\label{eqn:projectionAndRejection:910}
+\end{equation}
+\begin{equation}\label{eqn:projectionAndRejection:910}
 \Rej{\Bu}{\Bx} = \lr{ \Bx \wedge \ucap } \ucap.
-\end{dmath}
+\end{equation}
 \end{subequations}
 
 By construction,
@@ -70,10 +69,10 @@ as a generalized bivector-vector dot product
 \end{equation}
 
 In \R{3}, using \cref{thm:generalizedDot:tripleCross}, the rejection operation can also be expressed as a triple cross product
-\begin{dmath}\label{eqn:projectionAndRejection:1140}
+\begin{equation}\label{eqn:projectionAndRejection:1140}
 \Rej{\Bu}{\Bx}
 = \ucap \cross \lr{ \Bx \cross \ucap }.
-\end{dmath}
+\end{equation}
 
 To help establish some confidence with these new additions to our toolbox, here are a
 pair of illustrative examples using
@@ -83,17 +82,15 @@ pair of illustrative examples using
 \makeexample{An \R{2} rejection.}{example:projectionAndRejection:1}{
 Let \( \Bx = a \Be_1 + b \Be_2 \) and \( \Bu = \Be_1 \) for which the wedge is \( \Bx \wedge \ucap = b \Be_2 \Be_1 \).
 Using \cref{eqn:projectionAndRejection:910} the rejection of \( \Bx \) by \( \Bu \) is
-\begin{dmath}\label{eqn:projectionAndRejection:1000}
+\begin{equation}\label{eqn:projectionAndRejection:1000}
+\begin{aligned}
 \Rej{\Bu}{\Bx}
-=
-\lr{ \Bx \wedge \ucap } \ucap
-=
-(b \Be_2 \Be_1 )\Be_1
-=
-b \Be_2 (\Be_1 \Be_1)
-=
-b \Be_2,
-\end{dmath}
+&= \lr{ \Bx \wedge \ucap } \ucap \\
+&= (b \Be_2 \Be_1 )\Be_1 \\
+&= b \Be_2 (\Be_1 \Be_1) \\
+&= b \Be_2,
+\end{aligned}
+\end{equation}
 as expected.
 } % example
 
@@ -107,43 +104,45 @@ Here's a slightly less trivial \R{3} example
 \makeexample{An \R{3} rejection.}{example:projectionAndRejection:r3rejection}{
 Let \( \Bx = a \Be_2 + b \Be_3 \) and \( \ucap = ( \Be_1 + \Be_2 )/\sqrt{2} \) for which the
 wedge product is
-\begin{dmath}\label{eqn:projectionAndRejection:1040}
-\Bx \wedge \ucap = \inv{\sqrt{2}}
+\begin{equation}\label{eqn:projectionAndRejection:1040}
+\begin{aligned}
+\Bx \wedge \ucap 
+&= \inv{\sqrt{2}}
 \begin{vmatrix}
 \Be_{23} & \Be_{31} & \Be_{12} \\
 0 & a & b \\
 1 & 1 & 0
-\end{vmatrix}
-=
+\end{vmatrix} \\
+&=
 \inv{\sqrt{2}}
 \lr{
 \Be_{23}(-b) - \Be_{31}(-b) + \Be_{12} (-a)
-}
-=
+} \\
+&=
 \inv{\sqrt{2}}
 \lr{
 b (\Be_{32} + \Be_{31} ) + a \Be_{21}
 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 Using \cref{eqn:projectionAndRejection:940} the rejection of \( \Bx \) by \( \Bu \) is
-\begin{dmath}\label{eqn:projectionAndRejection:1060}
+\begin{equation}\label{eqn:projectionAndRejection:1060}
 (\Bx \wedge \ucap) \cdot \ucap
 =
 \inv{2}
 \lr{ b (\Be_{32} + \Be_{31} ) + a \Be_{21} } \cdot ( \Be_1 + \Be_2 ).
-\end{dmath}
+\end{equation}
 
 Each of these bivector-vector dot products has the form \( \Be_{rs} \cdot \Be_t = \gpgradeone{ \Be_{rst} } \) which is zero whenever the indexes \( r,s, t\) are unique, and is a vector whenever one of indexes are repeated (\( r = t \), or \( s = t \)).
 This leaves
-\begin{dmath}\label{eqn:projectionAndRejection:1100}
+\begin{equation}\label{eqn:projectionAndRejection:1100}
+\begin{aligned}
 (\Bx \wedge \ucap) \cdot \ucap
-=
-\inv{2}
-\lr{ b \Be_3 + a \Be_2 + b \Be_3 - a \Be_1 }
-=
-b \Be_3 + \frac{a}{2}( \Be_2 - \Be_1 ).
-\end{dmath}
+&= \inv{2} \lr{ b \Be_3 + a \Be_2 + b \Be_3 - a \Be_1 } \\
+&= b \Be_3 + \frac{a}{2}( \Be_2 - \Be_1 ).
+\end{aligned}
+\end{equation}
 } % example
 
 \makeexample{Velocity and acceleration in polar coordinates.}{example:projectionAndRejection:1160}{
@@ -203,34 +202,26 @@ In terms of the vector inverse, the projection and rejection operations with res
 It was claimed in the definition of rejection that the rejection is orthogonal to the projection.
 This can be shown trivially without any use of GA (\cref{problem:projectionAndRejection:rejectionnormality}).
 This also follows naturally using the grade selection operator representation of the dot product
-\begin{dmath}\label{eqn:projectionAndRejection:720}
+\begin{equation}\label{eqn:projectionAndRejection:720}
+\begin{aligned}
 \Rej{\Bu}{\Bx} \cdot \Proj_\Bu(\Bx)
-=
-\gpgradezero{ \Rej{\Bu}{\Bx} \Proj_\Bu(\Bx) }
-=
-\gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap \lr{ \Bx \cdot \ucap } \ucap }
-=
-\lr{ \Bx \cdot \ucap } \gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap^2 }
-=
-\lr{ \Bx \cdot \ucap } \gpgradezero{ \Bx \wedge \ucap }
-= 0.
-\end{dmath}
-
+&= \gpgradezero{ \Rej{\Bu}{\Bx} \Proj_\Bu(\Bx) } \\
+&= \gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap \lr{ \Bx \cdot \ucap } \ucap } \\
+&= \lr{ \Bx \cdot \ucap } \gpgradezero{ \lr{ \Bx \wedge \ucap } \ucap^2 } \\
+&= \lr{ \Bx \cdot \ucap } \gpgradezero{ \Bx \wedge \ucap } \\
+&= 0.
+\end{aligned}
+\end{equation}
 This is zero because the scalar grade of a wedge product, a bivector, is zero by definition.
-
 \makeproblem{Rejection orthogonality.}{problem:projectionAndRejection:rejectionnormality}{
 Prove, without any use of GA, that \( \Bx - \Proj_\Bu(\Bx) \) is orthogonal to \( \Bu \), as claimed in
 \cref{dfn:projectionAndRejection:projectionandrejection}.
 } % problem
-
 \makeproblem{Rejection example.}{problem:projectionAndRejection:rejectionExample1}{
 \makesubproblem{}{problem:projectionAndRejection:rejectionExample1:a}
 Repeat \cref{example:projectionAndRejection:r3rejection} by calculating \( (\Bx \wedge \ucap) \ucap \) and show that all the grade three components of this multivector product vanish.
 \makesubproblem{}{problem:projectionAndRejection:rejectionExample1:b}
 Explicitly calculate \( \Bx - (\Bx \cdot \ucap) \ucap \) and show that this matches \cref{eqn:projectionAndRejection:1100}.
 } % problem
-
-
 %\makeproblem{Prove \ref{dfn:projectionAndRejection:r3pcommutation}.}{problem:projectionAndRejection:1160}{
 %} % problem
-

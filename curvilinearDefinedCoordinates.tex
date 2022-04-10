@@ -35,25 +35,21 @@ B
 \end{equation}
 
 The coordinates \( B^{ij} \) can be determined by dotting \( B \) with \( \Bx^{j} \wedge \Bx^{i} \), where \( i \ne j \), yielding
-\begin{dmath}\label{eqn:curvilinearDefinedCoordinates:340}
+\begin{equation}\label{eqn:curvilinearDefinedCoordinates:340}
+\begin{aligned}
 B \cdot \lr{ \Bx^{j} \wedge \Bx^{i} }
-=
-\inv{2} \sum_{r, s} B^{rs} \lr{ \Bx_{r} \wedge \Bx_{s} } \cdot \lr{ \Bx^{j} \wedge \Bx^{i} }
-=
-\inv{2} \sum_{r, s} B^{rs} \lr{ \lr{ \Bx_{r} \wedge \Bx_{s} } \cdot \Bx^{j} } \cdot \Bx^{i}
-=
-\inv{2} \sum_{r, s} B^{rs} \lr{ \Bx_{r} {\delta_s}^j - \Bx_{s} {\delta_r}^j } \cdot \Bx^{i}
-=
-\inv{2} \sum_{r, s} B^{rs} \lr{ {\delta_r}^i {\delta_s}^j - {\delta_s}^i {\delta_r}^j }
-=
-\inv{2} \lr{ B^{i j} - B^{j i} }.
-\end{dmath}
+&= \inv{2} \sum_{r, s} B^{rs} \lr{ \Bx_{r} \wedge \Bx_{s} } \cdot \lr{ \Bx^{j} \wedge \Bx^{i} } \\
+&= \inv{2} \sum_{r, s} B^{rs} \lr{ \lr{ \Bx_{r} \wedge \Bx_{s} } \cdot \Bx^{j} } \cdot \Bx^{i} \\
+&= \inv{2} \sum_{r, s} B^{rs} \lr{ \Bx_{r} {\delta_s}^j - \Bx_{s} {\delta_r}^j } \cdot \Bx^{i} \\
+&= \inv{2} \sum_{r, s} B^{rs} \lr{ {\delta_r}^i {\delta_s}^j - {\delta_s}^i {\delta_r}^j } \\
+&= \inv{2} \lr{ B^{i j} - B^{j i} }.
+\end{aligned}
+\end{equation}
 
 We see that the coordinates of a bivector, even with respect to a non-orthonormal basis, are antisymmetric, so
 \cref{eqn:curvilinearDefinedCoordinates:340} is just \( B^{ij} \) as claimed.  That is
-\begin{dmath}\label{eqn:curvilinearDefinedCoordinates:401}
+\begin{equation}\label{eqn:curvilinearDefinedCoordinates:401}
 B^{ij} = B \cdot \lr{ \Bx^{j} \wedge \Bx^{i} }.
-\end{dmath}
-
+\end{equation}
 Just as the reciprocal frame was instrumental for computation of the coordinates of a vector with respect to an arbitrary (i.e. non-orthonormal frame), we use the reciprocal frame to calculate the coordinates of a bivector, and could do the same for higher grade k-vectors as well.
 %}

@@ -7,13 +7,15 @@
 \index{spherical coordinates}
 The spherical vector parameterization admits a compact GA representation.
 From the coordinate representation, some factoring gives
-\begin{dmath}\label{eqn:curvilinearspherical:20}
+\begin{equation}\label{eqn:curvilinearspherical:20}
+\begin{aligned}
 \Bx
-= r \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta }
-= r \lr{ \sin\theta \Be_1 (\cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta }
-= r \lr{ \sin\theta \Be_1 e^{\Be_{12} \phi } + \Be_3 \cos\theta }
-= r \Be_3 \lr{ \cos\theta + \sin\theta \Be_3 \Be_1 e^{\Be_{12} \phi } }.
-\end{dmath}
+&= r \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta } \\
+&= r \lr{ \sin\theta \Be_1 (\cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta } \\
+&= r \lr{ \sin\theta \Be_1 e^{\Be_{12} \phi } + \Be_3 \cos\theta } \\
+&= r \Be_3 \lr{ \cos\theta + \sin\theta \Be_3 \Be_1 e^{\Be_{12} \phi } }.
+\end{aligned}
+\end{equation}
 
 With
 \begin{dmath}\label{eqn:curvilinearspherical:40}
@@ -55,28 +57,26 @@ Unfortunately the compact representation is lost doing so.  Computing the basis 
 
 \begin{subequations}
 \label{eqn:curvilinearspherical:80}
-\begin{dmath}\label{eqn:curvilinearspherical:100}
+\begin{equation}\label{eqn:curvilinearspherical:100}
 \Bx_r = \Be_3 e^{j \theta}
-\end{dmath}
-\begin{dmath}\label{eqn:curvilinearspherical:120}
+\end{equation}
+\begin{equation}\label{eqn:curvilinearspherical:120}
+\begin{aligned}
 \Bx_\theta
-= r \Be_3 j e^{j \theta}
-= r \Be_3 \Be_{31} e^{i\phi} e^{j \theta}
-= r \Be_1 e^{i\phi} e^{j \theta}
-\end{dmath}
-\begin{dmath}\label{eqn:curvilinearspherical:140}
+&= r \Be_3 j e^{j \theta} \\
+&= r \Be_3 \Be_{31} e^{i\phi} e^{j \theta} \\
+&= r \Be_1 e^{i\phi} e^{j \theta}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:curvilinearspherical:140}
+\begin{aligned}
 \Bx_\phi
-=
-\PD{\phi}{} \lr{
-r \Be_3 \sin\theta \Be_{31} e^{i \phi}
-}
-=
-r \sin\theta \Be_1 \Be_{12} e^{i \phi}
-=
-r \sin\theta \Be_2 e^{i \phi}.
-\end{dmath}
+&= \PD{\phi}{} \lr{ r \Be_3 \sin\theta \Be_{31} e^{i \phi} } \\
+&= r \sin\theta \Be_1 \Be_{12} e^{i \phi} \\
+&= r \sin\theta \Be_2 e^{i \phi}.
+\end{aligned}
+\end{equation}
 \end{subequations}
-
 These are all mutually orthogonal, which can be verified by computing dot products.
 
 \begin{mmaCell}[moredefined={x1, x2, x3, xr, xt, xp, InnerProduct}]{Input}
@@ -116,17 +116,19 @@ so
 
 \index{gradient!spherical}
 In particular, this shows that the spherical representation of the gradient is
-\begin{dmath}\label{eqn:curvilinearspherical:280}
+\begin{equation}\label{eqn:curvilinearspherical:280}
+\begin{aligned}
 \spacegrad
-=
+&=
 \Bx^r \PD{r}{}
 + \Bx^\theta \PD{\theta}{}
-+ \Bx^\phi \PD{\phi}{}
-=
++ \Bx^\phi \PD{\phi}{} \\
+&=
 \rcap \PD{r}{}
 +\inv{r} \thetacap \PD{\theta}{}
 +\inv{r \sin\theta} \phicap \PD{\phi}{}.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 The spherical (oriented) volume element can also be computed in a compact fashion
 \begin{dmath}\label{eqn:curvilinearspherical:300}

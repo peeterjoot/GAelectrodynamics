@@ -41,45 +41,43 @@ function in a convolution integral to solve Maxwell's equation.
 \begin{proof}
 To prove this result, let \( \phi(\Bx - \Bx', t - t') \) be the retarded time (causal)
 Green's function for the wave equation, satisfying
-\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:40}
-\dAlembertian
-\phi(\Bx - \Bx', t - t')
-=
-\stgrad
-\conjstgrad
-\phi(\Bx - \Bx', t - t')
-= \delta(\Bx - \Bx') \delta(t - t').
-\end{dmath}
+\begin{equation}\label{eqn:greensFunctionSpacetimeGradient:40}
+\begin{aligned}
+\dAlembertian \phi(\Bx - \Bx', t - t')
+&= \stgrad \conjstgrad \phi(\Bx - \Bx', t - t') \\
+&= \delta(\Bx - \Bx') \delta(t - t').
+\end{aligned}
+\end{equation}
 
 This function has the value
-\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:60}
+\begin{equation}\label{eqn:greensFunctionSpacetimeGradient:60}
 \phi(\Br, t - t')
 =
 -\inv{4 \pi r} \delta( -r/c + t - t' ),
-\end{dmath}
+\end{equation}
 where \( \Br = \Bx - \Bx', r = \Norm{\Br} \).  Derivations of this Green's function, and it's acausal advanced time friend, can be found in
 \citep{schwinger1998classical}, \citep{jackson1975cew}, and use the usual Fourier transform and contour integration tricks.
 
 Comparing \cref{eqn:greensFunctionSpacetimeGradient:40} to the defining statement of \cref{thm:greensFunctionSpacetimeGradient:120}, we see that the spacetime gradient Green's function is given by
-\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:80}
+\begin{equation}\label{eqn:greensFunctionSpacetimeGradient:80}
+\begin{aligned}
 G(\Bx - \Bx', t - t')
-=
-\conjstgrad \phi(\Br, t - t')
-=
-\lr{ \rcap \PD{r}{} - \inv{c} \PD{t}{} } \phi(\Br, t - t'),
-\end{dmath}
+&= \conjstgrad \phi(\Br, t - t') \\
+&= \lr{ \rcap \PD{r}{} - \inv{c} \PD{t}{} } \phi(\Br, t - t'),
+\end{aligned}
+\end{equation}
 where \( \rcap = \Br/r \).  Evaluating the derivatives gives
-\begin{dmath}\label{eqn:greensFunctionSpacetimeGradient:100}
-G(\Br, t - t')
-=
--\inv{4\pi} \lr{ \rcap \PD{r}{} - \inv{c} \PD{t}{} } \frac{ \delta( -r/c + t - t' ) }{r}
-=
--\inv{4\pi} \lr{
+\begin{equation}\label{eqn:greensFunctionSpacetimeGradient:100}
+\begin{aligned}
+G&(\Br, t - t')
+= -\inv{4\pi} \lr{ \rcap \PD{r}{} - \inv{c} \PD{t}{} } \frac{ \delta( -r/c + t - t' ) }{r} \\
+&= -\inv{4\pi} \lr{
 \frac{\rcap}{r} \PD{r}{} \delta( -r/c + t - t' )
 - \frac{\rcap}{r^2} \delta( -r/c + t - t' )
 - \inv{c r} \PD{t}{} \delta( -r/c + t - t' )
 },
-\end{dmath}
+\end{aligned}
+\end{equation}
 which completes the proof after some sign cancellation and minor rearrangement.
 \end{proof}
 %}

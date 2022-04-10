@@ -23,7 +23,7 @@
 %\usepackage{txfonts} % \ointclockwise
 
 \newcommand{\quatgrad}[0]{%
-\frac{d}{dr}%
+\frac{d}{dX}%
 %\calD
 }
 
@@ -67,7 +67,7 @@ We can represent these basis vectors in terms of the \R{3} unit bivectors
 where \( I = \Be_1 \Be_2 \Be_3 \) is the ordered product of the \R{3} basis elements.
 Within geometric algebra, the quaternion basis ``vectors'' are more properly viewed as a bivector space basis that happens to have dimension three.
 
-Following \citep{jack2003physical}, we may introduce a quaternionic spacetime gradient, and express that in terms of geometric algebra
+Similar to \citep{jack2003physical}\footnote{That paper used $d/dr$, whereas $d/dX$ is used here to invoke the connection to a relativistic four vector $X = (c t, \mathbf{x}).$}, we introduce a quaternionic spacetime gradient, and express that in terms of geometric algebra
 \begin{dmath}\label{eqn:quaternion2maxwellWithGA:280}
 \quatgrad = \inv{c} \PD{t}{}
 + \Bi \PD{x}{}

@@ -22,31 +22,31 @@ perform a grade one selection of \cref{lemma:greensFunctionOverview:420}, settin
 \( F = \BM \) where \( G \) is the Green's function for the gradient given by
 \cref{eqn:greensFunctionFirstOrderHelmholtz:900}.  The proof follows directly
 
-\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:820}
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:820}
+\begin{aligned}
 M(\Bx)
-=
-- \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } \BM(\Bx') dV'
-=
-\int_V \gpgradeone{G(\Bx, \Bx') \lr{ \rspacegrad' \BM(\Bx') }} dV'
+&= - \int_V \lr{ G(\Bx, \Bx') \lspacegrad' } \BM(\Bx') dV' \\
+&= \int_V \gpgradeone{G(\Bx, \Bx') \lr{ \rspacegrad' \BM(\Bx') }} dV'
 -
-\int_{\partial V} \gpgradeone{ G(\Bx, \Bx') \ncap' \BM(\Bx') } dA'
-=
+\int_{\partial V} \gpgradeone{ G(\Bx, \Bx') \ncap' \BM(\Bx') } dA' \\
+&=
 \int_V
 \inv{4 \pi \Norm{\Bx - \Bx'}^3 }
-\gpgradeone{ (\Bx - \Bx') \lr{ s(\Bx') + I \BC(\Bx') }} dV'
--
+\gpgradeone{ (\Bx - \Bx') \lr{ s(\Bx') + I \BC(\Bx') }} dV' \\
+&\quad -
 \int_{\partial V}
 \inv{4 \pi \Norm{\Bx - \Bx'}^3 }
-\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'
-=
+\gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA' \\
+&=
 \int_V
 \inv{4 \pi \Norm{\Bx - \Bx'}^3 }
-\lr{ (\Bx - \Bx') s(\Bx') - (\Bx - \Bx') \cross \BC(\Bx') } dV'
--
+\lr{ (\Bx - \Bx') s(\Bx') - (\Bx - \Bx') \cross \BC(\Bx') } dV' \\
+&\quad -
 \int_{\partial V}
 \inv{4 \pi \Norm{\Bx - \Bx'}^3 }
 \gpgradeone{ (\Bx - \Bx') \ncap' \BM(\Bx') } dA'.
-\end{dmath}
+\end{aligned}
+\end{equation}
 If \( \BM \) is well behaved enough that the boundary integral vanishes on an infinite surface, we see that \( \BM \) is completely specified by the divergence and the curl.
 In general, the divergence and the curl, must also be supplemented by the value of vector valued function on the boundary.
 

@@ -42,63 +42,48 @@ Unlike the conventional dot product line integral, the multivector line integral
 \paragraph{Example: Circular path.}
 Let \( f(t) = \Ba t + \Bb t^2 \), where \( \Ba, \Bb \) are constant vectors, \( t \) is a scalar parameter, and the integration path is circular \( \Bx(t) = \Be_1 e^{i t} \), where \( i = \Be_1 \Be_2 \).
 The line integral of \( \Bf\, d\Bx \) is
-\begin{dmath}\label{eqn:lineintegraldef:40}
+\begin{equation}\label{eqn:lineintegraldef:40}
+\begin{aligned}
 \int \Bf(t)\, d\Bx
-=
-\Ba \Be_2 \int t e^{i t} dt +
-\Bb \Be_2 \int t^2 e^{i t} dt
-=
-\lr{\Ba \Be_2 \lr{ 1 - i t } + \Bb \Be_2 \lr{ 2 i + 2 t - i t^2 } } e^{i t}
-=
-\lr{ \Ba + 2 \Bb t} \Be_2 e^{i t}
-+
-\lr{ \Ba t - 2 \Bb  + \Bb t^2 } \Be_1 e^{i t},
-\end{dmath}
+&= \Ba \Be_2 \int t e^{i t} dt + \Bb \Be_2 \int t^2 e^{i t} dt \\
+&= \lr{\Ba \Be_2 \lr{ 1 - i t } + \Bb \Be_2 \lr{ 2 i + 2 t - i t^2 } } e^{i t} \\
+&= \lr{ \Ba + 2 \Bb t} \Be_2 e^{i t} + \lr{ \Ba t - 2 \Bb  + \Bb t^2 } \Be_1 e^{i t},
+\end{aligned}
+\end{equation}
 and the
 line integral of \( d\Bx\, \Bf \) is
-\begin{dmath}\label{eqn:lineintegraldef:60}
+\begin{equation}\label{eqn:lineintegraldef:60}
+\begin{aligned}
 \int d\Bx\, \Bf
-=
-\Be_2 \int t e^{i t} dt \Ba
-+
-\Be_2 \int t^2 e^{i t} dt \Bb
-=
-\Be_2 e^{i t} \lr{ \lr{ 1 - i t } \Ba + \lr{ 2 i + 2 t - i t^2 } \Bb }
-=
-\Be_2 e^{i t}
-\lr{ \Ba + 2 \Bb t}
-+
-\Be_1 e^{i t}
-\lr{ \Ba t - 2 \Bb  + \Bb t^2 }.
-\end{dmath}
+&= \Be_2 \int t e^{i t} dt \Ba + \Be_2 \int t^2 e^{i t} dt \Bb \\
+&= \Be_2 e^{i t} \lr{ \lr{ 1 - i t } \Ba + \lr{ 2 i + 2 t - i t^2 } \Bb } \\
+&= \Be_2 e^{i t} \lr{ \Ba + 2 \Bb t} + \Be_1 e^{i t} \lr{ \Ba t - 2 \Bb  + \Bb t^2 }.
+\end{aligned}
+\end{equation}
 Unless the vector constants \( \Ba, \Bb \) have only components along the z-axis, \cref{eqn:lineintegraldef:40} and \cref{eqn:lineintegraldef:60} are not generally equal.
 
 \paragraph{Example: Circular bivector.}
 Given a bivector valued function \( F(t) = \Be_2 \wedge \lr{ \Be_3 e^{it} } \), where \( i = \Be_{3} \Be_1 \), and a curve
 \( \Bx(t) = \Be_3 + \Be_2 t + \Be_1 t^2/2 \), we can compute the line integral with the differential on the right
-\begin{dmath}\label{eqn:lineintegraldef:80}
+\begin{equation}\label{eqn:lineintegraldef:80}
+\begin{aligned}
 \int F\, d\Bx
-=
-\Be_{23} \int e^{i t} \lr{ \Be_2 + \Be_1 t} dt
-=
--\Be_3 \int e^{it} dt + \Be_{123} \int t e^{-i t} dt
-=
-\Be_{1} e^{it} + \Be_{123} \lr{ 1 + i t} e^{-it}
-=
-\Be_1 e^{it} + \Be_2 t e^{-it} + \Be_{123} e^{-it},
-\end{dmath}
+&= \Be_{23} \int e^{i t} \lr{ \Be_2 + \Be_1 t} dt \\
+&= -\Be_3 \int e^{it} dt + \Be_{123} \int t e^{-i t} dt \\
+&= \Be_{1} e^{it} + \Be_{123} \lr{ 1 + i t} e^{-it} \\
+&= \Be_1 e^{it} + \Be_2 t e^{-it} + \Be_{123} e^{-it},
+\end{aligned}
+\end{equation}
 or the line integral with the differential on the left
-\begin{dmath}\label{eqn:lineintegraldef:100}
+\begin{equation}\label{eqn:lineintegraldef:100}
+\begin{aligned}
 \int d\Bx\, F
-=
-\int \lr{ \Be_2 + \Be_1 t} \Be_{31} e^{it} dt
-=
-\Be_{123} \int e^{it} dt - \Be_3 \int t e^{it}
-=
-\Be_{2} e^{it} - \Be_3 \lr{ 1 - i t } e^{it}
-=
-\Be_{2} e^{it} - \Be_3 e^{it} + \Be_{1} t e^{it}.
-\end{dmath}
+&= \int \lr{ \Be_2 + \Be_1 t} \Be_{31} e^{it} dt \\
+&= \Be_{123} \int e^{it} dt - \Be_3 \int t e^{it} \\
+&= \Be_{2} e^{it} - \Be_3 \lr{ 1 - i t } e^{it} \\
+&= \Be_{2} e^{it} - \Be_3 e^{it} + \Be_{1} t e^{it}.
+\end{aligned}
+\end{equation}
 In both \cref{eqn:lineintegraldef:80} and \cref{eqn:lineintegraldef:100} the end result has both vector and trivector grades.  While both integrals are equal (zero) when the angular velocity parameter \( t \) is a multiple of \( 2 \pi \), this shows that the order of the products in the integrand makes a difference once again.
 
 \paragraph{Example: Function with only scalar and pseudoscalar grades.}

@@ -5,12 +5,11 @@
 %{
 
 The specialization of \cref{eqn:greensFunctionSolutions:400} to the first order Helmholtz equation \cref{eqn:greensFunctionOverview:240} is
-\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:700}
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:700}
 \lr{ \spacegrad + j k } G(\Bx, \Bx')  = \delta(\Bx - \Bx').
-\end{dmath}
+\end{equation}
 
 This Green's function is multivector valued
-
 \input{Theorem_greens_function_helmholtz_first_order.tex}
 A special but important case is the \( k = 0 \) condition, which provides the
 Green's function for the gradient, which is vector valued
@@ -26,43 +25,33 @@ as \( \phi(\Bx, \Bx') \), we must have
 \lr{ \rspacegrad + j k } \lr{ \rspacegrad - j k } \phi(\Bx, \Bx'),
 \end{equation}
 we see that the Green's function is given by
-\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:760}
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:760}
 G(\Bx, \Bx')
 =
 \lr{ \rspacegrad - j k } \phi(\Bx, \Bx').
-\end{dmath}
+\end{equation}
 
 This can be computed directly
-\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:780}
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:780}
+\begin{aligned}
 G(\Bx, \Bx')
-=
-\lr{ \rspacegrad - j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} }
-=
-\lr{ \rcap \PD{r}{} -j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} }
-=
-\frac{-e^{-j k r}}{4 \pi}
-\lr{
-\rcap \lr{ -\frac{j k}{r} - \inv{ r^2 } } - \frac{j k}{r}
-}
-=
-\frac{e^{-j k r}}{4 \pi}
-\lr{
-j k \lr{ 1 + \rcap } + \frac{\rcap}{r}
-},
-\end{dmath}
+&= \lr{ \rspacegrad - j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} } \\
+&= \lr{ \rcap \PD{r}{} -j k } \lr{ -\frac{e^{-j k r}}{4 \pi r} } \\
+&= \frac{-e^{-j k r}}{4 \pi} \lr{ \rcap \lr{ -\frac{j k}{r} - \inv{ r^2 } } - \frac{j k}{r} } \\
+&= \frac{e^{-j k r}}{4 \pi} \lr{ j k \lr{ 1 + \rcap } + \frac{\rcap}{r} },
+\end{aligned}
+\end{equation}
 as claimed.
 \end{proof}
 Observe that since \( \phi \) is scalar valued, we can also rewrite
 \cref{eqn:greensFunctionFirstOrderHelmholtz:760} in terms of a right acting operator
-\begin{dmath}\label{eqn:greensFunctionFirstOrderHelmholtz:800}
+\begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:800}
+\begin{aligned}
 G(\Bx, \Bx')
-=
-\phi(\Bx, \Bx')
-\lr{ \lspacegrad - j k }
-=
-\phi(\Bx, \Bx')
-\lr{ -\lspacegrad' - j k },
-\end{dmath}
+&= \phi(\Bx, \Bx') \lr{ \lspacegrad - j k } \\
+&= \phi(\Bx, \Bx') \lr{ -\lspacegrad' - j k },
+\end{aligned}
+\end{equation}
 so
 \begin{equation}\label{eqn:greensFunctionFirstOrderHelmholtz:820}
 G(\Bx, \Bx') \lr{ -\lspacegrad' + j k } =

@@ -17,9 +17,9 @@ rotation direction dependant on the order of multiplication.
 {orientedAreas.nb}
 
 Multipling a polar vector representation
-\begin{dmath}\label{eqn:2dRotations:280}
+\begin{equation}\label{eqn:2dRotations:280}
    \Bx = \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta },
-\end{dmath}
+\end{equation}
 by \( i \) shows that a \( \pi/2 \) rotation is induced.
 \index{pseudoscalar}
 
@@ -57,35 +57,28 @@ which holds for this pseudoscalar imaginary representation too (\cref{problem:2d
 \index{complex exponential}
 By writing \( \Be_2 = \Be_1 \Be_1 \Be_2 \),
 a complex exponential can be factored directly out of the polar vector representation \cref{eqn:2dRotations:280}
-\begin{dmath}\label{eqn:2dRotations:940}
-\Bx
-=
-\rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
-=
-\rho \lr{ \Be_1 \cos\theta + (\Be_1 \Be_1) \Be_2 \sin\theta }
-=
-\rho \Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta }
-=
-\rho \Be_1 \lr{ \cos\theta + i \sin\theta }
-=
-\rho \Be_1 e^{i\theta}.
-\end{dmath}
+\begin{equation}\label{eqn:2dRotations:940}
+\begin{aligned}
+\Bx 
+&= \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \\
+&= \rho \lr{ \Be_1 \cos\theta + (\Be_1 \Be_1) \Be_2 \sin\theta } \\
+&= \rho \Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } \\
+&= \rho \Be_1 \lr{ \cos\theta + i \sin\theta } \\
+&= \rho \Be_1 e^{i\theta}.
+\end{aligned}
+\end{equation}
 
 We end up with a complex exponential multivector factor on the right.
 Alternatively, since \( \Be_2 = \Be_2 \Be_1 \Be_1 \), a complex exponential can be factored out on the left
-\begin{dmath}\label{eqn:2dRotations:960}
-\Bx
-=
-\rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta }
-=
-\rho \lr{ \Be_1 \cos\theta + \Be_2 (\Be_1 \Be_1) \sin\theta }
-=
-\rho \lr{ \cos\theta - \Be_1 \Be_2 \sin\theta } \Be_1
-=
-\rho \lr{ \cos\theta - i \sin\theta } \Be_1
-=
-\rho e^{-i\theta} \Be_1.
-\end{dmath}
+\begin{equation}\label{eqn:2dRotations:960}
+\begin{aligned}
+\Bx &= \rho \lr{ \Be_1 \cos\theta + \Be_2 \sin\theta } \\
+&= \rho \lr{ \Be_1 \cos\theta + \Be_2 (\Be_1 \Be_1) \sin\theta } \\
+&= \rho \lr{ \cos\theta - \Be_1 \Be_2 \sin\theta } \Be_1 \\
+&= \rho \lr{ \cos\theta - i \sin\theta } \Be_1 \\
+&= \rho e^{-i\theta} \Be_1.
+\end{aligned}
+\end{equation}
 
 Left and right exponential expressions have now been found for the polar representation
 \begin{equation}\label{eqn:2dRotations:1120}
@@ -123,13 +116,15 @@ The polar representation of the radial and azimuthal unit vector are simply
 \Be_2 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } = \Be_2 \cos\theta - \Be_1 \sin\theta,
 \end{aligned}
 \end{dmath}
-where \( i = \Be_{12} \) is the unit bivector for the x-y plane.  We can show that these unit vectors are orthogonal easily
-\begin{dmath}\label{eqn:2dRotations:1340}
+where \( i = \Be_{12} \) is the unit bivector for the x-y plane.  We can easily show that these unit vectors are orthogonal
+\begin{equation}\label{eqn:2dRotations:1340}
+\begin{aligned}
 \rcap \thetacap
-= \lr{ \Be_1 e^{i \theta}} \lr{ e^{-i\theta} \Be_2}
-= \Be_1 \cancel{e^{i \theta} e^{-i\theta}} \Be_2
-= \Be_1 \Be_2.
-\end{dmath}
+&= \lr{ \Be_1 e^{i \theta}} \lr{ e^{-i\theta} \Be_2} \\
+&= \Be_1 \cancel{e^{i \theta} e^{-i\theta}} \Be_2 \\
+&= \Be_1 \Be_2.
+\end{aligned}
+\end{equation}
 By \cref{thm:multiplication:anticommutationNormal}, since the product of \( \rcap \thetacap \) is a bivector,
 \( \rcap \) is orthogonal to \( \thetacap \).
 
@@ -177,11 +172,11 @@ and the acceleration is
 = r'' \rcap + 2 r' \omega \thetacap + r \omega' \thetacap - r \omega^2 \rcap,
 \end{dmath}
 or
-\begin{dmath}\label{eqn:2dRotations:1320}
+\begin{equation}\label{eqn:2dRotations:1320}
 \Ba
 = \rcap \lr{ r'' - r \omega^2 }
 + \inv{r} \thetacap \lr{ r^2 \omega }'.
-\end{dmath}
+\end{equation}
 
 Using \cref{eqn:2dRotations:1220}, we also have the option of factoring out the rotation operation from the position vector or any of its derivatives
 \begin{dmath}\label{eqn:2dRotations:1360}

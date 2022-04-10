@@ -15,15 +15,14 @@ This is also true if the vector and bivector are orthogonal, that is, having no 
 
 On the other hand, a non-zero vector-bivector dot product requires the vector to have some overlap with the bivector.
 A bivector formed from the product of two orthogonal vectors \( B = \Ba \Bb \), where \( \Ba \cdot \Bb = 0 \), will have a non-zero dot product with any vector that lies in \( \Span \setlr{ \Ba, \Bb} \)
-\begin{dmath}\label{eqn:generalizedDot_vectorBivector:682}
+\begin{equation}\label{eqn:generalizedDot_vectorBivector:682}
 \lr{ \alpha \Ba + \beta \Bb } \cdot (\Ba\Bb)
 =
 \alpha \Norm{\Ba}^2 \Bb - \beta \Norm{\Bb}^2 \Ba.
-\end{dmath}
+\end{equation}
 
 It is often useful to be able to expand a vector-bivector dot product.
 A useful identity for such an expansion is
-
 \maketheorem{Dot product of vector and wedge product.}{thm:generalizedDot:wedgeDotDistribution}{
 The dot product of a vector \( \Ba \) with the wedge product of two vectors \( \Bb, \Bc \) distributes as
 \begin{equation*}
@@ -41,18 +40,17 @@ This shows that only vectors with some component in the span of the plane repres
 We also know that when a vector that lies entirely in the span of a bivector is multiplied by that bivector, the result is rotated by \( \pm \pi/2 \).
 This means that a vector-bivector dot product is orthogonal to the vector that is dotted with the bivector.
 This can also be seen algebraically since
-\begin{dmath}\label{eqn:generalizedDot_vectorBivector:1120}
+\begin{equation}\label{eqn:generalizedDot_vectorBivector:1120}
+\begin{aligned}
 \Ba \cdot \lr{ \Ba \cdot \lr{ \Bb \wedge \Bc }}
-=
-\Ba \cdot \lr{ ( \Ba \cdot \Bb ) \Bc -( \Ba \cdot \Bc ) \Bb }
-=
-\lr{ \Ba \cdot \Bc } \lr{ \Ba \cdot \Bb } - \lr{ \Ba \cdot \Bc } \lr{ \Ba \cdot \Bb }
-= 0.
-\end{dmath}
+&= \Ba \cdot \lr{ ( \Ba \cdot \Bb ) \Bc -( \Ba \cdot \Bc ) \Bb } \\
+&= \lr{ \Ba \cdot \Bc } \lr{ \Ba \cdot \Bb } - \lr{ \Ba \cdot \Bc } \lr{ \Ba \cdot \Bb } \\
+&= 0.
+\end{aligned}
+\end{equation}
 
 A vector-bivector dot product select only the component of the vector that lie in the plane of the bivector, and rotates that component by \( \pm \pi/2 \) in that plane.
 %, plus scale that rotated vector by the magnitude of bivector.
-
 \begin{proof}
 There are (somewhat tricky) coordinate free ways to prove
 \cref{thm:generalizedDot:wedgeDotDistribution}
@@ -94,14 +92,13 @@ Additionally
 \end{equation}
 
 Plugging \cref{eqn:generalizedDot_vectorBivector:980} back into \cref{eqn:generalizedDot_vectorBivector:681} proves the theorem
-\begin{dmath}\label{eqn:generalizedDot_vectorBivector:1060}
+\begin{equation}\label{eqn:generalizedDot_vectorBivector:1060}
+\begin{aligned}
 \Ba \cdot \lr{ \Bb \wedge \Bc }
-= \sum_{i, j, k} a_i b_j c_k \lr{ \Be_k \lr{ \Be_j \cdot \Be_i }
--\Be_j \lr{ \Be_k \cdot \Be_i } }
-=
-\lr{ \Ba \cdot \Bb } \Bc
-- \lr{ \Ba \cdot \Bc } \Bb.
-\end{dmath}
+&= \sum_{i, j, k} a_i b_j c_k \lr{ \Be_k \lr{ \Be_j \cdot \Be_i } -\Be_j \lr{ \Be_k \cdot \Be_i } } \\
+&= \lr{ \Ba \cdot \Bb } \Bc - \lr{ \Ba \cdot \Bc } \Bb.
+\end{aligned}
+\end{equation}
 \end{proof}
 
 The RHS of \cref{eqn:generalizedDot_vectorBivector:1060} shows that the vector-bivector dot product has the following relation to the
@@ -125,21 +122,22 @@ distribution identity for the triple cross product
 
 We can prove this result directly by applying the identity \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) to the vector-bivector product, and then selecting the vector grade
 \begin{dmath}\label{eqn:generalizedDot_vectorBivector:1000}
+\begin{aligned}
 \Ba \lr{ \Bb \wedge \Bc }
-=
-\Ba I \lr{ \Bb \cross \Bc }
-=
+&= \Ba I \lr{ \Bb \cross \Bc } \\
+&=
 I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 +
-I \lr{ \Ba \wedge \lr{ \Bb \cross \Bc } }
-=
+I \lr{ \Ba \wedge \lr{ \Bb \cross \Bc } } \\
+&=
 I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 +
-I^2 \Ba \cross \lr{ \Bb \cross \Bc }
-=
+I^2 \Ba \cross \lr{ \Bb \cross \Bc } \\
+&=
 I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 +
 \lr{ \Bb \cross \Bc } \cross \Ba.
+\end{aligned}
 \end{dmath}
 
 This multivector has a pseudoscalar (grade 3) component, and a vector component.  Selecting the grade one component,

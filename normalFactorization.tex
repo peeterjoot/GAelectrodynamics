@@ -21,17 +21,14 @@ The wedge product of any two non-colinear vectors \( \Ba, \Bb \) always has a or
 
 This can be proven by construction.
 Pick \( \Bu = \Ba \) and \( \Bv = \Rej{\Ba}{\Bb} \), then
-\begin{dmath}\label{eqn:normalFactorization:1840}
+\begin{equation}\label{eqn:normalFactorization:1840}
+\begin{aligned}
 \Ba \Rej{\Ba}{\Bb}
-=
-\cancel{\Ba \cdot \Rej{\Ba}{\Bb}}
-+
-\Ba \wedge \Rej{\Ba}{\Bb}
-=
-\Ba \wedge \lr{ \Bb - \frac{\Bb \cdot \Ba}{\Norm{\Ba}^2} \Ba }
-=
-\Ba \wedge \Bb,
-\end{dmath}
+&= \cancel{\Ba \cdot \Rej{\Ba}{\Bb}} + \Ba \wedge \Rej{\Ba}{\Bb} \\
+&= \Ba \wedge \lr{ \Bb - \frac{\Bb \cdot \Ba}{\Norm{\Ba}^2} \Ba } \\
+&= \Ba \wedge \Bb,
+\end{aligned}
+\end{equation}
 since \( \Ba \wedge (\alpha \Ba) = 0 \) for any scalar \( \alpha \).
 
 The significance of \cref{thm:SimpleProducts2:wnormalfactorize} is that the square of any wedge product is negative
@@ -51,13 +48,13 @@ Find some orthogonal factorizations for the \R{3} bivector \( \Be_{12} + \Be_{23
 } % problem
 
 \makeanswer{problem:normalFactorization:1}{
-\begin{dmath*}
-\Be_{12} +
-\Be_{23} +
-\Be_{31}
-= \lr{ \Be_1 + \Be_2 - 2 \Be_3 } \frac{ \Be_2 - \Be_1 }{2}
-= \frac{ \Be_3 - \Be_2 }{2} \lr{ 2 \Be_1 - \Be_2 - \Be_3 }.
-\end{dmath*}
+\begin{equation*}
+\begin{aligned}
+\Be_{12} + \Be_{23} + \Be_{31}
+&= \lr{ \Be_1 + \Be_2 - 2 \Be_3 } \frac{ \Be_2 - \Be_1 }{2} \\
+&= \frac{ \Be_3 - \Be_2 }{2} \lr{ 2 \Be_1 - \Be_2 - \Be_3 }.
+\end{aligned}
+\end{equation*}
 Each set of factors above can be interpretted as the edges of two different rectangular representations of the bivector, for which the total area is fixed.  The span of either set of factors describes the plane that the bivector represents.
 %The respective parallelogram representations of these bivector factorizations are illustrated in
 %\cref{fig:bivectorFactorization:bivectorFactorizationFig1}, showing the bivectors face on, and from a side view that shows they are coplanar.

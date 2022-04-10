@@ -56,26 +56,15 @@ a polar representation of \( \Ba, \Bb \) is
 \end{aligned}
 \end{dmath}
 The vector product of these two vectors is
-\begin{dmath}\label{eqn:products:1680}
+\begin{equation}\label{eqn:products:1680}
+\begin{aligned}
 \Ba \Bb
-=
-\lr{ \Norm{\Ba} e^{ -i_{\Bu \Bv} \theta_a } \Bu } \lr{ \Norm{\Bb} \Bu e^{ i_{\Bu \Bv} \theta_b } }
-=
- \Norm{\Ba} \Norm{\Bb}
-e^{ -i_{\Bu \Bv} \theta_a } ( \Bu \Bu ) e^{ i_{\Bu \Bv} \theta_b }
-=
- \Norm{\Ba} \Norm{\Bb}
-e^{ i_{\Bu \Bv} (\theta_b - \theta_a)}.
-=
- \Norm{\Ba} \Norm{\Bb}
-\lr{
-\cos
-(\theta_b - \theta_a)
-+ i_{\Bu \Bv}
-\sin
-(\theta_b - \theta_a)
-}.
-\end{dmath}
+&= \lr{ \Norm{\Ba} e^{ -i_{\Bu \Bv} \theta_a } \Bu } \lr{ \Norm{\Bb} \Bu e^{ i_{\Bu \Bv} \theta_b } } \\
+&= \Norm{\Ba} \Norm{\Bb} e^{ -i_{\Bu \Bv} \theta_a } ( \Bu \Bu ) e^{ i_{\Bu \Bv} \theta_b } \\
+&= \Norm{\Ba} \Norm{\Bb} e^{ i_{\Bu \Bv} (\theta_b - \theta_a)}. \\
+&= \Norm{\Ba} \Norm{\Bb} \lr{ \cos (\theta_b - \theta_a) + i_{\Bu \Bv} \sin (\theta_b - \theta_a) }.
+\end{aligned}
+\end{equation}
 
 This completes the proof of \cref{thm:products:2081}, as we see that the
 product of two vectors is a multivector with only grades 0 and 2.
@@ -85,7 +74,6 @@ dot product, completing the proof of \cref{thm:products:2080}.
 \end{proof}
 
 The grade 2 component of the vector product is something new that requires a name, which we call the wedge product.
-
 \index{wedge product}
 \index{dot product}
 \index{\(\Ba \wedge \Bb\)}
@@ -129,15 +117,14 @@ To develop some intuition about the vector product, let's consider product of tw
 \mathImageFigure{../figures/GAelectrodynamics/exponentialVectorProductFig1}{Equilateral triangle in \R{3}.}{fig:exponentialVectorProduct:exponentialVectorProductFig1}{0.3}{compositionOfExponentials.nb}
 
 The product of these vectors is
-\begin{dmath}\label{eqn:products:1900}
+\begin{equation}\label{eqn:products:1900}
+\begin{aligned}
 \Ba \Bb
-=
-\inv{2} \lr{ \Be_3 + \Be_1 } \lr{ \Be_3 + \Be_2 }
-=
-\inv{2} \lr{ 1 + \Be_{32} + \Be_{13} + \Be_{12 } }
-=
-\inv{2} + \frac{\sqrt{3}}{2} \frac{\Be_{32} + \Be_{13} + \Be_{12 } }{\sqrt{3}}.
-\end{dmath}
+&= \inv{2} \lr{ \Be_3 + \Be_1 } \lr{ \Be_3 + \Be_2 } \\
+&= \inv{2} \lr{ 1 + \Be_{32} + \Be_{13} + \Be_{12 } } \\
+&= \inv{2} + \frac{\sqrt{3}}{2} \frac{\Be_{32} + \Be_{13} + \Be_{12 } }{\sqrt{3}}.
+\end{aligned}
+\end{equation}
 
 Let the bivector factor be designated
 \begin{dmath}\label{eqn:products:1920}
@@ -156,24 +143,20 @@ that \( j \) is a unit bivector (i.e. it squares to \( -1 \)), allowing us to wr
 Since both vector factors were unit length, this ``complex'' exponential has no leading scalar factor contribution from \( \Norm{\Ba} \Norm{\Bb} \).
 
 Now, let's calculate the vector product using the polar form, which gives
-\begin{dmath}\label{eqn:products:1960}
-\Ba \Bb =
-\biglr{
-   \exp\lr{ -\Be_{31} \pi/4 } \Be_3 }
-\biglr{
-   \Be_3 \exp\lr{ \Be_{32} \pi/4 }
-}
-=
-\exp\lr{ -\Be_{31} \pi/4 }
-\exp\lr{ \Be_{32} \pi/4 }.
-\end{dmath}
+\begin{equation}\label{eqn:products:1960}
+\begin{aligned}
+\Ba \Bb 
+&= \biglr{ \exp\lr{ -\Be_{31} \pi/4 } \Be_3 } \biglr{ \Be_3 \exp\lr{ \Be_{32} \pi/4 } } \\
+&= \exp\lr{ -\Be_{31} \pi/4 } \exp\lr{ \Be_{32} \pi/4 }.
+\end{aligned}
+\end{equation}
 The product of two unit vectors, each with a component in the z-axis direction, results in a product of complex exponential rotation operators, each a
 grade \((0,2)\)-multivectors.  The product of these complex exponentials is another grade \((0,2)\)-multivector.  This is a specific example of the product of two rotation operators producing a
 rotation operator for the composition of rotations, as follows
-\begin{dmath}\label{eqn:products:1980}
+\begin{equation}\label{eqn:products:1980}
 \exp\lr{ \Be_{13} \pi/4 }
 \exp\lr{ \Be_{32} \pi/4 } = \exp\lr{ j \pi/3 }.
-\end{dmath}
+\end{equation}
 The rotation operator that describes the composition of rotations has a different rotational plane, and rotates through a different rotation angle.
 
 We are left with a geometric interpretation for the vector product.  The product of two vectors can be interpretted as a rotation and scaling operator.
@@ -200,17 +183,14 @@ The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) =
 \end{dmath}
 
 The product of these vectors is
-\begin{dmath}\label{eqn:products:1360}
+\begin{equation}\label{eqn:products:1360}
+\begin{aligned}
 \Ba \Bb
-=
-\lr{ \sum_i a_i \Be_i } \lr{ \sum_j b_j \Be_j }
-=
-\sum_{ij} a_i b_j \Be_i \Be_j
-=
-\sum_{i = j} a_i b_j \Be_i \Be_j
-+
-\sum_{i \ne j} a_i b_j \Be_i \Be_j.
-\end{dmath}
+&= \lr{ \sum_i a_i \Be_i } \lr{ \sum_j b_j \Be_j } \\
+&= \sum_{ij} a_i b_j \Be_i \Be_j \\
+&= \sum_{i = j} a_i b_j \Be_i \Be_j + \sum_{i \ne j} a_i b_j \Be_i \Be_j.
+\end{aligned}
+\end{equation}
 
 Since \( \Be_i \Be_i = 1 \), we see again that the scalar component of the product is the dot product \( \sum_i a_i b_i \).
 The remaining grade 2 components are the wedge product, for which the coordinate expansion can be simplified further
@@ -251,7 +231,7 @@ It is now straightforward to show that the wedge product is distributive and bil
 It is also simple to use \cref{eqn:products:1320} to show that \( \Bb \wedge \Ba = -\Ba \wedge \Bb \) and \( \Ba \wedge \Ba = 0 \).
 
 For \R{2} there is only one term in \cref{eqn:products:1320}
-\begin{dmath}\label{eqn:products:1720}
+\begin{equation}\label{eqn:products:1720}
 \Ba \wedge \Bb
 =
 \begin{vmatrix}
@@ -259,7 +239,7 @@ a_1 & a_2 \\
 b_1 & b_2
 \end{vmatrix}
 \Be_1 \Be_2.
-\end{dmath}
+\end{equation}
 
 \index{cross product}
 We are used to writing the cross product as a \( 3 x 3 \) determinant, which can also be done with the coordinate expansion of the
@@ -365,15 +345,15 @@ To take some of the abstraction from \cref{eqn:SimpleProducts2:1620} let's consi
 \end{aligned}
 \end{dmath}
 The reader should check that the cross product of these two vectors is
-\begin{dmath}\label{eqn:products:2040}
+\begin{equation}\label{eqn:products:2040}
 \Ba \cross \Bb = -3 \Be_1 + 6 \Be_2 - 3 \Be_3.
-\end{dmath}
+\end{equation}
 By direct computation, we find that the wedge and the cross products are related by a \R{3} pseudoscalar factor
-\begin{dmath}\label{eqn:products:2060}
+\begin{equation}\label{eqn:products:2060}
+\begin{aligned}
 \Ba \wedge \Bb
-=
-\lr{ \Be_1 + 2 \Be_2 + 3 \Be_3 } \wedge \lr{ 4 \Be_1 + 5 \Be_2 + 6 \Be_3 }
-=
+&= \lr{ \Be_1 + 2 \Be_2 + 3 \Be_3 } \wedge \lr{ 4 \Be_1 + 5 \Be_2 + 6 \Be_3 } \\
+&=
 \cancel{ 
    \Be_1 \wedge (4 \Be_1)
 }
@@ -388,18 +368,14 @@ By direct computation, we find that the wedge and the cross products are related
 +
 5 \Be_{12} + 6 \Be_{13}
 + 8 \Be_{21} + 12 \Be_{23}
-+ 12 \Be_{31} + 15 \Be_{32}
-=
-(5-8) \Be_{12} + (6-12) \Be_{13} + (12-15) \Be_{23}
-=
--3 \Be_{12} - 6 \Be_{13} - 3 \Be_{23}
-=
-\Be_{123} (-3 \Be_{3}) + \Be_{132}(- 6 \Be_{2}) + \Be_{231}(- 3 \Be_{1})
-=
-\Be_{123} (-3 \Be_{3} + 6 \Be_{2} - 3 \Be_{1})
-=
-I (\Ba \cross \Bb).
-\end{dmath}
++ 12 \Be_{31} + 15 \Be_{32} \\
+&= (5-8) \Be_{12} + (6-12) \Be_{13} + (12-15) \Be_{23} \\
+&= -3 \Be_{12} - 6 \Be_{13} - 3 \Be_{23} \\
+&= \Be_{123} (-3 \Be_{3}) + \Be_{132}(- 6 \Be_{2}) + \Be_{231}(- 3 \Be_{1}) \\
+&= \Be_{123} (-3 \Be_{3} + 6 \Be_{2} - 3 \Be_{1}) \\
+&= I (\Ba \cross \Bb).
+\end{aligned}
+\end{equation}
 } % example
 
 The relationship between the wedge and cross products allows us to express the
@@ -429,17 +405,19 @@ Introducing a unit bivector \( i_{ab} \) normal to the unit normal \( \ncap \)
 (i.e. \( i_{ab} \ncap = \Be_{123} \)), we can assemble
 \cref{eqn:products:2080} into a cis form using
 \cref{eqn:SimpleProducts2:1640}
-\begin{dmath}\label{eqn:products:2100}
-\Ba \Bb =
+\begin{equation}\label{eqn:products:2100}
+\begin{aligned}
+\Ba \Bb &=
 \Norm{\Ba} \Norm{\Bb} \lr{
 \cos\lr{ \Delta \theta }
 +
 I \ncap
 \sin\lr{ \Delta \theta }
-}
-=
+} \\
+&=
 \Norm{\Ba} \Norm{\Bb} \exp\lr{ i_{ab} \Delta \theta }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 \index{colinear vectors!wedge}
 \makeproblem{Wedge product of colinear vectors.}{problem:SimpleProducts2:wedgecolinear}{

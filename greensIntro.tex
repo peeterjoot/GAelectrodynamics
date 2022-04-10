@@ -93,26 +93,21 @@ For our harmonic oscillator problem that operator is
 \LL = \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2.
 \end{dmath}
 We find
-\begin{dmath}\label{eqn:greensIntro:460}
+\begin{equation}\label{eqn:greensIntro:460}
+\begin{aligned}
 f(t)
-=
-\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
-x(t)
-=
-\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
-\int dt' f(t') G(t,t')
-=
-\int dt' f(t')
-\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
-G(t,t'),
-\end{dmath}
+&= \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 } x(t) \\
+&= \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 } \int dt' f(t') G(t,t') \\
+&= \int dt' f(t') \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 } G(t,t'),
+\end{aligned}
+\end{equation}
 and see that the Green's function, when acted on by the differential operator, must have the characteristics of a delta function
-\begin{dmath}\label{eqn:greensIntro:480}
+\begin{equation}\label{eqn:greensIntro:480}
 \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
 G(t,t')
 =
 \delta( t - t').
-\end{dmath}
+\end{equation}
 
 The problem of determining the Green's function, implicitly determining the solution of any forced system, can be viewed as seeking
 the solution of distribution equations of the form

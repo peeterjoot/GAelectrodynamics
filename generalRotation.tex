@@ -80,38 +80,31 @@ Any orthogonal vectors \( \Bn \) must also be perpendicular to the factors \( \B
 \end{dmath}
 
 For the complex exponentials, introduce a unit pseudoscalar for the plane \( i = \pcap \qcap \) satisfying \( i^2 = -1 \) and a scalar rotation angle \( \theta = \ifrac{ (\Ba \wedge \Bb) }{i} \), then for vectors \( \Bp \in S \)
-\begin{dmath}\label{eqn:generalRotation:1840}
+\begin{equation}\label{eqn:generalRotation:1840}
+\begin{aligned}
 \Bp e^{ \Ba \wedge \Bb }
-=
-\Bp e^{ i \theta }
-=
-\Bp \lr{ \cos\theta + i \sin\theta }
-=
-\lr{ \cos\theta - i \sin\theta } \Bp
-=
-e^{-i\theta} \Bp
-=
-e^{- \Ba \wedge \Bb} \Bp,
-\end{dmath}
+&= \Bp e^{ i \theta } \\
+&= \Bp \lr{ \cos\theta + i \sin\theta } \\
+&= \lr{ \cos\theta - i \sin\theta } \Bp \\
+&= e^{-i\theta} \Bp \\
+&= e^{- \Ba \wedge \Bb} \Bp,
+\end{aligned}
+\end{equation}
 and for vectors \( \Bn \) orthogonal to \( S \)
-\begin{dmath}\label{eqn:generalRotation:1860}
+\begin{equation}\label{eqn:generalRotation:1860}
+\begin{aligned}
 \Bn e^{ \Ba \wedge \Bb }
-=
-\Bn e^{ i \theta }
-=
-\Bn \lr{ \cos\theta + i \sin\theta }
-=
-\lr{ \cos\theta + i \sin\theta } \Bn
-=
-e^{i\theta} \Bn
-=
-e^{\Ba \wedge \Bb} \Bn.
-\end{dmath}
+&= \Bn e^{ i \theta } \\
+&= \Bn \lr{ \cos\theta + i \sin\theta } \\
+&= \lr{ \cos\theta + i \sin\theta } \Bn \\
+&= e^{i\theta} \Bn \\
+&= e^{\Ba \wedge \Bb} \Bn.
+\end{aligned}
+\end{equation}
 \end{proof}
 %which completes the proof.
 
 The point of this somewhat abstract seeming theorem is to prepare for the statement of a general \R{N} rotation, which is
-
 \index{rotation}
 \makedefinition{General rotation}{dfn:generalRotation:generalrotation}{
 Let \( B = \setlr{ \pcap, \qcap } \) be an orthonormal basis for a planar subspace with unit pseudoscalar \( i = \pcap \qcap \) where \( i^2 = -1\).
@@ -130,19 +123,15 @@ Instead the rotational sense is defined by the ordering of the factors in the bi
 To check that this operation has the desired semantics,
 let \( \Bx = \Bx_\parallel + \Bx_\perp \), where \( \Bx_\parallel \in S \) and \( \Bx_\perp \cdot \Bp = 0 \,\forall \Bp \in S \).
 Then
-\begin{dmath}\label{eqn:generalRotation:1880}
+\begin{equation}\label{eqn:generalRotation:1880}
+\begin{aligned}
 R_\theta(\Bx)
-=
-e^{ - i \theta/2 } \Bx e^{ i\theta/2 }
-=
-e^{ - i \theta/2 } \lr{ \Bx_\parallel + \Bx_\perp } e^{ i\theta/2 }
-=
-\Bx_\parallel e^{ i\theta } +
-\Bx_\perp e^{ - i \theta/2 } e^{ i\theta/2 }
-=
-\Bx_\parallel e^{ i\theta } + \Bx_\perp.
-\end{dmath}
-
+&= e^{ - i \theta/2 } \Bx e^{ i\theta/2 } \\
+&= e^{ - i \theta/2 } \lr{ \Bx_\parallel + \Bx_\perp } e^{ i\theta/2 } \\
+&= \Bx_\parallel e^{ i\theta } + \Bx_\perp e^{ - i \theta/2 } e^{ i\theta/2 } \\
+&= \Bx_\parallel e^{ i\theta } + \Bx_\perp.
+\end{aligned}
+\end{equation}
 As desired, this rotation operation
 rotates components of the vector that lie in the planar subspace \( S \) by \( \theta \), while leaving the components of the vector orthogonal to the plane unchanged, as illustrated in \cref{fig:Rotation:RotationFig1}.
 This is what we can call rotation around a normal in \R{3}.

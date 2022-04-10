@@ -6,11 +6,11 @@
 
 In general the product of two k-vectors is a multivector, with a selection of different grades.
 For example, the product of two bivectors may have grades 0, 2, or 4
-\begin{dmath}\label{eqn:generalizedDot:601}
+\begin{equation}\label{eqn:generalizedDot:601}
 \Be_{12} \lr{ \Be_{21} + \Be_{23} + \Be_{34} }
 =
 1 + \Be_{13} + \Be_{1234}.
-\end{dmath}
+\end{equation}
 
 Similarly,
 the product of a vector and bivector generally has grades 1 and 3
@@ -45,64 +45,51 @@ A \cdot B = \gpgrade{ A B }{\Abs{r - s}}.
 \end{dmath}
 
 \makeexample{Multivector dot products.}{example:generalizedDot:661}{
-
 The most common and useful multivector dot products are for pairs of multivectors that are each entirely a specific grade, such as a vector-bivector dot product
-\begin{dmath}\label{eqn:generalizedDot:681}
+\begin{equation}\label{eqn:generalizedDot:681}
+\begin{aligned}
 \lr{ \Be_1 + 2 \Be_2 } \cdot \lr{ \Be_{12} + \Be_{23} }
-=
+&=
 \gpgradeone{
    \lr{ \Be_1 + 2 \Be_2 } \lr{ \Be_{12} + \Be_{23} }
-}
-=
+} \\
+&=
 \Be_2 - 2 \Be_1 + 2 \Be_3,
-\end{dmath}
+\end{aligned}
+\end{equation}
 or a bivector-trivector dot product
-\begin{dmath}\label{eqn:generalizedDot:701}
+\begin{equation}\label{eqn:generalizedDot:701}
+\begin{aligned}
 \lr{ \Be_1 + 2 \Be_2 } \cdot \Be_{123}
-=
+&=
 \gpgradetwo{
 \lr{ \Be_1 + 2 \Be_2 } \Be_{123}
-}
-=
+} \\
+&=
 \Be_{23} + 2 \Be_{31}.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 Should the products be of mixed grade, then we sum all the individual dot products
-\begin{dmath}\label{eqn:generalizedDot:721}
-\lr{ 1 + \Be_1 + 2 \Be_{23 } } \cdot \lr{ \Be_2 - \Be_{31} }
-=
-\gpgradeone{
-1 \Be_2
-}
-+
-\gpgradezero{
-\Be_{1} \Be_2
-}
-+
-2
-\gpgradeone{
-\Be_{23} \Be_2
-}
--\gpgradetwo{
-1 \Be_{31}
-}
--
-\gpgradeone{
-\Be_{1} \Be_{31}
-}
--
-2
-\gpgradezero{
-\Be_{23} \Be_{31}
-}
-=
+\begin{equation}\label{eqn:generalizedDot:721}
+\begin{aligned}
+\lr{ 1 + \Be_1 + 2 \Be_{23 } } &\cdot \lr{ \Be_2 - \Be_{31} } \\
+&=
+\gpgradeone{ 1 \Be_2 }
++ \gpgradezero{ \Be_{1} \Be_2 }
++ 2 \gpgradeone{ \Be_{23} \Be_2 } \\
+&\quad - \gpgradetwo{ 1 \Be_{31} }
+- \gpgradeone{ \Be_{1} \Be_{31} }
+- 2 \gpgradezero{ \Be_{23} \Be_{31} } \\
+&=
 \Be_2
 -
 2 \Be_3
 +
 \Be_{13}
 + \Be_3.
-\end{dmath}
+\end{aligned}
+\end{equation}
 } % example
 
 Unfortunately, the notation for the multivector dot product is not standardized.

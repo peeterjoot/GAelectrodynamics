@@ -3,21 +3,22 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \index{reflection}
-
 Geometrically the reflection of a vector \( \Bx \) across a line directed along \( \Bu \) is the difference of the projection and rejection
-\begin{dmath}\label{eqn:reflection:900}
+\begin{equation}\label{eqn:reflection:900}
+\begin{aligned}
 \Bx'
-= \lr{ \Bx \cdot \Bu } \inv{\Bu} - \lr{ \Bx \wedge \Bu } \inv{\Bu }
-= \lr{ \Bx \cdot \Bu - \Bx \wedge \Bu } \inv{\Bu }.
-\end{dmath}
+&= \lr{ \Bx \cdot \Bu } \inv{\Bu} - \lr{ \Bx \wedge \Bu } \inv{\Bu } \\
+&= \lr{ \Bx \cdot \Bu - \Bx \wedge \Bu } \inv{\Bu }.
+\end{aligned}
+\end{equation}
 
 Using the symmetric and antisymmetric sum representations of the dot and wedge products from
 \cref{thm:symmetricAndAntiSymmetricVectorSums:symmetricAndAnti}
 the reflection can be expressed as vector products
-\begin{dmath}\label{eqn:reflection:940}
+\begin{equation}\label{eqn:reflection:940}
 \Bx'
 = \inv{2} \lr{ \cancel{\Bx \Bu} + \Bu \Bx - \cancel{\Bx \Bu} + \Bu \Bx } \inv{\Bu },
-\end{dmath}
+\end{equation}
 yielding a remarkably simple form in terms of vector products
 \boxedEquation{eqn:SimpleProducts2:920}{
 \Bx' = \Bu \Bx \inv{\Bu}.

@@ -54,78 +54,58 @@ The vector derivative, the projection of the gradient onto the surface at the po
 \Bx^v \partial_v.
 \end{dmath}
 To see why the product of the area elements and the vector derivative
-\begin{dmath}\label{eqn:surfaceintegral:300}
+\begin{equation}\label{eqn:surfaceintegral:300}
 d^2\Bx\, \boldpartial
 =
 du dv\, \lr{ \Bx_u \wedge \Bx_v } \lr{ \Bx^u \partial_u + \Bx^v \partial_v },
-\end{dmath}
+\end{equation}
 has only a vector grade, observe that \( \Bx^u \in \Span \setlr{ \Bx_u, \Bx_v } \), so
-\begin{dmath}\label{eqn:surfaceintegral:320}
+\begin{equation}\label{eqn:surfaceintegral:320}
+\begin{aligned}
 \lr{ \Bx_u \wedge \Bx_v } \Bx^u
-=
-\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^u
-+
-\cancel{ \lr{ \Bx_u \wedge \Bx_v } \wedge \Bx^u }
-=
-\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^u
-=
-\Bx_u \lr{ \Bx_v \cdot \Bx^u } -
-\Bx_v \lr{ \Bx_u \cdot \Bx^u }
-=
--\Bx_v.
-\end{dmath}
+&= \lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^u + \cancel{ \lr{ \Bx_u \wedge \Bx_v } \wedge \Bx^u } \\
+&= \lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^u \\
+&= \Bx_u \lr{ \Bx_v \cdot \Bx^u } - \Bx_v \lr{ \Bx_u \cdot \Bx^u } \\
+&= -\Bx_v.
+\end{aligned}
+\end{equation}
 Similarly
-\begin{dmath}\label{eqn:surfaceintegral:340}
+\begin{equation}\label{eqn:surfaceintegral:340}
+\begin{aligned}
 \lr{ \Bx_u \wedge \Bx_v } \Bx^v
-=
-\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^v
-+
-\cancel{ \lr{ \Bx_u \wedge \Bx_v } \wedge \Bx^v }
-=
-\lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^v
-=
-\Bx_u \lr{ \Bx_v \cdot \Bx^v } -
-\Bx_v \lr{ \Bx_u \cdot \Bx^v }
-=
-\Bx_u.
-\end{dmath}
+&= \lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^v + \cancel{ \lr{ \Bx_u \wedge \Bx_v } \wedge \Bx^v } \\
+&= \lr{ \Bx_u \wedge \Bx_v } \cdot \Bx^v \\
+&= \Bx_u \lr{ \Bx_v \cdot \Bx^v } - \Bx_v \lr{ \Bx_u \cdot \Bx^v } \\
+&= \Bx_u.
+\end{aligned}
+\end{equation}
 Not only does \cref{eqn:surfaceintegral:300} have only a vector grade, that product reduces to just
-\begin{dmath}\label{eqn:surfaceintegral:360}
+\begin{equation}\label{eqn:surfaceintegral:360}
 d^2\Bx\, \boldpartial
 =
 \Bx_u \partial_v
 -\Bx_v \partial_u.
-\end{dmath}
+\end{equation}
 Inserting \cref{eqn:surfaceintegral:360} into the surface integral, we find
-\begin{dmath}\label{eqn:surfaceintegral:380}
+\begin{equation}\label{eqn:surfaceintegral:380}
+\begin{aligned}
 \int_S F d^2\Bx\, \boldpartial G
-=
-\int_S \lr{ F d^2\Bx\, \lboldpartial} G
-+
-\int_S F d^2\Bx \lr{ \rboldpartial G }
-=
-\int_S du dv\, \lr{ \partial_v F \Bx_u - \partial_u F \Bx_v } G
-+
-\int_S du dv\, F \lr{ \Bx_u \partial_v G - \Bx_v \partial_u G }
-=
-\int_S du dv\, \lr{ \PD{v}{F} \PD{u}{\Bx} - \PD{u}{F} \PD{v}{\Bx} } G
-+
-\int_S du dv\, F \lr{ \PD{u}{\Bx} \PD{v}{G} - \PD{v}{\Bx} \PD{u}{G} }
-=
-\int_S du dv\, \PD{v}{} \lr{ F \PD{u}{\Bx} G } - \int_S du dv\, \PD{u}{} \lr{ F \PD{v}{\Bx} G }
--
-\int_S du dv\, F \lr{ \PD{v}{} \PD{u}{\Bx} - \PD{u}{} \PD{v}{\Bx} } G
-=
-\int_S du dv\, \PD{v}{} \lr{ F \PD{u}{\Bx} G } - \int_S du dv\, \PD{u}{} \lr{ F \PD{v}{\Bx} G }.
-\end{dmath}
+&= \int_S \lr{ F d^2\Bx\, \lboldpartial} G + \int_S F d^2\Bx \lr{ \rboldpartial G } \\
+&= \int_S du dv\, \lr{ \partial_v F \Bx_u - \partial_u F \Bx_v } G + \int_S du dv\, F \lr{ \Bx_u \partial_v G - \Bx_v \partial_u G } \\
+&= \int_S du dv\, \lr{ \PD{v}{F} \PD{u}{\Bx} - \PD{u}{F} \PD{v}{\Bx} } G + \int_S du dv\, F \lr{ \PD{u}{\Bx} \PD{v}{G} - \PD{v}{\Bx} \PD{u}{G} } \\
+&= \int_S du dv\, \PD{v}{} \lr{ F \PD{u}{\Bx} G } - \int_S du dv\, \PD{u}{} \lr{ F \PD{v}{\Bx} G }  \\
+&\quad - \int_S du dv\, F \lr{ \PD{v}{} \PD{u}{\Bx} - \PD{u}{} \PD{v}{\Bx} } G \\
+&= \int_S du dv\, \PD{v}{} \lr{ F \PD{u}{\Bx} G } - \int_S du dv\, \PD{u}{} \lr{ F \PD{v}{\Bx} G }.
+\end{aligned}
+\end{equation}
 This leaves two perfect differentials, which can both be integrated separately
-\begin{dmath}\label{eqn:surfaceintegral:400}
+\begin{equation}\label{eqn:surfaceintegral:400}
+\begin{aligned}
 \int_S F d^2\Bx\, \boldpartial G
-=
-\int_{\Delta u} du\, \evalbar{\lr{ F \PD{u}{\Bx} G }}{\Delta v} - \int_{\Delta v} dv\, \evalbar{\lr{ F \PD{v}{\Bx} G }}{\Delta u}
-=
-\int_{\Delta u} \evalbar{\lr{ F d\Bx_u G }}{\Delta v} - \int_{\Delta v} \evalbar{\lr{ F d\Bx_v G }}{\Delta u}.
-\end{dmath}
+&= \int_{\Delta u} du\, \evalbar{\lr{ F \PD{u}{\Bx} G }}{\Delta v} - \int_{\Delta v} dv\, \evalbar{\lr{ F \PD{v}{\Bx} G }}{\Delta u} \\
+&= \int_{\Delta u} \evalbar{\lr{ F d\Bx_u G }}{\Delta v} - \int_{\Delta v} \evalbar{\lr{ F d\Bx_v G }}{\Delta u}.
+\end{aligned}
+\end{equation}
 \Cref{eqn:surfaceintegral:400} is an explicit algebraic expression of the boundary integral of \cref{thm:surfaceintegral:100}.
 To complete the proof, we are left with the task of geometrically interpretting this integrand.
 Suppose we are integrating over the unit parameter volume space \( [u, v] \in [0,1] \otimes [0,1] \) as illustrated in
@@ -171,35 +151,32 @@ Since \( \Bx^u, \Bx^v \) both lie in the span of \( \setlr{ \Bx_u, \Bx_v } \),
 If the gradient is decomposed into its projection along the tangent
 space (the vector derivative) and its perpendicular components, only the vector derivative components of the
 gradient contribute to its dot product with the area element.  That is
-\begin{dmath}\label{eqn:surfaceintegral:460}
+\begin{equation}\label{eqn:surfaceintegral:460}
+\begin{aligned}
 d^2 \Bx \cdot \spacegrad
-=
-d^2 \Bx \cdot \lr{ \Bx^u \partial_u + \Bx^v \partial_v + \cdots }
-=
-d^2 \Bx \cdot \lr{ \Bx^u \partial_u + \Bx^v \partial_v }
-=
-d^2 \Bx \cdot \boldpartial.
-\end{dmath}
+&= d^2 \Bx \cdot \lr{ \Bx^u \partial_u + \Bx^v \partial_v + \cdots } \\
+&= d^2 \Bx \cdot \lr{ \Bx^u \partial_u + \Bx^v \partial_v } \\
+&= d^2 \Bx \cdot \boldpartial.
+\end{aligned}
+\end{equation}
 
 This means that for a scalar function
-\begin{dmath}\label{eqn:surfaceintegral:480}
+\begin{equation}\label{eqn:surfaceintegral:480}
 \int_S d^2\Bx\, \boldpartial f
 =
 \int_S d^2\Bx \cdot \spacegrad f.
-\end{dmath}
+\end{equation}
 
 The second part of the theorem follows by grade selection, and application of a duality transformation for the area element
-\begin{dmath}\label{eqn:surfaceintegral:500}
+\begin{equation}\label{eqn:surfaceintegral:500}
+\begin{aligned}
 d^2 \Bx \cdot \spacegrad f
-=
-\gpgradeone{ d^2 \Bx \spacegrad f }
-=
-dA\, \gpgradeone{ I \ncap \spacegrad f }
-=
-dA\, \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f} }
-=
--dA\, \ncap \cross \spacegrad f.
-\end{dmath}
+&= \gpgradeone{ d^2 \Bx \spacegrad f } \\
+&= dA\, \gpgradeone{ I \ncap \spacegrad f } \\
+&= dA\, \gpgradeone{ I \lr{ \ncap \cdot \spacegrad f + I \ncap \cross \spacegrad f} } \\
+&= -dA\, \ncap \cross \spacegrad f.
+\end{aligned}
+\end{equation}
 
 back substitution of \cref{eqn:surfaceintegral:500} completes the proof.
 \end{proof}
@@ -271,33 +248,30 @@ The reciprocal basis vectors \( \Bx^i \) are also nowhere to be seen.  This is b
 
 To see how this occurs let's look at the
 area integrand of \cref{thm:surfaceintegral:500}
-\begin{dmath}\label{eqn:surfaceintegral:660}
+\begin{equation}\label{eqn:surfaceintegral:660}
+\begin{aligned}
 d^2 \Bx \cdot \lr{ \spacegrad \wedge \Bf }
-=
-du_1 du_2\, \lr{ \Bx_1 \wedge \Bx_2 } \cdot \lr{ \sum_{ij} \lr{ \Bx^i \partial_i } \wedge \lr{ f_j \Bx^j } }
-=
-du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \lr{ \partial_i (f_j \Bx^j) }
-=
-du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j
-+
-du_1 du_2\, \sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j).
-\end{dmath}
+&= du_1 du_2\, \lr{ \Bx_1 \wedge \Bx_2 } \cdot \lr{ \sum_{ij} \lr{ \Bx^i \partial_i } \wedge \lr{ f_j \Bx^j } } \\
+&= du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \lr{ \partial_i (f_j \Bx^j) } \\
+&= du_1 du_2\, \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j \\
+&\quad + du_1 du_2\, \sum_{ij} f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j).
+\end{aligned}
+\end{equation}
 
 With a bit of trouble, we will see that the second integrand is zero.  On the other hand, the first integrand
 simplifies
 without too much trouble
-\begin{dmath}\label{eqn:surfaceintegral:680}
+\begin{equation}\label{eqn:surfaceintegral:680}
+\begin{aligned}
 \sum_{ij} \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot \Bx^j \partial_i f_j
-=
-\sum_{ij} \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot \Bx^j \partial_i f_j
-=
-\sum_{j} \Bx_1 \cdot \Bx^j \partial_2 f_j -\Bx_2 \cdot \Bx^j \partial_1 f_j
-=
-\partial_2 f_1 - \partial_1 f_2.
-\end{dmath}
+&= \sum_{ij} \lr{ \Bx_1 \delta_{2i} - \Bx_2 \delta_{1i} } \cdot \Bx^j \partial_i f_j \\
+&= \sum_{j} \Bx_1 \cdot \Bx^j \partial_2 f_j -\Bx_2 \cdot \Bx^j \partial_1 f_j \\
+&= \partial_2 f_1 - \partial_1 f_2.
+\end{aligned}
+\end{equation}
 
 For the second integrand, we have
-\begin{dmath}\label{eqn:surfaceintegral:700}
+\begin{equation}\label{eqn:surfaceintegral:700}
 \begin{aligned}
 \sum_{ij} &f_j \lr{ \lr{ \Bx_1 \wedge \Bx_2 } \cdot \Bx^i } \cdot (\partial_i \Bx^j) \\
 &=
@@ -310,42 +284,29 @@ For the second integrand, we have
 \Bx_2 \cdot (\partial_1 \Bx^j)
 }
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 We can apply the chain rule (backwards) to the portion in brackets to find
-\begin{dmath}\label{eqn:surfaceintegral:720}
-\Bx_1 \cdot (\partial_2 \Bx^j)
--
-\Bx_2 \cdot (\partial_1 \Bx^j)
-=
-\cancel{\partial_2 \lr{ \Bx_1 \cdot \Bx^j }}
--
-(\partial_2 \Bx_1) \cdot \Bx^j
--
-\cancel{\partial_1 \lr{ \Bx_2 \cdot \Bx^j }}
-+
-(\partial_1 \Bx_2) \cdot \Bx^j
-=
-\Bx_j \cdot \lr{ \partial_1 \Bx_2 - \partial_2 \Bx_1 }
-=
-\Bx_j \cdot \lr{ \PD{u_1}{} \PD{u_2}{\Bx} - \PD{u_2}{} \PD{u_1}{\Bx} }
-= 0.
-\end{dmath}
-
+\begin{equation}\label{eqn:surfaceintegral:720}
+\begin{aligned}
+\Bx_1 \cdot (\partial_2 \Bx^j) - \Bx_2 \cdot (\partial_1 \Bx^j)
+&= \cancel{\partial_2 \lr{ \Bx_1 \cdot \Bx^j }} - (\partial_2 \Bx_1) \cdot \Bx^j - \cancel{\partial_1 \lr{ \Bx_2 \cdot \Bx^j }} + (\partial_1 \Bx_2) \cdot \Bx^j \\
+&= \Bx_j \cdot \lr{ \partial_1 \Bx_2 - \partial_2 \Bx_1 } \\
+&= \Bx_j \cdot \lr{ \PD{u_1}{} \PD{u_2}{\Bx} - \PD{u_2}{} \PD{u_1}{\Bx} } \\
+&= 0.
+\end{aligned}
+\end{equation}
 In this reduction the derivatives of \( \Bx_i \cdot \Bx^j = \delta_{ij} \) were killed since those are constants (either zero or one).  The final step relies on the fact that we assume our vector parameterization is well behaved enough that the mixed partials are zero.
 
-Substituting these results into
-\cref{thm:surfaceintegral:500} we find
-\begin{dmath}\label{eqn:surfaceintegral:740}
+Substituting these results into \cref{thm:surfaceintegral:500} we find
+\begin{equation}\label{eqn:surfaceintegral:740}
+\begin{aligned}
 \ointclockwise_{\partial S} d\Bx \cdot \Bf
-=
-\ointclockwise_{\partial S} \lr{ du_1 \Bx_1 + du_2 \Bx_2 } \cdot \lr{ \sum_i f_i \Bx^i }
-=
-\ointclockwise_{\partial S} du_1\, f_1 + du_2\, f_2
-=
-\int_S du_1 du_2\, \lr{ \partial_2 f_1 - \partial_1 f_2 }.
-\end{dmath}
+&= \ointclockwise_{\partial S} \lr{ du_1 \Bx_1 + du_2 \Bx_2 } \cdot \lr{ \sum_i f_i \Bx^i } \\
+&= \ointclockwise_{\partial S} du_1\, f_1 + du_2\, f_2 \\
+&= \int_S du_1 du_2\, \lr{ \partial_2 f_1 - \partial_1 f_2 }.
+\end{aligned}
+\end{equation}
 \end{proof}
-
 %}
 %%%\EndArticle

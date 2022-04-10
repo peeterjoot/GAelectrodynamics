@@ -8,9 +8,9 @@
 \index{curvilinear coordinates}
 
 We will now consider a simple concrete example of a vector parameterization, that of polar coordinates in \R{2}
-\begin{dmath}\label{eqn:2Dcylindrical:100}
+\begin{equation}\label{eqn:2Dcylindrical:100}
 \Bx(\rho, \phi) = \rho \Be_1 \exp\lr{ \Be_{12} \phi },
-\end{dmath}
+\end{equation}
 as illustrated in
 \cref{fig:curvilinearPolar:curvilinearPolarFig1}.
 
@@ -30,80 +30,58 @@ Using this example we will
 The curvilinear coordinate basis can be computed directly
 \begin{subequations}
 \label{eqn:2Dcylindrical:120}
-\begin{dmath}\label{eqn:2Dcylindrical:140}
+\begin{equation}\label{eqn:2Dcylindrical:140}
+\begin{aligned}
 \Bx_\rho
-= \PD{\rho}{} \lr{ \rho \Be_1 \exp\lr{ \Be_{12} \phi } }
-= \Be_1 \exp\lr{ \Be_{12} \phi }
-\end{dmath}
-\begin{dmath}\label{eqn:2Dcylindrical:160}
+&= \PD{\rho}{} \lr{ \rho \Be_1 \exp\lr{ \Be_{12} \phi } } \\
+&= \Be_1 \exp\lr{ \Be_{12} \phi }
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:2Dcylindrical:160}
+\begin{aligned}
 \Bx_\phi
-= \PD{\phi}{} \lr{ \rho \Be_1 \exp\lr{ \Be_{12} \phi } }
-= \rho
-\Be_1 \Be_{12} \exp\lr{ \Be_{12} \phi }
-= \rho
-\Be_2 \exp\lr{ \Be_{12} \phi }.
-\end{dmath}
+&= \PD{\phi}{} \lr{ \rho \Be_1 \exp\lr{ \Be_{12} \phi } } \\
+&= \rho \Be_1 \Be_{12} \exp\lr{ \Be_{12} \phi } \\
+&= \rho \Be_2 \exp\lr{ \Be_{12} \phi }.
+\end{aligned}
+\end{equation}
 \end{subequations}
 For plane configurations, it is often handy to represent the plane pseudoscalar with an imaginary symbol.  Here we will use \( i = \Be_{12} \), allowing for the compact representations \( \Bx_\rho = \Be_1 e^{i \phi} \) and \( \Bx_\phi = \Be_2 e^{i \phi} \).  This also highlights the geometric interpretation of the basis vectors, as we see that the \( \setlr{ \Bx_\rho, \Bx_\phi } \) basis vectors are constructed by rotating \( \setlr{ \Be_1, \rho \Be_2 } \) by \( \phi \) radians in the direction from \( \Be_1 \) to \( \Be_2 \).
 \paragraph{Normality.}
 To show that these vectors are
 perpendicular, we first compute their product, which we will find has no scalar part.  From 
 \cref{thm:SimpleProducts2:1780}, property (c), observe that \( \Bx e^{i\phi} = e^{-i\phi} \Bx \) for any vector \( \Bx \) in the plane, so
-\begin{dmath}\label{eqn:2Dcylindrical:640}
-\Bx_\rho \Bx_\phi
-=
-   \lr{ \Be_1 e^{i \phi} }
-   \lr{ \rho \Be_2 e^{i \phi} }
-=
-\rho \Be_1 \Be_2 e^{-i\phi} e^{i \phi}
-=
-\rho \Be_{12}
-\end{dmath}
+\begin{equation}\label{eqn:2Dcylindrical:640}
+\begin{aligned}
+\Bx_\rho \Bx_\phi 
+&= \lr{ \Be_1 e^{i \phi} } \lr{ \rho \Be_2 e^{i \phi} } \\
+&= \rho \Be_1 \Be_2 e^{-i\phi} e^{i \phi} \\
+&= \rho \Be_{12}.
+\end{aligned}
+\end{equation}
 Since this has no scalar part \( \Bx_\rho \cdot \Bx_\phi = \gpgradezero{ \Bx_\rho \Bx_\phi } = 0 \).
 
 \paragraph{Length of basis elements.}
 We can use scalar selection to find the (squared) length of the vectors, finding
-\begin{dmath}\label{eqn:2Dcylindrical:680}
+\begin{equation}\label{eqn:2Dcylindrical:680}
+\begin{aligned}
 \Bx_\rho^2
-=
-\gpgradezero{
-   \Be_1 e^{i \phi}
-   \Be_1 e^{i \phi}
-}
-=
-\gpgradezero{
-   \Be_1 e^{i \phi}
-   e^{-i\phi}
-   \Be_1
-}
-=
-\gpgradezero{
-   \Be_1^2
-}
-= 1,
-\end{dmath}
+&= \gpgradezero{ \Be_1 e^{i \phi} \Be_1 e^{i \phi} } \\
+&= \gpgradezero{ \Be_1 e^{i \phi} e^{-i\phi} \Be_1 } \\
+&= \gpgradezero{ \Be_1^2 } \\
+&= 1,
+\end{aligned}
+\end{equation}
 and
-\begin{dmath}\label{eqn:2Dcylindrical:700}
-\Bx_\phi^2
-=
-\gpgradezero{
-   \lr{ \rho \Be_2 e^{i \phi} }
-   \lr{ \rho \Be_2 e^{i \phi} }
-}
-=
-\rho^2
-\gpgradezero{
-   \Be_2 e^{i \phi}
-   e^{-i\phi} \Be_2
-}
-=
-\rho^2
-\gpgradezero{
-\Be_2^2
-}
-= \rho^2.
-\end{dmath}
-
+\begin{equation}\label{eqn:2Dcylindrical:700}
+\begin{aligned}
+\Bx_\phi^2 
+&= \gpgradezero{ \lr{ \rho \Be_2 e^{i \phi} } \lr{ \rho \Be_2 e^{i \phi} } } \\
+&= \rho^2 \gpgradezero{ \Be_2 e^{i \phi} e^{-i\phi} \Be_2 } \\
+&= \rho^2 \gpgradezero{ \Be_2^2 } \\
+&= \rho^2.
+\end{aligned}
+\end{equation}
 \paragraph{A bivector integral.}
 One of our goals is to understand the multivector generalization of Stokes' theorem and the divergence theorem, but even before that, we can evaluate some simple multivector integrals.  In particular, we can calculate the (oriented) area of a circle, given a bivector representation of the area element.
 \begin{dmath}\label{eqn:2Dcylindrical:360}
@@ -148,44 +126,43 @@ y &= \rho \sin\phi.
 \end{dmath}
 
 An implicit solution to this inversion problem is
-\begin{dmath}\label{eqn:2Dcylindrical:500}
+\begin{equation}\label{eqn:2Dcylindrical:500}
 \begin{aligned}
 \rho^2 &= x^2 + y^2 \\
 \tan\phi &= y/x,
 \end{aligned}
-\end{dmath}
+\end{equation}
 which we can implicitly differentiate to evaluate the components of the desired gradients
-\begin{dmath}\label{eqn:2Dcylindrical:520}
+\begin{equation}\label{eqn:2Dcylindrical:520}
 \begin{aligned}
 2 \rho \PD{x}{\rho} &= 2 x \\
 2 \rho \PD{y}{\rho} &= 2 y \\
 \inv{\cos^2\phi} \PD{x}{\phi} &= -\frac{y}{x^2} \\
 \inv{\cos^2\phi} \PD{y}{\phi} &= \inv{x}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
-The gradients are therefore
+So the gradients are
 \begin{subequations}
 \label{eqn:2Dcylindrical:540}
-\begin{dmath}\label{eqn:2Dcylindrical:560}
+\begin{equation}\label{eqn:2Dcylindrical:560}
+\begin{aligned}
 \spacegrad \rho
-= \inv{\rho} (\cos\phi, \sin\phi)
-= \Be_1 e^{\Be_{12} \phi}
-= \Bx^\rho
-\end{dmath}
-\begin{dmath}\label{eqn:2Dcylindrical:580}
+&= \inv{\rho} (\cos\phi, \sin\phi) \\
+&= \Be_1 e^{\Be_{12} \phi} \\
+&= \Bx^\rho
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:2Dcylindrical:580}
+\begin{aligned}
 \spacegrad \phi
-=
-\cos^2 \phi \lr{ -\frac{y}{x^2}, \inv{x} }
-=
-\inv{\rho} ( -\sin\phi, \cos\phi )
-=
-\frac{\Be_2}{\rho} ( \cos\phi + \Be_{12} \sin\phi )
-=
-\frac{\Be_2}{\rho} e^{ \Be_{12} \phi }
-=
-\Bx^\phi,
-\end{dmath}
+&= \cos^2 \phi \lr{ -\frac{y}{x^2}, \inv{x} } \\
+&= \inv{\rho} ( -\sin\phi, \cos\phi ) \\
+&= \frac{\Be_2}{\rho} ( \cos\phi + \Be_{12} \sin\phi ) \\
+&= \frac{\Be_2}{\rho} e^{ \Be_{12} \phi } \\
+&= \Bx^\phi,
+\end{aligned}
+\end{equation}
 \end{subequations}
 
 which is consistent with \cref{eqn:2Dcylindrical:180}, as expected.

@@ -47,25 +47,29 @@ where \( j \) in \( a^j \) is an index not a power\footnote{In tensor algebra, a
 \( a^k b_{ik} \).  These index tracking conventions are obvious when summation symbols are included explicitly, as we will do.}.
 
 Dotting with the reciprocal frame vectors \( \Bx^i \) provides these coordinates \( a^i \)
-\begin{dmath}\label{eqn:reciprocal:40}
+\begin{equation}\label{eqn:reciprocal:40}
+\begin{aligned}
 \Ba \cdot \Bx^i
-= \lr{\sum_j a^j \Bx_j} \cdot \Bx^i
-= \sum_j a^j {\delta_j}^i
-= a^i.
-\end{dmath}
+&= \lr{\sum_j a^j \Bx_j} \cdot \Bx^i \\
+&= \sum_j a^j {\delta_j}^i \\
+&= a^i.
+\end{aligned}
+\end{equation}
 
-The vector can also be expressed with coordinates taken with respect to the reciprocal frame.  Let those coordinates be \( a_i \), so that
+Alternatively, coordinates can be computed with respect to the reciprocal frame.  Let those coordinates be \( a_i \), so that
 \begin{dmath}\label{eqn:reciprocal:60}
 \Ba = \sum_i a_i \Bx^i.
 \end{dmath}
 
 Dotting with the basis vectors \( \Bx_i \) provides the reciprocal frame relative coordinates \( a_i \)
-\begin{dmath}\label{eqn:reciprocal:80}
+\begin{equation}\label{eqn:reciprocal:80}
+\begin{aligned}
 \Ba \cdot \Bx_i
-= \lr{\sum_j a_j \Bx^j} \cdot \Bx_i
-= \sum_j a_j {\delta^j}_i
-= a_i.
-\end{dmath}
+&= \lr{\sum_j a_j \Bx^j} \cdot \Bx_i \\
+&= \sum_j a_j {\delta^j}_i \\
+&= a_i.
+\end{aligned}
+\end{equation}
 
 We can summarize \cref{eqn:reciprocal:40} and \cref{eqn:reciprocal:80} by stating that a vector can be expressed in terms of coordinates relative to either the original or reciprocal basis as follows
 \begin{equation}\label{eqn:reciprocal:420}

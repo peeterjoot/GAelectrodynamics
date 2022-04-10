@@ -85,19 +85,19 @@ With the volume element and the vector derivative spelled out explicitly, we can
 \begin{proof}
 The first step, is the 
 reduction of the product of the volume element and the vector derivative, which we will see is a bivector.
-\begin{dmath}\label{eqn:volumeintegral:300}
+\begin{equation}\label{eqn:volumeintegral:300}
 d^3\Bx \boldpartial
 =
 d^3 u\, \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \lr{ \Bx^1 \partial_1 + \Bx^2 \partial_2 + \Bx^3 \partial_3 }.
-\end{dmath}
+\end{equation}
 Since all \( \Bx^i \) lie within \( \Span \setlr{ \Bx_1, \Bx_2, \Bx_3 } \), this multivector product has only a vector grade.  That is
-\begin{dmath}\label{eqn:volumeintegral:320}
+\begin{equation}\label{eqn:volumeintegral:320}
 \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \Bx^i
 =
 \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \cdot \Bx^i
 +
 \cancel{ \lr{ \Bx_1 \wedge \Bx_2 \wedge \Bx_3 } \wedge \Bx^i },
-\end{dmath}
+\end{equation}
 for all \( \Bx^i \).  These products reduces to
 \begin{dmath}\label{eqn:volumeintegral:1621}
 \begin{aligned}
@@ -107,55 +107,55 @@ for all \( \Bx^i \).  These products reduces to
 \end{aligned}
 \end{dmath}
 
-Inserting \cref{eqn:volumeintegral:1621}
-into the volume integral, we find
-\begin{dmath}\label{eqn:volumeintegral:380}
-\int_V F d^3\Bx \boldpartial G
-=
+Inserting \cref{eqn:volumeintegral:1621} into the volume integral, we find
+\begin{equation}\label{eqn:volumeintegral:380}
+\begin{aligned}
+\int_V &F d^3\Bx \boldpartial G \\
+&=
 \int_V \lr{ F d^3\Bx \lboldpartial} G
 +
-\int_V F d^3\Bx \lr{ \rboldpartial G }
-=
+\int_V F d^3\Bx \lr{ \rboldpartial G } \\
+&=
 \int_V d^3 u\, \lr{
    (\partial_1 F) \Bx_2 \wedge \Bx_3 G
    +
    (\partial_2 F) \Bx_3 \wedge \Bx_1 G
    +
    (\partial_3 F) \Bx_1 \wedge \Bx_2 G
-}
-+
+} \\
+&\quad +
 \int_V d^3 u\, \lr{
    F \Bx_2 \wedge \Bx_3 (\partial_1 G)
    +
    F \Bx_3 \wedge \Bx_1 (\partial_2 G)
    +
    F \Bx_1 \wedge \Bx_2 (\partial_3 G)
-}
-=
+} \\
+&=
 \int_V d^3 u\, \lr{
    \partial_1 (F \Bx_2 \wedge \Bx_3 G)
    +
    \partial_2 (F \Bx_3 \wedge \Bx_1 G)
    +
    \partial_3 (F \Bx_1 \wedge \Bx_2 G)
-}
--
+} \\
+&\quad -
 \int_V d^3 u\, \lr{
    F (\partial_1 (\Bx_2 \wedge \Bx_3)) G
    +
    F (\partial_2 (\Bx_3 \wedge \Bx_1)) G
    +
    F (\partial_3 (\Bx_1 \wedge \Bx_2)) G
-}
-=
+} \\
+&=
 \int_V d^3 u\, \lr{
    \partial_1 (F \Bx_2 \wedge \Bx_3 G)
    +
    \partial_2 (F \Bx_3 \wedge \Bx_1 G)
    +
    \partial_3 (F \Bx_1 \wedge \Bx_2 G)
-}
--
+} \\
+&\quad -
 \int_V d^3 u\, F
 \lr{
    \partial_1 (\Bx_2 \wedge \Bx_3)
@@ -166,10 +166,11 @@ into the volume integral, we find
 }
 G
 .
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 The sum within the second integral is
-\begin{dmath}\label{eqn:volumeintegral:1111}
+\begin{equation}\label{eqn:volumeintegral:1111}
 \begin{aligned}
 &\sum_{i = 1}^3 \partial_i \lr{ I_k \cdot \Bx^i } \\
 &=
@@ -201,7 +202,7 @@ The sum within the second integral is
 +
 \Bx_1 \wedge \lr{ - \frac{\partial^2 \Bx}{\partial_2 \partial_3} + \frac{\partial^2 \Bx}{\partial_3 \partial_2} },
 \end{aligned}
-\end{dmath}
+\end{equation}
 which is zero by equality of mixed partials.
 This leaves three perfect differentials, which can integrated separately, giving
 \begin{dmath}\label{eqn:volumeintegral:400}

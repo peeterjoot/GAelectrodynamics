@@ -62,27 +62,18 @@ It turns out that the gradients of the parameters are in fact the reciprocal fra
 \input{Theorem_reciprocal_frame_vectors_gradient.tex}
 \begin{proof}
 This can be proven by direct computation
-\begin{dmath}\label{eqn:gradient:20}
+\begin{equation}\label{eqn:gradient:20}
+\begin{aligned}
 \Bx^i \cdot \Bx_j
-=
-(\spacegrad u_i) \cdot \PD{u_j}{\Bx}
-=
-\sum_{r,s=1}^n
-\lr{ \Be_r \PD{x_r}{u_i} } \cdot \lr{ \Be_s \PD{u_j}{x_s} }
-=
-\sum_{r,s=1}^n (\Be_r \cdot \Be_s)
-\PD{x_r}{u_i} \PD{u_j}{x_s}
-=
-\sum_{r,s=1}^n \delta_{rs}
-\PD{x_r}{u_i} \PD{u_j}{x_s}
-=
-\sum_{r=1}^n
-\PD{x_r}{u_i} \PD{u_j}{x_r}
-=
-\PD{u_i}{u_j}
-=
-\delta_{ij}.
-\end{dmath}
+&= (\spacegrad u_i) \cdot \PD{u_j}{\Bx} \\
+&= \sum_{r,s=1}^n \lr{ \Be_r \PD{x_r}{u_i} } \cdot \lr{ \Be_s \PD{u_j}{x_s} } \\
+&= \sum_{r,s=1}^n (\Be_r \cdot \Be_s) \PD{x_r}{u_i} \PD{u_j}{x_s} \\
+&= \sum_{r,s=1}^n \delta_{rs} \PD{x_r}{u_i} \PD{u_j}{x_s} \\
+&= \sum_{r=1}^n \PD{x_r}{u_i} \PD{u_j}{x_r} \\
+&= \PD{u_i}{u_j} \\
+&= \delta_{ij}.
+\end{aligned}
+\end{equation}
 This shows that \( \Bx^i = \spacegrad u_i \) has the properties required of the reciprocal frame, proving the theorem.
 \end{proof}
 

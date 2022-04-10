@@ -33,26 +33,16 @@ and the vector derivative is just \( \boldpartial = \Bx^u \partial_u \) (no sum)
 \begin{proof}
 The proof follows by expansion.
 For
-\begin{dmath}\label{eqn:lineintegral:120}
+\begin{equation}\label{eqn:lineintegral:120}
+\begin{aligned}
 \int_C F d\Bx\, \lrboldpartial G
-=
-\int_C \lr{ F d\Bx \lboldpartial} G
-+
-\int_C F d\Bx \lr{ \rboldpartial G }
-=
-\int_C \PD{u}{F} du\, \Bx_u \Bx^u G
-+
-\int_C F du\, \Bx_u \Bx^u \PD{u}{G}
-=
-\int_C du\, \PD{u}{F} G
-+
-\int_C du\, F \PD{u}{G}
-=
-\int_C du\, \PD{u}{} \lr{ F G }
-=
-F(u_1) G(u_1) -
-F(u_0) G(u_0),
-\end{dmath}
+&= \int_C \lr{ F d\Bx \lboldpartial} G + \int_C F d\Bx \lr{ \rboldpartial G } \\
+&= \int_C \PD{u}{F} du\, \Bx_u \Bx^u G + \int_C F du\, \Bx_u \Bx^u \PD{u}{G} \\
+&= \int_C du\, \PD{u}{F} G + \int_C du\, F \PD{u}{G} \\
+&= \int_C du\, \PD{u}{} \lr{ F G } \\
+&= F(u_1) G(u_1) - F(u_0) G(u_0),
+\end{aligned}
+\end{equation}
 %where the boundaries of the parameterization have been assumed to be
 %\( C: u \in [u_0, u_1] \).
 We have a perfect cancellation of the reciprocal frame \( \Bx^u \) with the vector \( \Bx_u \) that lies along the curve, since \( \Bx^u \Bx_u = 1 \).  This leaves a perfect derivative of the product of \( F G \), which can be integrated over the length of the curve, yielding the difference of the product with respect to the parameterization of the end points of the curve.
@@ -91,14 +81,13 @@ The curvilinear representation of the \R{3} gradient is
 \spacegrad = \Bx^u \partial_u + \Bx^v \partial_v + \Bx^w \partial_w = \boldpartial + \Bx^v \partial_v + \Bx^w \partial_w,
 \end{dmath}
 Over the curve \( C \)
-\begin{dmath}\label{eqn:lineintegral:240}
+\begin{equation}\label{eqn:lineintegral:240}
 d\Bx \cdot \spacegrad
 =
 du\, \Bx_u \cdot \lr{ \boldpartial + \Bx^v \partial_v + \Bx^w \partial_w },
-\end{dmath}
+\end{equation}
 but \( \Bx_u \cdot \Bx^v = \Bx_u \cdot \Bx^w = 0 \), so \( d\Bx \cdot \spacegrad = d\Bx \cdot \boldpartial \) over the curve.
 %, completing the proof.
 \end{proof}
-
 %}
 %\EndNoBibArticle
