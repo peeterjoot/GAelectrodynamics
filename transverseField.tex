@@ -22,24 +22,26 @@ where \( F = F_z + F_t \).
 } % theorem
 \begin{proof}
 To determine the components of the field that lie in the propagation direction and transverse planes, we state the field in the propagation direction, building it from the electric and magnetic field projections along the z-axis
-\begin{dmath}\label{eqn:transverseField:108}
+\begin{equation}\label{eqn:transverseField:108}
+\begin{aligned}
 F_z
-=
+&=
 \lr{ \BE \cdot \Be_3 }
  \Be_3
-+ I \eta \lr{ \BH \cdot \Be_3 } \Be_3
-=
++ I \eta \lr{ \BH \cdot \Be_3 } \Be_3 \\
+&=
 \inv{2}
 \lr{ \BE \Be_3 + \Be_3 \BE }
  \Be_3
-+ \inv{2} I \eta \lr{ \BH \Be_3 + \Be_3 \BH } \Be_3
-=
++ \inv{2} I \eta \lr{ \BH \Be_3 + \Be_3 \BH } \Be_3 \\
+&=
 \inv{2}
 \lr{ \BE + \Be_3 \BE \Be_3 }
-+ \inv{2} I \eta \lr{ \BH + \Be_3 \BH \Be_3 }
-=
++ \inv{2} I \eta \lr{ \BH + \Be_3 \BH \Be_3 } \\
+&=
 \inv{2} \lr{ F + \Be_3 F \Be_3 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 The difference \( F - F_z \) is the transverse component
 \begin{dmath}\label{eqn:transverseField:308}
 F_t
@@ -87,14 +89,16 @@ Since \( \spacegrad_t \) has no \( \xcap, \ycap \) components, \( \Be_3 \) antic
 but commutes with \( 1 \mp \Be_3 \).
 %In \cref{eqn:transverseField:168} it is implied that the action of \( \spacegrad_t \) is on everything to its right.
 This means that
-\begin{dmath}\label{eqn:transverseField:188}
+\begin{equation}\label{eqn:transverseField:188}
+\begin{aligned}
 \inv{2} \lr{ \spacegrad_t F \pm \Be_3 \lr{ \spacegrad_t F } \Be_3 }
-=
-\inv{2} \lr{ \spacegrad_t F \mp \spacegrad_t \Be_3 F \Be_3 }
-=
+&=
+\inv{2} \lr{ \spacegrad_t F \mp \spacegrad_t \Be_3 F \Be_3 } \\
+&=
 \spacegrad_t
 \inv{2} \lr{ F \mp \Be_3 F \Be_3 },
-\end{dmath}
+\end{aligned}
+\end{equation}
 or
 \begin{equation}\label{eqn:transverseField:208}
 \begin{aligned}
@@ -126,13 +130,14 @@ F_t &= j \frac{ \frac{\omega}{c} \pm k \Be_3 }{ \lr{\frac{\omega}{c}}^2 - k^2 } 
 \end{aligned}
 \end{equation}
 so that we are in position to expand most of the terms in the numerator
-\begin{dmath}\label{eqn:transverseField:268}
+\begin{equation}\label{eqn:transverseField:268}
+\begin{aligned}
 \lr{ \frac{\omega}{c} \pm k \Be_3 } \spacegrad_t F_z
-=
--\lr{ \Be_3 \frac{\omega}{c} \pm k } \spacegrad_t \Be_3 F_z
-=
-\lr{ \pm k - \Be_3 \frac{\omega}{c} } \spacegrad_t \lr{ E_z + I \eta H_z }
-=
+&=
+-\lr{ \Be_3 \frac{\omega}{c} \pm k } \spacegrad_t \Be_3 F_z \\
+&=
+\lr{ \pm k - \Be_3 \frac{\omega}{c} } \spacegrad_t \lr{ E_z + I \eta H_z } \\
+&=
 \lr{
    \pm k \spacegrad_t E_z
    + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
@@ -143,7 +148,8 @@ so that we are in position to expand most of the terms in the numerator
    \frac{\omega}{c}
    \Be_3 \cross \spacegrad_t E_z
 },
-\end{dmath}
+\end{aligned}
+\end{equation}
 from which the transverse electric and magnetic fields stated in
 \cref{thm:transverseField:348} can be read off.
 \end{proof}

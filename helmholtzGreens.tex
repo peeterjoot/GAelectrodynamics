@@ -53,23 +53,17 @@ Verifying this requires two steps, first considering points \( \Bx \ne \Bx' \), 
 
 We will absorb the sign associated with the causal and acausal Green's function variations by writing \( i = \pm j \), so that
 for points \( \Bx \ne \Bx' \), (i.e. \( r = \Norm{\Bx - \Bx'} \ne 0 \)), working in spherical coordinates, we find
-\begin{dmath}\label{eqn:helmholtzGreens:100}
+\begin{equation}\label{eqn:helmholtzGreens:100}
+\begin{aligned}
 - 4 \pi \lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx')
-=
-\inv{r^2} \lr{ r^2 G' }' - 4 \pi k^2 G
-=
-\inv{r^2} \frac{d}{dr} \lr{ r^2 \lr{ \frac{i k r}{r} - \inv{r^2} } e^{ i k r } }
-+ \frac{k^2}{r} e^{i k r}
-=
-\inv{r^2} \frac{d}{dr} \lr{ \lr{ r i k - 1 } e^{ i k r }}
-+ \frac{k^2}{r} e^{i k r}
-=
-\inv{r^2} \lr{ \cancel{ i k}  + \lr{ r i k - \cancel{ 1 } } i k } e^{ i k r}
-+ \frac{k^2}{r} e^{i k r}
-=
-\inv{r^2} \lr{ - r k^2 } e^{ i k r} + k^2 \frac{e^{i k r}}{r}
-= 0.
-\end{dmath}
+&= \inv{r^2} \lr{ r^2 G' }' - 4 \pi k^2 G \\
+&= \inv{r^2} \frac{d}{dr} \lr{ r^2 \lr{ \frac{i k r}{r} - \inv{r^2} } e^{ i k r } } + \frac{k^2}{r} e^{i k r} \\
+&= \inv{r^2} \frac{d}{dr} \lr{ \lr{ r i k - 1 } e^{ i k r }} + \frac{k^2}{r} e^{i k r} \\
+&= \inv{r^2} \lr{ \cancel{ i k}  + \lr{ r i k - \cancel{ 1 } } i k } e^{ i k r} + \frac{k^2}{r} e^{i k r} \\
+&= \inv{r^2} \lr{ - r k^2 } e^{ i k r} + k^2 \frac{e^{i k r}}{r} \\
+&= 0.
+\end{aligned}
+\end{equation}
 
 \paragraph{Case II.  In the neighborhood of \(\Norm{\Bx - \Bx'} < \epsilon\)}
 
@@ -137,13 +131,13 @@ To evaluate the Laplacian term of \cref{eqn:helmholtzGreens:430}, we can make a 
 \spacegrad_{\Bx''} \cdot \left(\spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right),
 \end{equation}
 and then employ the divergence theorem
-\begin{dmath}\label{eqn:helmholtzGreens:450}
+\begin{equation}\label{eqn:helmholtzGreens:450}
+\begin{aligned}
 \int_{\Norm{\Bx''} < \epsilon} \spacegrad^2 \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} dV''
-=
-\int_{\Norm{\Bx''} < \epsilon} \spacegrad_{\Bx''} \cdot \left( \spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right) dV''
-=
-\int_{\partial V} \left( \spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right) \cdot \ncap dA'',
-\end{dmath}
+&= \int_{\Norm{\Bx''} < \epsilon} \spacegrad_{\Bx''} \cdot \left( \spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right) dV'' \\
+&= \int_{\partial V} \left( \spacegrad_{\Bx''} \frac{e^{i k \Norm{\Bx''}}}{\Norm{\Bx''}} \right) \cdot \ncap dA'',
+\end{aligned}
+\end{equation}
 where \( \partial V \) represents the surface of the \( \Norm{\Bx''} < \epsilon \) neighborhood, and \( \ncap \) is the unit vector directed along \( \Bx'' = \Bx' - \Bx \).
 To evaluate this surface integral we will require only the radial portion of the gradient.  With \( r = \Norm{\Bx''} \), that is
 \begin{equation}\label{eqn:helmholtzGreens:490}

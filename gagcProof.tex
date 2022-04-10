@@ -30,27 +30,25 @@ We start with
 expanding the hypervolume
 integral, by separating the
 geometric product of the volume element and vector derivative direction vectors into dot and wedge contributions
-\begin{dmath}\label{eqn:gagcProof:300}
+\begin{equation}\label{eqn:gagcProof:300}
+\begin{aligned}
 \int_V F d^k \Bx \lrboldpartial G
-=
-\sum_i \int_V d^k u F I_k \Bx^i \lrpartial_i G
-=
-\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i +  I_k \wedge \Bx^i } \lrpartial_i G.
-\end{dmath}
+&= \sum_i \int_V d^k u F I_k \Bx^i \lrpartial_i G \\
+&= \sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i +  I_k \wedge \Bx^i } \lrpartial_i G.
+\end{aligned}
+\end{equation}
 Because \( \Bx^i \) lies in \( \Span \setlr{ \Bx_j } \), the wedge product above is zero, leaving
-\begin{dmath}\label{eqn:gagcProof:320}
+\begin{equation}\label{eqn:gagcProof:320}
+\begin{aligned}
 \int_V F d^k \Bx \lrboldpartial G
-=
-\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} \lrpartial_i G,
-=
-\sum_i \int_V d^k u (\partial_i F) I_k \cdot \Bx^i G
-+
-\sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} (\partial_i G)
-=
-\sum_i \int_V d^k u \partial_i \lr{ F \lr{ I_k \cdot \Bx^i} G }
+&= \sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} \lrpartial_i G \\
+&= \sum_i \int_V d^k u (\partial_i F) I_k \cdot \Bx^i G 
++ \sum_i \int_V d^k u F \lr{ I_k \cdot \Bx^i} (\partial_i G) \\
+&= \sum_i \int_V d^k u \partial_i \lr{ F \lr{ I_k \cdot \Bx^i} G }
 -
 \int_V d^k u F \lr{ \sum_i \partial_i \lr{ I_k \cdot \Bx^i } } G.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 The sum in the second integral turns out to be zero, but is somewhat messy to show in general.
 The \( k = 1 \) is a special case, as it is trivial
@@ -58,39 +56,32 @@ The \( k = 1 \) is a special case, as it is trivial
 \partial_1 (\Bx_1 \cdot \Bx^1) = \partial_1 1 = 0.
 \end{equation}
 The \( k = 2 \) case is illustrative
-\begin{dmath}\label{eqn:gagcProof:380}
+\begin{equation}\label{eqn:gagcProof:380}
+\begin{aligned}
 \sum_{i = 1}^2 \partial_i \lr{ I_3 \cdot \Bx^i }
-=
-\partial_1 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^1)
-+
-\partial_2 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^2)
-=
-\partial_1 (-\Bx_2)
-+
-\partial_2 \Bx_1
-=
--\frac{\partial^2 \Bx}{\partial u_1 \partial_2}
-+\frac{\partial^2 \Bx}{\partial u_2 \partial_1},
-\end{dmath}
+&= \partial_1 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^1) + \partial_2 ((\Bx_1 \wedge \Bx_2) \cdot \Bx^2) \\
+&= \partial_1 (-\Bx_2) + \partial_2 \Bx_1 \\
+&= -\frac{\partial^2 \Bx}{\partial u_1 \partial_2} +\frac{\partial^2 \Bx}{\partial u_2 \partial_1},
+\end{aligned}
+\end{equation}
 which is zero by equality of mixed partials.
 To show that this sums to zero in general observe that cyclic permutation of the wedge factors in the pseudoscalar only changes the sign
-\begin{dmath}\label{eqn:gagcProof:400}
+\begin{equation}\label{eqn:gagcProof:400}
+\begin{aligned}
 \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k
-=
-\Bx_2 \wedge \Bx_3 \wedge \cdots \wedge \Bx_k \wedge \Bx_1 (-1)^{1 (k-1)}
-=
-\Bx_3 \wedge \Bx_4 \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 (-1)^{2 (k-1)}
-=
-\Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_i (-1)^{i (k-1)}.
-\end{dmath}
+&= \Bx_2 \wedge \Bx_3 \wedge \cdots \wedge \Bx_k \wedge \Bx_1 (-1)^{1 (k-1)} \\
+&= \Bx_3 \wedge \Bx_4 \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 (-1)^{2 (k-1)} \\
+&= \Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_i (-1)^{i (k-1)}.
+\end{aligned}
+\end{equation}
 The pseudoscalar dot product \( I_k \cdot \Bx^i \) is therefore
-\begin{dmath}\label{eqn:gagcProof:420}
+\begin{equation}\label{eqn:gagcProof:420}
+\begin{aligned}
 I_k \cdot \Bx^i
-=
-(\Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k) \cdot \Bx^i
-=
-\Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_{i-1} (-1)^{i (k-1)},
-\end{dmath}
+&= (\Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_k) \cdot \Bx^i \\
+&= \Bx_{i+1} \wedge \Bx_{i+2} \wedge \cdots \wedge \Bx_k \wedge \Bx_1 \wedge \Bx_2 \wedge \cdots \wedge \Bx_{i-1} (-1)^{i (k-1)},
+\end{aligned}
+\end{equation}
 and the sum is
 \begin{equation}\label{eqn:gagcProof:440}
 \begin{aligned}
@@ -135,13 +126,13 @@ By equality of mixed partials this difference of \(1,2\) partials are killed.  T
 proving that \( \sum_i \partial_i \lr{ I_k \cdot \Bx^i } = 0 \).
 
 \Cref{eqn:gagcProof:320} is left with a sum of perfect differentials, each separately integrable
-\begin{dmath}\label{eqn:gagcProof:340}
+\begin{equation}\label{eqn:gagcProof:340}
+\begin{aligned}
 \int_V F d^k \Bx \lrboldpartial G
-=
-\sum_i \int_{\partial V} d^{k-1} u_i \int_{\Delta u_i} du_i \PD{u_i}{} \lr{ F \lr{ I_k \cdot \Bx^i} G}
-=
-\sum_i \int_{\partial V} d^{k-1} u_i \evalbar{\lr{ F \lr{ I_k \cdot \Bx^i} G}}{\Delta u_i},
-\end{dmath}
+&= \sum_i \int_{\partial V} d^{k-1} u_i \int_{\Delta u_i} du_i \PD{u_i}{} \lr{ F \lr{ I_k \cdot \Bx^i} G} \\
+&= \sum_i \int_{\partial V} d^{k-1} u_i \evalbar{\lr{ F \lr{ I_k \cdot \Bx^i} G}}{\Delta u_i},
+\end{aligned}
+\end{equation}
 which completes the sketch of the proof.
 
 While much of the theoretical heavy lifting was carried by the reciprocal frame vectors, the final result does not actually require computing those vectors.
@@ -152,6 +143,5 @@ Issues of connectivity of the hypervolumes (and integration theory in general) a
 \citep{aMacdonaldVAGC}.
 For other general issues required for a complete proof, like the triangulation of the volume and its boundary, please see
 \citep{hestenes1985clifford}, \citep{doran2003gap}, and \citep{sobczyk2011fundamental}.
-
 %}
 %\EndArticle

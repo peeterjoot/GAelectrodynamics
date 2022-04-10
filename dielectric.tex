@@ -72,34 +72,31 @@ and compare to
 -\frac{1}{c} \spacegrad \cross \BH,
 \end{dmath}
 and for \( G \)
-\begin{dmath}\label{eqn:dielectric:100}
+\begin{equation}\label{eqn:dielectric:100}
+\begin{aligned}
 I\lr{ c \rho_\txtm - \BM }
-=
-\gpgrade{ \stgrad G }{2,3}
-=
-\gpgrade{
+&= \gpgrade{ \stgrad G }{2,3} \\
+&= \gpgrade{
    \stgrad \lr{\BE + I c \BB }
-}{2,3}
-=
-\gpgrade{
+}{2,3} \\
+&= \gpgrade{
    \spacegrad \cdot \BE
    +\spacegrad \wedge \BE
    + I c \spacegrad \cdot \BB
    + I c \spacegrad \wedge \BB
    + \inv{c} \PD{t}{\BE}
    + I \PD{t}{\BB}
-}{2,3}
-=
-    \spacegrad \wedge \BE
+}{2,3} \\
+&= \spacegrad \wedge \BE
    + I c \spacegrad \cdot \BB
-   + I \PD{t}{\BB}
-=
-I \lr{
+   + I \PD{t}{\BB} \\
+&= I \lr{
     \spacegrad \cross \BE
    + c \spacegrad \cdot \BB
    + \PD{t}{\BB}
 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 Applying further grade selection operations, rescaling (cancelling all factors of \( c \) and \( I \)), and a bit of rearranging, gives
 \begin{equation}\label{eqn:dielectric:120}
 \begin{aligned}

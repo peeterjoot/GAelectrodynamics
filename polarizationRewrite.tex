@@ -361,17 +361,19 @@ In this definition we have used the \R{3} pseudoscalar \( I \) as the imaginary.
 We will not use the Jones vector as a tuple, but will use \( c_1, c_2 \) as stated above.
 \input{Theorem_circular_polarization_coeff_pseudoscalar.tex}
 Notice that the signs of the exponentials have flipped for the left and right handed circular polarizations.  It may not obvious that the electric and magnetic fields in this representation have the desired transverse properties.  To see why that is still the case, and to understand the conjugation in the complex exponentials, consider the right circular polarization case with \( \alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \)
-\begin{dmath}\label{eqn:polarizationRewrite:940}
+\begin{equation}\label{eqn:polarizationRewrite:940}
+\begin{aligned}
 F
-= \lr{ 1 + \Be_3 } \Be_1 \Norm{\BE} e^{-I\phi}
-= \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi - \Be_{23} \sin\phi }
-= \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_{32} \sin\phi },
-\end{dmath}
+&= \lr{ 1 + \Be_3 } \Be_1 \Norm{\BE} e^{-I\phi} \\
+&= \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi - \Be_{23} \sin\phi } \\
+&= \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_{32} \sin\phi },
+\end{aligned}
+\end{equation}
 but since \( \lr{ 1 + \Be_3 } \Be_3 = 1 + \Be_3 \), we have
-\begin{dmath}\label{eqn:polarizationRewrite:960}
+\begin{equation}\label{eqn:polarizationRewrite:960}
 F
 = \lr{ 1 + \Be_3 } \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_{2} \sin\phi },
-\end{dmath}
+\end{equation}
 which has the claimed right circular polarization.
 
 \begin{proof}
@@ -396,24 +398,24 @@ To prove \cref{thm:polarizationRewrite:940} itself, the sine and cosine in \cref
 \end{aligned}
 \end{equation}
 Since the leading \( 1 + \Be_3 \) gobbles any \( \Be_3 \) factors, its action on the dual of \( \Be_2 \) is
-\begin{dmath}\label{eqn:polarizationRewrite:1000}
+\begin{equation}\label{eqn:polarizationRewrite:1000}
+\begin{aligned}
 \lr{ 1 + \Be_3 } I \Be_2
-=
-\lr{ 1 + \Be_3 } \Be_{31}
-=
-\lr{ 1 + \Be_3 } \Be_{1}.
-\end{dmath}
-This allows us to unconditionally factor out \( \Be_1 \) from
-\cref{eqn:polarizationRewrite:980}, so the field is
-\begin{dmath}\label{eqn:polarizationRewrite:1020}
+&= \lr{ 1 + \Be_3 } \Be_{31} \\
+&= \lr{ 1 + \Be_3 } \Be_{1}.
+\end{aligned}
+\end{equation}
+This allows us to unconditionally factor out \( \Be_1 \) from \cref{eqn:polarizationRewrite:980}, so the field is
+\begin{equation}\label{eqn:polarizationRewrite:1020}
+\begin{aligned}
 F
-= \inv{2}\lr{ 1 + \Be_3 } \Be_1
+&= \inv{2}\lr{ 1 + \Be_3 } \Be_1
 \lr{
    \lr{ \alpha_1  - I \alpha_2  } \lr{ e^{I \phi} + e^{-I\phi} }
    +
    \lr{ \beta_1  - I \beta_2  } I \lr{ e^{I \phi} - e^{-I\phi} }
-}
-= \inv{2}\lr{ 1 + \Be_3 } \Be_1
+} \\
+&= \inv{2}\lr{ 1 + \Be_3 } \Be_1
 \lr{
    \lr{
       \alpha_1 + I \beta_1
@@ -424,8 +426,8 @@ F
       \alpha_1 - I \beta_1
       -I \lr{ \alpha_2 - I \beta_2 }
    } e^{-I\phi}
-}
-= \inv{2}
+} \\
+&= \inv{2}
 \lr{ 1 + \Be_3 } \Be_1
 \lr{
    \lr{ c_1 - I c_2 } e^{I \phi}
@@ -433,15 +435,16 @@ F
    \lr{
       c_1^\dagger -I c_2^\dagger
    } e^{-I\phi}
-}
-=
+} \\
+&=
 \lr{ 1 + \Be_3 } \Be_1
 \lr{
    \alpha_\txtR e^{-I\phi}
 +
    \alpha_\txtL e^{-I\phi}
 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 \end{proof}
 %which completes the proof.
 

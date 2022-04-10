@@ -41,31 +41,30 @@ From \cref{eqn:potentialSection_farfield:2440} the far field divergence and the 
 \end{equation}
 
 Finally, the far field gradient of the divergence of \( \BA \) is
-\begin{dmath}\label{eqn:potentialSection_farfield:2480}
+\begin{equation}\label{eqn:potentialSection_farfield:2480}
+\begin{aligned}
 \spacegrad \lr{ \spacegrad \cdot \BA }
-=
-\biglr{ \rcap \partial_r + \spacegrad_\perp } \lr{ - j k \rcap \cdot \BA }
-\approx
--j k \rcap \partial_r \lr{ \rcap \cdot \BA }
-=
--j k \rcap \lr{ -j k - \inv{r} } \lr{ \rcap \cdot \BA }
-\approx
+&=
+\biglr{ \rcap \partial_r + \spacegrad_\perp } \lr{ - j k \rcap \cdot \BA } \\
+&\approx
+-j k \rcap \partial_r \lr{ \rcap \cdot \BA } \\
+&=
+-j k \rcap \lr{ -j k - \inv{r} } \lr{ \rcap \cdot \BA } \\
+&\approx
 -k^2 \rcap \lr{ \rcap \cdot \BA },
-\end{dmath}
+\end{aligned}
+\end{equation}
 again neglecting any \( O(1/r^2) \) terms.  The field is
-\begin{dmath}\label{eqn:potentialSection_farfield:2500}
+\begin{equation}\label{eqn:potentialSection_farfield:2500}
+\begin{aligned}
 F
-=
-- j \omega \BA  -j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \wedge \BA
-=
-- j \omega \BA  +j \omega \rcap \lr{ \rcap \cdot \BA } - j k c \rcap \wedge \BA
-=
-- j \omega \lr{ \BA - \rcap \lr{ \rcap \cdot \BA }} - j \omega \rcap \wedge \BA
-=
--j \omega \rcap \lr{ \rcap \wedge \BA} - j \omega \rcap \wedge \BA
-=
--j \omega \lr{ \rcap + 1 } \lr{ \rcap \wedge \BA},
-\end{dmath}
+&= - j \omega \BA  -j \frac{c^2}{\omega} \spacegrad \lr{ \spacegrad \cdot \BA } + c \spacegrad \wedge \BA \\
+&= - j \omega \BA  +j \omega \rcap \lr{ \rcap \cdot \BA } - j k c \rcap \wedge \BA \\
+&= - j \omega \lr{ \BA - \rcap \lr{ \rcap \cdot \BA }} - j \omega \rcap \wedge \BA \\
+&= -j \omega \rcap \lr{ \rcap \wedge \BA} - j \omega \rcap \wedge \BA \\
+&= -j \omega \lr{ \rcap + 1 } \lr{ \rcap \wedge \BA},
+\end{aligned}
+\end{equation}
 which completes the first part of the proof.  Extraction of the electric and magnetic fields can be done by inspection and is left to the reader to prove.
 \end{proof}
 

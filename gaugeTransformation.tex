@@ -190,13 +190,15 @@ To prove \cref{thm:gaugeTransformation:140}, let
 A = A' + \stgrad \Psi,
 \end{equation}
 so Maxwell's equation becomes
-\begin{dmath}\label{eqn:gaugeTransformation:220}
+\begin{equation}\label{eqn:gaugeTransformation:220}
+\begin{aligned}
 J
-= \stgrad \gpgrade{ \conjstgrad A }{1,2}
-= \dAlembertian A - \stgrad \gpgrade{ \conjstgrad A }{0,3}
-= \dAlembertian A' + \dAlembertian \stgrad \Psi - \stgrad \gpgrade{ \conjstgrad A }{0,3}
-= \dAlembertian A' + \stgrad \lr{ \dAlembertian \Psi - \gpgrade{ \conjstgrad A }{0,3} }.
-\end{dmath}
+&= \stgrad \gpgrade{ \conjstgrad A }{1,2} \\
+&= \dAlembertian A - \stgrad \gpgrade{ \conjstgrad A }{0,3} \\
+&= \dAlembertian A' + \dAlembertian \stgrad \Psi - \stgrad \gpgrade{ \conjstgrad A }{0,3} \\
+&= \dAlembertian A' + \stgrad \lr{ \dAlembertian \Psi - \gpgrade{ \conjstgrad A }{0,3} }.
+\end{aligned}
+\end{equation}
 Requiring
 \begin{equation}\label{eqn:gaugeTransformation:240}
 \dAlembertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
@@ -207,11 +209,13 @@ Observe that \( \Psi \) has only grades 0,3 as required of a gauge function.
 
 Such a transformation completely decouples Maxwell's equation, providing one scalar wave equation for each grade of \( \dAlembertian A' = J \), relating each grade of the potential \(A'\) to exactly one grade of the source multivector current \( J \).
 We are free to immediately solve for \( A' \) using the (causal) Green's function for the d'Alembertian
-\begin{dmath}\label{eqn:gaugeTransformation:160}
+\begin{equation}\label{eqn:gaugeTransformation:160}
+\begin{aligned}
 A'(\Bx, t)
-= -\int dV' dt' \frac{\delta(\Abs{\Bx - \Bx'} - c(t - t')}{4 \pi \Norm{\Bx - \Bx'} } J(\Bx', t')
-= -\inv{4\pi} \int dV' \frac{J(\Bx', t - \inv{c} \Norm{\Bx - \Bx'})}{\Norm{\Bx - \Bx'}},
-\end{dmath}
+&= -\int dV' dt' \frac{\delta(\Abs{\Bx - \Bx'} - c(t - t')}{4 \pi \Norm{\Bx - \Bx'} } J(\Bx', t') \\
+&= -\inv{4\pi} \int dV' \frac{J(\Bx', t - \inv{c} \Norm{\Bx - \Bx'})}{\Norm{\Bx - \Bx'}},
+\end{aligned}
+\end{equation}
 which is the sum of all the current contributions relative to the point \( \Bx \) at the retarded time \( t_\txtr = t - (1/c) \Norm{\Bx - \Bx'}\).
 The field follows immediately by differentiation and grade selection
 \begin{equation}\label{eqn:gaugeTransformation:180}
