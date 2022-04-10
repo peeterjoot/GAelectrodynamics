@@ -49,12 +49,12 @@ illustrated in
 
 Let \( i_{\Bu \Bv} = \Bu \Bv \) designate the unit pseudoscalar for the plane, so that
 a polar representation of \( \Ba, \Bb \) is
-\begin{dmath}\label{eqn:products:1660}
+\begin{equation}\label{eqn:products:1660}
 \begin{aligned}
 \Ba &= \Norm{\Ba} \Bu e^{ i_{\Bu \Bv} \theta_a } = \Norm{\Ba} e^{ -i_{\Bu \Bv} \theta_a } \Bu \\
 \Bb &= \Norm{\Bb} \Bu e^{ i_{\Bu \Bv} \theta_b } = \Norm{\Bb} e^{ -i_{\Bu \Bv} \theta_b } \Bu,
 \end{aligned}
-\end{dmath}
+\end{equation}
 The vector product of these two vectors is
 \begin{equation}\label{eqn:products:1680}
 \begin{aligned}
@@ -107,12 +107,12 @@ Summarizing \cref{eqn:products:1680} with our new operators, where \( i_{\Bu \Bv
 \makeexample{Products of two unit vectors.}{example:products:1860}{
 To develop some intuition about the vector product, let's consider product of two unit vectors \( \Ba, \Bb \) in the equilateral triangle of
 \cref{fig:exponentialVectorProduct:exponentialVectorProductFig1}, where
-\begin{dmath}\label{eqn:products:1880}
+\begin{equation}\label{eqn:products:1880}
 \begin{aligned}
 \Ba &= \inv{\sqrt{2}} \lr{ \Be_3 + \Be_1 } = \Be_3 \exp\lr{ \Be_{31} \pi/4 } \\
 \Bb &= \inv{\sqrt{2}} \lr{ \Be_3 + \Be_2 } = \Be_3 \exp\lr{ \Be_{32} \pi/4 }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 \mathImageFigure{../figures/GAelectrodynamics/exponentialVectorProductFig1}{Equilateral triangle in \R{3}.}{fig:exponentialVectorProduct:exponentialVectorProductFig1}{0.3}{compositionOfExponentials.nb}
 
@@ -175,12 +175,12 @@ We have now had a few hints that the wedge product might be related to the cross
 The cross product is a bilinear operator \( (\Ba + \Bb) \cross (\Bc + \Bd) =
 \Ba \cross \Bc + \Ba \cross \Bd +
 \Bb \cross \Bc + \Bb \cross \Bd \).  To see whether this is the case for the wedge product, let's examine the coordinate expansion of the wedge product.  Let
-\begin{dmath}\label{eqn:products:1160}
+\begin{equation}\label{eqn:products:1160}
 \begin{aligned}
 \Ba &= \sum_i a_i \Be_i \\
 \Bb &= \sum_i b_i \Be_i.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 The product of these vectors is
 \begin{equation}\label{eqn:products:1360}
@@ -338,12 +338,12 @@ The direction of the cross product \( \Ba \cross \Bb \) is orthogonal to the pla
 
 \makeexample{Wedge and cross product relationship.}{example:products:2000}{
 To take some of the abstraction from \cref{eqn:SimpleProducts2:1620} let's consider a specific example.  Let
-\begin{dmath}\label{eqn:products:2020}
+\begin{equation}\label{eqn:products:2020}
 \begin{aligned}
 \Ba &= \Be_1 + 2 \Be_2 + 3 \Be_3 \\
 \Bb &= 4 \Be_1 + 5 \Be_2 + 6 \Be_3.
 \end{aligned}
-\end{dmath}
+\end{equation}
 The reader should check that the cross product of these two vectors is
 \begin{equation}\label{eqn:products:2040}
 \Ba \cross \Bb = -3 \Be_1 + 6 \Be_2 - 3 \Be_3.
@@ -395,12 +395,12 @@ Maxwell equation (singular), and will be the starting point of all our electroma
 
 We are used to expressing the dot and cross product components of
 \cref{eqn:SimpleProducts2:1640} separately, for example, as
-\begin{dmath}\label{eqn:products:2080}
+\begin{equation}\label{eqn:products:2080}
 \begin{aligned}
 \Ba \cdot \Bb &= \Norm{\Ba} \Norm{\Bb} \cos\lr{ \Delta \theta } \\
 \Ba \cross \Bb &= \ncap \Norm{\Ba} \Norm{\Bb} \sin\lr{ \Delta \theta },
 \end{aligned}
-\end{dmath}
+\end{equation}
 Introducing a unit bivector \( i_{ab} \) normal to the unit normal \( \ncap \)
 (i.e. \( i_{ab} \ncap = \Be_{123} \)), we can assemble
 \cref{eqn:products:2080} into a cis form using

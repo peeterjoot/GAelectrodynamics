@@ -9,12 +9,12 @@ Given a constant external magnetic field bivector \( F = I c \BB \), the Lorentz
 m \frac{d\Bv}{dt} = q F \cdot \frac{\Bv}{c},
 \end{dmath}
 or
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:80}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:80}
 \begin{aligned}
 \Omega &= -\frac{q F}{m c} \\
 \frac{d\Bv}{dt} &= \Bv \cdot \Omega,
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( \Omega \) is a bivector containing all the constant factors.
 %\paragraph{FIXME}: the sign toggle and anticommutation \( \Bv \cdot \Omega = - \Omega \cdot \Bv \) can't be justified yet.  Flip the signs and dot product orders, and rework all of this.
 
@@ -59,7 +59,7 @@ a ``complex exponential'', so the solution of \cref{eqn:lorentzForce_constantMag
 The velocity of the charged particle traces out a helical path.
 Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.
 If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:220}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:220}
 \begin{aligned}
 \Bv(0)_\parallel &= \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1}
                   = (\Bv(0) \wedge \Bcap) \cdot \Bcap \\
@@ -73,7 +73,7 @@ If \( \hat{\Omega} \) is the unit bivector for this plane, that velocity is
 \Bv(0)_\parallel \cross \Bcap \sin( q B t/ m )
 + \Bv(0)_\perp,
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( \BB = B \Bcap \).
 
 A multivector integration factor method for solving the Lorentz force equation in constant external electric and magnetic fields can be found in \citep{hestenes1999nfc}.  Other examples, solved using a relativistic formulation of GA, can be found in \citep{doran2003gap},

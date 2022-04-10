@@ -18,19 +18,19 @@ The integral we wish to evaluate is
 \end{dmath}
 
 This can be non-dimensionalized with a \( u = x/r \) change of variables, and yields an integral for the x component and the z component of the field
-\begin{dmath}\label{eqn:linecharge:180}
+\begin{equation}\label{eqn:linecharge:180}
 \begin{aligned}
 E_x &= \frac{\lambda}{4 \pi \epsilon r} \int_{a/r}^{b/r} du \frac{ \cos\theta - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} } \\
 E_y &= \frac{\lambda \sin\theta}{4 \pi \epsilon r} \int_{a/r}^{b/r} du \lr{ 1 + u^2 - 2 u \cos\theta }^{-3/2}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 There is a common integral in the \(x\) and \(y\) components of the field.  We can tidy this up a bit by writing
-\begin{dmath}\label{eqn:linecharge:200}
+\begin{equation}\label{eqn:linecharge:200}
 \begin{aligned}
 A &= \int_{a/r}^{b/r} du \lr{ 1 + u^2 - 2 u \cos\theta }^{-3/2} \\
 B &= \int_{a/r}^{b/r} u du \lr{ 1 + u^2 - 2 u \cos\theta }^{-3/2},
 \end{aligned}
-\end{dmath}
+\end{equation}
 and then put the pieces back together again for the total field
 \begin{dmath}\label{eqn:linecharge:220}
 \BE = \frac{\lambda}{4 \pi \epsilon r} \lr{ (A \cos\theta - B) \Be_1 + A \sin\theta \Be_3 }.
@@ -107,12 +107,12 @@ du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }
 The numerator factors like \( \Be_1 (1 + i u) \) and \( \Be_1(1 - u e^{-i\theta}) \)
 compactly describe the direction of the vector field at the observation point.
 Either of these can be expanded explicitly in sines and cosines if desired
-\begin{dmath}\label{eqn:linecharge:140}
+\begin{equation}\label{eqn:linecharge:140}
 \begin{aligned}
 \Be_1 (1 + i u) &= \Be_1 + u \Be_3 \\
 \Be_1(1 - u e^{-i\theta}) &= \Be_1(1 - u \cos\theta) + u \Be_3 \sin\theta.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 \index{complex plane}
 Perhaps more interesting than the precise form of the solution is the fact that geometric algebra allows for the introduction of a ``complex plane'' for many problems that have only two degrees of freedom.

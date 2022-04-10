@@ -33,24 +33,24 @@ For the electric sources this is
 \calE + \frac{\BS}{c} = \frac{\epsilon}{2} E^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} },
 \end{dmath}
 or
-\begin{dmath}\label{eqn:poyntingStaticExamples:900}
+\begin{equation}\label{eqn:poyntingStaticExamples:900}
 \begin{aligned}
 \calE &= \frac{\epsilon}{2} E^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 } \\
 \BS &= \epsilon E^2 \Bv.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 For the magnetic sources this is
 \begin{dmath}\label{eqn:poyntingStaticExamples:920}
 \calE + \frac{\BS}{c} = \frac{\mu}{2} H^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} },
 \end{dmath}
 or
-\begin{dmath}\label{eqn:poyntingStaticExamples:940}
+\begin{equation}\label{eqn:poyntingStaticExamples:940}
 \begin{aligned}
 \calE &= \frac{\mu}{2} H^2 \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 } \\
 \BS &= \mu H^2 \Bv.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 There are three terms in the multivector \( (1 -\Bv/c)^2 = 1 + \lr{ \ifrac{\Bv}{c} }^2 + 2 \ifrac{\Bv}{c} \).  For electric sources,
 the first scalar term is due to the charge distribution, and provides the electric field contribution to the energy density.
@@ -91,16 +91,16 @@ This means that \( \BS \cdot \Be_3 = \epsilon E^2 v \), as already found.  The v
 
 This component of the stress tensor is aligned along the same axis as the velocity.
 Calculation of the other stress tensor components is easiest in cylindrical coordinates.  Along the radial direction
-\begin{dmath}\label{eqn:poyntingStaticExamples:1020}
+\begin{equation}\label{eqn:poyntingStaticExamples:1020}
 \begin{aligned}
 \rhocap \lr{ 1 - \Bv/c } \rhocap \lr{1 - \Bv/c} \rhocap
 &=
 \rhocap^2 \lr{ 1 + \Bv/c} \lr{1 - \Bv/c} \rhocap \\
 &= \lr{1 - \Bv^2/c^2} \rhocap,
 \end{aligned}
-\end{dmath}
+\end{equation}
 and along the azimuthal direction
-\begin{dmath}\label{eqn:poyntingStaticExamples:1100}
+\begin{equation}\label{eqn:poyntingStaticExamples:1100}
 \begin{aligned}
 \rhocap \lr{ 1 - \Bv/c } \thetacap \lr{1 - \Bv/c} \rhocap
 &=
@@ -110,7 +110,7 @@ and along the azimuthal direction
 &=
 -\thetacap \lr{1 - \Bv^2/c^2}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Since \( T(\Ba) \) is a linear operator for any vector parameters \( \Ba \), it cannot have any grade zero component along any directions \( \Be \cdot \Be_3 = 0 \).
 No grade zero component of \( T(\Be_1), T(\Be_2) \) implies that the Poynting vector is zero along the \( \Be_1 \) and \( \Be_2 \) directions respectively, as we saw above in
@@ -137,7 +137,7 @@ No grade zero component of \( T(\Be_1), T(\Be_2) \) implies that the Poynting ve
 %\end{dmath}
 
 In summary
-\begin{dmath}\label{eqn:poyntingStaticExamples:1080}
+\begin{equation}\label{eqn:poyntingStaticExamples:1080}
 \begin{aligned}
 \BT(\rhocap) &= \frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \rhocap \\
 \BT(\thetacap) &= -\frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \thetacap \\
@@ -145,7 +145,7 @@ In summary
 %\BT(\Be_2) &= -\frac{\epsilon}{2} E^2 (1 -\Bv^2/c^2) \Be_2 e^{2 i \theta} \\
 \BT(\Be_3) &= -\frac{\epsilon}{2} E^2 \lr{1 + \Bv^2/c^2 } \Be_3.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 For this field that \( \BT(\rhocap) \) is entirely radial, whereas \( \BT(\thetacap) \) is entirely azimuthal.
 
@@ -154,13 +154,13 @@ In terms of an arbitrary vector in cylindrical coordinates
 \Ba = a_\rho \rhocap + a_\theta \thetacap + a_z \Be_3,
 \end{dmath}
 the grade one component of the tensor is
-\begin{dmath}\label{eqn:poyntingStaticExamples:1140}
+\begin{equation}\label{eqn:poyntingStaticExamples:1140}
 \begin{aligned}
 \BT(\Ba) &=
 \frac{\epsilon}{2} E^2 \lr{1 -\Bv^2/c^2} \lr{ a_\rho \rhocap - a_\theta \thetacap } \\
 &\quad -\frac{\epsilon}{2} E^2 \lr{1 +\Bv^2/c^2} a_z \Be_3.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 \paragraph{(b):}
 
@@ -176,13 +176,13 @@ F \Ba F^\dagger
 We can write the tensor components immediately, since
 \cref{eqn:poyntingStaticExamples:1160}
 has exactly the same structure as the tensor components computed in part (a) above.  That is
-\begin{dmath}\label{eqn:poyntingStaticExamples:1180}
+\begin{equation}\label{eqn:poyntingStaticExamples:1180}
 \begin{aligned}
 \BT(\Ba) &=
 \frac{\mu}{2} H^2 \lr{1 -\Bv^2/c^2} \lr{ a_\rho \rhocap - a_\theta \thetacap } \\
 &\quad -\frac{\mu}{2} H^2 \lr{1 +\Bv^2/c^2} a_z \Be_3.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 \paragraph{(c):}
 
@@ -220,7 +220,7 @@ so we need the following grade selections
 \end{equation}
 
 So the Maxwell stress tensor components of interest are
-\begin{dmath}\label{eqn:poyntingStaticExamples:1320}
+\begin{equation}\label{eqn:poyntingStaticExamples:1320}
 \begin{aligned}
 \BT(\Ba)
 &=
@@ -228,7 +228,7 @@ So the Maxwell stress tensor components of interest are
 &\quad +
 \frac{\epsilon}{2} E^2 \lr{ 1 - (\Bv^2/c^2) } \lr{ a_z \Be_3 - a_\theta \thetacap }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 \paragraph{(d):}
 
@@ -242,7 +242,7 @@ F \Ba F^\dagger = \eta^2 H^2 \Be_3 \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \Be_3.
 \end{dmath}
 
 \Cref{eqn:poyntingStaticExamples:1360} has the structure found in part (c) above, so
-\begin{dmath}\label{eqn:poyntingStaticExamples:1380}
+\begin{equation}\label{eqn:poyntingStaticExamples:1380}
 \begin{aligned}
 \BT(\Ba)
 &=
@@ -250,4 +250,4 @@ F \Ba F^\dagger = \eta^2 H^2 \Be_3 \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \Be_3.
 &\quad +
 \frac{\mu}{2} H^2 \lr{ 1 - (\Bv^2/c^2) } \lr{ a_z \Be_3 - a_\theta \thetacap }.
 \end{aligned}
-\end{dmath}
+\end{equation}

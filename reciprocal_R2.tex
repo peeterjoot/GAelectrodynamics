@@ -5,20 +5,20 @@
 %{
 How are the reciprocal frame vectors computed?  While these vectors have a natural GA representation, this is not intrinsically a GA problem, and can be solved with standard linear algebra, using a matrix inversion.
 For example, given a 2D basis \( \setlr{ \Bx_1, \Bx_2 } \), the reciprocal basis can be assumed to have a coordinate representation in the original basis
-\begin{dmath}\label{eqn:reciprocal_R2:100}
+\begin{equation}\label{eqn:reciprocal_R2:100}
 \begin{aligned}
 \Bx^1 &= a \Bx_1 + b \Bx_2 \\
 \Bx^2 &= c \Bx_1 + d \Bx_2.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Imposing the constraints of \cref{dfn:reciprocal:frame} leads to a pair of 2x2 linear systems that are easily solved to find
-\begin{dmath}\label{eqn:reciprocal_R2:120}
+\begin{equation}\label{eqn:reciprocal_R2:120}
 \begin{aligned}
 \Bx^1 &= \inv{ (\Bx_1)^2 (\Bx_2)^2 - \lr{ \Bx_1 \cdot \Bx_2}^2 } \lr{ (\Bx_2)^2 \Bx_1 - \lr{ \Bx_1 \cdot \Bx_2 } \Bx_2 } \\
 \Bx^2 &= \inv{ (\Bx_1)^2 (\Bx_2)^2 - \lr{ \Bx_1 \cdot \Bx_2}^2 } \lr{ (\Bx_1)^2 \Bx_2 - \lr{ \Bx_1 \cdot \Bx_2 } \Bx_1 }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 The reader may notice that for \R{3} the denominator is related to the norm of the cross product \( \Bx_1 \cross \Bx_2 \).
 More generally, this can be expressed as the square of the bivector \( \Bx_1 \wedge \Bx_2 \)

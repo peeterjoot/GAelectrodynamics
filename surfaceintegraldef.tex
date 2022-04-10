@@ -30,22 +30,21 @@ In \R{3} it will often be convenient to utilize a dual representation of the are
 \paragraph{Example: Spherical surface integral.}
 
 From \cref{eqn:curvilinearspherical:300}, we know that
-\begin{dmath}\label{eqn:surfaceintegraldef:140}
+\begin{equation}\label{eqn:surfaceintegraldef:140}
 \Bx_r \Bx_\theta \Bx_\phi = I r^2 \sin\theta,
-\end{dmath}
+\end{equation}
 so
-\begin{dmath}\label{eqn:surfaceintegraldef:160}
+\begin{equation}\label{eqn:surfaceintegraldef:160}
+\begin{aligned}
 \Bx_\theta \wedge \Bx_\phi
-=
-\Bx_\theta \Bx_\phi
-=
-\Bx_r I r^2 \sin\theta,
-\end{dmath}
+&= \Bx_\theta \Bx_\phi \\
+&= \Bx_r I r^2 \sin\theta,
+\end{aligned}
+\end{equation}
 so the (bivector-valued) area element for a spherical surface is
-\begin{dmath}\label{eqn:surfaceintegraldef:180}
-d^2 \Bx =
-I \Bx_r r^2 \sin\theta d\theta d\phi.
-\end{dmath}
+\begin{equation}\label{eqn:surfaceintegraldef:180}
+d^2 \Bx = I \Bx_r r^2 \sin\theta d\theta d\phi.
+\end{equation}
 
 Suppose we integrate a vector valued function \( F(\theta, \phi) = \alpha \Bx^r + \beta \Bx^\theta + \gamma \Bx^\phi \), where \( \alpha, \beta, \gamma\) are constants, over the surface of a sphere of radius \( r \), then the surface integral (with the area element on the right) is
 \begin{dmath}\label{eqn:surfaceintegraldef:200}
@@ -58,13 +57,13 @@ Suppose we integrate a vector valued function \( F(\theta, \phi) = \alpha \Bx^r 
 \gamma I r^2 \int \Bx^\phi \Bx_r \sin\theta d\theta d\phi.
 \end{dmath}
 This can be simplified using \( \rcap \thetacap \phicap = I \), and \cref{eqn:curvilinearspherical:260}, to find
-\begin{dmath}\label{eqn:surfaceintegraldef:220}
+\begin{equation}\label{eqn:surfaceintegraldef:220}
 \begin{aligned}
 \Bx^r \Bx_r &= 1 \\
 I \Bx^\theta \Bx_r &= \inv{r} I \thetacap \rcap = \inv{r} \phicap \\
 I \Bx^\phi \Bx_r &= \inv{r \sin\theta} I \phicap \rcap = -\inv{r \sin\theta} \thetacap,
 \end{aligned}
-\end{dmath}
+\end{equation}
 so
 \begin{dmath}\label{eqn:surfaceintegraldef:240}
 \int F d^2\Bx =

@@ -15,44 +15,44 @@ and the area of the pillbox top to also tend to zero.
 
 \begin{proof}
 We will work with \cref{thm:dielectric:20}, Maxwell's equations in media, in their frequency domain form
-\begin{dmath}\label{eqn:boundarySurfaceSources:480}
+\begin{equation}\label{eqn:boundarySurfaceSources:480}
 \begin{aligned}
 \gpgrade{ \spacegrad F }{0,1} + j k \BD &= J_{\textrm{es}} \delta(n) \\
 \gpgrade{ \spacegrad G }{2,3} + j k I c \BB &= I J_{\textrm{ms}} \delta(n),
 \end{aligned}
-\end{dmath}
+\end{equation}
 and integrate these over the pillbox volume in the figure.  That is
-\begin{dmath}\label{eqn:boundarySurfaceSources:500}
+\begin{equation}\label{eqn:boundarySurfaceSources:500}
 \begin{aligned}
 \int dV\, \gpgrade{ \spacegrad F }{0,1} + j k \int dV\, \BD &= \int dn dA\, J_{\textrm{es}} \delta(n) \\
 \int dV\, \gpgrade{ \spacegrad G }{2,3} + j k I c \int dV\, \BB &= I \int dn dA\, J_{\textrm{ms}} \delta(n).
 \end{aligned}
-\end{dmath}
+\end{equation}
 The gradient integrals can be evaluated with \cref{thm:volumeintegral:100}.  Evaluating the delta functions picks leaves an area integral on the surface.  Additionally, we assume that we are making the pillbox volume small enough that we can employ the mean value theorem for the \( \BD, \BB \) integrals
-\begin{dmath}\label{eqn:boundarySurfaceSources:520}
+\begin{equation}\label{eqn:boundarySurfaceSources:520}
 \begin{aligned}
 \int_{\partial V} dA\, \gpgrade{ \ncap F }{0,1} + j k \Delta A \lr{ n_1 \tilde{\BD}_1 + n_2 \tilde{\BD}_2 } &= \Delta A J_{\textrm{es}} \\
 \int_{\partial V} dA\, \gpgrade{ \ncap G }{2,3} + j k I c \Delta A \lr{ n_1 \tilde{\BB}_1 + n_2 \tilde{\BB}_2} &= I \Delta A J_{\textrm{ms}}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 We now let \( n_1, n_2 \) tend to zero, which kills off the \( \BD, \BB \) contributions, and also kills off the side wall contributions in the first pillbox surface integral.  This leaves
-\begin{dmath}\label{eqn:boundarySurfaceSources:540}
+\begin{equation}\label{eqn:boundarySurfaceSources:540}
 \begin{aligned}
 \gpgrade{ \ncap_2 F_2 }{0,1} + \gpgrade{ \ncap_1 F_1 }{0,1} &= J_{\textrm{es}} \\
 \gpgrade{ \ncap_2 G_2 }{2,3} + \gpgrade{ \ncap_1 G_1 }{2,3} &= J_{\textrm{ms}}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 Inserting \( \ncap = \ncap_2 = -\ncap_1 \) completes the first part of the proof.
 
 Expanding the grade selection operations, we find
-\begin{dmath}\label{eqn:boundarySurfaceSources:440}
+\begin{equation}\label{eqn:boundarySurfaceSources:440}
 \begin{aligned}
 \ncap \cdot (\BD_2 - \BD_1) &= \rho_s \\
 I \ncap \wedge \lr{ \BH_2/c - \BH_1/c } &= - \BJ_s/c \\
 \ncap \wedge (\BE_2 - \BE_1) &= -I \BM_s \\
 I c \ncap \cdot (\BB_2 - \BB_1) &= I c \rho_{ms},
 \end{aligned}
-\end{dmath}
+\end{equation}
 and expansion of the wedge's as cross's using \cref{eqn:SimpleProducts2:1620} completes the proof.
 \end{proof}
 %It is somewhat remarkable that the

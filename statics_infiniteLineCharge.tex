@@ -5,19 +5,21 @@
 %{
 
 Given a static line charge density and current density along the z-axis
-\begin{dmath}\label{eqn:statics_infiniteLineCharge:120}
+\begin{equation}\label{eqn:statics_infiniteLineCharge:120}
 \begin{aligned}
 \rho(\Bx) &= \lambda \delta(x) \delta(y) \\
 \BJ(\Bx) &= \Bv \rho(\Bx) = v \lambda \Be_3 \delta(x) \delta(y),
 \end{aligned}
-\end{dmath}
+\end{equation}
 the total multivector current is
-\begin{dmath}\label{eqn:statics_infiniteLineCharge:140}
+\begin{equation}\label{eqn:statics_infiniteLineCharge:140}
+\begin{aligned}
 J
-= \eta ( c \rho - \BJ )
-= \eta ( c - v \Be_3 ) \lambda \delta(x) \delta(y)
-= \frac{\lambda}{\epsilon} \lr{ 1 - \frac{v}{c} \Be_3 } \delta(x) \delta(y).
-\end{dmath}
+&= \eta ( c \rho - \BJ ) \\
+&= \eta ( c - v \Be_3 ) \lambda \delta(x) \delta(y) \\
+&= \frac{\lambda}{\epsilon} \lr{ 1 - \frac{v}{c} \Be_3 } \delta(x) \delta(y).
+\end{aligned}
+\end{equation}
 
 We can find the field for this current using
 %\cref{eqn:statics:80}.

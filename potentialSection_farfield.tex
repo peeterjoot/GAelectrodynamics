@@ -8,12 +8,12 @@
 \begin{proof}
 To prove \cref{thm:potentialSection_farfield:1}, we will utilize a
 spherical representation of the gradient
-\begin{dmath}\label{eqn:potentialSection_farfield:2420}
+\begin{equation}\label{eqn:potentialSection_farfield:2420}
 \begin{aligned}
 \spacegrad &= \rcap \partial_r + \spacegrad_\perp \\
 \spacegrad_\perp &= \frac{\thetacap}{r} \partial_\theta + \frac{\phicap}{r\sin\theta} \partial_\phi.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 The gradient of the vector potential is
 \begin{dmath}\label{eqn:potentialSection_farfield:2440}
@@ -33,12 +33,12 @@ The gradient of the vector potential is
 
 Here, all the \( O(1/r^2) \) terms, including the action of the non-radial component of the gradient on the \( 1/r \) potential, have been neglected.
 From \cref{eqn:potentialSection_farfield:2440} the far field divergence and the (bivector) curl of \( \BA \) are
-\begin{dmath}\label{eqn:potentialSection_farfield:2460}
+\begin{equation}\label{eqn:potentialSection_farfield:2460}
 \begin{aligned}
 \spacegrad \cdot \BA &= - j k \rcap \cdot \BA \\
 \spacegrad \wedge \BA &= - j k \rcap \wedge \BA.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Finally, the far field gradient of the divergence of \( \BA \) is
 \begin{dmath}\label{eqn:potentialSection_farfield:2480}
@@ -98,16 +98,16 @@ The proof of \cref{thm:potentialSection_farfield:2} is left to the reader.
 
 \makeexample{Vertical dipole potential.}{example:potentialSection:1}{
 We will calculate the far field along the propagation direction vector \( \kcap \) in the z-y plane
-\begin{dmath}\label{eqn:potentialSection_farfield:2620}
+\begin{equation}\label{eqn:potentialSection_farfield:2620}
 \begin{aligned}
 \kcap &= \Be_3 e^{i \theta} \\
 i &= \Be_{32},
 \end{aligned}
-\end{dmath}
+\end{equation}
 for the infinitesimal dipole potential
-\begin{dmath}\label{eqn:potentialSection_farfield:2640}
+\begin{equation}\label{eqn:potentialSection_farfield:2640}
 \BA = \frac{\Be_3 \mu I_0 l}{4 \pi r} e^{-j k r},
-\end{dmath}
+\end{equation}
 as illustrated in \cref{fig:vectorPotential:vectorPotentialFig1}.
 
 \mathImageFigure{../figures/GAelectrodynamics/vectorPotentialFig1}{Vertical infinitesimal dipole and selected propagation direction.}{fig:vectorPotential:vectorPotentialFig1}{0.3}{zcapPotential.nb}

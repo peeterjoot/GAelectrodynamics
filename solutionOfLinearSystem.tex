@@ -10,19 +10,19 @@ Linear systems can be solved using the wedge product.  Illustrating by example, 
 \end{dmath}
 
 To solve for \( x \) simply wedge with \( \Bb \), and to solve for \( y \) wedge with \( \Ba \)
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1180}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1180}
 \begin{aligned}
 \lr{ \Ba x + \cancel{\Bb} y } \wedge \Bb &= \Bc \wedge \Bb \\
 \Ba \wedge \lr{ \cancel{\Ba} x + \Bb y } &= \Ba \wedge \Bc,
 \end{aligned}
-\end{dmath}
+\end{equation}
 so, if the system has a solution, it is given by
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1200}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1200}
 \begin{aligned}
 x &= \inv{ \Ba \wedge \Bb } \Bc \wedge \Bb \\
 y &= \inv{ \Ba \wedge \Bb } \Ba \wedge \Bc.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Higher order systems can be solved in the same fashion, but the equation to be solved must be wedged more times.
 
@@ -31,14 +31,14 @@ For example, if the \( n \) variable system
 \Ba_1 x_1 + \Ba_2 x_2 \cdots + \Ba_n x_n = \Bb,
 \end{dmath}
 has a solution, it is given by
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1240}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1240}
 \begin{aligned}
 x_1 &= \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_n } \Bb \wedge \Ba_2 \wedge \cdots \wedge \Ba_n  \\
 x_2 &= \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_n } \Ba_1 \wedge \Bb \wedge \cdots \wedge \Ba_n  \\
     & \vdots \\
 x_n &= \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_n } \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Bb.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 If this system has no solution, then these n-vector ratios will not be scalars.
 
@@ -147,25 +147,25 @@ As a concrete example, let's solve the intersection of two lines problem illustr
 \mathImageFigure{../figures/GAelectrodynamics/intersectionOfLinesFig1}{Intersection of two lines.}{fig:intersectionOfLines:intersectionOfLinesFig1}{0.3}{orientedAreas.nb}
 
 In parametric form, the lines in this problem are
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1000}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1000}
 \begin{aligned}
 \Br_1(s) &= \Ba_0 + s( \Ba_1 - \Ba_0 ) \\
 \Br_2(t) &= \Bb_0 + t( \Bb_1 - \Bb_0 ),
 \end{aligned}
-\end{dmath}
+\end{equation}
 so the solution, if it exists, is found at the point satisfying the equality
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1020}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1020}
 \Ba_0 + s( \Ba_1 - \Ba_0 ) = \Bb_0 + t( \Bb_1 - \Bb_0 ).
-\end{dmath}
+\end{equation}
 
 With
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1040}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1040}
 \begin{aligned}
 \Bu_1 &= \Ba_1 - \Ba_0 \\
 \Bu_2 &= \Bb_1 - \Bb_0 \\
 \Bd &= \Ba_0 - \Bb_0,
 \end{aligned}
-\end{dmath}
+\end{equation}
 the desired equation to solve is
 \begin{dmath}\label{eqn:solutionOfLinearSystem:1060}
 \Bd + s \Bu_1 = t \Bu_2.
@@ -174,21 +174,21 @@ the desired equation to solve is
 As with any linear system, we can
 solve for \( s \) or \( t \) by
 wedging both sides with one of \( \Bu_1 \) or \( \Bu_2 \)
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1080}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1080}
 \begin{aligned}
 \Bd \wedge \Bu_1 &= t \Bu_2 \wedge \Bu_1 \\
 \Bd \wedge \Bu_2 + s \Bu_1 \wedge \Bu_2 &= 0.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 In \R{2} these equations have a solution if \( \Bu_1 \wedge \Bu_2 \ne 0 \), and in \R{N} these have solutions if the bivectors on each sides of the equations describe the same plane (i.e. the bivectors on each side of \cref{eqn:solutionOfLinearSystem:1080} are related by a scalar factor).
 Put another way, these have solutions when \( s \) and \( t \) are scalars with the values
-\begin{dmath}\label{eqn:solutionOfLinearSystem:1100}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1100}
 \begin{aligned}
 s &= \frac{\Bu_2 \wedge \Bd}{\Bu_1 \wedge \Bu_2} \\
 t &= \frac{\Bu_1 \wedge \Bd}{\Bu_1 \wedge \Bu_2}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 %%%In
 %%%\R{2}

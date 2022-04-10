@@ -30,12 +30,12 @@
 %In the geometric algebra formulation of Maxwell's equation (singular in GA), the Green's function for the spacetime gradient ends up with terms like
 %In the geometric algebra formulation of Maxwell's equation (singular in GA),
 The Green's function for the spacetime gradient ends up with terms like
-\begin{dmath}\label{eqn:derivativeOfDeltaFunction:20}
+\begin{equation}\label{eqn:derivativeOfDeltaFunction:20}
 \begin{aligned}
 \frac{d}{dr} &\delta( -r/c + t - t' ) \\
 \frac{d}{dt} &\delta( -r/c + t - t' ),
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( t' \) is the integration variable of the test function that the delta function will be applied to.
 If these were derivatives with respect to the integration variable, then we could use
 \begin{dmath}\label{eqn:derivativeOfDeltaFunction:60}
@@ -53,16 +53,16 @@ We wish to compute
 \end{dmath}
 
 Let's start with a change of variables \( t'' = a u + b - t' \), for which we find
-\begin{dmath}\label{eqn:derivativeOfDeltaFunction:100}
+\begin{equation}\label{eqn:derivativeOfDeltaFunction:100}
 \begin{aligned}
 t' &= a u + b - t'' \\
 dt'' &= - dt' \\
 \frac{d}{du} &= \frac{dt''}{du} \frac{d}{dt''} = a \frac{d}{dt''}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Substitution back into \cref{eqn:derivativeOfDeltaFunction:80} gives
-\begin{dmath}\label{eqn:derivativeOfDeltaFunction:120}
+\begin{equation}\label{eqn:derivativeOfDeltaFunction:120}
 \begin{aligned}
 a &\int_{\infty}^{-\infty} \lr{ \frac{d}{dt''} \delta( t'' ) } f( a u + b - t'' ) (-dt'') \\
 &=
@@ -76,7 +76,7 @@ a \int_{-\infty}^{\infty} \delta( t'' )  \frac{d}{dt''} f( a u + b - t'' ) dt'' 
 &=
 \evalbar{ a \frac{d}{ds} f( s ) }{s = a u + b}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 This shows that the action of the derivative of the delta function (with respect to a non-integration variable parameter \( u \)) is
 %\begin{dmath}\label{eqn:derivativeOfDeltaFunction:140}

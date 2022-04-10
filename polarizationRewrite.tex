@@ -47,12 +47,12 @@ plane wave representation from
 \cref{thm:planewavesMultivector:620}
 %\cref{eqn:frequencydomainPlaneWaves:200} the plane wave representation of
 the field is
-\begin{dmath}\label{eqn:polarization:20}
+\begin{equation}\label{eqn:polarization:20}
 \begin{aligned}
 F(\Bx, \omega) &= (1 + \Be_3) \BE e^{-j \beta z} \\
 F(\Bx, t) &= \Real\lr{ F(\Bx, \omega) e^{j \omega t} },
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( \BE \cdot \Be_3 = 0 \)
 , (i.e. \( \BE \) is an electric field, and not just a free parameter).
 
@@ -142,12 +142,12 @@ To prove \cref{thm:polarizationRewrite:700}, we have only to factor \( \Be_1 \) 
 \subsubsection{Linear polarization.}
 
 Linear polarization is described by
-\begin{dmath}\label{eqn:polarization_linearPolarization:280}
+\begin{equation}\label{eqn:polarization_linearPolarization:280}
 \begin{aligned}
 \alpha_\txtR &= \inv{2}\Norm{\BE} e^{i(\psi + \theta)} \\
 \alpha_\txtL &= \inv{2}\Norm{\BE} e^{i(\psi - \theta)},
 \end{aligned}
-\end{dmath}
+\end{equation}
 so the field is
 \begin{dmath}\label{eqn:polarization_linearPolarization:300}
 F = \lr{ 1 + \Be_3 } \Norm{\BE} \Be_1 e^{i\psi} \cos( \omega t - \beta z + \theta ).
@@ -165,12 +165,12 @@ out all the points along \( \pm \Be_2 e^{i\psi} \Norm{\BE}/\eta \) as illustrate
 
 A field for which the change in phase
 results in the electric field tracing out a (clockwise,counterclockwise) circle
-\begin{dmath}\label{eqn:polarization_circular:180}
+\begin{equation}\label{eqn:polarization_circular:180}
 \begin{aligned}
 \BE_\txtR &= \Norm{\BE} \lr{ \Be_1 \cos\phi + \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{  \Be_{12} \phi } \\
 \BE_\txtL &= \Norm{\BE} \lr{ \Be_1 \cos\phi - \Be_2 \sin\phi } = \Norm{\BE} \Be_1 \exp\lr{ -\Be_{12} \phi },
 \end{aligned}
-\end{dmath}
+\end{equation}
 is referred to as having
 (right,left) circular polarization, so the choice
 \(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) results
@@ -196,12 +196,12 @@ E_a \Be_1 \cos\phi + E_b \Be_2 \sin\phi,
 which corresponds to
 %a Jones vector \( (E_a, -i E_b) \), or
 circular polarization coefficients with values
-\begin{dmath}\label{eqn:polarization_elliptical:400}
+\begin{equation}\label{eqn:polarization_elliptical:400}
 \begin{aligned}
 \alpha_\txtR &= \inv{2}\lr{ E_a - E_b } \\
 \alpha_\txtL &= \inv{2}\lr{ E_a + E_b }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Therefore an elliptically polarized field can be represented as
 \begin{dmath}\label{eqn:polarization_elliptical:420}
@@ -223,13 +223,13 @@ e \Ba \cosh( \tanh^{-1}(b/a) + i \phi).
 
 When the bivector imaginary \( i = \Be_{12} \) is used then
 this parameterization is real and has only vector grades, so the electromagnetic field for a general elliptic wave has the form
-\begin{dmath}\label{eqn:polarization_elliptical:380}
+\begin{equation}\label{eqn:polarization_elliptical:380}
 \begin{aligned}
 F &= e E_a \lr{ 1 + \Be_3 } \Be_1 e^{ i \psi } \cosh\lr{ m + i \phi} \\
 m &= \tanh^{-1}\lr{ E_b/E_a } \\
 e &= \sqrt{1 - {(E_b/E_a)}^2 },
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( E_a(E_b) \) are the magnitudes of the electric field components lying along the semi-major(minor) axes, and the propagation direction \( \Be_3 \) is orthogonal to both the major and minor axis directions.
 An elliptic electric field polarization is illustrated in \cref{fig:ellipticalPolarization:ellipticalPolarizationFig1}, where the vectors representing the major and minor axes are \( \BE_a = E_a \Be_1 e^{i\psi}, \BE_b = E_b \Be_1 e^{i\psi} \).
 Observe that setting \( E_b = 0 \) results in the linearly polarized field of \cref{eqn:polarization_linearPolarization:300}.
@@ -377,7 +377,7 @@ which has the claimed right circular polarization.
 
 \begin{proof}
 To prove \cref{thm:polarizationRewrite:940} itself, the sine and cosine in \cref{eqn:polarization_circular:160} can be expanded in complex exponentials
-\begin{dmath}\label{eqn:polarizationRewrite:980}
+\begin{equation}\label{eqn:polarizationRewrite:980}
 \begin{aligned}
 2 &\lr{ \alpha_1 \Be_1 + \alpha_2 \Be_2 } \cos \phi
 -
@@ -395,7 +395,7 @@ To prove \cref{thm:polarizationRewrite:940} itself, the sine and cosine in \cref
 \lr{ \beta_1 \Be_1 - I \beta_2 (I \Be_2) } I
 \lr{ e^{I \phi} - e^{-I\phi} }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 Since the leading \( 1 + \Be_3 \) gobbles any \( \Be_3 \) factors, its action on the dual of \( \Be_2 \) is
 \begin{dmath}\label{eqn:polarizationRewrite:1000}
 \lr{ 1 + \Be_3 } I \Be_2

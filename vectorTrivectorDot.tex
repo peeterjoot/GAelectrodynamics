@@ -7,7 +7,7 @@
 
 \maketheorem{Vector-trivector dot product.}{thm:vectorTrivectorDot:vectorTrivectorDot}{
 Given a vector \( \Ba \) and a blade \( \Bb \wedge \Bc \wedge \Bd \) formed by wedging three vectors, the dot product of the two can be expanded as bivectors like
-\begin{dmath}\label{eqn:vectorTrivectorDot:20}
+\begin{equation}\label{eqn:vectorTrivectorDot:20}
 \begin{aligned}
 \Ba \cdot &\lr{ \Bb \wedge \Bc \wedge \Bd} \\
 &=
@@ -17,7 +17,7 @@ Given a vector \( \Ba \) and a blade \( \Bb \wedge \Bc \wedge \Bd \) formed by w
 -( \Ba \cdot \Bc ) (\Bb \wedge \Bd)
 +( \Ba \cdot \Bd ) (\Bb \wedge \Bc).
 \end{aligned}
-\end{dmath}
+\end{equation}
 } % theorem
 %\makeanswer{problem:gradeselection:vectorTrivectorDot}{
 \begin{proof}
@@ -32,16 +32,16 @@ The products within the grade two selection operator can be of either grade two 
 \( i = j \), \( i = k \), or \( i = l \) contributes.
 Repeated anticommutation of the orthogonal unit vectors can put each such pair adjacent, where they square to unity.
 Those are respectively
-\begin{dmath}\label{eqn:vectorTrivectorDot:60}
+\begin{equation}\label{eqn:vectorTrivectorDot:60}
 \begin{aligned}
 \gpgradetwo{ \Be_i \Be_i \Be_k \Be_l } &= \Be_k \Be_l  \\
 \gpgradetwo{ \Be_i \Be_j \Be_i \Be_l } &= -\gpgradetwo{ \Be_j \Be_i \Be_i \Be_l } = - \Be_j \Be_l \\
 \gpgradetwo{ \Be_i \Be_j \Be_k \Be_i } &= -\gpgradetwo{ \Be_j \Be_i \Be_k \Be_i } = +\gpgradetwo{ \Be_j \Be_k \Be_i \Be_i } = \Be_j \Be_k.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Substitution back into \cref{eqn:generalizedDot_vectorBivector:681} gives
-\begin{dmath}\label{eqn:vectorTrivectorDot:80}
+\begin{equation}\label{eqn:vectorTrivectorDot:80}
 \begin{aligned}
 \Ba \cdot &\lr{ \Bb \wedge \Bc \wedge \Bd} \\
 &= \sum_{j \ne k \ne l} a_i b_j c_k d_l
@@ -57,7 +57,7 @@ Substitution back into \cref{eqn:generalizedDot_vectorBivector:681} gives
 -( \Ba \cdot \Bc ) (\Bb \wedge \Bd)
 +( \Ba \cdot \Bd ) (\Bb \wedge \Bc).
 \end{aligned}
-\end{dmath}
+\end{equation}
 \end{proof}
 
 %Repeating this from the other direction gives the same result.

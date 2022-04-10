@@ -101,14 +101,14 @@ I \lr{
 }.
 \end{dmath}
 Applying further grade selection operations, rescaling (cancelling all factors of \( c \) and \( I \)), and a bit of rearranging, gives
-\begin{dmath}\label{eqn:dielectric:120}
+\begin{equation}\label{eqn:dielectric:120}
 \begin{aligned}
 \spacegrad \cdot \BD &= \rho \\
 \spacegrad \cross \BH &= \BJ + \PD{t}{\BD} \\
 \spacegrad \cdot \BB &= \rho_\txtm \\
 \spacegrad \cross \BE &= -\BM -\PD{t}{\BB},
 \end{aligned}
-\end{dmath}
+\end{equation}
 which are Maxwell's equations.
 %, completing the proof.
 \end{proof}
@@ -221,13 +221,12 @@ I J_\txtm
 \Cref{thm:dielectric:200} is probably a more effect geometric algebra form for solution of Maxwell's equations in matter, as the grade selection free spacetime gradients can be solved for \( F', G' \) directly using Green's function convolution.  However, we have an open question of how to impose a zero scalar grade constraint on \( F' \) and a zero pseudoscalar grade constraint on \( G' \).
 
 \paragraph{Question:} Is the solution as simple as grade selection of the convolution?
-
-\begin{dmath}\label{eqn:dielectric:200}
+\begin{equation}\label{eqn:dielectric:200}
 \begin{aligned}
 F &= \int dt' dV' \gpgrade{G(\Bx - \Bx', t - t') J_\txte}{1,2} \\
 G &= \int dt' dV' \gpgrade{G(\Bx - \Bx', t - t') I J_\txtm}{1,2},
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( G(\Bx - \Bx', t - t') \),
 is the Green's function for the space time gradient \cref{thm:greensFunctionSpacetimeGradient:120},
 not to be confused with \( G = \BE + I c \BB \),
@@ -248,14 +247,14 @@ where \( \Psi_{2,3} \) is any multivector with grades 2,3 and \( \Psi_{0,1} \) i
 } % theorem
 \begin{proof}
 To prove \cref{thm:dielectric:180} we need to show that
-\begin{dmath}\label{eqn:dielectric:160}
+\begin{equation}\label{eqn:dielectric:160}
 \begin{aligned}
 \gpgrade{\stgrad F'}{0,1} &= \gpgrade{\stgrad F}{0,1} \\
 \gpgrade{\stgrad G'}{2,3} &= \gpgrade{\stgrad G}{2,3}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 Let's start with \( F \)
-\begin{dmath}\label{eqn:dielectric:140}
+\begin{equation}\label{eqn:dielectric:140}
 \begin{aligned}
 \gpgrade{\stgrad F'}{0,1}
 &=
@@ -269,11 +268,11 @@ Let's start with \( F \)
 &\quad -
 \gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} }{0,1}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 The second term is killed since \( \Psi_{2,3} \) has no grade 0,1 components by definition, so neither does \( \dAlembertian \Psi_{2,3} \).
 To see that the last term is zero, note that \( \conjstgrad \Psi_{2,3} \) can have only grades 1,2,3, so \( \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) is a trivector.  This means that \( \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} \) has only grades 2,3, which are obliterated by the final grade 0,1 selection operation, leaving just \( \gpgrade{\stgrad F}{0,1} \).
 For \( G \) we have
-\begin{dmath}\label{eqn:dielectric:180}
+\begin{equation}\label{eqn:dielectric:180}
 \begin{aligned}
 \gpgrade{\stgrad G'}{2,3}
 &=
@@ -287,7 +286,7 @@ For \( G \) we have
 &\quad -
 \gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} }{2,3}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 As before the d'Alembertian term is killed as it has no grades 2,3.
 To see that the last term is zero, note that \( \conjstgrad \Psi_{0,1} \) can have only grades 0,1,2, so \( \gpgrade{ \conjstgrad \Psi_{0,1} }{0,3} \) is a scalar.  This means that
 \begin{dmath}\label{eqn:dielectric:340}

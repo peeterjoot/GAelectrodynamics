@@ -55,7 +55,7 @@ A vector-bivector dot product select only the component of the vector that lie i
 There are (somewhat tricky) coordinate free ways to prove
 \cref{thm:generalizedDot:wedgeDotDistribution}
 , but a straightforward expansion in coordinates also does the job.
-\begin{dmath}\label{eqn:generalizedDot_vectorBivector:681}
+\begin{equation}\label{eqn:generalizedDot_vectorBivector:681}
 \begin{aligned}
 \Ba \cdot \lr{ \Bb \wedge \Bc } &= \sum_{i, j, k} a_i b_j c_k \Be_i \cdot (\Be_j \wedge \Be_k)
 = \sum_{i, j \ne k} a_i b_j c_k \gpgradeone{ \Be_i \Be_j \Be_k }
@@ -63,16 +63,16 @@ There are (somewhat tricky) coordinate free ways to prove
 \lr{ \Bc \wedge \Bb } \cdot \Ba &= \sum_{i, j, k} a_i b_j c_k (\Be_k \wedge \Be_j) \cdot \Be_i
 = \sum_{i, j \ne k} a_i b_j c_k \gpgradeone{ \Be_k \Be_j \Be_i }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 If all of \( i, j, k \) are unique then \( \gpgradeone{ \Be_i \Be_j \Be_k } = 0 \), so the vector selection is non-zero only when \( i \) equals one of \( j, k \).
 For example
-\begin{dmath}\label{eqn:generalizedDot_vectorBivector:1040}
+\begin{equation}\label{eqn:generalizedDot_vectorBivector:1040}
 \begin{aligned}
 \gpgradeone{ \Be_1 \Be_1 \Be_2 } &= \Be_2 \\
 \gpgradeone{ \Be_1 \Be_2 \Be_1 } &= -\Be_2.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Given \( j \ne k \), and \( i = j \) or \( i = k \),  then it is simple to show
 (\cref{problem:generalizedDot:distributionUnitVectorsa})
@@ -121,7 +121,7 @@ distribution identity for the triple cross product
 \end{dmath}
 
 We can prove this result directly by applying the identity \( \Ba \wedge \Bb = I ( \Ba \cross \Bb ) \) to the vector-bivector product, and then selecting the vector grade
-\begin{dmath}\label{eqn:generalizedDot_vectorBivector:1000}
+\begin{equation}\label{eqn:generalizedDot_vectorBivector:1000}
 \begin{aligned}
 \Ba \lr{ \Bb \wedge \Bc }
 &= \Ba I \lr{ \Bb \cross \Bc } \\
@@ -138,7 +138,7 @@ I \lr{ \Ba \cdot \lr{ \Bb \cross \Bc } }
 +
 \lr{ \Bb \cross \Bc } \cross \Ba.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 This multivector has a pseudoscalar (grade 3) component, and a vector component.  Selecting the grade one component,
 and invoking \cref{dfn:generalizedDot:100} to express this grade selection as a dot product, completes the proof

@@ -30,12 +30,12 @@ No information is lost by imposing the complex structure of
 \cref{dfn:isotropicMaxwells:640}, since we can always obtain the
 electric field vector \( \BE \) and the magnetic field bivector \( I \BH \) by grade selection
 from the electromagnetic field strength when desired
-\begin{dmath}\label{eqn:isotropicMaxwells:620}
+\begin{equation}\label{eqn:isotropicMaxwells:620}
 \begin{aligned}
 \BE &= \gpgradeone{ F } \\
 I \BH &= \inv{\eta} \gpgradetwo{ F }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 We will also
 define a multivector current containing all charge densities and current densities
@@ -53,14 +53,14 @@ first insert the
 isotropic
 constituency relationships from \cref{eqn:freespace:300} into
 \cref{eqn:freespace:3399}, so that we are working with two field variables instead of four
-\begin{dmath}\label{eqn:isotropicMaxwells:500}
+\begin{equation}\label{eqn:isotropicMaxwells:500}
 \begin{aligned}
 \spacegrad \cdot \BE &= \frac{\rho}{\epsilon} \\
 \spacegrad \cross \BE &= - \BM - \mu \PD{t}{\BH} \\
 \spacegrad \cdot \BH &= \frac{\rho_\txtm}{\mu} \\
 \spacegrad \cross \BH &= \BJ + \epsilon \PD{t}{\BE}
 \end{aligned}
-\end{dmath}
+\end{equation}
 Inserting \( \Ba = \spacegrad \) into \cref{eqn:SimpleProducts2:1640} the vector product of the gradient with another vector
 \begin{dmath}\label{eqn:isotropicMaxwells:520}
 \spacegrad \Bb = \spacegrad \cdot \Bb + I \spacegrad \cross \Bb.
@@ -68,19 +68,19 @@ Inserting \( \Ba = \spacegrad \) into \cref{eqn:SimpleProducts2:1640} the vector
 The dot and cross products for \( \BE \) and \( \BH \) in
 \cref{eqn:isotropicMaxwells:500}
 can be grouped using \cref{eqn:isotropicMaxwells:520} into multivector gradient equations
-\begin{dmath}\label{eqn:isotropicMaxwells:540}
+\begin{equation}\label{eqn:isotropicMaxwells:540}
 \begin{aligned}
 \spacegrad \BE &= \frac{\rho}{\epsilon} + I \lr{ - \BM - \mu \PD{t}{\BH} } \\
 \spacegrad \BH &= \frac{\rho_\txtm}{\mu} + I \lr{ \BJ + \epsilon \PD{t}{\BE} }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 Multiplying the gradient equation for the magnetic field by \( \eta I \) so that both equations have the same dimensions, and so that the electric field appears in both equations as \( \BE \) and not \( I \BE \), we find
-\begin{dmath}\label{eqn:isotropicMaxwells:560}
+\begin{equation}\label{eqn:isotropicMaxwells:560}
 \begin{aligned}
 \spacegrad \BE        + \inv{c} \PD{t}{} (I \eta \BH) &= \inv{\epsilon}\rho - I \BM  \\
 \spacegrad I \eta \BH + \inv{c} \PD{t}{\BE}           &= I c \rho_\txtm - \eta \BJ,
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( \mu/\eta = \eta \epsilon = 1/c \) was used to simplify things slightly, and all the field contributions have been moved to the left hand side.
 The first multivector equation has only scalar and bivector grades, whereas the second has only vector and trivector grades.  This means that if we add these equations, we can recover each by grade selection, and no information is lost.  That sum is
 \begin{dmath}\label{eqn:isotropicMaxwells:580}

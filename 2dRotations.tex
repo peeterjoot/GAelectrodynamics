@@ -108,14 +108,14 @@ A radial vector can be written as
 as illustrated in \cref{fig:radialVectorCylindrical:radialVectorCylindricalFig1}.
 The polar representation of the radial and azimuthal unit vector are simply
 \mathImageFigure{../figures/GAelectrodynamics/radialVectorCylindricalFig1}{Radial vector in polar coordinates.}{fig:radialVectorCylindrical:radialVectorCylindricalFig1}{0.3}{radialVectorCylindricalFig1.nb}
-\begin{dmath}\label{eqn:2dRotations:1220}
+\begin{equation}\label{eqn:2dRotations:1220}
 \begin{aligned}
 \rcap &= \Be_1 e^{i\theta} =
 \Be_1 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } = \Be_1 \cos\theta + \Be_2 \sin\theta \\
 \thetacap &= \Be_2 e^{i\theta} =
 \Be_2 \lr{ \cos\theta + \Be_1 \Be_2 \sin\theta } = \Be_2 \cos\theta - \Be_1 \sin\theta,
 \end{aligned}
-\end{dmath}
+\end{equation}
 where \( i = \Be_{12} \) is the unit bivector for the x-y plane.  We can easily show that these unit vectors are orthogonal
 \begin{equation}\label{eqn:2dRotations:1340}
 \begin{aligned}
@@ -130,12 +130,12 @@ By \cref{thm:multiplication:anticommutationNormal}, since the product of \( \rca
 
 We can find the
 velocity and acceleration by taking time derivatives
-\begin{dmath}\label{eqn:2dRotations:1240}
+\begin{equation}\label{eqn:2dRotations:1240}
 \begin{aligned}
 \Bv &= r' \rcap + r \rcap' \\
 \Ba &= r'' \rcap + 2 r' \rcap' + r \rcap'',
 \end{aligned}
-\end{dmath}
+\end{equation}
 but to make these more meaningful want to evaluate the \( \rcap, \thetacap \) derivatives explicitly.  Those are
 \begin{equation}\label{eqn:2dRotations:1260}
 \begin{aligned}
@@ -179,13 +179,13 @@ or
 \end{equation}
 
 Using \cref{eqn:2dRotations:1220}, we also have the option of factoring out the rotation operation from the position vector or any of its derivatives
-\begin{dmath}\label{eqn:2dRotations:1360}
+\begin{equation}\label{eqn:2dRotations:1360}
 \begin{aligned}
 \Br &= \lr{ r \Be_1 } e^{i \theta } \\
 \Bv &= \lr{ r' \Be_1 + r \omega \Be_2 } e^{i \theta } \\
 \Ba &= \lr{ \lr{ r'' - r \omega^2 } \Be_1 + \inv{r} \lr{ r^2 \omega }' \Be_2 } e^{i\theta}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 In particular,
 for uniform circular motion, each of the position, velocity and acceleration vectors can be represented by a vector that is fixed in space, subsequently rotated by an angle \( \theta \).

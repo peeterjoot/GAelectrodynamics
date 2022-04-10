@@ -20,31 +20,31 @@ J = \inv{\epsilon} \lambda \delta(z) \delta(r - R) \lr{ 1 - \frac{\Bv}{c} }.
 \end{dmath}
 
 Let the point that we observe the field, and the integration variables be
-\begin{dmath}\label{eqn:ringField:60}
+\begin{equation}\label{eqn:ringField:60}
 \begin{aligned}
 \Bx &= z \Be_3 + r \rhocap \\
 \Bx' &= z' \Be_3 + r' \rhocap'.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 The field is
-\begin{dmath}\label{eqn:ringField:80}
+\begin{equation}\label{eqn:ringField:80}
 \begin{aligned}
 F(\Bx)
 &= \frac{\lambda}{4 \pi \epsilon} \iiint dz' r' dr' d\phi'\, \delta(z') \, \delta(r' - R) \times \\
 &\qquad \frac{\gpgrade{ \lr{ (z - z') \Be_3 + r \rhocap - r' \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ (z-z')^2 + (r \rhocap - r' \rhocap')^2}^{3/2} } \\
 &= \frac{\lambda}{4 \pi \epsilon} \int R d\phi' \frac{\gpgrade{ \lr{ z \Be_3 + r \rhocap - R \rhocap' } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'} } }{1,2} } { \lr{ z^2 + (r \rhocap - R \rhocap')^2}^{3/2} }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Without loss of generality, we can align the axes so that \( \rhocap = \Be_1 \), and
 introduce dimensionless variables
-\begin{dmath}\label{eqn:ringField:100}
+\begin{equation}\label{eqn:ringField:100}
 \begin{aligned}
 \tilde{z} &= z/R \\
 \tilde{r} &= r/R,
 \end{aligned}
-\end{dmath}
+\end{equation}
 which gives
 \begin{dmath}\label{eqn:ringField:120}
 F
@@ -60,14 +60,14 @@ In the denominator, the vector square expands as
 \tilde{r}^2 + 1 - 2 \tilde{r} \cos(\phi'),
 \end{dmath}
 and the grade selection in the numerator is
-\begin{dmath}\label{eqn:ringField:160}
+\begin{equation}\label{eqn:ringField:160}
 \begin{aligned}
 \gpgrade{ \lr{ \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} } \lr{ 1 - \frac{v}{c} \Be_2 e^{i\phi'}}}{1,2}
 &=
 \tilde{z} \Be_3 + \tilde{r} \Be_1 - \Be_1 e^{i\phi'} \\
 &-\frac{v}{c}\lr{ \tilde{z} \Be_{31} e^{i\phi'} + \tilde{r} i \cos(\phi') + i }.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Any of the exponential integrals terms
 are of the form
@@ -123,7 +123,7 @@ F
 
 The field directions are nicely parameterized as multivector expressions, with the relative weightings in different directions scaled by the position dependent integral coefficients of \cref{eqn:ringField:260}.
 The multivector field can be separated into its respective electric and magnetic components by inspection
-\begin{dmath}\label{eqn:ringField:240}
+\begin{equation}\label{eqn:ringField:240}
 \begin{aligned}
 \BE &=
 \gpgradeone{F}
@@ -134,7 +134,7 @@ The multivector field can be separated into its respective electric and magnetic
 =
 \frac{\lambda v}{4 \pi R } \lr{ -\Be_3 \lr{ A + \tilde{r} B } - \phicap \tilde{z} A },
 \end{aligned}
-\end{dmath}
+\end{equation}
 \index{\(\propto\)}
 which, as expected, shows that the static charge distribution \( \rho \propto \lambda \)\footnote{\(\propto\): proportional to.} only contributes to the electric field, and the static current distribution \( \BJ \propto v \lambda \) only contributes to the magnetic field.
 See

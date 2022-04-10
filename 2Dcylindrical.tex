@@ -107,23 +107,23 @@ Integrating the bivector area over a circular region gives us the area of that r
 \index{\(\Bx^\rho\)!polar}
 \index{\(\Bx^\phi\)!polar}
 Because \( \Bx_\rho, \Bx_\phi \) are mutually perpendicular, we have only to rescale them to determine the reciprocal basis, and can do so by inspection
-\begin{dmath}\label{eqn:2Dcylindrical:180}
+\begin{equation}\label{eqn:2Dcylindrical:180}
 \begin{aligned}
    \Bx^\rho &= \Be_1 e^{i \phi} \\
    \Bx^\phi &= \inv{\rho} \Be_2 e^{i\phi}.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 \index{Gradient of the coordinates.}
 According to \cref{thm:curvilinearGradient:1}
 we should be able to find \cref{eqn:2Dcylindrical:180} by computing the gradients of \( \rho \) and \( \phi \) respectively.
 If we do so using the \R{2} standard basis representation of the gradient, we must first solve for \( \rho = \rho(x,y), \phi = \phi(x,y) \), inverting
-\begin{dmath}\label{eqn:2Dcylindrical:620}
+\begin{equation}\label{eqn:2Dcylindrical:620}
 \begin{aligned}
 x &= \rho \cos\phi \\
 y &= \rho \sin\phi.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 An implicit solution to this inversion problem is
 \begin{equation}\label{eqn:2Dcylindrical:500}
@@ -179,12 +179,12 @@ The polar form of the \R{2} gradient is
 +\inv{\rho} \phicap \PD{\phi}{},
 \end{dmath}
 where
-\begin{dmath}\label{eqn:2Dcylindrical:200}
+\begin{equation}\label{eqn:2Dcylindrical:200}
 \begin{aligned}
    \rhocap &= \Bx_\rho = \Be_1 e^{i\phi} = \Bx^\rho \\
    \phicap &= \inv{\rho} \Bx_\phi = \Be_2 e^{i\phi} = \rho \Bx^\phi.
 \end{aligned}
-\end{dmath}
+\end{equation}
 
 Should we extend this vector space to \R{3}, the parameterization of \cref{eqn:2Dcylindrical:100} covers the subspace of the x-y plane, and for that subspace, the vector derivative is
 \begin{dmath}\label{eqn:2Dcylindrical:601}
