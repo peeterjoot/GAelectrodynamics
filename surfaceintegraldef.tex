@@ -48,13 +48,15 @@ d^2 \Bx = I \Bx_r r^2 \sin\theta d\theta d\phi.
 
 Suppose we integrate a vector valued function \( F(\theta, \phi) = \alpha \Bx^r + \beta \Bx^\theta + \gamma \Bx^\phi \), where \( \alpha, \beta, \gamma\) are constants, over the surface of a sphere of radius \( r \), then the surface integral (with the area element on the right) is
 \begin{equation}\label{eqn:surfaceintegraldef:200}
+\begin{aligned}
 \int F d^2\Bx
-=
+&=
 \alpha I r^2 \int \Bx^r \Bx_r \sin\theta d\theta d\phi
 +
-\beta I r^2 \int \Bx^\theta \Bx_r \sin\theta d\theta d\phi
-+
+\beta I r^2 \int \Bx^\theta \Bx_r \sin\theta d\theta d\phi \\
+&\quad +
 \gamma I r^2 \int \Bx^\phi \Bx_r \sin\theta d\theta d\phi.
+\end{aligned}
 \end{equation}
 This can be simplified using \( \rcap \thetacap \phicap = I \), and \cref{eqn:curvilinearspherical:260}, to find
 \begin{equation}\label{eqn:surfaceintegraldef:220}
