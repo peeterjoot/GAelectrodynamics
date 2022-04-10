@@ -57,8 +57,9 @@ where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
 With the help of \cref{eqn:derivativeOfDeltaFunction:140}, the derivatives in the Green's function \cref{eqn:jefimenkosEquations:20} can be evaluated, and
 the convolution reduces to
 \begin{equation}\label{eqn:jefimenkosEquations:40}
-\int dt' G(\Bx - \Bx', t - t') J(\Bx', t')
-=
+\begin{aligned}
+\int &dt' G(\Bx - \Bx', t - t') J(\Bx', t') \\
+&=
 \inv{4 \pi}
 \evalbar{
 \lr{
@@ -69,6 +70,7 @@ the convolution reduces to
 \inv{c r} \frac{d}{dt_r} J(\Bx', t_r)
 }
 }{t_r = t - r/c}.
+\end{aligned}
 \end{equation}
 
 There have been lots of opportunities to mess up with signs and factors of \( c \), so let's expand this out explicitly for a non-magnetic current source \( J = \rho/\epsilon - \eta \BJ \).
