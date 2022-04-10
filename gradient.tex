@@ -38,24 +38,20 @@ The next step in the required mathematical preliminaries for geometric calculus 
 parameters associated with those coordinates.
 
 Suppose we have a vector parameterization of \R{N}
-\begin{dmath}\label{eqn:gradient:60}
+\begin{equation}\label{eqn:gradient:60}
 \Bx = \Bx(u_1, u_2, \cdots, u_N).
-\end{dmath}
+\end{equation}
 
 We can employ the chain rule to express the gradient in terms of derivatives with respect to \( u_i \)
-\begin{dmath}\label{eqn:gradient:80}
+\begin{equation}\label{eqn:gradient:80}
+\begin{aligned}
 \spacegrad
-=
-\sum_i \Be_i \PD{x_i}{}
-=
-\sum_{i,j} \Be_i
-\PD{x_i}{u_j}
-\PD{u_j}{}
-=
-\sum_j \lr{ \sum_i \Be_i \PD{x_i}{u_j} } \PD{u_j}{}
-=
-\sum_j \lr{ \spacegrad u_j } \PD{u_j}{}.
-\end{dmath}
+&= \sum_i \Be_i \PD{x_i}{} \\
+&= \sum_{i,j} \Be_i \PD{x_i}{u_j} \PD{u_j}{} \\
+&= \sum_j \lr{ \sum_i \Be_i \PD{x_i}{u_j} } \PD{u_j}{} \\
+&= \sum_j \lr{ \spacegrad u_j } \PD{u_j}{}.
+\end{aligned}
+\end{equation}
 
 It turns out that the gradients of the parameters are in fact the reciprocal frame vectors
 

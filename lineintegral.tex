@@ -60,26 +60,26 @@ single scalar function \( f \)
 \begin{proof}
 \Cref{thm:lineintegral:180} is no doubt familiar in its gradient form.  Our proof starts with
 \cref{thm:lineintegral:100} setting \( F = 1, G = f(\Bx(u)) \)
-\begin{dmath}\label{eqn:lineintegral:140}
+\begin{equation}\label{eqn:lineintegral:140}
 \int_C d\Bx\, \boldpartial f = \evalbar{f}{\Delta u},
-\end{dmath}
+\end{equation}
 which is a multivector equation with scalar and bivector grades on the left hand side, but only scalar grades on the right.  Equating grades yields two equations
 \begin{subequations}
 \label{eqn:lineintegral:180}
-\begin{dmath}\label{eqn:lineintegral:160}
+\begin{equation}\label{eqn:lineintegral:160}
 \int_C d\Bx \cdot \boldpartial f = \evalbar{f}{\Delta u}
-\end{dmath}
-\begin{dmath}\label{eqn:lineintegral:200}
+\end{equation}
+\begin{equation}\label{eqn:lineintegral:200}
 \int_C d\Bx \wedge \boldpartial f = 0.
-\end{dmath}
+\end{equation}
 \end{subequations}
 \Cref{eqn:lineintegral:160}, the scalar grade of \cref{eqn:lineintegral:140}, proves part of \cref{thm:lineintegral:180}.
 To complete the proof, consider the specific case of \R{3} which is representitive.
 Suppose, that we have an \R{3} volume parameterization \( \Bx(u, v, w) \) sharing an edge with the curve \( C = \Bx(u,0,0) \).
 The curvilinear representation of the \R{3} gradient is
-\begin{dmath}\label{eqn:lineintegral:220}
+\begin{equation}\label{eqn:lineintegral:220}
 \spacegrad = \Bx^u \partial_u + \Bx^v \partial_v + \Bx^w \partial_w = \boldpartial + \Bx^v \partial_v + \Bx^w \partial_w,
-\end{dmath}
+\end{equation}
 Over the curve \( C \)
 \begin{equation}\label{eqn:lineintegral:240}
 d\Bx \cdot \spacegrad

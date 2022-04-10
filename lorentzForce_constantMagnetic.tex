@@ -5,9 +5,9 @@
 
 The Lorentz force equation that determines the dynamics of a charged particle in an external field \( F \) has been restated as a multivector differential equation, but how to solve such an equation is probably not obvious.
 Given a constant external magnetic field bivector \( F = I c \BB \), the Lorentz force equation, for small velocities\footnote{The (relativistically) correct Lorentz force equation for zero electric field is \( d(m \gamma \Bv)/dt = q F \cdot \Bv/c \) where \( \gamma^{-1} = \sqrt{1 - \Bv^2/c^2}\).  See \citep{doran2003gap} for a relativistic approach to this problem.}, is
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:60}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:60}
 m \frac{d\Bv}{dt} = q F \cdot \frac{\Bv}{c},
-\end{dmath}
+\end{equation}
 or
 \begin{equation}\label{eqn:lorentzForce_constantMagnetic:80}
 \begin{aligned}
@@ -34,27 +34,23 @@ R \frac{d\Bv}{dt} R^\dagger
 \end{dmath}
 
 Let
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:140}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:140}
 \dot{R} = R \Omega/2.
-\end{dmath}
+\end{equation}
 
 Since \( \Omega \) is a bivector \( \dot{R}^\dagger = -\Omega R^\dagger/2 \), so by chain rule
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:160}
-0
-=
-\frac{d}{dt} \lr{
-R \Bv R^\dagger
-}.
-\end{dmath}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:160}
+0 = \frac{d}{dt} \lr{ R \Bv R^\dagger }.
+\end{equation}
 
 The integrating factor has solution
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:180}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:180}
 R = e^{\Omega t/2},
-\end{dmath}
+\end{equation}
 a ``complex exponential'', so the solution of \cref{eqn:lorentzForce_constantMagnetic:60} is
-\begin{dmath}\label{eqn:lorentzForce_constantMagnetic:200}
+\begin{equation}\label{eqn:lorentzForce_constantMagnetic:200}
 \Bv(t) = e^{-\Omega t/2} \Bv(0) e^{\Omega t/2}.
-\end{dmath}
+\end{equation}
 
 The velocity of the charged particle traces out a helical path.
 Any component of the initial velocity \( \Bv(0)_\perp \) perpendicular to the \( \Omega \) plane is untouched by this rotation operation, whereas components of the initial velocity \( \Bv(0)_\parallel \) that lie in the \( \Omega \) plane will trace out a circular path.

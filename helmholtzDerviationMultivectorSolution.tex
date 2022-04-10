@@ -68,34 +68,34 @@ This is an average of \( \BM \) over the surface of the radius-\(R\) sphere surr
 
 %Observe that the Laplacian of \( \BM \) is vector valued
 %
-%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:760}
+%\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:760}
 %\spacegrad^2 \BM = \spacegrad s + I \spacegrad \BC.
-%\end{dmath}
+%\end{equation}
 %
 %This means that \( \spacegrad \BC \) must be a bivector \( \spacegrad \BC = \spacegrad \wedge \BC \), or that \( \BC \) has zero divergence
 %
-%\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:780}
+%\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:780}
 %\spacegrad \cdot \BC = 0.
-%\end{dmath}
+%\end{equation}
 
 Again, we use \cref{eqn:helmholtzDerviationMultivectorSolution:60}
 to discover the relation between the vector \( \BM \) and its divergence and curl.
 \index{delta function}
 The vector \( \BM \) can be expressed at the point of interest as a convolution with the delta function at all other points in space
 \index{convolution}
-\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:80}
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:80}
 \BM(\Bx) = \int_V dV'\, \delta(\Bx - \Bx') \BM(\Bx').
-\end{dmath}
+\end{equation}
 
 \index{Laplacian}
 The Laplacian representation of the delta function in \R{3} is
-\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:100}
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:100}
 \delta(\Bx - \Bx') = -\inv{4\pi} \spacegrad^2 \inv{\Norm{\Bx - \Bx'}},
-\end{dmath}
+\end{equation}
 so \( \BM \) can be represented as the following convolution
-\begin{dmath}\label{eqn:helmholtzDerviationMultivectorSolution:120}
+\begin{equation}\label{eqn:helmholtzDerviationMultivectorSolution:120}
 \BM(\Bx) = -\inv{4\pi} \int_V dV'\, \spacegrad^2 \inv{\Norm{\Bx - \Bx'}} \BM(\Bx').
-\end{dmath}
+\end{equation}
 
 %As noted in \cref{eqn:helmholtzDerviationMultivector:460} the Laplacian of a vector can be factored as
 %

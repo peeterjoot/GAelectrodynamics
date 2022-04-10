@@ -7,18 +7,18 @@
 
 The operators in \cref{eqn:greensFunctionOverview:200}, and \cref{eqn:greensFunctionOverview:320} all have a similar linear structure.
 Abstracting that structure, all these problems have the form
-\begin{dmath}\label{eqn:greensFunctionSolutions:340}
+\begin{equation}\label{eqn:greensFunctionSolutions:340}
 \LL F(\Bx) = J(\Bx),
-\end{dmath}
+\end{equation}
 where \( \LL \) is an operator formed from a linear combination of linear operators \( 1, \spacegrad, \spacegrad^2, \partial_t, \partial_{tt} \).
 
 Given the linear structure of the PDE that we wish to solve, it makes sense to assume that the solutions also have a linear structure.
 The most general such solution we can assume has the form
 
 \index{Green's function}
-\begin{dmath}\label{eqn:greensFunctionSolutions:360}
+\begin{equation}\label{eqn:greensFunctionSolutions:360}
 F(\Bx, t) = \int G(\Bx, \Bx' ; t, t') J(\Bx', t') dV' dt' + F_0(\Bx, t),
-\end{dmath}
+\end{equation}
 where \( F_0(\Bx, t) \) is any solution to the equivalent homogeneous equation \( \LL F_0 = 0 \), and \( G(\Bx, \Bx' ; t, t') \) is the Green's function (to be determined) associated with \cref{eqn:greensFunctionSolutions:340}.
 Operating on the presumed solution
 \cref{eqn:greensFunctionSolutions:360} with \( \LL \) yields
@@ -29,9 +29,9 @@ J(\Bx, t) = \LL F(\Bx, t) = \LL\lr{
 \int \lr{ \LL G(\Bx, \Bx'; t, t') } J(\Bx', t') dV' dt',
 \end{dmath}
 which shows that we require the Green's function to have delta function semantics satisfying
-\begin{dmath}\label{eqn:greensFunctionSolutions:400}
+\begin{equation}\label{eqn:greensFunctionSolutions:400}
 \LL G(\Bx, \Bx' ; t, t') = \delta(\Bx - \Bx') \delta(t - t').
-\end{dmath}
+\end{equation}
 
 The scalar valued Green's functions for the Laplacian and the (2nd order) Helmholtz equations are well known.
 The Green's functions for the spacetime gradient and the 1st order Helmholtz equation (which is just the gradient when \( k = 0 \)) are multivector valued and will be derived here.
@@ -39,17 +39,17 @@ The Green's functions for the spacetime gradient and the 1st order Helmholtz equ
 %%%For multivector functions, it can be helpful to assume that the assumed solution
 %%%\cref{eqn:greensFunctionSolutions:360} includes a grade selection operation.  In particular, for the electromagnetic field, which has only grades 1,2, we may start by demanding that our solution is of the form
 %%%
-%%%\begin{dmath}\label{eqn:greensFunctionSolutions:360}
+%%%\begin{equation}\label{eqn:greensFunctionSolutions:360}
 %%%F(\Bx) = \gpgrade{ \int G(\Bx, \Bx') J(\Bx') dV'}{1,2} + F_0(\Bx),
-%%%\end{dmath}
+%%%\end{equation}
 %%%
 \subsubsection{Green's theorem.}
 
 When the presumed solution is a superposition of only states in a bounded region
 then life gets a bit more interesting.  For instance, consider a problem for which the differential operator is a function of space only, with a presumed solution such as
-\begin{dmath}\label{eqn:greensFunctionSolutions:200}
+\begin{equation}\label{eqn:greensFunctionSolutions:200}
 F(\Bx) = \int_V dV' B(\Bx') G(\Bx, \Bx') + F_0(\Bx),
-\end{dmath}
+\end{equation}
 then life gets a bit more interesting.
 This sort of problem requires different treatment for operators that are first and second order in the gradient.
 
@@ -92,14 +92,14 @@ From
 %the fundamental theorem of geometric calculus
 \cref{thm:fundamentalTheoremOfCalculus:1}
 we know that
-\begin{dmath}\label{eqn:greensFunctionSolutions:300}
+\begin{equation}\label{eqn:greensFunctionSolutions:300}
 \int_V \spacegrad Q dV = \int_{\partial V} \ncap Q dA,
-\end{dmath}
+\end{equation}
 for any multivector \( Q \).
 Equating components gives
-\begin{dmath}\label{eqn:greensFunctionSolutions:460}
+\begin{equation}\label{eqn:greensFunctionSolutions:460}
 \int_V \partial_k Q dV = \int_{\partial V} \ncap \cdot \Be_k Q dA,
-\end{dmath}
+\end{equation}
 which can be substituted into \cref{eqn:greensFunctionSolutions:280} to find
 \begin{equation}\label{eqn:greensFunctionSolutions:480}
 \begin{aligned}

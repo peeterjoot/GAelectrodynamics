@@ -149,9 +149,9 @@ Linear polarization is described by
 \end{aligned}
 \end{equation}
 so the field is
-\begin{dmath}\label{eqn:polarization_linearPolarization:300}
+\begin{equation}\label{eqn:polarization_linearPolarization:300}
 F = \lr{ 1 + \Be_3 } \Norm{\BE} \Be_1 e^{i\psi} \cos( \omega t - \beta z + \theta ).
-\end{dmath}
+\end{equation}
 Here \( \theta \) is an arbitrary initial phase.
 The electric field \( \BE \) traces out all the points along the line spanning the points between \( \pm \Be_1 e^{i\psi} \Norm{\BE} \), whereas the magnetic field \( \BH \) traces
 out all the points along \( \pm \Be_2 e^{i\psi} \Norm{\BE}/\eta \) as illustrated (with \( \eta = 1 \)) in
@@ -175,15 +175,15 @@ is referred to as having
 (right,left) circular polarization, so the choice
 \(\alpha_\txtR = \Norm{\BE}, \alpha_\txtL = 0 \) results
 in a right polarized wave
-\begin{dmath}\label{eqn:polarizationRewrite:720}
+\begin{equation}\label{eqn:polarizationRewrite:720}
 F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{i(\omega t - k z)},
-\end{dmath}
+\end{equation}
 and
 \(\alpha_\txtL = \Norm{\BE}, \alpha_\txtR = 0 \) results
 in a left polarized wave
-\begin{dmath}\label{eqn:polarizationRewrite:740}
+\begin{equation}\label{eqn:polarizationRewrite:740}
 F = (1 + \Be_3) \Norm{\BE} \Be_1 e^{-i(\omega t - k z)},
-\end{dmath}
+\end{equation}
 There are different conventions for the polarization orientation, and here the IEEE antenna convention discussed in \citep{balanis1989advanced} are used.
 
 \subsubsection{Elliptical parameterization.}
@@ -204,9 +204,9 @@ circular polarization coefficients with values
 \end{equation}
 
 Therefore an elliptically polarized field can be represented as
-\begin{dmath}\label{eqn:polarization_elliptical:420}
+\begin{equation}\label{eqn:polarization_elliptical:420}
 F = \inv{2} (1 + \Be_3) \Be_1 \lr{ (E_a + E_b) e^{i\phi} + (E_a - E_b) e^{-i\phi} }.
-\end{dmath}
+\end{equation}
 
 An interesting variation of the elliptical polarization uses a hyperbolic parameterization.
 If \( a, b \) are the semi-major/minor axes of the ellipse (i.e. \( a > b \)),
@@ -238,9 +238,9 @@ Observe that setting \( E_b = 0 \) results in the linearly polarized field of \c
 \subsubsection{Energy and momentum.}
 
 Each polarization considered above (linear, circular, elliptical) have the same general form
-\begin{dmath}\label{eqn:polarizationRewrite:760}
+\begin{equation}\label{eqn:polarizationRewrite:760}
 F = \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f(\phi),
-\end{dmath}
+\end{equation}
 where \( f(\phi) \) is a complex valued function (i.e. grade 0,2).  The structure of \cref{eqn:polarizationRewrite:760} could be more general than considered so far.  For example, a Gaussian modulation could be added into the mix with \( f(\phi) = e^{i \phi - (\phi/\sigma)^2/2 } \).  Independent of the form of \( f \), we may compute the energy, momentum and Maxwell stress tensor for the plane wave given by \cref{eqn:polarizationRewrite:760}.
 \input{Theorem_energy_momentum_tensor_plane_wave.tex}
 Only the propagation direction of a plane wave, regardless of its polarization (or even whether or not there are Gaussian or other damping factors), carries any energy or momentum, and only the propagation direction component of the Maxwell stress tensor \( \BT(\Ba) \) is non-zero.
@@ -308,21 +308,21 @@ Clearly \( F \Be_2 F^\dagger = 0 \) as well, so \( T(\Be_1) = T(\Be_2) = 0 \).
 \end{proof}
 
 Using \cref{thm:polarizationRewrite:780} the energy momentum vector for the linearly polarized wave of \cref{eqn:polarization_linearPolarization:300} is
-\begin{dmath}\label{eqn:polarizationRewrite:840}
+\begin{equation}\label{eqn:polarizationRewrite:840}
 T(1) = \frac{\epsilon}{2} \lr{ 1 + \Be_3 } \Norm{\BE}^2 \cos^2( \phi + \theta ),
-\end{dmath}
+\end{equation}
 and for the circularly polarized wave of \cref{eqn:polarizationRewrite:720}, or
 \cref{eqn:polarizationRewrite:740} is
-\begin{dmath}\label{eqn:polarizationRewrite:860}
+\begin{equation}\label{eqn:polarizationRewrite:860}
 T(1) = \frac{\epsilon}{2} (1 + \Be_3) \Norm{\BE}^2.
-\end{dmath}
+\end{equation}
 A circularly polarized wave carries maximum energy and momentum, whereas the energy and momentum of a linearly polarized wave
 oscillates with the phase angle.
 
 For the elliptically polarized wave of \cref{eqn:polarization_elliptical:380} we have
-\begin{dmath}\label{eqn:polarizationRewrite:1040}
+\begin{equation}\label{eqn:polarizationRewrite:1040}
 f(\phi) = e E_a \cosh\lr{ m + i \phi}.
-\end{dmath}
+\end{equation}
 The absolute value of \( f \) is
 \begin{dmath}\label{eqn:polarizationRewrite:880}
 f f^\dagger
@@ -331,9 +331,9 @@ f f^\dagger
 = e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }
 \end{dmath}
 The simplification above made use of the identity
-\begin{dmath}\label{eqn:polarizationRewrite:1060}
+\begin{equation}\label{eqn:polarizationRewrite:1060}
 (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2.
-\end{dmath}
+\end{equation}
 The energy momentum for an elliptically polarized wave is therefore
 \begin{dmath}\label{eqn:polarizationRewrite:900}
 T(1)

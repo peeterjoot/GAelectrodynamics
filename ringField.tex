@@ -5,19 +5,18 @@
 %{
 Let's now compute the field due to a static charge and current density on a ring of radius \( R \) as illustrated in
 \cref{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}.
-
 \mathImageFigure{../figures/GAelectrodynamics/chargeAndCurrentOnRingFig1}{Field due to a circular distribution.}{fig:chargeAndCurrentOnRing:chargeAndCurrentOnRingFig1}{0.3}{currentRingIntegrals.nb}
 
 A static charge distribution on a ring at \( z = 0 \) has the form
-\begin{dmath}\label{eqn:ringField:20}
+\begin{equation}\label{eqn:ringField:20}
 \rho(\Bx) = \lambda \delta(z) \delta(r - R).
-\end{dmath}
+\end{equation}
 
 As always the current distribution is of the form \( \BJ = \Bv \rho \), and in this case the velocity is azimuthal \( \Bv = \Be_2 e^{i\phi}, i = \Be_{12} \).
 The total multivector current is
-\begin{dmath}\label{eqn:ringField:40}
+\begin{equation}\label{eqn:ringField:40}
 J = \inv{\epsilon} \lambda \delta(z) \delta(r - R) \lr{ 1 - \frac{\Bv}{c} }.
-\end{dmath}
+\end{equation}
 
 Let the point that we observe the field, and the integration variables be
 \begin{equation}\label{eqn:ringField:60}
@@ -71,14 +70,12 @@ and the grade selection in the numerator is
 
 Any of the exponential integrals terms
 are of the form
-\begin{dmath}\label{eqn:ringField:180}
+\begin{equation}\label{eqn:ringField:180}
 \int_0^{2\pi} d\phi' e^{i\phi'} f(\cos(\phi')) = \int_0^{2\pi} d\phi' \cos(\phi') f(\cos(\phi')),
-\end{dmath}
-since
-the \( i \sin\phi' f(\cos(\phi') \) contributions are odd functions around \( \phi' = \pi \).
+\end{equation}
+since the \( i \sin\phi' f(\cos(\phi') \) contributions are odd functions around \( \phi' = \pi \).
 
-For general \( z, r \) the integrals above require numeric evaluation or special functions.
-Let
+For general \( z, r \) the integrals above require numeric evaluation or special functions. Let
 \begin{subequations}
 \label{eqn:ringField:260}
 \begin{dmath}\label{eqn:ringField:200}

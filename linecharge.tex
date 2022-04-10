@@ -13,9 +13,9 @@ This is a fairly simple problem, and can be found in most introductory electroma
 \paragraph{Conventional approach.}
 
 The integral we wish to evaluate is
-\begin{dmath}\label{eqn:linecharge:160}
+\begin{equation}\label{eqn:linecharge:160}
 \BE(\Bx) = \frac{\lambda}{4 \pi \epsilon} \int_a^b dx \frac{ (r \cos\theta - x) \Be_1 + r \sin\theta \Be_3 }{ \lr{ r^2 + x^2 - 2 r x \cos\theta }^{3/2} }.
-\end{dmath}
+\end{equation}
 
 This can be non-dimensionalized with a \( u = x/r \) change of variables, and yields an integral for the x component and the z component of the field
 \begin{equation}\label{eqn:linecharge:180}
@@ -32,14 +32,14 @@ B &= \int_{a/r}^{b/r} u du \lr{ 1 + u^2 - 2 u \cos\theta }^{-3/2},
 \end{aligned}
 \end{equation}
 and then put the pieces back together again for the total field
-\begin{dmath}\label{eqn:linecharge:220}
+\begin{equation}\label{eqn:linecharge:220}
 \BE = \frac{\lambda}{4 \pi \epsilon r} \lr{ (A \cos\theta - B) \Be_1 + A \sin\theta \Be_3 }.
-\end{dmath}
+\end{equation}
 
 Some additional structure can be imposed by introducing a rotation matrix to express the field observation point
-\begin{dmath}\label{eqn:linecharge:240}
+\begin{equation}\label{eqn:linecharge:240}
 \Bx = r \BR_\theta \Be_1,
-\end{dmath}
+\end{equation}
 where
 \begin{equation}\label{eqn:linecharge:260}
 \BR_\theta =
@@ -50,18 +50,18 @@ where
 \end{bmatrix}.
 \end{equation}
 Writing \( \BOne \) for the \R{3} identity matrix, the field is
-\begin{dmath}\label{eqn:linecharge:280}
+\begin{equation}\label{eqn:linecharge:280}
 \BE = \frac{\lambda}{4 \pi \epsilon r} \lr{ A \BR_\theta - B \BOne } \Be_1.
-\end{dmath}
+\end{equation}
 In retrospect we could have started using \cref{eqn:linecharge:240} and obtained this result more directly.
 The \( A \) integral above results in both scaling and rotation of the field, depending on the observation point and the limits of the integration.  The \( B \) integral contributes only to the x-axis oriented component of the field.
 
 \paragraph{Using geometric algebra.}
 
 Introducing a unit imaginary \( i = \Be_{13} \) for the rotation from the x-axis to the z-axis, the field point observation point is
-\begin{dmath}\label{eqn:linecharge:120}
+\begin{equation}\label{eqn:linecharge:120}
 \Bx = r \Be_1 e^{i \theta}.
-\end{dmath}
+\end{equation}
 
 The charge element point is \( \Bx' = x \Be_1 \), so the difference can now be written with \( \Be_1 \) factored to the left or to the right
 \begin{equation}\label{eqn:linecharge:20}

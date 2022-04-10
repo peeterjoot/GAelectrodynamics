@@ -24,9 +24,9 @@ Vector multiplication is constrained by a rule, called the contraction axiom, th
 The product of two vectors is not a vector, and may include a scalar component as well as an irreducible product of two orthogonal vectors called a bivector.
 With vectors and their products living in different spaces,
 geometric algebra allows scalars, vectors, or any products of vectors to be added, forming a larger closed space of more general objects.  Such a sum is called a multivector, an example of which is
-\begin{dmath}\label{eqn:multivector:40}
+\begin{equation}\label{eqn:multivector:40}
 1 + 2 \Be_1 + 3 \Be_1 \Be_2 + 4 \Be_1 \Be_2 \Be_3.
-\end{dmath}
+\end{equation}
 In this example, we have added a
 \begin{itemize}
 \item
@@ -82,9 +82,9 @@ The reader can check that bivectors specified by \cref{dfn:multivector:60} form 
 If a bivector is formed from the product of just two orthogonal vectors\footnote{Bivectors generated from \R{2}, and \R{3} vectors can always be factored into a single product of orthogonal vectors, and therefore represent a plane.  Such a factorization may not be possible in higher dimensional spaces.}, that bivector is said to represent the plane containing those two vectors.
 Bivectors that represent the same plane can be summed by simply adding the respective (signed) areas, as illustrated in
 %Bivectors bivector sum
-%\begin{dmath}\label{eqn:multivector:160}
+%\begin{equation}\label{eqn:multivector:160}
 %3 \Be_1 \Be_2 - 2 \Be_1 \Be_2 + 5 \Be_1 \Be_2 = 6 \Be_1 \Be_2,
-%\end{dmath}
+%\end{equation}
 %which can be interpreted as taking a 3 unit area, subtracting a 2 unit area, and adding a 5 unit area.  This sum is illustrated in
 \cref{fig:bivectorAdditionInPlane:bivectorAdditionInPlaneFig1}.
 Note that the shape of a bivector's area is not significant, only the magnitude of the area and the sign of the bivector, which is represented as an oriented arc in the plane.
@@ -103,9 +103,9 @@ A bivector representation of a plane can eliminate the requirement to utilize a 
 Later we will see that permutations of the orders of orthogonal vector products are not independent.
 In particular
 given a pair of orthogonal vectors \( \Bx, \By \), that dependence is
-%\begin{dmath}\label{eqn:multivector:140}
+%\begin{equation}\label{eqn:multivector:140}
 \(\Bx \By + \By \Bx = 0 \),
-%\end{dmath}
+%\end{equation}
 or \( \By \Bx = - \Bx \By \).  This means that \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_1 } \) is not a basis for the \R{2} bivector space (those bivectors are not linearly independent), but that either \( \setlr{ \Be_1 \Be_2 } \) or \( \setlr{ \Be_2 \Be_1 } \) is an \R{2} bivector basis.
 Similarly, for \R{3}, we may pick a set such as \( R = \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_3 \Be_1 } \) for the bivector basis\footnote{\(R\) is a ``right handed'' choice of basis, as it is related to the right handed vector basis \( \setlr{ \Be_1, \Be_2, \Be_3 } \) in a fundamental way.  Observe that the indexes \( i, j \) of each bivector \( \Be_i \Be_j \) in \( R \) are cyclical permutations of \( i,j = 1,2 \).  Examples of other bivector basis choices include \( \setlr{ \Be_1 \Be_2, \Be_2 \Be_3, \Be_1 \Be_3 } \), the set of all pairs of bivectors \( \Be_i \Be_j \) where \( i < j \), or a ``left handed'' bivector basis
 \( \setlr{ \Be_2 \Be_1, \Be_3 \Be_2, \Be_1 \Be_3 } \).}.

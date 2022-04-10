@@ -127,13 +127,13 @@ c \spacegrad \cdot \BA
 which shows the claimed field split.
 
 In terms of the potentials Maxwell's equation \( \stgrad F = J \) is
-\begin{dmath}\label{eqn:gaugeTransformation:20}
+\begin{equation}\label{eqn:gaugeTransformation:20}
 \stgrad \gpgrade{\conjstgrad A}{1,2} = J,
-\end{dmath}
+\end{equation}
 or
-\begin{dmath}\label{eqn:gaugeTransformation:40}
+\begin{equation}\label{eqn:gaugeTransformation:40}
 \dAlembertian A = J + \stgrad \gpgrade{\conjstgrad A}{0,3}.
-\end{dmath}
+\end{equation}
 This is almost a wave equation.
 Inserting \cref{eqn:gaugeTransformation:1111} into \cref{eqn:gaugeTransformation:40} and selecting each grade gives four almost-wave equations
 \begin{equation*}
@@ -166,9 +166,9 @@ we have the freedom to add any spacetime gradient of any scalar or pseudoscalar 
 \input{Theorem_gauge_invariance.tex}
 \begin{proof}
 To prove \cref{thm:gaugeTransformation:60} let
-\begin{dmath}\label{eqn:gaugeTransformation:100}
+\begin{equation}\label{eqn:gaugeTransformation:100}
 A' = A + \stgrad (\psi + I \phi),
-\end{dmath}
+\end{equation}
 where \( \psi \) and \( \phi \) are scalar functions.
 The field for potential \( A' \) is
 \begin{dmath}\label{eqn:gaugeTransformation:120}
@@ -186,9 +186,9 @@ We say that we are working in the Lorenz gauge, if the 0,3 grades of \( \conjstg
 \input{Theorem_lorentz_gauge_transformation.tex}
 \begin{proof}
 To prove \cref{thm:gaugeTransformation:140}, let
-\begin{dmath}\label{eqn:gaugeTransformation:200}
+\begin{equation}\label{eqn:gaugeTransformation:200}
 A = A' + \stgrad \Psi,
-\end{dmath}
+\end{equation}
 so Maxwell's equation becomes
 \begin{dmath}\label{eqn:gaugeTransformation:220}
 J
@@ -198,9 +198,9 @@ J
 = \dAlembertian A' + \stgrad \lr{ \dAlembertian \Psi - \gpgrade{ \conjstgrad A }{0,3} }.
 \end{dmath}
 Requiring
-\begin{dmath}\label{eqn:gaugeTransformation:240}
+\begin{equation}\label{eqn:gaugeTransformation:240}
 \dAlembertian \Psi = \gpgrade{ \conjstgrad A }{0,3},
-\end{dmath}
+\end{equation}
 completes the proof.
 \end{proof}
 Observe that \( \Psi \) has only grades 0,3 as required of a gauge function.
@@ -214,14 +214,14 @@ A'(\Bx, t)
 \end{dmath}
 which is the sum of all the current contributions relative to the point \( \Bx \) at the retarded time \( t_\txtr = t - (1/c) \Norm{\Bx - \Bx'}\).
 The field follows immediately by differentiation and grade selection
-\begin{dmath}\label{eqn:gaugeTransformation:180}
+\begin{equation}\label{eqn:gaugeTransformation:180}
 F = \gpgrade{ \conjstgrad A' }{1,2}.
-\end{dmath}
+\end{equation}
 
 Again, using the Green's function for the d'Alembertian, the explicit form of the gauge function \( \Psi \) is
-\begin{dmath}\label{eqn:gaugeTransformation:260}
+\begin{equation}\label{eqn:gaugeTransformation:260}
 \Psi = -\inv{4\pi} \int dV' \frac{\gpgrade{ \conjstgrad A(\Bx', t_\txtr) }{0,3}}{\Norm{\Bx - \Bx'}},
-\end{dmath}
+\end{equation}
 however, we don't actually need to compute this.
 Instead, we only have to know we are free to construct a field from any solution \( A' \) of \( \dAlembertian A' = J \) using \cref{eqn:gaugeTransformation:180}.
 

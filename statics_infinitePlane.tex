@@ -4,38 +4,28 @@
 %
 %{
 A variation on the above example puts a uniform charge density \( \rho(\Bx) = \sigma \delta(z) \) in a plane, along with an associated current density \( \BJ(\Bx) = v \Be_1 e^{i\theta} \rho(\Bx) \), where \( i = \Be_{12} \).  Letting \( \Bv = v \Be_1 e^{i\theta} \), the multivector current is
-\begin{dmath}\label{eqn:statics_infinitePlane:240}
+\begin{equation}\label{eqn:statics_infinitePlane:240}
 J(\Bx) = \sigma \eta \lr{ c - \Bv } \delta(z),
-\end{dmath}
+\end{equation}
 so the field off the plane is
-\begin{dmath}\label{eqn:statics_infinitePlane:260}
-F(\Bx)
-=
-\frac{\sigma}{4 \pi \epsilon } \iiint \frac{dz' dA'}{ \Norm{ \Bx - \Bx' }^3 }
-\gpgrade{ (\Bx - \Bx') (1 - \Bv/c) }{1,2} \delta(z').
-\end{dmath}
+\begin{equation}\label{eqn:statics_infinitePlane:260}
+F(\Bx) = \frac{\sigma}{4 \pi \epsilon } \iiint \frac{dz' dA'}{ \Norm{ \Bx - \Bx' }^3 } \gpgrade{ (\Bx - \Bx') (1 - \Bv/c) }{1,2} \delta(z').
+\end{equation}
 
 If \( \Bx_\parallel = (\Bx \wedge \Be_3) \Be_3 \), and \( \Bx'_\parallel = (\Bx' \wedge \Be_3) \Be_3 \), are the components of the vectors \( \Bx, \Bx' \) in the x-y plane, then integration over \( z' \) and a change of variables \( \Bx'_\parallel - \Bx_\parallel = r' \Be_1 e^{i \theta'} \) yields
-\begin{dmath}\label{eqn:statics_infinitePlane:280}
-F(\Bx)
-=
-\frac{\sigma}{4 \pi \epsilon } \iint \frac{r' dr' d\theta'}{ ( z^2 + {r'}^2 )^{3/2} }
-\gpgrade{ \lr{ z \Be_3 - r' \Be_1 e^{i\theta'} } (1 - \Bv/c) }{1,2}.
-\end{dmath}
+\begin{equation}\label{eqn:statics_infinitePlane:280}
+F(\Bx) = \frac{\sigma}{4 \pi \epsilon } \iint \frac{r' dr' d\theta'}{ ( z^2 + {r'}^2 )^{3/2} } \gpgrade{ \lr{ z \Be_3 - r' \Be_1 e^{i\theta'} } (1 - \Bv/c) }{1,2}.
+\end{equation}
 
 The \( e^{i\theta'} \) integrands are killed, so for \( z \ne 0 \), the field is
-\begin{dmath}\label{eqn:statics_infinitePlane:300}
-F(\Bx)
-=
-\frac{\sigma z}{4 \pi \epsilon \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2}.
-\end{dmath}
+\begin{equation}\label{eqn:statics_infinitePlane:300}
+F(\Bx) = \frac{\sigma z}{4 \pi \epsilon \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2}.
+\end{equation}
 
 Since \( \Bv \in \Span \setlr{ \Be_1, \Be_2 } \) the product \( \Be_3 \Bv \) is a bivector and the grade selection can be dropped, leaving
-\begin{dmath}\label{eqn:statics_infinitePlane:320}
-F(\Bx)
-=
-\frac{\sigma \sgn(z)}{4 \pi \epsilon } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
-\end{dmath}
+\begin{equation}\label{eqn:statics_infinitePlane:320}
+F(\Bx) = \frac{\sigma \sgn(z)}{4 \pi \epsilon } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
+\end{equation}
 
 This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic field components are once again related by \cref{eqn:statics_infiniteLineCharge:220}.
 
