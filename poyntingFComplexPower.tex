@@ -7,23 +7,26 @@
 \input{Theorem_complex_power.tex}
 \begin{proof}
 To prove \cref{thm:poyntingFComplexPower:300} we start by expanding the real part operation explicitly
-\begin{dmath}\label{eqn:poyntingFComplexPower:20}
+\begin{equation}\label{eqn:poyntingFComplexPower:20}
+\begin{aligned}
 F(t)
-= \Real\lr{ F e^{j \omega t} }
-= \inv{2} \lr{ F e^{j \omega t} + F^\conj e^{-j\omega t} }.
-\end{dmath}
+&= \Real\lr{ F e^{j \omega t} } \\
+&= \inv{2} \lr{ F e^{j \omega t} + F^\conj e^{-j\omega t} }.
+\end{aligned}
+\end{equation}
 The energy momentum multivector for the field is therefore
-\begin{dmath}\label{eqn:poyntingFComplexPower:40}
+\begin{equation}\label{eqn:poyntingFComplexPower:40}
+\begin{aligned}
 \inv{2} \epsilon F(t) {F(t)}^\dagger
-=
+&=
 \frac{\epsilon}{8}
 \lr{
 F e^{j \omega t} + F^\conj e^{-j\omega t}
 }
 \lr{
 F^\dagger e^{j \omega t} + \lr{F^\conj}^\dagger e^{-j\omega t}
-}
-=
+} \\
+&=
 \frac{\epsilon}{8}
 \lr{
 F F^\dagger e^{2 j \omega t}
@@ -32,7 +35,8 @@ F F^\dagger e^{2 j \omega t}
 +
 F^\conj F^\dagger + \lr{ F^\conj F^\dagger }^\conj
 },
-\end{dmath}
+\end{aligned}
+\end{equation}
 so we have
 \begin{dmath}\label{eqn:poyntingFComplexPower:60}
 %\boxedEquation{eqn:poyntingFComplexPower:60}{
@@ -48,43 +52,47 @@ which proves the first part of the theorem.
 Next, we'd like to expand \( T(1) \)
 % e eta = sqrt( e^2 mu/e ) = sqrt( e mu ) = 1/c
 % e eta^2 = e mu/e = mu
-\begin{dmath}\label{eqn:poyntingFComplexPower:80}
+\begin{equation}\label{eqn:poyntingFComplexPower:80}
+\begin{aligned}
 \inv{4} \epsilon F^\conj F^\dagger
-=
-\inv{4} \epsilon \lr{ \BE^\conj + I \eta \BH^\conj } \lr{ \BE - I \eta \BH }
-=
+&=
+\inv{4} \epsilon \lr{ \BE^\conj + I \eta \BH^\conj } \lr{ \BE - I \eta \BH } \\
+&=
 \inv{4} \lr{ \BE^\conj \epsilon \BE + \epsilon \eta^2 \BH^\conj \BH
 + I \epsilon \eta \lr{ \BH^\conj \BE - \BE^\conj \BH }
-}
-=
+} \\
+&=
 \inv{4} \lr{
 \epsilon \Abs{\BE}^2 + \mu \Abs{\BH}^2
 + \frac{I}{c} \lr{ \BH^\conj \BE - \BE^\conj \BH }
 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 The scalar terms are already real, but the real part of the vector term is
-\begin{dmath}\label{eqn:poyntingFComplexPower:200}
+\begin{equation}\label{eqn:poyntingFComplexPower:200}
+\begin{aligned}
 \frac{I}{4 c} \Real \lr{ \BH^\conj \BE - \BE^\conj \BH }
-=
+&=
 \frac{I}{8 c} \lr{
 \BH^\conj \BE - \BE^\conj \BH
 + \BH \BE^\conj - \BE \BH^\conj
-}
-=
+} \\
+&=
 \frac{I}{8 c} \lr{
 2 \BH^\conj \wedge \BE
 + 2 \BH \wedge \BE^\conj
-}
-=
+} \\
+&=
 \frac{1}{4 c} \lr{
 \BE \cross \BH^\conj
 + \BE^\conj \cross \BH
-}
-=
+} \\
+&=
 \frac{1}{2 c} \Real \lr{
 \BE \cross \BH^\conj
 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 The \( \epsilon F F^\dagger \) factor of \( e^{2 j \omega t} \) above was expanded in \cref{eqn:poyntingF:80}, so the energy momentum multivector is
 \begin{equation}\label{eqn:poyntingFComplexPower:220}

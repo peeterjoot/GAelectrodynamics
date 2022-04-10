@@ -42,40 +42,44 @@ To prove
 \cref{thm:lorentzForce:300},
 we can expand the multivector product
 \( F q \lr{ 1 + \ifrac{\Bv}{c} } \) into its constituent grades
-\begin{dmath}\label{eqn:lorentzForce:40}
+\begin{equation}\label{eqn:lorentzForce:40}
+\begin{aligned}
 q F \lr{ 1 + \frac{\Bv}{c} }
-=
+&=
 q
 \lr{ \BE + I c \BB }
-\lr{ 1 + \frac{\Bv}{c} }
-=
+\lr{ 1 + \frac{\Bv}{c} } \\
+&=
 q \BE
 + q I \BB \Bv
 + \frac{q}{c} \BE \Bv
-+ q c I \BB
-=
++ q c I \BB \\
+&=
   \frac{q}{c} \BE \cdot \Bv
 + q \lr{ \BE + \Bv \cross \BB }
 + q \lr{ c I \BB + \inv{c} \BE \wedge \Bv }
 + q (I \BB) \wedge \Bv.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 We see the (c-scaled) particle power relationship
 \cref{eqn:freespace:220}
 in the grade zero component and the Lorentz force \cref{eqn:freespace:220} in the grade 1 component.
 A substitution \( q \rightarrow -I q_\txtm, \Bv \rightarrow \Bv_\txtm \), and subsequent grade 0,1 selection gives
-\begin{dmath}\label{eqn:lorentzForce:320}
+\begin{equation}\label{eqn:lorentzForce:320}
+\begin{aligned}
 \gpgrade{
 -I q_\txtm F \lr{ 1 + \frac{\Bv_\txtm}{c} }
 }{0,1}
-=
+&=
 - I q_\txtm \lr{ c I \BB + \inv{c} \BE \wedge \Bv_\txtm }
-- I q_\txtm I \BB \cdot \Bv_\txtm
-=
+- I q_\txtm I \BB \cdot \Bv_\txtm \\
+&=
 q_\txtm \lr{ c \BB - \inv{c} \Bv_\txtm \cross \BE }
 +
 q_\txtm \BB \cdot \Bv_\txtm.
-\end{dmath}
+\end{aligned}
+\end{equation}
 The grade one component of this multivector has the
 required form for the dual Lorentz force equation
 from \cref{thm:poyntingTheoremRewrite:1420}.

@@ -57,18 +57,21 @@ where \( \BE \cdot \Be_3 = 0 \)
 , (i.e. \( \BE \) is an electric field, and not just a free parameter).
 
 Here the imaginary \( j \) has no intrinsic geometrical interpretation, \( \BE = \BE_\txtr + j \BE_\txti \) is allowed to have complex values, and all components of \( \BE \) is perpendicular to the propagation direction (\( \BE_\txtr \cdot \Be_3 = \BE_\txti \cdot \Be_3 = 0 \)).  Stated explicitly, this means that the electric field phasor may have real or complex components in either of the transverse plane basis directions, as in
-\begin{dmath}\label{eqn:polarization:640}
+\begin{equation}\label{eqn:polarization:640}
 \BE =
 \lr{ \alpha_1 + j \beta_1 } \Be_1 +
 \lr{ \alpha_2 + j \beta_2 } \Be_2.
-\end{dmath}
+\end{equation}
 The total time domain field for this general phasor field is easily found to be
-\begin{dmath}\label{eqn:polarization_circular:160}
-F(\Bx, t) = (1 + \Be_3) \lr{
+\begin{equation}\label{eqn:polarization_circular:160}
+\begin{aligned}
+F&(\Bx, t)  \\
+&= (1 + \Be_3) \lr{
 \lr{ \alpha_1 \Be_1 + \alpha_2 \Be_2 } \cos\lr{ \omega t - \beta z }
 -\lr{ \beta_1 \Be_1 + \beta_2 \Be_2 } \sin\lr{ \omega t - \beta z }
 }.
-\end{dmath}
+\end{aligned}
+\end{equation}
 
 Different combinations of \( \alpha_1, \alpha_2, \beta_1, \beta_2 \) lead to linear, circular, or elliptically polarized plane wave states to be discussed shortly.
 Before doing so, we want to find natural multivector representations of \cref{eqn:polarization_circular:160}.
@@ -257,9 +260,10 @@ To prove \cref{thm:polarizationRewrite:780}, we may compute \( T(a) \) separatel
 \Be_2
 \end{bmatrix}
 \).  For \( T(1) \) we need the product of the field and its reverse
-\begin{dmath}\label{eqn:polarizationRewrite:780}
+\begin{equation}\label{eqn:polarizationRewrite:780}
+\begin{aligned}
 F F^\dagger
-=
+&=
 \lr{ 1 + \Be_3 } \cancel{\Be_1 e^{i\psi}} \
 \mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
 { f f^\dagger
@@ -267,42 +271,36 @@ F F^\dagger
 {
 scalar
 }
-\cancel{ e^{-i\psi} \Be_1} \lr{ 1 + \Be_3 }
-=
-\lr{ 1 + \Be_3 }^2 f f^\dagger
-= 2 \lr{ 1 + \Be_3 } f f^\dagger,
-\end{dmath}
+\cancel{ e^{-i\psi} \Be_1} \lr{ 1 + \Be_3 } \\
+&=
+\lr{ 1 + \Be_3 }^2 f f^\dagger \\
+&= 2 \lr{ 1 + \Be_3 } f f^\dagger,
+\end{aligned}
+\end{equation}
 so \( T(1) = \epsilon \lr{ 1 + \Be_3 } f f^\dagger \).  For \( T(\Be_3) \) we have
-\begin{dmath}\label{eqn:polarizationRewrite:800}
+\begin{equation}\label{eqn:polarizationRewrite:800}
+\begin{aligned}
 F \Be_3 F^\dagger
-=
-\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_3 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
-=
--\lr{ 1 + \Be_3 } \Be_3 \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
-=
--\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
-=
--2 \lr{ 1 + \Be_3 } f f^\dagger,
-\end{dmath}
+&= \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_3 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 } \\
+&= -\lr{ 1 + \Be_3 } \Be_3 \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 } \\
+&= -\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 } \\
+&= -2 \lr{ 1 + \Be_3 } f f^\dagger,
+\end{aligned}
+\end{equation}
 so \( T(\Be_3) = -T(1) \).
 For \( T(\Be_1) \), we have
-\begin{dmath}\label{eqn:polarizationRewrite:820}
+\begin{equation}\label{eqn:polarizationRewrite:820}
+\begin{aligned}
 F \Be_1 F^\dagger
-=
-\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_1 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 }
-=
-\lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f^2 e^{i\psi} \Be_1^2 \lr{ 1 + \Be_3 }
-=
-\lr{ 1 + \Be_3 } \Be_1 f^2 e^{2 i\psi} \lr{ 1 + \Be_3 }
-=
-\lr{ 1 + \Be_3 } \Be_1 \lr{ 1 + \Be_3 } f^2 e^{2 i\psi}
-=
-\lr{ 1 + \Be_3 } \lr{ 1 - \Be_3 } \Be_1 f^2 e^{2 i\psi}
-=
-\lr{ 1 - \Be_3^2 } \Be_1 f^2 e^{2 i\psi}
-=
-0.
-\end{dmath}
+&= \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f \Be_1 f^\dagger e^{-i\psi} \Be_1 \lr{ 1 + \Be_3 } \\
+&= \lr{ 1 + \Be_3 } \Be_1 e^{i\psi} f^2 e^{i\psi} \Be_1^2 \lr{ 1 + \Be_3 } \\
+&= \lr{ 1 + \Be_3 } \Be_1 f^2 e^{2 i\psi} \lr{ 1 + \Be_3 } \\
+&= \lr{ 1 + \Be_3 } \Be_1 \lr{ 1 + \Be_3 } f^2 e^{2 i\psi} \\
+&= \lr{ 1 + \Be_3 } \lr{ 1 - \Be_3 } \Be_1 f^2 e^{2 i\psi} \\
+&= \lr{ 1 - \Be_3^2 } \Be_1 f^2 e^{2 i\psi} \\
+&= 0.
+\end{aligned}
+\end{equation}
 Clearly \( F \Be_2 F^\dagger = 0 \) as well, so \( T(\Be_1) = T(\Be_2) = 0 \).
 %, completing the proof.
 \end{proof}
@@ -324,25 +322,26 @@ For the elliptically polarized wave of \cref{eqn:polarization_elliptical:380} we
 f(\phi) = e E_a \cosh\lr{ m + i \phi}.
 \end{equation}
 The absolute value of \( f \) is
-\begin{dmath}\label{eqn:polarizationRewrite:880}
+\begin{equation}\label{eqn:polarizationRewrite:880}
+\begin{aligned}
 f f^\dagger
-= e^2 E_a^2 \cosh\lr{ m + i \phi} \lr{\cosh\lr{ m + i \phi}}^\dagger
-= e^2 E_a^2 \lr{ \cosh(2m) + \cos(2 \phi) }
-= e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }
-\end{dmath}
+&= e^2 E_a^2 \cosh\lr{ m + i \phi} \lr{\cosh\lr{ m + i \phi}}^\dagger \\
+&= e^2 E_a^2 \lr{ \cosh(2m) + \cos(2 \phi) } \\
+&= e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }
+\end{aligned}
+\end{equation}
 The simplification above made use of the identity
 \begin{equation}\label{eqn:polarizationRewrite:1060}
 (1 - (b/a)^2) \cosh(2 \Atanh(b/a)) = 1 + (b/a)^2.
 \end{equation}
 The energy momentum for an elliptically polarized wave is therefore
-\begin{dmath}\label{eqn:polarizationRewrite:900}
+\begin{equation}\label{eqn:polarizationRewrite:900}
 T(1)
 = \frac{\epsilon}{2} \lr{ 1 + \Be_3 } e^2 E_a^2 \lr{ \frac{E_b^2}{E_a^2} + 2 \lr{ 1 - \frac{E_b^2}{E_a^2} } \cos^2 \phi }.
-\end{dmath}
+\end{equation}
 As expected, the phase dependent portion of the energy momentum tensor vanishes as the wave function approaches circular polarization.
 
 \subsection{Pseudoscalar imaginary.}
-
 In this section we use the \R{3} pseudoscalar as an imaginary.
 As before, we seek a representation of the field utilizing complex exponentials of the phase, instead of signs and cosines, and as before the we wish to define Jones vector coordinates as a go-between.
 

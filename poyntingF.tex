@@ -83,28 +83,19 @@ In geometric algebra the energy momentum tensor, and the Maxwell stress tensor m
 electromagnetism literature.
 \begin{proof}
 Because \( T \) is a linear function of its parameter, we may prove this in parts, starting with \( \alpha = 1, \Ba = 0 \), which gives
-\begin{dmath}\label{eqn:poyntingF:80}
+\begin{equation}\label{eqn:poyntingF:80}
+\begin{aligned}
 T(1)
-=
-\inv{2} \epsilon F F^\dagger
-=
-\inv{2} \epsilon \lr{ \BE + I \eta \BH } \lr{ \BE - I \eta \BH }
-=
-\inv{2} \epsilon \lr{ \BE^2 + \eta^2 \BH^2 }
-+
-\inv{2} I \epsilon \eta \lr{ \BH \BE - \BE \BH }
-=
-\inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 }
-+
-\frac{I}{c} \BH \wedge \BE
-=
-\inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 }
+&= \inv{2} \epsilon F F^\dagger \\
+&= \inv{2} \epsilon \lr{ \BE + I \eta \BH } \lr{ \BE - I \eta \BH } \\
+&= \inv{2} \epsilon \lr{ \BE^2 + \eta^2 \BH^2 } + \inv{2} I \epsilon \eta \lr{ \BH \BE - \BE \BH } \\
+&= \inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 } + \frac{I}{c} \BH \wedge \BE \\
+&= \inv{2} \lr{ \epsilon \BE^2 + \mu \BH^2 }
 %\inv{2} \lr{ \BD \cdot \BE + \BH \cdot \BB }
-+
-\frac{1}{c} \BE \cross \BH
-=
-\calE + \frac{\BS}{c}.
-\end{dmath}
++ \frac{1}{c} \BE \cross \BH \\
+&= \calE + \frac{\BS}{c}.
+\end{aligned}
+\end{equation}
 An immediate take away from this expansion is that we
 may dispense with any requirement to refer to electric or magnetic field components in isolation and can express the energy and momentum densities (and Poynting) vector in terms of only the total electromagnetic field strength
 \begin{equation}\label{eqn:poyntingF:40}

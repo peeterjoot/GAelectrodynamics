@@ -53,40 +53,42 @@ Compare this to the tuple representation
 \end{dmath}
 for which the prospect of working with is considerably less attractive.
 The squared length of \cref{eqn:circularlinecharge:80} is
-\begin{dmath}\label{eqn:circularlinecharge:120}
+\begin{equation}\label{eqn:circularlinecharge:120}
 (\Bx - \Bx')^2
 =
 R^2 + r^2 - 2 R r \lr{\Be_3 e^{j \theta} } \cdot \lr{ \Be_1 e^{i \phi'} }.
-\end{dmath}
+\end{equation}
 
 The dot product of unit vectors in \cref{eqn:circularlinecharge:120} can be reduced using scalar grade selection
-\begin{dmath}\label{eqn:circularlinecharge:140}
+\begin{equation}\label{eqn:circularlinecharge:140}
+\begin{aligned}
 \lr{\Be_3 e^{j \theta }} \cdot \lr{ \Be_1 e^{i \phi'} }
-=
+&=
 \gpgradezero{
 \lr{ \Be_1 \sin\theta e^{i \phi} } \lr{ \Be_1 e^{i \phi'}}
-}
-=
+} \\
+&=
 \sin\theta
 \gpgradezero{
 e^{-i \phi} e^{i \phi'}
-}
-=
+} \\
+&=
 \sin\theta \cos( \phi' - \phi ),
-\end{dmath}
+\end{aligned}
+\end{equation}
 so
-\begin{dmath}\label{eqn:circularlinecharge:160}
+\begin{equation}\label{eqn:circularlinecharge:160}
 \Norm{ \Bx - \Bx' }
 =
 \sqrt{
 R^2 + r^2 - 2 R r \sin\theta \cos( \phi' - \phi )
 }.
-\end{dmath}
+\end{equation}
 
 The electric field is
-\begin{dmath}\label{eqn:circularlinecharge:180}
+\begin{equation}\label{eqn:circularlinecharge:180}
 F = \frac{1}{4 \pi \epsilon_0} \int_a^b \lambda r d\phi' \frac{ R \Be_3 e^{j \theta } - r \Be_1 e^{i \phi'} }{\lr{ R^2 + r^2 - 2 R r \sin\theta \cos( \phi' - \phi ) }^{3/2} }.
-\end{dmath}
+\end{equation}
 
 Non-dimensionalizing \cref{eqn:circularlinecharge:180} with \( u = r/R \), a change of variables \( \alpha = \phi' - \phi \), and noting that \( i \phicap = \Be_1 e^{i \phi} \), the field is
 \begin{dmath}\label{eqn:circularlinecharge:200}

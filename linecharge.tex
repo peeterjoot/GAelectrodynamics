@@ -70,23 +70,29 @@ The charge element point is \( \Bx' = x \Be_1 \), so the difference can now be w
 = \lr{ r e^{-i\theta} - x } \Be_1.
 \end{equation}
 These left and right factors can be used to convert the squared length of \( \Bx - \Bx' \) into from a vector product into a product of conventional looking complex conjugates
-\begin{dmath}\label{eqn:linecharge:40}
+\begin{equation}\label{eqn:linecharge:40}
+\begin{aligned}
 \lr{ \Bx - \Bx' }^2
-= \lr{ r e^{-i\theta} - x } \Be_1 \Be_1\lr{ r e^{i\theta} - x }
-= \lr{ r e^{-i\theta} - x } \lr{ r e^{i\theta} - x },
-\end{dmath}
+&= \lr{ r e^{-i\theta} - x } \Be_1 \Be_1\lr{ r e^{i\theta} - x } \\
+&= \lr{ r e^{-i\theta} - x } \lr{ r e^{i\theta} - x },
+\end{aligned}
+\end{equation}
 so the squared length of the difference is
-\begin{dmath}\label{eqn:linecharge:300}
+\begin{equation}\label{eqn:linecharge:300}
+\begin{aligned}
 \lr{ \Bx - \Bx' }^2
-= r^2 + x^2 - r x \lr{ e^{i\theta} + e^{-i\theta} }
-= r^2 + x^2 - 2 r x \cos\theta,
-\end{dmath}
+&= r^2 + x^2 - r x \lr{ e^{i\theta} + e^{-i\theta} } \\
+&= r^2 + x^2 - 2 r x \cos\theta,
+\end{aligned}
+\end{equation}
 and the total (electric) field is
-\begin{dmath}\label{eqn:linecharge:60}
+\begin{equation}\label{eqn:linecharge:60}
+\begin{aligned}
 F
-= \frac{\lambda}{4 \pi \epsilon} \int_a^b dx \frac{ r \Be_1 e^{i\theta} - x \Be_1 }{ \lr{ r^2 + x^2 - 2 x r \cos\theta }^{3/2} }
-= \frac{\lambda \Be_1}{4 \pi \epsilon r} \int_{a/r}^{b/r} du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }.
-\end{dmath}
+&= \frac{\lambda}{4 \pi \epsilon} \int_a^b dx \frac{ r \Be_1 e^{i\theta} - x \Be_1 }{ \lr{ r^2 + x^2 - 2 x r \cos\theta }^{3/2} } \\
+&= \frac{\lambda \Be_1}{4 \pi \epsilon r} \int_{a/r}^{b/r} du \frac{ e^{i\theta} - u }{ \lr{ 1 + u^2 - 2 u \cos\theta }^{3/2} }.
+\end{aligned}
+\end{equation}
 We have replaced the matrix representation that had nine components, four zeros, and a lot of redundancy with a simple multivector result.
 Moreover, the integral factor has the appearance of a conventional complex integral, and we can toss it as is into any numerical or symbol integration systems capable of complex number integrals for evaluation.
 The end result is a single vector valued inverse radial factor \( \lambda \Be_1/ (4 \pi \epsilon r) \), multiplying by an integral that served to either scale or rotate-and-scale.

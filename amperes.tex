@@ -57,52 +57,53 @@ must split the gradient into its vector derivative component, the projection of 
 The surface integral form \cref{eqn:surfaceintegral:300}
 of the fundamental theorem of geometric calculus may be
 applied to the vector derivative portion of the field integral
-\begin{dmath}\label{eqn:amperes:100}
+\begin{equation}\label{eqn:amperes:100}
 \int_A d^2 \Bx \spacegrad F
 =
 \int_A d^2 \Bx\, \boldpartial F
 +
 \int_A d^2 \Bx\, \ncap \lr{ \ncap \cdot \spacegrad } F,
-\end{dmath}
+\end{equation}
 so
-\begin{dmath}\label{eqn:amperes:120}
+\begin{equation}\label{eqn:amperes:120}
+\begin{aligned}
 \ointclockwise_{\partial A} d\Bx\, F
-=
-\int_A d^2 \Bx \lr{ J - \ncap \lr{ \ncap \cdot \spacegrad } F }
-=
-\int_A dA \lr{ I \ncap J - \lr{ \ncap \cdot \spacegrad } I F }
-=
-\int_A dA \lr{ I \ncap J - I \PD{n}{F} },
-\end{dmath}
+&= \int_A d^2 \Bx \lr{ J - \ncap \lr{ \ncap \cdot \spacegrad } F } \\
+&= \int_A dA \lr{ I \ncap J - \lr{ \ncap \cdot \spacegrad } I F } \\
+&= \int_A dA \lr{ I \ncap J - I \PD{n}{F} },
+\end{aligned}
+\end{equation}
 where the surface area bivector has been written in its dual form \( d^2 \Bx = I \ncap dA \) in terms of a scalar area element, and the directional derivative has been written in scalar form with respect to a parameter \( n \) that represents the length along the normal direction.  This proves the first part of
 \cref{thm:amperes:280}.
 
 Observe that the \( d\Bx\, F \) product has all possible grades
-\begin{dmath}\label{eqn:amperes:180}
+\begin{equation}\label{eqn:amperes:180}
+\begin{aligned}
 d\Bx\, F
-=
-d\Bx \lr{ \BE + I \eta \BH }
-=
+&= d\Bx \lr{ \BE + I \eta \BH } \\
+&=
 d\Bx \cdot \BE + I \eta d\Bx \cdot \BH
 +
-d\Bx \wedge \BE + I \eta d\Bx \wedge \BH
-=
+d\Bx \wedge \BE + I \eta d\Bx \wedge \BH \\
+&=
 d\Bx \cdot \BE
 - \eta (d\Bx \cross \BH)
 + I (d\Bx \cross \BE )
 + I \eta (d\Bx \cdot \BH),
-\end{dmath}
+\end{aligned}
+\end{equation}
 as does the \( I \ncap J \) product (in general)
-\begin{dmath}\label{eqn:amperes:200}
+\begin{equation}\label{eqn:amperes:200}
+\begin{aligned}
 I \ncap J
-=
+&=
 I \ncap
 \lr{
    \frac{\rho}{\epsilon} - \eta \BJ + I \lr{ c \rho_\txtm - \BM }
-}
-=
-\ncap I \frac{\rho}{\epsilon} - \eta \ncap I \BJ - \ncap c \rho_\txtm + \ncap \BM
-=
+} \\
+&=
+\ncap I \frac{\rho}{\epsilon} - \eta \ncap I \BJ - \ncap c \rho_\txtm + \ncap \BM \\
+&=
 % 0
 \ncap \cdot \BM
 % 1
@@ -113,7 +114,8 @@ I \ncap
 + \ncap I \frac{\rho}{\epsilon}
 % 3
 - \eta I (\ncap \cdot \BJ).
-\end{dmath}
+\end{aligned}
+\end{equation}
 On the other hand \( I F = I \BE - \eta \BH \) has only grades 1,2, like \( F \) itself.  This allows the line integrals to be split by grade selection into components with and without a normal derivative
 \begin{equation}\label{eqn:amperes:140}
 \begin{aligned}

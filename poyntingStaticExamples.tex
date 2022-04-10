@@ -21,12 +21,14 @@ We've found solutions for a number of static charge and current distributions.
 \end{enumerate}
 
 In all cases the field has the form \( F = A ( 1 - \Bv/c ) \), where \( A \) is either a vector or a bivector that anticommutes with the current velocity \( \Bv \), so the energy momentum tensor \( T(1) \) has the form
-\begin{dmath}\label{eqn:poyntingStaticExamples:860}
+\begin{equation}\label{eqn:poyntingStaticExamples:860}
+\begin{aligned}
 T(1)
-= \frac{\epsilon}{2} A ( 1 - \Bv/c )^2 A^\dagger
-= \frac{\epsilon}{2} A A^\dagger ( 1 + \Bv/c )^2
-= \frac{\epsilon}{2} A A^\dagger \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} }.
-\end{dmath}
+&= \frac{\epsilon}{2} A ( 1 - \Bv/c )^2 A^\dagger \\
+&= \frac{\epsilon}{2} A A^\dagger ( 1 + \Bv/c )^2 \\
+&= \frac{\epsilon}{2} A A^\dagger \lr{ 1 + \lr{ \frac{\Bv}{c} }^2 + 2 \frac{\Bv}{c} }.
+\end{aligned}
+\end{equation}
 
 For the electric sources this is
 \begin{equation}\label{eqn:poyntingStaticExamples:880}
@@ -61,33 +63,28 @@ Calculation of the \( T(\Be_k) \) tensor components is generally more involved.
 Let's do this calculation for each of the fields above in turn to illustrate.
 
 \paragraph{(a):}
-
 To calculate \( T(\Be_3) \) we can reduce the following products
-\begin{dmath}\label{eqn:poyntingStaticExamples:960}
+\begin{equation}\label{eqn:poyntingStaticExamples:960}
+\begin{aligned}
 F \Be_3 F^\dagger
-=
-E^2 \rhocap \lr{ 1 - \Bv/c} \Be_3 \lr{1 - \Bv/c} \rhocap
-=
--E^2 \Be_3 \rhocap \lr{1 - \Bv/c}^2 \rhocap
-=
--E^2 \Be_3 \rhocap \lr{1 + \Bv^2/c^2 - 2 \Bv/c} \rhocap
-=
--E^2 \Be_3 \rhocap^2 \lr{1 + \Bv^2/c^2 + 2 \Bv/c}
-=
--E^2 \Be_3 \lr{1 + \Bv^2/c^2 + 2 \Bv/c}.
-\end{dmath}
+&= E^2 \rhocap \lr{ 1 - \Bv/c} \Be_3 \lr{1 - \Bv/c} \rhocap \\
+&= -E^2 \Be_3 \rhocap \lr{1 - \Bv/c}^2 \rhocap \\
+&= -E^2 \Be_3 \rhocap \lr{1 + \Bv^2/c^2 - 2 \Bv/c} \rhocap \\
+&= -E^2 \Be_3 \rhocap^2 \lr{1 + \Bv^2/c^2 + 2 \Bv/c} \\
+&= -E^2 \Be_3 \lr{1 + \Bv^2/c^2 + 2 \Bv/c}.
+\end{aligned}
+\end{equation}
 
 Since
-\begin{dmath}\label{eqn:poyntingStaticExamples:980}
-T(\Be_k)
-= - \frac{\BS}{c} \cdot \Be_k + \BT(\Be_k).
-\end{dmath}
+\begin{equation}\label{eqn:poyntingStaticExamples:980}
+T(\Be_k) = - \frac{\BS}{c} \cdot \Be_k + \BT(\Be_k).
+\end{equation}
 
 This means that \( \BS \cdot \Be_3 = \epsilon E^2 v \), as already found.  The vector component of this tensor element is
-\begin{dmath}\label{eqn:poyntingStaticExamples:1000}
+\begin{equation}\label{eqn:poyntingStaticExamples:1000}
 \BT(\Be_3) =
 - \frac{\epsilon}{2} E^2 \Be_3 \lr{1 + \Bv^2/c^2 }.
-\end{dmath}
+\end{equation}
 
 This component of the stress tensor is aligned along the same axis as the velocity.
 Calculation of the other stress tensor components is easiest in cylindrical coordinates.  Along the radial direction
@@ -163,15 +160,14 @@ the grade one component of the tensor is
 \end{equation}
 
 \paragraph{(b):}
-
 For \( F = \eta H I \rhocap \lr{ 1 - \Bv/c } \), and \( \Bv = v \Be_3 \) we have
-\begin{dmath}\label{eqn:poyntingStaticExamples:1160}
+\begin{equation}\label{eqn:poyntingStaticExamples:1160}
+\begin{aligned}
 F \Ba F^\dagger
-=
-\eta^2 H^2 I \rhocap \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \rhocap (-I)
-=
-\eta^2 H^2 \rhocap \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \rhocap.
-\end{dmath}
+&= \eta^2 H^2 I \rhocap \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \rhocap (-I) \\
+&= \eta^2 H^2 \rhocap \lr{ 1 - \Bv/c } \Ba \lr{ 1 - \Bv/c } \rhocap.
+\end{aligned}
+\end{equation}
 
 We can write the tensor components immediately, since
 \cref{eqn:poyntingStaticExamples:1160}
@@ -187,11 +183,11 @@ has exactly the same structure as the tensor components computed in part (a) abo
 \paragraph{(c):}
 
 For \( F = E \Be_3 \lr{ 1 - \Bv/c } \), and \( \Bv = v \rhocap \), we have
-\begin{dmath}\label{eqn:poyntingStaticExamples:1220}
+\begin{equation}\label{eqn:poyntingStaticExamples:1220}
 F \Ba F^\dagger
 =
 E^2 \Be_3 \lr{ 1 - (v/c) \rhocap } \Ba \lr{ 1 - (v/c) \rhocap } \Be_3,
-\end{dmath}
+\end{equation}
 so we need the following grade selections
 \begin{equation}\label{eqn:poyntingStaticExamples:1260}
 \begin{aligned}

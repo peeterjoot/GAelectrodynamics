@@ -70,29 +70,26 @@ To evaluate the tensor at the gradient we have to take care of order.  This is e
 \frac{\epsilon}{2} \spacegrad \gpgradeone{ F^\dagger F },
 \end{dmath}
 but
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1260}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1260}
+\begin{aligned}
 F^\dagger F
-=
-\lr{ \BE - I \eta \BH } \lr{ \BE + I \eta \BH }
-=
-\BE^2 + \eta^2 \BH^2 + I \eta \lr{ \BE \BH - \BH \BE }
-=
-\BE^2 + \eta^2 \BH^2 - 2 \eta \BE \cross \BH.
-\end{dmath}
+&= \lr{ \BE - I \eta \BH } \lr{ \BE + I \eta \BH } \\
+&= \BE^2 + \eta^2 \BH^2 + I \eta \lr{ \BE \BH - \BH \BE } \\
+&= \BE^2 + \eta^2 \BH^2 - 2 \eta \BE \cross \BH.
+\end{aligned}
+\end{equation}
 Plugging \cref{eqn:poyntingTheoremRewrite:1260} into \cref{eqn:poyntingTheoremRewrite:1240} proves the result.
 
 Finally, we want to evaluate the Maxwell stress tensor of the gradient
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:260}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:260}
+\begin{aligned}
 \BT(\spacegrad)
-=
-\sum_{k = 1}^3 \Be_k \lr{ \BT(\spacegrad) } \cdot \Be_k
-=
-\sum_{k,m = 1}^3 \Be_k \partial_m \lr{ \BT(\Be_m) \cdot \Be_k }
-=
-\sum_{k,m = 1}^3 \Be_k \partial_m \lr{ \BT(\Be_k) \cdot \Be_m }
-=
-\sum_{k = 1}^3 \Be_k \lr{ \spacegrad \cdot \BT(\Be_k) },
-\end{dmath}
+&= \sum_{k = 1}^3 \Be_k \lr{ \BT(\spacegrad) } \cdot \Be_k \\
+&= \sum_{k,m = 1}^3 \Be_k \partial_m \lr{ \BT(\Be_m) \cdot \Be_k } \\
+&= \sum_{k,m = 1}^3 \Be_k \partial_m \lr{ \BT(\Be_k) \cdot \Be_m } \\
+&= \sum_{k = 1}^3 \Be_k \lr{ \spacegrad \cdot \BT(\Be_k) },
+\end{aligned}
+\end{equation}
 as claimed.
 \end{proof}
 
@@ -182,32 +179,26 @@ The proofs of each of the statements in \cref{thm:poyntingTheoremRewrite:1280} a
 =
 \inv{c} \PD{t}{} \lr{ \calE - \frac{\BS}{c} }.
 \end{dmath}
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1300}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1300}
+\begin{aligned}
 \gpgradezero{ \overbar{T}(\spacegrad) }
-=
-\gpgradezero{ 1 \overbar{T}(\spacegrad) }
-=
-\gpgradezero{ \spacegrad T(1) }
-=
-\spacegrad \cdot \gpgradeone{ T(1) }
-=
-\spacegrad \cdot \frac{\BS}{c}.
-\end{dmath}
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1320}
+&= \gpgradezero{ 1 \overbar{T}(\spacegrad) } \\
+&= \gpgradezero{ \spacegrad T(1) } \\
+&= \spacegrad \cdot \gpgradeone{ T(1) } \\
+&= \spacegrad \cdot \frac{\BS}{c}.
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1320}
+\begin{aligned}
 \gpgradeone{ \overbar{T}(\spacegrad) }
-=
-\sum_k \Be_k \lr{ \Be_k \cdot \gpgradeone{ \overbar{T}(\spacegrad) } }
-=
-\sum_k \Be_k \gpgradezero{ \Be_k \overbar{T}(\spacegrad) }
-=
-\sum_k \Be_k \gpgradezero{ \spacegrad T(\Be_k) }
-=
-\sum_k \Be_k \spacegrad \cdot \gpgradeone{ T(\Be_k) }
-=
-\sum_k \Be_k \spacegrad \cdot \BT(\Be_k)
-=
-\BT(\spacegrad).
-\end{dmath}
+&= \sum_k \Be_k \lr{ \Be_k \cdot \gpgradeone{ \overbar{T}(\spacegrad) } } \\
+&= \sum_k \Be_k \gpgradezero{ \Be_k \overbar{T}(\spacegrad) } \\
+&= \sum_k \Be_k \gpgradezero{ \spacegrad T(\Be_k) } \\
+&= \sum_k \Be_k \spacegrad \cdot \gpgradeone{ T(\Be_k) } \\
+&= \sum_k \Be_k \spacegrad \cdot \BT(\Be_k) \\
+&= \BT(\spacegrad).
+\end{aligned}
+\end{equation}
 \end{proof}
 \subsection{Poynting theorem.}
 All the prerequisites for stating Poynting's theorem are now finally complete.
@@ -226,13 +217,13 @@ J^\dagger F + F^\dagger J.
 The scalar form of
 \cref{thm:poyntingTheorem:1180}
 follows from
-\begin{dmath}\label{eqn:poyntingTheoremRewrite:1360}
+\begin{equation}\label{eqn:poyntingTheoremRewrite:1360}
+\begin{aligned}
 \gpgradezero{ a \overbar{T}(\spacegrad + (1/c) \partial_t) }
-=
-\gpgradezero{ (\spacegrad + (1/c) \partial_t) T(a) }
-=
-\spacegrad \cdot \gpgradeone{ T(a) } + \inv{c} \PD{t}{} \gpgradezero{ T(a) }.
-\end{dmath}
+&= \gpgradezero{ (\spacegrad + (1/c) \partial_t) T(a) } \\
+&= \spacegrad \cdot \gpgradeone{ T(a) } + \inv{c} \PD{t}{} \gpgradezero{ T(a) }.
+\end{aligned}
+\end{equation}
 
 We may use the scalar form of the theorem to extract the scalar grade, by setting \( a = 1 \), for which the right hand side
 can be reduced to a single term
