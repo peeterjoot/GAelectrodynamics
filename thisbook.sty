@@ -25,13 +25,14 @@
 }
 %-----------------------------------------
 
-% this is required with MacTex 2021, but it also triggers a too many alphabets error:
-%\usepackage{latexsym} % Error: Command \Box not provided in base LaTeX2e.<Paste>
-%\newcommand{\dAlembertian}[0]{\Box}
+% this is required with MacTex 2021.  At one point it was triggering a too many alphabets error, but
+% no longer seems to.  This \Box looks better than \square from amssymb.
+\usepackage{latexsym} % Error: Command \Box not provided in base LaTeX2e.<Paste>
+\newcommand{\dAlembertian}[0]{\Box}
 
 % try this instead:
-\usepackage{amssymb}
-\newcommand{\dAlembertian}[0]{\square}
+%\usepackage{amssymb}
+%\newcommand{\dAlembertian}[0]{\square}
 
 \newcommand{\stgrad}[0]{\lr{ \spacegrad + \inv{c} \PD{t}{}}}
 \newcommand{\conjstgrad}[0]{\lr{ \spacegrad - \inv{c} \PD{t}{}}}
