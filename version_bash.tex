@@ -20,7 +20,8 @@ done
 export PATH=`pwd`/latex/bin:$PATH
  
 cd GAelectrodynamics
-make mmacells.sty all
+cp ../latex/scrpage2.sty .
+make parameters.sty mmacells.sty all
 \end{lstlisting}
 
 I reserve the right to impose dictatorial control over any editing and content decisions, and may not accept merge requests as-is, or at all. That said, I will probably not refuse reasonable suggestions or merge requests.
