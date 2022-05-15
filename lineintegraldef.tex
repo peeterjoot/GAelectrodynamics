@@ -71,17 +71,17 @@ Given a bivector valued function \( F(t) = \Be_2 \wedge \lr{ \Be_3 e^{it} } \), 
 &= \Be_{23} \int e^{i t} \lr{ \Be_2 + \Be_1 t} dt \\
 &= -\Be_3 \int e^{it} dt + \Be_{123} \int t e^{-i t} dt \\
 &= \Be_{1} e^{it} + \Be_{123} \lr{ 1 + i t} e^{-it} \\
-&= \Be_1 e^{it} + \Be_2 t e^{-it} + \Be_{123} e^{-it},
+&= \Be_1 e^{it} - \Be_2 t e^{-it} + \Be_{123} e^{-it},
 \end{aligned}
 \end{equation}
 or the line integral with the differential on the left
 \begin{equation}\label{eqn:lineintegraldef:100}
 \begin{aligned}
 \int d\Bx\, F
-&= \int \lr{ \Be_2 + \Be_1 t} \Be_{31} e^{it} dt \\
-&= \Be_{123} \int e^{it} dt - \Be_3 \int t e^{it} \\
-&= \Be_{2} e^{it} - \Be_3 \lr{ 1 - i t } e^{it} \\
-&= \Be_{2} e^{it} - \Be_3 e^{it} + \Be_{1} t e^{it}.
+&= \int \lr{ \Be_2 + \Be_1 t} \Be_{23} e^{it} dt \\
+&= \Be_{3} \int e^{it} dt + \Be_{123} \int t e^{it} \\
+&= -\Be_{1} e^{it} + \Be_{123} \lr{ 1 - i t } e^{it} \\
+&= -\Be_{1} e^{it} + \Be_{123} e^{it} + \Be_{2} t e^{it}.
 \end{aligned}
 \end{equation}
 In both \cref{eqn:lineintegraldef:80} and \cref{eqn:lineintegraldef:100} the end result has both vector and trivector grades.  While both integrals are equal (zero) when the angular velocity parameter \( t \) is a multiple of \( 2 \pi \), this shows that the order of the products in the integrand makes a difference once again.
