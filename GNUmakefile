@@ -15,13 +15,19 @@ include ../latex/make.bookvars
 
 SOURCE_DIRS += working
 
+# comment this out for online pdf version (uncomment for KDP)
+#PRINT_VERSION := 1
+
+#SUBFIGDIR := bw
+#ifndef SUBFIGDIR
+#SUBFIGDIR := color
+#endif
+
+ifdef PRINT_VERSION
 SUBFIGDIR := bw
-ifndef SUBFIGDIR
+else
 SUBFIGDIR := color
 endif
-
-# comment this out for online pdf version (uncomment for KDP)
-PRINT_VERSION := 1
 
 ifndef PRINT_VERSION
 PARAMS += --no-print
