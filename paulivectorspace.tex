@@ -11,8 +11,7 @@ The Pauli matrices are defined as
    \sigma_3 = \PauliZ.
 \end{equation}
 
-Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \sigma_1 + b \sigma_2 + c \sigma_3 } \) is a vector space with respect to the operations of matrix addition and multiplication, and
-determine the form of the zero and identity elements.
+Given any scalars \( a, b, c \in \bbR \), show that the set \( V = \setlr{ a \sigma_1 + b \sigma_2 + c \sigma_3 } \) is a vector space with respect to matrix addition.  Determine the form of the zero and identity elements.
 Given a vector \( \Bx =  x_1 \sigma_1 + x_2 \sigma_2 + x_3 \sigma_3 \), show that the coordinates \( x_i \) can be extracted by evaluating the matrix trace of the matrix product \( \sigma_i \Bx \).
 % FIXME: make this a problem at at location where it makes sense:
 %\makesubproblem{}{problem:prerequisites:20:b}
@@ -25,3 +24,62 @@ Given a vector \( \Bx =  x_1 \sigma_1 + x_2 \sigma_2 + x_3 \sigma_3 \), show tha
 %\( \lr{ a \sigma_x + b \sigma_y + c \sigma_z }^2 = (a^2 + b^2 + c^2) I \), where \( I \) is the 2x2 identity matrix.
 %%This shows that the Pauli matrices are an example \R{3} basis for which the contraction axiom is built right into the representation.
 } % problem
+\makeanswer{problem:prerequisites:20}{
+The reader can check that with zero element \( 0 = \begin{bmatrix}0 & 0 \\ 0 & 0 \end{bmatrix} \), and a scalar multiplicative identity \( 1 \), all the vector space properties are satisified.
+
+For the coordinates observe that \( \Bx =
+\begin{bmatrix}
+   c & a - i b \\
+   a + i b & -c
+\end{bmatrix} \), and
+\begin{equation}\label{eqn:paulivectorspace:180}
+\begin{aligned}
+   \traceB{\sigma_1 \Bx} &=
+%   \traceB{ \PauliX
+%\begin{bmatrix}
+%   c & a - i b \\
+%   a + i b & -c
+%\end{bmatrix}
+%}
+%=
+\trace{\begin{bmatrix}
+   a + i b & -c \\
+   c & a - i b
+\end{bmatrix}
+}
+=
+2 a \\
+\traceB{\sigma_2 \Bx} &=
+%   \traceB{ \PauliY
+%\begin{bmatrix}
+%   c & a - i b \\
+%   a + i b & -c
+%\end{bmatrix}
+%}
+%=
+\trace{\begin{bmatrix}
+   -i a + b & i c \\
+   i c & i a + b
+\end{bmatrix}
+}
+=
+2 b \\
+\traceB{\sigma_3 \Bx} &=
+%   \traceB{ \PauliZ
+%\begin{bmatrix}
+%   c & a - i b \\
+%   a + i b & -c
+%\end{bmatrix}
+%}
+%=
+\trace{\begin{bmatrix}
+      c & a - i b \\
+      a + i b & c
+\end{bmatrix}
+}
+=
+2 c,
+\end{aligned}
+\end{equation}
+so \( a = \traceB{\sigma_1 \Bx}/2 \), \( b = \traceB{\sigma_2 \Bx}/2 \), \( c = \traceB{\sigma_3 \Bx}/2 \).
+}

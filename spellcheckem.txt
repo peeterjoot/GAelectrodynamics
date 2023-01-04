@@ -147,7 +147,6 @@ reflection.tex
 reverseDefined.tex
 ringField.tex
 scalarSelectionPermutation.tex
-shorthand.tex
 solutionOfLinearSystem.tex
 sphericaldot.tex
 statics.tex
