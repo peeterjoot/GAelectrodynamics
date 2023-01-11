@@ -202,6 +202,49 @@ Using familiar methods, such as rotation matrices, show that the counterclockwis
 \cref{eqn:2dRotations:300} and
 \cref{eqn:2dRotations:3} respectively.
 } % problem
+\makeanswer{problem:2dRotations:1}{
+The 2D rotation matrix is
+\begin{equation}\label{eqn:2dRotations:1380}
+R_\theta =
+\begin{bmatrix}
+   \cos\theta & -\sin\theta \\
+   \sin\theta & \cos\theta
+\end{bmatrix},
+\end{equation}
+so to rotate coordinates by \(\pm\pi/2\), we multiply by
+\begin{equation}\label{eqn:2dRotations:1400}
+R_{\pm\pi/2} = \pm
+\begin{bmatrix}
+   0 & -1 \\
+   1 & 0
+\end{bmatrix}.
+\end{equation}
+In particular
+\begin{equation}\label{eqn:2dRotations:1420}
+   R_{\pm\pi/2}
+\begin{bmatrix}
+   \rho \cos\theta \\
+   \rho \sin\theta
+\end{bmatrix}
+   = \pm \pi/2
+\begin{bmatrix}
+   0 & -1 \\
+   1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+   \rho \cos\theta \\
+   \rho \sin\theta
+\end{bmatrix}
+=
+\pm
+\rho
+\begin{bmatrix}
+-\sin\theta \\
+\cos\theta
+\end{bmatrix},
+\end{equation}
+consistent with the results observed from left and right multiplication with the plane pseudoscalar \( \Be_1 \Be_2 \).
+}
 \makeproblem{Multivector Euler's formula and trig relations.}{problem:2dRotations:Euler}{
 For a multivector \( x \) assume an infinite series representation of the exponential, sine and cosine functions and their hyperbolic analogues
 \begin{equation*}

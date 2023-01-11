@@ -4,7 +4,7 @@
 #../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
 
-#../latex/bin/lgrep 2dRotations.tex | tee o ; . ./o
+../latex/bin/lgrep 2dRotations.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2dRotations.tex
 
 #../latex/bin/lgrep maxwells.tex | tee o ; . ./o
@@ -493,5 +493,8 @@
 #../latex/bin/lgrep subspaceDistance.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl subspaceDistance.tex
 
-../latex/bin/lgrep paulivectorspace.tex | tee o ; . ./o
+#../latex/bin/lgrep paulivectorspace.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl paulivectorspace.tex
+
+#../latex/bin/lgrep pseudoscalar.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl pseudoscalar.tex
