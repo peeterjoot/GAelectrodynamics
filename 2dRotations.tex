@@ -255,11 +255,12 @@ e^x &= \sum_{k = 0}^\infty \frac{x^k}{k!} \\
 \end{aligned}
 \end{equation*}
 \makesubproblem{}{problem:2dRotations:Euler:a}
-Show that for scalar \( \theta \), and any multivector \( J \) that satisfies \( J^2 = -1 \)
+Show that for scalar \( \theta \), and any multivectors \( J \) that satisfies \( J^2 = -1 \), and \( K^2 = 1 \), then
+hold for multivectors \( J, K \) satisfying \( J^2 = -1 \) and \( K^2 = 1 \) respectively.
 \begin{equation*}
 \begin{aligned}
-\cosh (J \theta ) &= \cos \theta \\
-\sinh (J \theta ) &= J \sin \theta.
+\cosh (J \theta ) &= \cos \theta, \quad \cosh (K \theta ) = \cosh \theta \\
+\sinh (J \theta ) &= J \sin \theta, \quad \sinh (K \theta ) = K \sinh \theta.
 \end{aligned}
 \end{equation*}
 \makesubproblem{}{problem:2dRotations:Euler:c}
@@ -274,3 +275,49 @@ hold for multivectors \( J, K \) satisfying \( J^2 = -1 \) and \( K^2 = 1 \) res
 \makesubproblem{}{problem:2dRotations:Euler:b}
 Given multivectors \( X, Y \), show that \( e^{ X + Y } = e^{ X } e^{ Y } \) if \( X, Y \) commute.  That is \( X Y = Y X \).
 } % problem
+\makeanswer{problem:2dRotations:Euler}{
+\makesubanswer{}{problem:2dRotations:Euler:a}
+Let \( \chi \) be a multivector that squares to \( \pm 1 \).  Series expansion of \( \cosh(\chi \theta) \), for scalar \(theta\) yields
+\begin{equation}\label{eqn:2dRotations:1440}
+\cosh(\chi\theta)
+= \sum_{k = 0}^\infty \frac{\lr{ \chi \theta }^{2k}}{(2k)!}
+= \sum_{k = 0}^\infty \frac{ \chi^{2k} \theta^{2k} }{(2k)!}.
+\end{equation}
+In particular, for \( \chi = J, K \) respectively, we have
+\begin{equation}\label{eqn:2dRotations:1460}
+\begin{aligned}
+\cosh\lr{J\theta} &= \sum_{k = 0}^\infty \frac{ \lr{-1}^k \theta^{2k} }{(2k)!} = \cos \theta \\
+\cosh\lr{K\theta} &= \sum_{k = 0}^\infty \frac{ \lr{+1}^k \theta^{2k} }{(2k)!} = \cosh \theta.
+\end{aligned}
+\end{equation}
+Similarly,
+\begin{equation}\label{eqn:2dRotations:1480}
+\sinh(\chi\theta)
+= \sum_{k = 0}^\infty \frac{\lr{ \chi \theta }^{2k+1}}{(2k+1)!}
+= \chi \sum_{k = 0}^\infty \frac{ \chi^{2k} \theta^{2k+1} }{(2k+1)!}.
+\end{equation}
+So, for \( \chi = J, K \) respectively, we have
+\begin{equation}\label{eqn:2dRotations:1500}
+\begin{aligned}
+\sinh\lr{J\theta} &= J \sum_{k = 0}^\infty \frac{ \lr{-1}^k \theta^{2k+1} }{(2k +1)!} = J \sin \theta \\
+\sinh\lr{K\theta} &= K \sum_{k = 0}^\infty \frac{ \lr{+1}^k \theta^{2k+1} }{(2k +1)!} = K \sinh \theta.
+\end{aligned}
+\end{equation}
+\makesubanswer{}{problem:2dRotations:Euler:c}
+Series expanding again, we may split the exponential into even and odd parts, for any multivector \( x \)
+\begin{equation}\label{eqn:2dRotations:1520}
+\begin{aligned}
+e^x
+&=
+\sum_{k = 0}^\infty \frac{x^k}{k!} \\
+&=
+\sum_{k = 0}^\infty \frac{x^{2k}}{(2k)!}
++
+\sum_{k = 0}^\infty \frac{x^{2k+1}}{(2k+1)!} \\
+&=
+\cosh( x ) + \sinh(x).
+\end{aligned}
+\end{equation}
+There is nothing in such a series expansion that cares about the type of \( x \), only that we can take repeated powers.  The remainder of the problem follows from our results above after substitution of \( x = J \theta \) and \( x = K \theta \) respectively.
+%\makesubanswer{}{problem:2dRotations:Euler:b}
+}

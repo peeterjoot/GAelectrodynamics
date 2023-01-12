@@ -47,14 +47,85 @@ Find some orthogonal factorizations for the \R{3} bivector \( \Be_{12} + \Be_{23
 } % problem
 
 \makeanswer{problem:normalFactorization:1}{
+%Imagine that one unit vector factor \( \acap \) of a bivector \( B \) has been found.  That is \( B \wedge \acap = 0 \), then
+%\begin{equation*}
+%B
+%= B \acap \acap
+%= (B \acap) \acap,
+%\end{equation*}
+%so the two factors are \( \Bb = B \acap = B \cdot \acap \), and \( \acap \).  The task becomes finding a first vector factor of \( B \), normalized or otherwise.
+%
+In general, given a bivector \( B = a_1 \Be_{23} + a_2 \Be_{31} + a_3 \Be_{12} \), if we
+pick the coefficient \( a_i \) that has the largest absolute magnitude (to avoid numerical instability in case the bivector is ill-conditioned and has a small non-zero component in one direction), and then select one of the two vector factors of the unit blade that is associated with that component, calling this \( \Be \), then we can utilize this vector \( \Be \) to find one vector that lies in the plane of \( B \).  For example, if the largest absolute magnitude coefficient is \( a_3 \) then pick either \( \Be = \Be_1 \) or \( \Be = \Be_2 \).
+Now, compute
 \begin{equation*}
-\begin{aligned}
-\Be_{12} + \Be_{23} + \Be_{31}
-&= \lr{ \Be_1 + \Be_2 - 2 \Be_3 } \frac{ \Be_2 - \Be_1 }{2} \\
-&= \frac{ \Be_3 - \Be_2 }{2} \lr{ 2 \Be_1 - \Be_2 - \Be_3 }.
-\end{aligned}
+\Ba = B \cdot \Be.
 \end{equation*}
-Each set of factors above can be interpreted as the edges of two different rectangular representations of the bivector, for which the total area is fixed.  The span of either set of factors describes the plane that the bivector represents.
+This vector lies in the plane that \( B \) represents.  Specifically, it is the projection of \( \Be \) onto \( B \), but rotated 90
+degrees(\( \lr{ B \cdot \Be} \Be \) would be the projection itself.)  If we dot \( \Ba \) with \( B \) then we find another vector that lies in the plane represented by \( B \), but is rotated
+90 degrees in the plane, away from \( \Ba \).  That is:
+\begin{equation*}
+\Bb = B \cdot \Ba
+\end{equation*}
+We've now found two perpendicular vectors that lie in the plane that \( B \) represents, so we have
+\begin{equation*}
+B \propto \Ba \Bb = \Ba \wedge \Bb.
+\end{equation*}
+Let's try these ideas with the bivector of this problem \( B = \Be_{23} + \Be_{31} + \Be_{12} \).  All components are equally weighted, so let's compute the \( B \cdot \Be_1 \) to start with to find a first factor of \( B \).
+\begin{equation}\label{eqn:normalFactorization:1860}
+\begin{aligned}
+B \cdot \Be_1
+&= \lr{  \Be_{23} + \Be_{31} + \Be_{12} } \cdot \Be_1 \\
+&= \Be_{3} - \Be_{2}.
+\end{aligned}
+\end{equation}
+Dotting this into \( B \) once again will find a second factor
+\begin{equation}\label{eqn:normalFactorization:1880}
+\begin{aligned}
+B \cdot \lr{ \Be_{3} - \Be_{2} }
+&= \lr{  \Be_{23} + \Be_{31} + \Be_{12} } \cdot \lr{ \Be_{3} - \Be_{2} } \\
+&=
+\Be_2 - \Be_1 + \Be_3 - \Be_1 \\
+&=
+-2 \Be_1 + \Be_2 + \Be_3.
+\end{aligned}
+\end{equation}
+Adjusting the scaling appropriately, gives us two orthogonal factors of \( B \)
+\begin{equation}\label{eqn:normalFactorization:1900}
+\Be_{12} + \Be_{23} + \Be_{31} = \frac{ \Be_3 - \Be_2 }{2} \lr{ 2 \Be_1 - \Be_2 - \Be_3 }.
+\end{equation}
+
+Let's see what factors we find by dotting \( B \) with \( \Be_3 \) instead.  This gives us
+%B \cdot \Be_2
+%&=
+%\lr{ \Be_{12} + \Be_{23} + \Be_{31} } \cdot \Be_2 \\
+%&=
+%\Be_{1} - \Be_{3}
+\begin{equation}\label{eqn:normalFactorization:1920}
+\begin{aligned}
+B \cdot \Be_3
+&=
+\lr{ \Be_{12} + \Be_{23} + \Be_{31} } \cdot \Be_3 \\
+&=
+\Be_2 - \Be_1.
+\end{aligned}
+\end{equation}
+Dotting this into \( B \) a second time yields
+\begin{equation}\label{eqn:normalFactorization:1940}
+\begin{aligned}
+B \cdot \lr{  \Be_2 - \Be_1 }
+&=
+\lr{ \Be_{12} + \Be_{23} + \Be_{31} } \cdot \lr{  \Be_2 - \Be_1 } \\
+&=
+\Be_1 - \Be_3 + \Be_2 - \Be_3.
+\end{aligned}
+\end{equation}
+After rescaling, we find
+\begin{equation}\label{eqn:normalFactorization:1960}
+\Be_{12} + \Be_{23} + \Be_{31} = \lr{ \Be_1 + \Be_2 - 2 \Be_3 } \frac{ \Be_2 - \Be_1 }{2}
+\end{equation}
+
+Each of the sets of factors of \cref{eqn:normalFactorization:1900}, \cref{eqn:normalFactorization:1960} can be interpreted as the edges of two different rectangular representations of the bivector, for which the total area is fixed.  The span of either set of factors describes the plane that the bivector represents.
 %The respective parallelogram representations of these bivector factorizations are illustrated in
 %\cref{fig:bivectorFactorization:bivectorFactorizationFig1}, showing the bivectors face on, and from a side view that shows they are coplanar.
 %
