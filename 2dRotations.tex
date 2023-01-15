@@ -319,5 +319,40 @@ e^x
 \end{aligned}
 \end{equation}
 There is nothing in such a series expansion that cares about the type of \( x \), only that we can take repeated powers.  The remainder of the problem follows from our results above after substitution of \( x = J \theta \) and \( x = K \theta \) respectively.
-%\makesubanswer{}{problem:2dRotations:Euler:b}
+\makesubanswer{}{problem:2dRotations:Euler:b}
+The exponential of a sum, such as \( X + Y \), regardless of the types or characteristics of \( X \) and \( Y \) is
+\begin{equation}\label{eqn:2dRotations:1540}
+e^{X + Y}
+= \sum_{k = 0}^\infty \frac{\lr{X + Y}^k}{k!}.
+\end{equation}
+Let's look at the powers of such a sum.  For the square and cube we have
+\begin{equation}\label{eqn:2dRotations:1560}
+\lr{ X + Y}^2 = X^2 + X Y + Y X + Y^2,
+\end{equation}
+\begin{equation}\label{eqn:2dRotations:1580}
+\lr{ X + Y}^3 = X^3 + X^2 Y + X Y X + Y X^2 + Y^2 X + Y X Y + X Y^2 + Y^3.
+\end{equation}
+Observe that the conventional binomial series form for these powers is only possible if \( X \) and \( Y \) commute.  If we have such commutation, then the exponential takes the form
+\begin{equation}\label{eqn:2dRotations:1600}
+\begin{aligned}
+e^{X + Y}
+&= \sum_{k = 0}^\infty \sum_{j = 0}^k \binom{k}{j} \frac{X^j Y^{k-j}}{k!} \\
+%&= \sum_{k = 0}^\infty \sum_{j = 0}^k \frac{k!}{j!(k - j)!} \frac{X^j Y^k}{k!} \\
+&= \sum_{k = 0}^\infty \sum_{j = 0}^k \frac{X^j Y^{k-j}}{j!(k - j)!}.
+\end{aligned}
+\end{equation}
+This is a sum over all points in a trianglular region of the first quadrant of indexes on the \( k, j \) axes.
+%in \cref{fig:exponentialOfSum:exponentialOfSumFig1}
+We can, however, sum over all the diagonals \( s = k - j = \textrm{constant} \), and index our position on each of those diagonals by \( u = j \), to find
+\begin{equation}\label{eqn:2dRotations:1620}
+\begin{aligned}
+e^{X + Y}
+&= \sum_{s = 0}^\infty \sum_{u = 0}^\infty \frac{X^u Y^{s}}{u!s!} \\
+&= \sum_{u = 0}^\infty \frac{X^u}{u!}
+   \sum_{s = 0}^\infty \frac{Y^s}{s!} \\
+&= e^X e^Y.
+\end{aligned}
+\end{equation}
+%\imageFigure{../figures/GAelectrodynamics/exponentialOfSumFig1}{Exponential of sums, index points and change of variables.}{fig:exponentialOfSum:exponentialOfSumFig1}{0.3}
+We see that commutation of variables is required for an exponential of a sum to equal the product of the exponentials.  This is worth understanding since it shows us that we can factor exponentials of sums such as \( Z = 1 + \Be_1 \Be_2 \), \( Z = \Be_1 \Be_2 + \Be_3 \Be_4 \), \( Z = \Be_1 + \Be_1 \Be_2 \Be_3 \), into the product of the exponentials of the summands of those multivectors, but cannot do so with multivectors like \( Z = \Be_1 + \Be_2 \), \( Z = \Be_1 + \Be_1 \Be_2 \), or \( Z = \Be_1 \Be_2 + \Be_2 \Be_3 \).
 }
