@@ -419,10 +419,64 @@ I \ncap
 Given \( \Bb = \alpha \Ba \), use
 \cref{eqn:products:1320} to show that the wedge product of any pair of colinear vectors is zero.
 } % problem
+\makeanswer{problem:SimpleProducts2:wedgecolinear}{
+\begin{equation}\label{eqn:products:2120}
+\Ba \wedge \lr{ \alpha \Ba }
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+\alpha a_i & \alpha a_j
+\end{vmatrix}
+\Be_i \Be_j,
+\end{equation}
+but
+\begin{equation}\label{eqn:products:2140}
+\begin{vmatrix}
+a_i & a_j \\
+\alpha a_i & \alpha a_j
+\end{vmatrix}
+=
+\alpha
+\begin{vmatrix}
+a_i & a_j \\
+a_i & a_j
+\end{vmatrix}
+= 0,
+\end{equation}
+for all \( i, j \), so \( \Ba \wedge (\alpha \Ba)  = 0 \).
+} % answer
 
 \makeproblem{Wedge product antisymmetry.}{problem:SimpleProducts2:1560}{
 Prove that the wedge product is antisymmetric using using \cref{eqn:products:1320}.
 } % problem
+\makeanswer{problem:SimpleProducts2:1560}{
+Substitution gives
+\begin{equation}\label{eqn:products:2160}
+\Bb \wedge \Ba
+=
+\sum_{i < j}
+\begin{vmatrix}
+b_i & b_j \\
+a_i & a_j \\
+\end{vmatrix}
+\Be_i \Be_j,
+\end{equation}
+but
+\begin{equation}\label{eqn:products:2180}
+\begin{vmatrix}
+b_i & b_j \\
+a_i & a_j \\
+\end{vmatrix}
+=
+-
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j \\
+\end{vmatrix},
+\end{equation}
+for all \( i, j \), so \( \Bb \wedge \Ba = -\Ba \wedge \Bb \).
+} % answer
 
 \makeproblem{Wedge product distributivity and bilinearity.}{problem:products:bilinear}{
 For vectors \( \Ba, \Bb, \Bc \) and \( \Bd \), and scalars \( \alpha, \beta \) use
@@ -449,38 +503,149 @@ and show that the wedge product is bilinear
 \end{equation*}
 Note that these imply the wedge product also has the cross product filtering property \( \Ba \wedge (\Bb + \alpha \Ba) = \Ba \wedge \Bb \).
 } % problem
+\makeanswer{problem:products:bilinear}{
+\makesubanswer{}{problem:products:bilinear:a}
+Substitution gives
+\begin{equation}\label{eqn:products:2200}
+(\Ba + \Bb) \wedge (\Bc + \Bd) =
+\Ba \wedge \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+\lr{a_i + b_i} & \lr{a_j + b_j} \\
+\lr{c_i + d_i} & \lr{c_j + d_j}
+\end{vmatrix}
+\Be_i \Be_j,
+\end{equation}
+but that determinant expands as
+\begin{equation}\label{eqn:products:2220}
+\begin{aligned}
+&\begin{vmatrix}
+\lr{a_i + b_i} & \lr{a_j + b_j} \\
+\lr{c_i + d_i} & \lr{c_j + d_j}
+\end{vmatrix} \\
+&\quad=
+\lr{a_i + b_i} \lr{c_j + d_j} -
+\lr{a_j + b_j} \lr{c_i + d_i}
+\\
+&\quad=
+a_i c_j - a_j c_i \quad+
+b_i c_j - b_j c_i \quad+
+a_i d_j - a_j d_i \quad+
+b_i d_j - b_j d_i \\
+&\quad=
+\begin{vmatrix}
+a_i & a_j \\
+c_i & c_j
+\end{vmatrix}
++
+\begin{vmatrix}
+a_i & a_j \\
+d_i & d_j
+\end{vmatrix}
++
+\begin{vmatrix}
+b_i & b_j \\
+c_i & c_j
+\end{vmatrix}
++
+\begin{vmatrix}
+b_i & b_j \\
+d_i & d_j
+\end{vmatrix}.
+\end{aligned}
+\end{equation}
+Backsubstitution and comparison proves the result.
+\makesubanswer{}{problem:products:bilinear:b}
+Substitution gives
+\begin{equation}\label{eqn:products:2240}
+\lr{\alpha \Ba} \wedge \lr{\beta \Bb}
+=
+\sum_{i < j}
+\begin{vmatrix}
+\alpha a_i & \alpha a_j \\
+\beta b_i & \beta b_j
+\end{vmatrix}
+\Be_i \Be_j,
+\end{equation}
+but
+\begin{equation}\label{eqn:products:2260}
+\begin{vmatrix}
+\alpha a_i & \alpha a_j \\
+\beta b_i & \beta b_j
+\end{vmatrix}
+=
+\alpha \beta
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix},
+\end{equation}
+proving the result.
+} % answer
 
-%Answer (partial)
-%Swapping \( \Ba \) and \( \Bb \),
-%
-%\begin{dmath}\label{eqn:products:1820}
-%\Bb \wedge \Ba
-%=
-%\sum_{i < j}
-%\begin{vmatrix}
-%b_i & b_j \\
-%a_i & a_j
-%\end{vmatrix}
-%\Be_i \Be_j
-%=
-%-\sum_{i < j}
-%\begin{vmatrix}
-%a_i & a_j \\
-%b_i & b_j \\
-%\end{vmatrix}
-%\Be_i \Be_j
-%=
-%-\Ba \wedge \Bb,
-%\end{dmath}
-%
-%proves that
-%\cref{eqn:products:1780} holds for any vectors, and not just when they are normal.
-%Because of this antisymmetry we also have
-%
-%\begin{equation}\label{eqn:products:1840}
-%\Ba \wedge \Ba = 0.
-%\end{equation}
-%
 \makeproblem{Unit bivector.}{problem:products:2000}{
 Verify by explicit multiplication that the bivector of \cref{eqn:products:1920} squares to \( -1 \).
 } % problem
+\makeanswer{problem:products:2000}{
+\begin{equation}\label{eqn:products:2280}
+\begin{aligned}
+j^2
+&=
+\inv{3}
+\lr{\Be_{32} + \Be_{13} + \Be_{12 } } \lr{\Be_{32} + \Be_{13} + \Be_{12 } } \\
+&=
+\inv{3} \lr{
+\Be_{32}^2
++
+\Be_{13}^2
++
+\Be_{12}^2
++
+\Be_{3213}
++
+\Be_{3212}
++
+\Be_{1332}
++
+\Be_{1312}
++
+\Be_{1232}
++
+\Be_{1213}
+} \\
+&=
+\inv{3} \lr{ -3
++
+\Be_{3321}
+-
+\Be_{3221}
++
+\Be_{12}
+-
+\Be_{3112}
+-
+\Be_{1322}
+-
+\Be_{1123}
+} \\
+&=
+\inv{3} \lr{ -3
++
+\Be_{21}
+-
+\Be_{31}
++
+\Be_{12}
+-
+\Be_{32}
+-
+\Be_{13}
+-
+\Be_{23}
+} \\
+&= \frac{-3}{3} \\
+&= -1.
+\end{aligned}
+\end{equation}
+} % answer

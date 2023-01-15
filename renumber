@@ -4,7 +4,7 @@
 #../latex/bin/lgrep 2dMultiplication.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2dMultiplication.tex
 
-../latex/bin/lgrep 2dRotations.tex | tee o ; . ./o
+#../latex/bin/lgrep 2dRotations.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl 2dRotations.tex
 
 #../latex/bin/lgrep maxwells.tex | tee o ; . ./o
@@ -250,7 +250,7 @@
 #../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
 
-#../latex/bin/lgrep products.tex | tee o ; . ./o
+../latex/bin/lgrep products.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl products.tex
 
 #../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
