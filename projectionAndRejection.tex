@@ -217,11 +217,77 @@ This is zero because the scalar grade of a wedge product, a bivector, is zero by
 Prove, without any use of GA, that \( \Bx - \Proj_\Bu(\Bx) \) is orthogonal to \( \Bu \), as claimed in
 \cref{dfn:projectionAndRejection:projectionandrejection}.
 } % problem
+\makeanswer{problem:projectionAndRejection:rejectionnormality}{
+\begin{equation}\label{eqn:projectionAndRejection:1220}
+\begin{aligned}
+\lr{ \Bx - \Proj_\ucap(\Bx) } \cdot \ucap
+&=
+\Bx \cdot \ucap - \lr{ \lr{ \Bx \cdot \ucap } \ucap } \cdot \ucap \\
+&=
+\Bx \cdot \ucap - \lr{ \Bx \cdot \ucap } \lr{ \ucap \cdot \ucap } \\
+&=
+\Bx \cdot \ucap - \Bx \cdot \ucap \\
+&=
+0.
+\end{aligned}
+\end{equation}
+} % answer
 \makeproblem{Rejection example.}{problem:projectionAndRejection:rejectionExample1}{
 \makesubproblem{}{problem:projectionAndRejection:rejectionExample1:a}
 Repeat \cref{example:projectionAndRejection:r3rejection} by calculating \( (\Bx \wedge \ucap) \ucap \) and show that all the grade three components of this multivector product vanish.
 \makesubproblem{}{problem:projectionAndRejection:rejectionExample1:b}
 Explicitly calculate \( \Bx - (\Bx \cdot \ucap) \ucap \) and show that this matches \cref{eqn:projectionAndRejection:1100}.
 } % problem
+\makeanswer{problem:projectionAndRejection:rejectionExample1}{
+\makesubanswer{}{problem:projectionAndRejection:rejectionExample1:a}
+Given \( \Bx = a \Be_2 + b \Be_3 \) and \( \ucap = (\Be_1 + \Be_2)/\sqrt{2} \), we found that
+\begin{equation}\label{eqn:projectionAndRejection:1240}
+\Bx \wedge \ucap = \inv{\sqrt{2}} \lr{ b \lr{ \Be_{32} + \Be_{31} } + a \Be_{21} }.
+\end{equation}
+Multiplying once more by \( \ucap \) on the right, we have
+\begin{equation}\label{eqn:projectionAndRejection:1260}
+\begin{aligned}
+\lr{ \Bx \wedge \ucap }
+\ucap
+&=
+\inv{2} \lr{ b \lr{ \Be_{32} + \Be_{31} } + a \Be_{21} } \lr{ \Be_1 + \Be_2 } \\
+&=
+\inv{2} \lr{
+b \lr{ \Be_{321} + \Be_{311} } + a \Be_{211}
++ b \lr{ \Be_{322} + \Be_{312} } + a \Be_{212}
+} \\
+&=
+\inv{2} \lr{
+b \lr{ \Be_{321} + \Be_{3} } + a \Be_{2}
++ b \lr{ \Be_{3} + \Be_{312} } - a \Be_{1}
+} \\
+&=
+\inv{2} \lr{
+2 b \Be_{3} + a \lr{ \Be_{2} - \Be_1 }
+}.
+\end{aligned}
+\end{equation}
+As expected, all the trivector components cancel perfectly, leaving \( \lr{ \Bx \wedge \ucap } \ucap = \lr{ \Bx \wedge \ucap } \cdot \ucap \).
+\makesubanswer{}{problem:projectionAndRejection:rejectionExample1:b}
+Now we can compare the above to \( \Bx - {\Bx \cdot \ucap } \ucap \).  First
+\begin{equation}\label{eqn:projectionAndRejection:1280}
+\Bx \cdot \ucap
+=
+\lr{ a \Be_2 + b \Be_3 } \cdot \lr{ \Be_1 + \Be_2} \inv{ \sqrt{2} }
+=
+\frac{a}{\sqrt{2}},
+\end{equation}
+so
+\begin{equation}\label{eqn:projectionAndRejection:1300}
+\begin{aligned}
+\Bx - \lr{ \Bx \cdot \ucap } \ucap
+&=
+a \Be_2 + b \Be_3 - \frac{a}{2} \lr{ \Be_1 + \Be_2 } \\
+&=
+b \Be_3 + \frac{a}{2} \lr{ -\Be_1 + \Be_2 },
+\end{aligned}
+\end{equation}
+as calculated from \( \lr{ \Bx \wedge \ucap } \ucap \).
+} % answer
 %\makeproblem{Prove \ref{dfn:projectionAndRejection:r3pcommutation}.}{problem:projectionAndRejection:1160}{
 %} % problem
