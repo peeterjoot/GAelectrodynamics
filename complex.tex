@@ -75,4 +75,41 @@ Like complex numbers, quaternions can be represented in GA as grade \((0,2)\)-mu
 \index{quaternion}
 Show that the relations \cref{eqn:complex:1240} are satisfied by the unit bivectors \( \Bi = \Be_{32}, \Bj = \Be_{13}, \Bk = \Be_{21} \), demonstrating that quaternions, like complex numbers, may be represented as multivector subspaces.
 } % problem
+\makeanswer{problem:2dMultiplication:quaternions}{
+Here are the basic quaternionic relations
+\begin{equation}\label{eqn:complex:n}
+\Bi \Bj =
+\Be_{32}
+\Be_{13}
+=
+(-\Be_{23})
+(-\Be_{31})
+=
+\Be_{21} = \Bk
+\end{equation}
+\begin{equation}\label{eqn:complex:n}
+\Bj \Bk
+=
+\Be_{13} \Be_{21}
+=
+(-\Be_{31})(-\Be_{12})
+=
+\Be_{32}
+= \Bi
+\end{equation}
+\begin{equation}\label{eqn:complex:n}
+\Bk
+\Bi
+=
+\Be_{21}
+\Be_{32}
+=
+(-\Be_{12})
+(-\Be_{23})
+=
+\Be_{13}
+= \Bj.
+\end{equation}
+All these bivectors obviously square to \( -1 \), which incidentally shows that \( \Bi \Bj \Bk = \Bk^2 = -1 \), a well known quaternion identity.
+} % problem
 %}
