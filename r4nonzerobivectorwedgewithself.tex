@@ -2,7 +2,6 @@
 % Copyright © 2016 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-
 \makeproblem{\R{4} wedge of a non-blade with itself.}{problem:gradeselection:r4nonzerobivectorwedgewithself}{
 While the wedge product of a blade with itself is always zero, this is not generally true of the wedge products of arbitrary k-vectors in higher dimensional spaces.
 To demonstrate this, show that the wedge of the bivector
@@ -10,3 +9,16 @@ To demonstrate this, show that the wedge of the bivector
 Why is this bivector not a blade?
 %, show that \( B \wedge B \ne 0 \).
 } % problem
+\makeanswer{problem:gradeselection:r4nonzerobivectorwedgewithself}{
+\begin{equation}\label{eqn:r4nonzerobivectorwedgewithself:20}
+\begin{aligned}
+\lr{ \Be_{12} + \Be_{34} } \wedge \lr{ \Be_{12} + \Be_{34} }
+&=
+\Be_{1234} + \Be_{3412}
+&=
+2 \Be_{1234}.
+\end{aligned}
+\end{equation}
+A blade is the wedge product of two vectors, or the geometric product of two orthogonal vectors.
+The grade-2 multivector \( \Be_{12} + \Be_{34} \) is not a blade, since there is no common factor between \( \Be_{12} \) and \( \Be_{34} \).  It is not possible to factor this multivector into two orthogonal products.
+} % answer

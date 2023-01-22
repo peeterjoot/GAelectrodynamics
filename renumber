@@ -256,7 +256,7 @@
 #../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl projectionAndRejection.tex
 
-#../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
+../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl r4nonzerobivectorwedgewithself.tex
 
 #../latex/bin/lgrep reciprocal.tex | tee o ; . ./o
