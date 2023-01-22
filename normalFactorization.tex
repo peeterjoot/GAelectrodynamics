@@ -2,6 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+%{
 A general bivector has the form
 \begin{equation}\label{eqn:normalFactorization:1800}
 B = \sum_{i \ne j} a_{ij} \Be_{ij},
@@ -62,7 +63,7 @@ Now, compute
 \Ba = B \cdot \Be.
 \end{equation*}
 This vector lies in the plane that \( B \) represents.  Specifically, it is the projection of \( \Be \) onto \( B \), but rotated 90
-degrees, since ( \lr{ B \cdot \Be} \Be \) would be the projection itself.  If we dot \( \Ba \) with \( B \) then we find another vector that lies in the plane represented by \( B \), but is rotated
+degrees, since \( \lr{ B \cdot \Be} \Be \) would be the projection itself.  If we dot \( \Ba \) with \( B \) then we find another vector that lies in the plane represented by \( B \), but is rotated
 90 degrees in the plane, away from \( \Ba \).  That is:
 \begin{equation*}
 \Bb = B \cdot \Ba
@@ -136,3 +137,4 @@ Each of the sets of factors of \cref{eqn:normalFactorization:1900}, \cref{eqn:no
 %{Two equivalent bivector factorizations.}
 %{fig:bivectorFactorization:bivectorFactorizationFig1}{scale=0.3}
 } % answer
+%}

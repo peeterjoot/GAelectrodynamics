@@ -37,7 +37,7 @@
 #../latex/bin/lgrep colinearVectors.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl colinearVectors.tex
 
-#../latex/bin/lgrep complex.tex | tee o ; . ./o
+../latex/bin/lgrep complex.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl complex.tex
 
 #../latex/bin/lgrep curvilinearDefined.tex | tee o ; . ./o
@@ -52,7 +52,7 @@
 #../latex/bin/lgrep cylinderField.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl cylinderField.tex
 
-#../latex/bin/lgrep distributionDotVectorBivector.tex | tee o ; . ./o
+../latex/bin/lgrep distributionDotVectorBivector.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl distributionDotVectorBivector.tex
 
 #../latex/bin/lgrep dual.tex | tee o ; . ./o
@@ -250,7 +250,7 @@
 #../latex/bin/lgrep prerequisites.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl prerequisites.tex
 
-../latex/bin/lgrep products.tex | tee o ; . ./o
+#../latex/bin/lgrep products.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl products.tex
 
 #../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
