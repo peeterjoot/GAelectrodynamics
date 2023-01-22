@@ -3,9 +3,58 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 \makeproblem{Properties of the wedge of three vectors.}{problem:generalizedWedge:tripleWedgeProperties}{
-\makesubproblem{}{problem:generalizedWedge:tripleWedgeProperties:a}
-Show that the wedge product of three vectors is completely antisymmetric.
-\makesubproblem{}{problem:generalizedWedge:tripleWedgeProperties:b}
-Show that the
-wedge product of three vectors \( \Ba \wedge \Bb \wedge \Bc \) is invariant with respect to cyclic permutation.
+%\makesubproblem{}{problem:generalizedWedge:tripleWedgeProperties:a}
+Show that the wedge product of three vectors is completely antisymmetric, and
+%\makesubproblem{}{problem:generalizedWedge:tripleWedgeProperties:b}
+show that the
+wedge product of three vectors is invariant with respect to cyclic permutation.
+} % problem
+\makeanswer{problem:generalizedWedge:tripleWedgeProperties}{
+Writing the wedge of three vectors as a grade three selection
+\begin{equation}\label{eqn:generalizedWedgeProblems:20}
+\Ba \wedge \Bb \wedge \Bc
+=
+\gpgradethree{ \Ba \Bb \Bc },
+\end{equation}
+and applying the vector product identity \( \Bx \By = -\By \Bx + 2 \Bx \cdot \By \), we have
+\begin{equation}\label{eqn:generalizedWedgeProblems:40}
+\begin{aligned}
+\Ba \wedge \Bb \wedge \Bc
+&=
+\gpgradethree{ \Ba \Bb \Bc } \\
+&=
+\gpgradethree{ \lr{ -\Bb \Ba + 2 \Ba \cdot \Bb } \Bc } \\
+&=
+-\gpgradethree{ \Bb \Ba \Bc } \\
+&=
+- \Bb \wedge \Ba \wedge \Bc.
+\end{aligned}
+\end{equation}
+Similarly
+\begin{equation}\label{eqn:generalizedWedgeProblems:60}
+\begin{aligned}
+\Ba \wedge \Bb \wedge \Bc
+&=
+\gpgradethree{ \Ba \Bb \Bc } \\
+&=
+\gpgradethree{ \Ba \lr{ -\Bc \Bb + 2 \Bb \cdot \Bc } } \\
+&=
+-\gpgradethree{ \Ba \Bc \Bb } \\
+&=
+- \Ba \wedge \Bc \wedge \Bb.
+\end{aligned}
+\end{equation}
+We see that any two adjactent wedge products in the wedge of three vectors may be interchanged with a corresponding sign change, a process that can be repeated until all combinations are formed.  This includes
+\begin{equation}\label{eqn:generalizedWedgeProblems:80}
+\begin{aligned}
+\Ba \wedge \Bb \wedge \Bc
+&= -\Bb \wedge \Ba \wedge \Bc  \\
+&= + \Bb \wedge \Bc \wedge \Ba  \\
+&= - \Bc \wedge \Bb \wedge \Ba  \\
+&= \Bc \wedge \Ba \wedge \Bb  \\
+&= -\Ba \wedge \Bc \wedge \Bb.
+\end{aligned}
+\end{equation}
+%\makesubanswer{problem:generalizedWedge:tripleWedgeProperties:a}
+%\makesubanswer{problem:generalizedWedge:tripleWedgeProperties:b}
 } % problem

@@ -37,7 +37,7 @@
 #../latex/bin/lgrep colinearVectors.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl colinearVectors.tex
 
-../latex/bin/lgrep complex.tex | tee o ; . ./o
+#../latex/bin/lgrep complex.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl complex.tex
 
 #../latex/bin/lgrep curvilinearDefined.tex | tee o ; . ./o
@@ -52,7 +52,7 @@
 #../latex/bin/lgrep cylinderField.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl cylinderField.tex
 
-../latex/bin/lgrep distributionDotVectorBivector.tex | tee o ; . ./o
+#../latex/bin/lgrep distributionDotVectorBivector.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl distributionDotVectorBivector.tex
 
 #../latex/bin/lgrep dual.tex | tee o ; . ./o
@@ -106,7 +106,7 @@
 #../latex/bin/lgrep generalizedWedge.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedWedge.tex
 
-#../latex/bin/lgrep generalizedWedgeProblems.tex | tee o ; . ./o
+../latex/bin/lgrep generalizedWedgeProblems.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl generalizedWedgeProblems.tex
 
 #../latex/bin/lgrep greensTheorem.tex | tee o ; . ./o
