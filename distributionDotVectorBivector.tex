@@ -4,6 +4,12 @@
 %
 \makeproblem{Index permutation in vector selection.}{problem:generalizedDot:distributionUnitVectorsa}{
 Prove \cref{eqn:generalizedDot_vectorBivector:1020}.
+That is,
+given \( j \ne k \), and \( i = j \) or \( i = k \), show that
+\begin{equation}\label{eqn:distributionDotVectorBivector:1140}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+= \gpgradeone{ \Be_k \Be_j \Be_i },
+\end{equation}
 } % problem
 \makeanswer{problem:generalizedDot:distributionUnitVectorsa}{
 Since \( j \ne k \), \( \Be_j \Be_k = - \Be_k \Be_j \), so for \( i = k \)
@@ -26,7 +32,53 @@ and for \( i = j \)
 =
 \gpgradeone{ \Be_k \Be_j \Be_i }.
 \end{equation}
-} % problem
+} % answer
 \makeproblem{Dot product of unit vector with unit bivector.}{problem:generalizedDot:distributionUnitVectorsb}{
 Prove \cref{eqn:generalizedDot_vectorBivector:980}.
+That is,
+given \( j \ne k \), show that
+\begin{equation}\label{eqn:distributionDotVectorBivector:1040}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+=
+\Be_k \lr{ \Be_j \cdot \Be_i }
+-\Be_j \lr{ \Be_k \cdot \Be_i }.
+\end{equation}
 } % problem
+\makeanswer{problem:generalizedDot:distributionUnitVectorsb}{
+We can tackle this first looking at the \( i = j \) case, where
+\begin{equation}\label{eqn:distributionDotVectorBivector:1060}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+=
+\gpgradeone{
+\lr{ \Be_i \cdot \Be_j } \Be_k
+}
+=
+\lr{ \Be_i \cdot \Be_j } \Be_k.
+\end{equation}
+For the \( i = k \) case, we have
+\begin{equation}\label{eqn:distributionDotVectorBivector:1080}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+=
+-\gpgradeone{ \Be_i \Be_k \Be_j }
+=
+-\gpgradeone{ \lr{ \Be_i \cdot \Be_k } \Be_j }
+=
+-\lr{ \Be_i \cdot \Be_k } \Be_j.
+\end{equation}
+Combining both possibilities we have
+\begin{equation}\label{eqn:distributionDotVectorBivector:1100}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+=
+\lr{ \Be_i \cdot \Be_j } \Be_k
+-\lr{ \Be_i \cdot \Be_k } \Be_j.
+\end{equation}
+Incidentally, note that this only holds when \( j \ne k \).  More generally
+\begin{equation}\label{eqn:distributionDotVectorBivector:1120}
+\gpgradeone{ \Be_i \Be_j \Be_k }
+=
+\lr{ \Be_i \cdot \Be_j } \Be_k
+-\lr{ \Be_i \cdot \Be_k } \Be_j
++\lr{ \Be_j \cdot \Be_k } \Be_i,
+\end{equation}
+(since there is a term for each permutation of \( i, j, k \) and a sign change when that permutuation is not even.)
+} % answer
