@@ -85,22 +85,72 @@ This is illustrated in \cref{fig:orientedAreasVariety:orientedAreasVarietyFig1}.
 
 \index{parallelogram}
 \makeproblem{Parallelogram area.}{problem:wedgeProductArea:R2parallelogramarea}{
-Show that the area \( A \) of the parallelogram spanned by vectors
+Show that the area \( A \) of the parallelogram spanned by vectors \( \Ba, \Bb \) as
+illustrated in \cref{fig:parallelogramArea:parallelogramAreaFig1},
 \begin{equation*}
 \begin{aligned}
 \Ba &= a_1 \Be_1 + a_2 \Be_2 \\
 \Bb &= b_1 \Be_1 + b_2 \Be_2,
 \end{aligned}
 \end{equation*}
+\imageFigure{../figures/GAelectrodynamics/parallelogramAreaFig1}{Parallelogram area.}{fig:parallelogramArea:parallelogramAreaFig1}{0.15}
 is
 \begin{equation*}
 A =
 \pm
 \begin{vmatrix}
-   a_1 & a_2 \\
    b_1 & b_2 \\
+   a_1 & a_2 \\
 \end{vmatrix}
 ,
 \end{equation*}
-and that the sign is positive if the rotation angle \( \theta \) that takes \( \acap \) to \( \bcap \) is positive, \( \theta \in (0,\pi) \).
+where we adjust the sign to make the end result come out positive.
+%and that the sign is positive if the rotation angle \( \theta \) that takes \( \acap \) to \( \bcap \) is positive, \( \theta \in (0,\pi) \).
 } % problem
+\makeanswer{problem:wedgeProductArea:R2parallelogramarea}{
+The parallelogram area is base times height, that is
+\begin{equation}\label{eqn:wedgeProductArea:1960}
+\begin{aligned}
+A
+= \Norm{\Ba} \Norm{ \lr{ \Bb \wedge \acap } \acap }
+= \Norm{ \lr{ \Bb \wedge \Ba } \acap },
+\end{aligned}
+\end{equation}
+but
+\begin{equation}\label{eqn:wedgeProductArea:1980}
+\Bb \wedge \Ba =
+\begin{vmatrix}
+   b_1 & b_2 \\
+   a_1 & a_2 \\
+\end{vmatrix}
+\Be_{12}
+=\calA \Bi
+\end{equation}
+where
+\( \calA =
+\begin{vmatrix}
+   b_1 & b_2 \\
+   a_1 & a_2 \\
+\end{vmatrix} \), and
+\( \Bi = \Be_{12} \).
+Our expression for the area is reduced to
+\begin{equation}\label{eqn:wedgeProductArea:2000}
+A = \Abs{\calA} \, \Norm{ \Bi \acap }.
+\end{equation}
+Note that
+\begin{equation}\label{eqn:wedgeProductArea:2020}
+\Norm{ \Bi \acap }
+=
+\Norm{ \acap }
+= 1,
+\end{equation}
+since the multiplicative action of \( \Bi \) is to rotate by 90 degrees, not changing the (unit) length at all.  That leaves
+\begin{equation}\label{eqn:wedgeProductArea:2040}
+A = \pm
+\begin{vmatrix}
+   b_1 & b_2 \\
+   a_1 & a_2 \\
+\end{vmatrix},
+\end{equation}
+as expected.
+} % answer

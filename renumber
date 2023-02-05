@@ -253,7 +253,7 @@
 #../latex/bin/lgrep products.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl products.tex
 
-../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
+#../latex/bin/lgrep projectionAndRejection.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl projectionAndRejection.tex
 
 #../latex/bin/lgrep r4nonzerobivectorwedgewithself.tex | tee o ; . ./o
@@ -292,7 +292,7 @@
 #../latex/bin/lgrep scalarVolumeElement.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl scalarVolumeElement.tex
 
-#../latex/bin/lgrep solutionOfLinearSystem.tex | tee o ; . ./o
+../latex/bin/lgrep solutionOfLinearSystem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl solutionOfLinearSystem.tex
 
 #../latex/bin/lgrep sphericaldot.tex | tee o ; . ./o
