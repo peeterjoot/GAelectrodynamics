@@ -6,13 +6,17 @@
 Curvilinear coordinates can be defined for any subspace spanned by a parameterized vector into that space.
 %Consider a continuous subspace parameterized by a two parameter vector function \( \Bx = \Bx(u_1, u_2) \) that is differentiable with respect to either parameter
 As an example, consider a two parameter planar subspace of parameterized by the following continuous vector function
+%\begin{equation}\label{eqn:curvilinearDefined:480}
+%\Bx(u_1, u_2) = u_1 \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 },
+%\end{equation}
 \begin{equation}\label{eqn:curvilinearDefined:480}
-\Bx(u_1, u_2) = u_1 \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 },
+\Bx(u_1, u_2) = u_1 \lr{ \Be_1 \cos u_2 + \inv{2} \Be_2 \sin u_2 },
 \end{equation}
 where \( u_1 \in [0,1] \) and \( u_2 \in [0, \pi/2] \).
-This parameterization spans the first quadrant of the ellipse with semi-major axis length 1, and semi-minor axis length \( 1/2 \)
-\footnote{
-A parameterization of an elliptic area may or may not be of much use in electrodynamics.  However, it provides a non-trivial example of a non-orthonormal parameterization.}
+This parameterization spans the first quadrant of the ellipse with semi-major axis length 1, and semi-minor axis length \( 1/2 \).
+%\footnote{
+A parameterization of an elliptic area may or may not be of much use in electrodynamics, but it happens to provide a non-trivial, yet simple, example of a non-orthonormal parameterization.
+%}
 Contours for this parameterization are plotted in \cref{fig:ellipticalContours:ellipticalContoursFig1}.
 The radial contours are for fixed values of \( u_2 \) and the elliptical contours fix the value of \( u_1 \), and depict a set of elliptic curves
 with a semi-major/major axis ratio of \( 1/2 \).
@@ -29,9 +33,13 @@ We define a curvilinear basis associated with each point in the region by the pa
 
 For our the function \cref{eqn:curvilinearDefined:480} our curvilinear basis elements are
 \begin{equation}\label{eqn:curvilinearDefined:520}
+%\begin{aligned}
+%\Bx_{1} &= \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 } \\
+%\Bx_{2} &= u_1 \Be_2 \frac{\sqrt{3}}{2} \sinh\lr{ \Atanh(1/2) + \Be_{12} u_2 }.
+%\end{aligned}
 \begin{aligned}
-\Bx_{1} &= \Be_1 \frac{\sqrt{3}}{2} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 } \\
-\Bx_{2} &= u_1 \Be_2 \frac{\sqrt{3}}{2} \sinh\lr{ \Atanh(1/2) + \Be_{12} u_2 }.
+\Bx_1 &= \Be_1 \cos u_2 + \inv{2} \Be_2 \sin u_2 \\
+\Bx_2 &= u_1 \lr{ - \Be_1 \sin u_2 + \inv{2} \Be_2 \cos u_2 },
 \end{aligned}
 \end{equation}
 
@@ -61,11 +69,13 @@ In this case and in general there is no reason to presume that there is any orth
 Should we wish to calculate the reciprocal frame
 for \cref{eqn:curvilinearDefined:480}
 , we would find
-(\cref{problem:curvilinearDefined:560}) that
+(\cref{problem:ellipticproblem:10}) that
 \begin{equation}\label{eqn:curvilinearDefined:540}
 \begin{aligned}
-\Bx^{1} &= \Be_1 \sqrt{3} \sinh\lr{ \Atanh(1/2) + \Be_{12} u_2 } \\
-\Bx^{2} &= \frac{\Be_2}{u_1} \sqrt{3} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 }.
+\Bx^{1} &= \Be_1 \cos u_2 + 2 \Be_2 \sin u_2 \\
+\Bx^{2} &= \inv{u_1} \lr{ - \Be_1 \sin u_2 + 2 \Be_2 \cos u_2 }
+%\Bx^{1} &= \Be_1 \sqrt{3} \sinh\lr{ \Atanh(1/2) + \Be_{12} u_2 } \\
+%\Bx^{2} &= \frac{\Be_2}{u_1} \sqrt{3} \cosh\lr{ \Atanh(1/2) + \Be_{12} u_2 }.
 \end{aligned}
 \end{equation}
 
@@ -84,27 +94,15 @@ Also note that we will only perform integrals for those parametrizations for whi
 
 %If the spacing between the contours is made small enough, the boundaries of each partition will define a planar region at the point of evaluation.
 %All points in the interior will be accessible by a combination of the vectors formed from the partials of \( \Bx \) at that point.
-
-\makeproblem{Elliptic curvilinear and reciprocal basis.}{problem:curvilinearDefined:560}{
-From \cref{eqn:curvilinearDefined:480}, compute the
-curvilinear coordinates \cref{eqn:curvilinearDefined:520}, and the reciprocal frame vectors \cref{eqn:curvilinearDefined:540}.
-Check using scalar grade selection that \( \Bx^i \cdot \Bx_j = {\delta^i}_j \).
-Hints: Given \( \mu = \Atanh(1/2) \),
-\begin{itemize}
-\item \( \cosh( \mu + i \theta ) \Be_2 = \Be_2 \cosh( \mu - i \theta ) \).
-\item \( \Real\lr{ \cosh( \mu - i \theta ) \sinh( \mu + i \theta ) } = 2/3 \).
-\end{itemize}
-} % problem
-
+\input{ellipseCurvilinear.tex}
+\input{ellipticproblem.tex}
 \todo{Don't introduce the idea of tangent space until a 3D example.
 Remove the \R{3} reference above, and keep this first example planar.}
 
 At the point of evaluation, the span of these differentials is called the tangent space.
 In this particular case the tangent space at all points in the region is the entire x-y plane.
 These partials locally span the tangent space at a given point on the surface.
-
 \subsubsection{Curved two parameter surfaces.}
-
 Continuing to illustrate by example, let's now consider a non-planar two parameter surface
 \begin{equation}\label{eqn:curvilinearDefined:560}
 \Bx(u_1, u_2) =

@@ -84,6 +84,8 @@ derivativeOfDeltaFunction.tex
 dielectric.tex
 distributionDotVectorBivector.tex
 dual.tex
+ellipseCurvilinear.tex
+ellipticproblem.tex
 enclosedCurrent.tex
 fourier.tex
 freespace.tex
@@ -155,15 +157,15 @@ statics_infinitePlane.tex
 stokesTheoremTheStatement.tex
 stressTensorAlgebraically.tex
 surfaceintegral.tex
+surfaceintegraldef.tex
 symmetricAndAntiSymmetricVectorSums.tex
 torusCenterOfMassParameterization.tex
 transverseField.tex
 vectorDerivative.tex
 vectorTrivectorDot.tex
 volumeintegral.tex
+volumeintegraldef.tex
 volumeselection.tex
 wedgeDistributionIdentity.tex
 wedgeDistributionIdentityProblemsWedgeDistributionIdentityProof.tex
 wedgeProductArea.tex
-surfaceintegraldef.tex
-volumeintegraldef.tex

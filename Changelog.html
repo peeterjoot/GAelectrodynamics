@@ -1,0 +1,123 @@
+
+<ul>
+   <li>V0.1.16-19 (Feb 5, 2023)
+      <ul>
+          <li>Add solutions for most of the chapter 1 problems.</li>
+      </ul>
+   </li>
+   <li>V0.1.16-16 (Oct 16, 2022)
+      <ul>
+          <li>Spelling and grammar error notes from Prof. Norman Derby</li>
+          <li>Clarify sign following eq. 1.23 -- thanks to Prof Normal Derby!</li>
+      </ul>
+   </li>
+   <li>V0.1.16-14 (Oct 9, 2022)
+      <ul>
+          <li>Provide a hint for problem 2.1 (Wrenn Wooten.)</li>
+      </ul>
+   </li>
+   <li>V0.1.16-13 (May 15, 2022)
+      <ul>
+          <li>Fix equations 2.81 2.82 -- error found by Christopher</li>
+          <li>test drove build instructions (slight fix required.)</li>
+          <li>restore latexsym \Box as dAlembertian</li>
+          <li>gutter fixes.</li>
+          <li>perl -p -i -e 's/ *$//' `cat spellcheckem.txt `</li>
+          <li>purge most dmath usage. MacTex upgrade has made these seemingly malfunction, and lines are getting split in all sorts of weird places.</li>
+      </ul>
+   </li>
+   <li>V0.1.16-5 (Sept 26, 2021)
+      <ul>
+          <li>N.D. Foreest: <span class="s1">"in eqs 2.46 en 2.49 I would show first how to compute the product of the two vectors. Then taking the scalar part gives the conclusion of 2.46, but 2.49 becomes much shorter. Like this, the unifying idea of ga becomes also a bit clearer perhaps" </span></li>
+      </ul>
+   </li>
+   <li>V0.1.16-4 (Sept 22, 2021)
+      <ul>
+          <li>Peter Eriksen: I've found some small, potential errors in the book:...</li>
+      </ul>
+   </li>
+   <li>V0.1.16-3 (Aug 4, 2021)
+      <ul>
+          <li>Nicky, D, Foreest: typo in eq 2.134. Shouldn’t the operator L be in front of the second step?</li>
+          <li>Fix typo in vector Green's function for space time gradient</li>
+      </ul>
+   </li>
+   <li>V0.1.16-1 (Feb 18, 2021)
+      <ul>
+          <li>Switch a couple figures to black and white.</li>
+          <li>Parameterize the path to twoParameterDifferentialFig.eps (color vs. black and white.)</li>
+          <li>d'Lambertian -&gt; d'Alembertian (Thanks to Jack Paladin!)</li>
+          <li>s/Othogonal/Orthogonal/ (thanks to Zhengbang Zhou)</li>
+          <li>Spelling fixes.</li>
+          <li>Run the duplicate word checker from https://gasstationwithoutpumps.wordpress.com/2020/09/09/checked-tandem-duplicate-words-in-book/</li>
+          <li>Ran link checker and fixed two.</li>
+      </ul>
+   </li>
+   <li>V0.1.16-0 (July 28, 2020)
+      <ul>
+          <li>preface tweak: display Maxwell's equation in final form from the get go.</li>
+          <li>Apply suggestion from sigs.</li>
+          <li>Fix errors in cross product wedge relation example: thanks to Bill Ignatiuk!</li>
+          <li>Rework formsVsGA.tex as an appendix.</li>
+          <li>David: typo: page 18, (1.11) For example… (e1)^2 = (e2)^2 = (e3)^3 = 1. The power for (e sub 3) should be 2</li>
+          <li>Bruce Gould: pg 106: In the last expression I think the v1's should be U2's.</li>
+          <li>Add Tim Put and some other reviewers that I'd missed to the thanks.</li>
+          <li>Attempt to fix the missing dashes in the bash lstlisting.</li>
+          <li>Merge pull request #1 from TimPut/typos</li>
+      </ul>
+   </li>
+   <li>V0.1.15-6 (May 2, 2019)
+      <ul>
+          <li>Update figures (thicker lines, remove some ticks, ...) and link them to the mathematica link anchors.</li>
+          <li>"in figure fig." -&gt; "in fig".</li>
+          <li>Extend my hacks of the classic thesis template to use 6x9 with smaller than default margins. Now have the preface page numbers not in the bleed area of the page.</li>
+          <li>Split colorlablebox into separate .sty (for phy452 notes.)</li>
+          <li>Fix pdfbookmarks for contents and list of figures (so that they don't show up under the preface)</li>
+          <li>Index quaternion (Bruce Gould)</li>
+          <li>GAelectrodynamics.tex: Want scrheadings starting before contents otherwise page numbers are out of bounds (and the page headings are MIA)</li>
+          <li>Bruce: "May I suggest that the proofs should have the end-of-proof symbol at the end?" Used the amsthm proof environment to do this.</li>
+          <li>Theorem 1.2: turn the converse into a footnote, to be seen later. (Bruce)</li>
+          <li>Added Bruce Gould to the thanks.</li>
+          <li>This version uploaded to kdp (effectively the "2nd" edition)</li>
+      </ul>
+   </li>
+   <li>V0.1.14 (Jan 2019)
+      <ul>
+          <li>various edits to chapter 1, plus adjustments to produce a 6x9 version for createspace.</li>
+      </ul>
+   </li>
+   <li>V0.1.8 (July 2018)
+      <ul>
+          <li>start with proper definion of line integral</li>
+          <li>define a bivector valued multivector surface area integral, and provide some examples.</li>
+          <li>volume integral and example</li>
+          <li>call the line integral result: the fundamental theorem for line integrals.</li>
+          <li>rework surface integral content.</li>
+          <li>Got the basic reorganization of chapter2 done, properly introducing line integral, surface integral and volume integral before the fundamental theorem specializations.</li>
+          <li>rewrite normalVectors as theorem-example-proof</li>
+          <li>incorporate more feedback from Mo.</li>
+          <li>products.tex: split the big hybrid definition into two theorems (dot is scalar selection, vector product has grades 0, 2) and one definition (wedge product).</li>
+          <li>fixes for example: products of two unit vectors.</li>
+          <li>use (for example) "grade (0,1)-multivector" instead of "0,1 multivector" or "grade 0,1 multivector"</li>
+          <li>Rework dual as definition, examples, discussion, instead of the definition last.</li>
+          <li>incorporate my annotated comments up to page 12 (ch1).</li>
+      </ul>
+   </li>
+   <li>V0.1.7: (April 2018)
+      <ul>
+          <li>More comments from Mo. remove the figure that came out blank in the printed version.</li>
+          <li>multivector definition changed to sums of scalars, vectors, and products of vectors, special cases of which are k-vectors. (How to interpret products such as e_1 e_1 will need to come later.)</li>
+          <li>got rid of contraction axiom reference in the multivector/multivector space intro.</li>
+          <li>split out definition of multivector from multivector space. still editing the result, which isn't entirely coherent.</li>
+          <li>rewrite preface again.</li>
+          <li>intro materials: add examples.</li>
+          <li>start splitting the big ch1 summary table, and do a better introduction to vectors to start things off.</li>
+          <li>add indexing of various symbols at point of first use.</li>
+          <li>change tables to use \newtcolorbox (this can embed the desired layout attributes).</li>
+          <li>small spaces (\,) after dV, dA, .... when they are first in the integrand.</li>
+          <li>start incorporating my paper edit notes from first draft createspace print.</li>
+          <li>experimenting with 6x9 layout. didn't reduce the createspace cost (but increased it)</li>
+          <li>lr's on some vector derivatives.</li>
+      </ul>
+   </li>
+</ul>

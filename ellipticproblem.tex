@@ -1,0 +1,82 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Elliptic curvilinear and reciprocal basis.}{problem:ellipticproblem:10}{
+\makesubproblem{}{problem:ellipticproblem:10:a}
+Show that an ellipse can be parameterized by
+\begin{equation}\label{eqn:ellipticproblem:20}
+   \Bx = s \Be_1 \cosh\lr{ \mu + i \theta },
+\end{equation}
+where \( i = \Be_{12} \), and find the values of the semi-major and semi-minor axes.
+\makesubproblem{}{problem:ellipticproblem:10:b}
+Determine how \( \mu \) and the eccentricity \( \epsilon = \sqrt{1 - b^2/a^2} \) are related.
+\makesubproblem{}{problem:ellipticproblem:10:c}
+Compute the curvilinear and reciprocal frame vectors for the parameterization \( \Bx(s, \theta) \) above, and use this to verify
+\cref{eqn:curvilinearDefined:520} and \cref{eqn:curvilinearDefined:540} respectively.
+\makesubproblem{}{problem:ellipticproblem:10:d}
+Check using scalar grade selection that \( \Bx^i \cdot \Bx_j = {\delta^i}_j \).
+Hints: Given \( \mu = \Atanh(1/2) \),
+\begin{itemize}
+\item \( \cosh( \mu + i \theta ) \Be_2 = \Be_2 \cosh( \mu - i \theta ) \).
+\item \( \Real\lr{ \cosh( \mu - i \theta ) \sinh( \mu + i \theta ) } = 2/3 \).
+\end{itemize}
+} % problem
+\makeanswer{problem:ellipticproblem:10}{
+\makesubanswer{}{problem:ellipticproblem:10:a}
+Expanding the \( \cosh \) in terms of exponentials, we find
+\begin{equation}\label{eqn:ellipticproblem:40}
+\begin{aligned}
+\Be_1 \cosh\lr{ \mu + i \theta }
+&=
+\frac{\Be_1}{2} \lr{ e^{\mu + i \theta} + e^{-\mu - i\theta} } \\
+&=
+\Be_1 \frac{e^\mu}{2} \lr{ \cos\theta + i \sin\theta }
++
+\Be_1 \frac{e^{-\mu}}{2} \lr{ \cos\theta - i \sin\theta } \\
+&=
+\Be_1 \frac{ e^\mu + e^{-\mu} }{2} \cos\theta
++ \Be_2 \frac{ e^\mu - e^{-\mu} }{2} \sin\theta \\
+&=
+\Be_1 \cosh\mu \cos\theta + \Be_2 \sinh\mu \sin\theta,
+\end{aligned}
+\end{equation}
+so
+\begin{equation}\label{eqn:ellipticproblem:60}
+\Bx = s \Be_1 \cosh\lr{ \mu + i \theta } = \Be_1 a \cos\theta + \Be_2 b \sin\theta,
+\end{equation}
+where
+\begin{equation}\label{eqn:ellipticproblem:80}
+\begin{aligned}
+   a &= s \cosh\mu \\
+   b &= s \sinh\mu,
+\end{aligned}
+\end{equation}
+are the semi-major and semi-minor axis values.
+\makesubanswer{}{problem:ellipticproblem:10:b}
+The eccentricity (squared) is
+\begin{equation}\label{eqn:ellipticproblem:100}
+\begin{aligned}
+   \epsilon^2 
+   &= 1 - \tanh^2\mu \\
+   &= \frac{\cosh^2\mu - \sinh^2\mu}{\cosh^2\mu} \\
+   &= \inv{\cosh^2\mu},
+\end{aligned}
+\end{equation}
+so the eccentricity is
+\begin{equation}\label{eqn:ellipticproblem:120}
+   \epsilon = \inv{\cosh\mu}.
+\end{equation}
+\makesubanswer{}{problem:ellipticproblem:10:c}
+Our curvilinear basis vectors are
+\begin{equation}\label{eqn:ellipticproblem:140}
+\begin{aligned}
+\Bx_s &= \Be_1 \cosh\lr{ \mu + i \theta } \\
+\Bx_\theta &= \Be_2 s \sinh\lr{ \mu + i \theta } \\
+\end{aligned}
+\end{equation}
+% finish.
+\makesubanswer{}{problem:ellipticproblem:10:d}
+} % answer
+%}
