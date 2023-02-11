@@ -52,7 +52,7 @@ Let's attack this problem initially with Fourier transforms (\cref{dfn:greensFun
 
 We can assume zero position and velocity for the non-homogeneous problem, since we can adjust the boundary conditions with the homogeneous solution \( x_0(t) \).  With zero boundary conditions on \( x, x' \), the transform of \cref{eqn:greensIntro:300} is
 \begin{equation}\label{eqn:greensIntro:320}
-((-j \omega)^2 + j \omega + (\omega_0)^2) X(\omega) = F(\omega),
+((j \omega)^2 + j \omega k + (\omega_0)^2) X(\omega) = F(\omega),
 \end{equation}
 so the system is solved in the frequency domain by the system response function \( G(\omega) \)
 \begin{equation}\label{eqn:greensIntro:340}
@@ -60,7 +60,7 @@ X(\omega) = G(\omega) F(\omega),
 \end{equation}
 where
 \begin{equation}\label{eqn:greensIntro:360}
-G(\omega) = -\inv{\omega^2 - j \omega - (\omega_0)^2}.
+G(\omega) = \frac{-1}{\omega^2 - j \omega k - (\omega_0)^2}.
 \end{equation}
 
 We can apply the inverse transformation to find the time domain solution for the forced oscillator problem.
