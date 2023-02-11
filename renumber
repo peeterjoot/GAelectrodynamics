@@ -499,5 +499,8 @@
 #../latex/bin/lgrep pseudoscalar.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl pseudoscalar.tex
 
-../latex/bin/lgrep ellipticproblem.tex | tee o ; . ./o
+#../latex/bin/lgrep ellipticproblem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl ellipticproblem.tex
+
+../latex/bin/lgrep curvilinearsphericalProblem.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl curvilinearsphericalProblem.tex

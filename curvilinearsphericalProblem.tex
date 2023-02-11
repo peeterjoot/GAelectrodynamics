@@ -6,4 +6,58 @@
 \makeproblem{Spherical volume Jacobian.}{problem:curvilinearspherical:1}{
 Without software, expand and simplify the determinant of \cref{eqn:curvilinearspherical:320}.
 } % problem
+\makeanswer{problem:curvilinearspherical:1}{
+A bit of shorthand is useful.  We can write our Jacobian as
+\begin{equation}\label{eqn:curvilinearsphericalProblem:20}
+J
+=
+\begin{vmatrix}
+S_\theta C_\phi & S_\theta S_\phi & C_\theta \\
+r C_\theta C_\phi & r C_\theta S_\phi & - r S_\theta \\
+- r S_\theta S_\phi & r S_\theta C_\phi & 0
+\end{vmatrix}
+=
+r^2 \begin{vmatrix}
+S_\theta C_\phi & S_\theta S_\phi & C_\theta \\
+ C_\theta C_\phi &  C_\theta S_\phi & -  S_\theta \\
+-  S_\theta S_\phi &  S_\theta C_\phi & 0
+\end{vmatrix},
+\end{equation}
+where the common factor of the two last rows has been factored out.  Expanding the cofactors along the bottom row we have
+\begin{equation}\label{eqn:curvilinearsphericalProblem:40}
+\begin{aligned}
+J
+&=
+-  r^2 S_\theta S_\phi
+\begin{vmatrix}
+S_\theta S_\phi & C_\theta \\
+C_\theta S_\phi & -  S_\theta \\
+\end{vmatrix}
+-  r^2 S_\theta C_\phi
+\begin{vmatrix}
+S_\theta C_\phi & C_\theta \\
+ C_\theta C_\phi &  -  S_\theta \\
+\end{vmatrix} \\
+&=
+- r^2 S_\theta S_\phi^2
+\begin{vmatrix}
+S_\theta & C_\theta \\
+C_\theta & -  S_\theta \\
+\end{vmatrix}
+-  r^2 S_\theta C_\phi^2
+\begin{vmatrix}
+S_\theta C_\theta \\
+ C_\theta &  -  S_\theta \\
+\end{vmatrix} \\
+&=
+- r^2 S_\theta S_\phi^2 \lr{ - S_\theta^2 - C_\theta^2 }
+-  r^2 S_\theta C_\phi^2 \lr{ -S_\theta^2 - C_\theta^2 } \\
+&=
+r^2 S_\theta \lr{ S_\phi^2 + C_\phi^2 } \\
+&=
+r^2 S_\theta.
+\end{aligned}
+\end{equation}
+Had we done a traditional first row or column determinant expansion, things would have been considerably messier.
+} % problem
 %}
