@@ -3,54 +3,119 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{ellipticproblem}
+%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{amsthm}
+%\usepackage{siunitx}
+%\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+%
+%\beginArtNoToc
+%
+%\generatetitle{XXX}
+%\chapter{XXX}
+%\label{chap:ellipticproblem}
+%
+\makeproblem{Hyperbolic identities.}{lemma:ellipticproblem:280}{
+Show that
+\begin{equation}\label{eqn:ellipticproblem:300}
+2 \cosh\lr{ \mu - i \theta } \sinh\lr{ \mu + i \theta } = \sinh(2 \mu) + i \sin(2 \theta).
+\end{equation}
+\begin{equation}\label{eqn:ellipticproblem:420}
+2 \cosh\lr{ \mu } \sinh\lr{ \mu } = \sinh(2 \mu).
+\end{equation}
+\begin{equation}\label{eqn:ellipticproblem:440}
+\cosh\lr{ \mu + i \theta } = \cosh\mu \cos\theta + i \sinh\mu \sin\theta.
+\end{equation}
+} % problem
+\makeanswer{lemma:ellipticproblem:280}{
+\begin{equation}\label{eqn:ellipticproblem:320}
+\begin{aligned}
+\cosh\lr{ \mu - i \theta } \sinh\lr{ \mu + i \theta }
+&=
+\frac{1}{4}
+   \lr{ e^{\mu - i\theta} - e^{-\mu + i \theta } } \lr{ e^{\mu + i\theta} - e^{-\mu - i \theta } }
+\\
+&=
+\frac{1}{4} \lr{
+   e^{2 \mu} - e^{-2\mu} + e^{2 i \theta} - e^{-2 i \theta}
+} \\
+&=
+\inv{2} \lr{  \sinh(2 \mu) + i \sin(2 \theta) }.
+\end{aligned}
+\end{equation}
+The second identity follows from the first, setting \( \theta = 0 \).
+Finally, for the third expanding the \( \cosh \) in terms of exponentials, we find
+\begin{equation}\label{eqn:ellipticproblem:50}
+\begin{aligned}
+\cosh\lr{ \mu + i \theta }
+&=
+\frac{1}{2} \lr{ e^{\mu + i \theta} + e^{-\mu - i\theta} } \\
+&=
+\frac{e^\mu}{2} \lr{ \cos\theta + i \sin\theta }
++
+\frac{e^{-\mu}}{2} \lr{ \cos\theta - i \sin\theta } \\
+&=
+\frac{ e^\mu + e^{-\mu} }{2} \cos\theta
++ i \frac{ e^\mu - e^{-\mu} }{2} \sin\theta \\
+&=
+\cosh\mu \cos\theta + i \sinh\mu \sin\theta.
+\end{aligned}
+\end{equation}
+}
+
 \makeproblem{Elliptic curvilinear and reciprocal basis.}{problem:ellipticproblem:10}{
 \makesubproblem{}{problem:ellipticproblem:10:a}
 Show that an ellipse can be parameterized by
 \begin{equation}\label{eqn:ellipticproblem:20}
-   \Bx = s \Be_1 \cosh\lr{ \mu + i \theta },
+   \Bx = u_1 \Be_1 \cosh\lr{ \mu + i u_2 },
 \end{equation}
 where \( i = \Be_{12} \), and find the values of the semi-major and semi-minor axes.
 \makesubproblem{}{problem:ellipticproblem:10:b}
 Determine how \( \mu \) and the eccentricity \( \epsilon = \sqrt{1 - b^2/a^2} \) are related.
 \makesubproblem{}{problem:ellipticproblem:10:c}
-Compute the curvilinear and reciprocal frame vectors for the parameterization \( \Bx(s, \theta) \) above, and use this to verify
-\cref{eqn:curvilinearDefined:520} and \cref{eqn:curvilinearDefined:540} respectively.
+Compute the curvilinear and reciprocal frame vectors for the parameterization \( \Bx(u_1, u_2) \) above.
+%, and use this to verify
+%\cref{eqn:curvilinearDefined:520} and \cref{eqn:curvilinearDefined:540} respectively.
 \makesubproblem{}{problem:ellipticproblem:10:d}
-Check using scalar grade selection that \( \Bx^i \cdot \Bx_j = {\delta^i}_j \).
-Hints: Given \( \mu = \Atanh(1/2) \),
-\begin{itemize}
-\item \( \cosh( \mu + i \theta ) \Be_2 = \Be_2 \cosh( \mu - i \theta ) \).
-\item \( \Real\lr{ \cosh( \mu - i \theta ) \sinh( \mu + i \theta ) } = 2/3 \).
-\end{itemize}
+Check that \( \Bx^i \cdot \Bx_j = {\delta^i}_j \).
 } % problem
 \makeanswer{problem:ellipticproblem:10}{
 \makesubanswer{}{problem:ellipticproblem:10:a}
-Expanding the \( \cosh \) in terms of exponentials, we find
+Using the multiple angle \( \cosh \) expansion, we find
 \begin{equation}\label{eqn:ellipticproblem:40}
 \begin{aligned}
-\Be_1 \cosh\lr{ \mu + i \theta }
+\Be_1 \cosh\lr{ \mu + i u_2 }
 &=
-\frac{\Be_1}{2} \lr{ e^{\mu + i \theta} + e^{-\mu - i\theta} } \\
+\Be_1 \lr{
+\cosh\mu \cos u_2 + i \sinh\mu \sin u_2
+} \\
 &=
-\Be_1 \frac{e^\mu}{2} \lr{ \cos\theta + i \sin\theta }
-+
-\Be_1 \frac{e^{-\mu}}{2} \lr{ \cos\theta - i \sin\theta } \\
-&=
-\Be_1 \frac{ e^\mu + e^{-\mu} }{2} \cos\theta
-+ \Be_2 \frac{ e^\mu - e^{-\mu} }{2} \sin\theta \\
-&=
-\Be_1 \cosh\mu \cos\theta + \Be_2 \sinh\mu \sin\theta,
+\Be_1 \cosh\mu \cos u_2 + \Be_2 \sinh\mu \sin u_2,
 \end{aligned}
 \end{equation}
 so
 \begin{equation}\label{eqn:ellipticproblem:60}
-\Bx = s \Be_1 \cosh\lr{ \mu + i \theta } = \Be_1 a \cos\theta + \Be_2 b \sin\theta,
+\Bx = u_1 \Be_1 \cosh\lr{ \mu + i u_2 } = \Be_1 a \cos u_2 + \Be_2 b \sin u_2,
 \end{equation}
 where
 \begin{equation}\label{eqn:ellipticproblem:80}
 \begin{aligned}
-   a &= s \cosh\mu \\
-   b &= s \sinh\mu,
+   a &= u_1 \cosh\mu \\
+   b &= u_1 \sinh\mu,
 \end{aligned}
 \end{equation}
 are the semi-major and semi-minor axis values.
@@ -58,7 +123,7 @@ are the semi-major and semi-minor axis values.
 The eccentricity (squared) is
 \begin{equation}\label{eqn:ellipticproblem:100}
 \begin{aligned}
-   \epsilon^2 
+   \epsilon^2
    &= 1 - \tanh^2\mu \\
    &= \frac{\cosh^2\mu - \sinh^2\mu}{\cosh^2\mu} \\
    &= \inv{\cosh^2\mu},
@@ -72,11 +137,124 @@ so the eccentricity is
 Our curvilinear basis vectors are
 \begin{equation}\label{eqn:ellipticproblem:140}
 \begin{aligned}
-\Bx_s &= \Be_1 \cosh\lr{ \mu + i \theta } \\
-\Bx_\theta &= \Be_2 s \sinh\lr{ \mu + i \theta } \\
+\Bx_1 &= \Be_1 \cosh\lr{ \mu + i u_2 } \\
+\Bx_2 &= \Be_2 u_1 \sinh\lr{ \mu + i u_2 } \\
 \end{aligned}
 \end{equation}
-% finish.
+
+To compute the reciprocals we need the area element
+\begin{equation}\label{eqn:ellipticproblem:160}
+\begin{aligned}
+\Bx_1 \wedge \Bx_2
+&=
+\gpgradetwo{
+   \Be_1 \cosh\lr{ \mu + i u_2 } \Be_2 u_1 \sinh\lr{ \mu + i u_2 }
+} \\
+&=
+u_1 \gpgradetwo{
+   i \cosh\lr{ \mu - i u_2 } \sinh\lr{ \mu + i u_2 }
+} \\
+&=
+\frac{u_1}{2} \gpgradetwo{
+   i \lr{ \sinh(2 \mu) + i \sin(2 u_2) }
+} \\
+&=
+u_1 i \cosh \mu \sinh \mu.
+\end{aligned}
+\end{equation}
+
+Our recipocal basis vectors are
+\begin{equation}\label{eqn:ellipticproblem:240}
+\begin{aligned}
+   \Bx^1
+   &= \Bx_2 \inv{ \Bx_1 \wedge \Bx_2 } \\
+   &= \Be_2 u_1 \sinh\lr{ \mu + i u_2 } \inv{u_1 i \cosh \mu \sinh \mu} \\
+   &= \Be_1 \frac{\sinh\lr{ \mu + i u_2 }}{\cosh \mu \sinh \mu},
+\end{aligned}
+\end{equation}
+and
+\begin{equation}\label{eqn:ellipticproblem:180}
+\begin{aligned}
+\Bx^2
+   &= -\Bx_1 \inv{ \Bx_1 \wedge \Bx_2 } \\
+   &= -\lr{ \Be_1 \cosh\lr{ \mu + i u_2 } } \inv{ u_1 i \cosh \mu \sinh \mu} \\
+   &= \frac{ \Be_2 \cosh\lr{ \mu + i u_2 } }{ u_1 \cosh \mu \sinh \mu}.
+\end{aligned}
+\end{equation}
 \makesubanswer{}{problem:ellipticproblem:10:d}
+\begin{equation}\label{eqn:ellipticproblem:260}
+\begin{aligned}
+\Bx_1 \cdot \Bx^1
+   &= \gpgradezero{
+\Be_1 \cosh\lr{ \mu + i u_2 } \Be_1 \frac{\sinh\lr{ \mu + i u_2 }}{\cosh \mu \sinh \mu}
+} \\
+   &=
+\inv{\cosh \mu \sinh \mu}
+\gpgradezero{
+\Be_1^2 \cosh\lr{ \mu - i u_2 } \lr{\sinh\lr{ \mu + i u_2 }}
+} \\
+   &=
+\inv{\cosh \mu \sinh \mu}
+\gpgradezero{
+   \inv{2} \lr{ \sinh(2 \mu) + i \sin(2 u_2) }
+} \\
+&=
+\frac{\sinh(2 \mu) }{2 \cosh \mu \sinh \mu} \\
+&= 1.
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:ellipticproblem:360}
+\begin{aligned}
+\Bx_2 \cdot \Bx^2
+&=
+\gpgradezero{
+\Be_2 u_1 \sinh\lr{ \mu + i u_2 }
+\frac{ \Be_2 \cosh\lr{ \mu + i u_2 } }{ u_1 \cosh \mu \sinh \mu}
+} \\
+&=
+\inv{ \cosh \mu \sinh \mu}
+\gpgradezero{
+\sinh\lr{ \mu + i u_2 }
+\Be_2^2 \cosh\lr{ \mu - i u_2 }
+} \\
+&= 1.
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:ellipticproblem:380}
+\begin{aligned}
+\Bx_1 \cdot \Bx^2
+&=
+\gpgradezero{
+\Be_1 \cosh\lr{ \mu + i u_2 }
+\frac{ \Be_2 \cosh\lr{ \mu + i u_2 } }{ u_1 \cosh \mu \sinh \mu}
+} \\
+&=
+\inv{ u_1 \cosh \mu \sinh \mu}
+\gpgradezero{
+   \Be_{12} \cosh\lr{ \mu - i u_2 } \cosh\lr{ \mu + i u_2 }
+} \\
+&=
+\frac{ \Abs{ \cosh\lr{ \mu + i u_2 } }^2 }
+{ u_1 \cosh \mu \sinh \mu}
+\gpgradezero{
+   \Be_{12}
+} \\
+&= 0.
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:ellipticproblem:400}
+\begin{aligned}
+\Bx^1 \cdot \Bx_2
+&=
+\gpgradezero{
+\Be_1 \frac{\sinh\lr{ \mu + i u_2 }}{\cosh \mu \sinh \mu}
+\Be_2 u_1 \sinh\lr{ \mu + i u_2 }
+} \\
+&=
+\frac{ u_1 \Abs{\sinh\lr{ \mu + i u_2 }}^2 }{\cosh \mu \sinh \mu} \gpgradezero{ \Be_{12} } \\
+&= 0.
+\end{aligned}
+\end{equation}
 } % answer
 %}
+%\EndNoBibArticle
