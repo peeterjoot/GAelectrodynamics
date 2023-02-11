@@ -249,16 +249,16 @@ To prove \cref{thm:dielectric:180} we need to show that
 Let's start with \( F \)
 \begin{equation}\label{eqn:dielectric:140}
 \begin{aligned}
-\gpgrade{\stgrad F'}{0,1}
-&=
+&\gpgrade{\stgrad F'}{0,1} \\
+&\quad=
 \gpgrade{\stgrad F}{0,1}
 +
 \gpgrade{\stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{1,2} }{0,1} \\
-&=
+&\quad=
 \gpgrade{\stgrad F}{0,1}
 +
-\gpgrade{ \dAlembertian \Psi_{2,3} }{0,1} \\
-&\quad -
+\gpgrade{ \dAlembertian \Psi_{2,3} }{0,1} 
+-
 \gpgrade{ \stgrad \gpgrade{ \conjstgrad \Psi_{2,3} }{0,3} }{0,1}.
 \end{aligned}
 \end{equation}
