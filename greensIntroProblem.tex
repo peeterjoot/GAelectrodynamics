@@ -1,0 +1,101 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+%\input{../latex/blogpost.tex}
+%\renewcommand{\basename}{greensIntroProblem}
+%%\renewcommand{\dirname}{notes/phy1520/}
+%\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%%\newcommand{\dateintitle}{}
+%%\newcommand{\keywords}{}
+%
+%\input{../latex/peeter_prologue_print2.tex}
+%
+%\usepackage{peeters_layout_exercise}
+%\usepackage{peeters_braket}
+%\usepackage{peeters_figures}
+%\usepackage{siunitx}
+%\usepackage{verbatim}
+%%\usepackage{mhchem} % \ce{}
+%%\usepackage{macros_bm} % \bcM
+%%\usepackage{macros_qed} % \qedmarker
+%%\usepackage{txfonts} % \ointclockwise
+%
+%\beginArtNoToc
+%
+%\generatetitle{XXX}
+%%\chapter{XXX}
+%%\label{chap:greensIntroProblem}
+%
+\makeproblem{Harmonic oscillator Green's function.}{problem:greensIntroProblem:20}{
+Evaluate the integral
+\begin{equation}\label{eqn:greensIntroProblem:20}
+G(\tau) = \frac{-1}{2 \pi} \int_{-\infty}^\infty \inv{ \omega^2 - 2 j \omega k - \omega_0^2 } e^{j \omega \tau} d\omega,
+\end{equation}
+using the semicircular infinite contours depicted in \cref{fig:greensFunctionContours:greensFunctionContoursFigure}.
+\imageFigure{../figures/GAelectrodynamics/greensFunctionContoursFigure}{Contours for harmonic oscillator Green's function.}{fig:greensFunctionContours:greensFunctionContoursFigure}{0.2}
+} % problem
+\makeanswer{problem:greensIntroProblem:20}{
+With \( \alpha = \sqrt{ \omega_0^2 - k^2 } \), we may factor the denominator
+\begin{equation}\label{eqn:greensIntroProblem:40}
+\omega^2 - 2 j \omega k - \omega_0^2 = \lr{ \omega - \lr{ j k + \alpha } } \lr{ \omega - \lr{ j k - \alpha } },
+\end{equation}
+showing that we have poles in the upper half plane at \( j k \pm \alpha \).
+
+It's important to understand the behaviour of the integral on the infinite semi-circular contours, which we can parameterize as \( \omega = R e^{i\theta} \).  The denominator is \( O(1/R^2) \), but the exponential has the form
+\begin{equation}\label{eqn:greensIntroProblem:60}
+\begin{aligned}
+e^{j \omega \tau}
+&= e^{j \tau R\lr{ \cos\theta + j \sin\theta } } \\
+&= e^{j \tau R \cos\theta } e^{ - R \tau \sin\theta }.
+\end{aligned}
+\end{equation}
+We see that the integral diverges on the upper half contour for \( \tau < 0 \), and diverges on the lower half contour for \( \tau > 0 \).  There's a theorem (who's name I forget) that shows that the upper half contour integral evaluated for \( \tau > 0 \) will be zero on the infinite semicircle, as will the lower semicircular contour for \( \tau < 0 \), so if we compute the residues for the complete contours we find the value of the integral along the \( [-\infty,\infty] \) horizontal.
+
+We find
+\begin{equation}\label{eqn:greensIntroProblem:80}
+\begin{aligned}
+G(\tau < 0) &= 0 \\
+G(\tau > 0) &=
+\frac{-1}{2 \pi} 2 \pi j \lr{
+   \evalbar{
+   \frac{e^{j \omega \tau}}{\omega - \lr{ j k + \alpha } }
+   }
+   {
+      \omega = j k - \alpha
+   }
+   +
+   \evalbar{
+   \frac{e^{j \omega \tau}}{\omega - \lr{ j k - \alpha } }
+   }
+   {
+      \omega = j k + \alpha
+   }
+} \\
+&=
+\inv{j} \lr{
+   \frac{e^{j \tau \lr{ j k - \alpha } }}{-2\alpha}
+   +
+   \frac{e^{j \tau \lr{ j k + \alpha } }}{ 2\alpha}
+} \\
+&=
+\inv{\alpha} e^{ - k \tau } \sin\lr{ \alpha \tau },
+\end{aligned}
+\end{equation}
+or
+\begin{equation}\label{eqn:greensIntroProblem:100}
+G(\tau) = \Theta(\tau) e^{ - k \tau } \frac{ \sin\lr{ \alpha \tau } }{\alpha}.
+\end{equation}
+Rather amusingly, when the system is supplied with an impulse function \( f(t) = \delta(t) \), we see that the response to that infinite push on the swing is
+\begin{equation}\label{eqn:greensIntroProblem:120}
+\begin{aligned}
+x(t)
+&= \int_{-\infty}^\infty \Theta(t-t') e^{ - k (t-t') } \frac{ \sin\lr{ \alpha (t-t') } }{\alpha} \delta(t') dt' \\
+&= \Theta(t) e^{-k t} \frac{ \sin\lr{ \alpha t } }{\alpha},
+\end{aligned}
+\end{equation}
+which describes an oscillation that starts at the point of the push, but decreases in amplitude steadily after that due to the damping term.  Even with an infinite strength initial push, the child will eventually be exhorting the dad to supply another underdog, ``Again, again, again!''.
+} % answer
+%}
+%\EndNoBibArticle

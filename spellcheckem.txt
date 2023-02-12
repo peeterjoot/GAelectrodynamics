@@ -110,6 +110,7 @@ greensFunctionOverview.tex
 greensFunctionSolutions.tex
 greensFunctionSpacetimeGradient.tex
 greensIntro.tex
+greensIntroProblem.tex
 helmholtzDerviationMultivectorSolution.tex
 helmholtzDerviationMultivectorStatement.tex
 helmholtzGreens.tex

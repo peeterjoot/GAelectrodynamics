@@ -33,7 +33,7 @@ Here the space and time domain equivalent of the frequency and time domain linea
 
 Everybody's favorite differential equation, the harmonic oscillator, can be used as an illustrative example
 \begin{equation}\label{eqn:greensIntro:300}
-x'' + k x' + (\omega_0)^2 x = f(t).
+x'' + 2 k x' + (\omega_0)^2 x = f(t).
 \end{equation}
 
 Here derivatives are with respect to time, \( \omega_0 \) is the intrinsic angular frequency of the oscillator, \( k \) is a damping factor, and \( f(t) \) is a forcing function.
@@ -46,13 +46,13 @@ With two kids the Dad-forcing-function tires quickly, as it is applied repeatedl
 The full solution of this problem is
 \( x(t) = x_s(t) + x_0(t) \),
 where \( x_s(t) \) is a solution of \cref{eqn:greensIntro:300} and
-\( x_0 \) is any solution of the homogeneous equation \( x_0'' + k x_0' + (\omega_0)^2 x_0 = 0 \), picked to satisfy the boundary value constraints of the problem.
+\( x_0 \) is any solution of the homogeneous equation \( x_0'' + 2 k x_0' + (\omega_0)^2 x_0 = 0 \), picked to satisfy the boundary value constraints of the problem.
 
 Let's attack this problem initially with Fourier transforms (\cref{dfn:greensFunctionOverview:280})
 
 We can assume zero position and velocity for the non-homogeneous problem, since we can adjust the boundary conditions with the homogeneous solution \( x_0(t) \).  With zero boundary conditions on \( x, x' \), the transform of \cref{eqn:greensIntro:300} is
 \begin{equation}\label{eqn:greensIntro:320}
-((j \omega)^2 + j \omega k + (\omega_0)^2) X(\omega) = F(\omega),
+((j \omega)^2 + 2 j \omega k + (\omega_0)^2) X(\omega) = F(\omega),
 \end{equation}
 so the system is solved in the frequency domain by the system response function \( G(\omega) \)
 \begin{equation}\label{eqn:greensIntro:340}
@@ -60,7 +60,7 @@ X(\omega) = G(\omega) F(\omega),
 \end{equation}
 where
 \begin{equation}\label{eqn:greensIntro:360}
-G(\omega) = \frac{-1}{\omega^2 - j \omega k - (\omega_0)^2}.
+G(\omega) = \frac{-1}{\omega^2 - 2 j \omega k - (\omega_0)^2}.
 \end{equation}
 
 We can apply the inverse transformation to find the time domain solution for the forced oscillator problem.
@@ -80,7 +80,7 @@ We'll write this as
 G(t,t') = \inv{2 \pi} \int d\omega G(\omega) e^{j \omega (t-t')}.
 \end{equation}
 
-If we can evaluate this integral, then the system can be considered solved, where a solution is given by the convolution integral
+If we can evaluate this integral (\cref{problem:greensIntroProblem:20}), then the system can be considered solved, where a solution is given by the convolution integral
 \begin{equation}\label{eqn:greensIntro:420}
 x(t) = \int dt' f(t') G(t,t') + x_0(t).
 \end{equation}
@@ -92,20 +92,20 @@ Since the equation is a linear, it is reasonable to assume that a linear weighte
 If such a solution is assumed, then we can operate on that solution with the differential operator for the problem.
 For our harmonic oscillator problem that operator is
 \begin{equation}\label{eqn:greensIntro:440}
-\LL = \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2.
+\LL = \PDSq{t}{} + 2 k \PD{t}{} + (\omega_0)^2.
 \end{equation}
 We find
 \begin{equation}\label{eqn:greensIntro:460}
 \begin{aligned}
 f(t)
-&= \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 } x(t) \\
-&= \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 } \int dt' f(t') G(t,t') \\
-&= \int dt' f(t') \lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 } G(t,t'),
+&= \lr{ \PDSq{t}{} + 2 k \PD{t}{} + (\omega_0)^2 } x(t) \\
+&= \lr{ \PDSq{t}{} + 2 k \PD{t}{} + (\omega_0)^2 } \int dt' f(t') G(t,t') \\
+&= \int dt' f(t') \lr{ \PDSq{t}{} + 2 k \PD{t}{} + (\omega_0)^2 } G(t,t'),
 \end{aligned}
 \end{equation}
 and see that the Green's function, when acted on by the differential operator, must have the characteristics of a delta function
 \begin{equation}\label{eqn:greensIntro:480}
-\lr{ \PDSq{t}{} + k \PD{t}{} + (\omega_0)^2 }
+\lr{ \PDSq{t}{} + 2 k \PD{t}{} + (\omega_0)^2 }
 G(t,t')
 =
 \delta( t - t').
