@@ -133,3 +133,43 @@ We've demonstrated the desired result, showing that our Laissez-faire substituti
 \makeproblem{Extracting the conventional Maxwell's equations.}{problem:isotropicMaxwells:720}{
 Apply grade 0,1,2, and 3 selection operations to \cref{eqn:isotropicMaxwells:580}.  Determine the multiplicative (scalar or trivector) constants required to obtain \cref{eqn:isotropicMaxwells:500} from the equations that result from such grade selection operations.
 } % problem
+\makeanswer{problem:isotropicMaxwells:720}{
+Our grade selection operators yield the following four equations
+\begin{equation}\label{eqn:isotropicMaxwells:720}
+\begin{aligned}
+\gpgradezero{ \spacegrad \BE } &= \eta c \rho  \\
+\gpgradeone{ \inv{c}\PD{t}{\BE} + \spacegrad I \eta \BH } &= -\eta \BJ \\
+\gpgradetwo{ \spacegrad \BE + \inv{c} \PD{t}{I \eta \BH} } &= -I \BM \\
+\gpgradethree{ \spacegrad I \eta \BH } &= I c \rho_m
+\end{aligned}
+\end{equation}
+Observe that
+%\begin{equation}\label{eqn:isotropicMaxwells:800}
+%\lr{\eta c}^2
+%= \frac{\mu}{\epsilon} \frac{1}{\epsilon\mu}
+%= \inv{\epsilon^2},
+%\end{equation}
+%or
+\( \eta c = 1/\epsilon \), so the first equation recovers Gauss's law
+\begin{equation}\label{eqn:isotropicMaxwells:740}
+\spacegrad \cdot \BE = \frac{\rho}{\epsilon}.
+\end{equation}
+Dividing the vector equation through by \( -\eta \), we have
+\begin{equation}\label{eqn:isotropicMaxwells:760}
+\frac{-1}{c \eta}\PD{t}{\BE} - I \lr{ \spacegrad \wedge \BH } = \BJ,
+\end{equation}
+or
+\begin{equation}\label{eqn:isotropicMaxwells:780}
+-\PD{t}{\epsilon \BE} + \spacegrad \cross \BH = \BJ,
+\end{equation}
+the Amp\'ere-Maxwell equation (with \( \BD = \epsilon \BE \), and \( \BH = \BB/\mu \).)
+Multiplying the bivector equation through by \( -I \), and noting that \( \eta/c = \mu \), we convert it to a vector equation
+\begin{equation}\label{eqn:isotropicMaxwells:820}
+-I^2 \lr{ \spacegrad \cross \BE } -I^2 \PD{t}{\mu \BH} = I^2 \BM,
+\end{equation}
+which is the Maxwell-Faraday equation (augmented with the fictious magnetic current density.)  Finally, dividing the pseudoscalar equation through by \( I c \), we find
+\begin{equation}\label{eqn:isotropicMaxwells:n}
+\rho_m = \frac{\eta}{c} \spacegrad \cdot \BH = \spacegrad \cdot \lr{ \mu \BH },
+\end{equation}
+which is Gauss's law for magnetism (with the fictious ``engineering'' magnetic charge density term.)
+} % answer
