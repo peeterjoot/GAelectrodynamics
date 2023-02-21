@@ -121,7 +121,7 @@
 #../latex/bin/lgrep inMatter.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl inMatter.tex
 
-#../latex/bin/lgrep isotropicMaxwells.tex | tee o ; . ./o
+../latex/bin/lgrep isotropicMaxwells.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl isotropicMaxwells.tex
 
 #../latex/bin/lgrep landauEasy.tex | tee o ; . ./o
@@ -505,5 +505,5 @@
 #../latex/bin/lgrep curvilinearsphericalProblem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl curvilinearsphericalProblem.tex
 
-../latex/bin/lgrep greensIntroProblem.tex | tee o ; . ./o
+#../latex/bin/lgrep greensIntroProblem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl greensIntroProblem.tex

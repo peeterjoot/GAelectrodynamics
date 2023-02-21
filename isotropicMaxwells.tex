@@ -99,6 +99,37 @@ and not decompose Maxwell's equation into the conventional representation by gra
 \makeproblem{Dot and cross product relation to vector product.}{problem:isotropicMaxwells:700}{
 Using coordinate expansion, convince yourself of the validity of \cref{eqn:isotropicMaxwells:520}.
 } % problem
+\makeanswer{problem:isotropicMaxwells:700}{
+\begin{equation}\label{eqn:isotropicMaxwells:660}
+\begin{aligned}
+\spacegrad \Bb
+&=
+\sum_{ij=1}^3 \lr{ \Be_i \PD{x_i}{} } \lr{ \Be_j b_j } \\
+&=
+\sum_{ij=1}^3 \Be_i \Be_j \PD{x_i}{b_j} \\
+&=
+\sum_{i=1}^3 \Be_i \Be_i \PD{x_i}{b_i} + \sum_{i \ne j} \Be_i \Be_j \PD{x_i}{b_j} .
+\end{aligned}
+\end{equation}
+Here we've decomposed the sum into symmetric and antisymmetric contributions.  The symmetric part reduces easily to the divergence
+\begin{equation}\label{eqn:isotropicMaxwells:680}
+\sum_{i=1}^3 \Be_i \Be_i \PD{x_i}{b_i}
+=
+\sum_{i=1}^3 \PD{x_i}{b_i}
+= \spacegrad \cdot \Bb.
+\end{equation}
+Because, for \( i \ne j \), \( \Be_i \Be_j = \Be_i \wedge \Be_j = I \lr{ \Be_i \cross \Be_j } \), and both the wedge and dot products are zero for \( i = j \), we can reintroduce the sum over all \( i, j \) indexes
+\begin{equation}\label{eqn:isotropicMaxwells:700}
+\begin{aligned}
+   \sum_{i \ne j} \Be_i \Be_j \PD{x_i}{b_j}
+   &= I \sum_{i \ne j} \Be_i \cross \Be_j \PD{x_i}{b_j}  \\
+   &= I \sum_{ij=1}^3 \Be_i \cross \Be_j \PD{x_i}{b_j}  \\
+   &= I \sum_{ij=1}^3 \lr{ \Be_i \PD{x_i}{} } \cross \lr{ \Be_j b_j}  \\
+   &= I \lr{ \spacegrad \cross \Bb }.
+\end{aligned}
+\end{equation}
+We've demonstrated the desired result, showing that our Laissez-faire substitution \( \Ba = \spacegrad \) in \( \Ba \Bb = \Ba \cdot \Bb + I \lr{ \Ba \cross \Bb} \) was justified, despite the operator nature of the gradient.
+} % answer
 \makeproblem{Extracting the conventional Maxwell's equations.}{problem:isotropicMaxwells:720}{
 Apply grade 0,1,2, and 3 selection operations to \cref{eqn:isotropicMaxwells:580}.  Determine the multiplicative (scalar or trivector) constants required to obtain \cref{eqn:isotropicMaxwells:500} from the equations that result from such grade selection operations.
 } % problem
