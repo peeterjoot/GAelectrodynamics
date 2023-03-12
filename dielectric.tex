@@ -122,30 +122,30 @@ from
 %\makeanswer{problem:dielectric:160}{
 %To prove \cref{thm:dielectric:20} we start by eliminating the cross products from
 %and grouping the fields
-%\begin{dmath}\label{eqn:dielectric:20}
+%\begin{equation}\label{eqn:dielectric:20}
 %\begin{aligned}
 %\PD{t}{\BD} +I \spacegrad \wedge \BH &= -\BJ  \\
 %\spacegrad \cdot \BD &= \rho \\
 %I \PD{t}{\BB} + \spacegrad \wedge \BE &= -I \BM  \\
 %I \spacegrad \cdot \BB &= I \rho_\txtm.
 %\end{aligned}
-%\end{dmath}
+%\end{equation}
 %There are time and divergence operations that we may assume should be grouped into a single spacetime gradient.  Let \( c \) be a constant with dimensions of velocity (to be determined), and then redimensionalize
-%\begin{dmath}\label{eqn:dielectric:40}
+%\begin{equation}\label{eqn:dielectric:40}
 %\begin{aligned}
 %\inv{c} \PD{t}{\BD} +I \spacegrad \wedge \frac{\BH}{c} &= -\frac{\BJ}{c} \\
 %\spacegrad \cdot \BD &= \rho \\
 %\inv{c} \PD{t}{c I \BB} + \spacegrad \wedge \BE &= -I \BM  \\
 %I \spacegrad \cdot (c \BB) &= I c \rho_\txtm.
 %\end{aligned}
-%\end{dmath}
+%\end{equation}
 %The dimensions of the pair of equations in \( (\BD,\BH) \) and \( \BE, \BB \) are now consistent.  The grades of these equations are respectively vector, scalar, bivector, and pseudoscalar, so the scalar-vector and bivector-pseudoscalar equations may be added without any loss of information.
-%\begin{dmath}\label{eqn:dielectric:60}
+%\begin{equation}\label{eqn:dielectric:60}
 %\begin{aligned}
 %\spacegrad \cdot \BD + \inv{c} \PD{t}{\BD} + I \spacegrad \wedge \frac{\BH}{c} &= \rho -\frac{\BJ}{c} \\
 %I \spacegrad \cdot (c \BB) + \inv{c} \PD{t}{c I \BB} + \spacegrad \wedge \BE &= I\lr{ c \rho_\txtm - \BM }.
 %\end{aligned}
-%\end{dmath}
+%\end{equation}
 %The right hand sides are the \( J_\txte, I J_\txtm \) sources defined above.  Let's expand the grade selections of
 %} % answer
 
