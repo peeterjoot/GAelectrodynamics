@@ -375,7 +375,7 @@ a_3 & b_3 & c_3 \\
 \end{vmatrix}
 }.
 \end{equation}
-This is obviously equivalent to the GA solution, where the ratio of determinants is found immediately from the coordinate representation of the triple wedge products.  We can't solve this system of equations using Cramer's rule for \R{N} when \( N > 3 \) since the system is overspecified in that case.  That overspecification is why we require the additional
+This is obviously equivalent to the GA solution, where the ratio of determinants is found immediately from the coordinate representation of a triple wedge product.  We can't solve this system of equations using Cramer's rule for \R{N} when \( N > 3 \) since the system is overspecified in that case.  That overspecification is why we require the additional
 \( \lr{ \Bq - \Bp } \wedge \Bb \wedge \Bc \propto \Ba \wedge \Bb \wedge \Bc \)
 constraint for the GA solution using wedge products.  Note that this wedge product solution method is unlikely to be numerically stable for \( N > 3 \), and we are probably better off solving with SVD, so that we have some estimation of the numerical errors that either rule out or validate the solution.
 } % answer
