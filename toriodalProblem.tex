@@ -1,0 +1,53 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Curvilinear basis for toroidal parameterization.}{problem:toriodalProblem:1}{
+Prove \cref{eqn:torusCenterOfMassParameterization:3}.
+} % problem
+
+\makeanswer{problem:toriodalProblem:1}{
+We'll only compute \( \Bx_\theta \) here explicitly, as the other two vectors can be computed by inspection.
+
+We start with a plain old chain rule expansion, with the cavaet that we must b e careful not to commute \( j \) with anything but the \( e^{\pm j \theta/2} \) terms.
+\begin{equation}\label{eqn:toriodal:21}
+\begin{aligned}
+\Bx_\theta &= \PD{\theta}{\Bx} \\
+&=
+-\frac{j}{2}
+e^{-j\theta/2} \left( \rho \Be_1 e^{ i \phi } + R \Be_3 \right) e^{j \theta/2} 
++
+e^{-j\theta/2} \left( \rho \Be_1 e^{ i \phi } + R \Be_3 \right) e^{j \theta/2}
+\frac{j}{2}
+\end{aligned}
+\end{equation}
+Note that the bivector \( j \) commutes with \( \Be_1 \), and then proceed to compute the \( \rho \) dependent part of \( \Bx_\theta \)
+\begin{equation}\label{eqn:toriodal:41}
+\begin{aligned}
+& \frac{\rho}{2} e^{-j \theta/2} \Be_1 \lr{ -j e^{i \phi}  + e^{i \phi} j } e^{ j\theta/2 } \\
+&=\frac{\rho}{2} e^{-j \theta/2} \Be_1 \lr{ - \Be_{32} \lr{ \cos\phi + \Be_{13} \sin\phi} + \lr{ \cos\phi + \Be_{13} \sin\phi} \Be_{32} } e^{ j\theta/2 } \\
+&=\frac{\rho}{2} e^{-j \theta/2} \Be_1 \lr{ - \Be_{3213}  \sin\phi + \Be_{1332} \sin\phi } e^{ j\theta/2 } \\
+&=\frac{\rho}{2} e^{-j \theta/2} \Be_1 \lr{ - \Be_{21}  \sin\phi + \Be_{12} \sin\phi } e^{ j\theta/2 } \\
+&=      \rho e^{-j \theta/2} \Be_{112} \sin\phi e^{ j\theta/2 } \\
+&=      \rho e^{-j \theta/2} \Be_{2} \sin\phi e^{ j\theta/2 }.
+%&=      \rho \sin\phi \Be_2 e^{j \theta/2} e^{ j\theta/2 } \\
+%&=      \rho \sin\phi \Be_2 e^{j \theta}.
+\end{aligned}
+\end{equation}
+Similarly, the \( R \) dependent contribution is
+\begin{equation}\label{eqn:toriodal:61}
+\begin{aligned}
+& \frac{R}{2} e^{-j \theta/2} \lr{ -j \Be_3  + \Be_3 j } e^{ j\theta/2 } \\
+& \frac{R}{2} e^{-j \theta/2} \lr{ -\Be_{323}  + \Be_{332} } e^{ j\theta/2 } \\
+& \frac{R}{2} e^{-j \theta/2} \lr{ \Be_{2}  + \Be_{2} } e^{ j\theta/2 } \\
+&       R     e^{-j \theta/2} \Be_{2}  e^{ j\theta/2 }.
+\end{aligned}
+\end{equation}
+Putting the pieces together, we have
+\begin{equation}\label{eqn:toriodal:81}
+\Bx_\theta = e^{-j \theta/2} \lr{ R + \rho \sin\phi } \Be_{2}  e^{ j\theta/2 },
+\end{equation}
+as claimed.
+} % answer
+%}

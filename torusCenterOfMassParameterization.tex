@@ -6,12 +6,10 @@
 \index{differential form}
 %\imageFigure{../figures/gabook/toriodalSegment}{Toroidal parameterization.}{fig:toriodalSegment}{0.5}
 \mathImageFigure{../figures/GAelectrodynamics/toroidFig1}{Toroidal parameterization.}{fig:toriodalSegment}{0.3}{gaToroid.nb}
-
 Here is a 3D example of a parameterization with a non-orthogonal curvilinear basis, that of a
 toroidal subspace specified by two angles and a radial distance to the center of the toroid, as illustrated in \cref{fig:toriodalSegment}.
 
 The position vector on the surface of a toroid of radius \( \rho \) within the torus can be stated directly
-
 \begin{subequations}
 \begin{align}\label{eqn:torusCenterOfMassParameterization:1}
 \Bx(\rho, \theta, \phi) &= e^{-j\theta/2} \left( \rho \Be_1 e^{ i \phi } + R \Be_3 \right) e^{j \theta/2} \\
@@ -24,10 +22,9 @@ It happens that the unit bivectors \(i\) and \(j\) used in this construction hap
 to have the
 quaternion-ic properties \(i j = -j i\), and \(i^2 = j^2 = -1\) which can be verified easily.
 
-After some regrouping the curvilinear basis is found to be
-
-\begin{subequations}
-\begin{align}\label{eqn:torusCenterOfMassParameterization:3}
+The curvilinear basis is found (\cref{problem:toriodalProblem:1}) to be
+\begin{subequations}\label{eqn:torusCenterOfMassParameterization:3}
+\begin{align}
 \Bx_\rho &= \PD{\rho}{\Bx} = e^{-j\theta/2} \Be_1 e^{ i \phi } e^{j \theta/2} \\
 \Bx_\theta &= \PD{\theta}{\Bx}
 %&= e^{-j\theta/2} \left( \rho \inv{2} \left( -\Be_3 \Be_2 \Be_1 e^{ i \phi } + \Be_1 e^{ i \phi } \Be_3 \Be_2 \right) + R \Be_2 \right) e^{j \theta/2} \\
