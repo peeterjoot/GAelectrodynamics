@@ -1,0 +1,29 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Orthogonal reciprocals.}{problem:reciprocal_orthogonal_problem:1}{
+Given an orthogonal basis \( \setlr{ \Bx_i } \), show that 
+\begin{equation*}
+\Bx^i = \inv{\Bx_i}.
+\end{equation*}
+} % problem
+\makeanswer{problem:reciprocal_orthogonal_problem:1}{
+\begin{proof}
+Since each reciprocal vector must each satisfy \( \Bx^i \cdot \Bx_i = 1 \), let \( \Bx^i = \alpha \Bx_i \), then
+\begin{equation}\label{eqn:reciprocal:401}
+\begin{aligned}
+1
+&= \Bx^i \cdot \Bx_i \\
+&= \lr{ \alpha \Bx_i } \cdot \Bx_i \\
+&= \alpha \lr{ \Bx_i \cdot \Bx_i },
+\end{aligned}
+\end{equation}
+or
+\begin{equation}\label{eqn:reciprocal:402}
+\Bx^i = \inv{ \Bx_i \cdot \Bx_i } \Bx_i = \inv{\Bx_i}.
+\end{equation}
+\end{proof}
+} % answer
+%}

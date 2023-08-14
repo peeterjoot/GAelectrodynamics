@@ -146,6 +146,7 @@ r4nonzerobivectorwedgewithself.tex
 reciprocal.tex
 reciprocal_R2.tex
 reciprocal_R3.tex
+reciprocal_orthogonal_problem.tex
 reflection.tex
 reverseDefined.tex
 ringField.tex

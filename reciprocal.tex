@@ -15,7 +15,7 @@ additional tools are required.
 
 \begin{itemize}
 \item
-We introduce a reciprocal frame which partially generalizes the notion of orthogonality to non-orthonormal bases.
+We introduce a reciprocal frame (basis) which partially generalizes the notion of orthogonality to non-orthonormal bases.
 \item
 We will borrow the upper and lower index (tensor) notation from relativistic physics that is useful for the intrinsically non-orthonormal spaces encountered in that study, as this notation works well to define the reciprocal frame.
 \end{itemize}
@@ -23,25 +23,13 @@ We will borrow the upper and lower index (tensor) notation from relativistic phy
 \index{\(\Bx^i\)}
 \index{\({\delta_i}^j\)}
 \input{Definition_reciprocal_frame.tex}
-With an orthogonal basis, every basis vector is orthogonal to every other vector, so any orthonormal basis is also its reciprocal basis.
-In general, if the original basis is not-orthogonal, every reciprocal basis vector is orthogonal to all but one of the original basis vectors, but may not be orthogonal to any other reciprocal basis vector.
 
-If the curvilinear basis vectors \( \setlr{ \Bx_i } \) are orthogonal, then the reciprocal vectors \( \Bx^i \) are easy to compute.  Since they must each satisfy \( \Bx^i \cdot \Bx_i = 1 \), let \( \Bx^i = \alpha \Bx_i \), then
-\begin{equation}\label{eqn:reciprocal:401}
-\begin{aligned}
-1
-&= \Bx^i \cdot \Bx_i \\
-&= \lr{ \alpha \Bx_i } \cdot \Bx_i \\
-&= \alpha \lr{ \Bx_i \cdot \Bx_i },
-\end{aligned}
-\end{equation}
-or
-\begin{equation}\label{eqn:reciprocal:402}
-\Bx^i = \inv{ \Bx_i \cdot \Bx_i } \Bx_i = \inv{\Bx_i}.
-\end{equation}
-More general techniques for computation of reciprocal bases will be required for non-orthoganal bases.
+If a basis \( \setlr{ \Bx_i } \) is orthogonal, then the reciprocal frame vectors are, literally, the reciprocals \( \Bx^i = 1/\Bx_i \) (\cref{problem:reciprocal_orthogonal_problem:1}).
+Any orthonormal basis, where every basis vector is its own inverse, is also its reciprocal basis.
 
-Mixed index variables have been introduced for the first time in this text, which may be unfamiliar.  These are most often used in tensor algebra, where any expression that has pairs of upper and lower indexes implies a sum, and is called the summation (or Einstein) convention.  For example:
+In general, if the original basis is not-orthogonal, every reciprocal basis vector is orthogonal to all but one of the original basis vectors, but may not be orthogonal to any other reciprocal basis vector.  Techniques for computation of reciprocal bases will be developed for the non-orthogonal case.
+
+Mixed index variables have been introduced above for the first time in this text, which may be unfamiliar.  These are most often used in tensor algebra, where any expression that has pairs of upper and lower indexes implies a sum, and is called the summation (or Einstein) convention.  For example:
 \begin{equation}\label{eqn:reciprocal:400}
 \begin{aligned}
 a_i b^i &\equiv \sum_i a_i b^i \\
