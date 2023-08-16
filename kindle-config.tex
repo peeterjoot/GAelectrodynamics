@@ -1,0 +1,144 @@
+\PassOptionsToPackage{eulerchapternumbers,listings,
+				 subfig,beramono,parts}{classicthesis}										
+\newcommand{\bmmax}{0}
+\newcommand{\hmmax}{0}
+\usepackage{ifthen}
+\usepackage{censor}
+\newboolean{enable-backrefs} 
+\setboolean{enable-backrefs}{true} 
+\newcommand{\myTitle}{Geometric Algebra for Electrical Engineers.\xspace}
+\newcommand{\mySubtitle}{Multivector Electromagnetism.\xspace}
+\newcommand{\myDegree}{}
+\newcommand{\myName}{Peeter Joot\xspace}
+\newcommand{\myProf}{}
+\newcommand{\myOtherProf}{}
+\newcommand{\mySupervisor}{}
+\newcommand{\myFaculty}{}
+\newcommand{\myDepartment}{}
+\newcommand{\myUni}{}
+\newcommand{\myLocation}{}
+   \input{./.revinfo/gitCommitDateAsMyTime.tex}
+\newcounter{dummy} 
+\newlength{\abcd} 
+\providecommand{\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+\PassOptionsToPackage{latin9}{inputenc}	
+ \usepackage{inputenc}				
+ \usepackage{babel}					
+\PassOptionsToPackage{square,numbers}{natbib}
+ \usepackage{natbib}				
+\PassOptionsToPackage{fleqn}{amsmath}		
+ \usepackage{amsmath}
+\PassOptionsToPackage{T1}{fontenc} 
+	\usepackage{fontenc}
+\usepackage{xspace} 
+\usepackage{mparhack} 
+\usepackage{fixltx2e} 
+\PassOptionsToPackage{printonlyused,smaller}{acronym}
+	\usepackage{acronym} 
+\usepackage{tabularx} 
+	\setlength{\extrarowheight}{3pt} 
+\newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
+\newcommand{\myfloatalign}{\centering} 
+\usepackage{caption}
+\captionsetup{format=hang,font=small}
+\usepackage{subfig}
+\usepackage{listings}
+\let\origlstlisting=\lstlisting
+\let\endoriglstlisting=\endlstlisting
+\renewenvironment{lstlisting}
+    {\mathcode`\-=\hyphenmathcode
+     \everymath{}\mathsurround=0pt\origlstlisting}
+    {\endoriglstlisting}
+\lstset{language=[LaTeX]Tex,
+    keywordstyle=\color{RoyalBlue},
+    basicstyle=\small\ttfamily,
+    commentstyle=\color{Green}\ttfamily,
+    stringstyle=\rmfamily,
+    numbers=none,
+    numberstyle=\scriptsize,
+    stepnumber=5,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frameround=ftff,
+    frame=single,
+    belowcaptionskip=.75\baselineskip
+}
+\PassOptionsToPackage{hyperfootnotes=false,hyperindex=true}{hyperref}
+	\usepackage{hyperref}  
+	\usepackage{graphicx}
+\newcommand{\backrefnotcitedstring}{\relax}
+\newcommand{\backrefcitedsinglestring}[1]{(Cited on page~#1.)}
+\newcommand{\backrefcitedmultistring}[1]{(Cited on pages~#1.)}
+\ifthenelse{\boolean{enable-backrefs}}
+{
+		\PassOptionsToPackage{hyperpageref}{backref}
+		\usepackage{backref} 
+		   \renewcommand{\backreftwosep}{ and~} 
+		   \renewcommand{\backreflastsep}{, and~} 
+		   \renewcommand*{\backref}[1]{}  
+		   \renewcommand*{\backrefalt}[4]{
+		      \ifcase #1 
+		         \backrefnotcitedstring
+		      \or
+		         \backrefcitedsinglestring{#2}
+		      \else
+		         \backrefcitedmultistring{#2}
+		      \fi}
+}{\relax}
+\hypersetup{
+    colorlinks=true, linktocpage=true, 
+    breaklinks=true, pageanchor=true,
+    plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,
+    hypertexnames=true, 
+    urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen
+}
+\makeatletter
+\@ifpackageloaded{babel}
+    {
+       \addto\extrasamerican{
+					\renewcommand*{\figureautorefname}{Figure}
+					\renewcommand*{\tableautorefname}{Table}
+					\renewcommand*{\partautorefname}{Part}
+					\renewcommand*{\chapterautorefname}{Chapter}
+					\renewcommand*{\sectionautorefname}{Section}
+					\renewcommand*{\subsectionautorefname}{Section}
+					\renewcommand*{\subsubsectionautorefname}{Section}
+				}
+       \addto\extrasngerman{
+					\renewcommand*{\paragraphautorefname}{Absatz}
+					\renewcommand*{\subparagraphautorefname}{Unterabsatz}
+					\renewcommand*{\footnoteautorefname}{Fu\"snote}
+					\renewcommand*{\FancyVerbLineautorefname}{Zeile}
+					\renewcommand*{\theoremautorefname}{Theorem}
+					\renewcommand*{\appendixautorefname}{Anhang}
+					\renewcommand*{\equationautorefname}{Gleichung}
+					\renewcommand*{\itemautorefname}{Punkt}
+				}
+			
+			\providecommand{\subfigureautorefname}{\figureautorefname}
+    }{\relax}
+\makeatother
+\makeatletter
+\newcommand{\emptypage}[1]{
+  \cleardoublepage
+  \begingroup
+  \let\ps@plain\ps@empty
+  \pagestyle{empty}
+  #1
+  \cleardoublepage}
+\makeatletter
+\listfiles
+\usepackage[sixbynine]{../latex/classicthesis_mine/classicthesis}
+\usepackage{parameters}
+\iftoggle{use-lettersize}
+{
+   \usepackage[left=3cm,right=4cm]{geometry}
+}
+{
+   \usepackage[paperheight=9in,paperwidth=6in,left=2cm,right=2cm,top=1.9cm,bottom=1.5cm]{geometry}
+}
+\PassOptionsToPackage{answerdelayed}{exercise}
+\usepackage{peeters_layout}
+\usepackage{thisbook}
+\myClassicThesisOverrides

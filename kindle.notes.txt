@@ -69,3 +69,8 @@ d)
    rtrue \bgroup \c :def {}\let .
 
 
+
+
+3) an older attempt to generate online version:
+
+mk4ht htlatex GAelectrodynamics.tex 'xhtml,charset=utf-8,pmathml' ' -cunihtf -utf8 -cvalidate'

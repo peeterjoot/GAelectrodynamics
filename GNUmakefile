@@ -61,6 +61,8 @@ CLEAN_TARGETS += *.sp FrontBackmatter/*.sp
 
 DO_SPELL_CHECK := $(shell cat spellcheckem.txt)
 
+KINDLE := gaee-kindle
+
 include ../latex/make.rules
 
 $(THISBOOK).pdf :: parameters.sty
@@ -131,8 +133,18 @@ mmacells.sty: mmacells/mmacells.sty
 	cp $^ $@
 
 # hack for: HAVE_OWN_TITLEPAGE
-clean ::
+clean :: kclean
 	git checkout FrontBackmatter/Titlepage.tex
+
+kclean ::
+	#rm -f *.html # clobbers Changelog.html
+	rm -f *.idx *.4ct *.aux *.xref *.4tc *.dvi *.log *.ncx *.lg *.idv *.tmp *.css *.html *.epub
+	rm -f $(KINDLE)*svg content.opf
+	rm -rf $(KINDLE)-epub $(KINDLE)-mobi
+
+kindle: 
+	#tex4ebook kindle.tex
+	tex4ebook -s -f mobi -e build.mk4 $(KINDLE).tex
 
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
 	rm -f $@

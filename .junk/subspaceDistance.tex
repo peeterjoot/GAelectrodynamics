@@ -1,0 +1,268 @@
+%
+% Copyright © 2020 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\input{../latex/blogpost.tex}
+\renewcommand{\basename}{subspaceDistance}
+%\renewcommand{\dirname}{notes/phy1520/}
+\renewcommand{\dirname}{notes/ece1228-electromagnetic-theory/}
+%\newcommand{\dateintitle}{}
+%\newcommand{\keywords}{}
+
+\input{../latex/peeter_prologue_print2.tex}
+
+\usepackage{peeters_layout_exercise}
+\usepackage{peeters_braket}
+\usepackage{peeters_figures}
+\usepackage{siunitx}
+\usepackage{verbatim}
+%\usepackage{mhchem} % \ce{}
+%\usepackage{macros_bm} % \bcM
+%\usepackage{macros_qed} % \qedmarker
+%\usepackage{txfonts} % \ointclockwise
+
+\beginArtNoToc
+
+\generatetitle{Lines and planes in geometric algebra.}
+%\chapter{Lines and planes in geometric algebra.}
+%\label{chap:subspaceDistance}
+%%%\section{Motivation.}
+%%%I have way too many Dover books on mathematics, including \citep{widder1989advanced}, which is a nice little book, covering all basics, plus some higher level material like gamma functions, Fourier series, and Laplace transforms.  I'd borrowed this book from the Toronto Public Library in my youth.  I've been meaning to re-read it, and bought my own copy to do so (too long ago.)
+%%%
+%%%Perusing the chapter on vectors, I saw his treatment of lines, specifically the distance from a point to a line, and realized I'd left that elementary geometry topics out of my book.
+%%%
+%%%Let's tackle this and the similar distance from a plane problem here.
+%%%\section{Distance from a line.}
+%%%Given a point \( \Bx \) on a line, and a direction vector \( \Bu \) for the line, we can parameterize all points \( \By \) on the line by
+%%%\begin{dmath}\label{eqn:subspaceDistance:20}
+%%%   \By(t) = \Bx + a \Bu.
+%%%\end{dmath}
+%%%In particular, the vector \( \Bx - \By \) is directed along the line if
+%%%\begin{dmath}\label{eqn:subspaceDistance:40}
+%%%   \lr{ \Bx - \By } \wedge \Bu = 0.
+%%%\end{dmath}
+%%%%We loose the encoding of the origin with this wedge product form of the equation of the line, as it is satisfied by \( \Bx = \By = 0 \), something that may not have been the case in the original parametric expression for the line.  If that is a problem, it can be sidestepped by imposing a constraint, requiring that the points are not both zero.
+%%%While \cref{eqn:subspaceDistance:40} holds in \R{2} (and in fact \R{N}), this relationship is usually written in the \R{3} specific dual form
+%%%\begin{dmath}\label{eqn:subspaceDistance:60}
+%%%   \lr{ \Bx - \By } \cross \Bu = 0.
+%%%\end{dmath}
+%%%Given a vector \( \Bs \), representing a point, not necessarily on the line, we can compute the (shortest) distance from that point to the line.
+%%%\imageFigure{../figures/GAelectrodynamics/distanceToLineFig1}{Distance to line.}{fig:distanceToLine:distanceToLineFig1}{0.3}
+%%%Referring to \cref{fig:distanceToLine:distanceToLineFig1}, it's clear that we want this distance is just the rejection of \( \Bu \) from \( \Bd = \Bx - \Bs \).  We can decompose \( \Bd \) into components parallel and perpendicular to \( \Bu \) using the usual trick
+%%%\begin{dmath}\label{eqn:subspaceDistance:260}
+%%%\Bd
+%%%= \Bd \Bu \inv{\Bu}
+%%%=
+%%%\lr{ \Bd \cdot \Bu }
+%%%\inv{\Bu}
+%%%+
+%%%\lr{ \Bd \wedge \Bu }
+%%%\inv{\Bu},
+%%%\end{dmath}
+%%%where the first component is the projection along \( \Bu \), and the last is the rejection.   This means that the
+%%%directed distance to the line from the point \( \Bs \) is
+%%%\begin{dmath}\label{eqn:subspaceDistance:80}
+%%%   \BD = \lr{\lr{\Bx - \Bs} \wedge \Bu } \inv{\Bu}.
+%%%\end{dmath}
+%%%Should we want the conventional cross product formulation of this vector, this product may be expanded within a no-op grade-1 selection, applying the duality relation (\(\Bx \wedge \By = I \lr{ \Bx \cross \By }\)) twice
+%%%\begin{dmath}\label{eqn:subspaceDistance:100}
+%%%\Bd \wedge \Bu \inv{\Bu}
+%%%=
+%%%\gpgradeone{
+%%%   \Bd \wedge \Bu \frac{\Bu}{\Bu^2}
+%%%}
+%%%=
+%%%\inv{\Bu^2}
+%%%\gpgradeone{
+%%%   I (\Bd \cross \Bu) \Bu
+%%%}
+%%%=
+%%%\inv{\Bu^2}
+%%%\gpgradeone{
+%%%   I \cancel{(\Bd \cross \Bu) \cdot \Bu}
+%%%   +
+%%%   I (\Bd \cross \Bu) \wedge \Bu
+%%%}
+%%%=
+%%%\inv{\Bu^2}
+%%%\gpgradeone{
+%%%   I^2 (\Bd \cross \Bu) \cross \Bu
+%%%}
+%%%=
+%%%\frac{\Bu \cross (\Bd \cross \Bu)}{\Bu^2}.
+%%%\end{dmath}
+%%%
+%%%\section{Distance from a plane.}
+%%%Given two linearly independent vectors \( \Ba, \Bb \) that span a plane, and a point \( \Bx \) in the plane, the points in that plane are parameterized by
+%%%\begin{dmath}\label{eqn:subspaceDistance:140}
+%%%\By(s,t) = \Bx + s \Ba + t \Bb.
+%%%\end{dmath}
+%%%We can form a trivector equation of a plane by wedging both sides, first with \( \Ba \) and then with \( \Bb \), yielding
+%%%\begin{dmath}\label{eqn:subspaceDistance:160}
+%%%\lr{ \Bx - \By } \wedge \Ba \wedge \Bb = 0.
+%%%\end{dmath}
+%%%This equation is satisfied by all points \( \Bx, \By \) that lie in the plane
+%%%%, provided we impose a constraint, either requiring that both points are not zero, or by shifting the plane so that it passes through the origin (which may not have been the case in the original parametric representation.)
+%%%We are used to seeing the equation of a plane in dot product form, utilizing a normal.  That \R{3} representation can be recovered utilizing a dual transformation.  We introduce a bivector (2-blade) representation of the plane itself
+%%%\begin{dmath}\label{eqn:subspaceDistance:180}
+%%%B = \Ba \wedge \Bb,
+%%%\end{dmath}
+%%%and then let
+%%%\begin{dmath}\label{eqn:subspaceDistance:200}
+%%%B = I \Bn.
+%%%\end{dmath}
+%%%With such a substitution, \cref{eqn:subspaceDistance:160} can be transformed
+%%%\begin{dmath}\label{eqn:subspaceDistance:220}
+%%%0
+%%%= \lr{ \Bx - \By } \wedge B
+%%%= \gpgradethree{
+%%%\lr{ \Bx - \By } B
+%%%}
+%%%= \gpgradethree{
+%%%\lr{ \Bx - \By } I \Bn
+%%%}
+%%%= \gpgradethree{
+%%%I \lr{ \Bx - \By } \cdot \Bn
+%%%+
+%%%I \cancel{\lr{ \Bx - \By } \wedge \Bn}
+%%%}
+%%%=
+%%%I \lr{ \Bx - \By } \cdot \Bn,
+%%%\end{dmath}
+%%%where the last wedge product could be discarded since it contributes only a vector grade object after multiplication with \( I \), and that is filtered out by the grade three selection.  Multiplication of both sides with \( -I \) yields
+%%%\begin{dmath}\label{eqn:subspaceDistance:240}
+%%%\lr{ \Bx - \By } \cdot \Bn = 0,
+%%%\end{dmath}
+%%%the conventional form of the equation of an \R{3} plane.
+%%%If we want a more general representation, then we are better off using the wedge product form of this equation
+%%%\begin{dmath}\label{eqn:subspaceDistance:280}
+%%%\lr{ \Bx - \By } \wedge B = 0,
+%%%\end{dmath}
+%%%where we use \cref{eqn:subspaceDistance:180} to drop the references to the original spanning vectors \( \Ba, \Bb \).  As with rotations, in geometric algebra, it is more natural to encode the orientation of the plane with a bivector, than to use a spanning pair of vectors in the plane, or the normal to the plane.
+%%%
+%%%For the question of shortest distance from a point to our plane, we want to compute the component of \( \Bd = \Bx - \Bs \) that lies in the plane represented by \( B \), and the component perpendicular to that plane.  We do so using the same method as above for the line distance problem, writing
+%%%\begin{dmath}\label{eqn:subspaceDistance:300}
+%%%\Bd
+%%%= \Bd B \inv{B}
+%%%=
+%%%\lr{ \Bd \cdot B } \inv{B}
+%%%+
+%%%\lr{ \Bd \wedge B } \inv{B}.
+%%%\end{dmath}
+%%%It turns out that these are both vector grade objects (i.e. there are no non-vector grades that cancel perfectly).  The first term is the projection of \( \Bd \) onto the plane \( B \) whereas the second term is the rejection.  Let's do a few things here to get comfortable with these components.  First, let's verify that they are perpendicular by computing their dot product
+%%%\begin{dmath}\label{eqn:subspaceDistance:320}
+%%%\lr{ \lr{ \Bd \cdot B } \inv{B} }
+%%%\cdot
+%%%\lr{ \lr{ \Bd \wedge B } \inv{B} }
+%%%=
+%%%\gpgradezero{
+%%%\lr{ \Bd \cdot B } \inv{B}
+%%%\lr{ \Bd \wedge B } \inv{B}
+%%%}
+%%%=
+%%%\inv{B^4}
+%%%\gpgradezero{
+%%%\lr{ \Bd \cdot B } B
+%%%\lr{ \Bd \wedge B } B
+%%%}
+%%%\propto
+%%%\gpgradezero{
+%%%\lr{ \Bd \cdot B } B^2
+%%%\lr{ \Bd \wedge B }
+%%%}
+%%%\propto
+%%%\gpgradezero{
+%%%\lr{ \Bd \cdot B }
+%%%\lr{ \Bd \wedge B }
+%%%}
+%%%=
+%%%0,
+%%%\end{dmath}
+%%%where we first used \( B^{-1} = B/B^2 \), then \( \lr{ \Bd \wedge B } B = \pm B \lr{ \Bd \wedge B } \) (for \R{3} \( B \) commutes with the wedge \( \Bd \wedge B \) is a pseudoscalar, but may anticommute in other dimensions).  Finally, within the scalar selection operator we are left with the products of grade-1 and grade-3 objects, which can have only grade 2 or grade 4 components, so the scalar selection is zero.
+%%%
+%%%To confirm the guess that \( \lr{ \Bd \cdot B } \inv{B} \) lies in the plane, we can expand this object in terms of the spanning vector pair \( \Ba, \Bb \) to find
+%%%\begin{dmath}\label{eqn:subspaceDistance:340}
+%%%   \lr{ \Bd \cdot B } \inv{B}
+%%%   =
+%%%   \lr{ \Bd \cdot \lr{ \Ba \wedge \Bb} } \inv{B}
+%%%   =
+%%%\lr{
+%%%   (\Bd \cdot \Ba) \Bb
+%%%   -
+%%%   (\Bd \cdot \Bb) \Ba
+%%%} \inv{B}
+%%%\propto
+%%%\lr{
+%%%u \Ba + v \Bb
+%%%}
+%%%\cdot \lr{ \Ba \wedge \Bb}
+%%%\in \Span \setlr{ \Ba, \Bb }
+%%%\end{dmath}
+%%%Similarly, if \(  \lr{ \Bd \cdot B } \inv{B} \) has any component in the plane, dotting with \( B \) should be non-zero, but we have
+%%%\begin{dmath}\label{eqn:subspaceDistance:360}
+%%%\lr{ \lr{ \Bd \cdot B } \inv{B} } \cdot B
+%%%=
+%%%\gpgradeone{ \lr{ \Bd \cdot B } \inv{B} B }
+%%%=
+%%%\gpgradeone{ \Bd \cdot B }
+%%%= 0,
+%%%\end{dmath}
+%%%which demonstrates that this is the component we are interested in.  The directed (shortest) distance from the point \( \Bs \) to the plane is therefore
+%%%\begin{dmath}\label{eqn:subspaceDistance:380}
+%%%\BD
+%%%=
+%%%\lr{ \lr{ \Bx - \Bs } \wedge B } \inv{B}.
+%%%\end{dmath}
+%%%There should be a dual form for this relationship too, so let's see what it looks like.  First note that for vector \( \Bd \)
+%%%\begin{dmath}\label{eqn:subspaceDistance:400}
+%%%\Bd \wedge B
+%%%=
+%%%\gpgradethree{
+%%%\Bd I \Bn
+%%%}
+%%%=
+%%%I (\Bd \cdot \Bn),
+%%%\end{dmath}
+%%%so
+%%%\begin{dmath}\label{eqn:subspaceDistance:420}
+%%%\BD
+%%%=
+%%%I \lr{ \lr{ \Bx - \Bs } \cdot \Bn } \inv{I \Bn}
+%%%=
+%%%\lr{ \Bx - \Bs } \cdot \Bn \inv{\Bn}.
+%%%\end{dmath}
+%%%This would conventionally be written in terms of a unit vector \( \ncap \) as \( \lr{\lr{ \Bx - \Bs } \cdot \ncap} \ncap\).
+%%%XX
+%\section{Summary.}
+
+\makedefinition{Linear subspace.}{dfn:subspaceDistance:540}{
+Given a linearly independent set of \( k \) vectors \( \setlr{\Bu_1, \cdots \Bu_k} \), and a point \( \Bx \), a \( k \) dimensional subspace containing \( \Bx \) is the set of all points \( \setlr{ \Bx + \sum_{i = 1}^k a_k \Bu_k}, \, a_k \in \Real \).
+} % definition
+
+We can write the equation of a line, plane, (volume, ...) in a uniform fashion as
+\begin{dmath}\label{eqn:subspaceDistance:440}
+\lr{ \By - \Bx } \wedge V = 0,
+\end{dmath}
+where \( V = \Bu_1, \Bu_1 \wedge \Bu_2, \Bu_1 \wedge \Bu_2 \wedge \cdots \wedge \Bu_n \) depending on the dimension of the desired subspace, where \( \Bu_k \) are linearly independent vectors spanning that space, and \( \Bx \) is one point in that subspace.
+
+The (directed) distance from a vector \( \Bs \) to that subspace is given by
+\begin{dmath}\label{eqn:subspaceDistance:460}
+\BD = \lr{ \Bx - \Bs } \wedge V \inv{V}.
+\end{dmath}
+For the \R{3} special case of a line, where \( V = \ucap \) is a unit vector on the line, we showed that this reduces to
+\begin{dmath}\label{eqn:subspaceDistance:480}
+\BD = \ucap \cross \lr{ \lr{ \Bx - \Bs } \cross \ucap },
+\end{dmath}
+For the \R{3} special case of a line, where \( V = I \ncap \) is a unit bivector representing the plane, we found that we could write \cref{eqn:subspaceDistance:460} as a projection onto the normal to the plane
+\begin{dmath}\label{eqn:subspaceDistance:500}
+\BD = \lr{ \lr{ \Bx - \Bs } \cdot \ncap } \ncap.
+\end{dmath}
+Again, only for \R{3} we were also able to write the equation of the plane itself in dual form as
+\begin{dmath}\label{eqn:subspaceDistance:520}
+\lr{ \By - \Bx } \cdot \ncap = 0.
+\end{dmath}
+These dual forms would also be possible for other special cases (like the equation of a volume in \R{4} and the distance from a point to that volume), but should we desire general relationships valid in all dimensions (even \R{2}), we can stick to \cref{eqn:subspaceDistance:440} and \cref{eqn:subspaceDistance:460}.
+
+%}
+\EndArticle
