@@ -1,0 +1,9 @@
+rm parameters.sty
+make kclean
+export PRINT_VERSION=1
+#echo "P: $PRINT_VERSION"
+make parameters.sty
+#make # one time: need deps
+make kindle
+# should not be commit'ed
+git checkout parameters.sty
