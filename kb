@@ -1,9 +1,12 @@
 rm parameters.sty
 make kclean
 export PRINT_VERSION=1
+export KINDLE_VERSION=1
 #echo "P: $PRINT_VERSION"
 make parameters.sty
 #make # one time: need deps
+cp ../figures/GAelectrodynamics/*.* .
+cp ../figures/GAelectrodynamics/bw/*.* .
 make kindle
 # should not be commit'ed
 git checkout parameters.sty

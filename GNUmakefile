@@ -23,6 +23,10 @@ SOURCE_DIRS += working
 #SUBFIGDIR := color
 #endif
 
+ifdef KINDLE_VERSION
+PARAMS += --kindle
+endif
+
 ifdef PRINT_VERSION
 SUBFIGDIR := bw
 else
@@ -138,13 +142,15 @@ clean :: kclean
 
 kclean ::
 	#rm -f *.html # clobbers Changelog.html
-	rm -f *.idx *.4ct *.aux *.xref *.4tc *.dvi *.log *.ncx *.lg *.idv *.tmp *.css *.html *.epub
+	rm -f *.idx *.4ct *.aux *.xref *.4tc *.dvi *.log *.ncx *.lg *.idv *.tmp *.css *.epub
 	rm -f $(KINDLE)*svg content.opf
 	rm -rf $(KINDLE)-epub $(KINDLE)-mobi
 
-kindle: 
+kindle:
 	#tex4ebook kindle.tex
-	tex4ebook -s -f mobi -e build.mk4 $(KINDLE).tex
+	#tex4ebook -s -f mobi -e build.mk4 $(KINDLE).tex
+	tex4ebook -s -e build.mk4 $(KINDLE).tex
+	#tex4ebook -s -f mobi -e kbuild.mk4 $(KINDLE).tex
 
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
 	rm -f $@

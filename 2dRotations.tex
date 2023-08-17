@@ -2,17 +2,16 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
-
 \index{rotation}
 Plotting \cref{eqn:2dMultiplication:180}, as in
 \cref{fig:rotationOfe1:rotationOfe1Fig1},
  shows that multiplication by \( i \) rotates the \R{2} basis vectors by \( \pm \pi/2 \) radians,
 with the
 rotation direction dependent on the order of multiplication.
-
-\mathImageTwoFigures
-{../figures/GAelectrodynamics/rotationOfe1Fig1}
-{../figures/GAelectrodynamics/rotationOfe2Fig1}
+\pmathImageTwoFigures
+{../figures/GAelectrodynamics/}
+{rotationOfe1Fig1}
+{rotationOfe2Fig1}
 {Multiplication by \( \Be_1 \Be_2 \).}{fig:rotationOfe1:rotationOfe1Fig1}{scale=0.5}
 {orientedAreas.nb}
 
@@ -47,8 +46,7 @@ a clockwise rotation by \( \pi/2 \) radians
 
 The transformed vector \( \Bx' = \Bx \Be_1 \Be_2 = -\Be_1 \Be_2 \Bx \,(= \Bx i = -i \Bx) \) has been rotated in the direction that takes \( \Be_1 \) to \( \Be_2 \), as illustrated
 in \cref{fig:rotationOfV:rotationOfVFig1}.
-
-\mathImageFigure{../figures/GAelectrodynamics/rotationOfVFig1}{\( \pi/2\) rotation in the plane using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}{orientedAreas.nb}
+\pmathImageFigure{../figures/GAelectrodynamics/}{rotationOfVFig1}{\( \pi/2\) rotation in the plane using pseudoscalar multiplication.}{fig:rotationOfV:rotationOfVFig1}{0.3}{orientedAreas.nb}
 
 In complex number theory the complex exponential \( e^{i\theta} \) can be used as a rotation operator.
 Geometric algebra puts this rotation operator into the vector algebra toolbox, by utilizing
@@ -93,7 +91,7 @@ Left and right exponential expressions have now been found for the polar represe
 This is essentially a recipe for rotation of a vector in the x-y plane.
 Such rotations are
 illustrated in \cref{fig:rotationOfX:rotationOfXFig1}.
-\mathImageFigure{../figures/GAelectrodynamics/rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}{orientedAreas.nb}
+\pmathImageFigure{../figures/GAelectrodynamics/}{rotationOfXFig1}{Rotation in a plane.}{fig:rotationOfX:rotationOfXFig1}{0.3}{orientedAreas.nb}
 
 This generalizes to rotations of \R{N} vectors constrained to a plane.
 Given orthonormal vectors \( \Bu, \Bv \) and any vector in the plane of these two vectors (\( \Bx \in \Span\setlr{\Bu,\Bv} \)), this vector is rotated \( \theta \) radians in the direction of rotation that takes \( \Bu \) to \( \Bv \) by
@@ -111,7 +109,7 @@ A radial vector can be written as
 \end{equation}
 as illustrated in \cref{fig:radialVectorCylindrical:radialVectorCylindricalFig1}.
 The polar representation of the radial and azimuthal unit vector are simply
-\mathImageFigure{../figures/GAelectrodynamics/radialVectorCylindricalFig1}{Radial vector in polar coordinates.}{fig:radialVectorCylindrical:radialVectorCylindricalFig1}{0.3}{radialVectorCylindricalFig1.nb}
+\pmathImageFigure{../figures/GAelectrodynamics/}{radialVectorCylindricalFig1}{Radial vector in polar coordinates.}{fig:radialVectorCylindrical:radialVectorCylindricalFig1}{0.3}{radialVectorCylindricalFig1.nb}
 \begin{equation}\label{eqn:2dRotations:1220}
 \begin{aligned}
 \rcap &= \Be_1 e^{i\theta} =
@@ -353,6 +351,5 @@ e^{X + Y}
 &= e^X e^Y.
 \end{aligned}
 \end{equation}
-%\imageFigure{../figures/GAelectrodynamics/exponentialOfSumFig1}{Exponential of sums, index points and change of variables.}{fig:exponentialOfSum:exponentialOfSumFig1}{0.3}
 We see that commutation of variables is required for an exponential of a sum to equal the product of the exponentials.  This is worth understanding since it shows us that we can factor exponentials of sums such as \( Z = 1 + \Be_1 \Be_2 \), \( Z = \Be_1 \Be_2 + \Be_3 \Be_4 \), \( Z = \Be_1 + \Be_1 \Be_2 \Be_3 \), into the product of the exponentials of the summands of those multivectors, but cannot do so with multivectors like \( Z = \Be_1 + \Be_2 \), \( Z = \Be_1 + \Be_1 \Be_2 \), or \( Z = \Be_1 \Be_2 + \Be_2 \Be_3 \).
 }

@@ -17,25 +17,25 @@
 
 \usepackage{peeters_figures}
 
-% \mathImageFigure{path}{caption}{label}{width}{nbpath}
+% \pmathImageFigure{dir}{file}{caption}{label}{width}{nbpath}
 % nbpath like: ps2b:countItersAndPlot.m
-\newcommand{\mathImageFigure}[5]{%
-\imageFigure{#1}{\nbcite{#5}{#2}}{#3}{#4}
+\newcommand{\pmathImageFigure}[6]{%
+\pimageFigure{#1}{#2}{\nbcite{#6}{#3}}{#4}{#5}
 }
 
-% \mathImageTwoFigures{path1}{path2}{caption}{fig:fff}{scale=0.3}{nbpath}
-\newcommand{\mathImageTwoFigures}[6]{%
-\imageTwoFigures{#1}{#2}{\nbcite{#6}{#3}}{#4}{#5}
+% \pmathImageTwoFigures{dir}{file1}{file2}{caption}{fig:fff}{scale=0.3}{nbfile}
+\newcommand{\pmathImageTwoFigures}[7]{%
+\pimageTwoFigures{#1}{#2}{#3}{\nbcite{#7}{#4}}{#5}{#6}
 }
 
-% \mathImageThreeFiguresOneLine{path1}{path2}{path3}{caption}{fig:fff}{scale=0.3}{nbpath}
-\newcommand{\mathImageThreeFiguresOneLine}[7]{%
-\imageThreeFiguresOneLine{#1}{#2}{#3}{\nbcite{#7}{#4}}{#5}{#6}
+% \pmathImageThreeFiguresOneLine{dir}{file1}{file2}{file3}{caption}{fig:fff}{scale=0.3}{nbfile}
+\newcommand{\pmathImageThreeFiguresOneLine}[8]{%
+\pimageThreeFiguresOneLine{#1}{#2}{#3}{#4}{\nbcite{#8}{#5}}{#6}{#7}
 }
 
-% \mathImageFourFiguresTwoLines{path1}{path2}{path3}{path4}{caption}{fig:fff}{scale=0.3}{nbpath}
-\newcommand{\mathImageFourFiguresTwoLines}[8]{%
-\imageFourFiguresTwoLines{#1}{#2}{#3}{#4}{\nbcite{#8}{#5}}{#6}{#7}
+% \pmathImageFourFiguresTwoLines{dir}{file1}{file2}{file3}{file4}{caption}{fig:fff}{scale=0.3}{nbfile}
+\newcommand{\pmathImageFourFiguresTwoLines}[9]{%
+\pimageFourFiguresTwoLines{#1}{#2}{#3}{#4}{#5}{\nbcite{#9}{#6}}{#7}{#8}
 }
 
 \newcommand{\matlabFunc}[1]{%

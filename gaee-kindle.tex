@@ -7,6 +7,7 @@
                 floatperchapter,
                 ngerman,american,
                 ]{scrreprt}
+
 \input{kindle-config}
 \begin{document}
 \frenchspacing
@@ -17,95 +18,22 @@
 %\include{FrontBackmatter/Kindle-DirtyTitlepage}
 \include{FrontBackmatter/Kindle-Titlepage}
 %\include{FrontBackmatter/Titleback}
-%\cleardoublepage
+
 \input{FrontBackmatter/copyright.tex}
-%\cleardoublepage
+
 \input{FrontBackmatter/Version.tex}
-%\cleardoublepage
+
 \chapter*{Dedication}
    \thispagestyle{empty}
    \input{FrontBackmatter/Dedication.tex}
 \pagestyle{scrheadings}
-%\cleardoublepage
+
 \input{FrontBackmatter/preface.tex}
-%\cleardoublepage
+
 \input{FrontBackmatter/ContentsAndFigures.tex}
 \pagenumbering{arabic}
 %\input{chapters}
-   %\input{chapter1.tex}
-%{
-\mychapter{Geometric Algebra.}
-   \section{Prerequisites.}
-      \input{prerequisites.tex}
-      \subsection{Vector space.}
-         \input{prereq_vectorspace.tex}
-         % problems
-         \input{prereq_vectorspace_Rn.tex}
-         \input{functionvectorspace.tex}
-         \input{paulivectorspace.tex}
-%      \subsection{Basis, span and dimension.}
-%         \input{prereq_basisspandim.tex}
-%      \subsection{Standard basis, length and normality.}
-%         \input{prereq_standardbasis.tex}
-   \section{Multivectors.}
-      \input{multivector.tex}
-%   \section{Colinear vectors.}
-%      \input{colinearVectors.tex}
-%   \section{Orthogonal vectors.}
-%      \input{normalVectors.tex}
-%   \section{Some nomenclature.}
-%      \input{pseudoscalar.tex}
-%   \section{Two dimensions.}
-%      \input{2dMultiplication.tex}
-%   \section{Plane rotations.}
-%      \input{2dRotations.tex}
-%   \section{Duality.}
-%     \input{dual.tex}
-%   \section{Vector product, dot product and wedge product.}
-%      \input{products.tex}
-%   \section{Reverse.}
-%      \input{bladeAndBladeReverse.tex}
-%   \section{Complex representations.}
-%      \input{complex.tex}
-%   %\section{Imaginary nature of the \R{3} pseudoscalar.}
-%      % depends on reverse
-%      %\input{R3PseudoscalarSquare.tex}
-   \section{Multivector dot product.}
-      \input{generalizedDot.tex}
-%      \subsection{Dot product of a vector and bivector}
-%         \input{generalizedDot_vectorBivector.tex}
-%      \subsection{Bivector dot product.}
-%         \input{generalizedDot_bivectorDot.tex}
-      \subsection{Problems.}
-         \input{distributionDotVectorBivector.tex}
-%   \section{Permutation within scalar selection.}
-%      \input{scalarSelectionPermutation.tex}
-%   \section{Multivector wedge product.}
-%      \input{generalizedWedge.tex}
-%      \subsection{Problems.}
-%         \input{generalizedWedgeProblems.tex}
-%         \input{r4nonzerobivectorwedgewithself.tex}
-%   \section{Projection and rejection.}
-%      \input{projectionAndRejection.tex}
-%   \section{Normal factorization of the wedge product.}
-%      \input{normalFactorization.tex}
-%   \section{The wedge product as an oriented area.}
-%      \input{wedgeProductArea.tex}
-%   \section{General rotation.}
-%      \input{generalRotation.tex}
-%   \section{Symmetric and antisymmetric vector sums.}
-%      \input{symmetricAndAntiSymmetricVectorSums.tex}
-%   \section{Reflection.}
-%      \input{reflection.tex}
-%   \section{Linear systems.}
-%      \input{solutionOfLinearSystem.tex}
-%  %\section{Orientation.}
-%  %   \input{working/orientation.tex}
-%  % \section{A summary comparision.}
-%  %    \input{gacomparison.tex}
-   \section{Problem solutions.}
-      \shipoutAnswer
-%%}
+   \input{chapter1.tex}
    %\input{chapter2.tex}
    %\input{chapter3.tex}
 %\input{backmatter}
