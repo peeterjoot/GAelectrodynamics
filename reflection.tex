@@ -23,28 +23,8 @@ yielding a remarkably simple form in terms of vector products
 \boxedEquation{eqn:SimpleProducts2:920}{
 \Bx' = \Bu \Bx \inv{\Bu}.
 }
-
+\iftoggle{kindle-version}{}{
 As an illustration, here is a sample CliffordBasic reflection computation
-
-%%%%\begin{mmaCell}{Input}
-%%%%u = 4 e[1] + 2 e[2];
-%%%%x = 3 e[1] + 3 e[2];
-%%%%invu = Simplify[N[\mmaFrac{u}{InnerProduct[u,u]}]];
-%%%%ux = GeometricProduct[u,x];
-%%%%uxinvu = N[GeometricProduct[ux,invu]];
-%%%%\end{mmaCell}
-%%%\begin{mmaCell}[moredefined={u, e, x, uu, InnerProduct, invu, i, o, OuterProduct, proj, rej, GeometricProduct, ux, uxu}]{Input}
-%%%u = 4 e[1] + 2 e[2]; x = 3 e[1] + 3 e[2];
-%%%invu = u / InnerProduct[u, u];
-%%%i = InnerProduct[x, u]; o = OuterProduct[x, u];
-%%%proj = Simplify[N[i invu]];
-%%%rej = Simplify[N[GeometricProduct[o, invu]]];
-%%%ux = GeometricProduct[u, x];
-%%%uxu = Simplify[N[GeometricProduct[ux, invu]]];
-%%%\end{mmaCell}
-%%%% uu = InnerProduct[u,u];
-%%%%invu = \mmaFrac{u}{uu};
-
 \begin{mmaCell}[moredefined={u, x, uu, invu, i, o, proj, rej, ux, uxu, e, InnerProduct, OuterProduct, GeometricProduct}]{Input}
   ClearAll[u, x, uu, invu, i, o, proj, rej, ux, uxu]
   u = 4 e[1] + 2 e[2];
@@ -72,6 +52,7 @@ As an illustration, here is a sample CliffordBasic reflection computation
 \end{mmaCell}
 the results of which are plotted in \cref{fig:reflection:reflectionFig1}.
 \pmathImageFigure{../figures/GAelectrodynamics/}{reflectionFig1}{Reflection.}{fig:reflection:reflectionFig1}{0.3}{projectionAndRejectionDiagram.nb}
+}
 
 \begin{tablelabelbox}[tabularx={X||Y|Y}]{Comparision of geometric identities.}{label=tab:compare:geometry}
              & Geometric algebra & Traditional algebra

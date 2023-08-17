@@ -2,12 +2,11 @@
 \documentclass[ twoside,openright,titlepage,numbers=noenddot,headinclude,
                 footinclude=true,cleardoublepage=empty,abstractoff,
                 BCOR=5mm,
-                paper=6in:9in,
                 fontsize=11pt,
                 floatperchapter,
                 ngerman,american,
                 ]{scrreprt}
-
+%paper=6in:9in,
 \input{kindle-config}
 \begin{document}
 \frenchspacing
@@ -18,18 +17,13 @@
 %\include{FrontBackmatter/Kindle-DirtyTitlepage}
 \include{FrontBackmatter/Kindle-Titlepage}
 %\include{FrontBackmatter/Titleback}
-
 \input{FrontBackmatter/copyright.tex}
-
 \input{FrontBackmatter/Version.tex}
-
 \chapter*{Dedication}
    \thispagestyle{empty}
    \input{FrontBackmatter/Dedication.tex}
 \pagestyle{scrheadings}
-
 \input{FrontBackmatter/preface.tex}
-
 \input{FrontBackmatter/ContentsAndFigures.tex}
 \pagenumbering{arabic}
 %\input{chapters}

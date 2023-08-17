@@ -130,7 +130,9 @@ Two examples of these vectors and the associated area element (rescaled to fit) 
 This plane is called the tangent space at the point in question, and has been evaluated at \( (u_1, u_2) = (0.5,0.5), (0.35, 0.75) \).
 \pmathImageFigure{../figures/GAelectrodynamics/}{2dmanifoldFig1}{Two parameter manifold.}{fig:2dmanifold:2dmanifoldFig1}{0.3}{2dmanifoldPlot.nb}
 %\mathImageFigure{../figures/GAelectrodynamics/twoParameterDifferentialFieldFig1}{Curvilinear coordinates along a two parameter surface.}{fig:twoParameterDifferentialField:twoParameterDifferentialFieldFig1}{0.3}{twoParameterDifferentialFieldFig1.nb}
-The results of \cref{eqn:curvilinearDefined:580} can be calculated easily by hand for this particular parameterization, but also submit to symbolic calculation software.  Here's a complete example using CliffordBasic
+The results of \cref{eqn:curvilinearDefined:580} can be calculated easily by hand for this particular parameterization, but also submit to symbolic calculation software.
+\iftoggle{kindle-version}{}{
+Here's a complete example using CliffordBasic
 
 \begin{mmaCell}[moredefined={$SetSignature}]{Input}
   << CliffordBasic`;
@@ -163,3 +165,4 @@ The results of \cref{eqn:curvilinearDefined:580} can be calculated easily by han
 \begin{mmaCell}{Output}
   (-4 u v + 4 \mmaSup{v}{2}) e[1,2] + (2 \mmaSup{u}{2} - 2 \mmaSup{v}{2}) e[1,3] + 2 \mmaSup{v}{2} e[2,3]
 \end{mmaCell}
+}
