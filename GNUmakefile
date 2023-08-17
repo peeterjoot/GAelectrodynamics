@@ -149,9 +149,9 @@ kclean ::
 	rm -rf $(KINDLE)-epub $(KINDLE)-mobi
 
 kindle:
-	#tex4ebook kindle.tex
 	#tex4ebook -s -f mobi -e build.mk4 $(KINDLE).tex
-	tex4ebook -s -e build.mk4 $(KINDLE).tex
+	#tex4ebook -s -e build.mk4 $(KINDLE).tex
+	tex4ebook -s $(KINDLE).tex
 	#tex4ebook -s -f mobi -e kbuild.mk4 $(KINDLE).tex
 
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
