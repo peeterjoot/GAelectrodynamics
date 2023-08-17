@@ -4,9 +4,14 @@ export PRINT_VERSION=1
 export KINDLE_VERSION=1
 #echo "P: $PRINT_VERSION"
 make parameters.sty
+for i in ../figures/GAelectrodynamics/*.* ../figures/GAelectrodynamics/bw/*.* ; do
+   f=`basename $i`
+   rm -f $f
+done
 #make # one time: need deps
 cp ../figures/GAelectrodynamics/*.* .
 cp ../figures/GAelectrodynamics/bw/*.* .
+git checkout README.md
 make kindle
 # should not be commit'ed
 git checkout parameters.sty

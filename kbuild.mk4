@@ -1,0 +1,98 @@
+# mkutils: File ../figures/GAelectrodynamics/bw/VectorsWithOppositeOrientationFig1.svg doesn't exist
+local mkutils = require "mkutils"
+local domfilter = require "make4ht-domfilter"
+
+local allowed_chars = {
+  ["-"] = true,
+  ["."] = true
+}
+local function fix_colons(id)
+  -- match every non alphanum character
+  return id:gsub("[%W]", function(s)
+    -- some characters are allowed, we don't need to replace them
+    if allowed_chars[s] then return s end
+    -- in other cases, replace with underscore
+    return "_"
+  end)
+end
+
+local function id_colons(obj)
+  -- replace : characters in links and ids with unserscores
+  obj:traverse_elements(function(el)
+    local name = string.lower(obj:get_element_name(el))
+    if name == "a" then
+      local href = el:get_attribute("href")
+      -- don't replace colons in external links
+      if href and not href:match("[a-z]%://") then
+        local base, id = href:match("(.*)%#(.*)")
+        if base and id then
+          id = fix_colons(id)
+          el:set_attribute("href", base .. "#" .. id)
+        end
+      end
+    end
+    local id  = el:get_attribute("id")
+    if id then
+      el:set_attribute("id", fix_colons(id))
+    end
+  end)
+  return obj
+end
+
+local function fix_img_names(dom)
+    for _, img in ipairs(dom:query_selector("img")) do
+        local src = img:get_attribute("src")
+        if src then
+            -- remove path specification
+            src = src:match("([^/]+)$")
+            img:set_attribute("src", src)
+        end
+    end
+    return dom
+end
+
+local process = domfilter {id_colons,fix_img_names}
+
+
+local function image_copy(path, parameters)
+  -- get image basename
+  local basename = path:match("([^/]+)$")
+  -- if outdir is empty, keep it empty, otherwise add / separator
+  local outdir = parameters.outdir == "" and "" or parameters.outdir .. "/"
+  -- handle trailing //
+  outdir = outdir:gsub("//$","/")
+  local output_file = outdir .. basename
+  for pos, name in pairs(Make.lgfile.files) do
+    if name == path then
+      Make.lgfile.files[pos] = output_file
+    end
+  end
+  mkutils.cp(path, output_file)
+end
+
+Make:match("png$", function(path, parameters)
+  image_copy(path, parameters)
+  -- prevent further processing of the image
+  return false
+end)
+
+Make:match("jpg$", function(path, parameters)
+  image_copy(path, parameters)
+  -- prevent further processing of the image
+  return false
+end)
+
+
+if mode=="draft" then
+  Make:htlatex {}
+else
+  Make:htlatex {}
+  Make:xindy {modules={"duden-utf8"}}
+  Make:biber {}
+  Make:htlatex {}
+  Make:htlatex {}
+end
+
+
+
+Make:match("html$", process)
