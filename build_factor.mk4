@@ -1,0 +1,36 @@
+
+-- https://github.com/michal-h21/tex4ebook/issues/113#issuecomment-1681960392
+
+local domfilter = require "make4ht-domfilter"
+
+local process = domfilter {
+  function(dom)
+    for _, image in ipairs(dom:query_selector(".equation img")) do
+      local src = image:get_attribute("src")
+      if src then
+        local m = io.popen("identify -ping -format '%w' " .. src, "r")
+        local result = m:read("*all")
+        m:close()
+        print(result)
+        -- change this to your liking
+        -- local factor = 0.9
+        -- local factor = 0.8
+        -- local factor = 0.6 -- doesn't shrink x = ax + by + cz noticably.
+        -- local factor = 0.5
+        local factor = 0.4
+        -- local factor = 0.3 -- too small (for \grad F = J in preface)
+        local newwidth = (tonumber(result) or 0) * factor
+        if newwidth > 0 then
+          local style = image:get_attribute(style) or ""
+          style = style .. string.format("width:%spx;" , newwidth)
+          image:set_attribute("style", style)
+        end
+      end
+
+    end
+
+    return dom
+  end
+}
+
+Make:match("html$", process)
