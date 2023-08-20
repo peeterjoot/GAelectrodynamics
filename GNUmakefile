@@ -144,9 +144,12 @@ kclean ::
 	#rm -f *.html # clobbers Changelog.html
 	rm -f *.idx *.4ct *.aux *.xref *.4tc *.dvi *.log *.ncx *.lg *.idv *.tmp *.css *.epub
 	rm -f *.bbl *.blg *.brf *.fdb_latexmk *.fls *.ilg *.ind *.lof *.out *.synctex.gz *.toc
+	rm -f *.aux */*.aux
 	rm -f $(KINDLE)*.html
 	rm -f $(KINDLE)*svg content.opf
 	rm -rf $(KINDLE)-epub $(KINDLE)-mobi
+	rm -rf $(KINDLE)-conversionLog.csv
+	git checkout README.md
 
 kindle:
 	#tex4ebook -s -f mobi -e build.mk4 $(KINDLE).tex

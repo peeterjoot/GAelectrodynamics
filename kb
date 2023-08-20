@@ -11,7 +11,30 @@ done
 #make # one time: need deps
 cp ../figures/GAelectrodynamics/*.* .
 cp ../figures/GAelectrodynamics/bw/*.* .
-git checkout README.md
-make kindle
+#make kindle
 # should not be commit'ed
 #git checkout parameters.sty
+
+for i in ../figures/GAelectrodynamics/*.* ../figures/GAelectrodynamics/bw/*.* ; do
+   f=`basename $i`
+   rm -f $f
+done
+unset PRINT_VERSION
+unset KINDLE_VERSION
+
+rm projectionAndRejectionFig1.png
+rm ParallelogramFig1.png
+rm parallelogramAreaFig1.png
+rm rotationOfVFig1.png
+rm exponentialVectorProductFig1.png
+rm parrallelogramsFig1.png
+rm rotationOfe2Fig1.png
+rm reflectionFig1.png
+rm unitSumFig1.png
+rm rotationOfe1Fig1.png
+rm intersectionOfLinesFig1.png
+rm orientedAreasVarietyFig1.png
+rm RotationFig1.png
+rm radialVectorCylindricalFig1.png
+rm rotationOfXFig1.png
+rm dualityInR3Fig1.png
