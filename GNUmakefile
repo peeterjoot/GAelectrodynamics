@@ -150,8 +150,10 @@ kclean ::
 
 kindle:
 	#tex4ebook -s -f mobi -e build.mk4 $(KINDLE).tex
+	#tex4ebook -s $(KINDLE).tex
+	tex4ebook -s -f mobi $(KINDLE).tex
 	#tex4ebook -s -e build.mk4 $(KINDLE).tex
-	tex4ebook -s -e build_factor.mk4 $(KINDLE).tex
+	#tex4ebook -s -e build_factor.mk4 $(KINDLE).tex
 	#tex4ebook -s $(KINDLE).tex
 	#tex4ebook -s -f mobi -e kbuild.mk4 $(KINDLE).tex
 

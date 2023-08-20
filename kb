@@ -14,4 +14,4 @@ cp ../figures/GAelectrodynamics/bw/*.* .
 git checkout README.md
 make kindle
 # should not be commit'ed
-git checkout parameters.sty
+#git checkout parameters.sty
