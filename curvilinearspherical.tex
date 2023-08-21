@@ -28,7 +28,7 @@ this is
 \begin{equation}\label{eqn:curvilinearspherical:60}
 \Bx = r \Be_3 e^{j \theta}.
 \end{equation}
-\iftoggle{kindle-version}{}{
+%\iftoggle{kindle-version}{}{
 The curvilinear basis can be easily be computed in software.
 \begin{mmaCell}[moredefined={i, j, ej, x, xr, xt, xp, e, GeometricProduct},morepattern={phi_, t_, p_, r_, theta_}]{Input}
   ClearAll[i, j, ej, x, xr, xt, xp]
@@ -52,7 +52,8 @@ The curvilinear basis can be easily be computed in software.
   r (Cos[\(\theta\)] Cos[\(\phi\)] e[1] - e[3] Sin[\(\theta\)] + Cos[\(\theta\)] e[2] Sin[\(\phi\)])
   r (Cos[\(\phi\)] e[2] Sin[\(\theta\)] - e[1] Sin[\(\theta\)] Sin[\(\phi\)])
 \end{mmaCell}
-Unfortunately the compact representation is lost doing so.}
+Unfortunately the compact representation is lost doing so.
+%}
 Computing the basis elements manually, we find
 
 \begin{subequations}
@@ -78,7 +79,7 @@ Computing the basis elements manually, we find
 \end{equation}
 \end{subequations}
 These are all mutually orthogonal, which can be verified by computing dot products.
-\iftoggle{kindle-version}{}{
+%\iftoggle{kindle-version}{}{
 \begin{mmaCell}[moredefined={x1, x2, x3, xr, xt, xp, InnerProduct}]{Input}
   ClearAll[x1, x2, x3]
   x1 = xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
@@ -89,7 +90,7 @@ These are all mutually orthogonal, which can be verified by computing dot produc
 \begin{mmaCell}{Output}
   \{0,0,0\}
 \end{mmaCell}
-}
+%}
 An algebraic computation of these dot products is left as a problem for the student (\cref{problem:sphericaldot:1}).
 Orthonormalization of the curvilinear basis is now possible by inspection
 \index{\(\rcap\)!spherical}
@@ -167,7 +168,7 @@ r \cos\theta \cos\phi & r \cos\theta \sin\phi & -r \sin\theta \\
 \end{equation}
 
 The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of the Jacobian \cref{eqn:curvilinearspherical:320}, are both easily verified with software.
-\iftoggle{kindle-version}{}{
+%\iftoggle{kindle-version}{}{
 \begin{mmaCell}[moredefined={OuterProduct, xr, xt, xp, e1, e2, e3, jacobian, e}]{Input}
   OuterProduct[ xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
   xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
@@ -185,7 +186,7 @@ The final reduction of \cref{eqn:curvilinearspherical:300}, and the expansion of
 \begin{mmaCell}{Output}
   \mmaSup{r}{2} Sin[\(\theta\)]
 \end{mmaCell}
-}
+%}
 Performing these calculations manually are left as problems
 for the student (\cref{problem:curvilinearspherical:1}, \cref{problem:volumeselection:1}).
 %}
