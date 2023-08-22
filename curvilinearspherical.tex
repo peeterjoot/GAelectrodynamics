@@ -65,8 +65,9 @@ Computing the basis elements manually, we find
 \begin{aligned}
 \Bx_\theta
 &= r \Be_3 j e^{j \theta} \\
-&= r \Be_3 \Be_{31} e^{i\phi} e^{j \theta} \\
-&= r \Be_1 e^{i\phi} e^{j \theta}
+&= r \Be_3 e^{j \lr{ \theta + \pi/2}} \\
+%&= r \Be_3 \Be_{31} e^{i\phi} e^{j \theta} \\
+%&= r \Be_1 e^{i\phi} e^{j \theta}
 \end{aligned}
 \end{equation}
 \begin{equation}\label{eqn:curvilinearspherical:140}
@@ -99,7 +100,8 @@ Orthonormalization of the curvilinear basis is now possible by inspection
 \begin{equation}\label{eqn:curvilinearspherical:240}
 \begin{aligned}
 \rcap &= \Bx_r = \Be_3 e^{j \theta} \\
-\thetacap &= \inv{r} \Bx_\theta = \Be_1 e^{i\phi} e^{j \theta} \\
+%\thetacap &= \inv{r} \Bx_\theta = \Be_1 e^{i\phi} e^{j \theta} \\
+\thetacap &= \inv{r} \Bx_\theta = \Be_3 e^{j \lr{ \theta + \pi/2}} = \rcap j \\
 \phicap &= \inv{r \sin\theta} \Bx_\phi = \Be_2 e^{i \phi},
 \end{aligned}
 \end{equation}
@@ -110,7 +112,8 @@ so
 \begin{equation}\label{eqn:curvilinearspherical:260}
 \begin{aligned}
 \Bx^r &= \rcap = \Be_3 e^{j \theta} \\
-\Bx^\theta &= \inv{r} \thetacap = \inv{r} \Be_1 e^{i\phi} e^{j \theta} \\
+%\Bx^\theta &= \inv{r} \thetacap = \inv{r} \Be_1 e^{i\phi} e^{j \theta} \\
+\Bx^\theta &= \inv{r} \thetacap = \inv{r} \Be_3 e^{j \lr{\theta + \pi/2}} \\
 \Bx^\phi &= \inv{r \sin\theta} \phicap = \inv{r \sin\theta} \Be_2 e^{i \phi}.
 \end{aligned}
 \end{equation}
@@ -138,14 +141,13 @@ The spherical (oriented) volume element can also be computed in a compact fashio
 &= \Bx_r \wedge \Bx_\theta \wedge \Bx_\phi \\
 &= \gpgradethree{ \Bx_r \Bx_\theta \Bx_\phi } \\
 &= \gpgradethree{
-   \Be_3 e^{j \theta}
-   r \Be_1 e^{i\phi} e^{j \theta}
+   \rcap
+   r \rcap j
    r \sin\theta \Be_2 e^{i \phi}
    } \\
 &= r^2 \sin\theta
    \gpgradethree{
-   \Be_3 e^{j \theta}
-   \Be_1 e^{i\phi} e^{j \theta}
+   \Be_{31} e^{i\phi}
    \Be_2 e^{i \phi}
    } \\
 &= r^2 \sin\theta\, \Be_{123}.
