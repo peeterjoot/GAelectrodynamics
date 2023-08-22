@@ -17,12 +17,6 @@ SOURCE_DIRS += working
 
 # comment this out for online pdf version (uncomment for KDP)
 #PRINT_VERSION := 1
-
-#SUBFIGDIR := bw
-#ifndef SUBFIGDIR
-#SUBFIGDIR := color
-#endif
-
 ifdef KINDLE_VERSION
 PARAMS += --kindle
 endif
