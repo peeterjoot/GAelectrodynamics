@@ -1,0 +1,1 @@
+mk4ht htlatex GAelectrodynamics.tex 'xhtml,charset=utf-8,pmathml' ' -cunihtf -utf8 -cvalidate'
