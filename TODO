@@ -1,9 +1,36 @@
+================================================================================================
 - Switch to MaTeX labelling.
-
 - Introduce black and white variations of all the figures, so they come out crisper in the cheap KDP version.
 
-- Get rid of Maroon and DarkOliveGreen coloring in black and white mode.  Also blue figure text.  This should help the 
-  text look crisper (remove greyscale artifacts.)
+   Looks like Mathematica labels:
+
+   Figure 3.2: Circular line charge.
+   Figure 3.3: Field due to a circular distribution.
+   Figure 3.9: Linear polarization.
+   Figure 3.10: Electric field with elliptical polarization.
+   Figure 3.11: Vertical infinitesimal dipole and selected propagation direction.
+      (this one is also too thin, and small.)
+
+   suppress numeric axes labels:
+   Figure 3.4: (a) A(˜z, ˜ρ). (b) B(˜z, ˜ρ).
+   Figure 3.5:...
+   Figure 3.6:...
+   Figure 3.7:...
+
+   looks like crap:
+
+   Figure 3.8: Magnetic field between two current sources.
+
+
+   hatch shading for:
+   Figure 3.12: Pillbox integration volume.
+
+   Did I fix?
+   fig 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
+
+   Review one more time when done all that.
+
+================================================================================================
 
 - Think that I had some review comments in dropbox to act on.
 
