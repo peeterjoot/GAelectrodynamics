@@ -1,15 +1,16 @@
 ================================================================================================
 - Switch to MaTeX labelling.
-- Introduce black and white variations of all the figures, so they come out crisper in the cheap KDP version.
-
-   Figure 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
-
-   hatch shading for:
-      Figure 3.12: Pillbox integration volume.
+- Introduce black and white variations of all the figures, so they come out crisper in the KDP version.
 
    Review one more time when done all that.
 
 ================================================================================================
+
+- Figure 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
+
+- Perhaps try again later: couldn't get hatch shading to look good for:
+
+  Figure 3.12: Pillbox integration volume.
 
 - Think that I had some review comments in dropbox to act on.
 
