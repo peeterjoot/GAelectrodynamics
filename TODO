@@ -2,11 +2,7 @@
 - Switch to MaTeX labelling.
 - Introduce black and white variations of all the figures, so they come out crisper in the cheap KDP version.
 
-   Did I fix?
-      fig 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
-
-   looks like crap:
-      Figure 3.8: Magnetic field between two current sources.
+   Figure 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
 
    Looks like Mathematica labels:
       Figure 3.9: Linear polarization.
