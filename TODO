@@ -1,8 +1,10 @@
 ================================================================================================
-- Switch to MaTeX labelling.
-- Introduce black and white variations of all the figures, so they come out crisper in the KDP version.
 
-   Review one more time when done all that.
+- Notice that the numeric values on the border of the figure are not using a matching font.  I'll have to figure out how to do that, but that's a game for another day.
+
+   Figure 2.1
+
+   (Same issue in other places.  Enumerate those and fix.)
 
 ================================================================================================
 
