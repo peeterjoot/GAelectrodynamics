@@ -1,13 +1,5 @@
 ================================================================================================
 
-- Notice that the numeric values on the border of the figure are not using a matching font.  I'll have to figure out how to do that, but that's a game for another day.
-
-   Figure 2.1
-
-   (Same issue in other places.  Enumerate those and fix.)
-
-================================================================================================
-
 - Figure 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
 
 - Perhaps try again later: couldn't get hatch shading to look good for:
@@ -29,12 +21,6 @@
 
    - incorporate parts of lineAndPlane.tex into chapter 1 (summary portion as theorems, with extra details as problems).
    - Add table at the end summarizing the GA vs conventional forms.
-
-- Fix before next kdp refresh (kdp version is 0.14)
-
-   - address the markup from my current paper version?
-   - fix the clone script dashes issue.
-   - review the fixmes below, and prioritize.
 
 - chapter 2.
 
