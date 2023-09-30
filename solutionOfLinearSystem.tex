@@ -64,7 +64,8 @@ Furthermore, also when the system is exact,
 if the dimension of the vectors \( \Ba_i \) is \( k \), then this solution is equivalent to Cramer's rule.
 
 Rather than formally trying to prove this theorem, we can tackle it informally, starting with some examples.
-The simplest example is that of a two variable equation in \R{N}
+\subsubsection{Example: two variable system.}
+The simplest example is that of a two variable system
 \begin{equation}\label{eqn:solutionOfLinearSystem:1160}
 \Ba x + \Bb y = \Bc.
 \end{equation}
@@ -77,14 +78,14 @@ To solve for \( x \) simply wedge with \( \Bb \), and to solve for \( y \) wedge
 \Ba \wedge \lr{ \cancel{\Ba} x + \Bb y } &= \Ba \wedge \Bc,
 \end{aligned}
 \end{equation}
-so, if the system has a solution, it is given by
+so, the solution, if it exists, is given by
 \begin{equation}\label{eqn:solutionOfLinearSystem:1200}
 \begin{aligned}
 x &= \inv{ \Ba \wedge \Bb } \Bc \wedge \Bb \\
 y &= \inv{ \Ba \wedge \Bb } \Ba \wedge \Bc.
 \end{aligned}
 \end{equation}
-
+\subsubsection{Example: exact \( k \) variable system.}
 This idea generalizes trivially to
 higher order systems can be solved, simply requiring wedging more times to eliminate all terms other than the one of interest.
 
@@ -103,7 +104,8 @@ x_1 = \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_k } \lr{ \Bb \wedge \Ba_
 \end{equation}
 If this system has no solution, then these k-vector ratios will not be scalars.
 
-For the solution of \( x_k \), the numerator in each case is the denominator wedge product with the \( \Ba_k \) replaced by the solution vector \( \Bb \).
+It's fairly easy to see that to solve for \( x_j \), we start switch the numerator to the pseudoscalar \( i \), with \( \Bb \) taking the place of \( \Ba_j \).
+\subsubsection{Example: \R{3} Cramer's rule.}
 If this sounds like Cramer's rule, that is because the two are equivalent when the dimension of the vector equals the number of variables in the linear system.
 \index{Cramer's rule}
 For example, consider the solution for \( x_1 \) of \cref{eqn:solutionOfLinearSystem:1220} for an \R{3} system, with \( \Ba_1 = \Bu, \Ba_2 = \Bv, \Ba_3 = \Bw \)
@@ -131,7 +133,9 @@ u_3 & v_3 & w_3 \\
 \end{equation}
 which is exactly the ratio of determinants found in the Cramer's rule solution of this problem.  We get Cramer's rule for free due to the antisymmetric structure of the wedge product.
 
-Cramer's rule doesn't apply to cases where the dimension of the space exceeds the number of variables, but a wedge product solution does not have that restriction.  As an example, consider the two variable system \cref{eqn:solutionOfLinearSystem:1160} for vectors in \R{4} as follows
+Cramer's rule doesn't apply to cases where the dimension of the space exceeds the number of variables, but a wedge product solution does not have that restriction.
+\subsubsection{Example: Some \R{4} vectors.}
+As an example, consider the two variable system \cref{eqn:solutionOfLinearSystem:1160} for vectors in \R{4} as follows
 \begin{equation}\label{eqn:solutionOfLinearSystem:1280}
 \Ba =
 \begin{bmatrix}
@@ -439,4 +443,162 @@ a_3 & b_3 & c_3 \\
 This is obviously equivalent to the GA solution, where the ratio of determinants is found immediately from the coordinate representation of a triple wedge product.  We can't solve this system of equations using Cramer's rule for \R{N} when \( N > 3 \) since the system is overspecified in that case.  That overspecification is why we require the additional
 \( \lr{ \Bq - \Bp } \wedge \Bb \wedge \Bc \propto \Ba \wedge \Bb \wedge \Bc \)
 constraint for the GA solution using wedge products.  Note that this wedge product solution method is unlikely to be numerically stable for \( N > 3 \), and we are probably better off solving with SVD, so that we have some estimation of the numerical errors that either rule out or validate the solution.
+} % answer
+\subsubsection{Example: Best fit solution for two variable system.}
+Now, let's consider the case where the system cannot be solved exactly.  It's sufficient to illustrate the ideas using just two variables.
+
+Geometrically, the best we can do is to try to solve the related ``least squares'' problem
+\begin{equation}\label{eqn:solutionOfLinearSystem:1480}
+x \Ba + y \Bb = \Bc_\parallel,
+\end{equation}
+where \( \Bc_\parallel \) is the projection of \( \Bc \) onto the plane spanned by \( \Ba, \Bb \).  Regardless of the value of \( \Bc \), we can always find a solution to this problem.  For example, solving for \( x \), we have
+\begin{equation}\label{eqn:solutionOfLinearSystem:1500}
+\begin{aligned}
+x
+&= \inv{ \Ba \wedge \Bb } \Bc_\parallel \wedge \Bb \\
+&= \inv{ \Ba \wedge \Bb } \cdot \lr{ \Bc_\parallel \wedge \Bb } \\
+&= \inv{ \Ba \wedge \Bb } \cdot \lr{ \Bc \wedge \Bb } - \inv{ \Ba \wedge \Bb } \cdot \lr{ \Bc_\perp \wedge \Bb }.
+\end{aligned}
+\end{equation}
+The zero above follows because \( \Bc_\perp \) is perpendicular to both \( \Ba \) and \( \Bb \) by construction.  Geometrically, we are trying to dot two perpendicular bivectors, where \( \Bb \) is a common factor of those two bivectors, as illustrated in \cref{fig:perpPlanes:perpPlanesFig1}.
+\imageFigure{../figures/blogit/perpPlanesFig1}{Perpendicular bivectors.}{fig:perpPlanes:perpPlanesFig1}{0.4}
+
+We see that the solution to this two variable linear system problem, is
+\begin{subequations}
+\label{eqn:solutionOfLinearSystem:1541}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1540}
+x = \inv{ \Ba \wedge \Bb } \cdot \lr{ \Bc \wedge \Bb }.
+\end{equation}
+\begin{equation}\label{eqn:solutionOfLinearSystem:1560}
+y = \inv{ \Ba \wedge \Bb } \cdot \lr{ \Ba \wedge \Bc }.
+\end{equation}
+\end{subequations}
+\makeproblem{Perpendicular blades.}{problem:solutionOfLinearSystem:2}{
+Show algebraically, that the second term from \cref{eqn:solutionOfLinearSystem:1500}
+\begin{equation*}
+- \inv{ \Ba \wedge \Bb } \cdot \lr{ \Bc_\perp \wedge \Bb },
+\end{equation*}
+is zero.
+} % problem
+\makeanswer{problem:solutionOfLinearSystem:2}{
+We can reduce that second term, first expanding the bivector inverse explicitly
+\begin{equation}\label{eqn:solutionOfLinearSystem:1520}
+- \inv{ \Ba \wedge \Bb } \cdot \lr{ \Bc_\perp \wedge \Bb }
+=
+- \frac{ \Ba \wedge \Bb }{ \lr{ \Ba \wedge \Bb}^2 } \cdot \lr{ \Bc_\perp \wedge \Bb }.
+\end{equation}
+We can ignore the scalar \( -1/\lr{ \Ba \wedge \Bb}^2 \) factor, and expand the bivector dot product, to find
+\begin{equation}\label{eqn:solutionOfLinearSystem:1580}
+\begin{aligned}
+\lr{ \Ba \wedge \Bb } \cdot \lr{ \Bc_\perp \wedge \Bb }
+&=
+\lr{ \lr{ \Ba \wedge \Bb } \cdot \Bc_\perp } \cdot \Bb \\
+&=
+\lr{ \Ba \lr{ \Bb \cdot \Bc_\perp} - \Bb \lr{ \Ba \cdot \Bc_\perp} } \cdot \Bb \\
+&=
+0.
+\end{aligned}
+\end{equation}
+} % answer
+\makeproblem{Two variable least squares problem.}{problem:solutionOfLinearSystem:3}{
+We called the projection solution, a least-squares solution, without full justification.  Justify this by 
+finding the best fit solution to the two variable system
+\begin{equation*}
+x \Ba + y \Bb = \Bc,
+\end{equation*}
+by minimizing the squared error function
+\begin{equation}\label{eqn:solutionOfLinearSystem:1600}
+\epsilon = \lr{ \Bc - x \Ba - y \Bb }^2.
+\end{equation}
+Show that the resulting solution is identical to \cref{eqn:solutionOfLinearSystem:1541}.
+} % problem
+\makeanswer{problem:solutionOfLinearSystem:3}{
+We follow the usual procedure, by equating all partials to zero
+\begin{equation}\label{eqn:solutionOfLinearSystem:1620}
+\begin{aligned}
+0 &= \PD{x}{\epsilon} = 2 \lr{ \Bc - x \Ba - y \Bb } \cdot (-\Ba) \\
+0 &= \PD{y}{\epsilon} = 2 \lr{ \Bc - x \Ba - y \Bb } \cdot (-\Bb).
+\end{aligned}
+\end{equation}
+This is a two equation, two unknown system, which can be expressed in matrix form as
+\begin{equation}\label{eqn:solutionOfLinearSystem:1640}
+\begin{bmatrix}
+\Ba^2 & \Ba \cdot \Bb \\
+\Ba \cdot \Bb & \Bb^2
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+\Ba \cdot \Bc \\
+\Bb \cdot \Bc \\
+\end{bmatrix}.
+\end{equation}
+This has solution
+\begin{equation}\label{eqn:solutionOfLinearSystem:1660}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\inv{
+\begin{vmatrix}
+\Ba^2 & \Ba \cdot \Bb \\
+\Ba \cdot \Bb & \Bb^2
+\end{vmatrix}
+}
+\begin{bmatrix}
+\Bb^2 & -\Ba \cdot \Bb \\
+-\Ba \cdot \Bb & \Ba^2
+\end{bmatrix}
+\begin{bmatrix}
+\Ba \cdot \Bc \\
+\Bb \cdot \Bc \\
+\end{bmatrix}
+=
+\frac{
+\begin{bmatrix}
+\Bb^2 \lr{ \Ba \cdot \Bc } - \lr{ \Ba \cdot \Bb} \lr{ \Bb \cdot \Bc } \\
+\Ba^2 \lr{ \Bb \cdot \Bc } - \lr{ \Ba \cdot \Bb} \lr{ \Ba \cdot \Bc } \\
+\end{bmatrix}
+}{
+\Ba^2 \Bb^2 - \lr{ \Ba \cdot \Bb }^2
+}.
+\end{equation}
+
+All of these differences can be expressed as wedge dot products, using the following expansions in reverse
+\begin{equation}\label{eqn:solutionOfLinearSystem:1680}
+\begin{aligned}
+\lr{ \Ba \wedge \Bb } \cdot \lr{ \Bc \wedge \Bd }
+&=
+\Ba \cdot \lr{ \Bb \cdot \lr{ \Bc \wedge \Bd } } \\
+&=
+\Ba \cdot \lr{ \lr{\Bb \cdot \Bc} \Bd - \lr{\Bb \cdot \Bd} \Bc } \\
+&=
+\lr{ \Ba \cdot \Bd } \lr{\Bb \cdot \Bc} - \lr{ \Ba \cdot \Bc }\lr{\Bb \cdot \Bd}.
+\end{aligned}
+\end{equation}
+
+We find
+\begin{equation}\label{eqn:solutionOfLinearSystem:1700}
+\begin{aligned}
+x
+&= \frac{\Bb^2 \lr{ \Ba \cdot \Bc } - \lr{ \Ba \cdot \Bb} \lr{ \Bb \cdot \Bc }}{-\lr{ \Ba \wedge \Bb }^2 } \\
+&= \frac{\lr{ \Ba \wedge \Bb } \cdot \lr{ \Bb \wedge \Bc }}{ -\lr{ \Ba \wedge \Bb }^2 } \\
+&= \inv{ \Ba \wedge \Bb } \cdot \lr{ \Bc \wedge \Bb },
+\end{aligned}
+\end{equation}
+and
+\begin{equation}\label{eqn:solutionOfLinearSystem:1720}
+\begin{aligned}
+y
+&= \frac{\Ba^2 \lr{ \Bb \cdot \Bc } - \lr{ \Ba \cdot \Bb} \lr{ \Ba \cdot \Bc } }{-\lr{ \Ba \wedge \Bb }^2 } \\
+&= \frac{- \lr{ \Ba \wedge \Bb } \cdot \lr{ \Ba \wedge \Bc } }{ -\lr{ \Ba \wedge \Bb }^2 } \\
+&= \inv{ \Ba \wedge \Bb } \cdot \lr{ \Ba \wedge \Bc }.
+\end{aligned}
+\end{equation}
+Sure enough, we find what was dubbed the least squares solution, which we now know can be written out as a ratio of (dotted) wedge products.
+%From \cref{eqn:solutionOfLinearSystem:1740}
 } % answer
