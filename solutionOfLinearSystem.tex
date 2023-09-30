@@ -4,10 +4,71 @@
 %
 \index{linear system}
 \index{wedge product!linear solution}
-Linear systems can be solved using the wedge product.  Illustrating by example, consider the following two variable equation in \R{N}
+%\maketheorem{Exact solution of a linear system.}{thm:solutionOfLinearSystem:1}{
+%Given \( n \) linearly independent vectors \( \Ba_1, \Ba_2, \cdots \Ba_n \), the system
+%\begin{equation*}
+%\Ba_1 x_1 + \Ba_2 x_2 \cdots + \Ba_n x_n = \Bb,
+%\end{equation*}
+%if it has a solution, is given by
+%\begin{equation*}
+%\begin{aligned}
+%x_1 &= i^{-1} \lr{ \Bb \wedge \Ba_2 \wedge \cdots \wedge \Ba_n } \\
+%x_2 &= i^{-1} \lr{ \Ba_1 \wedge \Bb \wedge \cdots \wedge \Ba_n } \\
+%    & \vdots \\
+%x_n &= i^{-1} \lr{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Bb },
+%\end{aligned}
+%\end{equation*}
+%where
+%\begin{equation*}
+%i = \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_n,
+%\end{equation*}
+%is the pseudoscalar for the hypervolume spanned by \( \setlr{ \Ba_1, \cdots, \Ba_n } \).
+%If the dimension of the vectors \( \Ba_i \) is \( n \), then this solution is equivalent to Cramer's rule.
+%} % theorem
+\maketheorem{Best fit solution of linear system.}{thm:solutionOfLinearSystem:2}{
+Given \( k \) linearly independent vectors \( \Ba_1, \Ba_2, \cdots \Ba_k \), and the projection \( \Bb_\parallel \)
+of a vector \( \Bb \) onto the hypervolume spanned by \( \setlr{ \Ba_1, \cdots, \Ba_k } \)
+\begin{equation*}
+\Bb_\parallel = i^{-1} \lr{ i \cdot \Bb },
+\end{equation*}
+where \( i = \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_k \), is a pseudoscalar for that hypervolume, then the system
+\begin{equation*}
+\Ba_1 x_1 + \Ba_2 x_2 \cdots + \Ba_k x_k = \Bb_\parallel,
+\end{equation*}
+is solved by
+\begin{equation*}
+\begin{aligned}
+x_1 &= i^{-1} \cdot \lr{ \Bb \wedge \Ba_2 \wedge \cdots \wedge \Ba_k } \\
+x_2 &= i^{-1} \cdot \lr{ \Ba_1 \wedge \Bb \wedge \cdots \wedge \Ba_k } \\
+    & \vdots \\
+x_n &= i^{-1} \cdot \lr{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Bb }.
+\end{aligned}
+\end{equation*}
+
+If \( \Bb \in \Span \setlr{ \Ba_1, \cdots, \Ba_k } \), so that \( \Bb_\parallel = \Bb \), then the dot products between the k-blades above may be dropped.
+} % theorem
+This is equivalent to a Moore-Penrose or SVD pseudoinverse solution for the system
+\begin{equation}\label{eqn:solutionOfLinearSystem:101}
+\begin{bmatrix}
+\Ba_1 & \cdots & \Ba_n
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
+=
+\Bb.
+\end{equation}
+Furthermore, also when the system is exact,
+if the dimension of the vectors \( \Ba_i \) is \( k \), then this solution is equivalent to Cramer's rule.
+
+Rather than formally trying to prove this theorem, we can tackle it informally, starting with some examples.
+The simplest example is that of a two variable equation in \R{N}
 \begin{equation}\label{eqn:solutionOfLinearSystem:1160}
 \Ba x + \Bb y = \Bc.
 \end{equation}
+Let's proceed to solve this using the wedge product, assuming to start with that the system has an exact solution (i.e.: that \( \Bc \) is a linear combination of \( \Ba, \Bb \).)
 
 To solve for \( x \) simply wedge with \( \Bb \), and to solve for \( y \) wedge with \( \Ba \)
 \begin{equation}\label{eqn:solutionOfLinearSystem:1180}
@@ -24,23 +85,23 @@ y &= \inv{ \Ba \wedge \Bb } \Ba \wedge \Bc.
 \end{aligned}
 \end{equation}
 
-Higher order systems can be solved in the same fashion, but the equation to be solved must be wedged more times.
+This idea generalizes trivially to
+higher order systems can be solved, simply requiring wedging more times to eliminate all terms other than the one of interest.
 
-For example, if the \( n \) variable system
+For example, if the \( k \) variable system
 \begin{equation}\label{eqn:solutionOfLinearSystem:1220}
-\Ba_1 x_1 + \Ba_2 x_2 \cdots + \Ba_n x_n = \Bb,
+\Ba_1 x_1 + \Ba_2 x_2 \cdots + \Ba_k x_k = \Bb,
 \end{equation}
-has a solution, it is given by
-\begin{equation}\label{eqn:solutionOfLinearSystem:1240}
-\begin{aligned}
-x_1 &= \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_n } \Bb \wedge \Ba_2 \wedge \cdots \wedge \Ba_n  \\
-x_2 &= \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_n } \Ba_1 \wedge \Bb \wedge \cdots \wedge \Ba_n  \\
-    & \vdots \\
-x_n &= \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_n } \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Bb.
-\end{aligned}
+has a solution, we can solve for any of the \( x_i \)'s by wedging repeatedly.  For example, we can find \( x_1 \)
+by wedging with all \( \Ba_2, \cdots \Ba_k \), to find
+\begin{equation}\label{eqn:solutionOfLinearSystem:102}
+x_1 \lr{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_k } = \Bb \wedge \Ba_2 \wedge \cdots \wedge \Ba_k,
 \end{equation}
-
-If this system has no solution, then these n-vector ratios will not be scalars.
+or
+\begin{equation}\label{eqn:solutionOfLinearSystem:103}
+x_1 = \inv{ \Ba_1 \wedge \Ba_2 \wedge \cdots \wedge \Ba_k } \lr{ \Bb \wedge \Ba_2 \wedge \cdots \wedge \Ba_k }
+\end{equation}
+If this system has no solution, then these k-vector ratios will not be scalars.
 
 For the solution of \( x_k \), the numerator in each case is the denominator wedge product with the \( \Ba_k \) replaced by the solution vector \( \Bb \).
 If this sounds like Cramer's rule, that is because the two are equivalent when the dimension of the vector equals the number of variables in the linear system.
