@@ -1,0 +1,123 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+\section{Vector relations.}
+For vectors \( \Ba, \Bb, \Bc, \Bd \)
+
+\begin{equation}\label{eqn:helpful:20}
+\begin{aligned}
+\Ba \Bb &= \Ba \cdot \Bb + \Ba \wedge \Bb \\
+        &= \Ba \cdot \Bb + I\lr{ \Ba \cross \Bb}\qquad (\mathbb{R}^3)
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:40}
+\begin{aligned}
+\Ba \cdot \Bb &= \inv{2} \lr{ \Ba \Bb + \Bb \Ba } \\
+\Ba \wedge \Bb &= \inv{2} \lr{ \Ba \Bb - \Bb \Ba }
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:60}
+\Bb \Ba = -\Ba \Bb + 2 \Ba \cdot \Bb
+\end{equation}
+\begin{equation}\label{eqn:helpful:80}
+\Ba \wedge \Bb
+=
+\sum_{i < j}
+\begin{vmatrix}
+a_i & a_j \\
+b_i & b_j
+\end{vmatrix}
+\Be_i \Be_j
+\end{equation}
+\begin{equation}\label{eqn:helpful:100}
+\begin{aligned}
+\Ba \cdot \lr{ \Bb \wedge \Bc }
+&=
+\lr{ \Bc \wedge \Bb } \cdot \Ba
+=
+( \Ba \cdot \Bb ) \Bc
+-( \Ba \cdot \Bc ) \Bb \\
+&= \lr{ \Bb \cross \Bc } \cross \Ba\qquad (\mathbb{R}^3)
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:120}
+\begin{aligned}
+(\Ba \wedge \Bb) \cdot (\Bc \wedge \Bd)
+&=
+\lr{ (\Ba \wedge \Bb) \cdot \Bc} \cdot \Bd
+=
+(\Bb \cdot \Bc) (\Ba \cdot \Bd)
+-(\Ba \cdot \Bc)( \Bb \cdot \Bd) \\
+&= -(\Ba \cross \Bb) \cdot (\Bc \cross \Bd)\qquad (\mathbb{R}^3)
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:140}
+\begin{aligned}
+\Ba
+&= \lr{ \Ba \cdot \Bb} \inv{\Bb} + \lr{ \Ba \wedge \Bb} \inv{\Bb} = \Proj_\Bb(\Ba) + \Rej{\Bb}{\Ba} \\
+&= \lr{ \Ba \cdot \bcap} \bcap + \lr{ \Ba \wedge \bcap} \bcap \qquad (\mathbb{R}^N) \\
+&= \lr{ \Ba \cdot \bcap} \bcap + \bcap \cross \lr{ \Ba \cross \bcap}\qquad (\mathbb{R}^3) \\
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:160}
+\Ba^{-1} = \frac{\Ba}{\Norm{\Ba}^2}
+\end{equation}
+\begin{equation}\label{eqn:helpful:180}
+\begin{aligned}
+\Ba \cdot &\lr{ \Bb \wedge \Bc \wedge \Bd} \\
+&=
+\lr{ \Bb \wedge \Bc \wedge \Bd} \cdot \Ba \\
+&=
+( \Ba \cdot \Bb ) (\Bc \wedge \Bd)
+-( \Ba \cdot \Bc ) (\Bb \wedge \Bd)
++( \Ba \cdot \Bd ) (\Bb \wedge \Bc)
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:200}
+\begin{aligned}
+\Ba \cdot &\lr{ \Bb_1 \wedge \Bb_2 \wedge \cdots \wedge \Bb_n } \\
+&=
+\sum_{i = 1}^n (-1)^i (\Ba \cdot \Bb_i) \lr{ \Bb_1 \wedge \cdots \wedge \Bb_{i-1} \wedge \Bb_{i+1} \wedge \cdots \wedge \Bb_n }
+\end{aligned}
+\end{equation}
+
+For \R{3} only
+\begin{equation}\label{eqn:helpful:220}
+\Ba \wedge \Bb \wedge \Bc = \lr{ \Ba \cdot (\Bb \cross \Bc) } I
+\end{equation}
+\section{Blades.}
+For k-blade \( A_k = \Ba_1 \Ba_2 \cdots \Ba_k \), j-blade \( B_j = \Ba_1 \Ba_2 \cdots \Ba_j \), vector \( \Ba \)
+\begin{equation}\label{eqn:helpful:240}
+A_k^\dagger = (-1)^{k(k-1)/2} A_k
+\end{equation}
+\begin{equation}\label{eqn:helpful:260}
+\begin{aligned}
+A_k \cdot \Ba  &= (-1)^{k-1} \Ba \cdot A_k \\
+A_k \wedge \Ba &= (-1)^k \Ba \wedge A_k
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:280}
+\begin{aligned}
+\Ba \wedge A_k &= \inv{2}\lr{ \Ba A_k + (-1)^k A_k \Ba } \\
+\Ba \cdot A_k &= \inv{2}\lr{ \Ba A_k - (-1)^k A_k \Ba }
+\end{aligned}
+\end{equation}
+\begin{equation*}
+A_k \cdot \lr{ \Ba \wedge B_j } = \lr{ A_k \cdot \Ba } \cdot B_j\qquad k > j > 0
+\end{equation*}
+
+\section{Multivectors.}
+\begin{equation}\label{eqn:helpful:300}
+\begin{aligned}
+A \cdot B &\equiv \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{\Abs{i - j}} \\
+A \wedge B &\equiv \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i + j}
+\end{aligned}
+\end{equation}
+\begin{equation}\label{eqn:helpful:320}
+\begin{aligned}
+A \rfloor B &= \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{j - i} \\
+A \lfloor B &= \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i - j} \\
+A \conj B &= \sum_{i,j = 0}^N \gpgradezero{ A_i B_j }
+\end{aligned}
+\end{equation}
