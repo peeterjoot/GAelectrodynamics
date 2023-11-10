@@ -81,10 +81,19 @@ b_i & b_j
 \sum_{i = 1}^n (-1)^i (\Ba \cdot \Bb_i) \lr{ \Bb_1 \wedge \cdots \wedge \Bb_{i-1} \wedge \Bb_{i+1} \wedge \cdots \wedge \Bb_n }
 \end{aligned}
 \end{equation}
-
-For \R{3} only
-\begin{equation}\label{eqn:helpful:220}
-\Ba \wedge \Bb \wedge \Bc = \lr{ \Ba \cdot (\Bb \cross \Bc) } I
+\begin{equation}\label{eqn:helpful:81}
+\begin{aligned}
+\Ba \wedge \Bb \wedge \Bc
+&=
+\sum_{i < j < k}
+\begin{vmatrix}
+a_i & a_j & a_k \\
+b_i & b_j & b_k \\
+c_i & c_j & c_k \\
+\end{vmatrix}
+\Be_i \Be_j \Be_k \\
+&= \lr{ \Ba \cdot (\Bb \cross \Bc) } I\qquad (\mathbb{R}^3)
+\end{aligned}
 \end{equation}
 \section{Blades.}
 For k-blade \( A_k = \Ba_1 \Ba_2 \cdots \Ba_k \), j-blade \( B_j = \Ba_1 \Ba_2 \cdots \Ba_j \), vector \( \Ba \)
