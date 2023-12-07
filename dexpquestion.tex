@@ -1,27 +1,35 @@
 %{
 \makeproblem{Spherical polar exponential deriatives.}{problem:dexpquestion:1}{
-Some steps were skipped in the computation of \cref{eqn:curvilinearspherical:140}, and there is a subtle aspect to that computation that was not discussed.
-
-We have a spherical polar exponential representation: \( i = \mathbf{e}_{12}, \, j = \mathbf{e}_{31} e^{i\phi}, \, \mathbf{x} = r \mathbf{e}_3 e^{j\theta}\), and want to compute
+\makesubproblem{}{problem:dexpquestion:1:a}
+For scalar \( x \), we know that
 \begin{equation*}
-\frac{\partial \mathbf{x}}{\partial \phi} = r \mathbf{e}_3 \frac{\partial e^{j\theta}}{\partial \phi}.
+(e^x)' = x' e^x,
 \end{equation*}
-We need to understand how to correctly compute that exponential derivative, where all the \( \phi \) dependence has been squirrelled away in the bivector \( j \).
-
-The niave way to do that is to use the ``identity'' $(e^a)' = a' e^a$, and get:
+but this is not generally true for multivectors \( x \) (or square matrices for that matter.)
+Expand \( e^x \) in Taylor series and take derivatives, and show that this identity requires that that \( x' \) commutes with \( x \).
+\makesubproblem{}{problem:dexpquestion:1:b}
+Given any \( j^2 = \mathrm{constant} \), and scalar constant \( \theta \), show that
 \begin{equation*}
-\frac{\partial e^{j\theta}}{\partial \phi} = \theta \frac{\partial j}{\partial \phi} e^{j\theta},
+\lr{ e^{j\theta} }' = j' j^{-1} \sinh(j\theta).
 \end{equation*}
-but this is wrong.  The correct way to do this is:
+Hint: show that \( j j' = - j' j \), and consider the effect of this on the \( (j^k)' \) term in the Taylor series.
+
+\makesubproblem{}{problem:dexpquestion:1:c}
+Show that when \( j^2 = -1 \)
 \begin{equation*}
-\frac{\partial e^{j\theta}}{\partial \phi} = \frac{\partial }{\partial \phi} (\cos\theta + j \sin\theta) = \frac{\partial j }{\partial \phi} \sin\theta.
+\lr{ e^{j\theta} }' = j' \sin(\theta).
 \end{equation*}
 
-Demonstrate why the second approach works, but the first does not.
+This can also be found (much more easily) by first expanding the exponential as
+\begin{equation*}
+e^{j\theta} = \cos\theta + j \sin\theta,
+\end{equation*}
+and then taking derivatives.  Contrast this to an application of \( (e^x)' = x' e^x \), which would lead us to believe that \( (e^{j\theta})' = \theta j' e^{j\theta} \), which is incorrect.
 
-Hints: First show that $j j' \ne j' j$.  Then consider the derivative using the Taylor series representation of the exponential.  This has to be treated very carefully, as the binomial combinatorics for the derivatives of \( j^k \) in the Taylor expansion of \( e^{j\theta} \), do not behave in the usual (scalar) way.  That is \(  (j^k)' \ne k j' j^{k-1} \).  The take away is, just as with matrix algebra, we can't assume that $(e^a)' = a' e^a$, unless $a', a$ commute.
+We will see an application of this later when we construct an exponential representation of spherical polar vectors \( i = \mathbf{e}_{12}, \, j = \mathbf{e}_{31} e^{i\phi}, \, \mathbf{x} = r \mathbf{e}_3 e^{j\theta}\).  Such a vector representation hides all the \( \phi \) dependence away in the bivector \( j \), and computation of \( \partial \Bx/\partial \phi \) requires that we know how to correctly compute these sorts of exponential derivatives.
 } % problem
 \makeanswer{problem:dexpquestion:1}{
+% FIXME: rework to match new problem statement above.  Perhaps this should be stated as a lemma?
 From the power series representation of the exponential, we compute
 \begin{equation}\label{eqn:dexpquestion:60}
 \begin{aligned}
@@ -73,7 +81,7 @@ j j' = -j' j.
 \end{equation}
 
 Because \( j j' \ne j' j \), we cannot write
-\begin{equation}\label{eqn:dexpquestion:n}
+\begin{equation}\label{eqn:dexpquestion:99}
 \PD{\phi}{j^k} = k \lr{ \PD{\phi}{j} } j^{k-1},
 \end{equation}
 but instead have

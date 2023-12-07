@@ -1,6 +1,7 @@
 2Dcylindrical.tex
 2dMultiplication.tex
 2dRotations.tex
+2dRotationsProblems.tex
 2dreciprocalMatrixCalculation.tex
 2subspaceR3reciprocalExample.tex
 Definition_adjoint.tex
@@ -81,6 +82,7 @@ curvilinearspherical.tex
 curvilinearsphericalProblem.tex
 cylinderField.tex
 derivativeOfDeltaFunction.tex
+dexpquestion.tex
 dielectric.tex
 distributionDotVectorBivector.tex
 dual.tex
