@@ -12,6 +12,14 @@
 
 - steal from ece1228?: parts of appendix F, G (cylindrical and spherical gradient operators and coordinates)
 
+- incorporate the vector calculus identities from recent (not published youtube manim video).  Had those in a blog post too.
+
+  Especially the \grad \wedge \grad \wedge \chi = 0 identity, which I reference in mvpotentials without proof.
+
+- spherical polar introduction needs rework.  Start with the geometry of the problem, not the coordinate representation (which was assumed)
+
+  put the mathematica "derivation" as an afterword instead of making it an integral part of the story.
+
 ================================================================================================
 
 
