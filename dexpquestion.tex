@@ -1,7 +1,7 @@
 %{
-\makeproblem{Spherical polar exponential deriatives.}{problem:dexpquestion:1}{
+\makeproblem{Exponential derivatives.}{problem:dexpquestion:1}{
 \makesubproblem{}{problem:dexpquestion:1:a}
-For scalar \( x \), we know that
+For real or complex \( x \), we know that
 \begin{equation*}
 (e^x)' = x' e^x,
 \end{equation*}
@@ -10,107 +10,82 @@ Expand \( e^x \) in Taylor series and take derivatives, and show that this ident
 \makesubproblem{}{problem:dexpquestion:1:b}
 Given any \( j^2 = \mathrm{constant} \), and scalar constant \( \theta \), show that
 \begin{equation*}
-\lr{ e^{j\theta} }' = j' j^{-1} \sinh(j\theta).
+\lr{ e^{j\theta} }' = j' j^{-1} \sinh(j\theta),
 \end{equation*}
-Hint: show that \( j j' = - j' j \), and consider the effect of this on the \( (j^k)' \) term in the Taylor series.
+where derivatives are with respect to \( j\).
 
+We will see an example of such an exponential later when we construct an exponential representation of spherical polar vectors, setting \( i = \mathbf{e}_{12}, \, j = \mathbf{e}_{31} e^{i\phi}, \, \mathbf{x} = r \mathbf{e}_3 e^{j\theta}\).  Such a vector representation hides all the \( \phi \) dependence away in the bivector \( j \), and computation of \( \partial \Bx/\partial \phi \) requires that we know how to correctly compute these sorts of exponential derivatives.
+
+Hint: show that \( j j' = - j' j \), and consider the effect of this on the \( (j^k)' \) term in the Taylor series.
 \makesubproblem{}{problem:dexpquestion:1:c}
-Show that when \( j^2 = -1 \)
+Let when \( j^2 = -1 \), show that
 \begin{equation*}
 \lr{ e^{j\theta} }' = j' \sin(\theta).
 \end{equation*}
 
-This can also be found (much more easily) by first expanding the exponential as
+Observe can also be found (much more easily) by first expanding the exponential as
 \begin{equation*}
 e^{j\theta} = \cos\theta + j \sin\theta,
 \end{equation*}
 and then taking derivatives.  Contrast this to an application of \( (e^x)' = x' e^x \), which would lead us to believe that \( (e^{j\theta})' = \theta j' e^{j\theta} \), which is incorrect.
-
-We will see an application of this later when we construct an exponential representation of spherical polar vectors \( i = \mathbf{e}_{12}, \, j = \mathbf{e}_{31} e^{i\phi}, \, \mathbf{x} = r \mathbf{e}_3 e^{j\theta}\).  Such a vector representation hides all the \( \phi \) dependence away in the bivector \( j \), and computation of \( \partial \Bx/\partial \phi \) requires that we know how to correctly compute these sorts of exponential derivatives.
+%
 } % problem
 \makeanswer{problem:dexpquestion:1}{
-% FIXME: rework to match new problem statement above.  Perhaps this should be stated as a lemma?
+\makeSubAnswer{}{problem:dexpquestion:1:a}
 From the power series representation of the exponential, we compute
 \begin{equation}\label{eqn:dexpquestion:60}
+\lr{e^x}' = \sum_{k = 1}^\infty \frac{ (x^k)' }{k!}
+\end{equation}
+If \( x \) is an arbitrary algebraic entity with unknown characteristics, we may only write
+\begin{equation}\label{eqn:dexpquestion:119}
+\lr{ x^k }' = x' x^{k-1} + x x' x^{k-2} + \cdots
+\end{equation}
+It is only when we know a-priori that \( x \) and \( x' \) commute, can we reduce this in the usual combinatoric fashion, writing
+\begin{equation}\label{eqn:dexpquestion:99}
+\lr{ x^k }' = k x' x^{k-1}.
+\end{equation}
+If (and only if) that is true, do we have
+\begin{equation}\label{eqn:dexpquestion:219}
 \begin{aligned}
-\PD{\phi}{e^{j\theta}}
-&= \sum_{k = 0}^\infty \PD{\phi}{} \frac{ (j \theta)^k }{k!} \\
-&= \sum_{k = 1}^\infty \PD{\phi}{j^k} \frac{ \theta^k }{k!}.
+\lr{e^x}'
+&= \sum_{k = 1}^\infty \frac{ k x' x^{k-1} }{k!} \\
+&= x' \sum_{k = 1}^\infty \frac{ x^{k-1} }{(k-1)!} \\
+&= x' \sum_{k = 0}^\infty \frac{ x^{k} }{k!} \\
+&= x' e^x.
 \end{aligned}
 \end{equation}
-If you treat \( j \) as a complex number, this then reduces to
-\begin{equation}\label{eqn:dexpquestion:80}
-\begin{aligned}
-\PD{\phi}{e^{j\theta}}
-&= \sum_{k = 1}^\infty k \PD{\phi}{j} j^{k-1} \frac{ \theta^k }{k!} \\
-&=
-\theta \PD{\phi}{j} \sum_{k = 1}^\infty \frac{ (j\theta)^{k-1} }{(k-1)!} \\
-&=
-\theta \PD{\phi}{j} e^{j\theta}.
-\end{aligned}
+Hiding in this identity is the assumption that \( x \) commutes with \( x' \), so it is not generally true for non-commutative objects with as multivectors, or square matrices.
+\makeSubAnswer{}{problem:dexpquestion:1:b}
+If \( j^2 \) is a constant, then we must have
+\begin{equation}\label{eqn:dexpquestion:139}
+\lr{ j^2 }' = j j' + j' j = 0,
 \end{equation}
-But, this is wrong.  The reason that this is wrong is because \( \PDi{\phi}{j} \) does not commute with \( j \), as we can
-see by computation.  Let \( j' = \PDi{\phi}{j} \), so that we have
-\begin{equation}\label{eqn:dexpquestion:180}
-\begin{aligned}
-j &= \Be_{31} e^{i\phi} \\
-j' &= \Be_{32} e^{i\phi}.
-\end{aligned}
-\end{equation}
-Each of the products is a bivector
-\begin{equation}\label{eqn:dexpquestion:200}
-\begin{aligned}
-j j'
-&= \Be_{31} e^{i\phi} \Be_{32} e^{i\phi} \\
-&= \Be_{3132} e^{-i\phi} e^{i\phi} \\
-&= -\Be_{12},
-\end{aligned}
-\end{equation}
-and
-\begin{equation}\label{eqn:dexpquestion:220}
-\begin{aligned}
-j' j
-&= \Be_{32} e^{i\phi} \Be_{31} e^{i\phi} \\
-&= \Be_{3231} e^{-i\phi} e^{i\phi} \\
-&= \Be_{12},
-\end{aligned}
-\end{equation}
-but find that \( j \) and \( j' \), in this case, anticommute.  That is
-\begin{equation}\label{eqn:dexpquestion:240}
+or
+\begin{equation}\label{eqn:dexpquestion:159}
 j j' = -j' j.
 \end{equation}
 
-Because \( j j' \ne j' j \), we cannot write
-\begin{equation}\label{eqn:dexpquestion:99}
-\PD{\phi}{j^k} = k \lr{ \PD{\phi}{j} } j^{k-1},
-\end{equation}
-but instead have
-\begin{equation}\label{eqn:dexpquestion:100}
-\PD{\phi}{j^k} = \PD{\phi}{j} j^{k-1} + j \PD{\phi}{j} j^{k-2} + \cdots
-\end{equation}
-We can use the commuation relations above to compute
-\begin{equation}\label{eqn:dexpquestion:260}
-\begin{aligned}
-\PD{\phi}{j^k}
-&= j' j^{k-1} + j j' j^{k-2} + j^2 j' j^{k-3} \cdots \\
-&= j' j^{k-1} - j' j^{k-1} + (-1)^2 j' j^{k-1} \cdots
-\end{aligned}
-\end{equation}
-This is zero for any even \( k \) and \( j' j^{k-1} \) for odd \( k \).
+For example, for the \( j = \Be_{31} e^{i\phi} \) in the spherical polar example that was mentioned, taking derivatives with respect to \(\phi\), we have \( j' j = -j j' = \Be_{12} \).
 
-Plugging this back into our Taylor series for the derivative (before we messed it up), we find
-\begin{equation}\label{eqn:dexpquestion:280}
+We now set \( x = j \theta \), and see that we have
+\begin{equation}\label{eqn:dexpquestion:179}
+\lr{ (j \theta)^k }' = \lr{ j' j^{k-1} + j j' j^{k-2} + \cdots } \theta^k,
+\end{equation}
+but since \( j \) anticommutes with \( j' \) this is zero whenever \( k \) is even, and all but one term cancels out when \( k \) is odd.
+The exponential derivative is
+\begin{equation}\label{eqn:dexpquestion:61}
 \begin{aligned}
-\PD{\phi}{e^{j\theta}}
-&= \sum_{k = 1, k \in \mathrm{odd}}^\infty j' j^{k-1} \frac{ \theta^k }{k!} \\
-&= j' \inv{j}
-\sum_{k = 1,\, k \in \mathrm{odd}}^\infty \frac{ (j\theta)^k }{k!} \\
-&= j' \inv{j} \sinh( j \theta ) \\
-&= j' \inv{j} j \sin( \theta ) \\
-&= j' \sin( \theta ).
+\lr{e^{j\theta}}'
+&= \sum_{k = 1, \, k \in \mathrm{odd}}^\infty \frac{ j' j^{k-1} \theta^k }{k!} \\
+&= j' j^{-1} \sum_{k = 1, \, k \in \mathrm{odd}}^\infty \frac{ j^{k} \theta^k }{k!} \\
+&= j' j^{-1} \sinh\lr{j\theta}.
 \end{aligned}
 \end{equation}
-This is exactly the result that we had when we expanded \( e^{j\theta} \) in it's cis form, and then took derivatives, so we have now reconciled the two different approaches.
-%Observe that, as a side effect of this exploration, we know also know how to compute the derivative of \( e^{j\theta} \) for the special case where \( j j' = -j' j \).
+\makeSubAnswer{}{problem:dexpquestion:1:c}
+When \( j^2 = -1 \), \( \sinh\lr{j\theta} = j \sin\theta \), so
+\begin{equation}\label{eqn:dexpquestion:199}
+\lr{e^{j\theta}}' = j' j^{-1} j \sin\theta = j' \sin\theta.
+\end{equation}
+Clearly, this is what we find if we first expand the exponential in its cis form.
 } % answer
 %}
