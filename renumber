@@ -511,5 +511,11 @@
 #../latex/bin/lgrep helpful.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl helpful.tex
 
-../latex/bin/lgrep dexpquestion.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl dexpquestion.tex
+#../latex/bin/lgrep dexpquestion.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl dexpquestion.tex
+
+#../latex/bin/lgrep mvpotentials.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl mvpotentials.tex
+
+#../latex/bin/lgrep mvpotentialsProblems.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl mvpotentialsProblems.tex

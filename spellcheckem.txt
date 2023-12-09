@@ -98,6 +98,7 @@ gacomparison.tex
 gagcProof.tex
 galiterature.tex
 gaugeTransformation.tex
+gaugeTransformationProblems.tex
 generalRotation.tex
 generalizedDot.tex
 generalizedDot_bivectorDot.tex
@@ -126,6 +127,8 @@ lorentzForce.tex
 lorentzForce_constantMagnetic.tex
 maxwellsEquations.tex
 multivector.tex
+mvpotentials.tex
+mvpotentialsProblems.tex
 normalFactorization.tex
 normalVectors.tex
 paulivectorspace.tex

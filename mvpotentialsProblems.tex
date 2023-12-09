@@ -1,0 +1,274 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Potentials for no-fictitious sources.}{problem:mvpotentials:1}{
+Starting with Maxwell's equation with only conventional electric sources
+\begin{equation}\label{eqn:mvpotentialsProblems:120}
+\lr{ \spacegrad + \inv{c}\PD{t}{} } F = \gpgrade{J}{0,1}.
+\end{equation}
+Show that this may be split by grade into three equations
+\begin{equation}\label{eqn:mvpotentialsProblems:140}
+\begin{aligned}
+\gpgrade{ \lr{ \spacegrad + \inv{c}\PD{t}{} } F}{0,1} &= \gpgrade{J}{0,1} \\
+\spacegrad \wedge \BE + \inv{c}\PD{t}{} \lr{ I \eta \BH } &= 0 \\
+\spacegrad \wedge \lr{ I \eta \BH } &= 0.
+\end{aligned}
+\end{equation}
+Then use the identities \( \spacegrad \wedge \spacegrad \wedge \BA = 0 \), for vector \( \BA \) and \( \spacegrad \wedge \spacegrad \phi = 0 \), for scalar \( \phi \) to find the potential representation \cref{eqn:mvpotentials:80}.
+} % problem
+\makeanswer{problem:mvpotentials:1}{
+Taking grade(0,1) and (2,3) selections of Maxwell's equation, we split our equations into source dependent and source free equations
+\begin{equation}\label{eqn:mvpotentialsProblems:200}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{0,1} = \gpgrade{J}{0,1},
+\end{equation}
+\begin{equation}\label{eqn:mvpotentialsProblems:220}
+\gpgrade{ \lr{ \spacegrad + \inv{c} \PD{t}{} } F }{2,3} = 0.
+\end{equation}
+
+In terms of \( F = \BE + I \eta \BH \), the source free equation expands to
+\begin{equation}\label{eqn:mvpotentialsProblems:240}
+\begin{aligned}
+0
+&=
+\gpgrade{
+\lr{ \spacegrad + \inv{c} \PD{t}{} } \lr{ \BE + I \eta \BH }
+}{2,3} \\
+&=
+\gpgradetwo{\spacegrad \BE}
++ \gpgradethree{I \eta \spacegrad \BH} + I \eta \inv{c} \PD{t}{\BH} \\
+&=
+\spacegrad \wedge \BE
++ \spacegrad \wedge \lr{ I \eta \BH }
++ I \eta \inv{c} \PD{t}{\BH},
+\end{aligned}
+\end{equation}
+which can be further split into a bivector and trivector equation
+\begin{equation}\label{eqn:mvpotentialsProblems:260}
+0 = \spacegrad \wedge \BE + I \eta \inv{c} \PD{t}{\BH}
+\end{equation}
+\begin{equation}\label{eqn:mvpotentialsProblems:280}
+0 = \spacegrad \wedge \lr{ I \eta \BH }.
+\end{equation}
+It's clear that we want to write the magnetic field as a (bivector) curl, so we let
+\begin{equation}\label{eqn:mvpotentialsProblems:300}
+I \eta \BH = I c \BB = c \spacegrad \wedge \BA,
+\end{equation}
+or
+\begin{equation}\label{eqn:mvpotentialsProblems:301}
+\BH = \inv{\mu} \spacegrad \cross \BA.
+\end{equation}
+
+\Cref{eqn:mvpotentialsProblems:260} is reduced to
+\begin{equation}\label{eqn:mvpotentialsProblems:320}
+\begin{aligned}
+0
+&= \spacegrad \wedge \BE + I \eta \inv{c} \PD{t}{\BH} \\
+&= \spacegrad \wedge \BE + \inv{c} \PD{t}{} \spacegrad \wedge \lr{ c \BA } \\
+&= \spacegrad \wedge \lr{ \BE + \PD{t}{\BA} }.
+\end{aligned}
+\end{equation}
+We can now let
+\begin{equation}\label{eqn:mvpotentialsProblems:340}
+\BE + \PD{t}{\BA} = -\spacegrad \phi.
+\end{equation}
+We sneakily adjust the sign of the gradient so that the result matches the conventional representation.
+} % answer
+%
+%
+\makeproblem{Potentials for fictitious sources.}{problem:mvpotentials:2}{
+Starting with Maxwell's equation with only fictitious magnetic sources
+\begin{equation}\label{eqn:mvpotentialsProblems:160}
+\lr{ \spacegrad + \inv{c}\PD{t}{} } F = \gpgrade{J}{2,3},
+\end{equation}
+show that this may be split by grade into three equations
+\begin{equation}\label{eqn:mvpotentialsProblems:180}
+\begin{aligned}
+\gpgrade{ \lr{ \spacegrad + \inv{c}\PD{t}{} } I F}{0,1} &= I \gpgrade{J}{2,3} \\
+-\eta \spacegrad \wedge \BH + \inv{c}\PD{t}{(I \BE)} &= 0 \\
+\spacegrad \wedge \lr{ I \BE } &= 0.
+\end{aligned}
+\end{equation}
+Then use the identities \( \spacegrad \wedge \spacegrad \wedge \BF = 0 \), for vector \( \BF \) and \( \spacegrad \wedge \spacegrad \phi_m = 0 \), for scalar \( \phi_m \) to find the potential representation \cref{eqn:mvpotentials:100}.
+} % problem
+\makeanswer{problem:mvpotentials:2}{
+We multiply \cref{eqn:mvpotentialsProblems:160} by \( I \) to find
+\begin{equation}\label{eqn:mvpotentialsProblems:360}
+\lr{ \spacegrad + \inv{c}\PD{t}{} } I F = I \gpgrade{J}{2,3},
+\end{equation}
+which can be split into
+\begin{equation}\label{eqn:mvpotentialsProblems:380}
+\begin{aligned}
+\gpgrade{ \lr{ \spacegrad + \inv{c}\PD{t}{} } I F }{1,2} &= I \gpgrade{J}{2,3} \\
+\gpgrade{ \lr{ \spacegrad + \inv{c}\PD{t}{} } I F }{0,3} &= 0.
+\end{aligned}
+\end{equation}
+We expand the source free equation in terms of \( I F = I \BE - \eta \BH \), to find
+\begin{equation}\label{eqn:mvpotentialsProblems:400}
+\begin{aligned}
+0
+&= \gpgrade{ \lr{ \spacegrad + \inv{c}\PD{t}{} } \lr{ I \BE - \eta \BH } }{0,3} \\
+&= \spacegrad \wedge \lr{ I \BE } + \inv{c} \PD{t}{(I \BE)} - \eta \spacegrad \wedge \BH,
+\end{aligned}
+\end{equation}
+which has the respective bivector and trivector grades
+\begin{equation}\label{eqn:mvpotentialsProblems:420}
+0 = \spacegrad \wedge \lr{ I \BE }
+\end{equation}
+\begin{equation}\label{eqn:mvpotentialsProblems:440}
+0 = \inv{c} \PD{t}{(I \BE)} - \eta \spacegrad \wedge \BH.
+\end{equation}
+We can clearly satisfy \cref{eqn:mvpotentialsProblems:420} by setting
+\begin{equation}\label{eqn:mvpotentialsProblems:460}
+I \BE = -\inv{\epsilon} \spacegrad \wedge \BF,
+\end{equation}
+or
+\begin{equation}\label{eqn:mvpotentialsProblems:461}
+\BE = -\inv{\epsilon} \spacegrad \cross \BF.
+\end{equation}
+Here, once again, the sneaky inclusion of a constant factor \( -1/\epsilon \) is to make the result match the conventional.  Inserting this value for \( I \BE \) into our bivector equation yields
+\begin{equation}\label{eqn:mvpotentialsProblems:480}
+\begin{aligned}
+0
+&= -\inv{\epsilon} \inv{c} \PD{t}{} (\spacegrad \wedge \BF) - \eta \spacegrad \wedge \BH \\
+&= -\eta \spacegrad \wedge \lr{ \PD{t}{\BF} + \BH },
+\end{aligned}
+\end{equation}
+so we set
+\begin{equation}\label{eqn:mvpotentialsProblems:500}
+\PD{t}{\BF} + \BH = -\spacegrad \phi_m,
+\end{equation}
+and have a field representation that automatically satisfies the source free equations.
+} % answer
+\makeproblem{Total field in terms of potentials.}{problem:mvpotentials:3}{
+Prove \cref{lemma:mvpotentials:1}, either by direct expansion, or by trying to discover the multivector form of the field by construction.
+} % problem
+\makeanswer{problem:mvpotentials:3}{
+Proof by expansion is straightforward, and left to the reader.  Here we will start with \cref{eqn:mvpotentials:80}, and \cref{eqn:mvpotentials:100}, and form the respective total electromagnetic field \( F = \BE + I \eta H \) for each case.
+
+Starting with \cref{eqn:mvpotentials:80}, we find
+\begin{equation}\label{eqn:mvpotentialsProblems:560}
+\begin{aligned}
+F
+&= \BE + I \eta \BH \\
+&= -\spacegrad \phi - \PD{t}{\BA} + I \frac{\eta}{\mu} \spacegrad \cross \BA \\
+&= -\spacegrad \phi - \inv{c} \PD{t}{(c \BA)} + \spacegrad \wedge (c\BA) \\
+&= \gpgrade{ -\spacegrad \phi - \inv{c} \PD{t}{(c \BA)} + \spacegrad \wedge (c\BA) }{1,2} \\
+&= \gpgrade{ -\spacegrad \phi - \inv{c} \PD{t}{(c \BA)} + \spacegrad (c\BA) }{1,2} \\
+&= \gpgrade{ \spacegrad \lr{ -\phi + c \BA } - \inv{c} \PD{t}{(c \BA)} }{1,2} \\
+&= \gpgrade{ \lr{ \spacegrad -\inv{c} \PD{t}{} } \lr{ -\phi + c \BA } }{1,2}.
+\end{aligned}
+\end{equation}
+
+For the field for the fictitious source case, we start with \cref{eqn:mvpotentials:100}, and compute the result in the same way, inserting a no-op grade selection to allow us to simplify.  We find
+\begin{equation}\label{eqn:mvpotentialsProblems:580}
+\begin{aligned}
+F
+&= \BE + I \eta \BH \\
+&= -\inv{\epsilon} \spacegrad \cross \BF + I \eta \lr{ -\spacegrad \phi_m - \PD{t}{\BF} } \\
+&= \inv{\epsilon c} I \lr{ \spacegrad \wedge (c \BF)} + I \eta \lr{ -\spacegrad \phi_m - \inv{c} \PD{t}{(c \BF)} } \\
+&= I \eta \lr{ \spacegrad \wedge (c \BF) + \lr{ -\spacegrad \phi_m - \inv{c} \PD{t}{(c \BF)} } } \\
+&= I \eta \gpgrade{ \spacegrad \wedge (c \BF) + \lr{ -\spacegrad \phi_m - \inv{c} \PD{t}{(c \BF)} } }{1,2} \\
+&= I \eta \gpgrade{ \spacegrad (c \BF) - \spacegrad \phi_m - \inv{c} \PD{t}{(c \BF)} }{1,2} \\
+&= I \eta \gpgrade{ \spacegrad (-\phi_m + c \BF) - \inv{c} \PD{t}{(c \BF)} }{1,2} \\
+&= I \eta \gpgrade{ \lr{ \spacegrad -\inv{c} \PD{t}{} } (-\phi_m + c \BF) }{1,2}.
+\end{aligned}
+\end{equation}
+} % answer
+\makeproblem{Fields in terms of potentials.}{problem:mvpotentials:4}{
+Prove \cref{lemma:mvpotentials:2}.
+} % problem
+\makeanswer{problem:mvpotentials:4}{
+We start by expanding \( (\spacegrad - (1/c)\partial_t) A \)
+%using
+%\cref{dfn:unpackStaticPotential:80}
+and then group by grade to find
+\begin{equation}\label{eqn:gaugeTransformation:1111}
+\begin{aligned}
+\conjstgrad A
+&=
+\conjstgrad \lr{  - \phi
+      + c \BA
+      + \eta I \lr{ -\phi_m + c \BF } } \\
+&=
+- \spacegrad \phi + c \spacegrad \cdot \BA + c \spacegrad \wedge \BA + \inv{c} \PD{t}{\phi} - \PD{t}{\BA} \\
+&\quad + I \eta
+\lr{
+- \spacegrad \phi_\txtm + c \spacegrad \cdot \BF + c \spacegrad \wedge \BF + \inv{c} \PD{t}{\phi_\txtm} - \PD{t}{\BF}
+} \\
+&=
+c \spacegrad \cdot \BA
++ \inv{c} \PD{t}{\phi}
+\\
+&
++
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+   - \spacegrad \phi
+   - \PD{t}{\BA}
+   - \inv{\epsilon} \spacegrad \cross \BF
+}
+{
+\(\BE\)
+}
++
+\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
+{
+   I \eta
+   \lr{
+      - \spacegrad \phi_\txtm
+      - \PD{t}{\BF}
+      + \inv{\mu} \spacegrad \cross \BA
+   }
+}
+{\(I \eta \BH\)
+} \\
+&
++ I \eta\lr{
+  c \spacegrad \cdot \BF
++ \inv{c} \PD{t}{\phi_\txtm}
+},
+\end{aligned}
+\end{equation}
+which shows the claimed field split.
+
+%%%Let's expand and then group by grade
+%%%\begin{equation}\label{eqn:mvpotentialsProblems:600}
+%%%\begin{aligned}
+%%%\lr{ \spacegrad - \inv{c} \PD{t}{} } A
+%%%&=
+%%%\lr{ \spacegrad - \inv{c} \PD{t}{} } \lr{ -\phi + c \BA + I \eta \lr{ -\phi_m + c \BF }} \\
+%%%&=
+%%%-\spacegrad \phi + c \spacegrad \BA + I \eta \lr{ -\spacegrad \phi_m + c \spacegrad \BF }
+%%%-\inv{c} \PD{t}{\phi} + c \inv{c} \PD{t}{ \BA } + I \eta \lr{ -\inv{c} \PD{t}{\phi_m} + c \inv{c} \PD{t}{\BF} } \\
+%%%&=
+%%%- \spacegrad \phi
+%%%+ I \eta c \spacegrad \wedge \BF
+%%%- c \inv{c} \PD{t}{\BA}
+%%%\quad + c \spacegrad \wedge \BA
+%%%-I \eta \spacegrad \phi_m
+%%%- c I \eta \inv{c} \PD{t}{\BF} \\
+%%%&\quad + c \spacegrad \cdot \BA
+%%%+\inv{c} \PD{t}{\phi}
+%%%\quad + I \eta \lr{ c \spacegrad \cdot \BF
+%%%+ \inv{c} \PD{t}{\phi_m} } \\
+%%%&=
+%%%- \spacegrad \phi
+%%%- \inv{\epsilon} \spacegrad \cross \BF
+%%%- \PD{t}{\BA}
+%%%\quad + I \eta \lr{
+%%%\inv{\mu} \spacegrad \cross \BA
+%%%- \spacegrad \phi_m
+%%%- \PD{t}{\BF}
+%%%} \\
+%%%&\quad + c \spacegrad \cdot \BA
+%%%+\inv{c} \PD{t}{\phi}
+%%%\quad + I \eta \lr{ c \spacegrad \cdot \BF
+%%%+ \inv{c} \PD{t}{\phi_m} }.
+%%%\end{aligned}
+%%%\end{equation}
+Observing that \( F = \gpgrade{ \lr{ \spacegrad -(1/c) \PDi{t}{} } A }{1,2} = \BE + I \eta \BH \), completes the problem.  If the Lorentz gauge condition is assumed, the scalar and pseudoscalar components above are obliterated, leaving just
+\( F = \lr{ \spacegrad -(1/c) \PDi{t}{} } A \).
+} % answer
+%}

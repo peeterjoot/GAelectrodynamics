@@ -1,0 +1,40 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Potential wave equations.}{problem:gaugeTransformation:1}{
+Prove \cref{thm:generalPotential:40}.
+} % problem
+\makeanswer{problem:gaugeTransformation:1}{
+In terms of the potentials Maxwell's equation \( \stgrad F = J \) is
+\begin{equation}\label{eqn:gaugeTransformation:20}
+\stgrad \gpgrade{\conjstgrad A}{1,2} = J,
+\end{equation}
+or
+\begin{equation}\label{eqn:gaugeTransformation:40}
+\dAlembertian A = J + \stgrad \gpgrade{\conjstgrad A}{0,3}.
+\end{equation}
+This is almost a wave equation.
+Inserting \cref{eqn:gaugeTransformation:1111} into \cref{eqn:gaugeTransformation:40} and selecting each grade gives four almost-wave equations
+\begin{equation*}
+\begin{aligned}
+-
+\dAlembertian
+\phi &= \frac{\rho}{\epsilon} + \inv{c} \PD{t}{} \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+c
+\dAlembertian
+\BA &= -\eta \BJ + \spacegrad \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
+\eta c I
+\dAlembertian
+\BF &= - I \BM + \spacegrad \cdot \lr{ I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} } } \\
+-I \eta
+\dAlembertian
+\phi_\txtm &= I c \rho_\txtm + \inv{c} \PD{t}{} I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} }
+\end{aligned}
+\end{equation*}
+Using \( \eta = \mu c, \eta c \epsilon = 1 \), and
+\( \spacegrad \cdot (I \psi) = I \spacegrad \psi \) for scalar \(\psi\), a bit
+of rearrangement completes the proof.
+} % answer
+%}

@@ -32,129 +32,45 @@
 %\generatetitle{Multivector potentials.}
 %%\chapter{Multivector potentials.}
 \label{chap:gaugeTransformation}
-
-Conventional electromagnetism utilizes scalar and vector potentials, so it is reasonable to expect that
-the desired multivector representation of the potential is a grade \((0,1)\)-multivector.
-A potential representation with grades 2,3 works for (fictitious) magnetic sources, so we may generally
-allow a multivector potential to have any grades.  Such a potential is related to the field as follows.
-
-\index{\(A\)}
-\makedefinition{Multivector potential.}{thm:generalPotential:80}{
-The electromagnetic field strength \( F \) for a \textit{multivector potential} \( A \) is
-\begin{equation*}
-F = \gpgrade{\conjstgrad A}{1,2}.
-\end{equation*}
-} % definition
-
-Before unpacking \( \conjstgrad A \), we want to label the
-different grades of the multivector potential, and do so in a way that is consistent with the conventional
-potential representation of the electric and magnetic fields.
-\index{\(\phi\)}
-\index{\(\BA\)}
-\index{\(\phi_m\)}
-\index{\(\BF\)}
-\makedefinition{Multivector potential representation.}{dfn:unpackStaticPotential:80}{
-Let
-%\label{eqn:gaugeTransformation:1111}
-\begin{equation*}
-A =
-      - \phi
-      + c \BA
-      + \eta I \lr{ -\phi_m + c \BF },
-\end{equation*}
-where
-\begin{enumerate}
-\item \( \phi \) is the scalar potential \si{V} (Volts).
-\item \( \BA \) is the vector potential \si{W/m} (Webers/meter).
-\item \( \phi_m \) is the scalar potential for (fictitious) magnetic sources \si{A} (Amperes).
-\item \( \BF \) is the vector potential for (fictitious) magnetic sources \si{C} (Coulombs).
-\end{enumerate}
-} % definition
-This specific breakdown of \( A \) into scalar and vector potentials, and dual (pseudoscalar and bivector) potentials has been chosen to match SI conventions, specifically those of \citep{balanis2005antenna} (which includes fictitious magnetic sources.)
-
-We can now express the fields in terms of the potentials.
+%%%Conventional electromagnetism utilizes scalar and vector potentials, so it is reasonable to expect that
+%%%the desired multivector representation of the potential is a grade \((0,1)\)-multivector.
+%%%A potential representation with grades 2,3 works for (fictitious) magnetic sources, so we may generally
+%%%allow a multivector potential to have any grades.  Such a potential is related to the field as follows.
+%%%
+%%%\index{\(A\)}
+%%%\makedefinition{Multivector potential.}{thm:generalPotential:80}{
+%%%The electromagnetic field strength \( F \) for a \textit{multivector potential} \( A \) is
+%%%\begin{equation*}
+%%%F = \gpgrade{\conjstgrad A}{1,2}.
+%%%\end{equation*}
+%%%} % definition
+%%%
+%%%Before unpacking \( \conjstgrad A \), we want to label the
+%%%different grades of the multivector potential, and do so in a way that is consistent with the conventional
+%%%potential representation of the electric and magnetic fields.
+%%%\makedefinition{Multivector potential representation.}{dfn:unpackStaticPotential:80}{
+%%%Let
+%%%%\label{eqn:gaugeTransformation:1111}
+%%%\begin{equation*}
+%%%A =
+%%%      - \phi
+%%%      + c \BA
+%%%      + \eta I \lr{ -\phi_m + c \BF },
+%%%\end{equation*}
+%%%where
+%%%\begin{enumerate}
+%%%\item \( \phi \) is the scalar potential \si{V} (Volts).
+%%%\item \( \BA \) is the vector potential \si{W/m} (Webers/meter).
+%%%\item \( \phi_m \) is the scalar potential for (fictitious) magnetic sources \si{A} (Amperes).
+%%%\item \( \BF \) is the vector potential for (fictitious) magnetic sources \si{C} (Coulombs).
+%%%\end{enumerate}
+%%%} % definition
+%%%This specific breakdown of \( A \) into scalar and vector potentials, and dual (pseudoscalar and bivector) potentials has been chosen to match SI conventions, specifically those of \citep{balanis2005antenna} (which includes fictitious magnetic sources.)
+%%%
+%%%We can now express the fields in terms of the potentials.
 \input{Theorem_fields_and_potential_wave_equations.tex}
 \begin{proof}
-To prove \cref{thm:generalPotential:40} we start by expanding \( (\spacegrad - (1/c)\partial_t) A \) using
-\cref{dfn:unpackStaticPotential:80} and then group by grade to find
-\begin{equation}\label{eqn:gaugeTransformation:1111}
-\begin{aligned}
-\conjstgrad A
-&=
-\conjstgrad \lr{  - \phi
-      + c \BA
-      + \eta I \lr{ -\phi_m + c \BF } } \\
-&=
-- \spacegrad \phi + c \spacegrad \cdot \BA + c \spacegrad \wedge \BA + \inv{c} \PD{t}{\phi} - \PD{t}{\BA} \\
-&\quad + I \eta
-\lr{
-- \spacegrad \phi_\txtm + c \spacegrad \cdot \BF + c \spacegrad \wedge \BF + \inv{c} \PD{t}{\phi_\txtm} - \PD{t}{\BF}
-} \\
-&=
-c \spacegrad \cdot \BA
-+ \inv{c} \PD{t}{\phi}
-\\
-&
-+
-\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
-{
-   - \spacegrad \phi
-   - \PD{t}{\BA}
-   - \inv{\epsilon} \spacegrad \cross \BF
-}
-{
-\(\BE\)
-}
-+
-\mathLabelBox[ labelstyle={below of=m\themathLableNode, below of=m\themathLableNode} ]
-{
-   I \eta
-   \lr{
-      - \spacegrad \phi_\txtm
-      - \PD{t}{\BF}
-      + \inv{\mu} \spacegrad \cross \BA
-   }
-}
-{\(I \eta \BH\)
-} \\
-&
-+ I \eta\lr{
-  c \spacegrad \cdot \BF
-+ \inv{c} \PD{t}{\phi_\txtm}
-},
-\end{aligned}
-\end{equation}
-which shows the claimed field split.
-
-In terms of the potentials Maxwell's equation \( \stgrad F = J \) is
-\begin{equation}\label{eqn:gaugeTransformation:20}
-\stgrad \gpgrade{\conjstgrad A}{1,2} = J,
-\end{equation}
-or
-\begin{equation}\label{eqn:gaugeTransformation:40}
-\dAlembertian A = J + \stgrad \gpgrade{\conjstgrad A}{0,3}.
-\end{equation}
-This is almost a wave equation.
-Inserting \cref{eqn:gaugeTransformation:1111} into \cref{eqn:gaugeTransformation:40} and selecting each grade gives four almost-wave equations
-\begin{equation*}
-\begin{aligned}
--
-\dAlembertian
-\phi &= \frac{\rho}{\epsilon} + \inv{c} \PD{t}{} \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
-c
-\dAlembertian
-\BA &= -\eta \BJ + \spacegrad \lr{ c \spacegrad \cdot \BA + \inv{c} \PD{t}{\phi} } \\
-\eta c I
-\dAlembertian
-\BF &= - I \BM + \spacegrad \cdot \lr{ I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} } } \\
--I \eta
-\dAlembertian
-\phi_\txtm &= I c \rho_\txtm + \inv{c} \PD{t}{} I \eta\lr{ c \spacegrad \cdot \BF + \inv{c} \PD{t}{\phi_\txtm} }
-\end{aligned}
-\end{equation*}
-Using \( \eta = \mu c, \eta c \epsilon = 1 \), and
-\( \spacegrad \cdot (I \psi) = I \spacegrad \psi \) for scalar \(\psi\), a bit
-of rearrangement completes the proof.
+See \cref{problem:gaugeTransformation:1}.
 \end{proof}
 
 \subsection{Gauge transformations.}
@@ -230,6 +146,5 @@ Again, using the Green's function for the d'Alembertian, the explicit form of th
 \end{equation}
 however, we don't actually need to compute this.
 Instead, we only have to know we are free to construct a field from any solution \( A' \) of \( \dAlembertian A' = J \) using \cref{eqn:gaugeTransformation:180}.
-
 %}
 %\EndArticle

@@ -1,0 +1,104 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+We know from conventional electromagnetism (given no fictitious magnetic sources) that we can represent the six components of the electric and magnetic fields in terms of four scalar fields
+\index{\(\phi\)}
+\index{\(\BA\)}
+\begin{equation}\label{eqn:mvpotentials:80}
+\begin{aligned}
+\BE &= -\spacegrad \phi - \PD{t}{\BA} \\
+\BH &= \inv{\mu} \spacegrad \cross \BA.
+\end{aligned}
+\end{equation}
+where
+\begin{enumerate}
+\item \( \phi \) is the scalar potential \si{V} (Volts), and
+\item \( \BA \) is the vector potential \si{W/m} (Webers/meter).
+\end{enumerate}
+
+The conventional way of constructing these potentials makes use of the identities,
+\begin{equation}\label{eqn:mvpotentials:60}
+\begin{aligned}
+\spacegrad \cdot \lr{ \spacegrad \cross \BA } &= 0 \\
+\spacegrad \cross \lr{ \spacegrad \phi } &= 0,
+\end{aligned}
+\end{equation}
+which are special cases of \( \spacegrad \wedge \spacegrad \wedge \chi = 0 \) (for blades \( \chi \).)
+Applying those to the source free Maxwell's equations to find representations of \( \BE, \BH \) that automatically satisfy those equations.  For that conventional analysis, see \S 18-6 \citep{feynman1963flpII:MaxwellEquations}, \S 10.1 \citep{griffiths1999introduction}, or \S 6.4 \citep{jackson1975cew}.  We can also find such a potential representation using geometric algebra methods that are cross product free (\cref{problem:mvpotentials:1}.)
+
+For Maxwell's equations with fictitious magnetic sources, it can be shown that a potential representation of the field
+\index{\(\phi_m\)}
+\index{\(\BF\)}
+\begin{equation}\label{eqn:mvpotentials:100}
+\begin{aligned}
+\BH &= -\spacegrad \phi_m - \PD{t}{\BF} \\
+\BE &= -\inv{\epsilon} \spacegrad \cross \BF.
+\end{aligned}
+\end{equation}
+satisfies the source-free grades of Maxwell's equation.
+Here
+\begin{enumerate}
+\item \( \phi_m \) is the scalar potential for (fictitious) magnetic sources \si{A} (Amperes), and
+\item \( \BF \) is the vector potential for (fictitious) magnetic sources \si{C} (Coulombs).
+\end{enumerate}
+See \citep{balanis2005antenna}, and \citep{pozar2009microwave} for such derivations.  As with the conventional source potentials, we can also apply our geometric algebra toolbox to easily find these results (\cref{problem:mvpotentials:2}.)
+
+In \cref{eqn:mvpotentials:80}, and \cref{eqn:mvpotentials:100} we have a mix of time partials and curls that is reminiscent of Maxwell's equation itself.  It's obvious to wonder whether there is a more coherent integrated form for the potential.  This is in fact the case.
+\makelemma{Multivector potentials.}{lemma:mvpotentials:1}{
+For Maxwell's equation with electric sources, the total field \( F \) expressed in terms of the potentials of \cref{eqn:mvpotentials:80} can be expressed in multivector potential form
+\begin{equation}\label{eqn:mvpotentials:520}
+F = \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } \lr{ -\phi + c \BA } }{1,2}.
+\end{equation}
+For Maxwell's equation with only fictitious magnetic sources, the total field \( F \) expressed in terms of the potentials of \cref{eqn:mvpotentials:100} can be expressed in multivector form
+\begin{equation}\label{eqn:mvpotentials:540}
+F = \gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } I \eta \lr{ -\phi_m + c \BF } }{1,2}.
+\end{equation}
+} % lemma
+The reader should try to verify this themselves (\cref{problem:mvpotentials:3}.)
+
+Using superposition, we can form a multivector potential that includes all grades.
+\makedefinition{Multivector potential.}{dfn:mvpotentials:1}{
+We call \( A \), a multivector with all grades, the multivector potential, defining the total field as
+\begin{equation}\label{eqn:mvpotentials:600}
+\begin{aligned}
+F
+&=
+\gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } A }{1,2} \\
+&=
+\lr{ \spacegrad - \inv{c} \PD{t}{} } A
+-
+\gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } A }{0,3}.
+\end{aligned}
+\end{equation}
+Imposition of the constraint
+\begin{equation}\label{eqn:mvpotentials:680}
+\gpgrade{ \lr{ \spacegrad - \inv{c} \PD{t}{} } A }{0,3} = 0,
+\end{equation}
+is called the Lorentz gauge condition, and allows us to express \( F \) in terms of the potential without any grade selection filters.
+} % definition
+\makelemma{Conventional multivector potential.}{lemma:mvpotentials:2}{
+Let
+\begin{equation}\label{eqn:mvpotentials:620}
+A = -\phi + c \BA + I \eta \lr{ -\phi_m + c \BF }.
+\end{equation}
+With \cref{dfn:mvpotentials:1}, this results in the conventional potential representation of the electric and magnetic fields
+\begin{equation}\label{eqn:mvpotentials:640}
+\begin{aligned}
+\BE &= -\spacegrad \phi - \PD{t}{\BA} - \inv{\epsilon} \spacegrad \cross \BF \\
+\BH &= -\spacegrad \phi_m - \PD{t}{\BF} + \inv{\mu} \spacegrad \cross \BA.
+\end{aligned}
+\end{equation}
+In terms of potentials, the Lorentz gauge condition \cref{eqn:mvpotentials:680} takes the form
+\begin{equation}\label{eqn:mvpotentials:660}
+\begin{aligned}
+0 &= \inv{c} \PD{t}{\phi} + \spacegrad \cdot (c \BA) \\
+0 &= \inv{c} \PD{t}{\phi_m} + \spacegrad \cdot (c \BF).
+\end{aligned}
+\end{equation}
+} % lemma
+\begin{proof}
+See \cref{problem:mvpotentials:4}.
+\end{proof}
+%}
