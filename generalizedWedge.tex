@@ -91,6 +91,43 @@ in which the determinant is recognizable as the scalar triple product.  This sho
 =
 \lr{ \Ba \cdot (\Bb \cross \Bc) } I.
 }
+%%%We have just one identity left in the article to find the GA equivalent of, but will split that into two logical pieces.
+%%%\makelemma{Dual of triple wedge.}{lemma:vectorcalc:660}{
+%%%If \( \Ba, \Bb, \Bc \in \mathbb{R}^3 \) are vectors, then
+%%%\begin{equation*}
+%%%\Ba \cdot \lr{ \Bb \cross \Bc } = -I \lr{ \Ba \wedge \Bb \wedge \Bc }.
+%%%\end{equation*}
+%%%} % lemma
+%%%\begin{proof}
+%%%\begin{equation}\label{eqn:vectorcalc:680}
+%%%\begin{aligned}
+%%%\Ba \cdot \lr{ \Bb \cross \Bc }
+%%%&=
+%%%\gpgradezero{
+%%%\Ba \lr{ \Bb \cross \Bc }
+%%%} \\
+%%%&=
+%%%\gpgradezero{
+%%%\Ba (-I) \lr{ \Bb \wedge \Bc }
+%%%} \\
+%%%&=
+%%%\gpgradezero{
+%%%-I \lr{
+%%%\Ba \cdot \lr{ \Bb \wedge \Bc }
+%%%+
+%%%\Ba \wedge \lr{ \Bb \wedge \Bc }
+%%%}
+%%%} \\
+%%%&=
+%%%\gpgradezero{
+%%%-I \lr{ \Ba \wedge \lr{ \Bb \wedge \Bc } }
+%%%} \\
+%%%&=
+%%%-I \lr{ \Ba \wedge \lr{ \Bb \wedge \Bc } }.
+%%%\end{aligned}
+%%%\end{equation}
+%%%\end{proof}
+
 
 Note that the wedge of \( n \) vectors is also associative.
 A full proof is possible by induction, which won't be done here.

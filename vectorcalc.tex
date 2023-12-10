@@ -287,42 +287,6 @@ For the \R{3} part of the story, we have
 \end{equation}
 \end{proof}
 
-We have just one identity left in the article to find the GA equivalent of, but will split that into two logical pieces.
-\makelemma{Dual of triple wedge.}{lemma:vectorcalc:660}{
-If \( \Ba, \Bb, \Bc \in \mathbb{R}^3 \) are vectors, then
-\begin{equation*}
-\Ba \cdot \lr{ \Bb \cross \Bc } = -I \lr{ \Ba \wedge \Bb \wedge \Bc }.
-\end{equation*}
-} % lemma
-\begin{proof}
-\begin{equation}\label{eqn:vectorcalc:680}
-\begin{aligned}
-\Ba \cdot \lr{ \Bb \cross \Bc }
-&=
-\gpgradezero{
-\Ba \lr{ \Bb \cross \Bc }
-} \\
-&=
-\gpgradezero{
-\Ba (-I) \lr{ \Bb \wedge \Bc }
-} \\
-&=
-\gpgradezero{
--I \lr{
-\Ba \cdot \lr{ \Bb \wedge \Bc }
-+
-\Ba \wedge \lr{ \Bb \wedge \Bc }
-}
-} \\
-&=
-\gpgradezero{
--I \lr{ \Ba \wedge \lr{ \Bb \wedge \Bc } }
-} \\
-&=
--I \lr{ \Ba \wedge \lr{ \Bb \wedge \Bc } }.
-\end{aligned}
-\end{equation}
-\end{proof}
 \makelemma{Curl of a wedge of gradients.}{lemma:vectorcalc:890}{
 % (divergence of a gradient cross products.)
 Let \( f, g, h \) be smooth functions with smooth derivatives.  Then
@@ -362,7 +326,7 @@ f
 \spacegrad f \wedge \spacegrad g \wedge \spacegrad h.
 \end{aligned}
 \end{equation}
-The \R{3} part of the lemma can be shown using \cref{lemma:vectorcalc:660}, or we can compute it directly
+The \R{3} part of the lemma can be shown using \cref{eqn:generalizedWedge:640}, or we can compute it directly
 \begin{equation}\label{eqn:vectorcalc:1010}
 \begin{aligned}
 \spacegrad \cdot \lr{ f \lr{ \spacegrad g \cross \spacegrad h } }
@@ -417,6 +381,6 @@ The GA case is a trivial chain rule application
 &= \Bb \wedge \lr{ \spacegrad \wedge \Ba } - \Ba \wedge \lr{ \spacegrad \wedge \Bb }.
 \end{aligned}
 \end{equation}
-The \R{3} case, is less obvious by inspection, but follows from \cref{lemma:vectorcalc:660}.
+The \R{3} case, is less obvious by inspection, but follows from \cref{eqn:generalizedWedge:640}.
 \end{proof}
 %}

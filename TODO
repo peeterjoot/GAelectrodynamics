@@ -12,13 +12,21 @@
 
 - steal from ece1228?: parts of appendix F, G (cylindrical and spherical gradient operators and coordinates)
 
-- incorporate the vector calculus identities from recent (not published youtube manim video).  Had those in a blog post too.
-
-  Especially the \grad \wedge \grad \wedge \chi = 0 identity, which I reference in mvpotentials without proof.
-
 - spherical polar introduction needs rework.  Start with the geometry of the problem, not the coordinate representation (which was assumed)
 
   put the mathematica "derivation" as an afterword instead of making it an integral part of the story.
+
+- have some repeated curl = 0 references a few times in the mvpotential problems.  point those back to the theorem (chapter 2 -- vector identities section.)
+
+- Add the new vector identities to the helpful formulas summary.
+
+- review new vector identities more thoroughly.
+   
+- have various boxedEquations in chapter 1.  Might be best to systematically convert those to lemmas.  Example
+
+   eqn:generalizedWedge:640
+
+- review theorems and convert minor ones to lemmas.
 
 ================================================================================================
 
