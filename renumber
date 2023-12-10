@@ -508,8 +508,8 @@
 #../latex/bin/lgrep greensIntroProblem.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl greensIntroProblem.tex
 
-#../latex/bin/lgrep helpful.tex | tee o ; . ./o
-#perl -p -i ../latex/bin/latexRegex.pl helpful.tex
+../latex/bin/lgrep helpful.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl helpful.tex
 
 #../latex/bin/lgrep dexpquestion.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl dexpquestion.tex

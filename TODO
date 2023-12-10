@@ -18,8 +18,6 @@
 
 - have some repeated curl = 0 references a few times in the mvpotential problems.  point those back to the theorem (chapter 2 -- vector identities section.)
 
-- Add the new vector identities to the helpful formulas summary.
-
 - review new vector identities more thoroughly.
    
 - have various boxedEquations in chapter 1.  Might be best to systematically convert those to lemmas.  Example

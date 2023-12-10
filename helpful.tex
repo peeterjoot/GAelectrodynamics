@@ -130,3 +130,48 @@ A \lfloor B &= \sum_{i,j = 0}^N \gpgrade{ A_i B_j }{i - j} \\
 A \conj B &= \sum_{i,j = 0}^N \gpgradezero{ A_i B_j }
 \end{aligned}
 \end{equation}
+\section{Vector calculus identities.}
+
+Blade \( A \),
+\begin{equation}\label{eqn:helpful:340}
+\spacegrad \wedge \lr{ \spacegrad \wedge A } = 0
+\end{equation}
+\R{3}, scalar \( f \), vector \( \Bf \)
+\begin{equation}\label{eqn:helpful:360}
+\begin{aligned}
+\spacegrad \cross \lr{ \spacegrad f } &= 0 \\
+\spacegrad \cdot \lr{ \spacegrad \cross \Bf } &= 0
+\end{aligned}
+\end{equation}
+
+\begin{equation}\label{eqn:helpful:380}
+\begin{aligned}
+\spacegrad \lr{ \Ba \cdot \Bb } &= \lr{ \Ba \cdot \spacegrad } \Bb + \lr{ \Bb \cdot \spacegrad } \Ba + \lr{ \spacegrad \wedge \Bb } \cdot \Ba + \lr{ \spacegrad \wedge \Ba } \cdot \Bb \\
+&= \lr{ \Ba \cdot \spacegrad } \Bb + \lr{ \Bb \cdot \spacegrad } \Ba + \Ba \cross \lr{ \spacegrad \cross \Bb } + \Bb \cross \lr{ \spacegrad \cross \Ba } \qquad(\mathbb{R}^3)
+\end{aligned}
+\end{equation}
+
+\begin{equation}\label{eqn:helpful:400}
+\begin{aligned}
+\spacegrad \cdot \lr{ \Ba \wedge \Bb }
+&= \Bb \lr{ \spacegrad \cdot \Ba } - \Ba \lr{ \spacegrad \cdot \Bb } - \lr{ \Bb \cdot \spacegrad } \Ba + \lr{ \Ba \cdot \spacegrad } \Bb \\
+&= -\spacegrad \cross \lr{ \Ba \cross \Bb }\qquad(\mathbb{R}^3)
+\end{aligned}
+\end{equation}
+
+
+\begin{equation}\label{eqn:helpful:420}
+\spacegrad \wedge \lr{ f \lr{ \spacegrad g \wedge \spacegrad h } } = \spacegrad f \wedge \spacegrad g \wedge \spacegrad h
+\end{equation}
+For \R{3}
+\begin{equation}\label{eqn:helpful:440}
+\spacegrad \cdot \lr{ f \lr{ \spacegrad g \cross \spacegrad h } } = \spacegrad f \cdot \lr{ \spacegrad g \cross \spacegrad h }
+\end{equation}
+
+\begin{equation}\label{eqn:helpful:460}
+\spacegrad \wedge \lr{ \Ba \wedge \Bb } = \Bb \wedge \lr{ \spacegrad \wedge \Ba } - \Ba \wedge \lr{ \spacegrad \wedge \Bb }
+\end{equation}
+For \R{3}
+\begin{equation}\label{eqn:helpful:480}
+\spacegrad \cdot \lr{ \Ba \cross \Bb } = \Bb \cdot \lr{ \spacegrad \cross \Ba } - \Ba \cdot \lr{ \spacegrad \cross \Bb }
+\end{equation}
