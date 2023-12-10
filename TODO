@@ -1,5 +1,18 @@
 ================================================================================================
 
+- spherical polar introduction needs rework.  Start with the geometry of the problem, not the coordinate representation (which was assumed)
+
+  put the mathematica "derivation" as an afterword instead of making it an integral part of the story.
+
+- have some repeated curl = 0 references a few times in the mvpotential problems.  point those back to the theorem (chapter 2 -- vector identities section.)
+
+- review new vector identities more thoroughly.
+
+================================================================================================
+
+- have various boxedEquations in chapter 1.  Might be best to systematically convert those to lemmas.  Example
+
+   eqn:generalizedWedge:640
 - Figure 1.5 should have shading to show the difference in orientation.  Not clear -- even in color.
 
 - Perhaps try again later: couldn't get hatch shading to look good for:
@@ -11,18 +24,6 @@
 - Also have some review comments below.
 
 - steal from ece1228?: parts of appendix F, G (cylindrical and spherical gradient operators and coordinates)
-
-- spherical polar introduction needs rework.  Start with the geometry of the problem, not the coordinate representation (which was assumed)
-
-  put the mathematica "derivation" as an afterword instead of making it an integral part of the story.
-
-- have some repeated curl = 0 references a few times in the mvpotential problems.  point those back to the theorem (chapter 2 -- vector identities section.)
-
-- review new vector identities more thoroughly.
-   
-- have various boxedEquations in chapter 1.  Might be best to systematically convert those to lemmas.  Example
-
-   eqn:generalizedWedge:640
 
 - review theorems and convert minor ones to lemmas.
 
