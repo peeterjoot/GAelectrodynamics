@@ -170,6 +170,7 @@ torusCenterOfMassParameterization.tex
 transverseField.tex
 vectorDerivative.tex
 vectorTrivectorDot.tex
+vectorcalc.tex
 volumeintegral.tex
 volumeintegraldef.tex
 volumeselection.tex

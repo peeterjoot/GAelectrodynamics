@@ -519,3 +519,6 @@
 
 #../latex/bin/lgrep mvpotentialsProblems.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl mvpotentialsProblems.tex
+
+#../latex/bin/lgrep vectorcalc.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl vectorcalc.tex

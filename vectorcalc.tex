@@ -1,0 +1,422 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makedefinition{Curl of a k-blade.}{dfn:vectorcalc:180}{
+Let \( A_k \) be a k-blade.  We define the curl of a k-blade as the wedge product of the gradient with that k-blade, designated
+\begin{equation*}
+\spacegrad \wedge A_k.
+\end{equation*}
+} % definition
+From the definition of the multivector wedge product \cref{dfn:generalizedWedge:480}, it is worth noting that
+the curl of a scalar function \( f \), is in fact just the gradient of that function
+\begin{equation}\label{eqn:vectorcalc:200}
+\spacegrad \wedge f = \gpgrade{\spacegrad f}{1+0} = \spacegrad f.
+% = \sum_i \Be_i \PD{x_i}{f}.
+\end{equation}
+\makelemma{Repeated curl identities.}{lemma:vectorcalc:460}{
+Let \( A \) be a smooth k-blade, then
+\begin{equation*}
+\spacegrad \wedge \lr{ \spacegrad \wedge A } = 0.
+\end{equation*}
+For \R{3}, this result, for a scalar function \( f \), and a vector function \( \Bf \), in terms of the cross product, as
+\begin{equation}\label{eqn:vectorcalc:560}
+\begin{aligned}
+\spacegrad \cross \lr{ \spacegrad f } &= 0 \\
+\spacegrad \cdot \lr{ \spacegrad \cross \Bf } &= 0.
+\end{aligned}
+\end{equation}
+} % lemma
+\begin{proof}
+First consider the 0-blade case
+\begin{equation}\label{eqn:vectorcalc:480}
+\begin{aligned}
+\spacegrad \wedge \lr{ \spacegrad \wedge A }
+&=
+\spacegrad \wedge \lr{ \spacegrad A } \\
+&=
+\sum_{ij} \Be_i \wedge \Be_j \frac{\partial^2 A}{\partial x_i \partial x_j} \\
+&= 0.
+\end{aligned}
+\end{equation}
+The smooth criteria of for the function \( A \) is assumed to imply that we have equality of mixed partials, and since this is a sum of an antisymmetric term with respect to indexes \( i, j \) (the wedge) and a symmetric term in indexes \( i, j \) (the partials), we have zero overall.
+
+Now consider a k-blade \( A, k > 0 \).  Expanding the gradients, we have
+\begin{equation}\label{eqn:vectorcalc:500}
+\spacegrad \wedge \lr{ \spacegrad \wedge A }
+=
+\sum_{ij} \Be_i \wedge \Be_j \wedge \frac{\partial^2 A}{\partial x_i \partial x_j}.
+\end{equation}
+It may be obvious that this is zero for the same reasons as above (sum of product of symmetric and antisymmetric entities).  We can, however, make it more obvious, at the cost of some hellish indexing, by expressing \( A \) in coordinate form.  Let
+\begin{equation}\label{eqn:vectorcalc:520}
+A = \sum_{i_1, i_2, \cdots, i_k}
+A_{i_1, i_2, \cdots, i_k} \Be_{i_1} \wedge \Be_{i_2} \wedge \cdots \wedge \Be_{i_k},
+\end{equation}
+then
+\begin{equation}\label{eqn:vectorcalc:540}
+\begin{aligned}
+\spacegrad \wedge \lr{ \spacegrad \wedge A }
+&=
+\sum_{i,j,i_1, i_2, \cdots, i_k} \Be_i \wedge \Be_j \wedge \Be_{i_1} \wedge \Be_{i_2} \wedge \cdots \wedge \Be_{i_k}
+\frac{\partial^2 }{\partial x_i \partial x_j}  A_{i_1, i_2, \cdots, i_k}  \\
+&= 0.
+\end{aligned}
+\end{equation}
+Now we clearly have a sum of an antisymmetric term (the wedges), and a symmetric term (assuming smooth \( A \) means that we have equality of mixed partials), so the sum is zero.
+
+Finally, for the \R{3} identities, we have
+\begin{equation}\label{eqn:vectorcalc:580}
+\begin{aligned}
+\spacegrad \cross \lr{ \spacegrad f}
+&=
+-I \lr{ \spacegrad \wedge \lr{ \spacegrad f } } \\
+&=
+0,
+\end{aligned}
+\end{equation}
+since \( \spacegrad \wedge \lr{ \spacegrad f } = 0 \).  For a vector \( \Bf \), we have
+\begin{equation}\label{eqn:vectorcalc:600}
+\begin{aligned}
+\spacegrad \cdot \lr{ \spacegrad \cross \Bf}
+&=
+\gpgradezero{
+\spacegrad \lr{ \spacegrad \cross \Bf}
+} \\
+&=
+\gpgradezero{
+\spacegrad (-I) \lr{ \spacegrad \wedge \Bf}
+} \\
+&=
+-\gpgradezero{
+I \spacegrad \lr{ \spacegrad \wedge \Bf}
+} \\
+&=
+-
+I \spacegrad \wedge \lr{ \spacegrad \wedge \Bf} \\
+&= 0,
+\end{aligned}
+\end{equation}
+again, because \( \spacegrad \wedge \lr{ \spacegrad \wedge \Bf} = 0 \).
+\end{proof}
+
+\section{Chain rule identities.}
+\makelemma{Chain rule identities.}{lemma:vectorcalc:620}{
+Let \( f \) be a scalar function and \( A \) be a k-blade, then
+\begin{equation*}
+\spacegrad \lr{ f A } = \lr{ \spacegrad f } A + f \lr{ \spacegrad A }.
+\end{equation*}
+For \( A \) with grade \( k > 0 \), the grade \( k-1 \) and \( k+1 \) components of this product are
+\begin{equation*}
+\begin{aligned}
+\spacegrad \cdot \lr{ f A } &= \lr{ \spacegrad f } \cdot A + f \lr{ \spacegrad \cdot A } \\
+\spacegrad \wedge \lr{ f A } &= \lr{ \spacegrad f } \wedge A + f \lr{ \spacegrad \wedge A }.
+\end{aligned}
+\end{equation*}
+For \R{3}, and vector \( A = \BA \), the wedge product relation above can be written in dual form as
+\begin{equation*}
+\spacegrad \cross \lr{ f \BA } = \lr{ \spacegrad f } \cross \BA + f \lr{ \spacegrad \cross \BA }.
+\end{equation*}
+} % lemma
+Proving this is left to the reader.
+
+Next up is another chain rule identity
+\makelemma{Gradient of dot product.}{lemma:vectorcalc:640}{
+If \( \Ba, \Bb \) are vectors, then
+\begin{equation*}
+\spacegrad \lr{ \Ba \cdot \Bb } =
+\lr{ \Ba \cdot \spacegrad } \Bb
++
+\lr{ \Bb \cdot \spacegrad } \Ba
++
+\lr{ \spacegrad \wedge \Bb }
+\cdot
+\Ba
++
+\lr{ \spacegrad \wedge \Ba }
+\cdot
+\Bb
+\end{equation*}
+For \R{3}, this can be written as
+\begin{equation*}
+\spacegrad \lr{ \Ba \cdot \Bb }
+=
+\lr{ \Ba \cdot \spacegrad } \Bb
++
+\lr{ \Bb \cdot \spacegrad } \Ba
++
+\Ba \cross \lr{ \spacegrad \cross \Bb }
++
+\Bb \cross \lr{ \spacegrad \cross \Ba }
+\end{equation*}
+} % lemma
+\begin{proof}
+We will use \( \rspacegrad \) to indicate that the gradient operates on everything to the right, \( \lrspacegrad \) to indicate that the gradient operates bidirectionally, and \( \spacegrad' A B' \) to indicate that the gradient's scope is limited to the ticked entity (just on \( B \) in this case.)
+\begin{equation}\label{eqn:vectorcalc:760}
+\begin{aligned}
+\rspacegrad \lr{ \Ba \cdot \Bb }
+&=
+\gpgradeone{
+\rspacegrad \lr{ \Ba \Bb - \Ba \wedge \Bb }
+} \\
+&=
+\gpgradeone{
+\spacegrad' \Ba' \Bb
++
+\spacegrad' \Ba \Bb'
+}
+- \rspacegrad \cdot \lr{ \Ba \wedge \Bb }
+\\
+&=
+\lr{ \spacegrad \cdot \Ba} \Bb
++
+\lr{ \spacegrad \wedge \Ba} \cdot \Bb
++
+\gpgradeone{
+- \Ba \spacegrad \Bb + 2 \lr{ \Ba \cdot \spacegrad } \Bb
+} \\
+&\quad
+- \spacegrad' \cdot \lr{ \Ba' \wedge \Bb }
+- \spacegrad' \cdot \lr{ \Ba \wedge \Bb' }
+\\
+&=
+\lr{ \spacegrad \cdot \Ba} \Bb
++
+\lr{ \spacegrad \wedge \Ba} \cdot \Bb
+-
+\Ba \lr{ \spacegrad \cdot \Bb }
+-
+\Ba \cdot \lr{ \spacegrad \wedge \Bb } \\
+&\quad
++ 2 \lr{ \Ba \cdot \spacegrad } \Bb
+- \spacegrad' \cdot \lr{ \Ba' \wedge \Bb }
+- \spacegrad' \cdot \lr{ \Ba \wedge \Bb' }.
+\end{aligned}
+\end{equation}
+We are running out of room, and have not had any cancellation yet, so let's expand those last two terms separately
+\begin{equation}\label{eqn:vectorcalc:780}
+\begin{aligned}
+- \spacegrad' &\cdot \lr{ \Ba' \wedge \Bb }
+- \spacegrad' \cdot \lr{ \Ba \wedge \Bb' } \\
+&=
+- \lr{ \spacegrad' \cdot \Ba' } \Bb
++ \lr{ \spacegrad' \cdot \Bb } \Ba'
+- \lr{ \spacegrad' \cdot \Ba } \Bb'
++ \lr{ \spacegrad' \cdot \Bb' } \Ba
+\\
+&=
+- \lr{ \spacegrad \cdot \Ba } \Bb
++ \lr{ \Bb \cdot \spacegrad } \Ba
+- \lr{ \Ba \cdot \spacegrad } \Bb
++ \lr{ \spacegrad \cdot \Bb } \Ba.
+\end{aligned}
+\end{equation}
+Now we can cancel some terms, leaving
+\begin{equation}\label{eqn:vectorcalc:800}
+\begin{aligned}
+\rspacegrad \lr{ \Ba \cdot \Bb }
+&=
+\lr{ \spacegrad \wedge \Ba} \cdot \Bb
+-
+\Ba \cdot \lr{ \spacegrad \wedge \Bb }
++ \lr{ \Ba \cdot \spacegrad } \Bb
++ \lr{ \Bb \cdot \spacegrad } \Ba.
+\end{aligned}
+\end{equation}
+After adjustment of the order and sign of the second term, we see that this is the result we wanted.  To show the \R{3} formulation, we have only apply \cref{thm:generalizedDot:tripleCross}.
+%\cref{lemma:vectorcalc:700}.
+%{Triple cross products}
+\end{proof}
+\makelemma{Divergence of a bivector.}{lemma:vectorcalc:870}{
+Let \( \Ba, \Bb \in \mathbb{R}^N \) be vectors.  The divergence of their wedge can be written
+\begin{equation*}
+\spacegrad \cdot \lr{ \Ba \wedge \Bb }
+=
+  \Bb \lr{ \spacegrad \cdot \Ba }
+- \Ba \lr{ \spacegrad \cdot \Bb }
+- \lr{ \Bb \cdot \spacegrad } \Ba
++ \lr{ \Ba \cdot \spacegrad } \Bb.
+\end{equation*}
+For \R{3}, this can also be written in triple cross product form
+\begin{equation*}
+\spacegrad \cdot \lr{ \Ba \wedge \Bb }
+=
+-\spacegrad \cross \lr{ \Ba \cross \Bb }.
+\end{equation*}
+} % lemma
+\begin{proof}
+\begin{equation}\label{eqn:vectorcalc:860}
+\begin{aligned}
+\rspacegrad \cdot \lr{ \Ba \wedge \Bb }
+&=
+\spacegrad' \cdot \lr{ \Ba' \wedge \Bb }
++ \spacegrad' \cdot \lr{ \Ba \wedge \Bb' } \\
+&=
+\lr{ \spacegrad' \cdot \Ba' } \Bb
+- \lr{ \spacegrad' \cdot \Bb } \Ba'
++ \lr{ \spacegrad' \cdot \Ba } \Bb'
+- \lr{ \spacegrad' \cdot \Bb' } \Ba
+\\
+&=
+\lr{ \spacegrad \cdot \Ba } \Bb
+- \lr{ \Bb \cdot \spacegrad } \Ba
++ \lr{ \Ba \cdot \spacegrad } \Bb
+- \lr{ \spacegrad \cdot \Bb } \Ba.
+\end{aligned}
+\end{equation}
+For the \R{3} part of the story, we have
+\begin{equation}\label{eqn:vectorcalc:870}
+\begin{aligned}
+\spacegrad \cross \lr{ \Ba \cross \Bb }
+&=
+\gpgradeone{
+-I \lr{ \spacegrad \wedge \lr{ \Ba \cross \Bb } }
+} \\
+&=
+\gpgradeone{
+-I \spacegrad \lr{ \Ba \cross \Bb }
+} \\
+&=
+\gpgradeone{
+(-I)^2 \spacegrad \lr{ \Ba \wedge \Bb }
+} \\
+&=
+-
+\spacegrad \cdot \lr{ \Ba \wedge \Bb }
+\end{aligned}
+\end{equation}
+\end{proof}
+
+We have just one identity left in the article to find the GA equivalent of, but will split that into two logical pieces.
+\makelemma{Dual of triple wedge.}{lemma:vectorcalc:660}{
+If \( \Ba, \Bb, \Bc \in \mathbb{R}^3 \) are vectors, then
+\begin{equation*}
+\Ba \cdot \lr{ \Bb \cross \Bc } = -I \lr{ \Ba \wedge \Bb \wedge \Bc }.
+\end{equation*}
+} % lemma
+\begin{proof}
+\begin{equation}\label{eqn:vectorcalc:680}
+\begin{aligned}
+\Ba \cdot \lr{ \Bb \cross \Bc }
+&=
+\gpgradezero{
+\Ba \lr{ \Bb \cross \Bc }
+} \\
+&=
+\gpgradezero{
+\Ba (-I) \lr{ \Bb \wedge \Bc }
+} \\
+&=
+\gpgradezero{
+-I \lr{
+\Ba \cdot \lr{ \Bb \wedge \Bc }
++
+\Ba \wedge \lr{ \Bb \wedge \Bc }
+}
+} \\
+&=
+\gpgradezero{
+-I \lr{ \Ba \wedge \lr{ \Bb \wedge \Bc } }
+} \\
+&=
+-I \lr{ \Ba \wedge \lr{ \Bb \wedge \Bc } }.
+\end{aligned}
+\end{equation}
+\end{proof}
+\makelemma{Curl of a wedge of gradients.}{lemma:vectorcalc:890}{
+% (divergence of a gradient cross products.)
+Let \( f, g, h \) be smooth functions with smooth derivatives.  Then
+\begin{equation*}
+\spacegrad \wedge \lr{ f \lr{ \spacegrad g \wedge \spacegrad h } }
+=
+\spacegrad f
+\wedge
+\spacegrad g
+\wedge
+\spacegrad h.
+\end{equation*}
+For \R{3} this can be written as
+\begin{equation*}
+\spacegrad \cdot \lr{ f \lr{ \spacegrad g \cross \spacegrad h } }
+=
+\spacegrad f
+\cdot
+\lr{
+\spacegrad g
+\cross
+\spacegrad h
+}.
+\end{equation*}
+} % lemma
+\begin{proof}
+The GA identity follows by chain rule and application of \cref{lemma:vectorcalc:460}.
+\begin{equation}\label{eqn:vectorcalc:910}
+\begin{aligned}
+\spacegrad \wedge \lr{ f \lr{ \spacegrad g \wedge \spacegrad h } }
+&=
+\spacegrad f \wedge \lr{ \spacegrad g \wedge \spacegrad h }
++
+f
+\spacegrad \wedge \lr{ \spacegrad g \wedge \spacegrad h } \\
+&=
+\spacegrad f \wedge \spacegrad g \wedge \spacegrad h.
+\end{aligned}
+\end{equation}
+The \R{3} part of the lemma can be shown using \cref{lemma:vectorcalc:660}, or we can compute it directly
+\begin{equation}\label{eqn:vectorcalc:1010}
+\begin{aligned}
+\spacegrad \cdot \lr{ f \lr{ \spacegrad g \cross \spacegrad h } }
+&=
+\gpgradezero{
+\spacegrad \lr{ f \lr{ \spacegrad g \cross \spacegrad h } }
+} \\
+&=
+\spacegrad f \cdot \lr{ \lr{ \spacegrad g \cross \spacegrad h } }
++
+f \gpgradezero{
+-I \spacegrad \lr{ \spacegrad g \wedge \spacegrad h }
+} \\
+&=
+\spacegrad f \cdot \lr{ \lr{ \spacegrad g \cross \spacegrad h } }
+-
+f I \lr{ \spacegrad \wedge \lr{ \spacegrad g \wedge \spacegrad h } }.
+\end{aligned}
+\end{equation}
+The last term is clearly zero, since after our chain rule application, we end up with a \( \spacegrad \wedge \spacegrad \) term on either branch of the chain rule expansion.
+%\begin{equation}\label{eqn:vectorcalc:970}
+%\begin{aligned}
+%\spacegrad \cdot \lr{ f (\spacegrad g \cross \spacegrad h) }
+%&=
+%-I \lr{ \spacegrad \wedge (f (\spacegrad g \wedge \spacegrad h) } \\
+%&=
+%-I \lr{ \spacegrad f \wedge \spacegrad g \wedge \spacegrad h } \\
+%&=
+%\spacegrad f \cdot \lr{ \spacegrad g \cross \spacegrad h}.
+%\end{aligned}
+%\end{equation}
+\end{proof}
+\makelemma{Curl of a bivector.}{lemma:vectorcalc:930}{
+Let \( \Ba, \Bb \) be vectors.  The curl of their wedge is
+\begin{equation*}
+\spacegrad \wedge \lr{ \Ba \wedge \Bb } = \Bb \wedge \lr{ \spacegrad \wedge \Ba } - \Ba \wedge \lr{ \spacegrad \wedge \Bb }
+\end{equation*}
+For \R{3}, this can be expressed as the divergence of a cross product
+\begin{equation*}
+\spacegrad \cdot \lr{ \Ba \cross \Bb } = \Bb \cdot \lr{ \spacegrad \cross \Ba } - \Ba \cdot \lr{ \spacegrad \cross \Bb }
+\end{equation*}
+} % lemma
+\begin{proof}
+The GA case is a trivial chain rule application
+\begin{equation}\label{eqn:vectorcalc:950}
+\begin{aligned}
+\rspacegrad \wedge \lr{ \Ba \wedge \Bb }
+&=
+\lr{ \spacegrad' \wedge \Ba'} \wedge \Bb
++
+\lr{ \spacegrad' \wedge \Ba } \wedge \Bb' \\
+&= \Bb \wedge \lr{ \spacegrad \wedge \Ba } - \Ba \wedge \lr{ \spacegrad \wedge \Bb }.
+\end{aligned}
+\end{equation}
+The \R{3} case, is less obvious by inspection, but follows from \cref{lemma:vectorcalc:660}.
+\end{proof}
+%}
