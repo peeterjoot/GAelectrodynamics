@@ -6,58 +6,33 @@
 %\index{curvilinear coordinates}
 \index{curvilinear bases}
 \index{spherical coordinates}
-The spherical vector parameterization admits a compact GA representation.  We illustrate our conventions in \cref{fig:sphericalPolar:sphericalPolarFig1}.
+We will use the physics and engineering convention for spherical polar angles, as illustrated in
+\cref{fig:sphericalPolar:sphericalPolarFig1}.
+The conventional way to introduce a spherical polar position vector representation is through coordinates, where inspection of the geometry shows that
+\begin{equation}\label{eqn:curvilinearspherical:17}
+\Bx = r \lr{ \sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta },
+\end{equation}
+We can find a compact GA representation from this coordinate representation without too much trouble (\cref{problem:curvilinearspherical:2}), but we can also examine the geometry of the situation directly.
 \imageFigure{../figures/GAelectrodynamics/sphericalPolarFig1}{Spherical polar conventions.}{fig:sphericalPolar:sphericalPolarFig1}{0.3}
-From the coordinate representation, some factoring gives
-\begin{equation}\label{eqn:curvilinearspherical:20}
-\begin{aligned}
-\Bx
-&= r \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta } \\
-&= r \lr{ \sin\theta \Be_1 (\cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta } \\
-&= r \lr{ \sin\theta \Be_1 e^{\Be_{12} \phi } + \Be_3 \cos\theta } \\
-&= r \Be_3 \lr{ \cos\theta + \sin\theta \Be_3 \Be_1 e^{\Be_{12} \phi } }.
-\end{aligned}
-\end{equation}
 
-With
-\begin{equation}\label{eqn:curvilinearspherical:40}
+For the unit bivector for the azimuthal (x-y) plane, let's write
+\begin{equation}\label{eqn:curvilinearspherical:19}
+i = \Be_{12},
+\end{equation}
+We see that the projection of \( \Bx \) onto the azimuthal plane has direction \( \Proj_i \Bx \propto \Be_1 e^{i\phi} \).  As we rotate from the north pole \( \Be_3 \) down through \( \Bx \) to the azimuthal plane, we are rotating in the plane
+\begin{equation}\label{eqn:curvilinearspherical:21}
 \begin{aligned}
-i &= \Be_{12} \\
-j &= \Be_{31} e^{i \phi},
+j &= \Be_3 \wedge \lr{ \Be_1 e^{i \phi} } \\
+j &= \Be_{31} e^{i \phi}.
 \end{aligned}
 \end{equation}
-this is
+So, just by inspection, we've found the spherical polar representation of \( \Bx \), which is
 \begin{equation}\label{eqn:curvilinearspherical:60}
 \Bx = r \Be_3 e^{j \theta}.
 \end{equation}
-%\iftoggle{kindle-version}{}{
-The curvilinear basis can be easily be computed in software.
-\begin{mmaCell}[moredefined={i, j, ej, x, xr, xt, xp, e, GeometricProduct},morepattern={phi_, t_, p_, r_, theta_}]{Input}
-  ClearAll[i, j, ej, x, xr, xt, xp]
-  i = e[1, 2];
-  j[phi_] = GeometricProduct[e[3, 1], Cos[phi] + i Sin[phi]];
-  ej[t_, p_] = Cos[t] + j[p] Sin[t];
-  x[r_, t_, p_] = r GeometricProduct[e[3], ej[t, p]];
+Observe that all the \( \phi \) dependency sneakily hides out in the unit bivector \( j = j(\phi) \).
 
-  xr[r_, theta_, phi_] = D[x[a, theta, phi], a] /. a\(\pmb{\to}\)r;
-  xt[r_, theta_, phi_] = D[x[r, t, phi], t] /. t\(\pmb{\to}\)theta;
-  xp[r_, theta_, phi_] = D[x[r, theta, p], p] /. p\(\pmb{\to}\)phi;
-
-  \{x[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
-  xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
-  xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
-  xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}]\} // Column
-\end{mmaCell}
-\begin{mmaCell}{Output}
-  r (Cos[\(\theta\)] e[3] + Cos[\(\phi\)] e[1] Sin[\(\theta\)] + e[2] Sin[\(\theta\)] Sin[\(\phi\)])
-  Cos[\(\theta\)] e[3] + Cos[\(\phi\)] e[1] Sin[\(\theta\)] + e[2] Sin[ \(\theta\)] Sin[\(\phi\)]
-  r (Cos[\(\theta\)] Cos[\(\phi\)] e[1] - e[3] Sin[\(\theta\)] + Cos[\(\theta\)] e[2] Sin[\(\phi\)])
-  r (Cos[\(\phi\)] e[2] Sin[\(\theta\)] - e[1] Sin[\(\theta\)] Sin[\(\phi\)])
-\end{mmaCell}
-Unfortunately the compact representation is lost doing so.
-%}
-Computing the basis elements manually, we find
-
+Given a parameterized representation of \( \Bx \), we may compute the basis elements
 \begin{subequations}
 \label{eqn:curvilinearspherical:80}
 \begin{equation}\label{eqn:curvilinearspherical:100}
@@ -84,20 +59,8 @@ Computing the basis elements manually, we find
 \end{equation}
 \end{subequations}
 See \cref{problem:dexpquestion:1} for why it is necessary to first expand the exponential into its trigonometric constituents.
-These vectors are all mutually orthogonal, which can be verified by computing dot products.
-%\iftoggle{kindle-version}{}{
-\begin{mmaCell}[moredefined={x1, x2, x3, xr, xt, xp, InnerProduct}]{Input}
-  ClearAll[x1, x2, x3]
-  x1 = xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
-  x2 = xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
-  x3 = xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
-  MapThread[InnerProduct, \{\{x1, x2, x3\}, \{x2, x3, x1\}\}]// Simplify
-\end{mmaCell}
-\begin{mmaCell}{Output}
-  \{0,0,0\}
-\end{mmaCell}
-%}
-An algebraic computation of these dot products is left as a problem for the student (\cref{problem:sphericaldot:1}).
+These vectors are all mutually orthogonal (\cref{problem:sphericaldot:1}).
+
 Orthonormalization of the curvilinear basis is now possible by inspection
 \index{\(\rcap\)!spherical}
 \index{\(\thetacap\)!spherical}
@@ -138,6 +101,46 @@ In particular, this shows that the spherical representation of the gradient is
 +\inv{r \sin\theta} \phicap \PD{\phi}{}.
 \end{aligned}
 \end{equation}
+
+%\iftoggle{kindle-version}{}{
+It's worth pointing out that computations like finding the curvilinear basis vectors is easily performed in software
+\begin{mmaCell}[moredefined={i, j, ej, x, xr, xt, xp, e, GeometricProduct},morepattern={phi_, t_, p_, r_, theta_}]{Input}
+  ClearAll[i, j, ej, x, xr, xt, xp]
+  i = e[1, 2];
+  j[phi_] = GeometricProduct[e[3, 1], Cos[phi] + i Sin[phi]];
+  ej[t_, p_] = Cos[t] + j[p] Sin[t];
+  x[r_, t_, p_] = r GeometricProduct[e[3], ej[t, p]];
+
+  xr[r_, theta_, phi_] = D[x[a, theta, phi], a] /. a\(\pmb{\to}\)r;
+  xt[r_, theta_, phi_] = D[x[r, t, phi], t] /. t\(\pmb{\to}\)theta;
+  xp[r_, theta_, phi_] = D[x[r, theta, p], p] /. p\(\pmb{\to}\)phi;
+
+  \{x[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}],
+  xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}]\} // Column
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  r (Cos[\(\theta\)] e[3] + Cos[\(\phi\)] e[1] Sin[\(\theta\)] + e[2] Sin[\(\theta\)] Sin[\(\phi\)])
+  Cos[\(\theta\)] e[3] + Cos[\(\phi\)] e[1] Sin[\(\theta\)] + e[2] Sin[ \(\theta\)] Sin[\(\phi\)]
+  r (Cos[\(\theta\)] Cos[\(\phi\)] e[1] - e[3] Sin[\(\theta\)] + Cos[\(\theta\)] e[2] Sin[\(\phi\)])
+  r (Cos[\(\phi\)] e[2] Sin[\(\theta\)] - e[1] Sin[\(\theta\)] Sin[\(\phi\)])
+\end{mmaCell}
+where it also easy to show that these vectors are mutually perpendicular
+%}
+%\iftoggle{kindle-version}{}{
+\begin{mmaCell}[moredefined={x1, x2, x3, xr, xt, xp, InnerProduct}]{Input}
+  ClearAll[x1, x2, x3]
+  x1 = xr[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
+  x2 = xt[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
+  x3 = xp[r, \mmaUnd{\(\pmb{\theta}\)}, \mmaUnd{\(\pmb{\phi}\)}];
+  MapThread[InnerProduct, \{\{x1, x2, x3\}, \{x2, x3, x1\}\}]// Simplify
+\end{mmaCell}
+\begin{mmaCell}{Output}
+  \{0,0,0\}
+\end{mmaCell}
+Unfortunately, if we perform these computations in software, we loose our compact representation.
+%}
 
 The spherical (oriented) volume element can also be computed in a compact fashion
 \begin{equation}\label{eqn:curvilinearspherical:300}

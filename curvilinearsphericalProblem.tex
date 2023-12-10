@@ -60,4 +60,26 @@ r^2 S_\theta.
 \end{equation}
 Had we done a traditional first row or column determinant expansion, things would have been considerably messier.
 } % problem
+\makeproblem{Spherical polar coordinates.}{problem:curvilinearspherical:2}{
+Starting with
+\begin{equation*}
+\Bx = r \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta },
+\end{equation*}
+first factor out \( \Be_1 \) from the \( \sin\theta \) terms, and group the remaining factors into complex exponential form.  Then factor our \( \Be_3 \) from both remaining terms to factor out a \( \phi \) dependent unit bivector, and put the entire expression into complex exponential form.
+} % problem
+\makeanswer{problem:curvilinearspherical:2}{
+\begin{equation}\label{eqn:curvilinearspherical:20}
+\begin{aligned}
+\Bx
+&= r \lr{ \Be_1 \sin\theta \cos\phi + \Be_2 \sin\theta \sin\phi + \Be_3 \cos\theta } \\
+&= r \lr{ \sin\theta \Be_1 (\cos\phi + \Be_{12} \sin\phi ) + \Be_3 \cos\theta } \\
+&= r \lr{ \sin\theta \Be_1 e^{\Be_{12} \phi } + \Be_3 \cos\theta } \\
+&= r \Be_3 \lr{ \cos\theta + \sin\theta \Be_3 \Be_1 e^{\Be_{12} \phi } }.
+\end{aligned}
+\end{equation}
+Writing \( j = \Be_3 \Be_1 e^{\Be_{12} \phi} \), this is
+\begin{equation}\label{eqn:curvilinearspherical:21}
+\Bx = r \Be_3 e^{j\theta}.
+\end{equation}
+} % answer
 %}

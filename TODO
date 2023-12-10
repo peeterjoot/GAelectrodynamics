@@ -1,8 +1,8 @@
 ================================================================================================
 
-- spherical polar introduction needs rework.  Start with the geometry of the problem, not the coordinate representation (which was assumed)
+- spherical polar:
 
-  put the mathematica "derivation" as an afterword instead of making it an integral part of the story.
+exersize numbers now out of sequence.
 
 - have some repeated curl = 0 references a few times in the mvpotential problems.  point those back to the theorem (chapter 2 -- vector identities section.)
 
