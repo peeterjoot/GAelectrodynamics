@@ -9,7 +9,53 @@ Let \( A_k \) be a k-blade.  We define the curl of a k-blade as the wedge produc
 \spacegrad \wedge A_k.
 \end{equation*}
 } % definition
-This definition differs from the conventional definition of \R{3} curl, expressed as a cross product, but is a much more useful and fundamental definition to use in the context of geometric algebra, and is worth the bit of ambiguity it introduces.
+Recall that the conventional curl of an \R{3} vector, is written in terms of the cross product, as \( \spacegrad \cross \Bv \).  The cross product curl can be thought of a measure of how much a vector field rotates, and is proportional to the rotatonal axis.  Our wedge product curl, when applied to a vector, is also a measure of the rotational nature of the vector field, but is a bivector that describes the rotational plane.
+Our use of a wedge product based curl risks some ambiguity, compared to the conventional \R{3} cross product based curl, but this ambiguity is worthwhile, since a wedge product based curl is much more useful in a geometric algebra context.
+
+Let's consider some curl examples, starting with
+\begin{equation}\label{eqn:vectorcalc:1030}
+\Bv = x \Be_2,
+\end{equation}
+as plotted in \cref{fig:curl:curlFig1}.
+\imageFigure{../figures/GAelectrodynamics/curlFig1}{Curl example 1.}{fig:curl:curlFig1}{0.3}
+The curl is
+\begin{equation}\label{eqn:vectorcalc:1050}
+\lr{ \Be_1 \partial_x + \Be_2 \partial_y + \Be_3 \partial_z } \wedge \lr{ x \Be_2 }
+=
+\Be_{12},
+\end{equation}
+describing a positive oriented rotation in the x-y plane.
+The conventional cross product curl of this field is
+\begin{equation}\label{eqn:vectorcalc:1070}
+\begin{aligned}
+\spacegrad \cross \Bv
+&= -I \lr{ \spacegrad \wedge \Bv }  \\
+&= - \Be_{12312}  \\
+&= \Be_3,
+\end{aligned}
+\end{equation}
+also describes a positive rotation in the x-y plane (i.e.: around the z-axis.)
+
+As a second example, consider the purely rotational vector field
+\begin{equation}\label{eqn:vectorcalc:1090}
+\Bv = -y \Be_1 + x \Be_2,
+\end{equation}
+as plotted in \cref{fig:curl:curlFig2}.
+\imageFigure{../figures/GAelectrodynamics/curlFig2}{Curl example 2.}{fig:curl:curlFig2}{0.3}
+That curl, computed in this Cartesian representation is
+\begin{equation}\label{eqn:vectorcalc:1110}
+\begin{aligned}
+\spacegrad \wedge \Bv
+&=
+\lr{ \Be_1 \partial_x + \Be_2 \partial_y + \Be_3 \partial_z } \wedge \lr{ -y \Be_1 + x \Be_2 } \\
+&=
+\Be_1 \wedge \Be_2 - \Be_2 \wedge \Be_1 \\
+&=
+2 \Be_{12}.
+\end{aligned}
+\end{equation}
+This vector field also describes a positive rotation in the x-y plane.
+As a rotational system, this curl can also be computed in polar coordinates (problem: X)
 
 From the definition of the multivector wedge product \cref{dfn:generalizedWedge:480}, it is worth noting that
 the curl of a scalar function \( f \), is in fact just the gradient of that function
