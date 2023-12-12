@@ -3,6 +3,7 @@
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
 %{
+\subsection{Curl.}
 \makedefinition{Curl of a k-blade.}{dfn:vectorcalc:180}{
 Let \( A_k \) be a k-blade.  We define the curl of a k-blade as the wedge product of the gradient with that k-blade, designated
 \begin{equation*}
@@ -55,7 +56,7 @@ That curl, computed in this Cartesian representation is
 \end{aligned}
 \end{equation}
 This vector field also describes a positive rotation in the x-y plane.
-As a rotational system, this curl can also be computed in polar coordinates (problem: X)
+As this field is intrinsically rotational, this curl can also be computed in polar coordinates (\cref{problem:vectorcalc:1}.)
 
 From the definition of the multivector wedge product \cref{dfn:generalizedWedge:480}, it is worth noting that
 the curl of a scalar function \( f \), is in fact just the gradient of that function
@@ -148,7 +149,7 @@ I \spacegrad \wedge \lr{ \spacegrad \wedge \Bf} \\
 again, because \( \spacegrad \wedge \lr{ \spacegrad \wedge \Bf} = 0 \).
 \end{proof}
 
-\section{Chain rule identities.}
+\subsection{Chain rule identities.}
 \makelemma{Chain rule identities.}{lemma:vectorcalc:620}{
 Let \( f \) be a scalar function and \( A \) be a k-blade, then
 \begin{equation*}
@@ -431,4 +432,38 @@ The GA case is a trivial chain rule application
 \end{equation}
 The \R{3} case, is less obvious by inspection, but follows from \cref{eqn:generalizedWedge:640}.
 \end{proof}
+\subsection{Problems.}
+\makeproblem{Curl example in polar coordinates.}{problem:vectorcalc:1}{
+Find the polar form of \cref{eqn:vectorcalc:1090} and then compute the curl, using the polar representation of the gradient found in \cref{eqn:2Dcylindrical:600}.
+} % problem
+\makeanswer{problem:vectorcalc:1}{
+Let \( x = \rho \cos\phi \) and \( y = \rho \sin\phi \), which provides the polar form of the field
+\begin{equation}\label{eqn:vectorcalc:1130}
+\begin{aligned}
+\Bv
+&= -y \Be_1 + x \Be_2 \\
+&= - \rho \sin\phi \Be_1 + \rho \cos\phi \Be_2 \\
+&= \rho \Be_2 \lr{ \cos\phi - \Be_2 \Be_1 \sin\phi } \\
+&= \rho \Be_2 e^{i\phi} \\
+&= \rho \rhocap i.
+\end{aligned}
+\end{equation}
+The curl is
+\begin{equation}\label{eqn:vectorcalc:1150}
+\begin{aligned}
+\spacegrad \wedge \Bv
+&=
+\gpgradetwo{
+\rhocap \lr{ \PD{\rho}{} + \frac{i}{\rho} \PD{\phi}{} } \rho \rhocap i
+} \\
+&=
+\gpgradetwo{
+\rhocap \rhocap i + \rhocap \frac{i}{\rho} \rho \rhocap i^2
+} \\
+&= i - \rhocap i \rhocap \\
+&= 2 i,
+\end{aligned}
+\end{equation}
+as we also found from the Cartesian representation.
+} % answer
 %}
