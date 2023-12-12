@@ -64,6 +64,14 @@ the curl of a scalar function \( f \), is in fact just the gradient of that func
 \spacegrad \wedge f = \gpgrade{\spacegrad f}{1+0} = \spacegrad f.
 % = \sum_i \Be_i \PD{x_i}{f}.
 \end{equation}
+
+In \R{3}, the curl of a bivector, is related to the vector divergence, since we can write \( B = I \Bv \) for an \R{3} bivector, so
+\begin{equation}\label{eqn:vectorcalc:1170}
+\spacegrad \wedge B = \gpgradethree{ \spacegrad I \Bv } = I \lr{ \spacegrad \cdot \Bv },
+\end{equation}
+so \R{3} bivectors dual to divergence free vectors will have zero curl.
+See \cref{problem:vectorcalc:2} for some examples of bivector curl.
+
 \makelemma{Repeated curl identities.}{lemma:vectorcalc:460}{
 Let \( A \) be a smooth k-blade, then
 \begin{equation*}
@@ -465,5 +473,53 @@ The curl is
 \end{aligned}
 \end{equation}
 as we also found from the Cartesian representation.
+} % answer
+\makeproblem{Some bivector curls.}{problem:vectorcalc:2}{
+For each \( B \) compute the curl \( \spacegrad \wedge B \).
+\makesubproblem{}{problem:vectorcalc:2:a}
+\( B = x \Be_{23} + y \Be_{31} + z \Be_{12}\),
+\makesubproblem{}{problem:vectorcalc:2:b}
+\( B = x \Be_{31} \),
+\makesubproblem{}{problem:vectorcalc:2:c}
+\( B = x y z \Be_{23}.\)
+} % problem
+\makeanswer{problem:vectorcalc:2}{
+\makeSubAnswer{}{problem:vectorcalc:2:a}
+\begin{equation}\label{eqn:vectorcalc:1190}
+\begin{aligned}
+\spacegrad \wedge B
+&=
+\lr{ \Be_1 \partial_1 + \Be_2 \partial_2 + \Be_3 \partial_3 } \wedge \lr{ x \Be_{23} + y \Be_{31} + z \Be_{12} } \\
+&=
+\Be_1 \wedge \Be_{23}
++
+\Be_2 \wedge \Be_{31}
++
+\Be_3 \wedge \Be_{12} \\
+&=
+3 \Be_{123}.
+\end{aligned}
+\end{equation}
+\makeSubAnswer{}{problem:vectorcalc:2:b}
+\begin{equation}\label{eqn:vectorcalc:1210}
+\begin{aligned}
+\spacegrad \wedge B
+&=
+\lr{ \Be_1 \partial_1 + \Be_2 \partial_2 + \Be_3 \partial_3 } \wedge \lr{ x \Be_{31} } \\
+&=
+\Be_1 \wedge \Be_{31} \\
+&= 0.
+\end{aligned}
+\end{equation}
+\makeSubAnswer{}{problem:vectorcalc:2:c}
+\begin{equation}\label{eqn:vectorcalc:1230}
+\begin{aligned}
+\spacegrad \wedge B
+&=
+\lr{ \Be_1 \partial_1 + \Be_2 \partial_2 + \Be_3 \partial_3 } \wedge \lr{ xyz \Be_{23} } \\
+&=
+y z \Be_{123}.
+\end{aligned}
+\end{equation}
 } % answer
 %}

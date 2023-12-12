@@ -8,10 +8,6 @@ exersize numbers now out of sequence.
 
 - review new vector identities more thoroughly.
 
-- curl examples:
-
-figure out examples for some bivector fields.
-
 ================================================================================================
 
 - have various boxedEquations in chapter 1.  Might be best to systematically convert those to lemmas.  Example
