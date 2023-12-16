@@ -10,10 +10,17 @@ Let \( A_k \) be a k-blade.  We define the curl of a k-blade as the wedge produc
 \spacegrad \wedge A_k.
 \end{equation*}
 } % definition
-Recall that the conventional curl of an \R{3} vector, is written in terms of the cross product, as \( \spacegrad \cross \Bv \).  The cross product curl can be thought of a measure of how much a vector field rotates, and is proportional to the rotatonal axis.  Our wedge product curl, when applied to a vector, is also a measure of the rotational nature of the vector field, but is a bivector that describes the rotational plane.
+From the definition of the multivector wedge product \cref{dfn:generalizedWedge:480}, it is worth noting that
+the curl of a scalar function \( f \), is in fact just the gradient of that function
+\begin{equation}\label{eqn:vectorcalc:200}
+\spacegrad \wedge f = \gpgrade{\spacegrad f}{1+0} = \spacegrad f.
+% = \sum_i \Be_i \PD{x_i}{f}.
+\end{equation}
+
+Recall that the conventional curl of an \R{3} vector, is written in terms of the cross product, as \( \spacegrad \cross \Bv \).  The cross product curl can be thought of a measure of how much a vector field rotates, and is proportional to the rotational axis.  Our wedge product curl, when applied to a vector, is also a measure of the rotational nature of the vector field, but is a bivector that describes the rotational plane.
 Our use of a wedge product based curl risks some ambiguity, compared to the conventional \R{3} cross product based curl, but this ambiguity is worthwhile, since a wedge product based curl is much more useful in a geometric algebra context.
 
-Let's consider some curl examples, starting with
+Let's consider some examples of curls of vector fields, starting with
 \begin{equation}\label{eqn:vectorcalc:1030}
 \Bv = x \Be_2,
 \end{equation}
@@ -58,12 +65,27 @@ That curl, computed in this Cartesian representation is
 This vector field also describes a positive rotation in the x-y plane.
 As this field is intrinsically rotational, this curl can also be computed in polar coordinates (\cref{problem:vectorcalc:1}.)
 
-From the definition of the multivector wedge product \cref{dfn:generalizedWedge:480}, it is worth noting that
-the curl of a scalar function \( f \), is in fact just the gradient of that function
-\begin{equation}\label{eqn:vectorcalc:200}
-\spacegrad \wedge f = \gpgrade{\spacegrad f}{1+0} = \spacegrad f.
-% = \sum_i \Be_i \PD{x_i}{f}.
+As a third example, consider a non-planar vector field
+\begin{equation}\label{eqn:vectorcalc:1250}
+\Bv = y \Be_1 + z \Be_2 + x \Be_3,
 \end{equation}
+for which the curl is
+\begin{equation}\label{eqn:vectorcalc:1270}
+\begin{aligned}
+\spacegrad \wedge \Bv
+&=
+\lr{ \Be_1 \partial_x + \Be_2 \partial_y + \Be_3 \partial_z } \wedge
+\lr{ y \Be_1 + z \Be_2 + x \Be_3 } \\
+&=
+\Be_{13} + \Be_{21} + \Be_{32} \\
+&=
+\lr{ \Be_2 - \Be_3 } \wedge \lr{ \Be_1 - \Be_3 }.
+\end{aligned}
+\end{equation}
+In the last step, an arbitrary wedge product factorization was selected to illustrate the orientation of the plane, as in \cref{fig:curl:curlFig3}.
+\imageFigure{../figures/GAelectrodynamics/curlFig3}{Curl of 3D vector field.}{fig:curl:curlFig3}{0.3}
+
+These three examples were all simple vector fields that had constant (bivector-valued) curl, but that need not be the case in general.
 
 In \R{3}, the curl of a bivector, is related to the vector divergence, since we can write \( B = I \Bv \) for an \R{3} bivector, so
 \begin{equation}\label{eqn:vectorcalc:1170}
