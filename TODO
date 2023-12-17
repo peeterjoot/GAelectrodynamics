@@ -1,6 +1,5 @@
 ================================================================================================
 
-
 - twoForceProblemWithWeightFigure.nb 
    
    figures for statics problems.  Did I mean to include those in the book?
@@ -10,8 +9,6 @@
 exersize numbers now out of sequence.
 
 - have some repeated curl = 0 references a few times in the mvpotential problems.  point those back to the theorem (chapter 2 -- vector identities section.)
-
-- review new vector identities more thoroughly.
 
 ================================================================================================
 
@@ -30,7 +27,7 @@ exersize numbers now out of sequence.
 
 - steal from ece1228?: parts of appendix F, G (cylindrical and spherical gradient operators and coordinates)
 
-- review theorems and convert minor ones to lemmas.
+- review theorems and convert minor ones to lemmas (or use theorem for everything)
 
 ================================================================================================
 
