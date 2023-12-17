@@ -89,6 +89,7 @@ dual.tex
 ellipseCurvilinear.tex
 ellipticproblem.tex
 enclosedCurrent.tex
+formsVsGA.tex
 fourier.tex
 freespace.tex
 functionvectorspace.tex
@@ -117,6 +118,7 @@ greensIntroProblem.tex
 helmholtzDerviationMultivectorSolution.tex
 helmholtzDerviationMultivectorStatement.tex
 helmholtzGreens.tex
+intersectionLineAndPlaneProblem.tex
 isotropicMaxwells.tex
 jefimenkosEquations.tex
 landauEasy.tex
@@ -166,8 +168,10 @@ stressTensorAlgebraically.tex
 surfaceintegral.tex
 surfaceintegraldef.tex
 symmetricAndAntiSymmetricVectorSums.tex
+toriodalProblem.tex
 torusCenterOfMassParameterization.tex
 transverseField.tex
+twoForceStaticsProblem.tex
 vectorDerivative.tex
 vectorTrivectorDot.tex
 vectorcalc.tex

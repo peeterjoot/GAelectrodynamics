@@ -1,0 +1,45 @@
+%
+% Copyright © 2023 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Find static load in two member configuration.}{problem:twoForceStaticsProblem:1}{
+In introductory physics or mechanics classes, systems such as those illustrated in \cref{fig:twoForceProblemWithWeight:twoForceProblemWithWeightFigure}, are common.  All of these have a static load under gravity, and with supporting members (rigid beams or wire lines), which can be under compression, or tension, depending on the geometry.
+\pmathImageThreeFiguresOneLine{../figures/GAelectrodynamics/}{twoForceProblemWithWeightFigure1}{twoForceProblemWithWeightFigure2}{twoForceProblemWithWeightFigure3}{Static load with two members.}{fig:twoForceProblemWithWeight:twoForceProblemWithWeightFigure}{scale=0.3}{twoForceProblemWithWeightFigure.nb}
+
+We seek the magnitudes of the forces in the two members, where the static configuration means that we have a force balance equation of the form
+\begin{equation}\label{eqn:twoForceStaticsProblem:20}
+   \BF_s + \BF_r + m \Bg = 0.
+\end{equation}
+If each of these forces are expressed in complex exponential form
+\begin{equation}\label{eqn:twoForceStaticsProblem:40}
+\begin{aligned}
+   \BF_r &= f_r \Be_1 e^{i\alpha} \\
+   \BF_s &= f_s \Be_1 e^{i\beta} \\
+   \Bg &= g \Be_1,
+\end{aligned}
+\end{equation}
+then the system to be solved is
+\begin{equation}\label{eqn:twoForceStaticsProblem:60}
+f_r \Be_1 e^{i\alpha} + f_s \Be_1 e^{i\beta} + m g \Be_1 = 0.
+\end{equation}
+By computing a ratio of wedge products, find the scalar magnitudes \( f_r, f_s \) for such a system.
+} % problem
+\makeanswer{problem:twoForceStaticsProblem:1}{
+To solve for \( f_r \) or \( f_s \), first take wedge products with the force direction vectors to eliminate the variable not of interest
+\begin{equation}\label{eqn:twoForceStaticsProblem:80}
+\begin{aligned}
+   f_r \lr{ \Be_1 e^{i\alpha} } \wedge \lr{ \Be_1 e^{i\beta} } + m g \Be_1 \wedge \lr{ \Be_1 e^{i\beta} } &= 0 \\
+   f_s \lr{ \Be_1 e^{i\beta} } \wedge \lr{ \Be_1 e^{i\alpha} } + m g \Be_1 \wedge \lr{ \Be_1 e^{i\alpha} } &= 0.
+\end{aligned}
+\end{equation}
+Writing the wedges as grade two selections, and noting that \( e^{i\theta} \Be_1 = \Be_1 e^{-i\theta } \), we have
+\begin{equation}\label{eqn:twoForceStaticsProblem:100}
+\begin{aligned}
+f_r &= - m g \frac{ \gpgradetwo{\Be_1^2 e^{i\beta}} }{ \gpgradetwo{ \Be_1^2 e^{-i\alpha} e^{i\beta} } } = - m g \frac{ i \sin\beta }{ i \sin\lr{ \beta - \alpha } } \\
+f_s &= - m g \frac{ \gpgradetwo{\Be_1^2 e^{i\alpha}} }{ \gpgradetwo{ \Be_1^2 e^{-i\beta} e^{i\alpha} } } = m g \frac{ i \sin\alpha }{ i \sin\lr{ \beta - \alpha } }.
+\end{aligned}
+\end{equation}
+The pseudoscalar factors \( i \) cancel out.  We are left with a ratio of sines, but those fell out of the grade selection directly, without requiring us to pull out our good old tables of trig identities.
+} % answer
+%}

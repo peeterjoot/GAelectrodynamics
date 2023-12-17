@@ -1,9 +1,5 @@
 ================================================================================================
 
-- twoForceProblemWithWeightFigure.nb 
-   
-   figures for statics problems.  Did I mean to include those in the book?
-
 - spherical polar:
 
 exersize numbers now out of sequence.
@@ -37,6 +33,7 @@ exersize numbers now out of sequence.
    - incorporate subspaceDistance.tex
 
    - incorporate parts of lineAndPlane.tex into chapter 1 (summary portion as theorems, with extra details as problems).
+
    - Add table at the end summarizing the GA vs conventional forms.
 
 - chapter 2.
