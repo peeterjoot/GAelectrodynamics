@@ -154,9 +154,6 @@ kindle:
 	#tex4ebook -s $(KINDLE).tex
 	#tex4ebook -s -f mobi -e kbuild.mk4 $(KINDLE).tex
 
-scrpage2.sty : ../latex/scrpage2.sty
-	cp $^ $@
-
 backmatter.tex: ../latex/classicthesis_mine/backmatter2.tex
 	rm -f $@
 	ln -s ../latex/classicthesis_mine/backmatter2.tex backmatter.tex
