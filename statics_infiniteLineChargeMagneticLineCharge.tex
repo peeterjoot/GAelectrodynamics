@@ -1,0 +1,68 @@
+%
+% Copyright © 2018 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+
+\makeproblem{Linear magnetic density and currents.}{problem:statics:240}{
+Given magnetic charge density \( \rho_m = \lambda_m \delta(x) \delta(y) \), and current density \( \BM = v \Be_3 \rho_m = \Bv \rho_m \), show that the field is given by
+\begin{equation*}
+F(\Bx) = \frac{\lambda_m c}{2 \pi R} I \rhocap \lr{ 1 - \frac{\Bv}{c} },
+\end{equation*}
+or with \( \BB = \lambda_m \rhocap/(2 \pi R) \),
+\begin{equation*}
+F = \BB \cross \Bv + c I \BB.
+\end{equation*}
+} % problem
+
+\makeanswer{problem:statics:240}{
+With only magnetic sources, the current density multivector is
+\begin{equation}\label{eqn:statics_infiniteLineChargeMagneticLineCharge:20}
+\begin{aligned}
+J
+&= I \lr{ c \rho_\txtm - \BM } \\
+&= I c \lr{ 1 - \frac{v}{c} \Be_3 } \lambda_m \delta(x) \delta(y).
+\end{aligned}
+\end{equation}
+As in \cref{eqn:statics_infiniteLineCharge:160}, let the field observation point be \( \Bx = \Bx_\perp + z \Be_3 \), so
+\begin{equation}\label{eqn:statics_infiniteLineChargeMagneticLineCharge:40}
+\begin{aligned}
+F(\Bx)
+&= \inv{4\pi} \int_V dV' \frac{\gpgrade{(\Bx - \Bx') I c \lr{ 1 - \frac{v}{c} \Be_3 } \lambda_m \delta(x) \delta(y) }{1,2}}{\Norm{\Bx - \Bx'}^3}  \\
+&= \frac{I c \lambda_m}{4\pi} \int_{-\infty}^\infty dz' \frac{\gpgrade{(\Bx_\perp - z' \Be_3) \lr{ 1 - \frac{v}{c} \Be_3 } }{1,2}}{\lr{\Bx_\perp^2 - \lr{z - z'}^2}^{3/2}} \\
+\end{aligned}
+\end{equation}
+The grade selection reduces to three terms
+\begin{equation}\label{eqn:statics_infiniteLineChargeMagneticLineCharge:60}
+\begin{aligned}
+\gpgrade{(\Bx_\perp - z' \Be_3) \lr{ 1 - \frac{v}{c} \Be_3 } }{1,2}
+&=
+\Bx_\perp - z' \Be_3 - \frac{v}{c} \Bx_\perp \Be_3  \\
+&=
+\Bx_\perp \lr{ 1 - \frac{v}{c} \Be_3 } - z' \Be_3.
+\end{aligned}
+\end{equation}
+As before the integral with the \(z'\) dependence vanishes, and we are left with
+\begin{equation}\label{eqn:statics_infiniteLineChargeMagneticLineCharge:80}
+F(\Bx) = \frac{I c \lambda_m \Bx_\perp \lr{ 1 - \frac{v}{c} \Be_3 } }{2\pi \Bx_\perp^2}.
+\end{equation}
+Substitution of \( \Bx_\perp = R \rhocap \) yields the desired result.
+
+Finally, observe that
+\begin{equation}\label{eqn:statics_infiniteLineChargeMagneticLineCharge:100}
+\begin{aligned}
+I \rhocap \Be_3
+&=
+I \lr{ \rhocap \wedge \Be_3 } \\
+&=
+I^2 \lr{ \rhocap \cross \Be_3 },
+\end{aligned}
+\end{equation}
+so
+\begin{equation}\label{eqn:statics_infiniteLineChargeMagneticLineCharge:120}
+F(\Bx) = I c \BB + \BB \cross \Bv,
+\end{equation}
+as claimed.
+
+} % answer
+%}

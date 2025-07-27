@@ -520,5 +520,8 @@
 #../latex/bin/lgrep mvpotentialsProblems.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl mvpotentialsProblems.tex
 
-../latex/bin/lgrep vectorcalc.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl vectorcalc.tex
+#../latex/bin/lgrep vectorcalc.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl vectorcalc.tex
+
+../latex/bin/lgrep statics_infiniteLineChargeMagneticLineCharge.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl statics_infiniteLineChargeMagneticLineCharge.tex
