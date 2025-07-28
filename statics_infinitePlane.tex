@@ -29,4 +29,23 @@ F(\Bx) = \frac{\sigma \sgn(z)}{2 \epsilon } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
 
 This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic field components are once again related by \cref{eqn:statics_infiniteLineCharge:220}.
 
+It is worth pointing out that we can also compute this with Gauss's theorem, as stated in \cref{thm:amperes:280}, using the usual pillbox configuration (FIXME: figure), which gives us:
+
+\begin{equation}\label{eqn:statics_infinitePlane:340}
+A \Be_3 \lr{ F(z+) - F(z-) } = A \sigma \eta \lr{ c - \Bv } \int dz \delta(z).
+\end{equation}
+Since \( \eta c = 1/\epsilon \), after pre-multiplying with \( \Be_3/A \), we have
+\begin{equation}\label{eqn:statics_infinitePlane:360}
+F(z+) - F(z-) = \frac{\sigma}{\epsilon} \Be_3 \lr{ 1 - \frac{\Bv}{c} }.
+\end{equation}
+Assuming a symmetrical field, as is often required for Gauss's law applications, we set
+\begin{equation}\label{eqn:statics_infinitePlane:380}
+F(z-) = -F(z+),
+\end{equation}
+so
+\begin{equation}\label{eqn:statics_infinitePlane:400}
+F(\Bx) = \frac{\sigma \sgn(z) }{2 \epsilon} \Be_3 \lr{ 1 - \frac{\Bv}{c} },
+\end{equation}
+as found by direct integration.
+
 %}
