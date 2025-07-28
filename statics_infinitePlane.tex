@@ -12,28 +12,21 @@ so the field off the plane is
 F(\Bx) = \frac{\sigma}{4 \pi \epsilon } \iiint \frac{dz' dA'}{ \Norm{ \Bx - \Bx' }^3 } \gpgrade{ (\Bx - \Bx') (1 - \Bv/c) }{1,2} \delta(z').
 \end{equation}
 
-If \( \Bx_\parallel = (\Bx \wedge \Be_3) \Be_3 \), and \( \Bx'_\parallel = (\Bx' \wedge \Be_3) \Be_3 \), are the components of the vectors \( \Bx, \Bx' \) in the x-y plane, then integration over \( z' \) and a change of variables \( \Bx'_\parallel - \Bx_\parallel = r' \Be_1 e^{i \theta'} \) yields
+If \( \Bx_\parallel = (\Bx \wedge \Be_3) \Be_3 \), and \( \Bx'_\parallel = (\Bx' \wedge \Be_3) \Be_3 \), are the components of the vectors \( \Bx, \Bx' \) in the x-y plane, then integration over \( z' \) and a change of variables \( \Bx'_\parallel - \Bx_\parallel = u \Be_1 e^{i \alpha} \) yields
 \begin{equation}\label{eqn:statics_infinitePlane:280}
-F(\Bx) = \frac{\sigma}{4 \pi \epsilon } \iint \frac{r' dr' d\theta'}{ ( z^2 + {r'}^2 )^{3/2} } \gpgrade{ \lr{ z \Be_3 - r' \Be_1 e^{i\theta'} } (1 - \Bv/c) }{1,2}.
+F(\Bx) = \frac{\sigma}{4 \pi \epsilon } \int_{u=0}^\infty\int_{\alpha=0}^{2\pi} \frac{u du d\alpha}{ ( z^2 + u^2 )^{3/2} } \gpgrade{ \lr{ z \Be_3 + u \Be_1 e^{i\alpha} } (1 - \Bv/c) }{1,2}.
 \end{equation}
 
-The \( e^{i\theta'} \) integrands are killed, so for \( z \ne 0 \), the field is
+The \( e^{i\alpha} \) integrands are killed, so for \( z \ne 0 \), the field is
 \begin{equation}\label{eqn:statics_infinitePlane:300}
-F(\Bx) = \frac{\sigma z}{4 \pi \epsilon \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2}.
+F(\Bx) = \frac{\sigma z}{2 \epsilon \Abs{z} } \gpgrade{ \Be_3 (1 - \Bv/c) }{1,2}.
 \end{equation}
 
 Since \( \Bv \in \Span \setlr{ \Be_1, \Be_2 } \) the product \( \Be_3 \Bv \) is a bivector and the grade selection can be dropped, leaving
 \begin{equation}\label{eqn:statics_infinitePlane:320}
-F(\Bx) = \frac{\sigma \sgn(z)}{4 \pi \epsilon } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
+F(\Bx) = \frac{\sigma \sgn(z)}{2 \epsilon } \Be_3 \lr{ 1 - \frac{\Bv}{c}}.
 \end{equation}
 
 This field toggles sign when crossing the plane, but is constant otherwise.  The electric and magnetic field components are once again related by \cref{eqn:statics_infiniteLineCharge:220}.
-
-\makeproblem{Planar magnetic density and currents.}{problem:statics:241}{
-Given magnetic charge density \( \rho_m = \sigma_m \delta(z) \), and current density \( \BM = \Bv \rho_m, \Bv = v \Be_1 e^{i\theta}, i = \Be_{12}\), show that the field is given by
-\begin{equation*}
-F(\Bx) = \frac{\sigma_m c \sgn(z)}{4 \pi } i \lr{ 1 - \frac{\Bv}{c} }.
-\end{equation*}
-} % problem
 
 %}
