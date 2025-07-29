@@ -1,5 +1,22 @@
 ================================================================================================
 
+problems with no solutions:
+
+prereq_vectorspace_Rn.tex:7:\makeproblem{\R{N}}{problem:prerequisites:RN}{ chapter1.tex
+functionvectorspace.tex:5:%\makeproblem{Function space.}{problem:prerequisites:30}{ chapter1.tex
+functionvectorspace.tex:11:\makeproblem{Polynomial vector space.}{problem:prerequisites:35}{ chapter1.tex
+
+
+boundarySurfaceSources.tex:64:\makeproblem{Uniform media with currents and densities.}{problem:boundarySurfaceSources:1}{ chapter3.tex
+dielectric.tex:105:\makeproblem{Maxwell's equations in media.}{problem:dielectric:140}{ chapter3.tex
+lorentzForce_constantMagnetic.tex:82:\makeproblem{Constant magnetic field.}{problem:lorentzForce_constantMagnetic:240}{ chapter3.tex
+projectionAndRejection.tex:291:%\makeproblem{Prove \ref{dfn:projectionAndRejection:r3pcommutation}.}{problem:projectionAndRejection:1160}{ chapter1.tex
+ringField.tex:147:\makeproblem{Magnetic sources on a ring.}{problem:ringField:300}{ chapter3.tex
+transverseField.tex:160:\makeproblem{Transverse electric and magnetic field components.}{problem:transverseField:1}{ chapter3.tex
+transverseField.tex:164:\makeproblem{Propagation direction components.}{problem:transverseField:2}{ chapter3.tex
+
+================================================================================================
+
 - spherical polar:
 
   exersize numbers now out of sequence.
