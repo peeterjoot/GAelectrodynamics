@@ -1,0 +1,81 @@
+%
+% Copyright © 2017 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Constant magnetic field.}{problem:lorentzForce_constantMagnetic:240}{
+In \cref{eqn:lorentzForce_constantMagnetic:220}, each of
+\( \lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \), \( \lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1} \), and
+\( \Bv(0)_\parallel e^{\Omega t} + \Bv(0)_\perp \), was expanded by setting \( \hat{\Omega} = I \Bcap \).  Perform those calculations.
+} % problem
+\makeanswer{problem:lorentzForce_constantMagnetic:240}{
+The component of \( \Bv(0) \) parallel to the plane \( \Omega \) is
+\begin{equation}\label{eqn:lorentzForce_constantMagneticProblem:20}
+\begin{aligned}
+\Bv(0)_\parallel
+&=
+\lr{ \Bv(0) \cdot \hat{\Omega} } \hat{\Omega}^{-1} \\
+&=
+\lr{ \Bv(0) \cdot \lr{ I \Bcap } } \lr{ -I \Bcap } \\
+&=
+- \gpgradeone{ \Bv(0) I \Bcap } I \Bcap \\
+&=
+- \gpgradeone{ I \lr{ \Bv(0) \cdot \Bcap + \Bv(0) \wedge \Bcap }} I \Bcap \\
+&=
+- I \lr{ \Bv(0) \wedge \Bcap } I \Bcap \\
+&=
+\lr{ \Bv(0) \wedge \Bcap } \Bcap,
+\end{aligned}
+\end{equation}
+as claimed.  This component of the velocity vector is entirely perpendicular to the normal \( \Bcap \) for the plane \( \Omega \).
+
+The component of this velocity vector that is perpendicular to the plane is
+\begin{equation}\label{eqn:lorentzForce_constantMagneticProblem:40}
+\begin{aligned}
+\Bv(0)_\perp
+&=
+\lr{ \Bv(0) \wedge \hat{\Omega} } \hat{\Omega}^{-1} \\
+&=
+-\gpgradethree{ \Bv(0) I \Bcap } I \Bcap \\
+&=
+- \lr{ \Bv(0) \cdot \Bcap } I^2 \Bcap \\
+&=
+\lr{ \Bv(0) \cdot \Bcap } \Bcap,
+\end{aligned}
+\end{equation}
+also as claimed.  Observe that the component of the initial velocity that is perpendicular to the plane \( \Omega \), must be, by construction, parallel to the normal (\( \Bcap \)) of the plane.
+
+Finally, for the expansion of the vector and complex exponential product, first note that
+\begin{equation}\label{eqn:lorentzForce_constantMagneticProblem:60}
+\begin{aligned}
+\Omega t
+&= - q I c \BB t/(m c) \\
+&= - q I \BB t/m \\
+&= - \frac{q B t}{m} I \Bcap,
+\end{aligned}
+\end{equation}
+so we have
+\begin{equation}\label{eqn:lorentzForce_constantMagneticProblem:80}
+\Bv(0)_\parallel e^{\Omega t}
+=
+\Bv(0)_\parallel \lr{ \cos \lr{ \frac{q B t}{m} } - I \Bcap \sin \lr{ \frac{q B t}{m} } }.
+\end{equation}
+We can reduce the sine factor
+\begin{equation}\label{eqn:lorentzForce_constantMagneticProblem:100}
+\begin{aligned}
+- \Bv(0)_\parallel I \Bcap
+&=
+\lr{ \Bv(0) \wedge \Bcap } \Bcap \lr{ -I \Bcap }
+&=
+-I \lr{ \Bv(0) \wedge \Bcap }
+&=
+\Bv(0) \cross \Bcap \\
+&=
+\lr{ \Bv(0)_\parallel + \Bv(0)_\perp } \cross \Bcap \\
+&=
+\Bv(0)_\parallel \cross \Bcap,
+\end{aligned}
+\end{equation}
+since \( \Bv(0)_\perp \) is parallel to \( \Bcap \).
+} % answer
+%}

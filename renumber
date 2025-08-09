@@ -520,8 +520,11 @@
 #../latex/bin/lgrep vectorcalc.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl vectorcalc.tex
 
-../latex/bin/lgrep statics_infinitePlane.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl statics_infinitePlane.tex
+#../latex/bin/lgrep statics_infinitePlane.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl statics_infinitePlane.tex
 
-../latex/bin/lgrep statics_infiniteLineChargeMagneticLineCharge.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl statics_infiniteLineChargeMagneticLineCharge.tex
+#../latex/bin/lgrep statics_infiniteLineChargeMagneticLineCharge.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl statics_infiniteLineChargeMagneticLineCharge.tex
+
+../latex/bin/lgrep lorentzForce_constantMagneticProblem.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl lorentzForce_constantMagneticProblem.tex
