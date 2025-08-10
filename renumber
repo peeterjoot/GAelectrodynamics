@@ -526,5 +526,8 @@
 #../latex/bin/lgrep statics_infiniteLineChargeMagneticLineCharge.tex | tee o ; . ./o
 #perl -p -i ../latex/bin/latexRegex.pl statics_infiniteLineChargeMagneticLineCharge.tex
 
-../latex/bin/lgrep lorentzForce_constantMagneticProblem.tex | tee o ; . ./o
-perl -p -i ../latex/bin/latexRegex.pl lorentzForce_constantMagneticProblem.tex
+#../latex/bin/lgrep lorentzForce_constantMagneticProblem.tex | tee o ; . ./o
+#perl -p -i ../latex/bin/latexRegex.pl lorentzForce_constantMagneticProblem.tex
+
+../latex/bin/lgrep transverseFieldProblems.tex | tee o ; . ./o
+perl -p -i ../latex/bin/latexRegex.pl transverseFieldProblems.tex

@@ -2,6 +2,7 @@
 % Copyright © 2017 Peeter Joot.  All Rights Reserved.
 % Licenced as described in the file LICENSE under the root directory of this GIT repository.
 %
+%{
 %original ideas from gabookII/electrodynamics/transverseField.tex:
 We now wish to consider more general solutions to the source free Maxwell's equation than the plane wave solutions derived in \cref{chap:planewavesMultivector}.
 One way of tackling this problem is to assume the solution exists, but ask how the field components that lie strictly along the propagation direction are related to the transverse components of the field.
@@ -65,8 +66,8 @@ Define the \textit{propagation direction gradient} as \( \Be_3 \partial_z \), an
 } % definition
 
 Given this definition, we seek to show that
-\index{\(\BE_t, \BE_z\)}
-\index{\(\BH_t, \BH_z\)}
+\index{\(\BE_t, E_z\)}
+\index{\(\BH_t, H_z\)}
 \input{Theorem_transverse_and_propagation_solutions.tex}
 \begin{proof}
 To prove we first insert the assumed phasor representation into Maxwell's equation, which gives
@@ -81,12 +82,10 @@ Dropping the \( x, y \) dependence for now (i.e.  \( F(x, y) \rightarrow F \), w
 \end{equation}
 From this we now seek to determine the relationships between \( F_t \) and \( F_z \).
 
-Since \( \spacegrad_t \) has no \( \xcap, \ycap \) components, \( \Be_3 \) anticommutes with the transverse gradient
+Since \( \spacegrad_t \) has only \( \Be_1, \Be_2 \) components, \( \Be_3 \) anticommutes with the transverse gradient
 \begin{equation}\label{eqn:transverseField:168}
 \Be_3 \spacegrad_t = - \spacegrad_t \Be_3,
 \end{equation}
-but commutes with \( 1 \mp \Be_3 \).
-%In \cref{eqn:transverseField:168} it is implied that the action of \( \spacegrad_t \) is on everything to its right.
 This means that
 \begin{equation}\label{eqn:transverseField:188}
 \begin{aligned}
@@ -135,14 +134,14 @@ so that we are in position to expand most of the terms in the numerator
 &=
 -\lr{ \Be_3 \frac{\omega}{c} \pm k } \spacegrad_t \Be_3 F_z \\
 &=
-\lr{ \pm k - \Be_3 \frac{\omega}{c} } \spacegrad_t \lr{ E_z + I \eta H_z } \\
+\lr{ \mp k - \Be_3 \frac{\omega}{c} } \spacegrad_t \lr{ E_z + I \eta H_z } \\
 &=
 \lr{
-   \pm k \spacegrad_t E_z
+   \mp k \spacegrad_t E_z
    + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
 }
 + I \lr{
-   \pm k \eta \spacegrad_t H_z
+   \mp k \eta \spacegrad_t H_z
    -
    \frac{\omega}{c}
    \Be_3 \cross \spacegrad_t E_z
@@ -152,16 +151,7 @@ so that we are in position to expand most of the terms in the numerator
 from which the transverse electric and magnetic fields stated in
 \cref{thm:transverseField:348} can be read off.
 \end{proof}
-A similar expansion for \( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \) is left to the reader.
-
+A similar expansion for \( E_z, H_z \) in terms of \( \BE_t, \BH_t \) is left to the reader.
 %There is considerably more complexity required to express the transverse field in terms of separate electric and magnetic components
 %compared to the equivalent total transverse field expression of...
-
-\makeproblem{Transverse electric and magnetic field components.}{problem:transverseField:1}{
-Fill in the missing details in the steps of \cref{eqn:transverseField:268}.
-} % problem
-
-\makeproblem{Propagation direction components.}{problem:transverseField:2}{
-Perform an expansion like \cref{eqn:transverseField:268} to find
-\( \BE_z, \BH_z \) in terms of \( \BE_t, \BH_t \).
-} % problem
+%}
