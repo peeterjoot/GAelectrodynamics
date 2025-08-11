@@ -5,33 +5,40 @@
 \maketheorem{Transverse and propagation field solutions.}{thm:transverseField:348}{
 Given a field propagating along the z-axis (either forward or backwards), with angular frequency \( \omega \), represented by the real part of
 \begin{equation*}
-F(x, y, z, t) = F(x, y) e^{j \omega t \mp j k z},
+F(x, y, z, t) = F(x, y) e^{j \omega t - j k z},
 \end{equation*}
 the field components that solve the source free Maxwell's equation are related by
 \begin{equation*}
 \begin{aligned}
-F_t &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_z \\
-F_z &= j \inv{ \frac{\omega}{c} \mp k \Be_3 } \spacegrad_t F_t.
+F_t &= j \inv{ \frac{\omega}{c} - k \Be_3 } \spacegrad_t F_z \\
+F_z &= j \inv{ \frac{\omega}{c} - k \Be_3 } \spacegrad_t F_t.
 \end{aligned}
 \end{equation*}
 Written out explicitly, the transverse field component expands as
 \begin{equation*}
 \begin{aligned}
 \BE_t &=
-\frac{j}{\lr{\frac{\omega}{c}}^2 - k^2}
+\frac{j}{\omega^2 \mu \epsilon - k^2}
 \lr{
-   \mp k \spacegrad_t E_z
-   + \frac{\omega \eta}{c} \Be_3 \cross \spacegrad_t H_z
+   - k \spacegrad_t E_z
+   + \mu \omega \Be_3 \cross \spacegrad_t H_z
 }
 \\
-\eta \BH_t &=
-\frac{j}{\lr{\frac{\omega}{c}}^2 - k^2}
+\BH_t &=
+-\frac{j}{\omega^2 \mu \epsilon - k^2}
 \lr{
-   \mp k \eta \spacegrad_t H_z
-   -
-   \frac{\omega}{c}
+   \epsilon \omega
    \Be_3 \cross \spacegrad_t E_z
+   +
+   k \eta \spacegrad_t H_z
 }.
+\end{aligned}
+\end{equation*}
+and the propagation fields are
+\begin{equation*}
+\begin{aligned}
+\BE_z &= -\frac{j}{\omega^2 \mu \epsilon - k^2 } \lr{ \omega \mu \lr{ \spacegrad_t \cross \BH_t } + k \lr{ \Be_3 \cross \spacegrad_t } \cross \BE_t } \\
+\BH_z &= \frac{j}{\omega^2 \mu \epsilon - k^2 } \lr{ \omega \epsilon \lr{ \spacegrad_t \cross \BE_t } - k \lr{\Be_3 \cross \spacegrad_t} \cross \BH_t }.
 \end{aligned}
 \end{equation*}
 } % theorem
