@@ -35,7 +35,6 @@
 %
 \paragraph{The goal.}
 \label{chap:helmholtzGreens}
-
 The Helmholtz equation to solve is
 \begin{equation}\label{eqn:helmholtzGreens:20}
 \lr{ \spacegrad^2 + k^2 } f(\Bx) = u(\Bx).
@@ -48,15 +47,13 @@ Green's function of \cref{thm:gradientGreensFunctionEuclidean:3}, we require
 \end{equation}
 
 Verifying this requires two steps, first considering points \( \Bx \ne \Bx' \), and then considering an infinitesimal neighborhood around \( \Bx' \).
-
 \paragraph{Case I.  \( \Bx \ne \Bx' \).}
-
 We will absorb the sign associated with the causal and acausal Green's function variations by writing \( i = \pm j \), so that
-for points \( \Bx \ne \Bx' \), (i.e. \( r = \Norm{\Bx - \Bx'} \ne 0 \)), working in spherical coordinates, we find
+for points \( \Bx \ne \Bx' \), (i.e. \( r = \Norm{\Bx - \Bx'} \ne 0 \)), working in spherical coordinates, where \( - 4 \pi G = e^{ikr}/r\), we find
 \begin{equation}\label{eqn:helmholtzGreens:100}
 \begin{aligned}
 - 4 \pi \lr{ \spacegrad^2 + k^2 } G(\Bx, \Bx')
-&= \inv{r^2} \lr{ r^2 G' }' - 4 \pi k^2 G \\
+&= -4 \pi \inv{r^2} \lr{ r^2 G' }' - 4 \pi k^2 G \\
 &= \inv{r^2} \frac{d}{dr} \lr{ r^2 \lr{ \frac{i k r}{r} - \inv{r^2} } e^{ i k r } } + \frac{k^2}{r} e^{i k r} \\
 &= \inv{r^2} \frac{d}{dr} \lr{ \lr{ r i k - 1 } e^{ i k r }} + \frac{k^2}{r} e^{i k r} \\
 &= \inv{r^2} \lr{ \cancel{ i k}  + \lr{ r i k - \cancel{ 1 } } i k } e^{ i k r} + \frac{k^2}{r} e^{i k r} \\
@@ -64,7 +61,6 @@ for points \( \Bx \ne \Bx' \), (i.e. \( r = \Norm{\Bx - \Bx'} \ne 0 \)), working
 &= 0.
 \end{aligned}
 \end{equation}
-
 \paragraph{Case II.  In the neighborhood of \(\Norm{\Bx - \Bx'} < \epsilon\)}
 
 Having shown that we end up with zero everywhere that \(\Bx \ne \Bx'\) we are left to consider an infinitesimal neighborhood of the volume surrounding the point \(\Bx\) in our integral.  Following the Coulomb treatment in \S 2.2 of \citep{schwartz1987pe} we use a spherical volume element centered around \(\Bx\) of radius \(\epsilon\), and then convert a divergence to a surface area to evaluate the integral away from the problematic point.
