@@ -33,7 +33,35 @@ Maxwell's equation (\cref{dfn:isotropicMaxwells:680}) is invertable using the Gr
 
 \input{Theorem_jefimenkos.tex}
 \begin{proof}
-The full solution is
+With \( \Br = \Bx - \Bx', r = \Norm{\Br} \), \( \rcap = \Br/r \) and \( \tau = t - t' \), the Green's
+function from \cref{thm:greensFunctionSpacetimeGradient:120} is
+\begin{equation}\label{eqn:jefimenkosEquations:15}
+\begin{aligned}
+G(\Br, \tau)
+&=
+\inv{4 \pi}
+\lr{
+  \lr{
+     - \frac{\rcap}{r} \PD{r}{}
+     + \frac{\rcap}{r^2}
+     + \inv{c r} \PD{t}{}
+  }
+\delta( -r/c + t - t' )
+} \\
+&=
+\inv{4 \pi}
+\delta( -r/c + t - t' )
+\lr{
+    \frac{\rcap}{r^2} +
+\inv{c r}
+\lr{
+    1 + \rcap
+}
+\frac{d}{dt'}
+}.
+\end{aligned}
+\end{equation}
+Here we've used \cref{eqn:derivativeOfDeltaFunction:140} to evaluate the derivatives in the Green's function.  Substitution gives
 \begin{equation}\label{eqn:jefimenkosEquations:20}
 \begin{aligned}
 F(\Bx, t)
@@ -42,32 +70,24 @@ F(\Bx, t)
 &\quad +
 \inv{4\pi}
 \int dV' dt'
+\delta( -r/c + t - t' )
 \lr{
-   \lr{
-   - \frac{\rcap}{r^2} \PD{r}{}
-   + \frac{\rcap}{r^2}
-   + \inv{c r} \PD{t}{}
-   }
-   \delta( -r/c + t - t' )
+    \frac{\rcap}{r^2} +
+\inv{c r}
+\lr{
+    1 + \rcap
 }
-J(\Bx', t')
-\end{aligned}
-\end{equation}
-where \( \Br = \Bx - \Bx', r = \Norm{\Br} \) and \( \rcap = \Br/r \).
-With the help of \cref{eqn:derivativeOfDeltaFunction:140}, the derivatives in the Green's function \cref{eqn:jefimenkosEquations:20} can be evaluated, and
-the convolution reduces to
-\begin{equation}\label{eqn:jefimenkosEquations:40}
-\begin{aligned}
-\int &dt' G(\Bx - \Bx', t - t') J(\Bx', t') \\
-&=
-\inv{4 \pi}
+\frac{d}{dt'}
+}
+J(\Bx', t') \\
+&=\inv{4 \pi}
+\int dV'
 \evalbar{
 \lr{
 \frac{\rcap}{r^2} J(\Bx', t_r)
--
-\frac{\rcap}{r} \lr{ -\inv{c} } \frac{d}{dt_r} J(\Bx', t_r)
 +
-\inv{c r} \frac{d}{dt_r} J(\Bx', t_r)
+\inv{c r} \lr{ 1 + \rcap }
+\frac{d}{dt_r} J(\Bx', t_r)
 }
 }{t_r = t - r/c}.
 \end{aligned}
