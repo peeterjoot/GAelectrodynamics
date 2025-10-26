@@ -39,7 +39,7 @@ The Green's function for the spacetime gradient ends up with terms like
 where \( t' \) is the integration variable of the test function that the delta function will be applied to.
 If these were derivatives with respect to the integration variable, then we could use
 \begin{equation}\label{eqn:derivativeOfDeltaFunction:60}
-\int_{-\infty}^\infty
+\int_{-\infty}^\infty dt'
 \lr{ \frac{d}{dt'} \delta(t') } \phi(t') = -\phi'(0),
 \end{equation}
 which follows by chain rule, and an assumption that \( \phi(t') \) is well behaved at the points at infinity.
@@ -74,15 +74,22 @@ a \int_{-\infty}^{\infty} \delta( t'' )  \frac{d}{dt''} f( a u + b - t'' ) dt'' 
 &=
 - \evalbar{ a \frac{d}{dt''} f( a u + b - t'' ) }{t'' = 0} \\
 &=
-\evalbar{ a \frac{d}{ds} f( s ) }{s = a u + b}.
+- \evalbar{ a \frac{d}{d(au + b - t')} f( t' ) }{t' = a u + b} \\
+&=
++ \evalbar{ a \frac{d}{d(t' -(au + b))} f( t' ) }{t' = a u + b} \\
+&=
+\evalbar{ a \frac{dt'}{d(t' - (a u + b))} \frac{d}{dt'} f( t' ) }{t' = a u + b} \\
+&=
+\evalbar{ a \frac{d}{dt'} f( t' ) }{t' = a u + b} \\
+&=
+\int_{-\infty}^\infty a \delta(a u + b - t') \frac{df(t')}{dt'} dt'.
 \end{aligned}
 \end{equation}
 
 This shows that the action of the derivative of the delta function (with respect to a non-integration variable parameter \( u \)) is
 \boxedEquation{eqn:derivativeOfDeltaFunction:140}{
 \frac{d}{du} \delta( a u + b - t' )
-\sim
-a \delta( a u + b - t' ) \frac{d}{dt'}
+=
+a \delta( a u + b - t' ) \frac{d}{dt'}.
 }
-%\evalbar{a \frac{d}{ds}}{s = a u + b}.
 %%%%}
