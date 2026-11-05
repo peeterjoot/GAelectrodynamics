@@ -1,0 +1,29 @@
+%
+% Copyright © 2026 Peeter Joot.  All Rights Reserved.
+% Licenced as described in the file LICENSE under the root directory of this GIT repository.
+%
+%{
+\makeproblem{Poynting's theorem (integral form)}{problem:PoyntingIntegralTheoremProof:1}{
+Prove \cref{thm:poyntingTheoremRewrite:1420}.
+} % problem
+\makeanswer{problem:PoyntingIntegralTheoremProof:1}{
+We integrate the differential form of Poynting's theorem \cref{thm:poyntingTheorem:1180}, to find
+\begin{equation}\label{eqn:PoyntingIntegralTheoremProof:20}
+\begin{aligned}
+\int_V dV \inv{c} \PD{t}{\calE} + \int_V dV \spacegrad \cdot \frac{\BS}{c} &= -\inv{c} \int_V dV \lr{ \BE \cdot \BJ + \BH \cdot \BM } \\
+-\inv{c^2} \int_V dV \PD{t}{\BS} + \int_V dV \BT(\spacegrad) &= \int_V dV \lr{ \rho \BE + \mu \BJ \cross \BH }
++ \int_V dV \lr{ \epsilon \BE \cross \BM + \rho_\txtm \BH }.
+\end{aligned}
+\end{equation}
+or
+\begin{equation}\label{eqn:PoyntingIntegralTheoremProof:40}
+\begin{aligned}
+\PD{t}{} \int_V dV \calE + \int_{\partial V} dV \ncap \cdot \BS &= - \int_V dV \lr{ \BE \cdot \BJ + \BH \cdot \BM } \\
+-\PD{t}{} \int_V dV \BS + \int_{\partial V} dA \BT(\ncap) &= \int_V dV \lr{ \rho \BE + \BJ \cross \BB }
++ \int_V dV \lr{ \epsilon \BE \cross \BM + \rho_\txtm \BH }.
+\end{aligned}
+\end{equation}
+where we've made use of the requires only the divergence theorem, \cref{thm:poyntingTheoremRewrite:1281}, and
+\cref{dfn:poyntingF:1220}.
+} % answer
+%}
